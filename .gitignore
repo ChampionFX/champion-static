@@ -1,0 +1,6 @@
+# jetbrains IDE
+.idea
+.sass-cache
+.DS_Store
+Gemfile.lock
+_site

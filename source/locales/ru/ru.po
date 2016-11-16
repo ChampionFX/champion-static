@@ -1,0 +1,24 @@
+msgid "Description"
+msgstr ""
+
+msgid "Header text"
+msgstr ""
+
+msgid "Sample title"
+msgstr ""
+
+msgid "Some \"quoted\" text"
+msgstr ""
+
+msgid "Test text for title 1"
+msgstr ""
+
+msgid "Test2"
+msgstr ""
+
+msgid "Test3"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
