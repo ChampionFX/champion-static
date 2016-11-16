@@ -1,7 +1,6 @@
 require 'pathname'
 require 'fileutils'
 
-require 'poparser'
 require 'json'
 require 'crowdin-api'
 require 'zip'
