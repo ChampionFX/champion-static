@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-19138.869 -18074.211 37.271 33.838">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #004385;
+        stroke-width: 3px;
+      }
+
+      .cls-2 {
+        fill: #004385;
+      }
+    </style>
+  </defs>
+  <g id="group-58" transform="translate(-19295 -19029)">
+    <path id="path-8" class="cls-1" d="M-19138-18048.709l12.66-14.555,12.563,14.555,9.777-11.471" transform="translate(19295.262 19035.031)"/>
+    <path id="rectangle-29" class="cls-2" d="M7.632,0V7.632H0Z" transform="translate(170.001 954.789) rotate(45)"/>
+  </g>
+</svg>

@@ -2,22 +2,17 @@
 title: Test
 ---
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: layout.lang | default: 'en' }}">
-
-{% include head.html %}
-
-<body>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+{% include {{ layout.lang }}/head.html %}
+{% include {{ layout.lang }}/top_bar.html %}
 {% include {{ layout.lang }}/header.html %}
-
+<body>
 <main class="page-content" aria-label="Content">
     <div class="wrapper">
         {{ content }}
     </div>
 </main>
-
 {% include {{ layout.lang }}/footer.html %}
-
 {% include script.html %}
 </body>
-
 </html>
