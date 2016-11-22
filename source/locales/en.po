@@ -133,6 +133,9 @@ msgstr ""
 msgid "Expansion and refinement of our business model - always with a trader's need in mind"
 msgstr ""
 
+msgid "Experience the future of binary options trading with our cutting-edge apps."
+msgstr ""
+
 msgid "Fast & Hassle-Free Account Opening"
 msgstr ""
 
