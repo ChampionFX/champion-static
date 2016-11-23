@@ -1,5 +1,4 @@
 #topbar {
-    font-size:12px;
 	background-color:$primaryBrandColor; 
 }
 #topbar ul {
@@ -20,7 +19,7 @@
 	font-weight:400; 
 	text-decoration:none; 
 }
-#topbar  .last  {
+#topbar .last  {
 	margin-right:0px!important;
 	padding-right:0;
 }
@@ -66,7 +65,6 @@
 }
 .FX__Header__nav ul li a{
 	color:$contentInverseColor; 
-
 	padding:0px 15px; 
 	font-weight:400; 
 	text-decoration:none; 
@@ -104,18 +102,15 @@
 		}
 	}
 // Footer	
-.FX__Footer {
+.fx-footer {
 	display:table; 
 	width:100%; 
+	color:$white;
 	background-color:$primaryBrandColor; 
-	font-size:11px; 
-	color:$white; 
-	padding:5px 0px; 
 	margin-top:30px; 
 	padding-top:20px; 
 	padding-bottom:20px; 
 }	
-
 // Panel
 .fx-panel {
 	background-color:$fillColor; 
@@ -169,22 +164,26 @@
 .fx-section .fx-features-title {
     margin-bottom:50px;
 }
-
 // Home page
 .fx-home-header {
 	width: 100%; /* for IE 6 */
 	background:  
 	linear-gradient(
-      rgba(0, 0, 0, 0.1),
-      rgba(0, 0, 0, 0.1)
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0)
     ),
 	url(../assets/images/img_fx_1.jpg);
     background-size: cover;
-	padding:20px;
+	padding:40px 20px 30px 20px;
 	color:$contentInverseColor;
+	text-align:center;
+}
+.fx-home-header p {
+    padding:10px 0px;
 }
 .home-header-cta {
-    padding:20px;
+    margin-top:0px;
+    padding:0px;
 }
 .home-header-cta .button {
 	display:inline-block; 
@@ -203,13 +202,10 @@
 .fx-title{
 	text-align:center; 
 	margin:12px 0; 
+	padding:10px;
 }
 .p-title {
 	padding-bottom:40px;
-}
-.fx-home-header {
-	text-align:center; 
-	background-color:#eee;
 }
 .fx-feature-box {
 	text-align:center; 
@@ -229,8 +225,7 @@
     ),
 	url(../assets/images/img_fx_2@2x.jpg);
     background-size: cover;
-	padding:20px 20px 50px 20px;;
-	
+	padding:20px 20px 50px 20px;;	
 	color:$contentInverseColor;
 }
 .fx-mission-header h1 {
@@ -321,26 +316,24 @@
 
 //borders
 .fx-tb {
-   border-top:1px solid $borderColor;
+    border-top:1px solid $borderColor;
 }
 .fx-rb {
-   border-right:1px solid $borderColor;
+    border-right:1px solid $borderColor;
 }
 .fx-bb {
-   border-bottom:1px solid $borderColor;
+    border-bottom:1px solid $borderColor;
 }
 .fx-lb {
-   border-left:1px solid $borderColor;
+    border-left:1px solid $borderColor;
 }
 .fx-hr {
-   border-top:1px solid #ccc;
-   margin:30px 0;
+    border-top:1px solid #ccc;
+    margin:30px 0;
 }
 .app-info {
-   min-height:70px;
+    min-height:70px;
 }
-
-
 // Buttons
 .store-button {
 	display:inline-table;
@@ -355,8 +348,8 @@
 }
 // Images
 .img-lg {
-   margin:20px 0;  
+    margin:20px 0;  
 }	
 .img-xl {
-   margin:50px 0;
+    margin:50px 0;
 }
