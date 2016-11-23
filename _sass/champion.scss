@@ -106,8 +106,7 @@
 	display:table; 
 	width:100%; 
 	color:$white;
-	background-color:$primaryBrandColor; 
-	margin-top:30px; 
+	background-color:$primaryBrandColor;  
 	padding-top:20px; 
 	padding-bottom:20px; 
 }	
@@ -183,7 +182,7 @@
 }
 .home-header-cta {
     margin-top:0px;
-    padding:0px;
+    padding:20px;
 }
 .home-header-cta .button {
 	display:inline-block; 
