@@ -46,7 +46,12 @@ module ChampionFX
     def read_path path
       raise "Error reading .po file" unless path && path.file? && path.readable? && path.writable?
       @path = path
-      @lang = @path.basename.sub(/\.[a-z]+$/, '')
+      @lang = @path.basename.sub(/\.[a-z]+$/, '').to_s().downcase
+
+      # check if language contains 2 different parts
+      splitted = @lang.split('_')
+      @lang = splitted[0] if splitted.length == 2 && splitted[0] == splitted[1]
+
       msgid  = nil
       msgstr = nil
       File.foreach(@path) do |line|
