@@ -1,0 +1,34 @@
+<header id="header">
+	<div class="fx-container">
+		<div class="row">
+			<div class="col-lg-2">
+                <div class="logo-wrapper">
+					<a href="/" class="logo-parent">
+						<div class="logo">
+							<img class="responsive" src="{{ "/assets/images/logo/CFX_symbol.svg" | relative_url }}" alt="">
+						</div>
+						<div class="mobile-hide binary-logo-text">
+							<img class="responsive" src="{{ "/assets/images/logo/CFX_text.svg" | relative_url }}" alt="">
+						</div>
+					</a>
+			    </div>			
+			</div>
+			<div class="col-lg-7 flex-md-middle">
+                <div class="FX__Header__nav">
+					<ul>
+						{% for my_page in site.pages %}
+						{% if my_page.lang == layout.lang && my_page.title %}
+						<li><a href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a></li>
+						{% endif %}
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="FX__Header__cta">
+					<a class="button" href=""><span>crwdns16371:0crwdne16371:0</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
