@@ -1,5 +1,5 @@
 ---
-lang: zh
+lang: zh_cn
 title: test
 ---
 <!DOCTYPE html>
@@ -7,6 +7,7 @@ title: test
 {% include {{ layout.lang }}/head.html %}
 {% include {{ layout.lang }}/top_bar.html %}
 {% include {{ layout.lang }}/header.html %}
+{% if layout.lang == 'pap' %}{% include crowdin.html %}{% endif %}
 <body>
 <main class="page-content" aria-label="Content">
     <div class="wrapper">
