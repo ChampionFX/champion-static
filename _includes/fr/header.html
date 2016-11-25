@@ -4,7 +4,13 @@
 
         <a class="site-title" href="{{ "/" | relative_url}}">{{ site.title | escape }}</a>
 
-        <div>[% Header text %]</div>
+        <div>Header text</div>
+
+        <div class="locales">
+            <a data-locale="en">en</a>
+            <a data-locale="ru">ru</a>
+            <a data-locale="uk">uk</a>
+        </div>
 
         <nav class="site-nav">
             <div class="trigger">

@@ -9,7 +9,7 @@ ruby RUBY_VERSION
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "3.3.1"
+gem "jekyll", "3.3.0"
 gem "json"
 gem "crowdin-api"
 gem "rubyzip"
@@ -22,5 +22,4 @@ gem "rake"
 # If you have any plugins, put them here!
 group :jekyll_plugins do
    gem "jekyll-feed", "~> 0.6"
-   gem "wdm", ">= 0.1.0" if Gem.win_platform?
 end

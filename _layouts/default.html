@@ -1,14 +1,14 @@
 ---
-lang: en
+title: Test
+lang: ru
 ---
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
 
-{% include {{ layout.lang }}/head.html %}
-{% include {{ layout.lang }}/top_bar.html %}
-{% include {{ layout.lang }}/header.html %}
-<body>
+{% include head.html %}
 
+<body>
+{% include {{ layout.lang }}/header.html %}
 
 <main class="page-content" aria-label="Content">
     <div class="wrapper">
