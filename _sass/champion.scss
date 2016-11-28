@@ -184,6 +184,8 @@
 .home-header-cta .button {
 	display:inline-block; 
 	margin-top:5px;
+	margin-left:15px;
+	margin-right:15px;
 }
 .fx-home-intro p:first-child {
     padding-left:90px;
@@ -247,11 +249,11 @@
     margin-bottom:10px;
 }
 .fx-platform-options .row {
-    margin-bottom:50px;
+    margin-bottom:30px;
 }
     @media (max-width: 767px) {
 	    .fx-platform-options .col-md {
-            margin-bottom:50px;
+            margin-bottom:30px;
         }
 	}
 // About us
@@ -300,6 +302,7 @@
 .centered {
     text-align:center;
 }
+.space-sm {width:130px; display:inline;}
 .w-300 {
     max-width:200px;
 }	
