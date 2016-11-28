@@ -101,15 +101,12 @@
 // Footer	
 .fx-footer {
 	display:table; 
-	width:100%; 
-	color:$white;
-	background-color:$primaryBrandColor;  
+	width:100%;  
 	padding-top:20px; 
 	padding-bottom:20px; 
 }	
 // Panel
-.fx-panel {
-	background-color:$fillColor; 
+.fx-panel { 
 	padding-top:10px; 
 	padding-bottom:20px;
 	margin-bottom:20px;
@@ -171,7 +168,6 @@
 	url(../assets/images/img_fx_1.jpg);
     background-size: cover;
 	padding:40px 20px 30px 20px;
-	color:$contentInverseColor;
 	text-align:center;
 }
 .fx-home-header p {
@@ -224,17 +220,11 @@
 	url(../assets/images/img_fx_2@2x.jpg);
     background-size: cover;
 	padding:20px 20px 50px 20px;;	
-	color:$contentInverseColor;
-}
-.fx-mission-header h1 {
-    text-align:center;
-    color:$contentInverseColor;
 }
 .fx-mission-header img {
     max-height:300px;
 }
 .fx-value-item {
-	background-color:$fillColor;
 	min-height:120px;
 	display: flex;
     align-items: center;
@@ -242,7 +232,6 @@
 }
 // Platform
 .fx-platform-options {
-    background-color:$fillColor;
 	text-align:center;
 }
 .fx-platform-options .row:first-child {
@@ -267,7 +256,7 @@
 	url(../assets/images/about-background.png);
     background-size: cover;
 	padding:0px 20px;	
-	color:$contentInverseColor;
+
 }
 
 // Tables
@@ -308,9 +297,6 @@
 }	
 .wide span{
     width:90%;	
-}
-.fx-fill {
-    background-color:$fillColor;
 }
 
 //borders
