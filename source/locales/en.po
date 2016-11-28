@@ -16,9 +16,6 @@ msgstr ""
 msgid "Alogorithmic and<br>copy trading"
 msgstr ""
 
-msgid "Aristrex is fully regulated by Vanuatu Financial Services Commission (VFSC) bearing license number 14660. Aristrex is also registered with the Financial Intelegence unit (FIU) of Vanuatu for compliance of Anty-Money Laundering rules of VFSC."
-msgstr ""
-
 msgid "At Champion FX, we remain dedicated to creating a dynamic environment that both respects traders and equips them with all necessary tools to take their customer experience to a whole new \"champion\" level."
 msgstr ""
 
@@ -34,7 +31,7 @@ msgstr ""
 msgid "Binary options trading is a special type of online trading with a fixed payout, in which you predict the outcome from two possible results. You also know exactly what you stand to win or lose. Best of all, you never have to worry about slippages, margin calls, or stops."
 msgstr ""
 
-msgid "Binary options trading platforms for champion"
+msgid "Binary options trading platforms for champions"
 msgstr ""
 
 msgid "CFD Trading"
@@ -76,6 +73,9 @@ msgstr ""
 msgid "Champion FX: Where the Client is King"
 msgstr ""
 
+msgid "Champion Group Ltd. is fully regulated by Vanuatu Financial Services Commission (VFSC) bearing license number 14660. Champion Group Ltd. is also registered with the Financial Intelligence unit (FIU) of Vanuatu for compliance with the Anti-Money Laundering rules of the VFSC"
+msgstr ""
+
 msgid "Champion-FX.com"
 msgstr ""
 
@@ -91,7 +91,7 @@ msgstr ""
 msgid "Custom technical indicators<br>and trading robots"
 msgstr ""
 
-msgid "Customer service is not just a department, it is the entire company. Trade with Champion FX - where the client is"
+msgid "Customer service is not just a department, it is the entire company. Trade with Champion FX - where the client is <i>KING.</i>"
 msgstr ""
 
 msgid "Customised Trading Conditions"
@@ -157,7 +157,7 @@ msgstr ""
 msgid "Forex Trading Platforms"
 msgstr ""
 
-msgid "Forex tradingplatforms for champion traders."
+msgid "Forex trading platforms for champion traders."
 msgstr ""
 
 msgid "Fundamental Analysis"
