@@ -98,6 +98,40 @@
 			margin-bottom:20px;
 		}
 	}
+// Sign upform
+#verify-email-form {
+    margin:0px;
+	padding:0px;
+}
+.signup-box {
+    display:inline-block;
+	margin: 20px 0;
+	padding: 10px;
+	background-color:#fff;
+}
+.signup-box div {
+    display:inline;
+	margin:0;
+	padding:0;
+}
+.signup-box input {
+	padding:5px 5px;
+	margin-right:5px;
+}
+.signup-box span {
+    display:block;
+	margin:0;
+	padding:0;
+}
+.signup-box button{
+    margin:0;
+}
+	@media (max-width: 480px) {
+	    .signup-box input {
+			margin:15px 0;
+        }	
+	}
+	
 // Footer	
 .fx-footer {
 	display:table; 
@@ -334,6 +368,17 @@
 }
 .app-info {
     min-height:70px;
+}
+.border {
+    border:1px solid $borderColor;
+}
+.fx-material {
+    box-shadow: $z-depth-1;
+	transition: box-shadow .25s;
+}
+.fx-material:hover {
+    box-shadow: $z-depth-1-half;
+	transition: box-shadow .25s;
 }
 // Buttons
 .store-button {

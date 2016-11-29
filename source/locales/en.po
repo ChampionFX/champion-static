@@ -76,7 +76,7 @@ msgstr ""
 msgid "Commission Free"
 msgstr ""
 
-msgid "Create Account"
+msgid "Contact Us"
 msgstr ""
 
 msgid "Custom technical indicators<br>and trading robots"
@@ -211,6 +211,9 @@ msgstr ""
 msgid "Lightning Fast deposits & Withdrawals"
 msgstr ""
 
+msgid "Log In"
+msgstr ""
+
 msgid "Low Latency & Fast Execution"
 msgstr ""
 
@@ -263,12 +266,6 @@ msgid "Now you can trade anywhere in the world, anytime. Champion FX puts the gl
 msgstr ""
 
 msgid "One Click Trading"
-msgstr ""
-
-msgid "Open Demo Account"
-msgstr ""
-
-msgid "Open Live Account"
 msgstr ""
 
 msgid "Order Fill Policy"
