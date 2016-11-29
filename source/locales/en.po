@@ -19,9 +19,6 @@ msgstr ""
 msgid "At Champion FX, we remain dedicated to creating a dynamic environment that both respects traders and equips them with all necessary tools to take their customer experience to a whole new \"champion\" level."
 msgstr ""
 
-msgid "Automate your trading strategies with our simple, \"drag-and-drop\" bot creation tool."
-msgstr ""
-
 msgid "Binary Options"
 msgstr ""
 
@@ -41,12 +38,6 @@ msgid "Champion"
 msgstr ""
 
 msgid "Champion FX"
-msgstr ""
-
-msgid "Champion FX Bot"
-msgstr ""
-
-msgid "Champion FX Next-Gen"
 msgstr ""
 
 msgid "Champion FX Webtrader"
@@ -121,9 +112,6 @@ msgstr ""
 msgid "Embeded MQL5 community chat"
 msgstr ""
 
-msgid "Enjoy the fastest type of binary options trading, whereever you are."
-msgstr ""
-
 msgid "Enter a whole new world of trading by joining today"
 msgstr ""
 
@@ -131,9 +119,6 @@ msgid "Exchange Trading"
 msgstr ""
 
 msgid "Expansion and refinement of our business model - always with a trader's need in mind"
-msgstr ""
-
-msgid "Experience the future of binary options trading with our cutting-edge apps."
 msgstr ""
 
 msgid "Fast & Hassle-Free Account Opening"

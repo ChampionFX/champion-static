@@ -102,9 +102,25 @@
 .fx-footer {
 	display:table; 
 	width:100%;  
-	padding-top:20px; 
-	padding-bottom:20px; 
-}	
+	padding:10px 0;
+	font-size:$FONT_SIZE_S;
+}
+#footer-menu {
+    padding: 10px 0;
+}
+#footer-menu ul { 
+	margin-bottom:10px; 
+	padding:0; 
+
+}
+#footer-regulatory {
+    padding:10px 0px;
+    font-size: 10px;
+	text-align: justify;
+}
+#footer-last {
+    padding-top:10px;
+}
 // Panel
 .fx-panel { 
 	padding-top:10px; 
@@ -165,7 +181,7 @@
       rgba(0, 0, 0, 0),
       rgba(0, 0, 0, 0)
     ),
-	url(../assets/images/img_fx_1.jpg);
+	url(../assets/images/header_imgfx-2x.jpg);
     background-size: cover;
 	padding:40px 20px 30px 20px;
 	text-align:center;
