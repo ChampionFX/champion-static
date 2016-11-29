@@ -107,7 +107,6 @@
     display:inline-block;
 	margin: 20px 0;
 	padding: 10px;
-	background-color:#fff;
 }
 .signup-box div {
     display:inline;
@@ -307,6 +306,15 @@
     background-size: cover;
 	padding:0px 20px;	
 
+}
+
+// Contact us
+.email-address {
+    margin:0;
+}
+.contact-phone {
+    margin-top:20px;
+	margin-bottom:10px;
 }
 
 // Tables
