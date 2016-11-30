@@ -313,7 +313,16 @@
     margin-top:20px;
 	margin-bottom:10px;
 }
-
+#cs_telephone_number {
+float:right;
+margin-right:20px;
+}
+#phone-result {
+    padding-right:20px;
+    float:right;
+    text-align:left;
+	margin:20px 0px;
+}
 // Tables
 .champion-features th {
     text-align:left;
@@ -346,7 +355,10 @@
 .centered {
     text-align:center;
 }
-.space-sm {width:130px; display:inline;}
+.space-sm {
+    width:130px; 
+	display:inline;
+	}
 .w-300 {
     max-width:200px;
 }	
@@ -355,6 +367,9 @@
 }
 .clean-input:focus {
     outline: none;
+}
+.contacts-title {
+    padding-bottom:30px;
 }
 //borders
 .fx-tb {
