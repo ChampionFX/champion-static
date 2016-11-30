@@ -309,9 +309,6 @@
 }
 
 // Contact us
-.email-address {
-    margin:0;
-}
 .contact-phone {
     margin-top:20px;
 	margin-bottom:10px;
@@ -356,7 +353,9 @@
 .wide span{
     width:90%;	
 }
-
+.clean-input:focus {
+    outline: none;
+}
 //borders
 .fx-tb {
     border-top:1px solid $borderColor;
