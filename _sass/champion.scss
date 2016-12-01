@@ -98,7 +98,7 @@
 			margin-bottom:20px;
 		}
 	}
-// Sign upform
+// Sign up form
 #verify-email-form {
     margin:0px;
 	padding:0px;
@@ -314,14 +314,17 @@
 	margin-bottom:10px;
 }
 #cs_telephone_number {
-	float:right;
-	margin-right:20px;
+    width:90%;
 }
 #phone-result {
-    padding-right:20px;
-    float:right;
+    padding-left:10px;
     text-align:left;
 	margin:20px 0px;
+}
+.phone-note {
+    margin-right:50px;
+    text-align:left;
+	padding-right:40px;
 }
 // Tables
 .champion-features th {
