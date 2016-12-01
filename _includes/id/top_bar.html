@@ -3,7 +3,13 @@
 	    <div class="row">
 			<div class="col-sm-12">
 				<ul>
-					<li class="last"><a href="">Contact</a></li>
+				    {% for my_page in site.pages %}
+						{% if my_page.lang == layout.lang && my_page.title %}
+							{% if my_page.tag == "contacts" %}	
+							<li  class="last"><a href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a></li>
+							{% endif %}
+						{% endif %}
+					{% endfor %}
 				</ul>
 		    </div>
 		</div>	

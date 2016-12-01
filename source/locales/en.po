@@ -13,6 +13,9 @@ msgstr ""
 msgid "Access to the Largest Market of Expert Advisors"
 msgstr ""
 
+msgid "All calls are recorded for training and monitoring purposes"
+msgstr ""
+
 msgid "Alogorithmic and<br>copy trading"
 msgstr ""
 
@@ -76,7 +79,7 @@ msgstr ""
 msgid "Commission Free"
 msgstr ""
 
-msgid "Create Account"
+msgid "Contact Us"
 msgstr ""
 
 msgid "Custom technical indicators<br>and trading robots"
@@ -104,6 +107,9 @@ msgid "Download Now"
 msgstr ""
 
 msgid "Economic Calendar"
+msgstr ""
+
+msgid "Email"
 msgstr ""
 
 msgid "Email System"
@@ -211,6 +217,9 @@ msgstr ""
 msgid "Lightning Fast deposits & Withdrawals"
 msgstr ""
 
+msgid "Log In"
+msgstr ""
+
 msgid "Low Latency & Fast Execution"
 msgstr ""
 
@@ -263,12 +272,6 @@ msgid "Now you can trade anywhere in the world, anytime. Champion FX puts the gl
 msgstr ""
 
 msgid "One Click Trading"
-msgstr ""
-
-msgid "Open Demo Account"
-msgstr ""
-
-msgid "Open Live Account"
 msgstr ""
 
 msgid "Order Fill Policy"
@@ -338,6 +341,9 @@ msgid "Technical Indicators"
 msgstr ""
 
 msgid "Technical and<br>fundamental analysis"
+msgstr ""
+
+msgid "Telephone"
 msgstr ""
 
 msgid "Test expert advisors with minimal investment"

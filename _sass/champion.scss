@@ -98,6 +98,39 @@
 			margin-bottom:20px;
 		}
 	}
+// Sign up form
+#verify-email-form {
+    margin:0px;
+	padding:0px;
+}
+.signup-box {
+    display:inline-block;
+	margin: 20px 0;
+	padding: 10px;
+}
+.signup-box div {
+    display:inline;
+	margin:0;
+	padding:0;
+}
+.signup-box input {
+	padding:5px 5px;
+	margin-right:5px;
+}
+.signup-box span {
+    display:block;
+	margin:0;
+	padding:0;
+}
+.signup-box button{
+    margin:0;
+}
+	@media (max-width: 480px) {
+	    .signup-box input {
+			margin:15px 0;
+        }	
+	}
+	
 // Footer	
 .fx-footer {
 	display:table; 
@@ -275,6 +308,24 @@
 
 }
 
+// Contact us
+.contact-phone {
+    margin-top:20px;
+	margin-bottom:10px;
+}
+#cs_telephone_number {
+    width:90%;
+}
+#phone-result {
+    padding-left:10px;
+    text-align:left;
+	margin:20px 0px;
+}
+.phone-note {
+    margin-right:50px;
+    text-align:left;
+	padding-right:40px;
+}
 // Tables
 .champion-features th {
     text-align:left;
@@ -307,14 +358,22 @@
 .centered {
     text-align:center;
 }
-.space-sm {width:130px; display:inline;}
+.space-sm {
+    width:130px; 
+	display:inline;
+	}
 .w-300 {
     max-width:200px;
 }	
 .wide span{
     width:90%;	
 }
-
+.clean-input:focus {
+    outline: none;
+}
+.contacts-title {
+    padding-bottom:30px;
+}
 //borders
 .fx-tb {
     border-top:1px solid $borderColor;
@@ -334,6 +393,17 @@
 }
 .app-info {
     min-height:70px;
+}
+.border {
+    border:1px solid $borderColor;
+}
+.fx-material {
+    box-shadow: $z-depth-1;
+	transition: box-shadow .25s;
+}
+.fx-material:hover {
+    box-shadow: $z-depth-1-half;
+	transition: box-shadow .25s;
 }
 // Buttons
 .store-button {

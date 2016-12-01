@@ -5,10 +5,10 @@
                 <div class="logo-wrapper">
 					<a href="/" class="logo-parent">
 						<div class="logo">
-							<img class="responsive" src="{{ "/assets/images/logo/CFX_logomark_light.svg" | relative_url }}" alt="">
+							<img class="responsive" src="{{ "/assets/images/logo/CFX_logomark_light.svg" | relative_url }}" alt="Champion FX">
 						</div>
 						<div class="mobile-hide binary-logo-text">
-							<img class="responsive" src="{{ "/assets/images/logo/CFX_logotype_light.svg" | relative_url }}" alt="">
+							<img class="responsive" src="{{ "/assets/images/logo/CFX_logotype_light.svg" | relative_url }}" alt="Champion FX">
 						</div>
 					</a>
 			    </div>			
@@ -17,18 +17,18 @@
                 <div class="FX__Header__nav">
 					<ul>
 						{% for my_page in site.pages %}
-						{% if my_page.lang == layout.lang && my_page.title %}
-						{% if my_page.tag == "main" %}	
-						<li><a href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a></li>
-						{% endif %}
-						{% endif %}
+							{% if my_page.lang == layout.lang && my_page.title %}
+								{% if my_page.tag == "main" %}	
+								<li><a href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a></li>
+								{% endif %}
+							{% endif %}
 						{% endfor %}
 					</ul>
 				</div>
 			</div>
 			<div class="col-lg-3">
 				<div class="FX__Header__cta">
-					<a class="button" href=""><span>Create Account</span></a>
+					<a class="button" href=""><span>Log In</span></a>
 				</div>
 			</div>
 		</div>
