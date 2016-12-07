@@ -1,24 +1,12 @@
----
-title: Test
-lang: ru
----
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
-
-{% include head.html %}
-
+<html>
 <body>
-{% include {{ layout.lang }}/header.html %}
-
-<main class="page-content" aria-label="Content">
-    <div class="wrapper">
-        {{ content }}
-    </div>
-</main>
-
-{% include {{ layout.lang }}/footer.html %}
-
-{% include script.html %}
+<script>
+    (function() {
+        var language = localStorage.getItem('lang') || 'en';
+        window.location.href = language+'/home'
+    })();
+</script>
 </body>
 
 </html>

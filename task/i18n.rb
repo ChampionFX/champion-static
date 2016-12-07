@@ -72,7 +72,7 @@ module ChampionFX
         print "Uploading #{file}...."
         response = @crowdin.update_file(
             files = [
-                { :dest => @en_po_file, :source => file, :title => '', :export_pattern => '%two_letters_code%.po' }
+                { :dest => @en_po_file, :source => file, :title => 'ChampionFX translations', :export_pattern => '%locale_with_underscore%.po' }
             ]
         )
         if response['success']
@@ -128,23 +128,27 @@ module ChampionFX
       def create_dst_html dst_po, en_po = nil
         src_files = Rake::FileList.new("#{@src_dir}/#{@src_files}")
 
+        # clean destination directories
+        [@statics_dir, @layouts_dir, @includes_dir].each { |dir|
+          self.clear_dir "#{dir}/#{dst_po.lang}";
+        }
+
         src_files.each {|filename|
           dst_string = ''
           is_static = is_layout = front_matter_parsed = nil
 
           pathname = Pathname.new filename
 
-
           dst_dirname  = "#{pathname.dirname.sub(@src_dir, '')}"
           dst_filename = "#{pathname.basename}"
           if dst_dirname.match /#{@statics_dir}/
             is_static = true
-            dst_dirname.sub! "/#{@statics_dir}", "#{@statics_dir}/#{dst_po.lang}/"
+            dst_dirname.sub! "/#{@statics_dir}", "#{@statics_dir}/#{dst_po.lang}"
           elsif dst_dirname.match /#{@layouts_dir}/
             is_layout = true
-            dst_dirname.sub! "/#{@layouts_dir}", "#{@layouts_dir}/#{dst_po.lang}/"
+            dst_dirname.sub! "/#{@layouts_dir}", "#{@layouts_dir}/#{dst_po.lang}"
           elsif dst_dirname.match /#{@includes_dir}/
-            dst_dirname.sub! "/#{@includes_dir}", "#{@includes_dir}/#{dst_po.lang}/"
+            dst_dirname.sub! "/#{@includes_dir}", "#{@includes_dir}/#{dst_po.lang}"
           end
 
           File.foreach(filename) do |line|
@@ -152,7 +156,8 @@ module ChampionFX
               if is_static
                 line << "layout: #{dst_po.lang}/#{@layout_name}\n"
                 line << "permalink: #{dst_dirname.sub(@statics_dir+'/', '')}/#{dst_filename.sub(/\.[a-z]+$/, '')}\n"
-              elsif is_layout
+              end
+              if is_layout || is_static
                 line << "lang: #{dst_po.lang}\n"
               end
               front_matter_parsed = true
@@ -170,6 +175,16 @@ module ChampionFX
           dst_file = Pathname.new dst_dirname+dst_filename
           dst_file.dirname.mkpath()
           dst_file.write dst_string
+        }
+      end
+
+      def clear_dir path
+        Dir.glob("#{path}/*") {|f|
+          pathname = Pathname.new f
+          if pathname.directory?
+            self.clear_dir f
+          end
+          pathname.unlink if (pathname.directory? || pathname.file?) && pathname.writable?
         }
       end
 
