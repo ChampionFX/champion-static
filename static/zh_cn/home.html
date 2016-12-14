@@ -3,13 +3,13 @@ layout: zh_cn/default
 permalink: zh_cn/home
 lang: zh_cn
 title: Champion FX
-tag: home
+tag: 'home'
 ---
-<div class="fill-bg-color centered">	
+<div class="fill-bg-color centered">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm">
-				<h1 class="fx-title">Champion FX: Where the Client is King</h1>			
+				<h1 class="fx-title">Champion FX: Where the Client is King</h1>
 			</div>
 		</div>
 	</div>
@@ -18,17 +18,7 @@ tag: home
 	<div class="">
 		<p>Trade in the financial markets with a multi-asset trading platform: Meta Trader 5.<br>The choice of the modern trader. One platform, many markets.</p>			
 	</div>
-	<form id="verify-email-form">					
-		<div class="signup-box border primary-bg-color fx-material">							
-			<div class="">
-			<input class="clean-input" autocomplete="off" name="email" id="email" maxlength="50" placeholder="Enter your email">
-			</div>
-			<div class="">
-			<button class="button-secondary" id="btn-verify-email" type="submit">Create Free Account</button>
-			</div>
-			<span class="error-msg hint color-white center-text" id="signup_error" style="display:none"></span>							
-		</div>					
-	</form>	
+	{% include {{ page.lang }}/signup.html %}
 </div>
 <div class="fx-section fx-home-intro">
 	<div class="container">

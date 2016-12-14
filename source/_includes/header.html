@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-lg-2">
                 <div class="logo-wrapper">
-					<a href="/" class="logo-parent">
+					<a href="/{{ layout.lang }}/home" class="logo-parent">
 						<div class="logo">
 							<img class="responsive" src="{{ "/assets/images/logo/CFX_logomark_light.svg" | relative_url }}" alt="Champion FX">
 						</div>
@@ -17,10 +17,8 @@
                 <div class="FX__Header__nav">
 					<ul>
 						{% for my_page in site.pages %}
-							{% if my_page.lang == layout.lang && my_page.title %}
-								{% if my_page.tag == "main" %}	
+							{% if my_page.lang == layout.lang and my_page.tag == "main" %}
 								<li><a href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a></li>
-								{% endif %}
 							{% endif %}
 						{% endfor %}
 					</ul>

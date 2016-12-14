@@ -3,14 +3,24 @@ lang: en
 title: test
 ---
 <!DOCTYPE html>
+
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
 {% include {{ layout.lang }}/head.html %}
-{% include {{ layout.lang }}/top_bar.html %}
-{% include {{ layout.lang }}/header.html %}
 {% if layout.lang == 'pap' %}{% include crowdin.html %}{% endif %}
 <body>
-<main class="page-content" aria-label="Content">
-    <div class="wrapper">
+{% include {{ layout.lang }}/top_bar.html %}
+{% include {{ layout.lang }}/header.html %}
+<div class="fill-bg-color centered hidden" id="signup">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm flex-sm-middle">
+                {% include {{ layout.lang }}/signup.html %}
+            </div>
+        </div>
+    </div>
+</div>
+<main class="page-content" aria-label="Content" id="champion-container">
+    <div class="wrapper" id="champion-content"{% if page.tag %}data-tag="{{ page.tag }}{% endif %}">
         {{ content }}
     </div>
 </main>

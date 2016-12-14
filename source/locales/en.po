@@ -73,6 +73,9 @@ msgstr ""
 msgid "Champion-FX.com"
 msgstr ""
 
+msgid "Choose a password"
+msgstr ""
+
 msgid "Client satisfaction"
 msgstr ""
 
@@ -80,6 +83,18 @@ msgid "Commission Free"
 msgstr ""
 
 msgid "Contact Us"
+msgstr ""
+
+msgid "Country of residence"
+msgstr ""
+
+msgid "Create Free Account"
+msgstr ""
+
+msgid "Create New Account"
+msgstr ""
+
+msgid "Create new virtual account"
 msgstr ""
 
 msgid "Custom technical indicators<br>and trading robots"
@@ -95,6 +110,9 @@ msgid "Deep liquidity from top tier liquidity pools"
 msgstr ""
 
 msgid "Depth of Market"
+msgstr ""
+
+msgid "Details"
 msgstr ""
 
 msgid "Diversify Your trading"
@@ -119,6 +137,9 @@ msgid "Embeded MQL5 community chat"
 msgstr ""
 
 msgid "Enter a whole new world of trading by joining today"
+msgstr ""
+
+msgid "Enter your email"
 msgstr ""
 
 msgid "Exchange Trading"
@@ -250,6 +271,9 @@ msgstr ""
 msgid "Minimum deposit of US$5"
 msgstr ""
 
+msgid "Minimum of six lower and uppercase letters with numbers"
+msgstr ""
+
 msgid "Mission"
 msgstr ""
 
@@ -295,6 +319,9 @@ msgstr ""
 msgid "Partial Order Filling Policies"
 msgstr ""
 
+msgid "Password should have lower and uppercase letters with numbers."
+msgstr ""
+
 msgid "Pending Order Types"
 msgstr ""
 
@@ -304,10 +331,22 @@ msgstr ""
 msgid "Personalised Customer Service"
 msgstr ""
 
+msgid "Please check your email for the value of this token"
+msgstr ""
+
+msgid "Please submit a valid email address."
+msgstr ""
+
+msgid "Please submit a valid verification token."
+msgstr ""
+
 msgid "Positive thinking"
 msgstr ""
 
 msgid "Range of Markets"
+msgstr ""
+
+msgid "Re-enter password"
 msgstr ""
 
 msgid "Regulation & Licensing"
@@ -349,10 +388,19 @@ msgstr ""
 msgid "Test expert advisors with minimal investment"
 msgstr ""
 
+msgid "Thank you for signing up! Please check your email to retrieve the verification token."
+msgstr ""
+
 msgid "The Champion FX brand was founded and launched in 2016 with a clear vision to provide traders with the world's best customer experience, superior customised trading conditions, state-of-the-art trading tools and access to many markets."
 msgstr ""
 
 msgid "The Client is always King"
+msgstr ""
+
+msgid "The two passwords that you entered do not match."
+msgstr ""
+
+msgid "This field is required."
 msgstr ""
 
 msgid "Tight Spreads with No Commission"
@@ -424,6 +472,9 @@ msgstr ""
 msgid "Values"
 msgstr ""
 
+msgid "Verification token"
+msgstr ""
+
 msgid "We aim to place our client's needs at the centre of our operations and dedicate ourselves to maintain the highest level of client satisfaction."
 msgstr ""
 
@@ -446,6 +497,9 @@ msgid "Yes"
 msgstr ""
 
 msgid "Yes (with attachments)"
+msgstr ""
+
+msgid "You should enter between 6-25 characters."
 msgstr ""
 
 msgid "Zero commision"
