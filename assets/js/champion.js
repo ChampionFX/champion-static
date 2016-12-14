@@ -5,6 +5,10 @@
     var _container;
     var _signup;
 
+    var _language = localStorage.getItem('lang');
+
+    var _active_script = null;
+
     function init() {
         _container = $('#champion-container');
         _signup = $('#signup');
@@ -14,20 +18,22 @@
     }
 
     function beforeContentChange() {
-        ChampionSignup.hide();
-        console.log('before');
+        if (_active_script) {
+            _active_script.hide();
+            _active_script = null;
+        }
     }
 
     function afterContentChange(e, content) {
         var tag = content.getAttribute('data-tag');
-        console.log(content, tag);
         if (tag === 'create') {
-            ChampionCreateaccount.show(_container);
+            _active_script = ChampionCreateaccount;
+            _active_script.show(_container);
         } else if (!_authenticated) {
             var form = _container.find('#verify-email-form');
-            ChampionSignup.show(form.length ? form : _signup);
+            _active_script = ChampionSignup;
+            _active_script.show(form.length ? form : _signup);
         }
-        console.log('after');
     }
 
     function socketMessage(message) {
@@ -39,8 +45,6 @@
         } else {
             switch (message.msg_type) {
                 case 'authenticate':
-                    break;
-                case 'verify_email':
                     break;
             }
             console.log(message);

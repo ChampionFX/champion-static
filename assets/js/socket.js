@@ -2,7 +2,8 @@
 
     var socket,
         buffered = [],
-        message_callback;
+        message_callback,
+        registered_callbacks = {};
 
     function init(callback) {
         if (typeof callback === 'function') {
@@ -40,7 +41,18 @@
         return !socket || socket.readyState === 2 || socket.readyState === 3;
     }
 
-    function send(data) {
+    function send(data, callback, subscribe) {
+        var req_id;
+
+        if (typeof callback === 'function') {
+            req_id = new Date().getTime();
+            registered_callbacks[req_id] = {
+                callback: callback,
+                subscribe: subscribe
+            };
+            data.req_id = req_id;
+        }
+
         if (isReady()) {
             socket.send(JSON.stringify(data));
         } else {
@@ -55,11 +67,24 @@
         if (typeof message_callback === 'function') {
             message_callback();
         }
+        if (isReady()) {
+            while (buffered.length > 0) {
+                send(buffered.shift());
+            }
+        }
     }
 
     function onMessage(message) {
-        var response = JSON.parse(message.data);
-        if (typeof message_callback === 'function') {
+        var response = JSON.parse(message.data),
+            req_id = response.req_id,
+            reg =  req_id ? registered_callbacks[req_id] : null;
+
+        if (reg && typeof reg.callback === 'function') {
+            reg.callback(response);
+            if (!reg.subscribe) {
+                delete registered_callbacks[req_id];
+            }
+        } else if (typeof message_callback === 'function') {
             message_callback(response);
         }
     }

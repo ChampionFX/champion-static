@@ -77,6 +77,13 @@
             ChampionSocket.send({
                 verify_email: _input.val(),
                 type: 'account_opening'
+            }, function(response) {
+                if (response.verify_email) {
+                    var lang = localStorage.getItem('lang'),
+                        a = document.createElement('a');
+                    a.setAttribute('href', '/' + lang + '/createaccount');
+                    ChampionRouter.forward(a.href);
+                }
             });
         }
     }
