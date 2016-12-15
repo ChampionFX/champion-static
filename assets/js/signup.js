@@ -42,6 +42,7 @@
                 clearTimeout(_timeout);
             }
         }
+        _active = false;
     }
 
     function inputChanged(e) {
@@ -73,7 +74,7 @@
 
     function submitClicked(e) {
         e.preventDefault();
-        if (validate()) {
+        if (_active && validate()) {
             ChampionSocket.send({
                 verify_email: _input.val(),
                 type: 'account_opening'

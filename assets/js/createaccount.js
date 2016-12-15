@@ -4,6 +4,8 @@
 
     var _residences = null;
 
+    var _active = false;
+
     var _input_code,
         _input_pass,
         _input_rpass,
@@ -44,9 +46,11 @@
         } else {
             renderResidences();
         }
+        _active = true;
     }
 
     function renderResidences() {
+        _input_residence.empty();
         _residences.forEach(function(res) {
             var option = $('<option></option>');
             option.text(res.text);
@@ -75,6 +79,7 @@
         _input_rpass.val('');
         _input_country.val('');
         _input_residence.empty();
+        _active = false;
     }
 
     function validateCode() {
@@ -119,7 +124,7 @@
     }
 
     function submit() {
-        if (validateCode() && validatePass()) {
+        if (_active && validateCode() && validatePass()) {
             var data = {
                 new_account_virtual: 1,
                 verification_code  : _input_code.val(),
