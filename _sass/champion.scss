@@ -376,11 +376,12 @@
 .test-2 {background-color:yellow;}
 
 // fix
+.topbar {padding:3px 0!important;}
 .languages {padding:0px 0px; margin:0; z-index:9;}
 .world {}
 .language {padding:0px 5px;}
 .top-nav-menu a{color:#fff;}
-.logo-parent {padding:10px 0px 5px 0px}
+.logo-parent {padding:11px 0px 1px 0px; margin:0;}
 .binary-logo-text {padding:0px;}
 .binary-logo-text div {width:150px!important; margin-top:8px; }
-.top-nav-menu {margin-top:10px;}
+.top-nav-menu {margin-top:5px;}
