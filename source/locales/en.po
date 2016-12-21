@@ -346,6 +346,9 @@ msgstr ""
 msgid "Telephone"
 msgstr ""
 
+msgid "Terms and Conditions"
+msgstr ""
+
 msgid "Test expert advisors with minimal investment"
 msgstr ""
 
