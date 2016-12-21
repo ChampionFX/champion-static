@@ -1,9 +1,9 @@
 <div class="topbar primary-color-dark">
 	<div class="fx-container">
 	    <div class="row">
-			<div class="col-sm-12 topbar-container">
+			<div class="col-sm-12 topbar-container flex-items-sm-middle">
 				<div class="topbar-contacts">
-					<ul class="">
+					<ul>
 						{% for my_page in site.pages %}
 							{% if my_page.lang == layout.lang && my_page.title %}
 								{% if my_page.tag == "contacts" %}	
