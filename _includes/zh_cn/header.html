@@ -15,35 +15,13 @@
 			</div>
 			<div class="col-lg-6">
                 <ul class="top-nav-menu mobile-hide">
-					<li>
-						<a href="javascript:;" class="nav-dropdown-toggle">Menu One<span class="nav-caret"></span></a>
-						<ul>
-							<li><a href="javascript:;" class="disabled">Disabled Menu Item</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="javascript:;" class="nav-dropdown-toggle">Menu Two<span class="nav-caret"></span></a>
-						<ul>
-							<li>
-								<a href="javascript:;">Menu Item<span class="nav-submenu-caret"></span></a>
-								<ul>
-									<li>
-										<a href="javascript:;">Menu Item<span class="nav-submenu-caret"></span></a>
-										<ul>
-											<li><a href="javascript:;">Menu Item</a></li>
-											<li><a href="javascript:;">Menu Item</a></li>
-										</ul>
-									</li>
-									<li>
-										<a href="javascript:;">Menu Item<span class="nav-submenu-caret"></span></a>
-										<ul>
-											<li><a href="javascript:;">Menu Item</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</li>
+					{% for my_page in site.pages %}
+						{% if my_page.lang == layout.lang && my_page.title %}
+							{% if my_page.tag == "main" %}	
+							<li><a href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a></li>
+							{% endif %}
+						{% endif %}
+					{% endfor %}
 				</ul>
 			</div>
 			<div class="col-lg-3">
