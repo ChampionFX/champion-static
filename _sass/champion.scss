@@ -373,9 +373,14 @@
 }
 
 .test {background-color:red;}
+.test-2 {background-color:yellow;}
 
 // fix
-.languages {padding:0px 0px; margin:0;}
+.languages {padding:0px 0px; margin:0; z-index:9;}
 .world {}
 .language {padding:0px 5px;}
 .top-nav-menu a{color:#fff;}
+.logo-parent {padding:10px 0px 5px 0px}
+.binary-logo-text {padding:0px;}
+.binary-logo-text div {width:150px!important; margin-top:8px; }
+.top-nav-menu {margin-top:10px;}
