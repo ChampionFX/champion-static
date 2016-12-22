@@ -1,0 +1,36 @@
+<header id="header" class="primary-color content-inverse-color">
+	<div class="fx-container">
+		<div class="row">
+			<div class="col-lg-2">
+                <div class="logo-wrapper">
+					<a href="/" class="logo-parent">
+						<div class="logo">
+							<img class="responsive" src="[% request.url_for('images/logo/CFX_logomark_light.svg') %]" alt="Champion FX">
+						</div>
+						<div class="mobile-hide binary-logo-text">
+							<img class="responsive" src="[% request.url_for('images/logo/CFX_logotype_light.svg') %]" alt="Champion FX">
+						</div>
+					</a>
+			    </div>			
+			</div>
+			<div class="col-lg-7 flex-md-middle">
+                <div class="FX__Header__nav">
+					<ul>
+						{% for my_page in site.pages %}
+							{% if my_page.lang == layout.lang && my_page.title %}
+								{% if my_page.tag == "main" %}	
+								<li><a href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a></li>
+								{% endif %}
+							{% endif %}
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="FX__Header__cta">
+					<a class="button" href=""><span>[% l('Log In') %]</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>

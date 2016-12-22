@@ -1,0 +1,5 @@
+<script language="JavaScript">
+    (function() {
+        localStorage.setItem('lang', "{{ layout.lang }}");
+    })();
+</script>
