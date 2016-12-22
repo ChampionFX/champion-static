@@ -1,0 +1,30 @@
+<head>
+    <style id="antiClickjack">body{display:none !important;}</style>
+    <script type="text/javascript">
+        if (self === top) {
+            var antiClickjack = document.getElementById("antiClickjack");
+            antiClickjack.parentNode.removeChild(antiClickjack);
+        } else {
+            top.location = self.location;
+        }
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+
+    <title>[%= browser_title =%]</title>
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
+    <link rel="stylesheet" href="https://style.champion-fx.com/binary.css" />
+    <link rel="stylesheet" href="{{ "/assets/flex.min.css" | relative_url }}" />
+    <link rel="stylesheet" href="{{ "/assets/fx.css" | relative_url }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="[% request.url_for('images/favicons/CFX_favicon16.png') %]" />
+    <link rel="icon" type="image/png" sizes="32x32" href="[% request.url_for('images/favicons/CFX_favicon32.png') %]" />
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+    [% FOREACH css_file IN css_files =%]
+        <link rel="stylesheet" href="[%= css_file =%]">
+    [% END %]
+    [%= FOREACH js IN javascript.libs =%]
+        <script src='[%= js =%]' defer async></script>
+    [%= END =%]
+</head>

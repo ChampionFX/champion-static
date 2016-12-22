@@ -1,0 +1,24 @@
+[% UNLESS is_pjax_request %]
+<!DOCTYPE html>
+<html lang="[% language %]">
+    [% INCLUDE layout/head.html.tt %]
+<body>
+    [% INCLUDE layout/top_bar.html.tt %]
+    [% INCLUDE layout/header.html.tt %]
+[% END %]
+
+[% IF language == 'ACH' %]
+    [% INCLUDE layout/crowdin.html.tt %]
+[% END %]
+<main class="page-content" aria-label="Content">
+    <div class="wrapper">
+        [% content %]
+    </div>
+</main>
+
+[% UNLESS is_pjax_request %]
+    [% INCLUDE layout/footer.html.tt %]
+    [% INCLUDE layout/script.html.tt %]
+</body>
+</html>
+[% END %]

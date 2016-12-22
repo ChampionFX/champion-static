@@ -6,10 +6,17 @@ use warnings;
 sub all_pages {
     return (
         # url pathname,                template file path,             layout,       title,                  exclude languages
-        ['home',                       'home/index',                   'full_width', 'ChampionFX'],
+        ['home',                       'static/home',                  'full_width', 'ChampionFX'],
         ['404',                        'static/404',                   'full_width', '404'],
-        ['about-us',                   'about/index',                  'full_width', 'About Us'],
-        ['contact',                    'about/contact',                'full_width', 'Contact Us'],
+        ['about-us',                   'static/about',                 'full_width', 'About Us'],
+        ['contact',                    'static/contact',               'full_width', 'Contact Us'],
+        ['binary-options',             'static/binary_options',        'full_width', 'Binary Options'],
+        ['forex',                      'static/forex',                 'full_width', 'Forex'],
+        ['licensing',                  'static/licensing',             'full_width', 'Licensing'],
+        ['mission',                    'static/mission',               'full_width', 'Mission'],
+        ['range-of-markets',           'static/range_of_markets',      'full_width', 'Range of Markets'],
+        ['trading',                    'static/trading',               'full_width', 'Trading'],
+        ['why-mt5',                    'static/why_mt5',               'full_width', 'Why MT5'],
     );
 }
 

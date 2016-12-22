@@ -16,6 +16,13 @@ my @urls = (
     ['home'                , 'monthly', '1.00'],
     ['contact'             , 'monthly', '0.80'],
     ['about-us'            , 'monthly', '0.80'],
+    ['binary-options'      , 'monthly', '0.80'],
+    ['forex'               , 'monthly', '0.80'],
+    ['licensing'           , 'monthly', '0.80'],
+    ['mission'             , 'monthly', '0.80'],
+    ['range-of-markets'    , 'monthly', '0.80'],
+    ['trading'             , 'monthly', '0.80'],
+    ['why-mt5'             , 'monthly', '0.80'],
 );
 
 
@@ -30,7 +37,7 @@ $writer->startTag('urlset',
     'xmlns:xsi'          => 'http://www.w3.org/2001/XMLSchema-instance',
     'xsi:schemaLocation' => 'http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd');
 
-my $url_prefix = 'https://www.binary.com/';
+my $url_prefix = 'https://www.champion-fx.com/';
 my $excluded = 0;
 
 foreach my $lang (@langs) {
