@@ -1,0 +1,11 @@
+*~
+node_modules/
+dist/
+.sass-cache/
+.grunt/
+tests_output/
+mojo/log/
+.idea/
+scripts/local
+npm-debug.log
+*.swp

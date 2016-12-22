@@ -1,0 +1,54 @@
+css:
+  - 'sass'
+  - 'postcss'
+  - 'cssmin'
+
+js:
+  - 'webpack'
+
+test:
+  - 'stylelint'
+  - 'jshint'
+  - 'eslint'
+  - 'mochaTest'
+
+default:
+  - 'test'
+  - 'css'
+#  - 'js'
+  - 'copy'
+
+dev:
+  - 'clean'
+  - 'default'
+  - 'shell:compile_dev'
+  - 'gh-pages'
+
+deploy:
+  - 'default'
+  - 'gh-pages'
+
+serve:
+  - 'webpack'
+  - 'connect:livereload'
+  - 'watch'
+
+livereload:
+  - 'default'
+  - 'connect:livereload'
+  - 'watch'
+
+custom:
+  - 'clean'
+  - 'default'
+  - 'shell:compile_dev'
+  - 'connect'
+
+release:
+  - 'shell:check_origin'
+  - 'shell:check_branch'
+  - 'clean'
+  - 'default'
+  - 'shell:compile_production'
+  - 'shell:make_cname'
+  - 'gh-pages'
