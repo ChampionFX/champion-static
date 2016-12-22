@@ -4,7 +4,7 @@ module.exports = {
             style: 'expanded'
         },
         files: [
-            {dest: global.dist + '/css/style.css', src: 'src/sass/style.scss'},
+            {dest: global.dist + '/css/style.css', src: 'src/sass/all.scss'},
         ]
     }
 };
