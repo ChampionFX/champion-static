@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-19829 -20517.5 80 83">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #004385;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <g id="group-54" transform="translate(934 -6)">
+    <line id="line" class="cls-1" x2="80" transform="translate(-20763 -20430)"/>
+    <line id="line-2" data-name="line" class="cls-1" x1="80" transform="translate(-20763 -20484.352)"/>
+    <line id="line-3" data-name="line" class="cls-1" y1="54.353" transform="translate(-20686.646 -20484.352)"/>
+    <line id="line-4" data-name="line" class="cls-1" y2="54.353" transform="translate(-20759.354 -20484.352)"/>
+    <line id="line-5" data-name="line" class="cls-1" y1="20.941" x2="20.941" transform="translate(-20748.648 -20505.295)"/>
+    <line id="line-6" data-name="line" class="cls-1" x2="20.941" y2="20.941" transform="translate(-20718.295 -20505.295)"/>
+    <line id="line-7" data-name="line" class="cls-1" x1="12" y2="12" transform="translate(-20714.883 -20463.176)"/>
+    <circle id="ellipse" class="cls-1" cx="4.706" cy="4.706" r="4.706" transform="translate(-20727.705 -20510)"/>
+    <line id="line-8" data-name="line" class="cls-1" x1="8.471" y1="8.471" transform="translate(-20730.059 -20459.646)"/>
+    <line id="line-9" data-name="line" class="cls-1" x1="14.353" y2="14.471" transform="translate(-20751.117 -20459.646)"/>
+    <circle id="ellipse-2" data-name="ellipse" class="cls-1" cx="4.706" cy="4.706" r="4.706" transform="translate(-20738.178 -20467.646)"/>
+    <circle id="ellipse-3" data-name="ellipse" class="cls-1" cx="4.706" cy="4.706" r="4.706" transform="translate(-20723 -20452.588)"/>
+    <circle id="ellipse-4" data-name="ellipse" class="cls-1" cx="4.706" cy="4.706" r="4.706" transform="translate(-20704.293 -20471.176)"/>
+  </g>
+</svg>

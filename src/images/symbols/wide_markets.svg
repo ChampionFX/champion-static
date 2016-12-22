@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-19930 -19883 60 57.676">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #004384;
+      }
+    </style>
+  </defs>
+  <g id="business-affiliate-network" transform="translate(-19930 -19883.91)">
+    <g id="Layer_1_110_" transform="translate(0 0.911)">
+      <g id="group">
+        <path id="path" class="cls-1" d="M20.555,18.419l-3.65-3.449a5.349,5.349,0,0,0,.688-2.59,5.45,5.45,0,1,0-2.551,4.579L18.687,20.4A12.4,12.4,0,0,1,20.555,18.419Z" transform="translate(1.871 0.764)"/>
+        <path id="path-2" data-name="path" class="cls-1" d="M30.166,19.663l4.85-8.161a5.353,5.353,0,1,0-2.353-1.374l-4.834,8.138A12.112,12.112,0,0,1,30.166,19.663Z" transform="translate(7.697 -0.911)"/>
+        <path id="path-3" data-name="path" class="cls-1" d="M45.377,20.952a5.408,5.408,0,0,0-5.066,3.543l-6.738-.665c0,.051.008.1.008.149a12.407,12.407,0,0,1-.272,2.565l6.735.665a5.405,5.405,0,1,0,5.332-6.257Z" transform="translate(9.213 4.632)"/>
+        <path id="path-4" data-name="path" class="cls-1" d="M29.406,39.05,27.9,32.468a12.334,12.334,0,0,1-2.658.614l1.509,6.583a5.4,5.4,0,1,0,2.655-.615Z" transform="translate(6.59 7.818)"/>
+        <path id="path-5" data-name="path" class="cls-1" d="M18.328,25.37,9.941,28.18a5.4,5.4,0,1,0,.886,2.953c0-.125-.027-.24-.037-.363L19.2,27.953A12.36,12.36,0,0,1,18.328,25.37Z" transform="translate(0 5.854)"/>
+        <circle id="ellipse" class="cls-1" cx="9.282" cy="9.282" r="9.282" transform="translate(21.139 19.329)"/>
+      </g>
+    </g>
+  </g>
+</svg>
