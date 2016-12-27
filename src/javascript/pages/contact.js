@@ -1,3 +1,4 @@
-function dropdownTip(value){    
-	document.getElementById("phone-result").innerHTML = value;
+// eslint-disable-next-line no-unused-vars
+function dropdownTip(value) { /* jshint ignore:line */
+    document.getElementById('phone-result').innerHTML = value;
 }
