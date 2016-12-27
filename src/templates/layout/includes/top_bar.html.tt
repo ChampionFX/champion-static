@@ -1,0 +1,11 @@
+<div id="topbar" class="primary-color-dark content-inverse-color">
+    <div class="fx-container">
+        <div class="row">
+            <div class="col-sm-12">
+                <ul>
+                    <li class="last"><a href="[% request.url_for('contact') %]">[% l('Contact Us') %]</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
