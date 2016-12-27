@@ -6,6 +6,7 @@ dist/
 tests_output/
 mojo/log/
 .idea/
+scripts/cpanfile.snapshot
 scripts/local
 npm-debug.log
 *.swp

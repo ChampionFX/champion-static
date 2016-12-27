@@ -1,0 +1,37 @@
+<header id="header" class="primary-color content-inverse-color">
+    <div class="fx-container">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="logo-wrapper">
+                    <a href="/" class="logo-parent">
+                        <div class="logo">
+                            <img class="responsive" src="[% request.url_for('images/logo/CFX_logomark_light.svg') %]" alt="Champion FX">
+                        </div>
+                        <div class="mobile-hide binary-logo-text">
+                            <img class="responsive" src="[% request.url_for('images/logo/CFX_logotype_light.svg') %]" alt="Champion FX">
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-7 flex-md-middle">
+                <div class="FX__Header__nav">
+                    <ul>
+                        <li><a href="[% request.url_for('about-us') %]">[% l('About') %]</a></li>
+                        <li><a href="[% request.url_for('binary-options') %]">[% l('Binary Options') %]</a></li>
+                        <li><a href="[% request.url_for('forex') %]">[% l('Forex') %]</a></li>
+                        <li><a href="[% request.url_for('licensing') %]">[% l('Licensing') %]</a></li>
+                        <li><a href="[% request.url_for('mission') %]">[% l('Mission') %]</a></li>
+                        <li><a href="[% request.url_for('range-of-markets') %]">[% l('Range of Markets') %]</a></li>
+                        <li><a href="[% request.url_for('trading') %]">[% l('Trading') %]</a></li>
+                        <li><a href="[% request.url_for('why-mt5') %]">[% l('Why MT5') %]</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="FX__Header__cta">
+                    <a class="button" href=""><span>[% l('Log In') %]</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

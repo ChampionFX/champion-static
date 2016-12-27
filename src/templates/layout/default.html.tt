@@ -1,14 +1,14 @@
 [% UNLESS is_pjax_request %]
 <!DOCTYPE html>
 <html lang="[% language %]">
-    [% INCLUDE layout/head.html.tt %]
+    [% INCLUDE layout/includes/head.html.tt %]
 <body>
-    [% INCLUDE layout/top_bar.html.tt %]
-    [% INCLUDE layout/header.html.tt %]
+    [% INCLUDE layout/includes/top_bar.html.tt %]
+    [% INCLUDE layout/includes/header.html.tt %]
 [% END %]
 
 [% IF language == 'ACH' %]
-    [% INCLUDE layout/crowdin.html.tt %]
+    [% INCLUDE layout/includes/crowdin.html.tt %]
 [% END %]
 <main class="page-content" aria-label="Content">
     <div class="wrapper">
@@ -17,8 +17,8 @@
 </main>
 
 [% UNLESS is_pjax_request %]
-    [% INCLUDE layout/footer.html.tt %]
-    [% INCLUDE layout/script.html.tt %]
+    [% INCLUDE layout/includes/footer.html.tt %]
+    [% INCLUDE layout/includes/script.html.tt %]
 </body>
 </html>
 [% END %]
