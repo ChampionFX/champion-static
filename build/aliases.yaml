@@ -13,7 +13,7 @@ test:
   - 'mochaTest'
 
 default:
-#  - 'test'
+  - 'test'
   - 'css'
   - 'js'
   - 'copy'
