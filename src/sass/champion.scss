@@ -486,3 +486,30 @@
 .img-xl {
     margin: 50px 0;
 }
+
+fieldset {
+    border: 1px solid $borderColor;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+fieldset .form-label {
+    text-align: right;
+    margin: 10px;
+}
+
+fieldset .form-input {
+    margin: 10px;
+}
+
+.submit-holder {
+    text-align: center;
+}
+
+.submit-holder p {
+    display: block;
+}
+
+.hidden {
+    display: none !important;
+}
