@@ -1,0 +1,21 @@
+/* GLOBAL RULES */
+
+@mixin shadow-transition {
+    box-shadow: $z-depth-1;
+    transition: box-shadow 0.25s;
+    &:hover {
+        box-shadow: $z-depth-1-half;
+        transition: box-shadow 0.25s;
+    }
+}
+
+@mixin header-background($rgba_val_4, $url_value) {
+    width: 100%; /* for IE 6 */
+    background: linear-gradient(rgba(0, 0, 0, $rgba_val_4), rgba(0, 0, 0, $rgba_val_4)), url($url_value);
+    background-size: cover;
+}
+
+@mixin no-margin-padding {
+    margin: 0;
+    padding: 0;
+}
