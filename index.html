@@ -69,27 +69,31 @@
                 }
             }
 
-            if(document.referrer) {
-                localStorage.setItem('index_referrer', document.referrer);
-            }
-            var lang = getCookieItem('language');
-            if(lang) {
-                isDelayedRedirect();
+            if(/https:\/\/www\.champion-fx\.com\/translations\//.test(window.location.href)) {
+                window.location.href = 'ach/home.html';
             } else {
-                var ws = new WebSocket('wss://ws.binaryws.com/websockets/v3?brand=champion');
-                ws.onopen = function(e) {
-                    ws.send(JSON.stringify({'website_status': '1'}));
-                };
-                ws.onmessage = function(msg) {
-                    var response = JSON.parse(msg.data);
-                    if(response.msg_type === 'website_status') {
-                        if(!response.error && response.hasOwnProperty('website_status')) {
-                            lang = getLanguage(response.website_status.clients_country);
+                if(document.referrer) {
+                    localStorage.setItem('index_referrer', document.referrer);
+                }
+                var lang = getCookieItem('language');
+                if(lang) {
+                    isDelayedRedirect();
+                } else {
+                    var ws = new WebSocket('wss://ws.binaryws.com/websockets/v3?brand=champion');
+                    ws.onopen = function(e) {
+                        ws.send(JSON.stringify({'website_status': '1'}));
+                    };
+                    ws.onmessage = function(msg) {
+                        var response = JSON.parse(msg.data);
+                        if(response.msg_type === 'website_status') {
+                            if(!response.error && response.hasOwnProperty('website_status')) {
+                                lang = getLanguage(response.website_status.clients_country);
+                            }
+                            ws.close();
+                            isDelayedRedirect();
                         }
-                        ws.close();
-                        isDelayedRedirect();
-                    }
-                };
+                    };
+                }
             }
         </script>
     </head>
