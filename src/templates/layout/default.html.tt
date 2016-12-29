@@ -10,15 +10,25 @@
 [% IF language == 'ACH' %]
     [% INCLUDE layout/includes/crowdin.html.tt %]
 [% END %]
-<main class="page-content" aria-label="Content">
-    <div class="wrapper">
+
+<div class="fill-bg-color centered hidden" id="signup">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm flex-sm-middle">
+                [% INCLUDE layout/includes/signup.html.tt %]
+            </div>
+        </div>
+    </div>
+</div>
+
+<main class="page-content" aria-label="Content" id="champion-container">
+    <div class="wrapper" id="champion-content">
         [% content %]
     </div>
 </main>
 
 [% UNLESS is_pjax_request %]
     [% INCLUDE layout/includes/footer.html.tt %]
-    [% INCLUDE layout/includes/script.html.tt %]
 </body>
 </html>
 [% END %]

@@ -2,25 +2,6 @@
 title: [% Why MT5 %]
 tag: main
 ---
-<div class="fill-bg-color centered">	
-	<div class="container">
-		<div class="row">
-			<div class="col-sm flex-sm-middle">
-				<form id="verify-email-form">					
-					<div class="signup-box border primary-bg-color">							
-						<div class="">
-						<input class="clean-input" autocomplete="off" name="email" id="email" maxlength="50" placeholder="Enter your email">
-						</div>
-						<div class="">
-						<button class="button-secondary" id="btn-verify-email" type="submit">Create Free Account</button>
-						</div>
-						<span class="error-msg hint color-white center-text" id="signup_error" style="display:none"></span>							
-					</div>					
-				</form>			
-			</div>
-		</div>
-	</div>
-</div>
 <div class="fx-section">
 	<div class="container">
 		<div class="row">
@@ -36,8 +17,8 @@ tag: main
 		<div class="row">
 			<div class="col-md flex-md-middle centered">
 			    <img class="responsive img-xl" src="{{ "/assets/images/why-mt5.jpg" | relative_url }}" alt="Why MT5">
-				<h2>[% Faster and more powerful. Groundbreaking flexibility. %]</h2>	
-                <p>[% MetaTrader 5 is the most advanced trading platform available - the ideal platform for the modern trader. It contains everything you need to trade the financial markets. %]</p>				
+				<h2>[% Faster and more powerful. Groundbreaking flexibility. %]</h2>
+                <p>[% MetaTrader 5 is the most advanced trading platform available - the ideal platform for the modern trader. It contains everything you need to trade the financial markets. %]</p>
 			</div>
 		</div>
 	</div>
@@ -46,7 +27,7 @@ tag: main
 	<div class="container">
 		<div class="row">
 			<div class="col-sm">
-				<table class="champion-features">         
+				<table class="champion-features">
 					<tbody>
 						<thead>
 							<tr>

@@ -6,7 +6,7 @@ use warnings;
 sub all_pages {
     return (
         # url pathname,                template file path,             layout,       title,                  exclude languages
-        ['home',                       'static/home',                  'full_width', 'ChampionFX'],
+        ['home',                       'static/home',                  'full_width', 'Champion FX'],
         ['404',                        'static/404',                   'full_width', '404'],
         ['about-us',                   'static/about',                 'full_width', 'About Us'],
         ['contact',                    'static/contact',               'full_width', 'Contact Us'],
@@ -17,6 +17,7 @@ sub all_pages {
         ['range-of-markets',           'static/range_of_markets',      'full_width', 'Range of Markets'],
         ['trading',                    'static/trading',               'full_width', 'Trading'],
         ['why-mt5',                    'static/why_mt5',               'full_width', 'Why MT5'],
+        ['create-account',              'static/create_account',       'full_width', 'Create new virtual account'],
     );
 }
 

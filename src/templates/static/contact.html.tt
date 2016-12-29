@@ -2,27 +2,8 @@
 title: [% Contact Us %]
 tag: contacts
 ---
-<div class="fill-bg-color centered">	
+<div class="fx-section">
 	<div class="container">
-		<div class="row">
-			<div class="col-sm flex-sm-middle">
-				<form id="verify-email-form">					
-					<div class="signup-box border primary-bg-color">							
-						<div class="">
-						<input class="clean-input" autocomplete="off" name="email" id="email" maxlength="50" placeholder="Enter your email">
-						</div>
-						<div class="">
-						<button class="button-secondary" id="btn-verify-email" type="submit">Create Free Account</button>
-						</div>
-						<span class="error-msg hint color-white center-text" id="signup_error" style="display:none"></span>							
-					</div>					
-				</form>			
-			</div>
-		</div>
-	</div>
-</div>
-<div class="fx-section">	
-	<div class="container">		
 		<div class="row">
 			<div class="col-md-2">
 			<div class="fx-md fx-customer-service"></div>
@@ -44,15 +25,15 @@ tag: contacts
 							<option value="+48 58 881 00 02">Poland</option>
 							<option value="8 10 8002 8553011 (Toll Free)">Russia</option>
 							<option value="+44 (0) 1666 800042,<br>0800 011 9847 (Toll Free)" selected>United Kingdom</option>
-						</select>	
+						</select>
 						<div id="phone-result">+44 (0) 1666 800042,<br>0800 011 9847 (Toll Free)</div>
 					</div>
-				</div>	
+				</div>
 				<div class="row">
-					<div class="col-xs phone-note">						
-						<p><em>[% All calls are recorded for training and monitoring purposes %]</em></p>	
-					</div>	
-				</div>			
+					<div class="col-xs phone-note">
+						<p><em>[% All calls are recorded for training and monitoring purposes %]</em></p>
+					</div>
+				</div>
 			</div>
 			<div class="col-md-5">
 			    <h2 class="contacts-title">[% Email %]</h2>
@@ -60,7 +41,7 @@ tag: contacts
 					<a href="">support@champion-fx.com</a>
 					<h4>Backoffice</h4>
 					<a href="">backoffice@champion-fx.com</a>
-					<h4>New account</h4> 
+					<h4>New account</h4>
 					<a href="">newaccount@champion-fx.com</a>
 					<h4>Disputes and complaints</h4>
 					<a href="">complaints@champion-fx.com</a>
