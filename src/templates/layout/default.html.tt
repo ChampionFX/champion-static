@@ -5,30 +5,31 @@
 <body>
     [% INCLUDE layout/includes/top_bar.html.tt %]
     [% INCLUDE layout/includes/header.html.tt %]
-[% END %]
 
-[% IF language == 'ACH' %]
-    [% INCLUDE layout/includes/crowdin.html.tt %]
-[% END %]
-
-<div class="fill-bg-color centered hidden" id="signup">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm flex-sm-middle">
-                [% INCLUDE layout/includes/signup.html.tt %]
+    <div class="fill-bg-color centered hidden" id="signup">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm flex-sm-middle">
+                    [% INCLUDE layout/includes/signup.html.tt %]
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-<main class="page-content" aria-label="Content" id="champion-container">
-    <div class="wrapper" id="champion-content">
-        [% content %]
-    </div>
-</main>
-
-[% UNLESS is_pjax_request %]
+    <main class="page-content" aria-label="Content" id="champion-container">
+        <div class="wrapper" id="champion-content">
+            [% content %]
+        </div>
+    </main>
     [% INCLUDE layout/includes/footer.html.tt %]
 </body>
 </html>
+
+[% ELSE %] [%# is_pjax_request %]
+
+    <div id="page_info" style="display:none;">
+        <title>[% browser_title %]</title>
+    </div>
+    <div class="wrapper" id="champion-content">
+        [% content %]
+    </div>
 [% END %]
