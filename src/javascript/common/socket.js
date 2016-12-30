@@ -1,23 +1,17 @@
-var Cookies = require('../lib/js-cookie');
+const Cookies = require('../lib/js-cookie');
 
-var ChampionSocket = (function() {
+const ChampionSocket = (function() {
     'use strict';
 
-    var socket,
-        buffered = [],
-        message_callback,
+    let socket,
+        message_callback;
+
+    const buffered = [],
         registered_callbacks = {};
 
-    function init(callback = socketMessage) {
-        if (typeof callback === 'function') {
-            message_callback = callback;
-        }
-        connect();
-    }
-
-    function socketMessage(message) {
+    const socketMessage = (message) => {
         if (!message) { // socket just opened
-            var token = Cookies.get('token');
+            const token = Cookies.get('token');
             if (token) {
                 ChampionSocket.send({ authorize: token });
             }
@@ -29,38 +23,39 @@ var ChampionSocket = (function() {
             }
             console.log(message);
         }
-    }
+    };
 
-    function getAppId() {
-        return localStorage.getItem('config.app_id') ? localStorage.getItem('config.app_id') : '1';
-    }
+    const init = (callback = socketMessage) => {
+        if (typeof callback === 'function') {
+            message_callback = callback;
+        }
+        connect();
+    };
 
-    function getSocketURL() {
-        var server = 'www.binaryqa14.com';
-        var params = [
+    const getAppId = () => (localStorage.getItem('config.app_id') ? localStorage.getItem('config.app_id') : '1');
+
+    const getSocketURL = () => {
+        const server = 'www.binaryqa14.com';
+        const params = [
             'brand=champion',
             'app_id=' + getAppId(),
         ];
 
         return 'wss://' + server + '/websockets/v3' + (params.length ? '?' + params.join('&') : '');
-    }
+    };
 
-    function connect() {
+    const connect = () => {
         socket = new WebSocket(getSocketURL());
         socket.onopen    = onOpen;
         socket.onmessage = onMessage;
-    }
+    };
 
-    function isReady() {
-        return socket && socket.readyState === 1;
-    }
+    const isReady = () => (socket && socket.readyState === 1);
 
-    function isClosed() {
-        return !socket || socket.readyState === 2 || socket.readyState === 3;
-    }
+    const isClosed = () => (!socket || socket.readyState === 2 || socket.readyState === 3);
 
-    function send(data, callback, subscribe) {
-        var req_id;
+    const send = (data, callback, subscribe) => {
+        let req_id;
 
         if (typeof callback === 'function') {
             req_id = new Date().getTime();
@@ -79,9 +74,9 @@ var ChampionSocket = (function() {
                 connect();
             }
         }
-    }
+    };
 
-    function onOpen() {
+    const onOpen = () => {
         if (typeof message_callback === 'function') {
             message_callback();
         }
@@ -90,10 +85,10 @@ var ChampionSocket = (function() {
                 send(buffered.shift());
             }
         }
-    }
+    };
 
-    function onMessage(message) {
-        var response = JSON.parse(message.data),
+    const onMessage = (message) => {
+        const response = JSON.parse(message.data),
             req_id = response.req_id,
             reg =  req_id ? registered_callbacks[req_id] : null;
 
@@ -105,7 +100,7 @@ var ChampionSocket = (function() {
         } else if (typeof message_callback === 'function') {
             message_callback(response);
         }
-    }
+    };
 
     return {
         init: init,

@@ -1,29 +1,28 @@
-var ChampionSocket = require('./socket');
+const ChampionSocket = require('./../common/socket');
 
-var ChampionCreateAccount = (function() {
+const ChampionCreateAccount = (function() {
     'use strict';
 
-    var _passwd_regex = /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])/;
-    // var _code_regex = /.{48}/;
+    const _passwd_regex = /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])/;
+    // const _code_regex = /.{48}/;
 
-    var _residences = null;
+    let _residences = null,
+        _active = false;
 
-    var _active = false;
-
-    var _input_code,
+    let _input_code,
         _input_pass,
         _input_rpass,
         _input_country,
         _submit_btn,
         _input_residence;
 
-    var _code_error,
+    let _code_error,
         _pass_error_short,
         _pass_error_char,
         _pass_error_nomatch,
         _create_acc_error;
 
-    function show(container) {
+    const show = (container) => {
         _input_code      = container.find('#verification-code');
         _input_pass      = container.find('#password');
         _input_rpass     = container.find('#r-password');
@@ -43,7 +42,7 @@ var ChampionCreateAccount = (function() {
         _submit_btn.on('click', submit);
 
         if (!_residences) {
-            ChampionSocket.send({ residence_list: 1 }, function(response) {
+            ChampionSocket.send({ residence_list: 1 }, (response) => {
                 _residences = response.residence_list;
                 renderResidences();
             });
@@ -51,12 +50,12 @@ var ChampionCreateAccount = (function() {
             renderResidences();
         }
         _active = true;
-    }
+    };
 
-    function renderResidences() {
+    const renderResidences = () => {
         _input_residence.empty();
-        _residences.forEach(function(res) {
-            var option = $('<option></option>');
+        _residences.forEach((res) => {
+            const option = $('<option></option>');
             option.text(res.text);
             option.attr('value', res.value);
             if (res.disabled) {
@@ -64,9 +63,9 @@ var ChampionCreateAccount = (function() {
             }
             _input_residence.append(option);
         });
-    }
+    };
 
-    function hide() {
+    const hide = () => {
         _input_code.off('input', validateCode);
         _input_pass.off('input', validatePass);
         _input_rpass.off('input', validateRpass);
@@ -84,10 +83,10 @@ var ChampionCreateAccount = (function() {
         _input_country.val('');
         _input_residence.empty();
         _active = false;
-    }
+    };
 
-    function validateCode() {
-        var value = _input_code.val();
+    const validateCode = () => {
+        const value = _input_code.val();
 
         _create_acc_error.addClass('hidden');
         _code_error.addClass('hidden');
@@ -96,10 +95,10 @@ var ChampionCreateAccount = (function() {
             return false;
         }
         return true;
-    }
+    };
 
-    function validatePass() {
-        var value = _input_pass.val();
+    const validatePass = () => {
+        const value = _input_pass.val();
 
         _create_acc_error.addClass('hidden');
         _pass_error_short.addClass('hidden');
@@ -116,33 +115,33 @@ var ChampionCreateAccount = (function() {
         validateRpass();
 
         return true;
-    }
+    };
 
-    function validateRpass() {
+    const validateRpass = () => {
         _pass_error_nomatch.addClass('hidden');
         if (_input_pass.val() !== _input_rpass.val()) {
             _pass_error_nomatch.removeClass('hidden');
             return false;
         }
         return true;
-    }
+    };
 
-    function submit() {
+    const submit = () => {
         if (_active && validateCode() && validatePass()) {
-            var data = {
+            const data = {
                 new_account_virtual: 1,
                 verification_code  : _input_code.val(),
                 client_password    : _input_pass.val(),
                 residence          : _input_residence.val(),
             };
-            ChampionSocket.send(data, function(response) {
+            ChampionSocket.send(data, (response) => {
                 console.log(response);
                 if (response.error) {
                     _create_acc_error.removeClass('hidden').text(response.error.message);
                 }
             });
         }
-    }
+    };
 
     return {
         show: show,
