@@ -1,3 +1,5 @@
+const getLanguage = require('../common/language').getLanguage;
+
 /**
  * Router module for ChampionFX
  * Some code was borrowed from pjax lib
@@ -100,23 +102,15 @@ var ChampionRouter = (function() {
     * Load url from server
     * */
     function load(url, replace) {
-        var options = $.extend(true, {}, $.ajaxSettings, defaults, { url: url });
+        const lang = getLanguage();
+        var options = $.extend(true, {}, $.ajaxSettings, defaults, {
+            url: url.replace(new RegExp(`\/${lang}\/`, 'i'), `/${lang.toLowerCase()}/pjax/`) });
 
         options.success = function(data) {
-            var result = {},
-                matched_head = data.match(/<head[^>]*>([\s\S.]*)<\/head>/i),
-                matched_body = data.match(/<body[^>]*>([\s\S.]*)<\/body>/i);
+            var result = {};
 
-            if (!(matched_head && matched_body)) {
-                locationReplace(url);
-                return;
-            }
-            // Attempt to parse response html into elements
-            var head = $(matched_head[0]);
-            var body = $(matched_body[0]);
-
-            result.title = head.filter('title').last().text().trim();
-            result.content = body.find(params.content_selector);
+            result.title   = $(data).find('title').text().trim();
+            result.content = $('<div/>', { html: data }).find(params.content_selector);
 
             // If failed to find title or content, load the page in traditional way
             if (result.title.length === 0 || result.content.length === 0) {
