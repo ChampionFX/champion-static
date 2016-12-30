@@ -23,4 +23,7 @@
     [%= FOREACH js IN javascript.libs =%]
         <script src='[%= js =%]' defer async></script>
     [%= END =%]
+    [% IF language == 'ACH' %]
+        [% INCLUDE layout/includes/crowdin.html.tt %]
+    [% END %]
 </head>

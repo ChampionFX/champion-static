@@ -1,3 +1,5 @@
+var Cookies = require('../lib/js-cookie');
+
 var ChampionSocket = (function() {
     'use strict';
 
@@ -6,11 +8,27 @@ var ChampionSocket = (function() {
         message_callback,
         registered_callbacks = {};
 
-    function init(callback) {
+    function init(callback = socketMessage) {
         if (typeof callback === 'function') {
             message_callback = callback;
         }
         connect();
+    }
+
+    function socketMessage(message) {
+        if (!message) { // socket just opened
+            var token = Cookies.get('token');
+            if (token) {
+                ChampionSocket.send({ authorize: token });
+            }
+        } else {
+            switch (message.msg_type) {
+                case 'authenticate':
+                    break;
+                // no default
+            }
+            console.log(message);
+        }
     }
 
     function getAppId() {
