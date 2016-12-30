@@ -38,10 +38,10 @@ const ChampionSocket = (function() {
         const server = 'www.binaryqa14.com';
         const params = [
             'brand=champion',
-            'app_id=' + getAppId(),
+            `app_id=${getAppId()}`,
         ];
 
-        return 'wss://' + server + '/websockets/v3' + (params.length ? '?' + params.join('&') : '');
+        return `wss://${server}/websockets/v3${params.length ? `?${params.join('&')}` : ''}`;
     };
 
     const connect = () => {

@@ -1,5 +1,6 @@
 const ChampionSocket = require('./../common/socket');
 const ChampionRouter = require('./../common/router');
+const url_for = require('../common/url').url_for;
 
 const ChampionSignup = (function() {
     'use strict';
@@ -79,10 +80,7 @@ const ChampionSignup = (function() {
                 type        : 'account_opening',
             }, function(response) {
                 if (response.verify_email) {
-                    const lang = localStorage.getItem('lang'),
-                        a = document.createElement('a');
-                    a.setAttribute('href', '/' + lang + '/createaccount');
-                    ChampionRouter.forward(a.href);
+                    ChampionRouter.forward(url_for('create-account'));
                 }
             });
         }

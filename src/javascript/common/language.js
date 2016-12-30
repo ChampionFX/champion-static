@@ -19,7 +19,7 @@ const Language = (function () {
     });
 
     const language_from_url = () => {
-        const regex = new RegExp('^(' + Object.keys(all_languages()).join('|') + ')$', 'i');
+        const regex = new RegExp(`^(${Object.keys(all_languages()).join('|')})$`, 'i');
         const langs = window.location.href.split('/').slice(3);
         let lang = '';
         langs.forEach((l) => { lang = regex.test(l) ? l : lang; });
@@ -36,7 +36,7 @@ const Language = (function () {
         return lang;
     };
 
-    const url_for_language = lang => (window.location.href.replace(new RegExp('\/' + language() + '\/', 'i'), '/' + lang.trim().toLowerCase() + '/'));
+    const url_for_language = lang => (window.location.href.replace(new RegExp(`\/${language()}\/`, 'i'), `/${lang.trim().toLowerCase()}/`));
 
     return {
         all_languages   : all_languages,
