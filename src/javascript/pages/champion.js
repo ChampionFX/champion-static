@@ -1,4 +1,3 @@
-var Cookies = require('../lib/js-cookie');
 var ChampionSocket        = require('./socket');
 var ChampionRouter        = require('./router');
 var ChampionSignup        = require('./signup');
@@ -20,6 +19,7 @@ var Champion = (function() {
         _container.on('champion:before', beforeContentChange);
         _container.on('champion:after', afterContentChange);
         ChampionRouter.init(_container, '#champion-content');
+        ChampionSocket.init();
     }
 
     function beforeContentChange() {
@@ -40,24 +40,6 @@ var Champion = (function() {
             _active_script.show(form.length ? form : _signup);
         }
     }
-
-    function socketMessage(message) {
-        if (!message) { // socket just opened
-            var token = Cookies.get('token');
-            if (token) {
-                ChampionSocket.send({ authorize: token });
-            }
-        } else {
-            switch (message.msg_type) {
-                case 'authenticate':
-                    break;
-                // no default
-            }
-            console.log(message);
-        }
-    }
-
-    ChampionSocket.init(socketMessage);
 
     return {
         init: init,
