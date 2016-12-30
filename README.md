@@ -3,6 +3,8 @@ Champion-Static
 
 This repository contains the static HTML, Javascript, CSS, and images content of the [Champion-FX.com](http://www.champion-fx.com) website.
 
+####Please submit your PR against `beta` branch.
+
 ## Installation
 
 In order to work on your own version of the Champion-FX.com Javascript and CSS, please **fork this project**.
