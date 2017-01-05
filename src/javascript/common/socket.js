@@ -1,4 +1,5 @@
-const Cookies = require('../lib/js-cookie');
+const Cookies     = require('../lib/js-cookie');
+const getLanguage = require('./language').getLanguage;
 
 const ChampionSocket = (function() {
     'use strict';
@@ -34,11 +35,14 @@ const ChampionSocket = (function() {
 
     const getAppId = () => (localStorage.getItem('config.app_id') ? localStorage.getItem('config.app_id') : '1');
 
+    const getServer = () => (localStorage.getItem('config.server_url') || 'ws.binaryws.com');
+
     const getSocketURL = () => {
-        const server = 'www.binaryqa14.com';
+        const server = getServer();
         const params = [
             'brand=champion',
             `app_id=${getAppId()}`,
+            `l=${getLanguage()}`,
         ];
 
         return `wss://${server}/websockets/v3${params.length ? `?${params.join('&')}` : ''}`;
@@ -103,8 +107,10 @@ const ChampionSocket = (function() {
     };
 
     return {
-        init: init,
-        send: send,
+        init     : init,
+        send     : send,
+        getAppId : getAppId,
+        getServer: getServer,
     };
 })();
 

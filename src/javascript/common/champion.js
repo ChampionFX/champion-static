@@ -3,6 +3,7 @@ const ChampionRouter        = require('./router');
 const ChampionSignup        = require('./../pages/signup');
 const ChampionCreateAccount = require('./../pages/create_account');
 const ChampionContact       = require('./../pages/contact');
+const ChampionEndpoint      = require('./../pages/endpoint');
 
 const Champion = (function() {
     'use strict';
@@ -34,6 +35,7 @@ const Champion = (function() {
         const pages_map = {
             'create-account': ChampionCreateAccount,
             contact         : ChampionContact,
+            endpoint        : ChampionEndpoint,
         };
         if (page in pages_map) {
             _active_script = pages_map[page];
