@@ -22,7 +22,8 @@ const ChampionCreateAccount = (function() {
         _pass_error_nomatch,
         _create_acc_error;
 
-    const show = (container) => {
+    const load = () => {
+        const container = $('#champion-container');
         _input_code      = container.find('#verification-code');
         _input_pass      = container.find('#password');
         _input_rpass     = container.find('#r-password');
@@ -65,7 +66,7 @@ const ChampionCreateAccount = (function() {
         });
     };
 
-    const hide = () => {
+    const unload = () => {
         _input_code.off('input', validateCode);
         _input_pass.off('input', validatePass);
         _input_rpass.off('input', validateRpass);
@@ -144,8 +145,8 @@ const ChampionCreateAccount = (function() {
     };
 
     return {
-        show: show,
-        hide: hide,
+        load  : load,
+        unload: unload,
     };
 })();
 

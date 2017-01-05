@@ -17,7 +17,7 @@ const ChampionSignup = (function() {
     // const _email_regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/;
     const _validate_delay = 500;
 
-    const show = (element) => {
+    const load = (element) => {
         _element     = element;
         _input       = _element.find('input');
         _error_empty = _element.find('#signup_error_empty');
@@ -31,7 +31,7 @@ const ChampionSignup = (function() {
         _active = true;
     };
 
-    const hide = () => {
+    const unload = () => {
         if (_active) {
             _element.addClass('hidden');
             _input.off('input', inputChanged);
@@ -87,8 +87,8 @@ const ChampionSignup = (function() {
     };
 
     return {
-        show: show,
-        hide: hide,
+        load  : load,
+        unload: unload,
     };
 })();
 

@@ -23,20 +23,25 @@ const Champion = (function() {
 
     const beforeContentChange = () => {
         if (_active_script) {
-            _active_script.hide();
+            _active_script.unload();
             _active_script = null;
         }
     };
 
     const afterContentChange = (e, content) => {
-        const tag = content.getAttribute('data-tag');
-        if (tag === 'create') {
-            _active_script = ChampionCreateAccount;
-            _active_script.show(_container);
-        } else if (!_authenticated) {
+        const page = content.getAttribute('data-page');
+        const pages_map = {
+            'create-account': ChampionCreateAccount,
+        };
+        if (page in pages_map) {
+            _active_script = pages_map[page];
+            _active_script.load();
+        }
+
+        if (!_authenticated) {
             const form = _container.find('#verify-email-form');
-            _active_script = ChampionSignup;
-            _active_script.show(form.length ? form : _signup);
+            if (!_active_script) _active_script = ChampionSignup;
+            ChampionSignup.load(form.length ? form : _signup);
         }
     };
 

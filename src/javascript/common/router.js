@@ -51,6 +51,7 @@ const ChampionRouter = (function() {
                 content: content,
             });
             window.history.replaceState({ url: url }, title, url);
+            content.attr('data-page', url.match('.+\/(.+)\.html.*')[1]);
             params.container.trigger('champion:after', content);
         }
 
