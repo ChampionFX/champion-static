@@ -14,15 +14,14 @@
 
     <title>[%= browser_title =%]</title>
     <meta name="description" content="[% l('ChampionFX Static') %]" />
-    <link rel="stylesheet" href="https://style.champion-fx.com/binary.css" />
     <link rel="icon" type="image/png" sizes="16x16" href="[% request.url_for('images/favicons/CFX_favicon16.png') %]" />
     <link rel="icon" type="image/png" sizes="32x32" href="[% request.url_for('images/favicons/CFX_favicon32.png') %]" />
     [% FOREACH css_file IN css_files =%]
-        <link rel="stylesheet" href="[%= css_file =%]">
-    [% END %]
-    [%= FOREACH js IN javascript.libs =%]
-        <script src='[%= js =%]' defer async></script>
-    [%= END =%]
+        <link rel="stylesheet" href="[%= css_file =%]" />
+    [% END =%]
+    [% FOREACH js IN javascript.libs =%]
+        <script src="[%= js =%]" type="text/javascript"></script>
+    [% END =%]
     [% IF language == 'ACH' %]
         [% INCLUDE layout/includes/crowdin.html.tt %]
     [% END %]
