@@ -5,6 +5,6 @@ window.$ = window.jQuery = require('jquery');
 
 require('./pages/contact');
 
-var Champion = require('./pages/champion');
+const Champion = require('./common/champion');
 
 $(window).on('load', Champion.init);

@@ -1,32 +1,32 @@
-/*
-* Loads html resources, and stores in internal cache
-* */
-var ChampionResources = (function() {
+/**
+ * Loads html resources, and stores in internal cache
+ */
+const ChampionResources = (function() {
     'use strict';
 
-    var _loaded = {};
+    const _loaded = {};
 
-    function getResource(url, callback) {
-        var part = _loaded[url];
+    const getResource = (url, callback) => {
+        const part = _loaded[url];
         if (part) {
             callback(part);
         } else {
             loadResource(url, callback);
         }
-    }
+    };
 
-    function loadResource(url, callback) {
+    const loadResource = (url, callback) => {
         $.ajax({
             url     : url,
             type    : 'GET',
             dataType: 'html',
-        }).done(function(data) {
+        }).done((data) => {
             _loaded[url] = $.parseHTML(data);
             callback(_loaded[url]);
-        }).fail(function() {
+        }).fail(() => {
             callback(null);
         });
-    }
+    };
 
     return {
         get: getResource,
