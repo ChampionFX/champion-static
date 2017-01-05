@@ -1,9 +1,10 @@
-const ChampionSocket        = require('./socket');
-const ChampionRouter        = require('./router');
-const ChampionSignup        = require('./../pages/signup');
-const ChampionCreateAccount = require('./../pages/create_account');
-const ChampionContact       = require('./../pages/contact');
-const ChampionEndpoint      = require('./../pages/endpoint');
+const ChampionSocket     = require('./socket');
+const ChampionRouter     = require('./router');
+const ChampionSignup     = require('./../pages/signup');
+const ChampionNewVirtual = require('./../pages/new_account/virtual');
+const ChampionContact    = require('./../pages/contact');
+const ChampionEndpoint   = require('./../pages/endpoint');
+const Client             = require('./client');
 
 const Champion = (function() {
     'use strict';
@@ -21,6 +22,7 @@ const Champion = (function() {
         _container.on('champion:after', afterContentChange);
         ChampionRouter.init(_container, '#champion-content');
         ChampionSocket.init();
+        Client.init();
     };
 
     const beforeContentChange = () => {
@@ -33,9 +35,9 @@ const Champion = (function() {
     const afterContentChange = (e, content) => {
         const page = content.getAttribute('data-page');
         const pages_map = {
-            'create-account': ChampionCreateAccount,
-            contact         : ChampionContact,
-            endpoint        : ChampionEndpoint,
+            virtual : ChampionNewVirtual,
+            contact : ChampionContact,
+            endpoint: ChampionEndpoint,
         };
         if (page in pages_map) {
             _active_script = pages_map[page];

@@ -1,6 +1,8 @@
-const ChampionSocket = require('./../common/socket');
+const ChampionSocket       = require('../../common/socket');
+const Client               = require('../../common/client');
+const default_redirect_url = require('../../common/url').default_redirect_url;
 
-const ChampionCreateAccount = (function() {
+const ChampionNewVirtualAccount = (function() {
     'use strict';
 
     const _passwd_regex = /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])/;
@@ -23,6 +25,7 @@ const ChampionCreateAccount = (function() {
         _create_acc_error;
 
     const load = () => {
+        if (Client.redirect_if_login()) return;
         const container = $('#champion-container');
         _input_code      = container.find('#verification-code');
         _input_pass      = container.find('#password');
@@ -127,7 +130,8 @@ const ChampionCreateAccount = (function() {
         return true;
     };
 
-    const submit = () => {
+    const submit = (e) => {
+        e.preventDefault();
         if (_active && validateCode() && validatePass()) {
             const data = {
                 new_account_virtual: 1,
@@ -136,9 +140,12 @@ const ChampionCreateAccount = (function() {
                 residence          : _input_residence.val(),
             };
             ChampionSocket.send(data, (response) => {
-                console.log(response);
                 if (response.error) {
                     _create_acc_error.removeClass('hidden').text(response.error.message);
+                } else {
+                    const acc_info = response.new_account_virtual;
+                    Client.process_new_account(acc_info.email, acc_info.client_id, acc_info.oauth_token, true);
+                    window.location.href = default_redirect_url();
                 }
             });
         }
@@ -150,4 +157,4 @@ const ChampionCreateAccount = (function() {
     };
 })();
 
-module.exports = ChampionCreateAccount;
+module.exports = ChampionNewVirtualAccount;
