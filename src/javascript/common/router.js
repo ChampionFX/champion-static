@@ -1,24 +1,23 @@
-const getLanguage = require('../common/language').getLanguage;
+const getLanguage = require('./language').getLanguage;
 
 /**
  * Router module for ChampionFX
  * Some code was borrowed from pjax lib
  * https://github.com/defunkt/jquery-pjax
  */
-var ChampionRouter = (function() {
+const ChampionRouter = (function() {
     'use strict';
 
-    var params   = {},
+    let xhr;
+    const params   = {},
         defaults = {
             timeout : 650,
             type    : 'GET',
             dataType: 'html',
-        };
+        },
+        cache = {};
 
-    var xhr;
-    var cache = {};
-
-    function init(container, content_selector) {
+    const init = (container, content_selector) => {
         if (!(window.history && window.history.pushState && window.history.replaceState &&
             // pushState isn't reliable on iOS until 5.
             !navigator.userAgent.match(/((iPod|iPhone|iPad).+\bOS\s+[1-4]\D|WebApps\/.+CFNetwork)/))) {
@@ -41,9 +40,9 @@ var ChampionRouter = (function() {
         params.container = container;
         params.content_selector = content_selector;
 
-        var url = window.location.href;
-        var title = document.title;
-        var content = container.find(content_selector);
+        const url = window.location.href;
+        const title = document.title;
+        const content = container.find(content_selector);
 
         // put current content to cache, so we won't need to load it again
         if (title && content && content.length) {
@@ -52,15 +51,16 @@ var ChampionRouter = (function() {
                 content: content,
             });
             window.history.replaceState({ url: url }, title, url);
+            content.attr('data-page', url.match('.+\/(.+)\.html.*')[1]);
             params.container.trigger('champion:after', content);
         }
 
         $(document).on('click', 'a', handleClick);
         $(window).on('popstate', handlePopstate);
-    }
+    };
 
-    function handleClick(event) {
-        var link = event.currentTarget,
+    const handleClick = (event) => {
+        const link = event.currentTarget,
             url = link.href;
 
         if (url.length <= 0) {
@@ -87,27 +87,27 @@ var ChampionRouter = (function() {
         if (location.href !== url) {
             processUrl(url);
         }
-    }
+    };
 
-    function processUrl(url, replace) {
-        var cached_content = cacheGet(url);
+    const processUrl = (url, replace) => {
+        const cached_content = cacheGet(url);
         if (cached_content) {
             replaceContent(url, cached_content, replace);
         } else {
             load(url, replace);
         }
-    }
+    };
 
-    /*
-    * Load url from server
-    * */
-    function load(url, replace) {
+    /**
+     * Load url from server
+     */
+    const load = (url, replace) => {
         const lang = getLanguage();
-        var options = $.extend(true, {}, $.ajaxSettings, defaults, {
+        const options = $.extend(true, {}, $.ajaxSettings, defaults, {
             url: url.replace(new RegExp(`\/${lang}\/`, 'i'), `/${lang.toLowerCase()}/pjax/`) });
 
-        options.success = function(data) {
-            var result = {};
+        options.success = (data) => {
+            const result = {};
 
             result.title   = $(data).find('title').text().trim();
             result.content = $('<div/>', { html: data }).find(params.content_selector);
@@ -126,17 +126,17 @@ var ChampionRouter = (function() {
         abortXHR(xhr);
 
         xhr = $.ajax(options);
-    }
+    };
 
-    function handlePopstate(e) {
-        var url = e.originalEvent.state ? e.originalEvent.state.url : window.location.href;
+    const handlePopstate = (e) => {
+        const url = e.originalEvent.state ? e.originalEvent.state.url : window.location.href;
         if (url) {
             processUrl(url, true);
         }
         return false;
-    }
+    };
 
-    function replaceContent(url, content, replace) {
+    const replaceContent = (url, content, replace) => {
         window.history[replace ? 'replaceState' : 'pushState']({ url: url }, content.title, url);
 
         params.container.trigger('champion:before');
@@ -146,26 +146,24 @@ var ChampionRouter = (function() {
         params.container.append(content.content);
 
         params.container.trigger('champion:after', content.content);
-    }
+    };
 
-    function abortXHR(xhrObj) {
+    const abortXHR = (xhrObj) => {
         if (xhrObj && xhrObj.readyState < 4) {
             xhrObj.abort();
         }
-    }
+    };
 
-    function cachePut(url, content) {
+    const cachePut = (url, content) => {
         cache[url] = content;
-    }
+    };
 
-    function cacheGet(url) {
-        return cache[url];
-    }
+    const cacheGet = url => cache[url];
 
-    function locationReplace(url) {
+    const locationReplace = (url) => {
         window.history.replaceState(null, '', url);
         window.location.replace(url);
-    }
+    };
 
     return {
         init   : init,

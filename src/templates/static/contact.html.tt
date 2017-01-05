@@ -1,7 +1,3 @@
----
-title: [% Contact Us %]
-tag: contacts
----
 <div class="fx-section">
 	<div class="container">
 		<div class="row">
@@ -9,13 +5,13 @@ tag: contacts
 			<div class="fx-md fx-customer-service"></div>
 			</div>
 			<div class="col-md-5">
-			    <h2 class="contacts-title">[% Contact Us %]</h2>
+			    <h2 class="contacts-title">[% l('Contact Us') %]</h2>
 				<div class="row contact-phone">
 					<div class="col-xs-4">
-						[% Telephone %]:
+						[% l('Telephone') %]:
 					</div>
 					<div class="col-xs-8">
-						<select onChange="dropdownTip(this.value)" id="cs_telephone_number">
+						<select id="cs_telephone_number">
 							<option disabled="">Select Country</option>
 							<option value="+61 (02) 8294 5448,<br>1800 093570 (Toll Free)">Australia</option>
 							<option value="+1 (450) 823 1002">Canada</option>
@@ -31,12 +27,12 @@ tag: contacts
 				</div>
 				<div class="row">
 					<div class="col-xs phone-note">
-						<p><em>[% All calls are recorded for training and monitoring purposes %]</em></p>
+						<p><em>[% l('All calls are recorded for training and monitoring purposes') %]</em></p>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-5">
-			    <h2 class="contacts-title">[% Email %]</h2>
+			    <h2 class="contacts-title">[% l('Email') %]</h2>
 					<h4>General</h4>
 					<a href="">support@champion-fx.com</a>
 					<h4>Backoffice</h4>

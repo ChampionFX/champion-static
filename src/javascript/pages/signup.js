@@ -1,24 +1,23 @@
-var ChampionSocket = require('./socket');
-var ChampionRouter = require('./router');
+const ChampionSocket = require('./../common/socket');
+const ChampionRouter = require('./../common/router');
+const url_for = require('../common/url').url_for;
 
-var ChampionSignup = (function() {
+const ChampionSignup = (function() {
     'use strict';
 
-    var _active = false;
-
-    var _element,
+    let _active = false,
+        _element,
         _input,
         _error_empty,
         _error_email,
-        _button;
-
-    var _email_regex = /[^@]+@[^@\.]+\.[^@]+/;
-    // var _email_regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/;
-
-    var _validate_delay = 500,
+        _button,
         _timeout;
 
-    function show(element) {
+    const _email_regex = /[^@]+@[^@\.]+\.[^@]+/;
+    // const _email_regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/;
+    const _validate_delay = 500;
+
+    const load = (element) => {
         _element     = element;
         _input       = _element.find('input');
         _error_empty = _element.find('#signup_error_empty');
@@ -30,9 +29,9 @@ var ChampionSignup = (function() {
         _button.on('click', submitClicked);
 
         _active = true;
-    }
+    };
 
-    function hide() {
+    const unload = () => {
         if (_active) {
             _element.addClass('hidden');
             _input.off('input', inputChanged);
@@ -45,17 +44,17 @@ var ChampionSignup = (function() {
             }
         }
         _active = false;
-    }
+    };
 
-    function inputChanged() {
+    const inputChanged = () => {
         if (_timeout) {
             clearTimeout(_timeout);
         }
         _timeout = setTimeout(validate, _validate_delay);
-    }
+    };
 
-    function validate() {
-        var value,
+    const validate = () => {
+        let value,
             error = true;
         if (_active) {
             value = _input.val();
@@ -70,10 +69,10 @@ var ChampionSignup = (function() {
             }
         }
         return !error;
-    }
+    };
 
 
-    function submitClicked(e) {
+    const submitClicked = (e) => {
         e.preventDefault();
         if (_active && validate()) {
             ChampionSocket.send({
@@ -81,18 +80,15 @@ var ChampionSignup = (function() {
                 type        : 'account_opening',
             }, function(response) {
                 if (response.verify_email) {
-                    var lang = localStorage.getItem('lang'),
-                        a = document.createElement('a');
-                    a.setAttribute('href', '/' + lang + '/createaccount');
-                    ChampionRouter.forward(a.href);
+                    ChampionRouter.forward(url_for('create-account'));
                 }
             });
         }
-    }
+    };
 
     return {
-        show: show,
-        hide: hide,
+        load  : load,
+        unload: unload,
     };
 })();
 
