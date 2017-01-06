@@ -41,8 +41,17 @@ const InScriptStore = function(object) {
 };
 
 InScriptStore.prototype = {
-    get   : function(key)        { return this.store[key]; },
-    set   : function(key, value) { this.store[key] = value; },
+    get: function(key)        { return this.store[key]; },
+    set: function(key, value) {
+        let obj = this.store;
+        if (Array.isArray(key)) {
+            key.forEach(function(k) {
+                if (k in obj) obj = obj[k];
+                else key = k;
+            });
+        }
+        obj[key] = value;
+    },
     remove: function(key)        { delete this.store[key]; },
     clear : function()           { this.store = {}; },
     has   : function(key)        { return this.get(key) !== undefined; },
@@ -50,6 +59,7 @@ InScriptStore.prototype = {
 };
 
 const State = new InScriptStore();
+State.set('response', {});
 
 const CookieStorage = function(cookie_name, cookie_domain) {
     this.initialized = false;

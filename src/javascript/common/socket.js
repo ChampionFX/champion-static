@@ -1,6 +1,8 @@
 const Cookies     = require('../lib/js-cookie');
 const getLanguage = require('./language').getLanguage;
 const Client      = require('./client');
+const Header      = require('./header');
+const State       = require('./storage').State;
 
 const ChampionSocket = (function() {
     'use strict';
@@ -16,15 +18,33 @@ const ChampionSocket = (function() {
             const token = Cookies.get('token');
             if (token) {
                 ChampionSocket.send({ authorize: token });
+            } else {
+                Header.userMenu();
             }
             ChampionSocket.send({ website_status: 1 });
         } else {
+            let country_code;
+            State.set(['response', message.msg_type], message);
             switch (message.msg_type) {
                 case 'authorize':
                     if (message.error || message.authorize.loginid !== Client.get_value('loginid')) {
                         ChampionSocket.send({ logout: '1' });
                     } else {
                         Client.response_authorize(message);
+                        ChampionSocket.send({ balance: 1, subscribe: 1 });
+                        ChampionSocket.send({ get_settings: 1 });
+                        Header.userMenu();
+                    }
+                    break;
+                case 'balance':
+                    Header.updateBalance(message);
+                    break;
+                case 'get_settings':
+                    if (message.error) return;
+                    country_code = message.get_settings.country_code;
+                    if (country_code) {
+                        Client.set_value('residence', country_code);
+                        ChampionSocket.send({ landing_company: country_code });
                     }
                     break;
                 // no default
