@@ -249,7 +249,9 @@
                                                 <li>[% l("Practice your trading strategy with USD 10,000 worth of virtual funds") %]</li>
                                                 <li>[% l("Replenish your virtual funds when your balance dips below USD 1,000") %]</li>
                                             </ul>
-                                            <a class="button" href=""><span>[% l("Create account") %]</span></a>
+                                            <div class="centered">
+                                                <a class="button" href=""><span>[% l("Create account") %]</span></a>
+                                            </div>
                                         </div>
                                         <div class="col-sm">
                                             <h4>[% l("Real account") %]</h4>
@@ -258,7 +260,9 @@
                                                 <li>[% l("Start trading from as little as USD 5 per contract") %]</li>
                                                 <li>[% l("Win up to USD 50,000 with each correct prediction") %]</li>
                                             </ul>
-                                            <a class="button" href=""><span>[% l("Upgrade") %]</span></a>
+                                            <div class="centered">
+                                                <a class="button" href=""><span>[% l("Upgrade") %]</span></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
