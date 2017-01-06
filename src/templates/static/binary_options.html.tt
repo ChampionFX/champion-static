@@ -1,187 +1,187 @@
 <div class="fx-section">
-	<div class="container">
-		<div class="row">				
-			<div class="col-sm" id="content">
-			<h1>[% l('Binary Options') %]</h1>
-				<div class="content-tab-container tab-with-subsection">
-					<div class="tab-menu">
-						<div class="tab-menu-wrap">
-							<ul class="tm-ul">
-								<li id="first-tab" class="tm-li active first">
-									<span class="menu-wrap-a">
-										<span class="menu-wrap-b">
-											<a class="tm-a first a-active">[% l('Overview') %]</a>
-										</span>
-									</span>
-								</li>
-								<li id="second-tab" class="tm-li">
-									<span class="menu-wrap-a">
-										<span class="menu-wrap-b">
-											<a class="tm-a">[% l('What is binary options trading?') %]</a>
-										</span>
-									</span>
-								</li>
-								<li id="third-tab" class="tm-li">
-									<span class="menu-wrap-a">
-										<span class="menu-wrap-b">
-											<a class="tm-a">[% l('How to trade') %]</a>
-										</span>
-									</span>
-								</li>
-								<li id="fourth-tab" class="tm-li">
-									<span class="menu-wrap-a">
-										<span class="menu-wrap-b">
-											<a class="tm-a">[% l('Binary options trading accounts') %]</a>
-										</span>
-									</span>
-								</li>
-								<li id="fifth-tab" class="tm-li">
-									<span class="menu-wrap-a">
-										<span class="menu-wrap-b">
-											<a class="tm-a">[% l('Champion FX Webtrader') %]</a>
-										</span>
-									</span>
-								</li>
-								
-							</ul>
-						</div>
-					</div>
-					<div class="tab-content">
-						<div class="tab-content-wrapper menu-has-sub-item">
-							<div id="first-tab-content" class="toggle-content">
-								<div class="row">
-									<div class="col-sm">
-										<div class="fx-feature-box">
-											<div class="fx-lg fx-trader"></div>
-											<p>[% l('Binary options trading platforms for champions') %]</p>
-										</div>
-									</div>
-									<div class="col-sm">
-										<div class="fx-feature-box">
-											<div class="fx-lg fx-worldwide"></div>
-											<p>[% l('Enter a whole new world of trading by joining today') %]</p>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-sm">
-										<p>[% l('Champion FX knows our traders love options. That\’s why we’ve provided them with access to a different kind of trading: binary options.') %]</p>
-									</div>
-								</div>
-								<div class="centered">
-									<div class="row">
-										<div class="col-md">
-											<h2>[% l('What is binary options trading') %]</h2>
-											<p>[% l('Understand the simple idea behind binary options, how they work, and their advantages over other financial instruments.') %]</p>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md">
-											<h4>[% l('Simplicity') %]</h4>
-											<p>[% l('Predict the outcome from two possible results. That\’s why it\’s called binary - you\’ll either win or lose.') %]</p>				
-										</div>
-										<div class="col-md">	
-											<h4>[% l('Flexibility') %]</h4>						
-											<p>Choose from a wide range of markets, timescales, and conditions.') %]</p>			
-										</div>
-										<div class="col-md">	
-											<h4>[% l('Limited risk') %]</h4>
-											<p>[% l('Know exactly what you stand to win or lose. Never worry about slippages, margin calls, or stops.') %]</p>			
-										</div>
-									</div>
-									
-									<div class="row">
-										<div class="col-md">
-											<h2>[% l('How to trade binary options') %]</h2>
-											<p>[% l('With binary options, you’re not buying or selling actual assets, only a contract that determines how that asset performs. Learn about the trade types available, as well as the parameters you need to consider such as the underlying market, duration, barrier, and payout.') %]</p>
-										</div>
-									</div>
-									<div class="fx-divider"></div>
-									<div class="row">
-										<div class="col-md">
-											<h2>[% l('Types of accounts') %]</h2>
-											<p>[% l('Champion FX offers two types of accounts for binary options trading. Trade risk-free with a virtual account before you upgrade to a real account.') %]</p>
-										</div>
-									</div>        	
-									<div class="row">
-										<div class="col-md">
-											<h4>[% l('Virtual account') %]</h4>			
-											<p>[% l('Trade with USD 10,000 worth of virtual currency without any risks.') %]</p>
-											<p><a class="button" href=""><span>[% l('Sign up') %]</span></a></p>				
-										</div>
-										<div class="col-md">
-										<h4>[% l('Real account') %]</h4>			
-											<p>[% l('Upgrade to a real account to trade binary options with real money.') %]</p>	
-											<p><a class="button" href=""><span>[% l('Upgrade') %]</span></a></p>
-										</div>
-									</div>
-								</div>										
-							</div>
-							<div id="second-tab-content" class="toggle-content invisible">
-								<h2>[% l('What is binary options trading?') %]</h2>
-								<p>[% l('A binary option is a type of option with a fixed payout. The payout is determined at the start before you purchase the trade. If your prediction is correct, you receive the fixed (and stated) payout. If not, you will lose your initial stake and nothing more. It is called a ‘binary’ option because there can only be two outcomes: you either win or lose.') %]</p>
-								<p>[% l('Whatever market you trade in, always remember that you’re not purchasing the asset itself, but a contract (or "option") that determines how the asset performs over a period of time. This limits your risk and makes it easy for anyone to start trading.') %]</p>
-								<div class="centered">
-									<div class="fx-divider"></div>
-									<h2>[% l('Benefits of binary options trading with Champion FX') %]</h2>
-									<div class="row">
-										<div class="col-md">
-											<h4>[% l('Easy to trade') %]</h4>			
-											<p>[% l('Predict the market condition from two possible outcomes.') %]</p>				
-										</div>
-										<div class="col-md">
-											<h4>[% l('Controlled risk') %]</h4>
-											<p>[% l('Know from the start exactly what you stand to win or lose.') %]</p>	
-										</div>
-										<div class="col-md">
-											<h4>[% l('No surprises') %]</h4>
-											<p>[% l('Never worry about slippages, margin calls, or stops.') %]</p>	
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md">
-											<h4>[% l('Low stakes') %]</h4>			
-											<p>[% l('Deposit as little as USD 5 to start trading.') %]</p>				
-										</div>
-										<div class="col-md">
-											<h4>[% l('Competitive payouts') %]</h4>
-											<p>[% l('Enjoy payouts of up to USD 50,000 with a winning trade.') %]</p>	
-										</div>
-										<div class="col-md">
-											<h4>[% l('Sharp prices') %]</h4>
-											<p>[% l('Benefit from similar rates of return as interbank traders.') %]</p>	
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md">
-											<h4>[% l('Wide product range') %]</h4>			
-											<p>[% l('Trade over 100 types of assets across four markets.') %]</p>				
-										</div>
-										<div class="col-md">
-											<h4>[% l('Simple and intuitive') %]</h4>
-											<p>[% l('Enjoy a trading platform that’s easy to navigate and use.') %]</p>	
-										</div>
-										<div class="col-md">
-											<h4>[% l('Trade the world’s markets') %]</h4>
-											<p>[% l('Diversify your investment portfolio through one platform.') %]</p>	
-										</div>
-									</div>
-								</div>
-							</div>
-							<div id="third-tab-content" class="toggle-content invisible">
-								
-							</div>
-							<div id="fourth-tab-content" class="toggle-content invisible">
-								
-							</div>
-							<div id="fifth-tab-content" class="toggle-content invisible">
-								
-							</div>
-							
-						</div>
-					</div>
-				</div>			
-			</div>
-		</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm" id="content">
+                <h1>[% l('Binary Options') %]</h1>
+                <div class="content-tab-container tab-with-subsection">
+                    <div class="tab-menu">
+                        <div class="tab-menu-wrap">
+                            <ul class="tm-ul">
+                                <li id="first-tab" class="tm-li active first">
+                                    <span class="menu-wrap-a">
+                                        <span class="menu-wrap-b">
+                                            <a class="tm-a first a-active">[% l('Overview') %]</a>
+                                        </span>
+                                    </span>
+                                </li>
+                                <li id="second-tab" class="tm-li">
+                                    <span class="menu-wrap-a">
+                                        <span class="menu-wrap-b">
+                                            <a class="tm-a">[% l('What is binary options trading?') %]</a>
+                                        </span>
+                                    </span>
+                                </li>
+                                <li id="third-tab" class="tm-li">
+                                    <span class="menu-wrap-a">
+                                        <span class="menu-wrap-b">
+                                            <a class="tm-a">[% l('How to trade') %]</a>
+                                        </span>
+                                    </span>
+                                </li>
+                                <li id="fourth-tab" class="tm-li">
+                                    <span class="menu-wrap-a">
+                                        <span class="menu-wrap-b">
+                                            <a class="tm-a">[% l('Binary options trading accounts') %]</a>
+                                        </span>
+                                    </span>
+                                </li>
+                                <li id="fifth-tab" class="tm-li">
+                                    <span class="menu-wrap-a">
+                                        <span class="menu-wrap-b">
+                                            <a class="tm-a">[% l('Champion FX Webtrader') %]</a>
+                                        </span>
+                                    </span>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-content-wrapper menu-has-sub-item">
+                            <div id="first-tab-content" class="toggle-content">
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <div class="fx-feature-box">
+                                            <div class="fx-lg fx-trader"></div>
+                                            <p>[% l('Binary options trading platforms for champions') %]</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm">
+                                        <div class="fx-feature-box">
+                                            <div class="fx-lg fx-worldwide"></div>
+                                            <p>[% l('Enter a whole new world of trading by joining today') %]</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <p>[% l('Champion FX knows our traders love options. That\'s why we\'ve provided them with access to a different kind of trading: binary options.') %]</p>
+                                    </div>
+                                </div>
+                                <div class="centered">
+                                    <div class="row">
+                                        <div class="col-md">
+                                            <h2>[% l('What is binary options trading') %]</h2>
+                                            <p>[% l('Understand the simple idea behind binary options, how they work, and their advantages over other financial instruments.') %]</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md">
+                                            <h4>[% l('Simplicity') %]</h4>
+                                            <p>[% l('Predict the outcome from two possible results. That\'s why it\'s called binary - you\'ll either win or lose.') %]</p>
+                                        </div>
+                                        <div class="col-md">
+                                            <h4>[% l('Flexibility') %]</h4>
+                                            <p>[% l('Choose from a wide range of markets, timescales, and conditions.') %]</p>
+                                        </div>
+                                        <div class="col-md">
+                                            <h4>[% l('Limited risk') %]</h4>
+                                            <p>[% l('Know exactly what you stand to win or lose. Never worry about slippages, margin calls, or stops.') %]</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md">
+                                            <h2>[% l('How to trade binary options') %]</h2>
+                                            <p>[% l('With binary options, you\'re not buying or selling actual assets, only a contract that determines how that asset performs. Learn about the trade types available, as well as the parameters you need to consider such as the underlying market, duration, barrier, and payout.') %]</p>
+                                        </div>
+                                    </div>
+                                    <div class="fx-divider"></div>
+                                    <div class="row">
+                                        <div class="col-md">
+                                            <h2>[% l('Types of accounts') %]</h2>
+                                            <p>[% l('Champion FX offers two types of accounts for binary options trading. Trade risk-free with a virtual account before you upgrade to a real account.') %]</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md">
+                                            <h4>[% l('Virtual account') %]</h4>
+                                            <p>[% l('Trade with USD 10,000 worth of virtual currency without any risks.') %]</p>
+                                            <p><a class="button" href=""><span>[% l('Sign up') %]</span></a></p>
+                                        </div>
+                                        <div class="col-md">
+                                            <h4>[% l('Real account') %]</h4>
+                                            <p>[% l('Upgrade to a real account to trade binary options with real money.') %]</p>
+                                            <p><a class="button" href=""><span>[% l('Upgrade') %]</span></a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="second-tab-content" class="toggle-content invisible">
+                                <h2>[% l('What is binary options trading?') %]</h2>
+                                <p>[% l('A binary option is a type of option with a fixed payout. The payout is determined at the start before you purchase the trade. If your prediction is correct, you receive the fixed (and stated) payout. If not, you will lose your initial stake and nothing more. It is called a \'binary\' option because there can only be two outcomes: you either win or lose.') %]</p>
+                                <p>[% l('Whatever market you trade in, always remember that you\'re not purchasing the asset itself, but a contract (or "option") that determines how the asset performs over a period of time. This limits your risk and makes it easy for anyone to start trading.') %]</p>
+                                <div class="centered">
+                                    <div class="fx-divider"></div>
+                                    <h2>[% l('Benefits of binary options trading with Champion FX') %]</h2>
+                                    <div class="row">
+                                        <div class="col-md">
+                                            <h4>[% l('Easy to trade') %]</h4>
+                                            <p>[% l('Predict the market condition from two possible outcomes.') %]</p>
+                                        </div>
+                                        <div class="col-md">
+                                            <h4>[% l('Controlled risk') %]</h4>
+                                            <p>[% l('Know from the start exactly what you stand to win or lose.') %]</p>
+                                        </div>
+                                        <div class="col-md">
+                                            <h4>[% l('No surprises') %]</h4>
+                                            <p>[% l('Never worry about slippages, margin calls, or stops.') %]</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md">
+                                            <h4>[% l('Low stakes') %]</h4>
+                                            <p>[% l('Deposit as little as USD 5 to start trading.') %]</p>
+                                        </div>
+                                        <div class="col-md">
+                                            <h4>[% l('Competitive payouts') %]</h4>
+                                            <p>[% l('Enjoy payouts of up to USD 50,000 with a winning trade.') %]</p>
+                                        </div>
+                                        <div class="col-md">
+                                            <h4>[% l('Sharp prices') %]</h4>
+                                            <p>[% l('Benefit from similar rates of return as interbank traders.') %]</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md">
+                                            <h4>[% l('Wide product range') %]</h4>
+                                            <p>[% l('Trade over 100 types of assets across four markets.') %]</p>
+                                        </div>
+                                        <div class="col-md">
+                                            <h4>[% l('Simple and intuitive') %]</h4>
+                                            <p>[% l('Enjoy a trading platform that\'s easy to navigate and use.') %]</p>
+                                        </div>
+                                        <div class="col-md">
+                                            <h4>[% l('Trade the world\'s markets') %]</h4>
+                                            <p>[% l('Diversify your investment portfolio through one platform.') %]</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="third-tab-content" class="toggle-content invisible">
+
+                            </div>
+                            <div id="fourth-tab-content" class="toggle-content invisible">
+
+                            </div>
+                            <div id="fifth-tab-content" class="toggle-content invisible">
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

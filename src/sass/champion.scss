@@ -5,25 +5,22 @@
 
 .topbar-contacts {
     display: inline-block;
-}
-
-.topbar-contacts ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    display: inline-block;
-}
-
-.topbar-contacts ul li {
-    display: inline-block;
-    margin: 0px;
-    padding: 5px 12px;
-}
-
-.topbar-contacts ul li a {
-    font-weight: 400;
-    padding: 5px 1px;
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        display: inline-block;
+        li {
+            display: inline-block;
+            margin: 0;
+            padding: 5px 12px;
+            a {
+                font-weight: 400;
+                padding: 5px 1px;
+            }
+        }
+    }
 }
 
 // Header	
@@ -390,37 +387,30 @@ fieldset {
     display: none !important;
 }
 
-.champion-accounts th {
-    text-align: center;
+.champion-accounts {
+    th {
+        text-align: center;
+    }
+    td {
+        &:first-child {
+            width: 25%;
+        }
+        &:nth-child(2), &:nth-child(3), &:last-child {
+            width: 25%;
+            text-align: center;
+        }
+    }
 }
 
-.champion-accounts td:first-child {
-    width: 25%;
-}
-
-.champion-accounts td:nth-child(2) {
-    width: 25%;
-    text-align: center;
-}
-
-.champion-accounts td:nth-child(3) {
-    width: 25%;
-    text-align: center;
-}
-
-.champion-accounts td:last-child {
-    width: 25%;
-    text-align: center;
-}
-
-.binary-accounts th {
-    text-align: center;
-}
-
-.binary-accounts td {
-    width: 50%;
-    text-align: center;
-    vertical-align: middle;
+.binary-accounts {
+    th {
+        text-align: center;
+    }
+    td {
+        width: 50%;
+        text-align: center;
+        vertical-align: middle;
+    }
 }
 
 .forex-accounts td {
@@ -456,10 +446,9 @@ fieldset {
 
 .notes {
     text-align: left;
-}
-
-.notes thead, th {
-    background: none !important;
+    thead, th {
+        background: none !important;
+    }
 }
 
 // fix
@@ -468,13 +457,13 @@ fieldset {
 }
 
 .languages {
-    padding: 0px;
+    padding: 0;
     margin: 0;
     z-index: 9;
 }
 
 .language {
-    padding: 0px 5px;
+    padding: 0 5px;
 }
 
 .top-nav-menu a, a:visited {
@@ -482,17 +471,16 @@ fieldset {
 }
 
 .logo-parent {
-    padding: 11px 0px;
+    padding: 11px 0;
     margin: 0;
 }
 
 .binary-logo-text {
-    padding: 0px;
-}
-
-.binary-logo-text div {
-    width: 150px !important;
-    margin-top: 8px;
+    padding: 0;
+    div {
+        width: 150px !important;
+        margin-top: 8px;
+    }
 }
 
 .test {

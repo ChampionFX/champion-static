@@ -19,8 +19,8 @@ sub all_pages {
         ['why-mt5',                    'static/why_mt5',               'full_width', 'Why MT5'],
         ['create-account',             'static/create_account',        'full_width', 'Create new virtual account'],
         ['endpoint',                   'static/endpoint',              'full_width', 'Endpoint'],
-		['partnerships',               'static/partnerships',          'full_width', 'Partnerships'],
-		['other-markets',              'static/other_markets',         'full_width', 'Other Markets'],
+        ['partnerships',               'static/partnerships',          'full_width', 'Partnerships'],
+#       ['other-markets',              'static/other_markets',         'full_width', 'Other Markets'],
     );
 }
 

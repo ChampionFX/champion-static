@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="logo-wrapper">
-                    <a class="logo-parent" href="https://champion-fx.com">
+                    <a href="[% request.url_for('home') %]" class="logo-parent">
                         <div class="logo">
                             <div></div>
                         </div>
@@ -15,12 +15,12 @@
             </div>
             <div class="col-lg-7">
                 <ul class="top-nav-menu mobile-hide">
-					<li><a href="[% request.url_for('about-us') %]">[% l('About') %]</a></li>
-					<li><a href="[% request.url_for('forex') %]">[% l('Forex') %]</a></li>
-					<li><a href="[% request.url_for('binary-options') %]">[% l('Binary Options') %]</a></li>
-					<li><a href="[% request.url_for('range-of-markets') %]">[% l('Markets') %]</a></li>
-					<li><a href="[% request.url_for('partnerships') %]">[% l('Partnerships') %]</a></li>
-				</ul>
+                    <li><a href="[% request.url_for('about-us') %]">[% l('About') %]</a></li>
+                    <li><a href="[% request.url_for('forex') %]">[% l('Forex') %]</a></li>
+                    <li><a href="[% request.url_for('binary-options') %]">[% l('Binary Options') %]</a></li>
+                    <li><a href="[% request.url_for('range-of-markets') %]">[% l('Markets') %]</a></li>
+                    <li><a href="[% request.url_for('partnerships') %]">[% l('Partnerships') %]</a></li>
+                </ul>
             </div>
             <div class="col-lg-2">
                 <div class="FX__Header__cta"> <a class="button-secondary" href=""><span>[% l('Log In') %]</span></a> </div>
