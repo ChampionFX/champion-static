@@ -1,3 +1,7 @@
 body .top-nav-menu li a {
     padding: 30px;
 }
+
+.main-nav > li > ul {
+    box-sizing: content-box;
+}

@@ -1,13 +1,16 @@
-const ChampionSocket        = require('./socket');
-const ChampionRouter        = require('./router');
-const ChampionSignup        = require('./../pages/signup');
-const ChampionCreateAccount = require('./../pages/create_account');
-const ChampionContact       = require('./../pages/contact');
+const ChampionSocket     = require('./socket');
+const ChampionRouter     = require('./router');
+const ChampionSignup     = require('./../pages/signup');
+const ChampionNewVirtual = require('./../pages/new_account/virtual');
+// const ChampionNewReal    = require('./../pages/new_account/real');
+const ChampionContact    = require('./../pages/contact');
+const ChampionEndpoint   = require('./../pages/endpoint');
+const Client             = require('./client');
+const LoggedIn           = require('./logged_in');
+const Login              = require('./login');
 
 const Champion = (function() {
     'use strict';
-
-    const _authenticated = false;
 
     let _container,
         _signup,
@@ -20,11 +23,17 @@ const Champion = (function() {
         _container.on('champion:after', afterContentChange);
         ChampionRouter.init(_container, '#champion-content');
         ChampionSocket.init();
+        Client.init();
+        if (!Client.is_logged_in()) {
+            $('#main-login a').on('click', () => { Login.redirect_to_login(); });
+        }
     };
 
     const beforeContentChange = () => {
         if (_active_script) {
-            _active_script.unload();
+            if (typeof _active_script.unload === 'function') {
+                _active_script.unload();
+            }
             _active_script = null;
         }
     };
@@ -32,15 +41,18 @@ const Champion = (function() {
     const afterContentChange = (e, content) => {
         const page = content.getAttribute('data-page');
         const pages_map = {
-            'create-account': ChampionCreateAccount,
-            contact         : ChampionContact,
+            virtual    : ChampionNewVirtual,
+            // real       : ChampionNewReal,
+            contact    : ChampionContact,
+            endpoint   : ChampionEndpoint,
+            logged_inws: LoggedIn,
         };
         if (page in pages_map) {
             _active_script = pages_map[page];
             _active_script.load();
         }
 
-        if (!_authenticated) {
+        if (!Client.is_logged_in()) {
             const form = _container.find('#verify-email-form');
             if (!_active_script) _active_script = ChampionSignup;
             ChampionSignup.load(form.length ? form : _signup);

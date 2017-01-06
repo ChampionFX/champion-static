@@ -42,7 +42,12 @@ function url_for_static(path) {
     return staticHost + path;
 }
 
+function default_redirect_url() {
+    return url_for('home');
+}
+
 module.exports = {
-    url_for       : url_for(),
-    url_for_static: url_for_static,
+    url_for             : url_for,
+    url_for_static      : url_for_static,
+    default_redirect_url: default_redirect_url,
 };

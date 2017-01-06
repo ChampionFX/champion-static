@@ -17,8 +17,11 @@ sub all_pages {
         ['range-of-markets',           'static/range_of_markets',      'full_width', 'Range of Markets'],
         ['trading',                    'static/trading',               'full_width', 'Trading'],
         ['why-mt5',                    'static/why_mt5',               'full_width', 'Why MT5'],
-        ['create-account',             'static/create_account',        'full_width', 'Create new virtual account'],
+        ['new-account/virtual',        'new_account/virtual',          'full_width', 'Create new virtual account'],
+        ['new-account/real',           'new_account/real',             'full_width', 'Create new real account'],
+        ['cashier',                    'static/cashier',               'full_width', 'Cashier'],
         ['endpoint',                   'static/endpoint',              'full_width', 'Endpoint'],
+        ['logged_inws',                'static/common/logged_in',      'full_width', 'Logging in...'],
         ['partnerships',               'static/partnerships',          'full_width', 'Partnerships'],
 #       ['other-markets',              'static/other_markets',         'full_width', 'Other Markets'],
     );
