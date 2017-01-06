@@ -1,141 +1,141 @@
 <div class="fill-bg-color centered">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm">
-				<h1 class="fx-title">[% l('Champion FX: Where the Client is King') %]</h1>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h1 class="fx-title">[% l('Champion FX: Where the Client is King') %]</h1>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="fx-home-header content-inverse-color">
-	<div class="">
-		<p>[% l('Trade in the financial markets with a multi-asset trading platform: Meta Trader 5.<br>The choice of the modern trader. One platform, many markets.') %]</p>
-	</div>
-	[% INCLUDE layout/includes/signup.html.tt %]
+    <div class="">
+        <p>[% l('Trade in the financial markets with a multi-asset trading platform: Meta Trader 5.<br>The choice of the modern trader. One platform, many markets.') %]</p>
+    </div>
+    [% INCLUDE layout/includes/signup.html.tt %]
 </div>
 <div class="fx-section fx-home-intro">
-	<div class="container">
-		<div class="row">
-			<div class="col-md flex-md-middle">
-				<p>[% l('Join a licensed broker with a clear vision and un wavering commitment to treating all its clients like champions.') %]</p>
-			</div>
-			<div class="col-md flex-md-middle centered">
-				<img class="w-300" src="[% request.url_for('images/license.svg') %]" alt="">
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md flex-md-middle">
+                <p>[% l('Join a licensed broker with a clear vision and un wavering commitment to treating all its clients like champions.') %]</p>
+            </div>
+            <div class="col-md flex-md-middle centered">
+                <img class="w-300" src="[% request.url_for('images/license.svg') %]" alt="">
+            </div>
+        </div>
+    </div>
 </div>
 <div class="fx-section fill-bg-color centered">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm flex-md-middle">
-				<p class="p-title">[% l('Gain access to our multi-asset trading platform and you can trade Forex, stocks, futures, and CFDs<br>all trough one platform. We provide you with all the necessary tools for financial trading, including:') %]</p>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm flex-md-middle">
+                <p class="p-title">[% l('Gain access to our multi-asset trading platform and you can trade Forex, stocks, futures, and CFDs<br>all trough one platform. We provide you with all the necessary tools for financial trading, including:') %]</p>
+            </div>
+        </div>
+    </div>
     <div class="container centered">
-		<div class="row">
-			<div class="col-md flex-md-middle">
-				<div class="fx-feature-box">
-				    <div class="fx-md fx-technical"></div>
-					<p>[% l('Technical and<br>fundamental analysis') %]</p>
-				</div>
-			</div>
-			<div class="col-md flex-md-middle">
-				<div class="fx-feature-box">
-				    <div class="fx-md fx-algorithmic"></div>
-					<p>[% l('Alogorithmic and<br>copy trading') %]</p>
-				</div>
-			</div>
-			<div class="col-md flex-md-middle">
-				<div class="fx-feature-box">
-				    <div class="fx-md fx-technical-indicator"></div>
-					<p>[% l('Custom technical indicators<br>and trading robots') %]</p>
-				</div>
-			</div>
-		</div>
-	</div>
+        <div class="row">
+            <div class="col-md flex-md-middle">
+                <div class="fx-feature-box">
+                    <div class="fx-md fx-technical"></div>
+                    <p>[% l('Technical and<br>fundamental analysis') %]</p>
+                </div>
+            </div>
+            <div class="col-md flex-md-middle">
+                <div class="fx-feature-box">
+                    <div class="fx-md fx-algorithmic"></div>
+                    <p>[% l('Alogorithmic and<br>copy trading') %]</p>
+                </div>
+            </div>
+            <div class="col-md flex-md-middle">
+                <div class="fx-feature-box">
+                    <div class="fx-md fx-technical-indicator"></div>
+                    <p>[% l('Custom technical indicators<br>and trading robots') %]</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="fx-section">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm centered">
-			     <h2 class="fx-features-title">[% l('Why Choose Champion FX') %]</h2>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md">
-			    <div class="fx-panel fill-bg-color">
-					<div class="fx-panel-item">
-						<div class="fx-xxs fx-king"></div>
-						<div>[% l('The Client is always King') %]</div>
-					</div>
-					<div class="fx-panel-item">
-						<div class="fx-xxs fx-customer-service"></div>
-						<div>[% l('Personalised Customer Service') %]</div>
-					</div>
-					<div class="fx-panel-item">
-						<div class="fx-xxs fx-type-accounts"></div>
-						<div>[% l('Trade a Wide Range of Markets') %]</div>
-					</div>
-					<div class="fx-panel-item">
-						<div class="fx-xxs fx-rebate"></div>
-						<div>[% l('Low Latency & Fast Execution') %]</div>
-					</div>
-					<div class="fx-panel-item">
-						<div class="fx-xxs fx-cent"></div>
-						<div>[% l('Gold Spreads Fixed at 10 Cents') %]</div>
-					</div>
-			    </div>
-			</div>
-			<div class="col-md">
-				<div class="fx-panel fill-bg-color">
-					<div class="fx-panel-item">
-						<div class="fx-xxs fx-no-commission"></div>
-						<div>[% l('Low-Cost Trading') %]</div>
-					</div>
-					<div class="fx-panel-item">
-						<div class="fx-xxs fx-customised-trade"></div>
-						<div>[% l('Tight Spreads with No Commission') %]</div>
-					</div>
-					<div class="fx-panel-item">
-						<div class="fx-xxs fx-no-deal"></div>
-						<div>[% l('No Dealing Desk (NDD) Execution') %]</div>
-					</div>
-					<div class="fx-panel-item">
-						<div class="fx-xxs fx-deposit-withdrawal"></div>
-						<div>[% l('Lightning Fast deposits & Withdrawals') %]</div>
-					</div>
-					<div class="fx-panel-item">
-						<div class="fx-xxs fx-devices"></div>
-						<div>[% l('Wide Choice of Platforms - Desktop, Web & Mobile') %]</div>
-					</div>
-			    </div>
-			</div>
-			<div class="col-md">
-				<div class="fx-panel fill-bg-color">
-					<div class="fx-panel-item">
-						<div class="fx-xxs fx-licensed-broker"></div>
-						<div>[% l('Licensed Broker') %]</div>
-					</div>
-					<div class="fx-panel-item">
-						<div class="fx-xxs fx-fast-execution"></div>
-						<div>[% l('Access to the Largest Market of Expert Advisors') %]</div>
-					</div>
-					<div class="fx-panel-item">
-						<div class="fx-xxs fx-customise"></div>
-						<div>[% l('Customised Trading Conditions') %]</div>
-					</div>
-					<div class="fx-panel-item">
-						<div class="fx-xxs fx-hassle-free"></div>
-						<div>[% l('Fast & Hassle-Free Account Opening') %]</div>
-					</div>
-					<div class="fx-panel-item">
-						<div class="fx-xxs fx-unbeatable"></div>
-						<div>[% l('Unbeatable Leverage Up to 1,000') %]</div>
-					</div>
-			    </div>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm centered">
+                <h2 class="fx-features-title">[% l('Why Choose Champion FX') %]</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <div class="fx-panel fill-bg-color">
+                    <div class="fx-panel-item">
+                        <div class="fx-xxs fx-king"></div>
+                        <div>[% l('The Client is always King') %]</div>
+                    </div>
+                    <div class="fx-panel-item">
+                        <div class="fx-xxs fx-customer-service"></div>
+                        <div>[% l('Personalised Customer Service') %]</div>
+                    </div>
+                    <div class="fx-panel-item">
+                        <div class="fx-xxs fx-type-accounts"></div>
+                        <div>[% l('Trade a Wide Range of Markets') %]</div>
+                    </div>
+                    <div class="fx-panel-item">
+                        <div class="fx-xxs fx-rebate"></div>
+                        <div>[% l('Low Latency & Fast Execution') %]</div>
+                    </div>
+                    <div class="fx-panel-item">
+                        <div class="fx-xxs fx-cent"></div>
+                        <div>[% l('Gold Spreads Fixed at 10 Cents') %]</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="fx-panel fill-bg-color">
+                    <div class="fx-panel-item">
+                        <div class="fx-xxs fx-no-commission"></div>
+                        <div>[% l('Low-Cost Trading') %]</div>
+                    </div>
+                    <div class="fx-panel-item">
+                        <div class="fx-xxs fx-customised-trade"></div>
+                        <div>[% l('Tight Spreads with No Commission') %]</div>
+                    </div>
+                    <div class="fx-panel-item">
+                        <div class="fx-xxs fx-no-deal"></div>
+                        <div>[% l('No Dealing Desk (NDD) Execution') %]</div>
+                    </div>
+                    <div class="fx-panel-item">
+                        <div class="fx-xxs fx-deposit-withdrawal"></div>
+                        <div>[% l('Lightning Fast deposits & Withdrawals ') %]</div>
+                    </div>
+                    <div class="fx-panel-item">
+                        <div class="fx-xxs fx-devices"></div>
+                        <div>[% l('Wide Choice of Platforms - Desktop, Web & Mobile') %]</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="fx-panel fill-bg-color">
+                    <div class="fx-panel-item">
+                        <div class="fx-xxs fx-licensed-broker"></div>
+                        <div>[% l('Licensed Broker') %]</div>
+                    </div>
+                    <div class="fx-panel-item">
+                        <div class="fx-xxs fx-fast-execution"></div>
+                        <div>[% l('Access to the Largest Market of Expert Advisors') %]</div>
+                    </div>
+                    <div class="fx-panel-item">
+                        <div class="fx-xxs fx-customise"></div>
+                        <div>[% l('Customised Trading Conditions') %]</div>
+                    </div>
+                    <div class="fx-panel-item">
+                        <div class="fx-xxs fx-hassle-free"></div>
+                        <div>[% l('Fast & Hassle-Free Account Opening') %]</div>
+                    </div>
+                    <div class="fx-panel-item">
+                        <div class="fx-xxs fx-unbeatable"></div>
+                        <div>[% l('Unbeatable Leverage Up to 1,000') %]</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,153 +1,149 @@
----
-title: [% Why MT5 %]
-tag: main
----
 <div class="fx-section">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm">
-				<h1>[% Why MT5 %]</h1>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm">
-				<p>[% Champion FX believes in giving our clients the best trading platform available. This is why we chose MetaTrader 5. We focus all our efforts and resources to take full advantage of MetaTrader 5's advanced features to give our clients a powerful trading experience that's built to last. %]</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md flex-md-middle centered">
-			    <img class="responsive img-xl" src="{{ "/assets/images/why-mt5.jpg" | relative_url }}" alt="Why MT5">
-				<h2>[% Faster and more powerful. Groundbreaking flexibility. %]</h2>
-                <p>[% MetaTrader 5 is the most advanced trading platform available - the ideal platform for the modern trader. It contains everything you need to trade the financial markets. %]</p>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h1>[% l('Why MT5') %]</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <p>[% l('Champion FX believes in giving our clients the best trading platform available. This is why we chose MetaTrader 5. We focus all our efforts and resources to take full advantage of MetaTrader 5's advanced features to give our clients a powerful trading experience that's built to last.') %]</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md flex-md-middle centered">
+                <img class="responsive img-xl" src="[% request.url_for('images/why-mt5.jpg') %]" alt="Why MT5">
+                <h2>[% l('Faster and more powerful. Groundbreaking flexibility.') %]</h2>
+                <p>[% l('MetaTrader 5 is the most advanced trading platform available - the ideal platform for the modern trader. It contains everything you need to trade the financial markets.') %]</p>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="fx-section">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm">
-				<table class="champion-features">
-					<tbody>
-						<thead>
-							<tr>
-								<th></th>
-								<th>[% Meta Trader 5 %]</th>
-								<th></th>
-								<th>[% Meta Trader 4 %]</th>
-							</tr>
-						</thead>
-						<tr>
-							<td>[% Partial Order Filling Policies %]</td>
-							<td>[% Yes %]</td>
-							<td></td>
-							<td>[% No %]</td>
-						</tr>
-						<tr>
-							<td>[% Order Fill Policy %]</td>
-							<td>[% Fill or Kill Immediate or Cancel %]</td>
-							<td></td>
-							<td>[% Fill or Kill %]</td>
-						</tr>
-						<tr>
-							<td>[% Pending Order Types %]</td>
-							<td>6</td>
-							<td></td>
-							<td>4</td>
-						</tr>
-						<tr>
-							<td>[% Depth of Market %]</td>
-							<td>[% Yes %]</td>
-							<td></td>
-							<td>[% No %]</td>
-						</tr>
-						<tr>
-							<td>[% Time & Sales (Exchange data) %]</td>
-							<td>[% Yes %]</td>
-							<td></td>
-							<td>[% No %]</td>
-						</tr>
-						<tr>
-							<td>[% Technical Indicators %]</td>
-							<td>38</td>
-							<td></td>
-							<td>30</td>
-						</tr>
-						<tr>
-							<td>[% Graphical Objects %]</td>
-							<td>44</td>
-							<td></td>
-							<td>31</td>
-						</tr>
-						<tr>
-							<td>[% Timeframes %]</td>
-							<td>21</td>
-							<td></td>
-							<td>9</td>
-						</tr>
-						<tr>
-							<td>[% Economic Calendar %]</td>
-							<td>[% Yes %]</td>
-							<td></td>
-							<td>[% No %]</td>
-						</tr>
-						<tr>
-							<td>[% Email System %]</td>
-							<td>[% Yes (with attachments) %]</td>
-							<td></td>
-							<td>[% No %]</td>
-						</tr>
-						<tr>
-							<td>[% Transfer funds between accounts %]</td>
-							<td>[% Yes %]</td>
-							<td></td>
-							<td>[% No %]</td>
-						</tr>
-						<tr>
-							<td>[% Embeded MQL5 community chat %]</td>
-							<td>[% Yes %]</td>
-							<td></td>
-							<td>[% No %]</td>
-						</tr>
-						<tr>
-							<td>[% Strategy Tester %]</td>
-							<td>[% Yes %]</td>
-							<td></td>
-							<td>[% No %]</td>
-						</tr>
-						<tr>
-							<td>[% Multilingual Unicode %]</td>
-							<td>[% Yes %]</td>
-							<td></td>
-							<td>[% No %]</td>
-						</tr>
-						<tr>
-							<td>[% Netting %]</td>
-							<td>[% Yes %]</td>
-							<td></td>
-							<td>[% No %]</td>
-						</tr>
-						<tr>
-							<td>[% Hedging %]</td>
-							<td>[% Yes %]</td>
-							<td></td>
-							<td>[% No %]</td>
-						</tr>
-						<tr>
-							<td>[% Symbols %]</td>
-							<td>[% Unlimited %]</td>
-							<td></td>
-							<td>1,024</td>
-						</tr>
-						<tr>
-							<td>[% Exchange Trading %]</td>
-							<td>[% Yes %]</td>
-							<td></td>
-							<td>[% No %]</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <table class="champion-features">
+                    <tbody>
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>[% l('Meta Trader 5') %]</th>
+                        <th></th>
+                        <th>[% l('Meta Trader 4') %]</th>
+                    </tr>
+                    </thead>
+                    <tr>
+                        <td>[% l('Partial Order Filling Policies') %]</td>
+                        <td>[% l('Yes') %]</td>
+                        <td></td>
+                        <td>[% l('No') %]</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Order Fill Policy') %]</td>
+                        <td>[% l('Fill or Kill Immediate or Cancel') %]</td>
+                        <td></td>
+                        <td>[% l('Fill or Kill') %]</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Pending Order Types') %]</td>
+                        <td>6</td>
+                        <td></td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Depth of Market') %]</td>
+                        <td>[% l('Yes') %]</td>
+                        <td></td>
+                        <td>[% l('No') %]</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Time & Sales (Exchange data)') %]</td>
+                        <td>[% l('Yes') %]</td>
+                        <td></td>
+                        <td>[% l('No') %]</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Technical Indicators') %]</td>
+                        <td>38</td>
+                        <td></td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Graphical Objects') %]</td>
+                        <td>44</td>
+                        <td></td>
+                        <td>31</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Timeframes') %]</td>
+                        <td>21</td>
+                        <td></td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Economic Calendar') %]</td>
+                        <td>[% l('Yes') %]</td>
+                        <td></td>
+                        <td>[% l('No') %]</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Email System') %]</td>
+                        <td>[% l('Yes (with attachments)') %]</td>
+                        <td></td>
+                        <td>[% l('No') %]</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Transfer funds between accounts') %]</td>
+                        <td>[% l('Yes') %]</td>
+                        <td></td>
+                        <td>[% l('No') %]</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Embeded MQL5 community chat') %]</td>
+                        <td>[% l('Yes') %]</td>
+                        <td></td>
+                        <td>[% l('No') %]</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Strategy Tester') %]</td>
+                        <td>[% l('Yes') %]</td>
+                        <td></td>
+                        <td>[% l('No') %]</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Multilingual Unicode') %]</td>
+                        <td>[% l('Yes') %]</td>
+                        <td></td>
+                        <td>[% l('No') %]</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Netting') %]</td>
+                        <td>[% l('Yes') %]</td>
+                        <td></td>
+                        <td>[% l('No') %]</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Hedging') %]</td>
+                        <td>[% l('Yes') %]</td>
+                        <td></td>
+                        <td>[% l('No') %]</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Symbols') %]</td>
+                        <td>[% l('Unlimited') %]</td>
+                        <td></td>
+                        <td>1,024</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Exchange Trading') %]</td>
+                        <td>[% l('Yes') %]</td>
+                        <td></td>
+                        <td>[% l('No') %]</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
