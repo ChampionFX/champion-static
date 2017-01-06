@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="[%= css_file =%]">
     [% END %]
     [%= FOREACH js IN javascript.libs =%]
-        <script src='[%= js =%]' defer async></script>
+        <script src='[%= js =%]'></script>
     [%= END =%]
     [% IF language == 'ACH' %]
         [% INCLUDE layout/includes/crowdin.html.tt %]

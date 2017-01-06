@@ -1,10 +1,34 @@
-<div id="topbar" class="primary-color-dark content-inverse-color">
+<div class="topbar primary-color-dark">
     <div class="fx-container">
         <div class="row">
-            <div class="col-sm-12">
-                <ul>
-                    <li class="last"><a href="[% request.url_for('contact') %]">[% l('Contact Us') %]</a></li>
-                </ul>
+            <div class="col-sm-12 topbar-container flex-items-sm-middle">
+                <div class="topbar-contacts">
+                    <ul>
+                        <li class="last"><a href="[% request.url_for('contact') %]">[% l('Contact Us') %]</a></li>
+                    </ul>
+                </div>
+                <div class="invisible">
+                    <div class="languages">
+                        <ul id="display_language">
+                            <li class="EN"> <span class="world world-white"></span> <span class="language">English</span> <span class="nav-caret"></span> </li>
+                        </ul>
+                        <ul id="select_language">
+                            <li class="EN"> <span class="world world-black"></span> <span class="language">English</span> <span class="nav-caret"></span> </li>
+                            <li class="ID">Indonesia</li>
+                            <li class="DE">Deutsch</li>
+                            <li class="EN invisible">English</li>
+                            <li class="ES">Español</li>
+                            <li class="FR">Français</li>
+                            <li class="IT">Italiano</li>
+                            <li class="PL">Polski</li>
+                            <li class="PT">Português</li>
+                            <li class="RU">Русский</li>
+                            <li class="VI">Tiếng Việt</li>
+                            <li class="ZH_CN">简体中文</li>
+                            <li class="ZH_TW">繁體中文</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -144,6 +144,9 @@ sub js_config {
         push @libs, root_url . "js/bundle.min.js?$static_hash";
     }
 
+    # Binary-style
+    push @libs, "https://style.champion-fx.com/binary.js?$static_hash";
+
     return {
         libs     => \@libs,
     };
