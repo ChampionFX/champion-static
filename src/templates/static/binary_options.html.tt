@@ -169,13 +169,110 @@
                                 </div>
                             </div>
                             <div id="third-tab-content" class="toggle-content invisible">
-
+                                <h2>[% l("How to trade binary options") %]</h2>
+                                <p>[% l("Trading binary options is relatively easy, and you can purchase a trade in only three simple steps.") %]</p>
+                                <div class="row centered">
+                                    <div class="col-md">
+                                        <div class="fx-lg">
+                                            <img src="[% request.url_for('images/binary-options-1.png') %]" />
+                                        </div>
+                                        <p><strong>[% l("Define your position") %]</strong></p>
+                                        <p>[% l("Consider the market, duration, barrier, and payout.") %]</p>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="fx-lg">
+                                            <img src="[% request.url_for('images/binary-options-2.png') %]" />
+                                        </div>
+                                        <p><strong>[% l("Get your price") %]</strong></p>
+                                        <p>[% l("Receive instant prices based on your position.") %]</p>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="fx-lg">
+                                            <img src="[% request.url_for('images/binary-options-3.png') %]" />
+                                        </div>
+                                        <p><strong>[% l("Make your trade") %]</strong></p>
+                                        <p>[% l("Choose to buy, or redefine your position.") %]</p>
+                                    </div>
+                                </div>
+                                <h4>[% l("Step 1: Define your position") %]</h4>
+                                <div><img src="[% request.url_for('images/binary-options-4.png') %]" /></div>
+                                <p>[% l("First, you need to set the parameters of your trade. Here's what you need to consider.") %]</p>
+                                <ul class="bullet">
+                                    <li>
+                                        [% l("Underlying market") %]
+                                        <p>[% l("Choose the asset you wish to trade, such as gold, oil, stocks, or currency pairs. The value of a binary option is derived from the price of the underlying asset. One advantage of trading binary options is that you are not buying or selling the actual asset, only a contract that determines how that asset performs.") %]</p>
+                                        <p>[% l("Choose from five types of markets and their respective assets:") %]</p>
+                                        <ul class="bullet">
+                                            <li>[% l("Currencies – All major Forex pairs") %]</li>
+                                            <li>[% l("Stock indices – All major worldwide stock indices sourced from the over-the-counter market") %]</li>
+                                            <li>[% l("Commodities – Major commodities such as gold and oil") %]</li>
+                                            <li>[% l("OTC stocks – Blue-chip stock contracts sourced from the over-the-counter market") %]</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        [% l("Trade type") %]
+                                        <p>[% l("There are four trade types for you to choose from:") %]</p>
+                                        <ul class="bullet">
+                                            <li>[% l("Rise/Fall – Predict if the market will rise or fall from its current level") %]</li>
+                                            <li>[% l("Higher/Lower – Predict if the market will end higher or lower than a target price") %]</li>
+                                            <li>[% l("Touch/No Touch – Predict if the market will touch or not touch a target price") %]</li>
+                                            <li>[% l("In/Out – Predict if the market will stay between or outside two target prices") %]</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        [% l("Duration") %]
+                                        <p>[% l("Set the length of your trade, from 10 seconds to 365 days. You don’t even need to wait until expiry. Sell back any long-term trades that you purchased at any time to profit from favourable market conditions.") %]</p>
+                                    </li>
+                                    <li>
+                                        [% l("Barrier(s)") %]
+                                        <p>[% l("Set barrier(s) to define your position and trigger the payout you will receive.") %]</p>
+                                    </li>
+                                    <li>
+                                        [% l("Trade type") %]
+                                        <p>[% l("Each trade comes with a pre-determined payout that you will see after adjusting each parameter. You’ll win the payout if your prediction is correct.") %]</p>
+                                    </li>
+                                </ul>
+                                <h4>[% l("Step 2: Get your price") %]</h4>
+                                <p>[% l("Our prices are benchmarked against the interbank options market, so you always get the best prices. You’ll always receive fair and transparent pricing, whatever your position.") %]</p>
+                                <h4>[% l("Step 3: Make your trade") %]</h4>
+                                <p>[% l("When you are satisfied with the price that you receive, execute your trade immediately. With our unique platform, there’s no risk of ‘slippage’ or gapping markets. And most importantly, there are no hidden fees. You can also sell back any long-term trades at any time to profit from favourable market conditions.") %]</p>
                             </div>
                             <div id="fourth-tab-content" class="toggle-content invisible">
-
+                                <h2>[% l("Binary options trading accounts") %]</h2>
+                                <p>[% l("Ready to start trading binary options? Every client starts with a risk-free virtual account before upgrading to a real account.") %]</p>
+                                <div class="fill-bg-color lg-padding">
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <h4>[% l("Virtual account") %]</h4>
+                                            <ul class="bullet">
+                                                <li>[% l("Learn the ins and outs of binary options trading, risk-free") %]</li>
+                                                <li>[% l("Practice your trading strategy with USD 10,000 worth of virtual funds") %]</li>
+                                                <li>[% l("Replenish your virtual funds when your balance dips below USD 1,000") %]</li>
+                                            </ul>
+                                            <a class="button" href=""><span>[% l("Create account") %]</span></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <h4>[% l("Real account") %]</h4>
+                                            <ul class="bullet">
+                                                <li>[% l("Deposit as little as USD 5 to fund your account") %]</li>
+                                                <li>[% l("Start trading from as little as USD 5 per contract") %]</li>
+                                                <li>[% l("Win up to USD 50,000 with each correct prediction") %]</li>
+                                            </ul>
+                                            <a class="button" href=""><span>[% l("Upgrade") %]</span></a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div id="fifth-tab-content" class="toggle-content invisible">
-
+                                <h2>[% l("Champion FX Webtrader") %]</h2>
+                                <p>[% l("Introducing the world’s most versatile binary options trading platform.") %]</p>
+                                <p>[% l("Enjoy a rich user experience on a full-screen trading interface that can be customised according to your personal preferences.") %]</p>
+                                <p>[% l("Webtrader lets you monitor all your favourite assets and markets at the same time, as well as charts, the asset index, trading times, and historical data. Most importantly, you get to choose what you want to see on your screen.") %]</p>
+                                <div class="centered">
+                                    <a class="button" href="https://webtrader.champion-fx.com" target="_blank">
+                                        <span>[% l("Lauch Webtrader") %]</span>
+                                    </a>
+                                </div>
                             </div>
 
                         </div>
