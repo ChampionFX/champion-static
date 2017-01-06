@@ -42,6 +42,7 @@ const Client = (function () {
     };
 
     const set_storage_value = (key, value) => {
+        if (value === undefined) value = '';
         client_object[key] = value;
         return LocalStore.set(`client.${key}`, value);
     };
@@ -98,11 +99,12 @@ const Client = (function () {
         return true;
     };
 
-    const set_cookie = (cookieName, Value, domain) => {
+    const set_cookie = (cookieName, value, domain) => {
         const cookie_expire = new Date();
         cookie_expire.setDate(cookie_expire.getDate() + 60);
         const cookie = new CookieStorage(cookieName, domain);
-        cookie.write(Value, cookie_expire, true);
+        if (value === undefined) value = '';
+        cookie.write(value, cookie_expire, true);
     };
 
     const process_new_account = (client_email, client_loginid, token, virtual_client) => {
@@ -113,7 +115,7 @@ const Client = (function () {
         add_token(client_loginid, token);
         // set cookies
         set_cookie('email',        client_email);
-        set_cookie('login',        token);
+        set_cookie('token',        token);
         set_cookie('loginid',      client_loginid);
         set_cookie('loginid_list', virtual_client ? `${client_loginid}:V:E` : `${client_loginid}:R:E+${Cookies.get('loginid_list')}`);
         // set local storage
@@ -123,6 +125,8 @@ const Client = (function () {
     };
 
     const is_logged_in = () => get_boolean('is_logged_in');
+
+    const is_virtual = () => get_boolean('is_virtual');
 
     return {
         init                : init,
@@ -136,6 +140,7 @@ const Client = (function () {
         set_cookie          : set_cookie,
         process_new_account : process_new_account,
         is_logged_in        : is_logged_in,
+        is_virtual          : is_virtual,
     };
 })();
 

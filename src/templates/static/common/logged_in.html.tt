@@ -1,0 +1,9 @@
+<style>
+    .FX__Header__cta, #signup {display: none;}
+    #loading_link {display: inline-block;}
+</style>
+<div id="login_loading" class="centered">
+    <a href="[% request.url_for('/') %]" id="loading_link">
+        [% INCLUDE static/common/loading.html.tt %]
+    </a>
+</div>

@@ -1,5 +1,6 @@
 const Cookies     = require('../lib/js-cookie');
 const getLanguage = require('./language').getLanguage;
+const Client      = require('./client');
 
 const ChampionSocket = (function() {
     'use strict';
@@ -16,9 +17,15 @@ const ChampionSocket = (function() {
             if (token) {
                 ChampionSocket.send({ authorize: token });
             }
+            ChampionSocket.send({ website_status: 1 });
         } else {
             switch (message.msg_type) {
-                case 'authenticate':
+                case 'authorize':
+                    if (message.error || message.authorize.loginid !== Client.get_value('loginid')) {
+                        ChampionSocket.send({ logout: '1' });
+                    } else {
+                        Client.response_authorize(message);
+                    }
                     break;
                 // no default
             }
