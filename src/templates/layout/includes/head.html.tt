@@ -16,7 +16,9 @@
     <meta name="description" content="[% l('ChampionFX Static') %]" />
     <link rel="stylesheet" href="https://style.champion-fx.com/binary.css" />
     <link rel="icon" type="image/png" sizes="16x16" href="[% request.url_for('images/favicons/CFX_favicon16.png') %]" />
-    <link rel="icon" type="image/png" sizes="32x32" href="[% request.url_for('images/favicons/CFX_favicon32.png') %]" />
+    <link rel="icon" type="image/png" sizes="32x32" href="[% request.url_for('images/favicons/CFX_favicon32.png') %]" />	
+	<script src="https://www.champion-fx.com/assets/js/lib/jquery-3.1.1.min.js"></script>
+	<script src="https://style.champion-fx.com/binary.js"></script>
     [% FOREACH css_file IN css_files =%]
         <link rel="stylesheet" href="[%= css_file =%]">
     [% END %]
