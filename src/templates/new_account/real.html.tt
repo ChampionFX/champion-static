@@ -1,0 +1,246 @@
+<div class="fx-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h1>[% l('Real Money Account Opening') %]</h1>
+            </div>
+        </div>
+
+        <form id="frm_new_account_real">
+            <fieldset>
+                <legend id="details">[% l('Details') %]</legend>
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="form-label">
+                            <label for="title">[% l('Title') %]</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="form-input">
+                            <select id="title" name="title">
+                                <option value="Mr">[% l('Mr') %]</option>
+                                <option value="Mrs">[% l('Mrs') %]</option>
+                                <option value="Ms">[% l('Ms') %]</option>
+                                <option value="Miss">[% l('Miss') %]</option>
+                            </select>
+                            <p class="error-msg hidden" id="error-title" style="display:none"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="form-label">
+                            <label for="fname">[% l('First name') %]</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="form-input">
+                            <input type="text" class="text" id="fname" name="fname" maxlength="30" />
+                            <p class="error-msg hidden" id="error-fname" style="display:none"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="form-label">
+                            <label for="lname">[% l('Family name') %]</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="form-input">
+                            <input type="text" class="text" id="lname" name="lname" maxlength="30" />
+                            <p class="error-msg hidden" id="error-lname" style="display:none"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="form-label">
+                            <label for="dobdd">[% l('Date of birth') %]</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="form-input">
+                            <select name="dobdd" id="dobdd"></select>
+                            <select name="dobmm" id="dobmm"></select>
+                            <select name="dobyy" id="dobyy"></select>
+                            <p class="error-msg hidden" id="error-birthdate" style="display:none"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="form-label">
+                            <label for="residence-disabled">[% l('Country of residence') %]</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="form-input">
+                            <span id="move-residence-back"></span>
+                            <select name="residence-disabled" id="residence-disabled" disabled></select>
+                            <p class="error-msg hidden" id="error-residence" style="display:none"></p>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend id="address">[% l('Address') %]</legend>
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="form-label">
+                            <label for="address1">[% l('First line of home address') %]</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="form-input">
+                            <input type="text" class="text" id="address1" name="address1" maxlength="70" />
+                            <p class="error-msg hidden" id="error-address1" style="display:none"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="form-label">
+                            <label for="address2">[% l('Second line of home address') %]</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="form-input">
+                            <input type="text" class="text" id="address2" name="address2" maxlength="70" />
+                            <p class="error-msg hidden" id="error-address2" style="display:none"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="form-label">
+                            <label for="address-town">[% l('Town/City') %]</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="form-input">
+                            <input type="text" class="text" id="address-town" name="address-town" maxlength="35" />
+                            <p class="error-msg hidden" id="error-town" style="display:none"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="form-label">
+                            <label for="address-state">[% l('State/Province') %]</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="form-input">
+                            <select id="address-state" name="address-state"></select>
+                            <p class="error-msg hidden" id="error-state" style="display:none"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="form-label">
+                            <label for="address-postcode">[% l('Postal code/ZIP') %]</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="form-input">
+                            <input type="text" class="text" id="address-postcode" name="address-postcode" maxlength="20"></select>
+                            <p class="error-msg hidden" id="error-postcode" style="display:none"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="form-label">
+                            <label for="tel">[% l('Telephone') %]</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="form-input">
+                            <input type="text" class="text" id="tel" name="tel" maxlength="35"></select>
+                            <p class="error-msg hidden" id="error-tel" style="display:none"></p>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend id="security">[% l('Security') %]</legend>
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="form-label">
+                            <label for="secret-question">[% l('Secret question') %]</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="form-input">
+                            <select id="secret-question">
+                                <option value="Favourite dish">[% l('Favourite dish') %]</option>
+                                <option value="Mother's maiden name">[% l("Mother's maiden name") %]</option>
+                                <option value="Name of your pet">[% l('Name of your pet') %]</option>
+                                <option value="Name of first love">[% l('Name of first love') %]</option>
+                                <option value="Memorable town/city">[% l('Memorable town/city') %]</option>
+                                <option value="Memorable date">[% l('Memorable date') %]</option>
+                                <option value="Brand of first car">[% l('Brand of first car') %]</option>
+                                <option value="Favourite artist">[% l('Favourite artist') %]</option>
+                            </select>
+                            <p class="error-msg hidden" id="error-question" style="display:none"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="form-label">
+                            <label for="secret-answer">[% l('Answer to secret question') %]</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="form-input">
+                            <input type="text" class="text" id="secret-answer" maxlength="50" autocomplete="off"/>
+                            <p class="error-msg hidden" id="error-answer" style="display:none"></p>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="center-text" id="formlayout">
+                <div class="row">
+                    <div class="col-xs-12 centered">
+                        <p>
+                            <input type="checkbox" name="tnc" id="tnc">
+                                <span onclick="document.getElementById('tnc').checked=!document.getElementById('tnc').checked">[% l('I have read and agree to the') %] <a target="_blank" href="[% request.url_for('/terms-and-conditions') %]">[% l('terms and conditions') %]</a> [% l('of the site.') %]</span>
+                            </input>
+                        </p>
+                        <p class="errorfield" id="error-tnc" style="display:none"></p>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="submit-holder">
+                <button class="btn btn-default" id="btn_submit" type="submit">[% l('Open Account') %]</button>
+            </div>
+        </form>
+
+        <div class="errorbox rbox" id="client_message" style="display:none">
+            <div class="rbox-wrap">
+                <div class="gr-12 rbox-content" id="client_message_content">
+                    <p class="center notice-msg"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

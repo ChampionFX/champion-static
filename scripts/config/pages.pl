@@ -18,6 +18,7 @@ sub all_pages {
 #        ['trading',                    'static/trading',               'full_width', 'Trading'],
 #        ['why-mt5',                    'static/why_mt5',               'full_width', 'Why MT5'],
         ['new-account/virtual',        'new_account/virtual',          'full_width', 'Create new virtual account'],
+        ['new-account/real',           'new_account/real',             'full_width', 'Create new real account'],
         ['cashier',                    'static/cashier',               'full_width', 'Cashier'],
         ['endpoint',                   'static/endpoint',              'full_width', 'Endpoint'],
         ['logged_inws',                'static/common/logged_in',      'full_width', 'Logging in...'],
