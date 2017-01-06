@@ -65,7 +65,7 @@
 								</div>
 								<div class="row">
 									<div class="col-sm">
-										<p>[% l('Champion FX knows our traders love options. That’s why we’ve provided them with access to a different kind of trading: binary options.') %]</p>
+										<p>[% l('Champion FX knows our traders love options. That\’s why we’ve provided them with access to a different kind of trading: binary options.') %]</p>
 									</div>
 								</div>
 								<div class="centered">
@@ -78,7 +78,7 @@
 									<div class="row">
 										<div class="col-md">
 											<h4>[% l('Simplicity') %]</h4>
-											<p>[% l('Predict the outcome from two possible results. That’s why it’s called binary - you’ll either win or lose.') %]</p>				
+											<p>[% l('Predict the outcome from two possible results. That\’s why it\’s called binary - you\’ll either win or lose.') %]</p>				
 										</div>
 										<div class="col-md">	
 											<h4>[% l('Flexibility') %]</h4>						
@@ -120,17 +120,17 @@
 							<div id="second-tab-content" class="toggle-content invisible">
 								<h2>[% l('What is binary options trading?') %]</h2>
 								<p>[% l('A binary option is a type of option with a fixed payout. The payout is determined at the start before you purchase the trade. If your prediction is correct, you receive the fixed (and stated) payout. If not, you will lose your initial stake and nothing more. It is called a ‘binary’ option because there can only be two outcomes: you either win or lose.') %]</p>
-								<p>[% l('Whatever market you trade in, always remember that you’re not purchasing the asset itself, but a contract (or ‘option’) that determines how the asset performs over a period of time. This limits your risk and makes it easy for anyone to start trading.') %]</p>
+								<p>[% l('Whatever market you trade in, always remember that you’re not purchasing the asset itself, but a contract (or "option") that determines how the asset performs over a period of time. This limits your risk and makes it easy for anyone to start trading.') %]</p>
 								<div class="centered">
 									<div class="fx-divider"></div>
 									<h2>[% l('Benefits of binary options trading with Champion FX') %]</h2>
 									<div class="row">
 										<div class="col-md">
-											<h4>[% l('Easy to trade</h4>			
+											<h4>[% l('Easy to trade') %]</h4>			
 											<p>[% l('Predict the market condition from two possible outcomes.') %]</p>				
 										</div>
 										<div class="col-md">
-											<h4>[% l('Controlled risk</h4>
+											<h4>[% l('Controlled risk') %]</h4>
 											<p>[% l('Know from the start exactly what you stand to win or lose.') %]</p>	
 										</div>
 										<div class="col-md">
