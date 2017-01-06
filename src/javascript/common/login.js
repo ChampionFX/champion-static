@@ -1,12 +1,12 @@
 const getAppId    = require('../common/socket').getAppId;
-const getLanguage = require('./url').getLanguage;
-const Client      = require('./client').Client;
+const getLanguage = require('./language').getLanguage;
+const Client      = require('./client');
 
 const Login = (function() {
     'use strict';
 
     const redirect_to_login = () => {
-        if (!Client.is_logged_in && !is_login_pages()) {
+        if (!Client.is_logged_in() && !is_login_pages()) {
             try {
                 sessionStorage.setItem('redirect_url', window.location.href);
             } catch (e) {

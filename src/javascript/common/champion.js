@@ -6,11 +6,10 @@ const ChampionContact    = require('./../pages/contact');
 const ChampionEndpoint   = require('./../pages/endpoint');
 const Client             = require('./client');
 const LoggedIn           = require('./logged_in');
+const Login              = require('./login');
 
 const Champion = (function() {
     'use strict';
-
-    const _authenticated = false;
 
     let _container,
         _signup,
@@ -24,6 +23,9 @@ const Champion = (function() {
         ChampionRouter.init(_container, '#champion-content');
         ChampionSocket.init();
         Client.init();
+        if (!Client.is_logged_in()) {
+            $('#main-login a').on('click', () => { Login.redirect_to_login(); });
+        }
     };
 
     const beforeContentChange = () => {
@@ -48,7 +50,7 @@ const Champion = (function() {
             _active_script.load();
         }
 
-        if (!_authenticated) {
+        if (!Client.is_logged_in()) {
             const form = _container.find('#verify-email-form');
             if (!_active_script) _active_script = ChampionSignup;
             ChampionSignup.load(form.length ? form : _signup);

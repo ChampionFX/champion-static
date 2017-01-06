@@ -128,6 +128,36 @@ const Client = (function () {
 
     const is_virtual = () => get_boolean('is_virtual');
 
+    const do_logout = (response) => {
+        if (response.logout !== 1) return;
+        Client.clear_storage_values();
+        LocalStore.remove('client.tokens');
+        sessionStorage.removeItem('client_status');
+        const cookies = ['token', 'loginid', 'loginid_list', 'email'];
+        const domains = [
+            `.${document.domain.split('.').slice(-2).join('.')}`,
+            `.${document.domain}`,
+        ];
+
+        let parent_path = window.location.pathname.split('/', 2)[1];
+        if (parent_path !== '') {
+            parent_path = `/${parent_path}`;
+        }
+
+        cookies.forEach(function(c) {
+            const regex = new RegExp(c);
+            Cookies.remove(c, { path: '/', domain: domains[0] });
+            Cookies.remove(c, { path: '/', domain: domains[1] });
+            Cookies.remove(c);
+            if (regex.test(document.cookie) && parent_path) {
+                Cookies.remove(c, { path: parent_path, domain: domains[0] });
+                Cookies.remove(c, { path: parent_path, domain: domains[1] });
+                Cookies.remove(c, { path: parent_path });
+            }
+        });
+        window.location.reload();
+    };
+
     return {
         init                : init,
         redirect_if_login   : redirect_if_login,
@@ -141,6 +171,7 @@ const Client = (function () {
         process_new_account : process_new_account,
         is_logged_in        : is_logged_in,
         is_virtual          : is_virtual,
+        do_logout           : do_logout,
     };
 })();
 

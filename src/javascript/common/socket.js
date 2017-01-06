@@ -34,7 +34,13 @@ const ChampionSocket = (function() {
                         ChampionSocket.send({ balance: 1, subscribe: 1 });
                         ChampionSocket.send({ get_settings: 1 });
                         Header.userMenu();
+                        $('#btn_logout').click(() => { // TODO: to be moved from here
+                            ChampionSocket.send({ logout: 1 });
+                        });
                     }
+                    break;
+                case 'logout':
+                    Client.do_logout(message);
                     break;
                 case 'balance':
                     Header.updateBalance(message);
@@ -49,7 +55,6 @@ const ChampionSocket = (function() {
                     break;
                 // no default
             }
-            console.log(message);
         }
     };
 
