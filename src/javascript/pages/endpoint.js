@@ -4,13 +4,19 @@ const getServer = require('../common/socket').getServer;
 const ChampionEndpoint = (function() {
     'use strict';
 
-    const $container = $('#champion-container');
-    const $txt_server_url     = $container.find('#txt_server_url');
-    const $txt_app_id         = $container.find('#txt_app_id');
-    const $btn_set_endpoint   = $container.find('#btn_set_endpoint');
-    const $btn_reset_endpoint = $container.find('#btn_reset_endpoint');
+    let $container,
+        $txt_server_url,
+        $txt_app_id,
+        $btn_set_endpoint,
+        $btn_reset_endpoint;
 
     const load = () => {
+        $container          = $('#champion-container');
+        $txt_server_url     = $container.find('#txt_server_url');
+        $txt_app_id         = $container.find('#txt_app_id');
+        $btn_set_endpoint   = $container.find('#btn_set_endpoint');
+        $btn_reset_endpoint = $container.find('#btn_reset_endpoint');
+
         $txt_server_url.val(getServer());
         $txt_app_id.val(getAppId());
 
