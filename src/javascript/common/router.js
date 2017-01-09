@@ -51,12 +51,16 @@ const ChampionRouter = (function() {
                 content: content,
             });
             window.history.replaceState({ url: url }, title, url);
-            content.attr('data-page', url.match('.+\/(.+)\.html.*')[1]);
+            setDataPage(content, url);
             params.container.trigger('champion:after', content);
         }
 
         $(document).find('a').on('click', handleClick);
         $(window).on('popstate', handlePopstate);
+    };
+
+    const setDataPage = (content, url) => {
+        content.attr('data-page', url.match('.+\/(.+)\.html.*')[1]);
     };
 
     const handleClick = (event) => {
@@ -118,6 +122,7 @@ const ChampionRouter = (function() {
                 return;
             }
 
+            setDataPage(result.content, url);
             cachePut(url, result);
             replaceContent(url, result, replace);
         };
