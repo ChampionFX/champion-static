@@ -80,7 +80,7 @@ const ChampionSignup = (function() {
                 type        : 'account_opening',
             }, function(response) {
                 if (response.verify_email) {
-                    ChampionRouter.forward(url_for('create-account'));
+                    ChampionRouter.forward(url_for('new-account/virtual'));
                 }
             });
         }

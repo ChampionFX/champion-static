@@ -52,8 +52,10 @@ const Champion = (function() {
             _active_script.load();
         }
 
-        if (!Client.is_logged_in()) {
-            const form = _container.find('#verify-email-form');
+        const form = _container.find('#verify-email-form');
+        if (Client.is_logged_in() || /new-account/.test(window.location.pathname)) {
+            form.hide();
+        } else {
             if (!_active_script) _active_script = ChampionSignup;
             ChampionSignup.load(form.length ? form : _signup);
         }
