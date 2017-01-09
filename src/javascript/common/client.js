@@ -11,9 +11,11 @@ const Client = (function () {
         return string.split('+').sort().map((str) => {
             const items = str.split(':');
             const id = items[0];
+            const real = items[1] === 'R';
+            if (real) client_object.has_real = real;
             return {
                 id      : id,
-                real    : items[1] === 'R',
+                real    : real,
                 disabled: items[2] === 'D',
             };
         });
@@ -51,7 +53,7 @@ const Client = (function () {
     const get_storage_value = key => client_object[key] || LocalStore.get(`client.${key}`) || '';
 
     // use this function to get variables that are a boolean
-    const get_boolean = value => JSON.parse(get_storage_value(value) || false);
+    const get_boolean = value => JSON.parse(client_object[value] || get_storage_value(value) || false);
 
     const response_authorize = (response) => {
         const authorize = response.authorize;
@@ -163,6 +165,7 @@ const Client = (function () {
         redirect_if_login   : redirect_if_login,
         set_value           : set_storage_value,
         get_value           : get_storage_value,
+        get_boolean         : get_boolean,
         response_authorize  : response_authorize,
         clear_storage_values: clear_storage_values,
         get_token           : get_token,
