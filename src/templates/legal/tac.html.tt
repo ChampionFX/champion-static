@@ -13,7 +13,7 @@ IF NOT selected_tab; selected_tab = 'legal-tab'; END;
                                 <li id="legal-tab" class="tm-li active">
                                 <span class="menu-wrap-a">
                                     <span class="menu-wrap-b">
-                                        <a href="#legal-tab" class="tm-a a-active">[% l('Terms and Conditions') %]</a>
+                                        <a class="tm-a a-active">[% l('Terms and Conditions') %]</a>
                                     </span>
                                 </span>
                                     <ul class="tm-ul-2">
@@ -28,7 +28,7 @@ IF NOT selected_tab; selected_tab = 'legal-tab'; END;
                                 <li id="risk-tab" class="tm-li">
                                 <span class="menu-wrap-a">
                                     <span class="menu-wrap-b">
-                                        <a href="#risk-tab" class="tm-a">[% l('Risk Disclosure Statement') %]</a>
+                                        <a class="tm-a">[% l('Risk Disclosure Statement') %]</a>
                                     </span>
                                 </span>
                                     <ul class="tm-ul-2">
@@ -43,7 +43,7 @@ IF NOT selected_tab; selected_tab = 'legal-tab'; END;
                                 <li id="order-tab" class="tm-li">
                                 <span class="menu-wrap-a">
                                     <span class="menu-wrap-b">
-                                        <a href="#order-tab" class="tm-a">[% l('Order Execution Policy') %]</a>
+                                        <a class="tm-a">[% l('Order Execution Policy') %]</a>
                                     </span>
                                 </span>
                                     <ul class="tm-ul-2">
@@ -58,7 +58,7 @@ IF NOT selected_tab; selected_tab = 'legal-tab'; END;
                                 <!-- <li id="margin-tab" class="tm-li">
                                 <span class="menu-wrap-a">
                                     <span class="menu-wrap-b">
-                                        <a href="#margin-tab" class="tm-a">[% l('Margin Policy') %]</a>
+                                        <a class="tm-a">[% l('Margin Policy') %]</a>
                                     </span>
                                 </span>
                                 <ul class="tm-ul-2">
