@@ -8,18 +8,18 @@ const ChampionNewVirtualAccount = (function() {
 
     const form_selector = '#frm_new_account_virtual';
 
-    let _residences = null;
+    let residences = null;
 
-    let _submit_btn,
-        _input_residence;
+    let submit_btn,
+        input_residence;
 
     const load = () => {
         if (Client.redirect_if_login()) return;
         const container = $('#champion-container');
-        _input_residence = container.find('#residence');
-        _submit_btn      = container.find('#btn-submit');
+        input_residence = container.find('#residence');
+        submit_btn      = container.find('#btn-submit');
 
-        _submit_btn.on('click', submit);
+        submit_btn.on('click', submit);
 
         Validation.init(form_selector, [
             { selector: '#verification-code', validations: ['req', ['length', { min: 48, max: 48, message: 'Please submit a valid verification token.' }]] },
@@ -28,9 +28,9 @@ const ChampionNewVirtualAccount = (function() {
             { selector: '#residence',         validations: ['req'] },
         ]);
 
-        if (!_residences) {
+        if (!residences) {
             ChampionSocket.send({ residence_list: 1 }, (response) => {
-                _residences = response.residence_list;
+                residences = response.residence_list;
                 renderResidences();
             });
         } else {
@@ -39,20 +39,20 @@ const ChampionNewVirtualAccount = (function() {
     };
 
     const renderResidences = () => {
-        _input_residence.empty();
-        _residences.forEach((res) => {
+        input_residence.empty();
+        residences.forEach((res) => {
             const option = $('<option></option>');
             option.text(res.text);
             option.attr('value', res.value);
             if (res.disabled) {
                 option.attr('disabled', '1');
             }
-            _input_residence.append(option);
+            input_residence.append(option);
         });
     };
 
     const unload = () => {
-        _submit_btn.off('click', submit);
+        submit_btn.off('click', submit);
     };
 
     const submit = (e) => {
