@@ -10,28 +10,28 @@
                                 <li id="first-tab" class="tm-li active first">
                                     <span class="menu-wrap-a">
                                         <span class="menu-wrap-b">
-                                            <a class="tm-a first a-active">[% l('Overview') %]</a>
+                                            <a class="tm-a first a-active" href="#first-tab">[% l('Overview') %]</a>
                                         </span>
                                     </span>
                                 </li>
                                 <li id="second-tab" class="tm-li">
                                     <span class="menu-wrap-a">
                                         <span class="menu-wrap-b">
-                                            <a class="tm-a">[% l('Introducing Broker (IB)') %]</a>
+                                            <a class="tm-a" href="#second-tab">[% l('Introducing Broker (IB)') %]</a>
                                         </span>
                                     </span>
                                 </li>
                                 <li id="third-tab" class="tm-li">
                                     <span class="menu-wrap-a">
                                         <span class="menu-wrap-b">
-                                            <a class="tm-a">[% l('Affiliate programme') %]</a>
+                                            <a class="tm-a" href="#third-tab">[% l('Affiliate programme') %]</a>
                                         </span>
                                     </span>
                                 </li>
                                 <li id="fourth-tab" class="tm-li">
                                     <span class="menu-wrap-a">
                                         <span class="menu-wrap-b">
-                                            <a class="tm-a">[% l('Content Contributor programme') %]</a>
+                                            <a class="tm-a" href="#fourth-tab">[% l('Content Contributor programme') %]</a>
                                         </span>
                                     </span>
                                 </li>
@@ -50,8 +50,11 @@
                                     <h2>[% l('Forex, CFDs, metals, futures') %]</h2>
                                     <h4>[% l('Introducing Broker (IB)') %]</h4>
                                     <p>[% l('Earn a commission on all ongoing trades done by your referred clients.') %]</p>
-                                        <p class="lg-padding"><a class="button"
-                                                                 href=""><span>[% l('Apply now') %]</span></a></p>
+                                        <p class="lg-padding">
+                                            <a class="button" href="#second-tab">
+                                                <span>[% l('Apply now') %]</span>
+                                            </a>
+                                        </p>
                                         <div class="row">
                                             <div class="col-sm">
                                                 <h2>[% l('Binary Options') %]</h2>
@@ -59,14 +62,20 @@
                                                     <div class="col-sm">
                                                         <h4>[% l('Affiliate Programme') %]</h4>
                                                         <p>[% l('Earn up to 35% commission on all binary options trades performed by your referred clients.') %]</p>
-                                                        <p><a class="button bottom"
-                                                              href=""><span>[% l('Apply now') %]</span></a></p>
+                                                        <p>
+                                                            <a class="button bottom" href="#third-tab">
+                                                                <span>[% l('Apply now') %]</span>
+                                                            </a>
+                                                        </p>
                                                     </div>
                                                     <div class="col-sm">
                                                         <h4>[% l('Content Contributors') %]</h4>
                                                         <p>[% l('Create premium content to help clients trade. Earn a commission by converting viewers into regular clients.') %]</p>
-                                                        <p><a class="button bottom"
-                                                              href=""><span>[% l('Apply now') %]</span></a></p>
+                                                        <p>
+                                                            <a class="button bottom" href="#fourth-tab">
+                                                                <span>[% l('Apply now') %]</span>
+                                                            </a>
+                                                        </p>
                                                     </div>
                                                 </div>
                                                 <div class="fx-divider"></div>
@@ -124,7 +133,11 @@
                                     <div class="fx-divider"></div>
                                     <div class="row">
                                         <div class="col-md">
-                                            <p><a class="button" href=""><span>[% l('Apply now') %]</span></a></p>
+                                            <p>
+                                                <a class="button" href="mailto:ibsupport@champion-fx.com" rel="nofollow">
+                                                    <span>[% l('Apply now') %]</span>
+                                                </a>
+                                            </p>
                                             <div class="fx-divider"></div>
                                             <p class="font-s">[% l('Note: Your IB commission is only generated through Champion FX clients who trade Forex, CFDs, metals, and futures using our MetaTrader 5 platform.') %]</p>
                                         </div>
@@ -190,7 +203,11 @@
                                     <h2>[% l('Getting started') %]</h2>
                                     <p>[% l('Being an affiliate is easy. Just tell your friends and followers about Champion FX. You can share your unique referral link on your website, or send it to your mailing list. If your friends and followers click the link and sign up as a Champion FX client, you’ll earn up to 35% of the net revenue for all trades they purchase.') %]</p>
                                     <div class="fx-divider"></div>
-                                    <p><a class="button" href=""><span>[% l('Apply now') %]</span></a></p>
+                                    <p>
+                                        <a class="button" href="mailto:affiliates@champion-fx.com" rel="nofollow">
+                                            <span>[% l('Apply now') %]</span>
+                                        </a>
+                                    </p>
                                     <div class="fx-divider"></div>
                                     <p class="font-s">[% l('Note: Your affiliate commission is only generated through Champion FX clients who trade binary options using our Webtrader platform.') %]</p>
                                 </div>
@@ -227,7 +244,11 @@
                                     <div class="row">
                                         <div class="col-md">
                                             <div class="fx-divider"></div>
-                                            <p><a class="button" href=""><span>[% l('Apply now') %]</span></a></p>
+                                            <p>
+                                                <a class="button" href="mailto:marketing@champion-fx.com" rel="nofollow">
+                                                    <span>[% l('Apply now') %]</span>
+                                                </a>
+                                            </p>
                                             <div class="fx-divider"></div>
                                             <p class="font-s">[% l('Note: Your affiliate commission is only generated through Champion FX clients who trade binary options using our Webtrader platform.') %]</p>
                                         </div>

@@ -9,6 +9,7 @@ const BinaryOptions      = require('./../pages/binary_options');
 const Client             = require('./client');
 const LoggedIn           = require('./logged_in');
 const Login              = require('./login');
+const Utility            = require('./utility');
 
 const Champion = (function() {
     'use strict';
@@ -26,7 +27,7 @@ const Champion = (function() {
         ChampionRouter.init(_container, '#champion-content');
         ChampionSocket.init();
         if (!Client.is_logged_in()) {
-            $('#main-login a').on('click', () => { Login.redirect_to_login(); });
+            $('#main-login').find('a').on('click', () => { Login.redirect_to_login(); });
         }
     };
 
@@ -61,6 +62,7 @@ const Champion = (function() {
             if (!_active_script) _active_script = ChampionSignup;
             ChampionSignup.load(form.length ? form : _signup);
         }
+        Utility.handleActive();
     };
 
     return {
