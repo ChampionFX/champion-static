@@ -40,9 +40,9 @@ const ChampionSignup = (function() {
                 type        : 'account_opening',
             }, function(response) {
                 if (response.verify_email) {
-                    ChampionRouter.forward(url_for('create-account'));
+                    ChampionRouter.forward(url_for('new-account/virtual'));
                 } else if (response.error) {
-                    $('#signup_error').text(response.error.message).removeClass('hidden');
+                    $(`${form_selector}:visible #signup_error`).text(response.error.message).removeClass('hidden');
                 }
             });
         }

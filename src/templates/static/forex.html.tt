@@ -103,10 +103,10 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm"><p class="txt-right secondary-color">
-                                            <strong>[% l('Base currency</strong><br>Also known as transaction currency') %]
+                                            <strong>[% l('Base currency</strong><br>Also known as transaction currency') %]</strong>
                                         </p></div>
                                         <div class="col-sm"><p>
-                                            <strong>[% l('Quote currency</strong><br>Also known as counter currency') %]
+                                            <strong>[% l('Quote currency</strong><br>Also known as counter currency') %]</strong>
                                         </p></div>
                                     </div>
                                 </div>
@@ -143,7 +143,7 @@
                                 <p>[% l('Here\’s an example: how does going long or going short apply to the GBP/USD?') %]</p>
                                 <p>[% l('After your analysis, you’ve come to the conclusion that the British economy will outperform its U.S. counterpart. Thus, you decide to go long and buy into the GBP/USD, expecting the GBP to rise in value.') %]</p>
                                 <p>[% l('If you decided that the British economy will underperform instead, then you will go short on the GBP/USD.') %]</p>
-                                <h2[% l('>Step 3: Buy your first currency pair') %]</h2>
+                                <h2>[% l('Step 3: Buy your first currency pair') %]</h2>
                                 <p>[% l('After you’ve decided which position you want to take – whether long or short – you are well on your way to buying your first currency pair.') %]</p>
                                 <p>[% l('Here’s an example of a GBP/USD currency pair and its bid-ask price.') %]</p>
                                 <p class="centered lg-padding"><img src="[% request.url_for('images/forex-2.png') %]"
@@ -186,7 +186,7 @@
                             </div>
                             <div id="fourth-tab-content" class="toggle-content invisible">
                                 <h2>[% l('Why MT5') %]</h2>
-                                <p>[% l('Champion FX believes in giving our clients the best trading platform available. This is why we chose MetaTrader 5. We focus all our efforts and resources to take full advantage of MetaTrader 5's advanced features to give our clients a powerful trading experience that's built to last.') %]</p>
+                                <p>[% l('Champion FX believes in giving our clients the best trading platform available. This is why we chose MetaTrader 5. We focus all our efforts and resources to take full advantage of MetaTrader 5\'s advanced features to give our clients a powerful trading experience that\'s built to last.') %]</p>
                                 <p class="centered lg-padding">
                                     <iframe width="640" height="360"
                                             src="https://www.youtube.com/embed/mXuR_SRP-XI?rel=0" frameborder="0"
@@ -196,123 +196,123 @@
                                 <p>[% l('MetaTrader 5 is the most advanced trading platform available - the ideal platform for the modern trader. It contains everything you need to trade the financial markets.') %]</p>
                                 <div class="fx-divider"></div>
                                 <table class="champion-features">
-                                    <tbody>
                                     <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>[% l('Meta Trader 5') %]</th>
-                                        <th></th>
-                                        <th>[% l('Meta Trader 4') %]</th>
-                                    </tr>
+                                        <tr>
+                                            <th></th>
+                                            <th>[% l('Meta Trader 5') %]</th>
+                                            <th></th>
+                                            <th>[% l('Meta Trader 4') %]</th>
+                                        </tr>
                                     </thead>
-                                    <tr>
-                                        <td>[% l('Partial Order Filling Policies') %]</td>
-                                        <td>[% l('Yes') %]</td>
-                                        <td></td>
-                                        <td>[% l('No') %]</td>
-                                    </tr>
-                                    <tr>
-                                        <td>[% l('Order Fill Policy') %]</td>
-                                        <td>[% l('Fill or Kill Immediate or Cancel') %]</td>
-                                        <td></td>
-                                        <td>[% l('Fill or Kill') %]</td>
-                                    </tr>
-                                    <tr>
-                                        <td>[% l('Pending Order Types') %]</td>
-                                        <td>6</td>
-                                        <td></td>
-                                        <td>4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>[% l('Depth of Market') %]</td>
-                                        <td>[% l('Yes') %]</td>
-                                        <td></td>
-                                        <td>[% l('No') %]</td>
-                                    </tr>
-                                    <tr>
-                                        <td>[% l('Time & Sales (Exchange data)') %]</td>
-                                        <td>[% l('Yes') %]</td>
-                                        <td></td>
-                                        <td>[% l('No') %]</td>
-                                    </tr>
-                                    <tr>
-                                        <td>[% l('Technical Indicators') %]</td>
-                                        <td>38</td>
-                                        <td></td>
-                                        <td>30</td>
-                                    </tr>
-                                    <tr>
-                                        <td>[% l('Graphical Objects') %]</td>
-                                        <td>44</td>
-                                        <td></td>
-                                        <td>31</td>
-                                    </tr>
-                                    <tr>
-                                        <td>[% l('Timeframes') %]</td>
-                                        <td>21</td>
-                                        <td></td>
-                                        <td>9</td>
-                                    </tr>
-                                    <tr>
-                                        <td>[% l('Economic Calendar') %]</td>
-                                        <td>[% l('Yes') %]</td>
-                                        <td></td>
-                                        <td>[% l('N') %]o</td>
-                                    </tr>
-                                    <tr>
-                                        <td>[% l('Email System') %]</td>
-                                        <td>[% l('Yes (with attachments') %])</td>
-                                        <td></td>
-                                        <td>[% l('No') %]</td>
-                                    </tr>
-                                    <tr>
-                                        <td>[% l('Transfer funds between accounts') %]</td>
-                                        <td>[% l('Yes') %]</td>
-                                        <td></td>
-                                        <td>[% l('No') %]</td>
-                                    </tr>
-                                    <tr>
-                                        <td>[% l('Embeded MQL5 community chat') %]</td>
-                                        <td>[% l('Yes') %]</td>
-                                        <td></td>
-                                        <td>[% l('No') %]</td>
-                                    </tr>
-                                    <tr>
-                                        <td>[% l('Strategy Tester') %]</td>
-                                        <td>[% l('Yes') %]</td>
-                                        <td></td>
-                                        <td>[% l('No') %]</td>
-                                    </tr>
-                                    <tr>
-                                        <td>[% l('Multilingual Unicode') %]</td>
-                                        <td>[% l('Yes') %]</td>
-                                        <td></td>
-                                        <td>[% l('No') %]</td>
-                                    </tr>
-                                    <tr>
-                                        <td>[% l('Netting') %]</td>
-                                        <td>[% l('Yes') %]</td>
-                                        <td></td>
-                                        <td>[% l('No') %]</td>
-                                    </tr>
-                                    <tr>
-                                        <td>[% l('Hedging') %]</td>
-                                        <td>[% l('Ye') %]s</td>
-                                        <td></td>
-                                        <td>[% l('No') %]</td>
-                                    </tr>
-                                    <tr>
-                                        <td>[% l('Symbols') %]</td>
-                                        <td>[% l('Unlimited') %]</td>
-                                        <td></td>
-                                        <td>1,024</td>
-                                    </tr>
-                                    <tr>
-                                        <td>[% l('Exchange Trading') %]</td>
-                                        <td>[% l('Yes') %]</td>
-                                        <td></td>
-                                        <td>[% l('No') %]</td>
-                                    </tr>
+                                    <tbody>
+                                        <tr>
+                                            <td>[% l('Partial Order Filling Policies') %]</td>
+                                            <td>[% l('Yes') %]</td>
+                                            <td></td>
+                                            <td>[% l('No') %]</td>
+                                        </tr>
+                                        <tr>
+                                            <td>[% l('Order Fill Policy') %]</td>
+                                            <td>[% l('Fill or Kill Immediate or Cancel') %]</td>
+                                            <td></td>
+                                            <td>[% l('Fill or Kill') %]</td>
+                                        </tr>
+                                        <tr>
+                                            <td>[% l('Pending Order Types') %]</td>
+                                            <td>6</td>
+                                            <td></td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>[% l('Depth of Market') %]</td>
+                                            <td>[% l('Yes') %]</td>
+                                            <td></td>
+                                            <td>[% l('No') %]</td>
+                                        </tr>
+                                        <tr>
+                                            <td>[% l('Time & Sales (Exchange data)') %]</td>
+                                            <td>[% l('Yes') %]</td>
+                                            <td></td>
+                                            <td>[% l('No') %]</td>
+                                        </tr>
+                                        <tr>
+                                            <td>[% l('Technical Indicators') %]</td>
+                                            <td>38</td>
+                                            <td></td>
+                                            <td>30</td>
+                                        </tr>
+                                        <tr>
+                                            <td>[% l('Graphical Objects') %]</td>
+                                            <td>44</td>
+                                            <td></td>
+                                            <td>31</td>
+                                        </tr>
+                                        <tr>
+                                            <td>[% l('Timeframes') %]</td>
+                                            <td>21</td>
+                                            <td></td>
+                                            <td>9</td>
+                                        </tr>
+                                        <tr>
+                                            <td>[% l('Economic Calendar') %]</td>
+                                            <td>[% l('Yes') %]</td>
+                                            <td></td>
+                                            <td>[% l('N') %]o</td>
+                                        </tr>
+                                        <tr>
+                                            <td>[% l('Email System') %]</td>
+                                            <td>[% l('Yes (with attachments') %])</td>
+                                            <td></td>
+                                            <td>[% l('No') %]</td>
+                                        </tr>
+                                        <tr>
+                                            <td>[% l('Transfer funds between accounts') %]</td>
+                                            <td>[% l('Yes') %]</td>
+                                            <td></td>
+                                            <td>[% l('No') %]</td>
+                                        </tr>
+                                        <tr>
+                                            <td>[% l('Embeded MQL5 community chat') %]</td>
+                                            <td>[% l('Yes') %]</td>
+                                            <td></td>
+                                            <td>[% l('No') %]</td>
+                                        </tr>
+                                        <tr>
+                                            <td>[% l('Strategy Tester') %]</td>
+                                            <td>[% l('Yes') %]</td>
+                                            <td></td>
+                                            <td>[% l('No') %]</td>
+                                        </tr>
+                                        <tr>
+                                            <td>[% l('Multilingual Unicode') %]</td>
+                                            <td>[% l('Yes') %]</td>
+                                            <td></td>
+                                            <td>[% l('No') %]</td>
+                                        </tr>
+                                        <tr>
+                                            <td>[% l('Netting') %]</td>
+                                            <td>[% l('Yes') %]</td>
+                                            <td></td>
+                                            <td>[% l('No') %]</td>
+                                        </tr>
+                                        <tr>
+                                            <td>[% l('Hedging') %]</td>
+                                            <td>[% l('Ye') %]s</td>
+                                            <td></td>
+                                            <td>[% l('No') %]</td>
+                                        </tr>
+                                        <tr>
+                                            <td>[% l('Symbols') %]</td>
+                                            <td>[% l('Unlimited') %]</td>
+                                            <td></td>
+                                            <td>1,024</td>
+                                        </tr>
+                                        <tr>
+                                            <td>[% l('Exchange Trading') %]</td>
+                                            <td>[% l('Yes') %]</td>
+                                            <td></td>
+                                            <td>[% l('No') %]</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -325,76 +325,76 @@
                                 <div class="row">
                                     <div class="col-sm">
                                         <table class="champion-accounts">
-                                            <tbody>
                                             <thead>
-                                            <tr>
-                                                <th></th>
-                                                <th>[% l('Cent') %]</th>
-                                                <th>[% l('Standard') %]</th>
-                                                <th>[% l('ST') %]P</th>
-                                            </tr>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>[% l('Cent') %]</th>
+                                                    <th>[% l('Standard') %]</th>
+                                                    <th>[% l('ST') %]P</th>
+                                                </tr>
                                             </thead>
-                                            <tr>
-                                                <td>[% l('Account currency<sup>1</sup>') %]</td>
-                                                <td>[% l('USD') %]</td>
-                                                <td>[% l('USD') %]</td>
-                                                <td>[% l('USD') %]</td>
-                                            </tr>
-                                            <tr>
-                                                <td>[% l('Maximum leverage<sup>2</sup>') %]</td>
-                                                <td>[% l('Up to 1:1,000') %]</td>
-                                                <td>[% l('Up to 1:300') %]</td>
-                                                <td>[% l('Up to 1:100') %]</td>
-                                            </tr>
-                                            <tr>
-                                                <td>[% l('Order execution<sup>3</sup>') %]</td>
-                                                <td>[% l('Instant') %]</td>
-                                                <td>[% l('Instant') %]</td>
-                                                <td>[% l('Instant') %]</td>
-                                            </tr>
-                                            <tr>
-                                                <td>[% l('Forex spread<sup>4</sup>') %]</td>
-                                                <td>[% l('Fixed spreads') %]</td>
-                                                <td>[% l('Variable spreads') %]</td>
-                                                <td>[% l('Variable spreads') %]</td>
-                                            </tr>
-                                            <tr>
-                                                <td>[% l('Commission<sup>5</sup>') %]</td>
-                                                <td>[% l('No') %]</td>
-                                                <td>[% l('No') %]</td>
-                                                <td>[% l('No') %]</td>
-                                            </tr>
-                                            <tr>
-                                                <td>[% l('Margin call<sup>6</sup>') %]</td>
-                                                <td>50%</td>
-                                                <td>100%</td>
-                                                <td>200%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>[% l('Stop out level<sup>7</sup>') %]</td>
-                                                <td>20%</td>
-                                                <td>50%</td>
-                                                <td>100%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>[% l('Hedged margin<sup>8</sup>') %]</td>
-                                                <td>[% l('No') %]</td>
-                                                <td>[% l('N') %]o</td>
-                                                <td>100%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>[% l('Swap-free option<sup>9</sup>') %]</td>
-                                                <td>[% l('Yes') %]</td>
-                                                <td>[% l('Yes') %]</td>
-                                                <td>[% l('Yes') %]</td>
-                                            </tr>
+                                            <tbody>
+                                                <tr>
+                                                    <td>[% l('Account currency<sup>1</sup>') %]</td>
+                                                    <td>[% l('USD') %]</td>
+                                                    <td>[% l('USD') %]</td>
+                                                    <td>[% l('USD') %]</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>[% l('Maximum leverage<sup>2</sup>') %]</td>
+                                                    <td>[% l('Up to 1:1,000') %]</td>
+                                                    <td>[% l('Up to 1:300') %]</td>
+                                                    <td>[% l('Up to 1:100') %]</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>[% l('Order execution<sup>3</sup>') %]</td>
+                                                    <td>[% l('Instant') %]</td>
+                                                    <td>[% l('Instant') %]</td>
+                                                    <td>[% l('Instant') %]</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>[% l('Forex spread<sup>4</sup>') %]</td>
+                                                    <td>[% l('Fixed spreads') %]</td>
+                                                    <td>[% l('Variable spreads') %]</td>
+                                                    <td>[% l('Variable spreads') %]</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>[% l('Commission<sup>5</sup>') %]</td>
+                                                    <td>[% l('No') %]</td>
+                                                    <td>[% l('No') %]</td>
+                                                    <td>[% l('No') %]</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>[% l('Margin call<sup>6</sup>') %]</td>
+                                                    <td>50%</td>
+                                                    <td>100%</td>
+                                                    <td>200%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>[% l('Stop out level<sup>7</sup>') %]</td>
+                                                    <td>20%</td>
+                                                    <td>50%</td>
+                                                    <td>100%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>[% l('Hedged margin<sup>8</sup>') %]</td>
+                                                    <td>[% l('No') %]</td>
+                                                    <td>[% l('N') %]o</td>
+                                                    <td>100%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>[% l('Swap-free option<sup>9</sup>') %]</td>
+                                                    <td>[% l('Yes') %]</td>
+                                                    <td>[% l('Yes') %]</td>
+                                                    <td>[% l('Yes') %]</td>
+                                                </tr>
 
-                                            <tr>
-                                                <td></td>
-                                                <td><a class="button" href=""><span>[% l('Sign up') %]</span></a></td>
-                                                <td><a class="button" href=""><span>[% l('Sign up') %]</span></a></td>
-                                                <td><a class="button" href=""><span>[% l('Sign up') %]</span></a></td>
-                                            </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td><a class="button" href=""><span>[% l('Sign up') %]</span></a></td>
+                                                    <td><a class="button" href=""><span>[% l('Sign up') %]</span></a></td>
+                                                    <td><a class="button" href=""><span>[% l('Sign up') %]</span></a></td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                         <div class="fx-divider"></div>
