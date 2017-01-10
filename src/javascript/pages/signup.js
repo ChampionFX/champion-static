@@ -1,86 +1,48 @@
-const ChampionSocket = require('./../common/socket');
-const ChampionRouter = require('./../common/router');
-const url_for = require('../common/url').url_for;
+const ChampionSocket = require('../common/socket');
+const ChampionRouter = require('../common/router');
+const url_for        = require('../common/url').url_for;
+const Validation     = require('../common/validation');
 
 const ChampionSignup = (function() {
     'use strict';
 
-    let _active = false,
-        _element,
-        _input,
-        _error_empty,
-        _error_email,
-        _button,
-        _timeout;
+    const form_selector = '.frm-verify-email';
+    let is_active = false,
+        $form,
+        $input,
+        $button;
 
-    const _email_regex = /[^@]+@[^@\.]+\.[^@]+/;
-    // const _email_regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/;
-    const _validate_delay = 500;
-
-    const load = (element) => {
-        _element     = element;
-        _input       = _element.find('input');
-        _error_empty = _element.find('#signup_error_empty');
-        _error_email = _element.find('#signup_error_email');
-        _button      = _element.find('button');
-
-        _element.removeClass('hidden');
-        _input.on('input', inputChanged);
-        _button.on('click', submitClicked);
-
-        _active = true;
+    const load = () => {
+        $form   = $(`${form_selector}:visible`);
+        $input  = $form.find('input');
+        $button = $form.find('button');
+        $button.off('click', submit).on('click', submit);
+        is_active = true;
+        Validation.init(form_selector, [
+            { selector: '#email', validations: ['req', 'email'], msg_element: '#signup_error' },
+        ]);
     };
 
     const unload = () => {
-        if (_active) {
-            _element.addClass('hidden');
-            _input.off('input', inputChanged);
-            _button.off('click', submitClicked);
-            _input.val('');
-            _error_empty.addClass('hidden');
-            _error_email.addClass('hidden');
-            if (_timeout) {
-                clearTimeout(_timeout);
-            }
+        if (is_active) {
+            $form.addClass('hidden');
+            $button.off('click', submit);
+            $input.val('');
         }
-        _active = false;
+        is_active = false;
     };
 
-    const inputChanged = () => {
-        if (_timeout) {
-            clearTimeout(_timeout);
-        }
-        _timeout = setTimeout(validate, _validate_delay);
-    };
-
-    const validate = () => {
-        let value,
-            error = true;
-        if (_active) {
-            value = _input.val();
-            _error_empty.addClass('hidden');
-            _error_email.addClass('hidden');
-            if (!value || value.length < 1) {
-                _error_empty.removeClass('hidden');
-            } else if (!_email_regex.test(value)) {
-                _error_email.removeClass('hidden');
-            } else {
-                error = false;
-            }
-        }
-        return !error;
-    };
-
-
-    const submitClicked = (e) => {
+    const submit = (e) => {
         e.preventDefault();
-        if (_active && validate()) {
+        if (is_active && Validation.validate(form_selector)) {
             ChampionSocket.send({
-                verify_email: _input.val(),
+                verify_email: $input.val(),
                 type        : 'account_opening',
             }, function(response) {
                 if (response.verify_email) {
                     ChampionRouter.forward(url_for('new-account/virtual'));
+                } else if (response.error) {
+                    $(`${form_selector}:visible #signup_error`).text(response.error.message).removeClass('hidden');
                 }
             });
         }
