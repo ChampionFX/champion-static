@@ -148,7 +148,7 @@ const ChampionRouter = (function() {
 
         document.title = content.title;
         params.container.find(params.content_selector).remove();
-        params.container.append(content.content);
+        params.container.append(content.content.clone());
 
         params.container.trigger('champion:after', content.content);
     };
