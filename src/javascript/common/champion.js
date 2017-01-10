@@ -5,6 +5,7 @@ const ChampionNewVirtual = require('./../pages/new_account/virtual');
 // const ChampionNewReal    = require('./../pages/new_account/real');
 const ChampionContact    = require('./../pages/contact');
 const ChampionEndpoint   = require('./../pages/endpoint');
+const BinaryOptions      = require('./../pages/binary_options');
 const Client             = require('./client');
 const LoggedIn           = require('./logged_in');
 const Login              = require('./login');
@@ -21,9 +22,9 @@ const Champion = (function() {
         _signup = $('#signup');
         _container.on('champion:before', beforeContentChange);
         _container.on('champion:after', afterContentChange);
+        Client.init();
         ChampionRouter.init(_container, '#champion-content');
         ChampionSocket.init();
-        Client.init();
         if (!Client.is_logged_in()) {
             $('#main-login a').on('click', () => { Login.redirect_to_login(); });
         }
@@ -41,11 +42,12 @@ const Champion = (function() {
     const afterContentChange = (e, content) => {
         const page = content.getAttribute('data-page');
         const pages_map = {
-            virtual    : ChampionNewVirtual,
-            // real       : ChampionNewReal,
-            contact    : ChampionContact,
-            endpoint   : ChampionEndpoint,
-            logged_inws: LoggedIn,
+            virtual         : ChampionNewVirtual,
+            // real            : ChampionNewReal,
+            contact         : ChampionContact,
+            endpoint        : ChampionEndpoint,
+            logged_inws     : LoggedIn,
+            'binary-options': BinaryOptions,
         };
         if (page in pages_map) {
             _active_script = pages_map[page];
