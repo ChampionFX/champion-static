@@ -24,6 +24,8 @@ sub all_pages {
         ['logged_inws',                'static/common/logged_in',      'full_width', 'Logging in...'],
         ['partnerships',               'static/partnerships',          'full_width', 'Partnerships'],
 #       ['other-markets',              'static/other_markets',         'full_width', 'Other Markets'],
+
+        ['terms-and-conditions',       'legal/tac',                    'full_width', 'Terms and Conditions'],
     );
 }
 

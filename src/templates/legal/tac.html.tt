@@ -1,0 +1,102 @@
+[%
+selected_tab = request.param('selected_tab');
+IF NOT selected_tab; selected_tab = 'legal-tab'; END;
+%]
+<div class="container" id="content">
+    <div class="fx-section">
+        <div class="row">
+            <div class="col-sm">
+                <div class="content-tab-container tab-with-subsection">
+                    <div class="tab-menu">
+                        <div class="tab-menu-wrap">
+                            <ul id="legal-menu" class="tm-ul">
+                                <li id="legal-tab" class="tm-li active">
+                                <span class="menu-wrap-a">
+                                    <span class="menu-wrap-b">
+                                        <a href="#legal-tab" class="tm-a a-active">[% l('Terms and Conditions') %]</a>
+                                    </span>
+                                </span>
+                                    <ul class="tm-ul-2">
+                                        <li id="legal-binary-options" class="tm-li-2 first active">
+                                            <span class="tm-a-2 a-active">[% l("Binary Options") %]</span>
+                                        </li>
+                                        <!-- <li id="legal-cfd" class="tm-li-2 active">
+                                        <span class="tm-a-2 a-active">[% l("Forex and CFD") %]</span>
+                                    </li> -->
+                                    </ul>
+                                </li>
+                                <li id="risk-tab" class="tm-li">
+                                <span class="menu-wrap-a">
+                                    <span class="menu-wrap-b">
+                                        <a href="#risk-tab" class="tm-a">[% l('Risk Disclosure Statement') %]</a>
+                                    </span>
+                                </span>
+                                    <ul class="tm-ul-2">
+                                        <li id="risk-binary-options" class="tm-li-2 first active">
+                                            <span class="tm-a-2 a-active">[% l("Binary Options") %]</span>
+                                        </li>
+                                        <!-- <li id="risk-cfd" class="tm-li-2 active">
+                                        <span class="tm-a-2 a-active">[% l("Forex and CFD") %]</span>
+                                    </li> -->
+                                    </ul>
+                                </li>
+                                <li id="order-tab" class="tm-li">
+                                <span class="menu-wrap-a">
+                                    <span class="menu-wrap-b">
+                                        <a href="#order-tab" class="tm-a">[% l('Order Execution Policy') %]</a>
+                                    </span>
+                                </span>
+                                    <ul class="tm-ul-2">
+                                        <li id="order-binary-options" class="tm-li-2 first active">
+                                            <span class="tm-a-2 a-active">[% l("Binary Options") %]</span>
+                                        </li>
+                                        <!-- <li id="order-cfd" class="tm-li-2 active">
+                                        <span class="tm-a-2 a-active">[% l("Forex and CFD") %]</span>
+                                    </li> -->
+                                    </ul>
+                                </li>
+                                <!-- <li id="margin-tab" class="tm-li">
+                                <span class="menu-wrap-a">
+                                    <span class="menu-wrap-b">
+                                        <a href="#margin-tab" class="tm-a">[% l('Margin Policy') %]</a>
+                                    </span>
+                                </span>
+                                <ul class="tm-ul-2">
+                                    <li id="margin-cfd" class="tm-li-2 active">
+                                        <span class="tm-a-2 a-active">[% l("Forex and CFD") %]</span>
+                                    </li>
+                                </ul>
+                            </li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-content-wrapper menu-has-sub-item">
+                            <div id="legal-binary-options-content" class="toggle-content">
+                                [% INCLUDE legal/binary_options/terms_and_conditions.html.tt %]
+                            </div>
+                            <!-- <div id="legal-cfd-content" class="toggle-content">
+                            [% INCLUDE legal/forex_cfd/terms_and_conditions.html.tt %]
+                        </div> -->
+                            <div id="risk-binary-options-content" class="toggle-content invisible">
+                                [% INCLUDE legal/binary_options/risk_disclosure_statement.html.tt %]
+                            </div>
+                            <!-- <div id="risk-cfd-content" class="toggle-content invisible">
+                            [% INCLUDE legal/forex_cfd/risk_disclosure_statement.html.tt %]
+                        </div> -->
+                            <div id="order-binary-options-content" class="toggle-content invisible">
+                                [% INCLUDE legal/binary_options/order_execution_policy.html.tt %]
+                            </div>
+                            <!-- <div id="order-cfd-content" class="toggle-content invisible">
+                            [% INCLUDE legal/forex_cfd/order_execution_policy.html.tt %]
+                        </div> -->
+                            <!-- <div id="margin-cfd-content" class="toggle-content invisible">
+                            [% INCLUDE legal/forex_cfd/margin_policy.html.tt %]
+                        </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

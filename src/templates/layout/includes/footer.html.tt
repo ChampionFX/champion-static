@@ -4,7 +4,9 @@
             <div class="row">
                 <div class="col-sm">
                 <ul>
-                    <li><a class="" href=""></a></li>
+                    <li>
+                        <a href="[% request.url_for('terms-and-conditions') %]">[% l("Terms and Conditions") %]</a>
+                    </li>
                 </ul>
                 </div>
                 <div class="col-sm">
