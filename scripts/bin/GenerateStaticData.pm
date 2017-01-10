@@ -39,7 +39,7 @@ sub _texts {
         push @texts, localize('You should enter [_1] characters.');
         push @texts, localize('The two passwords that you entered do not match.');
 
-        # global error messages
+        # new virtual account
         push @texts, localize('Please submit a valid verification token.');
 
         my %as_hash = @texts;
