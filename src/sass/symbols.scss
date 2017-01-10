@@ -148,47 +148,55 @@
     background: url('../images/symbols/unbeatable.svg');
 }
 
-.fx-lg {
+.fx-step-one {
+    background: url('../images/binary_options/step_one.svg');
+}
+
+.fx-step-two {
+    background: url('../images/binary_options/step_two.svg');
+}
+
+.fx-step-three {
+    background: url('../images/binary_options/step_three.svg');
+}
+
+.fx-define-position {
+    background: url('../images/binary_options/define_position.svg');
+}
+
+.fx-xlg, .fx-lg, .fx-md, .fx-sm, .fx-xs, .fx-xss {
     margin-left: auto;
     margin-right: auto;
-    width: 140px;
-    height: 140px;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.fx-xlg {
+    width: 400px;
+    height: 300px;
+}
+
+.fx-lg {
+    width: 140px;
+    height: 140px;
 }
 
 .fx-md {
-    margin-left: auto;
-    margin-right: auto;
     width: 100px;
     height: 100px;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 .fx-sm {
-    margin-left: auto;
-    margin-right: auto;
     width: 60px;
     height: 60px;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 .fx-xs {
-    margin-left: auto;
-    margin-right: auto;
     width: 35px;
     height: 35px;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 .fx-xxs {
-    margin-left: auto;
-    margin-right: auto;
     width: 30px;
     height: 30px;
-    background-repeat: no-repeat;
-    background-position: top center;
 }

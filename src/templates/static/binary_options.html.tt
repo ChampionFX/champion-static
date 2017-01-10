@@ -181,29 +181,23 @@
                                 <p>[% l("Trading binary options is relatively easy, and you can purchase a trade in only three simple steps.") %]</p>
                                 <div class="row centered">
                                     <div class="col-md">
-                                        <div class="fx-lg">
-                                            <img src="[% request.url_for('images/binary-options-1.png') %]" />
-                                        </div>
+                                        <div class="fx-step-one fx-lg"></div>
                                         <p><strong>[% l("Define your position") %]</strong></p>
                                         <p>[% l("Consider the market, duration, barrier, and payout.") %]</p>
                                     </div>
                                     <div class="col-md">
-                                        <div class="fx-lg">
-                                            <img src="[% request.url_for('images/binary-options-2.png') %]" />
-                                        </div>
+                                        <div class="fx-step-two fx-lg"></div>
                                         <p><strong>[% l("Get your price") %]</strong></p>
                                         <p>[% l("Receive instant prices based on your position.") %]</p>
                                     </div>
                                     <div class="col-md">
-                                        <div class="fx-lg">
-                                            <img src="[% request.url_for('images/binary-options-3.png') %]" />
-                                        </div>
+                                        <div class="fx-step-three fx-lg"></div>
                                         <p><strong>[% l("Make your trade") %]</strong></p>
                                         <p>[% l("Choose to buy, or redefine your position.") %]</p>
                                     </div>
                                 </div>
                                 <h4>[% l("Step 1: Define your position") %]</h4>
-                                <div><img src="[% request.url_for('images/binary-options-4.png') %]" /></div>
+                                <div class="fx-define-position fx-xlg"></div>
                                 <p>[% l("First, you need to set the parameters of your trade. Here's what you need to consider.") %]</p>
                                 <ul class="bullet">
                                     <li>
