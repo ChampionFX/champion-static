@@ -25,7 +25,6 @@
                         <div class="form-input">
                             <input id="verification-code" type="text" maxlength="48" autocomplete="off">
                             <div class="hint">[% l('Please check your email for the value of this token') %]</div>
-                            <p class="error-msg hidden" id="error-code">[% l('Please submit a valid verification token.') %]</p>
                         </div>
                     </div>
                 </div>
@@ -40,8 +39,6 @@
                         <div class="form-input">
                             <input id="password" type="password" maxlength="25" autocomplete="off">
                             <div class="hint">[% l('Minimum of six lower and uppercase letters with numbers') %]</div>
-                            <p class="error-msg hidden" id="error-pass-short">[% l('You should enter between 6-25 characters.') %]</p>
-                            <p class="error-msg hidden" id="error-pass-char">[% l('Password should have lower and uppercase letters with numbers.') %]</p>
                         </div>
                     </div>
                 </div>
@@ -55,7 +52,6 @@
                     <div class="col-xs-8">
                         <div class="form-input">
                             <input id="r-password" type="password" maxlength="25" autocomplete="off">
-                            <p class="error-msg hidden" id="error-pass-nomatch">[% l('The two passwords that you entered do not match.') %]</p>
                         </div>
                     </div>
                 </div>
