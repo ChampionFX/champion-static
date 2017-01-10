@@ -35,15 +35,15 @@
             <div class="col-md-5">
                 <h2 class="contacts-title">[% l('Email') %]</h2>
                 <h4>General</h4>
-                <a href="">support@champion-fx.com</a>
+                <a href="mailto:support@champion-fx.com" rel="nofollow">support@champion-fx.com</a>
                 <h4>Backoffice</h4>
-                <a href="">backoffice@champion-fx.com</a>
+                <a href="mailto:backoffice@champion-fx.com" rel="nofollow">backoffice@champion-fx.com</a>
                 <h4>New account</h4>
-                <a href="">newaccount@champion-fx.com</a>
+                <a href="mailto:newaccount@champion-fx.com" rel="nofollow">newaccount@champion-fx.com</a>
                 <h4>Disputes and complaints</h4>
-                <a href="">complaints@champion-fx.com</a>
+                <a href="mailto:complaints@champion-fx.com" rel="nofollow">complaints@champion-fx.com</a>
                 <h4>Trading</h4>
-                <a href="">trading@champion-fx.com</a>
+                <a href="mailto:trading@champion-fx.com" rel="nofollow">trading@champion-fx.com</a>
             </div>
         </div>
     </div>
