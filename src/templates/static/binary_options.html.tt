@@ -107,12 +107,20 @@
                                         <div class="col-md">
                                             <h4>[% l('Virtual account') %]</h4>
                                             <p>[% l('Trade with USD 10,000 worth of virtual currency without any risks.') %]</p>
-                                            <p><a class="button" href=""><span>[% l('Sign up') %]</span></a></p>
+                                            <p>
+                                                <a class="button" id="virtual-signup-button">
+                                                    <span>[% l('Sign up') %]</span>
+                                                </a>
+                                            </p>
                                         </div>
                                         <div class="col-md">
                                             <h4>[% l('Real account') %]</h4>
                                             <p>[% l('Upgrade to a real account to trade binary options with real money.') %]</p>
-                                            <p><a class="button" href=""><span>[% l('Upgrade') %]</span></a></p>
+                                            <p>
+                                                <a class="button" id="real-signup-button" href="[% request.url_for("new-account/real") %]">
+                                                    <span>[% l('Upgrade') %]</span>
+                                                </a>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
