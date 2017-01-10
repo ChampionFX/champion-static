@@ -1,11 +1,11 @@
-<form id="verify-email-form">
+<form id="verify-email-form" class="frm-verify-email">
     <div class="signup-box border primary-bg-color fx-material">
         <div class="">
-            <input class="clean-input" autocomplete="off" name="email" id="email" maxlength="50" placeholder="Enter your email">
+            <input class="clean-input" autocomplete="off" name="email" id="email" maxlength="50" placeholder="[% l('Enter your email') %]">
         </div>
         <div class="">
             <button class="button-secondary" id="btn-verify-email" type="submit">[% l('Create Free Account') %]</button>
         </div>
-        <span class="error-msg hint color-white center-text" id="signup_error" style="display:none"></span>
+        <span class="error-msg hint color-white center-text hidden" id="signup_error"></span>
     </div>
 </form>
