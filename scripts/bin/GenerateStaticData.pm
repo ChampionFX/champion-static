@@ -32,7 +32,15 @@ sub _texts {
         BS::set_lang($language);
 
         my @texts;
-        push @texts, localize('');
+        # global error messages
+        push @texts, localize('This field is required');
+        push @texts, localize('Invalid email address');
+        push @texts, localize('Password should have lower and uppercase letters with numbers.');
+        push @texts, localize('You should enter [_1] characters.');
+        push @texts, localize('The two passwords that you entered do not match.');
+
+        # new virtual account
+        push @texts, localize('Please submit a valid verification token.');
 
         my %as_hash = @texts;
         $js .= "texts_json['" . $language . "'] = " . JSON::to_json(\%as_hash) . ";\n";

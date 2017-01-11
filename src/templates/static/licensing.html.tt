@@ -1,19 +1,15 @@
----
-title: [% Licensing %]
-tag: main
----
 <div class="fx-section">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm">
-				<h1>[% Regulation & Licensing %]</h1>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm centered">
-			    <img class="img-lg" src="{{ "/assets/images/vfsc.jpg" | relative_url }}" alt="VFSC">
-				<p>[% Champion Group Ltd. is fully regulated by Vanuatu Financial Services Commission (VFSC) bearing license number 14660. Champion Group Ltd. is also registered with the Financial Intelligence unit (FIU) of Vanuatu for compliance with the Anti-Money Laundering rules of the VFSC %]</p>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h1>[% l('Regulation & Licensing') %]</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm centered">
+                <img class="img-lg" src="[% request.url_for('images/vfsc.jpg') %]" alt="VFSC">
+                <p>[% l('Champion Group Ltd. is fully regulated by Vanuatu Financial Services Commission (VFSC) bearing license number 14660. Champion Group Ltd. is also registered with the Financial Intelligence unit (FIU) of Vanuatu for compliance with the Anti-Money Laundering rules of the VFSC') %]</p>
+            </div>
+        </div>
+    </div>
 </div>
