@@ -24,8 +24,8 @@ const Champion = (function() {
         _container.on('champion:before', beforeContentChange);
         _container.on('champion:after', afterContentChange);
         Client.init();
-        ChampionRouter.init(_container, '#champion-content');
         ChampionSocket.init();
+        ChampionRouter.init(_container, '#champion-content');
         if (!Client.is_logged_in()) {
             $('#main-login').find('a').on('click', () => { Login.redirect_to_login(); });
         }
