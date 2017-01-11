@@ -21,8 +21,11 @@ const Validation = (function() {
                 if (field.msg_element) {
                     field.$error = $form.find(field.msg_element);
                 } else {
-                    field.$.parent().append($('<div/>', { class: `${error_class} ${hidden_class}` }));
-                    field.$error = field.$.parent().find(`.${error_class}`);
+                    const $parent = field.$.parent();
+                    if ($parent.find(`div.${error_class}`).length === 0) {
+                        $parent.append($('<div/>', { class: `${error_class} ${hidden_class}` }));
+                    }
+                    field.$error = $parent.find(`.${error_class}`);
                 }
 
                 const event = events_map[field.$.get(0).localName];
