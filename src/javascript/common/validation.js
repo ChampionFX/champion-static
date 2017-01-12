@@ -1,5 +1,3 @@
-const isValidDate = require('./utility').isValidDate;
-
 const Validation = (function() {
     'use strict';
 
@@ -8,7 +6,7 @@ const Validation = (function() {
     const hidden_class = 'hidden';
 
     const events_map = {
-        input   : 'input',
+        input   : 'input change',
         select  : 'change',
         checkbox: 'change',
     };
@@ -23,10 +21,6 @@ const Validation = (function() {
     };
 
     const getFieldValue = $field => (getFieldType($field) === 'checkbox' ? ($field.is(':checked') ? '1' : '') : $field.val()) || '';
-
-    const getField = (form_selector, field_selector) => (
-        forms[form_selector].fields.find(field => (field.selector === field_selector))
-    );
 
     const initForm = (form_selector, fields) => {
         const $form = $(`${form_selector}:visible`);
@@ -74,13 +68,6 @@ const Validation = (function() {
         (options.max ? value.trim().length <= options.max : true)
     );
 
-    const validDdlDate = (value, options, form) => {
-        const day   = getField(form, options.day).$.val();
-        const month = getField(form, options.month).$.val();
-        const year  = getField(form, options.year).$.val();
-        return (day && month && year) ? isValidDate(day, month, year) : false;
-    };
-
     const validators_map = {
         req     : { func: validRequired,  message: 'This field is required' },
         email   : { func: validEmail,     message: 'Invalid email address' },
@@ -91,7 +78,6 @@ const Validation = (function() {
         compare : { func: validCompare,   message: 'The two passwords that you entered do not match.' },
         min     : { func: validMin,       message: 'Minimum of [_1] characters required.' },
         length  : { func: validLength,    message: 'You should enter [_1] characters.' },
-        ddl_date: { func: validDdlDate,   message: 'Please input a valid date' },
     };
 
     const pass_length = { min: 6, max: 25 };

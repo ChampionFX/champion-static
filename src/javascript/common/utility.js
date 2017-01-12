@@ -48,10 +48,6 @@ function handleActive() {
     }
 }
 
-function range(start, end) {
-    return Array.from(Array((end - start) + 1).keys()).map(i => i + start);
-}
-
 function initDropDown($ddl, first) {
     if (!$ddl.length) return false;
     $ddl.empty();
@@ -59,21 +55,6 @@ function initDropDown($ddl, first) {
         $ddl.append($('<option/>', { text: first, value: '' }));
     }
     return true;
-}
-
-function dropDownNumbers($ddl, start, end, first) {
-    if (!initDropDown($ddl, first)) return;
-    range(start, end).forEach((n) => {
-        $ddl.append($('<option/>', { text: n, value: n }));
-    });
-}
-
-function dropDownMonths($ddl, first) {
-    if (!initDropDown($ddl, first)) return;
-    ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-        .forEach((m, i) => {
-            $ddl.append($('<option/>', { text: m, value: i + 1 }));
-        });
 }
 
 function dropDownFromObject($ddl, obj_array, default_value, first) {
@@ -90,21 +71,38 @@ function dropDownFromObject($ddl, obj_array, default_value, first) {
     });
 }
 
-function isValidDate(day, month, year) {
-    // Assume not leap year by default (note zero index for Jan)
-    const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-    // If evenly divisible by 4 and not evenly divisible by 100,
-    // or is evenly divisible by 400, then a leap year
-    if (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0)) {
-        daysInMonth[1] = 29;
-    }
-    return day <= daysInMonth[--month];
-}
-
 function padLeft(text, len, char) {
     text = String(text || '');
     return text.length >= len ? text : `${Array((len - text.length) + 1).join(char)}${text}`;
+}
+
+function toISOFormat(date) {
+    return date.format('YYYY-MM-DD');
+}
+
+/*
+ * function to check if browser supports the type date/time
+ * send a wrong val in case browser 'pretends' to support
+ */
+function checkInput(type, wrongVal) {
+    const input = document.createElement('input');
+    input.setAttribute('type', type);
+    input.setAttribute('value', wrongVal);
+    return (input.value !== wrongVal);
+}
+
+/*
+ * function to check if new date is selected using native picker
+ * if yes, update the data-value. if no, return false.
+ */
+function dateValueChanged(element, type) {
+    if (element.getAttribute('data-value') === element.value) {
+        return false;
+    }
+    if (element.getAttribute('type') === type) {
+        element.setAttribute('data-value', element.value);
+    }
+    return true;
 }
 
 module.exports = {
@@ -113,9 +111,9 @@ module.exports = {
     animateDisappear  : animateDisappear,
     addComma          : addComma,
     handleActive      : handleActive,
-    dropDownNumbers   : dropDownNumbers,
-    dropDownMonths    : dropDownMonths,
     dropDownFromObject: dropDownFromObject,
-    isValidDate       : isValidDate,
     padLeft           : padLeft,
+    toISOFormat       : toISOFormat,
+    checkInput        : checkInput,
+    dateValueChanged  : dateValueChanged,
 };

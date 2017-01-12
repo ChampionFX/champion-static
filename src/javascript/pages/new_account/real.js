@@ -1,9 +1,11 @@
+const moment               = require('moment');
 const ChampionSocket       = require('../../common/socket');
 const Client               = require('../../common/client');
 const State                = require('../../common/storage').State;
 const Utility              = require('../../common/utility');
 const default_redirect_url = require('../../common/url').default_redirect_url;
 const Validation           = require('../../common/validation');
+const DatePicker           = require('../../components/date_picker').DatePicker;
 
 const ChampionNewRealAccount = (function() {
     'use strict';
@@ -22,9 +24,7 @@ const ChampionNewRealAccount = (function() {
     const fields = {
         txt_fname          : '#txt_fname',
         txt_lname          : '#txt_lname',
-        ddl_day            : '#ddl_day',
-        ddl_month          : '#ddl_month',
-        ddl_year           : '#ddl_year',
+        txt_birth_date     : '#txt_birth_date',
         ddl_residence      : '#ddl_residence',
         txt_address1       : '#txt_address1',
         txt_address2       : '#txt_address2',
@@ -49,11 +49,7 @@ const ChampionNewRealAccount = (function() {
         client_residence = Client.get_value('residence');
         populateResidence();
         populateState();
-
-        Utility.dropDownNumbers($(fields.ddl_day), 1, 31, 'Day');
-        Utility.dropDownMonths($(fields.ddl_month), 'Month');
-        const currentYear = new Date().getFullYear();
-        Utility.dropDownNumbers($(fields.ddl_year), currentYear - 100, currentYear - 17, 'Year');
+        attachDatePicker();
 
         btn_submit    = container.find(fields.btn_submit);
         btn_submit.on('click', submit);
@@ -64,13 +60,10 @@ const ChampionNewRealAccount = (function() {
     };
 
     const initValidation = () => {
-        const valid_ddl_date = ['ddl_date', { day: fields.ddl_day, month: fields.ddl_month, year: fields.ddl_year }];
         Validation.init(form_selector, [
             { selector: fields.txt_fname,           validations: ['req', 'general', ['min', { min: 2 }]] },
             { selector: fields.txt_lname,           validations: ['req', 'general', ['min', { min: 2 }]] },
-            { selector: fields.ddl_day,             validations: ['req', valid_ddl_date] },
-            { selector: fields.ddl_month,           validations: ['req', valid_ddl_date] },
-            { selector: fields.ddl_year,            validations: ['req', valid_ddl_date] },
+            { selector: fields.txt_birth_date,      validations: ['req'] },
             { selector: fields.ddl_residence,       validations: ['req'] },
             { selector: fields.txt_address1,        validations: ['req', 'general'] },
             { selector: fields.txt_address2,        validations: ['general'] },
@@ -122,6 +115,21 @@ const ChampionNewRealAccount = (function() {
         }
     };
 
+    const attachDatePicker = () => {
+        const datePickerInst = new DatePicker(fields.txt_birth_date);
+        datePickerInst.hide();
+        datePickerInst.show({
+            minDate  : -100 * 365,
+            maxDate  : -18  * 365,
+            yearRange: '-100:-18',
+        });
+        $(fields.txt_birth_date)
+            .attr('data-value', Utility.toISOFormat(moment()))
+            .change(function() {
+                return Utility.dateValueChanged(this, 'date');
+            });
+    };
+
     const submit = (e) => {
         e.preventDefault();
         if (Validation.validate(form_selector)) {
@@ -130,8 +138,7 @@ const ChampionNewRealAccount = (function() {
                 salutation      : $(fields.ddl_title).val(),
                 first_name      : $(fields.txt_fname).val(),
                 last_name       : $(fields.txt_lname).val(),
-                date_of_birth   :
-                    `${$(fields.ddl_year).val()}-${Utility.padLeft($(fields.ddl_month).val(), 2, '0')}-${Utility.padLeft($(fields.ddl_day).val(), 2, '0')}`,
+                date_of_birth   : $(fields.txt_birth_date).val(),
                 residence       : $(fields.ddl_residence).val(),
                 address_line_1  : $(fields.txt_address1).val(),
                 address_line_2  : $(fields.txt_address2).val(),

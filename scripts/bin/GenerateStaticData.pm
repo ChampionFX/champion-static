@@ -64,6 +64,36 @@ sub _texts {
         push @texts, localize('Nov');
         push @texts, localize('Dec');
 
+        # date_picker
+        push @texts, localize('January');
+        push @texts, localize('February');
+        push @texts, localize('March');
+        push @texts, localize('April');
+        push @texts, localize('May');
+        push @texts, localize('June');
+        push @texts, localize('July');
+        push @texts, localize('August');
+        push @texts, localize('September');
+        push @texts, localize('October');
+        push @texts, localize('November');
+        push @texts, localize('December');
+        push @texts, localize('Sunday');
+        push @texts, localize('Monday');
+        push @texts, localize('Tuesday');
+        push @texts, localize('Wednesday');
+        push @texts, localize('Thursday');
+        push @texts, localize('Friday');
+        push @texts, localize('Saturday');
+        push @texts, localize('Su');
+        push @texts, localize('Mo');
+        push @texts, localize('Tu');
+        push @texts, localize('We');
+        push @texts, localize('Th');
+        push @texts, localize('Fr');
+        push @texts, localize('Sa');
+        push @texts, localize('Next');
+        push @texts, localize('Previous');
+
         my %as_hash = @texts;
         $js .= "texts_json['" . $language . "'] = " . JSON::to_json(\%as_hash) . ";\n";
     }

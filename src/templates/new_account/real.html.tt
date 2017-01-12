@@ -62,9 +62,7 @@
                     </div>
                     <div class="col-xs-8">
                         <div class="form-input">
-                            <select id="ddl_day"></select>
-                            <select id="ddl_month"></select>
-                            <select id="ddl_year"></select>
+                            <input id="txt_birth_date" type="text" class="text" size="12" readonly="readonly" />
                         </div>
                     </div>
                 </div>

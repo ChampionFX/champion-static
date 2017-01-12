@@ -124,7 +124,7 @@ const ChampionSocket = (function() {
     const onMessage = (message) => {
         const response = JSON.parse(message.data);
         const this_req_id = response.req_id;
-        const reg =  this_req_id ? registered_callbacks[this_req_id] : null;
+        const reg = this_req_id ? registered_callbacks[this_req_id] : null;
 
         if (reg && typeof reg.callback === 'function') {
             reg.callback(response);
