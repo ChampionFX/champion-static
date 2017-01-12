@@ -68,16 +68,19 @@ const Validation = (function() {
         (options.max ? value.trim().length <= options.max : true)
     );
 
+    const validEmailToken = value => value.trim().length === 48;
+
     const validators_map = {
-        req     : { func: validRequired,  message: 'This field is required' },
-        email   : { func: validEmail,     message: 'Invalid email address' },
-        password: { func: validPassword,  message: 'Password should have lower and uppercase letters with numbers.' },
-        general : { func: validGeneral,   message: 'Only letters, space, hyphen, period, apost are allowed.' },
-        postcode: { func: validPostCode,  message: 'Only letters, numbers, hyphen are allowed.' },
-        phone   : { func: validPhone,     message: 'Only numbers, space are allowed.' },
-        compare : { func: validCompare,   message: 'The two passwords that you entered do not match.' },
-        min     : { func: validMin,       message: 'Minimum of [_1] characters required.' },
-        length  : { func: validLength,    message: 'You should enter [_1] characters.' },
+        req        : { func: validRequired,   message: 'This field is required' },
+        email      : { func: validEmail,      message: 'Invalid email address' },
+        password   : { func: validPassword,   message: 'Password should have lower and uppercase letters with numbers.' },
+        general    : { func: validGeneral,    message: 'Only letters, space, hyphen, period, apost are allowed.' },
+        postcode   : { func: validPostCode,   message: 'Only letters, numbers, hyphen are allowed.' },
+        phone      : { func: validPhone,      message: 'Only numbers, space are allowed.' },
+        email_token: { func: validEmailToken, message: 'Please submit a valid verification token.' },
+        compare    : { func: validCompare,    message: 'The two passwords that you entered do not match.' },
+        min        : { func: validMin,        message: 'Minimum of [_1] characters required.' },
+        length     : { func: validLength,     message: 'You should enter [_1] characters.' },
     };
 
     const pass_length = { min: 6, max: 25 };
@@ -86,6 +89,7 @@ const Validation = (function() {
     // ----- Validate -----
     // --------------------
     const checkField = (field) => {
+        if (!field.$.is(':Visible')) return true;
         let all_is_ok = true,
             message;
 

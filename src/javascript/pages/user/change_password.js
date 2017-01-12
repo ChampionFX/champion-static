@@ -1,7 +1,7 @@
-const ChampionSocket = require('./../../../common/socket');
-const Client         = require('./../../../common/client');
-const Validation     = require('./../../../common/validation');
-const Login          = require('./../../../common/login');
+const ChampionSocket = require('./../../common/socket');
+const Client         = require('./../../common/client');
+const Validation     = require('./../../common/validation');
+const Login          = require('./../../common/login');
 
 const ChangePassword = (function() {
     'use strict';
