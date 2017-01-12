@@ -4,7 +4,7 @@
             <input class="clean-input" autocomplete="off" name="email" id="email" maxlength="50" placeholder="[% l('Enter your email') %]">
         </div>
         <div class="">
-            <button class="button-secondary" id="btn-verify-email" type="submit">[% l('Create Free Account') %]</button>
+            <button class="button" id="btn-verify-email" type="submit">[% l('Create Free Account') %]</button>
         </div>
         <span class="error-msg hint color-white center-text hidden" id="signup_error"></span>
     </div>
