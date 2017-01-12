@@ -23,7 +23,7 @@
     }
 }
 
-// Header	
+// Header
 .FX__Header__cta {
     text-align: right;
     margin-top: 20px;
@@ -485,4 +485,15 @@ fieldset {
 
 .test {
     background-color: $darkPrimaryBrandColor;
+}
+
+select[disabled=disabled] {
+    color: $secondaryContentColor;
+}
+
+// 404 error code
+.big-error-code {
+    color: $secondaryContentColor;
+    font-size: 10em;
+    font-weight: normal;
 }

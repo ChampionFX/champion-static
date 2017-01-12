@@ -6,9 +6,21 @@ const Validation = (function() {
     const hidden_class = 'hidden';
 
     const events_map = {
-        input : 'input',
-        select: 'change',
+        input   : 'input change',
+        select  : 'change',
+        checkbox: 'change',
     };
+
+    const getFieldType = ($field) => {
+        if (!$field.length) return null;
+        let type = $field.get(0).localName;
+        if (type === 'input' && $field.attr('type') === 'checkbox') {
+            type = 'checkbox';
+        }
+        return type;
+    };
+
+    const getFieldValue = $field => (getFieldType($field) === 'checkbox' ? ($field.is(':checked') ? '1' : '') : $field.val()) || '';
 
     const initForm = (form_selector, fields) => {
         const $form = $(`${form_selector}:visible`);
@@ -18,6 +30,7 @@ const Validation = (function() {
                 field.$ = $form.find(field.selector);
                 if (!field.$.length) return;
 
+                field.form = form_selector;
                 if (field.msg_element) {
                     field.$error = $form.find(field.msg_element);
                 } else {
@@ -28,10 +41,12 @@ const Validation = (function() {
                     field.$error = $parent.find(`.${error_class}`);
                 }
 
-                const event = events_map[field.$.get(0).localName];
-                field.$.unbind(event).on(event, () => {
-                    checkField(field);
-                });
+                const event = events_map[getFieldType(field.$)];
+                if (event) {
+                    field.$.unbind(event).on(event, () => {
+                        checkField(field);
+                    });
+                }
             });
         }
     };
@@ -40,24 +55,29 @@ const Validation = (function() {
     // ----- Validation Methods -----
     // ------------------------------
     const validRequired = value => value.length;
-
-    const validEmail = value => /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/.test(value);
-
+    const validEmail    = value => /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/.test(value);
     const validPassword = value => /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+/.test(value);
-
-    const validLength = (value, options) => (
-        (options.min ? value.length >= options.min : true) &&
-        (options.max ? value.length <= options.max : true)
-    );
+    const validGeneral  = value => !/[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/.test(value);
+    const validPostCode = value => /^[a-zA-Z\d-]*$/.test(value);
+    const validPhone    = value => /^\+?[0-9\s]*$/.test(value);
 
     const validCompare = (value, options) => value === $(options.to).val();
+    const validMin     = (value, options) => (options.min ? value.trim().length >= options.min : true);
+    const validLength  = (value, options) => (
+        (options.min ? value.trim().length >= options.min : true) &&
+        (options.max ? value.trim().length <= options.max : true)
+    );
 
     const validators_map = {
-        req     : { func: validRequired, message: 'This field is required' },
-        email   : { func: validEmail,    message: 'Invalid email address' },
-        password: { func: validPassword, message: 'Password should have lower and uppercase letters with numbers.' },
-        length  : { func: validLength,   message: 'You should enter [_1] characters.' },
-        compare : { func: validCompare,  message: 'The two passwords that you entered do not match.' },
+        req     : { func: validRequired,  message: 'This field is required' },
+        email   : { func: validEmail,     message: 'Invalid email address' },
+        password: { func: validPassword,  message: 'Password should have lower and uppercase letters with numbers.' },
+        general : { func: validGeneral,   message: 'Only letters, space, hyphen, period, apost are allowed.' },
+        postcode: { func: validPostCode,  message: 'Only letters, numbers, hyphen are allowed.' },
+        phone   : { func: validPhone,     message: 'Only numbers, space are allowed.' },
+        compare : { func: validCompare,   message: 'The two passwords that you entered do not match.' },
+        min     : { func: validMin,       message: 'Minimum of [_1] characters required.' },
+        length  : { func: validLength,    message: 'You should enter [_1] characters.' },
     };
 
     const pass_length = { min: 6, max: 25 };
@@ -80,19 +100,21 @@ const Validation = (function() {
                 options = valid[1];
             }
 
-            if (type === 'password' && !validLength(field.$.val(), pass_length)) {
+            if (type === 'password' && !validLength(getFieldValue(field.$), pass_length)) {
                 field.is_ok = false;
                 type = 'length';
                 options = pass_length;
             } else {
                 const validator = validators_map[type].func;
-                field.is_ok = validator(field.$.val(), options);
+                field.is_ok = validator(getFieldValue(field.$), options, field.form);
             }
 
             if (!field.is_ok) {
                 message = options.message || validators_map[type].message;
                 if (type === 'length') {
                     message = message.replace('[_1]', options.min === options.max ? options.min : `${options.min}-${options.max}`);
+                } else if (type === 'min') {
+                    message = message.replace('[_1]', options.min);
                 }
                 all_is_ok = false;
                 return true;
@@ -110,7 +132,9 @@ const Validation = (function() {
     };
 
     const clearError = (field) => {
-        field.$error.addClass(hidden_class);
+        if (field.$error && field.$error.length) {
+            field.$error.addClass(hidden_class);
+        }
     };
 
     const showError = (field, message) => {
@@ -121,7 +145,14 @@ const Validation = (function() {
     const validate = (form_selector) => {
         const form = forms[form_selector];
         form.is_ok = true;
-        form.fields.forEach((field) => { if (!checkField(field)) form.is_ok = false; });
+        form.fields.forEach((field) => {
+            if (!checkField(field)) {
+                if (form.is_ok) { // first error
+                    $.scrollTo(field.$, 500, { offset: -10 });
+                }
+                form.is_ok = false;
+            }
+        });
         return form.is_ok;
     };
 
