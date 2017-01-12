@@ -1,5 +1,7 @@
 const ChampionSocket       = require('../../common/socket');
 const Client               = require('../../common/client');
+const State                = require('../../common/storage').State;
+const Utility              = require('../../common/utility');
 const default_redirect_url = require('../../common/url').default_redirect_url;
 const Validation           = require('../../common/validation');
 
@@ -28,27 +30,22 @@ const ChampionNewVirtualAccount = (function() {
             { selector: '#residence',         validations: ['req'] },
         ]);
 
+        populateResidence();
+    };
+
+    const populateResidence = () => {
+        residences = State.get('response').residence_list;
+        const renderResidence = () => {
+            Utility.dropDownFromObject(input_residence, residences);
+        };
         if (!residences) {
             ChampionSocket.send({ residence_list: 1 }, (response) => {
                 residences = response.residence_list;
-                renderResidences();
+                renderResidence();
             });
         } else {
-            renderResidences();
+            renderResidence();
         }
-    };
-
-    const renderResidences = () => {
-        input_residence.empty();
-        residences.forEach((res) => {
-            const option = $('<option></option>');
-            option.text(res.text);
-            option.attr('value', res.value);
-            if (res.disabled) {
-                option.attr('disabled', '1');
-            }
-            input_residence.append(option);
-        });
     };
 
     const unload = () => {
