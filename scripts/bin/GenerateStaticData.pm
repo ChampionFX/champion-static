@@ -37,10 +37,32 @@ sub _texts {
         push @texts, localize('Invalid email address');
         push @texts, localize('Password should have lower and uppercase letters with numbers.');
         push @texts, localize('You should enter [_1] characters.');
+        push @texts, localize('Minimum of [_1] characters required.');
         push @texts, localize('The two passwords that you entered do not match.');
+        push @texts, localize('Only letters, space, hyphen, period, apost are allowed.');
+        push @texts, localize('Only letters, numbers, hyphen are allowed.');
+        push @texts, localize('Only numbers, space are allowed.');
+        push @texts, localize('Please input a valid date');
 
         # new virtual account
         push @texts, localize('Please submit a valid verification token.');
+
+        # new real account
+        push @texts, localize('Day');
+        push @texts, localize('Month');
+        push @texts, localize('Year');
+        push @texts, localize('Jan');
+        push @texts, localize('Feb');
+        push @texts, localize('Mar');
+        push @texts, localize('Apr');
+        push @texts, localize('May');
+        push @texts, localize('Jun');
+        push @texts, localize('Jul');
+        push @texts, localize('Aug');
+        push @texts, localize('Sep');
+        push @texts, localize('Oct');
+        push @texts, localize('Nov');
+        push @texts, localize('Dec');
 
         my %as_hash = @texts;
         $js .= "texts_json['" . $language . "'] = " . JSON::to_json(\%as_hash) . ";\n";
