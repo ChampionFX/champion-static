@@ -21,16 +21,16 @@ function animateAppear(element) {
         .animate({ opacity: 1 }, 100);
 }
 
-const addComma = function(num, decimal_points) {
+function addComma(num, decimal_points) {
     num = String(num || 0).replace(/,/g, '') * 1;
     return num.toFixed(decimal_points || 2).toString().replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
         return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, '$&,');
     });
-};
+}
 
 // function used on any page that has tab menu to
 // show the correct tab/content if hash is changed in url
-const handleActive = function () {
+function handleActive() {
     const hash = window.location.hash,
         menu = '.tab-menu-wrap',
         content = '.tab-content-wrapper';
@@ -51,12 +51,74 @@ const handleActive = function () {
             /* eslint-enable newline-per-chained-call */
         }
     }
-};
+}
+
+function initDropDown($ddl, first) {
+    if (!$ddl.length) return false;
+    $ddl.empty();
+    if (first) {
+        $ddl.append($('<option/>', { text: first, value: '' }));
+    }
+    return true;
+}
+
+function dropDownFromObject($ddl, obj_array, default_value, first) {
+    if (!initDropDown($ddl, first)) return;
+    obj_array.forEach((obj) => {
+        const $option = $('<option/>', { text: obj.text, value: obj.value });
+        if (default_value === obj.value) {
+            $option.attr('selected', 'selected');
+        }
+        if (obj.disabled) {
+            $option.attr('disabled', '1');
+        }
+        $ddl.append($option);
+    });
+}
+
+function padLeft(text, len, char) {
+    text = String(text || '');
+    return text.length >= len ? text : `${Array((len - text.length) + 1).join(char)}${text}`;
+}
+
+function toISOFormat(date) {
+    return date.format('YYYY-MM-DD');
+}
+
+/*
+ * function to check if browser supports the type date/time
+ * send a wrong val in case browser 'pretends' to support
+ */
+function checkInput(type, wrongVal) {
+    const input = document.createElement('input');
+    input.setAttribute('type', type);
+    input.setAttribute('value', wrongVal);
+    return (input.value !== wrongVal);
+}
+
+/*
+ * function to check if new date is selected using native picker
+ * if yes, update the data-value. if no, return false.
+ */
+function dateValueChanged(element, type) {
+    if (element.getAttribute('data-value') === element.value) {
+        return false;
+    }
+    if (element.getAttribute('type') === type) {
+        element.setAttribute('data-value', element.value);
+    }
+    return true;
+}
 
 module.exports = {
-    isEmptyObject   : isEmptyObject,
-    animateAppear   : animateAppear,
-    animateDisappear: animateDisappear,
-    addComma        : addComma,
-    handleActive    : handleActive,
+    isEmptyObject     : isEmptyObject,
+    animateAppear     : animateAppear,
+    animateDisappear  : animateDisappear,
+    addComma          : addComma,
+    handleActive      : handleActive,
+    dropDownFromObject: dropDownFromObject,
+    padLeft           : padLeft,
+    toISOFormat       : toISOFormat,
+    checkInput        : checkInput,
+    dateValueChanged  : dateValueChanged,
 };

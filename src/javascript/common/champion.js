@@ -2,7 +2,7 @@ const ChampionSocket     = require('./socket');
 const ChampionRouter     = require('./router');
 const ChampionSignup     = require('./../pages/signup');
 const ChampionNewVirtual = require('./../pages/new_account/virtual');
-// const ChampionNewReal    = require('./../pages/new_account/real');
+const ChampionNewReal    = require('./../pages/new_account/real');
 const ChampionContact    = require('./../pages/contact');
 const ChampionEndpoint   = require('./../pages/endpoint');
 const ChangePassword     = require('./../pages/user/security/change_password');
@@ -45,7 +45,7 @@ const Champion = (function() {
         const page = content.getAttribute('data-page');
         const pages_map = {
             virtual         : ChampionNewVirtual,
-            // real            : ChampionNewReal,
+            real            : ChampionNewReal,
             contact         : ChampionContact,
             endpoint        : ChampionEndpoint,
             logged_inws     : LoggedIn,
