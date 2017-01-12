@@ -1,6 +1,7 @@
-const ChampionSocket       = require('./../../../common/socket');
-const Client               = require('./../../../common/client');
-const Validation           = require('./../../../common/validation');
+const ChampionSocket = require('./../../../common/socket');
+const Client         = require('./../../../common/client');
+const Validation     = require('./../../../common/validation');
+const Login          = require('./../../../common/login');
 
 const ChangePassword = (function() {
     'use strict';
@@ -14,7 +15,11 @@ const ChangePassword = (function() {
         $form = $(`${form_selector}:visible`);
         if (!Client.is_logged_in()) {
             $form.addClass('hidden');
-            $('#client_message').show().find('.notice-msg').text('Please login.');
+            $('#client_message').show().find('.notice-msg').html('Please <a href onclick="javascript:;">login</a> to view this page.');
+            $('.notice-msg a').on('click', (e) => {
+                e.preventDefault();
+                Login.redirect_to_login();
+            });
             return;
         }
         submit_btn = $form.find('#change_password_btn');
@@ -46,7 +51,7 @@ const ChangePassword = (function() {
                         ChampionSocket.send({ logout: 1 });
                     }, 5000);
                     $form.addClass('hidden');
-                    $('#client_message').show().find('.notice-msg').text('Your password has been changed.');
+                    $('#client_message').show().find('.notice-msg').text('Your password has been changed. Please log in again.');
                 }
             });
         }
