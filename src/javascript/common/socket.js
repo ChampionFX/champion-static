@@ -8,6 +8,7 @@ const ChampionSocket = (function() {
     'use strict';
 
     let socket,
+        req_id = 0,
         message_callback;
 
     const buffered = [],
@@ -91,11 +92,8 @@ const ChampionSocket = (function() {
     const isClosed = () => (!socket || socket.readyState === 2 || socket.readyState === 3);
 
     const send = (data, callback, subscribe) => {
-        let req_id;
-
         if (typeof callback === 'function') {
-            req_id = new Date().getTime();
-            registered_callbacks[req_id] = {
+            registered_callbacks[++req_id] = {
                 callback : callback,
                 subscribe: subscribe,
             };
@@ -124,14 +122,14 @@ const ChampionSocket = (function() {
     };
 
     const onMessage = (message) => {
-        const response = JSON.parse(message.data),
-            req_id = response.req_id,
-            reg =  req_id ? registered_callbacks[req_id] : null;
+        const response = JSON.parse(message.data);
+        const this_req_id = response.req_id;
+        const reg =  this_req_id ? registered_callbacks[this_req_id] : null;
 
         if (reg && typeof reg.callback === 'function') {
             reg.callback(response);
             if (!reg.subscribe) {
-                delete registered_callbacks[req_id];
+                delete registered_callbacks[this_req_id];
             }
         } else if (typeof message_callback === 'function') {
             message_callback(response);
