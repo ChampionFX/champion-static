@@ -42,6 +42,10 @@ sub _texts {
         # new virtual account
         push @texts, localize('Please submit a valid verification token.');
 
+        # change password
+        push @texts, localize('Please <a href="javascript:;">log in</a> to view this page.');
+        push @texts, localize('Your password has been changed. Please log in again.');
+
         my %as_hash = @texts;
         $js .= "texts_json['" . $language . "'] = " . JSON::to_json(\%as_hash) . ";\n";
     }
