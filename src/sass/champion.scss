@@ -486,3 +486,10 @@ fieldset {
 .test {
     background-color: $darkPrimaryBrandColor;
 }
+
+// 404 error code
+.big-error-code {
+    color: $secondaryContentColor;
+    font-size: 10em;
+    font-weight: normal;
+}
