@@ -17,6 +17,8 @@
         'module':  false,
         'console': false,
         'global':  false,
+        // function from binary-style
+        'tabListener': false
     },
     'rules': {
         'array-callback-return': 0,
