@@ -25,6 +25,8 @@ sub all_pages {
         ['partnerships',               'static/partnerships',          'full_width', 'Partnerships'],
 #       ['other-markets',              'static/other_markets',         'full_width', 'Other Markets'],
 
+        ['user/security/change_password', 'user/security/change_password', 'full-width', 'Change Password'],
+
         ['terms-and-conditions',       'legal/tac',                    'full_width', 'Terms and Conditions'],
     );
 }
