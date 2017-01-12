@@ -15,11 +15,12 @@ const ChangePassword = (function() {
         $form = $(`${form_selector}:visible`);
         if (!Client.is_logged_in()) {
             $form.addClass('hidden');
-            $('#client_message').show().find('.notice-msg').html('Please <a href onclick="javascript:;">login</a> to view this page.');
-            $('.notice-msg a').on('click', (e) => {
-                e.preventDefault();
-                Login.redirect_to_login();
-            });
+            $('#client_message').show()
+                .find('.notice-msg').html('Please <a href="javascript:;">log in</a> to view this page.')
+                .find('a')
+                .on('click', () => {
+                    Login.redirect_to_login();
+                });
             return;
         }
         submit_btn = $form.find('#change_password_btn');
