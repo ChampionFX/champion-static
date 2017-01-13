@@ -33,7 +33,7 @@ const ChampionNewVirtualAccount = (function() {
         Validation.init(form_selector, [
             { selector: fields.txt_verification_code, validations: ['req', 'email_token'] },
             { selector: fields.txt_password,          validations: ['req', 'password'] },
-            { selector: fields.txt_re_password,       validations: ['req', ['compare', { to: '#password' }]] },
+            { selector: fields.txt_re_password,       validations: ['req', ['compare', { to: fields.txt_password }]] },
             { selector: fields.ddl_residence,         validations: ['req'] },
         ]);
 
@@ -57,7 +57,9 @@ const ChampionNewVirtualAccount = (function() {
     };
 
     const unload = () => {
-        btn_submit.off('click', submit);
+        if (btn_submit) {
+            btn_submit.off('click', submit);
+        }
     };
 
     const submit = (e) => {

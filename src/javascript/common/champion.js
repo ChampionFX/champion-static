@@ -46,15 +46,15 @@ const Champion = (function() {
     const afterContentChange = (e, content) => {
         const page = content.getAttribute('data-page');
         const pages_map = {
-            virtual         : ChampionNewVirtual,
-            real            : ChampionNewReal,
-            contact         : ChampionContact,
-            endpoint        : ChampionEndpoint,
-            logged_inws     : LoggedIn,
-            'binary-options': BinaryOptions,
-            change_password : ChangePassword,
-            lost_password   : LostPassword,
-            reset_password  : ResetPassword,
+            virtual          : ChampionNewVirtual,
+            real             : ChampionNewReal,
+            contact          : ChampionContact,
+            endpoint         : ChampionEndpoint,
+            logged_inws      : LoggedIn,
+            'binary-options' : BinaryOptions,
+            'change-password': ChangePassword,
+            'lost-password'  : LostPassword,
+            'reset-password' : ResetPassword,
         };
         if (page in pages_map) {
             _active_script = pages_map[page];

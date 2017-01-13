@@ -37,7 +37,7 @@
                     </div>
                     <div class="col-xs-8">
                         <div class="form-input">
-                            <input id="txt_password" type="password" maxlength="25" autocomplete="off" />
+                            <input id="txt_password" type="password" maxlength="25" />
                             <div class="hint">[% l('Minimum of six lower and uppercase letters with numbers') %]</div>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="col-xs-8">
                         <div class="form-input">
-                            <input id="txt_re_password" type="password" maxlength="25" autocomplete="off" />
+                            <input id="txt_re_password" type="password" maxlength="25" />
                         </div>
                     </div>
                 </div>

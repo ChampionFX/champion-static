@@ -26,7 +26,9 @@ const LostPassword = (function() {
     };
 
     const unload = () => {
-        btn_submit.off('click', submit);
+        if (btn_submit) {
+            btn_submit.off('click', submit);
+        }
     };
 
     const submit = (e) => {

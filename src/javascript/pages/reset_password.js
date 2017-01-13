@@ -44,7 +44,7 @@ const ResetPassword = (function() {
     };
 
     const haveRealAccountHandler = function() {
-        container.find('#dob-row').toggleClass(hiddenClass);
+        container.find('#dob_row').toggleClass(hiddenClass);
     };
 
     const submit = (e) => {
@@ -93,7 +93,7 @@ const ResetPassword = (function() {
         datePickerInst.hide();
         datePickerInst.show({
             minDate  : -100 * 365,
-            maxDate  : -18  * 365,
+            maxDate  : (-18 * 365) - 5,
             yearRange: '-100:-18',
         });
         $(fields.txt_birth_date)
@@ -104,8 +104,10 @@ const ResetPassword = (function() {
     };
 
     const unload = () => {
-        real_acc.off('click', haveRealAccountHandler);
-        btn_submit.off('click', submit);
+        if (btn_submit) {
+            real_acc.off('click', haveRealAccountHandler);
+            btn_submit.off('click', submit);
+        }
     };
 
     return {
