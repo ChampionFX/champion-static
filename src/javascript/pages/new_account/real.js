@@ -155,8 +155,8 @@ const ChampionNewRealAccount = (function() {
                     $('#error-create-account').removeClass('hidden').text(response.error.message);
                     btn_submit.removeAttr('disabled');
                 } else {
-                    const acc_info = response.new_account_virtual;
-                    Client.process_new_account(acc_info.email, acc_info.client_id, acc_info.oauth_token);
+                    const acc_info = response.new_account_real;
+                    Client.process_new_account(Client.get_value('email'), acc_info.client_id, acc_info.oauth_token);
                     window.location.href = default_redirect_url();
                 }
             });
