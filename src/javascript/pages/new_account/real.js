@@ -53,7 +53,7 @@ const ChampionNewRealAccount = (function() {
         attachDatePicker();
 
         btn_submit    = container.find(fields.btn_submit);
-        btn_submit.on('click', submit);
+        btn_submit.on('click dblclick', submit);
     };
 
     const unload = () => {
@@ -133,6 +133,7 @@ const ChampionNewRealAccount = (function() {
 
     const submit = (e) => {
         e.preventDefault();
+        btn_submit.attr('disabled', 'disabled');
         if (Validation.validate(form_selector)) {
             const data = {
                 new_account_real: 1,
@@ -153,6 +154,7 @@ const ChampionNewRealAccount = (function() {
             ChampionSocket.send(data, (response) => {
                 if (response.error) {
                     $('#error-create-account').removeClass('hidden').text(response.error.message);
+                    btn_submit.removeAttr('disabled');
                 } else {
                     const acc_info = response.new_account_virtual;
                     Client.process_new_account(acc_info.email, acc_info.client_id, acc_info.oauth_token);

@@ -12,16 +12,16 @@ const ChampionNewVirtualAccount = (function() {
 
     let residences = null;
 
-    let submit_btn,
+    let btn_submit,
         input_residence;
 
     const load = () => {
         if (Client.redirect_if_login()) return;
         const container = $('#champion-container');
         input_residence = container.find('#residence');
-        submit_btn      = container.find('#btn-submit');
+        btn_submit      = container.find('#btn-submit');
 
-        submit_btn.on('click', submit);
+        btn_submit.on('click dblclick', submit);
 
         Validation.init(form_selector, [
             { selector: '#verification-code', validations: ['req', 'email_token'] },
@@ -49,11 +49,12 @@ const ChampionNewVirtualAccount = (function() {
     };
 
     const unload = () => {
-        submit_btn.off('click', submit);
+        btn_submit.off('click', submit);
     };
 
     const submit = (e) => {
         e.preventDefault();
+        btn_submit.attr('disabled', 'disabled');
         if (Validation.validate(form_selector)) {
             const data = {
                 new_account_virtual: 1,
@@ -64,6 +65,7 @@ const ChampionNewVirtualAccount = (function() {
             ChampionSocket.send(data, (response) => {
                 if (response.error) {
                     $('#error-create-account').removeClass('hidden').text(response.error.message);
+                    btn_submit.removeAttr('disabled');
                 } else {
                     const acc_info = response.new_account_virtual;
                     Client.process_new_account(acc_info.email, acc_info.client_id, acc_info.oauth_token, true);
