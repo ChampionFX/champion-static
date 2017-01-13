@@ -22,6 +22,7 @@ const ChampionNewRealAccount = (function() {
         ddl_state;
 
     const fields = {
+        ddl_title          : '#ddl_title',
         txt_fname          : '#txt_fname',
         txt_lname          : '#txt_lname',
         txt_birth_date     : '#txt_birth_date',
