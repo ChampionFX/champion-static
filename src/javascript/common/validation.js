@@ -11,14 +11,9 @@ const Validation = (function() {
         checkbox: 'change',
     };
 
-    const getFieldType = ($field) => {
-        if (!$field.length) return null;
-        let type = $field.get(0).localName;
-        if (type === 'input' && $field.attr('type') === 'checkbox') {
-            type = 'checkbox';
-        }
-        return type;
-    };
+    const getFieldType = $field => (
+        $field.length ? ($field.attr('type') === 'checkbox' ? 'checkbox' : $field.get(0).localName) : null
+    );
 
     const getFieldValue = $field => (getFieldType($field) === 'checkbox' ? ($field.is(':checked') ? '1' : '') : $field.val()) || '';
 

@@ -65,7 +65,7 @@ const CookieStorage = function(cookie_name, cookie_domain) {
     this.initialized = false;
     this.cookie_name = cookie_name;
     const hostname = window.location.hostname;
-    this.domain = cookie_domain || (/\.binary\.com/i.test(hostname) ? `.${hostname.split('.').slice(-2).join('.')}` : hostname);
+    this.domain = cookie_domain || (/\.champion-fx\.com/i.test(hostname) ? `.${hostname.split('.').slice(-2).join('.')}` : hostname);
     this.path = '/';
     this.expires = new Date('Thu, 1 Jan 2037 12:00:00 GMT');
     this.value = {};
@@ -134,6 +134,30 @@ if (!SessionStore || !LocalStore) {
         SessionStore = new InScriptStore();
     }
 }
+
+// LocalStorage can be used as a means of communication among
+// different windows. The problem that is solved here is what
+// happens if the user logs out or switches loginid in one
+// window while keeping another window or tab open. This can
+// lead to unintended trades. The solution is to reload the
+// page in all windows after switching loginid or after logout.
+$(document).ready(function () {
+    // Cookies is not always available.
+    // So, fall back to a more basic solution.
+    let match = document.cookie.match(/\bloginid=(\w+)/);
+    match = match ? match[1] : '';
+    $(window).on('storage', function (jq_event) {
+        switch (jq_event.originalEvent.key) {
+            case 'client.loginid':
+                if (jq_event.originalEvent.newValue !== match &&
+                    (jq_event.originalEvent.newValue === '' || !/logged_inws/i.test(window.location.pathname))) {
+                    window.location.reload();
+                }
+                break;
+            // no default
+        }
+    });
+});
 
 module.exports = {
     CookieStorage: CookieStorage,

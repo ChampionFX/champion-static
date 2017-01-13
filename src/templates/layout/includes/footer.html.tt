@@ -40,7 +40,7 @@
         <div class="container centered">
             <div class="row">
                 <div class="col-sm">
-                    [% l('&copy; 2016 Champion FX') %]
+                    [% l('&copy; 2017 Champion FX') %]
                 </div>
             </div>
         </div>

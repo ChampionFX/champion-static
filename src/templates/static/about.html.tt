@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-8 flex-sm-middle">
-                <p>[% l('The Champion FX brand was founded and launched in 2016 with a clear vision to provide traders with the world\'s best customer experience, superior customised trading conditions, state-of-the-art trading tools and access to many markets.') %]</p>
+                <p>[% l('The Champion FX brand was founded and launched in 2017 with a clear vision to provide traders with the world\'s best customer experience, superior customised trading conditions, state-of-the-art trading tools and access to many markets.') %]</p>
             </div>
             <div class="col-sm-4 flex-sm-middle">
                 <img src="[% request.url_for('images/logo/CFX_logomark_light.svg') %]" alt="">
