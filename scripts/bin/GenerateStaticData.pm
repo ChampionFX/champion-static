@@ -68,6 +68,10 @@ sub _texts {
         push @texts, localize('Please <a href="javascript:;">log in</a> to view this page.');
         push @texts, localize('Your password has been changed. Please log in again.');
 
+        # reset password
+        push @texts, localize('[_1] Please click the link below to restart the password recovery process. If you require further assistance, please contact our Customer Support.');
+        push @texts, localize('Your password has been successfully reset. Please log into your account using your new password.');
+
         # date_picker
         push @texts, localize('January');
         push @texts, localize('February');

@@ -5,7 +5,9 @@ const ChampionNewVirtual = require('./../pages/new_account/virtual');
 const ChampionNewReal    = require('./../pages/new_account/real');
 const ChampionContact    = require('./../pages/contact');
 const ChampionEndpoint   = require('./../pages/endpoint');
-const ChangePassword     = require('./../pages/user/security/change_password');
+const ChangePassword     = require('./../pages/user/change_password');
+const LostPassword       = require('./../pages/lost_password');
+const ResetPassword      = require('./../pages/reset_password');
 const BinaryOptions      = require('./../pages/binary_options');
 const Client             = require('./client');
 const LoggedIn           = require('./logged_in');
@@ -51,6 +53,8 @@ const Champion = (function() {
             logged_inws     : LoggedIn,
             'binary-options': BinaryOptions,
             change_password : ChangePassword,
+            lost_password   : LostPassword,
+            reset_password  : ResetPassword,
         };
         if (page in pages_map) {
             _active_script = pages_map[page];
