@@ -69,7 +69,6 @@ const ChampionNewRealAccount = (function() {
             { selector: fields.txt_address1,        validations: ['req', 'general'] },
             { selector: fields.txt_address2,        validations: ['general'] },
             { selector: fields.txt_city,            validations: ['req', 'general'] },
-            { selector: fields.ddl_state,           validations: ['general'] },
             { selector: fields.txt_state,           validations: ['general'] },
             { selector: fields.txt_postcode,        validations: ['postcode'] },
             { selector: fields.txt_phone,           validations: ['req', 'phone', ['min', { min: 6 }]] },
