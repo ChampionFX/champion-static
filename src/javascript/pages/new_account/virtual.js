@@ -12,31 +12,39 @@ const ChampionNewVirtualAccount = (function() {
 
     let residences = null;
 
-    let submit_btn,
-        input_residence;
+    let container,
+        btn_submit,
+        ddl_residence;
+
+    const fields = {
+        txt_verification_code: '#txt_verification_code',
+        txt_password         : '#txt_password',
+        txt_re_password      : '#txt_re_password',
+        ddl_residence        : '#ddl_residence',
+        btn_submit           : '#btn_submit',
+    };
 
     const load = () => {
         if (Client.redirect_if_login()) return;
-        const container = $('#champion-container');
-        input_residence = container.find('#residence');
-        submit_btn      = container.find('#btn-submit');
-
-        submit_btn.on('click', submit);
+        container  = $('#champion-container');
+        btn_submit = container.find(fields.btn_submit);
+        btn_submit.on('click dblclick', submit);
 
         Validation.init(form_selector, [
-            { selector: '#verification-code', validations: ['req', 'email_token'] },
-            { selector: '#password',          validations: ['req', 'password'] },
-            { selector: '#r-password',        validations: ['req', ['compare', { to: '#password' }]] },
-            { selector: '#residence',         validations: ['req'] },
+            { selector: fields.txt_verification_code, validations: ['req', 'email_token'] },
+            { selector: fields.txt_password,          validations: ['req', 'password'] },
+            { selector: fields.txt_re_password,       validations: ['req', ['compare', { to: fields.txt_password }]] },
+            { selector: fields.ddl_residence,         validations: ['req'] },
         ]);
 
         populateResidence();
     };
 
     const populateResidence = () => {
+        ddl_residence = container.find(fields.ddl_residence);
         residences = State.get('response').residence_list;
         const renderResidence = () => {
-            Utility.dropDownFromObject(input_residence, residences);
+            Utility.dropDownFromObject(ddl_residence, residences);
         };
         if (!residences) {
             ChampionSocket.send({ residence_list: 1 }, (response) => {
@@ -49,21 +57,25 @@ const ChampionNewVirtualAccount = (function() {
     };
 
     const unload = () => {
-        submit_btn.off('click', submit);
+        if (btn_submit) {
+            btn_submit.off('click', submit);
+        }
     };
 
     const submit = (e) => {
         e.preventDefault();
+        btn_submit.attr('disabled', 'disabled');
         if (Validation.validate(form_selector)) {
             const data = {
                 new_account_virtual: 1,
-                verification_code  : $('#verification-code').val(),
-                client_password    : $('#password').val(),
-                residence          : $('#residence').val(),
+                verification_code  : $(fields.txt_verification_code).val(),
+                client_password    : $(fields.txt_password).val(),
+                residence          : $(fields.ddl_residence).val(),
             };
             ChampionSocket.send(data, (response) => {
                 if (response.error) {
                     $('#error-create-account').removeClass('hidden').text(response.error.message);
+                    btn_submit.removeAttr('disabled');
                 } else {
                     const acc_info = response.new_account_virtual;
                     Client.process_new_account(acc_info.email, acc_info.client_id, acc_info.oauth_token, true);

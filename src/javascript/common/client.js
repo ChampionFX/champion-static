@@ -131,8 +131,8 @@ const Client = (function () {
     };
 
     const is_logged_in = () => get_boolean('is_logged_in');
-
-    const is_virtual = () => get_boolean('is_virtual');
+    const is_virtual   = () => get_boolean('is_virtual');
+    const has_real     = () => get_boolean('has_real');
 
     const do_logout = (response) => {
         if (response.logout !== 1) return;
@@ -178,6 +178,7 @@ const Client = (function () {
         process_new_account : process_new_account,
         is_logged_in        : is_logged_in,
         is_virtual          : is_virtual,
+        has_real            : has_real,
         do_logout           : do_logout,
     };
 })();
