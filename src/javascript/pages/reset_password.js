@@ -13,37 +13,38 @@ const ResetPassword = (function() {
         hiddenClass = 'invisible';
 
     let container,
-        submit_btn,
-        real_acc,
-        dob_field;
+        btn_submit,
+        real_acc;
 
     const fields = {
-        email_token: '#verification-code',
-        password   : '#password',
-        dob        : '#dob',
+        txt_verification_code: '#txt_verification_code',
+        txt_password         : '#txt_password',
+        txt_re_password      : '#txt_re_password',
+        chk_has_real         : '#chk_has_real',
+        txt_birth_date       : '#txt_birth_date',
+        btn_submit           : '#btn_submit',
     };
 
     const load = () => {
         if (Client.redirect_if_login()) return;
         container  = $(form_selector);
-        submit_btn = container.find('#btn-submit');
-        real_acc   = container.find('#have-real-account');
-        dob_field  = container.find('#dob-field');
+        btn_submit = container.find(fields.btn_submit);
+        real_acc   = container.find(fields.chk_has_real);
 
         real_acc.on('click', haveRealAccountHandler);
-        submit_btn.on('click', submit);
+        btn_submit.on('click', submit);
         attachDatePicker();
 
         Validation.init(form_selector, [
-            { selector: fields.email_token, validations: ['req', 'email_token'] },
-            { selector: fields.password,    validations: ['req', 'password'] },
-            { selector: '#r-password',      validations: ['req', ['compare', { to: fields.password }]] },
-            { selector: fields.dob,         validations: ['req'] },
+            { selector: fields.txt_verification_code, validations: ['req', 'email_token'] },
+            { selector: fields.txt_password,          validations: ['req', 'password'] },
+            { selector: fields.txt_re_password,       validations: ['req', ['compare', { to: fields.txt_password }]] },
+            { selector: fields.txt_birth_date,        validations: ['req'] },
         ]);
     };
 
     const haveRealAccountHandler = function() {
-        dob_field.toggleClass(hiddenClass);
+        container.find('#dob-row').toggleClass(hiddenClass);
     };
 
     const submit = (e) => {
@@ -51,14 +52,14 @@ const ResetPassword = (function() {
         if (Validation.validate(form_selector)) {
             const data = {
                 reset_password   : 1,
-                verification_code: $(fields.email_token).val(),
-                new_password     : $(fields.password).val(),
+                verification_code: $(fields.txt_verification_code).val(),
+                new_password     : $(fields.txt_password).val(),
             };
             if (real_acc.is(':checked')) {
-                data.date_of_birth = $(fields.dob).val();
+                data.date_of_birth = $(fields.txt_birth_date).val();
             }
             ChampionSocket.send(data, (response) => {
-                submit_btn.prop('disabled', true);
+                btn_submit.prop('disabled', true);
                 $(form_selector).addClass(hiddenClass);
                 if (response.error) {
                     $('p.notice-msg').addClass(hiddenClass);
@@ -88,14 +89,14 @@ const ResetPassword = (function() {
     };
 
     const attachDatePicker = () => {
-        const datePickerInst = new DatePicker(fields.dob);
+        const datePickerInst = new DatePicker(fields.txt_birth_date);
         datePickerInst.hide();
         datePickerInst.show({
             minDate  : -100 * 365,
             maxDate  : -18  * 365,
             yearRange: '-100:-18',
         });
-        $(fields.dob)
+        $(fields.txt_birth_date)
             .attr('data-value', Utility.toISOFormat(moment()))
             .change(function() {
                 return Utility.dateValueChanged(this, 'date');
@@ -104,7 +105,7 @@ const ResetPassword = (function() {
 
     const unload = () => {
         real_acc.off('click', haveRealAccountHandler);
-        submit_btn.off('click', submit);
+        btn_submit.off('click', submit);
     };
 
     return {
