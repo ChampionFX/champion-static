@@ -126,8 +126,7 @@ const Client = (function () {
         set_cookie('loginid',      client_loginid);
         set_cookie('loginid_list', virtual_client ? `${client_loginid}:V:E` : `${client_loginid}:R:E+${Cookies.get('loginid_list')}`);
         // set local storage
-        localStorage.setItem('GTM_newaccount', '1');
-        localStorage.setItem('active_loginid', client_loginid);
+        set_storage_value('loginid', client_loginid);
         window.location.href = default_redirect_url();
     };
 
