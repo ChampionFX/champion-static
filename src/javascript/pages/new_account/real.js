@@ -41,7 +41,7 @@ const ChampionNewRealAccount = (function() {
     };
 
     const load = () => {
-        if (!Client.is_logged_in()) {
+        if (!Client.is_logged_in() || Client.has_real()) {
             window.location.href = default_redirect_url();
             return;
         }
@@ -52,7 +52,7 @@ const ChampionNewRealAccount = (function() {
         populateState();
         attachDatePicker();
 
-        btn_submit    = container.find(fields.btn_submit);
+        btn_submit = container.find(fields.btn_submit);
         btn_submit.on('click dblclick', submit);
     };
 
