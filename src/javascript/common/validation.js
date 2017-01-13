@@ -69,7 +69,7 @@ const Validation = (function() {
         req        : { func: validRequired,   message: 'This field is required' },
         email      : { func: validEmail,      message: 'Invalid email address' },
         password   : { func: validPassword,   message: 'Password should have lower and uppercase letters with numbers.' },
-        general    : { func: validGeneral,    message: 'Only letters, space, hyphen, period, apost are allowed.' },
+        general    : { func: validGeneral,    message: 'Only letters, space, hyphen, period, and apostrophe are allowed.' },
         postcode   : { func: validPostCode,   message: 'Only letters, numbers, hyphen are allowed.' },
         phone      : { func: validPhone,      message: 'Only numbers, space are allowed.' },
         email_token: { func: validEmailToken, message: 'Please submit a valid verification token.' },
