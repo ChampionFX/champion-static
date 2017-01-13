@@ -66,6 +66,10 @@ const Client = (function () {
         set_storage_value('landing_company_fullname', authorize.landing_company_fullname);
         set_storage_value('currency', authorize.currency);
         client_object.values_set = true;
+
+        if (authorize.is_virtual && !get_boolean('has_real')) {
+            $('.upgrade-message').removeClass('hidden');
+        }
     };
 
     const clear_storage_values = () => {
