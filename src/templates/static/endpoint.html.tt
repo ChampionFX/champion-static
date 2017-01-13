@@ -33,7 +33,7 @@
                 </div>
             </fieldset>
             <div class="submit-holder">
-                <button class="btn btn-default" id="btn_set_endpoint" type="submit">[% l('Submit') %]</button>
+                <button id="btn_set_endpoint" type="submit">[% l('Submit') %]</button>
                 <button class="button-secondary" id="btn_reset_endpoint">[% l('Reset to Original Settings') %]</button>
             </div>
         </form>
