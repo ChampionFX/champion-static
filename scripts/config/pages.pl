@@ -17,17 +17,20 @@ sub all_pages {
         ['range-of-markets',           'static/range_of_markets',      'full_width', 'Range of Markets'],
         ['trading',                    'static/trading',               'full_width', 'Trading'],
         ['why-mt5',                    'static/why_mt5',               'full_width', 'Why MT5'],
-        ['new-account/virtual',        'new_account/virtual',          'full_width', 'Create new virtual account'],
-        ['new-account/real',           'new_account/real',             'full_width', 'Create new real account'],
         ['cashier',                    'static/cashier',               'full_width', 'Cashier'],
         ['endpoint',                   'static/endpoint',              'full_width', 'Endpoint'],
         ['logged_inws',                'static/common/logged_in',      'full_width', 'Logging in...'],
         ['partnerships',               'static/partnerships',          'full_width', 'Partnerships'],
 #       ['other-markets',              'static/other_markets',         'full_width', 'Other Markets'],
-
-        ['user/security/change_password', 'user/security/change_password', 'full-width', 'Change Password'],
+        ['lost_password',              'static/lost_password',         'full_width', 'Password Reset'],
+        ['reset_password',             'static/reset_password',        'full_width', 'Password Reset'],
 
         ['terms-and-conditions',       'legal/tac',                    'full_width', 'Terms and Conditions'],
+
+        ['new-account/virtual',        'new_account/virtual',          'full_width', 'Create new virtual account'],
+        ['new-account/real',           'new_account/real',             'full_width', 'Create new real account'],
+
+        ['user/change_password',       'user/change_password',         'full-width', 'Change Password'],
     );
 }
 

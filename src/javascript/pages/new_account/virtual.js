@@ -24,7 +24,7 @@ const ChampionNewVirtualAccount = (function() {
         submit_btn.on('click', submit);
 
         Validation.init(form_selector, [
-            { selector: '#verification-code', validations: ['req', ['length', { min: 48, max: 48, message: 'Please submit a valid verification token.' }]] },
+            { selector: '#verification-code', validations: ['req', 'email_token'] },
             { selector: '#password',          validations: ['req', 'password'] },
             { selector: '#r-password',        validations: ['req', ['compare', { to: '#password' }]] },
             { selector: '#residence',         validations: ['req'] },
