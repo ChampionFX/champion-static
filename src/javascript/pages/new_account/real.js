@@ -120,7 +120,7 @@ const ChampionNewRealAccount = (function() {
         datePickerInst.hide();
         datePickerInst.show({
             minDate  : -100 * 365,
-            maxDate  : -18  * 365,
+            maxDate  : (-18 * 365) - 5,
             yearRange: '-100:-18',
         });
         $(fields.txt_birth_date)
