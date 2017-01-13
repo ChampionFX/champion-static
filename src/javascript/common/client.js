@@ -27,7 +27,8 @@ const Client = (function () {
         const is_logged_in = !!(
             loginid &&
             client_object.loginid_array.length > 0 &&
-            get_storage_value('tokens')
+            get_storage_value('tokens') &&
+            Cookies.get('token')
         );
 
         set_storage_value('email', Cookies.get('email'));
