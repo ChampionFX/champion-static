@@ -22,6 +22,7 @@ const ChampionNewRealAccount = (function() {
         ddl_state;
 
     const fields = {
+        ddl_title          : '#ddl_title',
         txt_fname          : '#txt_fname',
         txt_lname          : '#txt_lname',
         txt_birth_date     : '#txt_birth_date',
@@ -40,7 +41,7 @@ const ChampionNewRealAccount = (function() {
     };
 
     const load = () => {
-        if (!Client.is_logged_in()) {
+        if (!Client.is_logged_in() || Client.has_real()) {
             window.location.href = default_redirect_url();
             return;
         }
@@ -51,12 +52,14 @@ const ChampionNewRealAccount = (function() {
         populateState();
         attachDatePicker();
 
-        btn_submit    = container.find(fields.btn_submit);
-        btn_submit.on('click', submit);
+        btn_submit = container.find(fields.btn_submit);
+        btn_submit.on('click dblclick', submit);
     };
 
     const unload = () => {
-        btn_submit.off('click', submit);
+        if (btn_submit) {
+            btn_submit.off('click', submit);
+        }
     };
 
     const initValidation = () => {
@@ -68,7 +71,6 @@ const ChampionNewRealAccount = (function() {
             { selector: fields.txt_address1,        validations: ['req', 'general'] },
             { selector: fields.txt_address2,        validations: ['general'] },
             { selector: fields.txt_city,            validations: ['req', 'general'] },
-            { selector: fields.ddl_state,           validations: ['general'] },
             { selector: fields.txt_state,           validations: ['general'] },
             { selector: fields.txt_postcode,        validations: ['postcode'] },
             { selector: fields.txt_phone,           validations: ['req', 'phone', ['min', { min: 6 }]] },
@@ -79,7 +81,7 @@ const ChampionNewRealAccount = (function() {
     };
 
     const populateResidence = () => {
-        ddl_residence = container.find('#ddl_residence');
+        ddl_residence = container.find(fields.ddl_residence);
         residences = State.get('response').residence_list;
         const renderResidence = () => {
             Utility.dropDownFromObject(ddl_residence, residences, client_residence);
@@ -120,7 +122,7 @@ const ChampionNewRealAccount = (function() {
         datePickerInst.hide();
         datePickerInst.show({
             minDate  : -100 * 365,
-            maxDate  : -18  * 365,
+            maxDate  : (-18 * 365) - 5,
             yearRange: '-100:-18',
         });
         $(fields.txt_birth_date)
@@ -132,6 +134,7 @@ const ChampionNewRealAccount = (function() {
 
     const submit = (e) => {
         e.preventDefault();
+        btn_submit.attr('disabled', 'disabled');
         if (Validation.validate(form_selector)) {
             const data = {
                 new_account_real: 1,
@@ -152,9 +155,10 @@ const ChampionNewRealAccount = (function() {
             ChampionSocket.send(data, (response) => {
                 if (response.error) {
                     $('#error-create-account').removeClass('hidden').text(response.error.message);
+                    btn_submit.removeAttr('disabled');
                 } else {
-                    const acc_info = response.new_account_virtual;
-                    Client.process_new_account(acc_info.email, acc_info.client_id, acc_info.oauth_token);
+                    const acc_info = response.new_account_real;
+                    Client.process_new_account(Client.get_value('email'), acc_info.client_id, acc_info.oauth_token);
                     window.location.href = default_redirect_url();
                 }
             });

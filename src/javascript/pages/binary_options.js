@@ -7,7 +7,7 @@ const BinaryOptions = (function() {
     const load = () => {
         if (Client.is_logged_in()) {
             $('#virtual-signup-button').hide();
-            if (Client.get_boolean('has_real')) {
+            if (Client.has_real()) {
                 $('#real-signup-button').hide();
             }
         } else {

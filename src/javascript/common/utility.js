@@ -67,10 +67,10 @@ function dropDownFromObject($ddl, obj_array, default_value, first) {
     obj_array.forEach((obj) => {
         const $option = $('<option/>', { text: obj.text, value: obj.value });
         if (default_value === obj.value) {
-            $option.attr('selected', 'selected');
+            $option.prop('selected', true);
         }
         if (obj.disabled) {
-            $option.attr('disabled', '1');
+            $option.attr('disabled', true);
         }
         $ddl.append($option);
     });

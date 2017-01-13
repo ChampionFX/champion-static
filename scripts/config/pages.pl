@@ -22,15 +22,15 @@ sub all_pages {
         ['logged_inws',                'static/common/logged_in',      'full_width', 'Logging in...'],
         ['partnerships',               'static/partnerships',          'full_width', 'Partnerships'],
 #       ['other-markets',              'static/other_markets',         'full_width', 'Other Markets'],
-        ['lost_password',              'static/lost_password',         'full_width', 'Password Reset'],
-        ['reset_password',             'static/reset_password',        'full_width', 'Password Reset'],
+        ['lost-password',              'static/lost_password',         'full_width', 'Password Reset'],
+        ['reset-password',             'static/reset_password',        'full_width', 'Password Reset'],
 
         ['terms-and-conditions',       'legal/tac',                    'full_width', 'Terms and Conditions'],
 
         ['new-account/virtual',        'new_account/virtual',          'full_width', 'Create new virtual account'],
         ['new-account/real',           'new_account/real',             'full_width', 'Create new real account'],
 
-        ['user/change_password',       'user/change_password',         'full-width', 'Change Password'],
+        ['user/change-password',       'user/change_password',         'full-width', 'Change Password'],
     );
 }
 

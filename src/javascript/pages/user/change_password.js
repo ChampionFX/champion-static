@@ -9,7 +9,14 @@ const ChangePassword = (function() {
     const form_selector = '#frm_change_password';
 
     let $form,
-        submit_btn;
+        btn_submit;
+
+    const fields = {
+        txt_old_password: '#txt_old_password',
+        txt_new_password: '#txt_new_password',
+        txt_re_password : '#txt_re_password',
+        btn_submit      : '#btn_submit',
+    };
 
     const load = () => {
         $form = $(`${form_selector}:visible`);
@@ -23,17 +30,19 @@ const ChangePassword = (function() {
                 });
             return;
         }
-        submit_btn = $form.find('#change_password_btn');
-        submit_btn.on('click', submit);
+        btn_submit = $form.find(fields.btn_submit);
+        btn_submit.on('click', submit);
         Validation.init(form_selector, [
-            { selector: '#old_password',    validations: ['req', 'password'] },
-            { selector: '#new_password',    validations: ['req', 'password'] },
-            { selector: '#repeat_password', validations: ['req', ['compare', { to: '#new_password' }]] },
+            { selector: fields.txt_old_password, validations: ['req', 'password'] },
+            { selector: fields.txt_new_password, validations: ['req', 'password'] },
+            { selector: fields.txt_re_password,  validations: ['req', ['compare', { to: fields.txt_new_password }]] },
         ]);
     };
 
     const unload = () => {
-        submit_btn.off('click', submit);
+        if (btn_submit) {
+            btn_submit.off('click', submit);
+        }
     };
 
     const submit = (e) => {
@@ -41,8 +50,8 @@ const ChangePassword = (function() {
         if (Validation.validate(form_selector)) {
             const data = {
                 change_password: 1,
-                old_password   : $('#old_password').val(),
-                new_password   : $('#new_password').val(),
+                old_password   : $(fields.txt_old_password).val(),
+                new_password   : $(fields.txt_new_password).val(),
             };
             ChampionSocket.send(data, (response) => {
                 if (response.error) {
