@@ -71,7 +71,7 @@
             </fieldset>
             <div class="submit-holder">
                 <p class="error-msg hidden" id="error-create-account"></p>
-                <button class="button-secondary" id="btn-submit" type="submit">[% l('Create Free Account') %]</button>
+                <button id="btn-submit" type="submit">[% l('Create Free Account') %]</button>
             </div>
         </form>
     </div>
