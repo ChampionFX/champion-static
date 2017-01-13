@@ -27,7 +27,8 @@ const Client = (function () {
         const is_logged_in = !!(
             loginid &&
             client_object.loginid_array.length > 0 &&
-            get_storage_value('tokens')
+            get_storage_value('tokens') &&
+            Cookies.get('token')
         );
 
         set_storage_value('email', Cookies.get('email'));
@@ -66,6 +67,10 @@ const Client = (function () {
         set_storage_value('landing_company_fullname', authorize.landing_company_fullname);
         set_storage_value('currency', authorize.currency);
         client_object.values_set = true;
+
+        if (authorize.is_virtual && !get_boolean('has_real')) {
+            $('.upgrade-message').removeClass('hidden');
+        }
     };
 
     const clear_storage_values = () => {
@@ -121,8 +126,7 @@ const Client = (function () {
         set_cookie('loginid',      client_loginid);
         set_cookie('loginid_list', virtual_client ? `${client_loginid}:V:E` : `${client_loginid}:R:E+${Cookies.get('loginid_list')}`);
         // set local storage
-        localStorage.setItem('GTM_newaccount', '1');
-        localStorage.setItem('active_loginid', client_loginid);
+        set_storage_value('loginid', client_loginid);
         window.location.href = default_redirect_url();
     };
 

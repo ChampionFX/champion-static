@@ -26,12 +26,12 @@ function url_for_static(path) {
         staticHost = window.staticHost;
     }
     if (!staticHost || staticHost.length === 0) {
-        staticHost = $('script[src*="binary.min.js"],script[src*="binary.js"]').attr('src');
+        staticHost = $('script[src*="bundle.min.js"],script[src*="bundle.js"]').attr('src');
 
         if (staticHost && staticHost.length > 0) {
             staticHost = staticHost.substr(0, staticHost.indexOf('/js/') + 1);
         } else {
-            staticHost = 'https://www.binary.com/';
+            staticHost = 'https://www.champion-fx.com/';
         }
 
         if (typeof window !== 'undefined') {

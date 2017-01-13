@@ -61,7 +61,8 @@ const Header = (function () {
         // cleaning the previous values
         Client.clear_storage_values();
         sessionStorage.removeItem('client_status');
-        // set cookies: loginid, login
+        // set cookies: loginid, token
+        Client.set_value('loginid', loginid);
         Client.set_cookie('loginid', loginid);
         Client.set_cookie('token',   token);
         $('.login-id-list a').removeAttr('disabled');
