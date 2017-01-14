@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md flex-md-middle">
-                <p>[% l('Join a licensed broker with a clear vision and un wavering commitment to treating all its clients like champions.') %]</p>
+                <p>[% l('Join a licensed broker with a clear vision and unwavering commitment to treating all its clients like champions.') %]</p>
             </div>
             <div class="col-md flex-md-middle centered">
                 <img class="w-300" src="[% request.url_for('images/license.svg') %]" alt="">
@@ -29,7 +29,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm flex-md-middle">
-                <p class="p-title">[% l('Gain access to our multi-asset trading platform and you can trade Forex, stocks, futures, and CFDs<br>all trough one platform. We provide you with all the necessary tools for financial trading, including:') %]</p>
+                <p class="p-title">[% l('Gain access to our multi-asset trading platform and you can trade Forex, stocks, futures, and CFDs<br>all through one platform. We provide you with all the necessary tools for financial trading, including:') %]</p>
             </div>
         </div>
     </div>
