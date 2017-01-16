@@ -8,10 +8,10 @@ const CashierPaymentMethods = (function() {
     const load = () => {
         paymentMethodsContainer = $('.fx-payment-methods');
 
-        if (Client.is_logged_in() && (Client.is_virtual() === 1)) {
+        if (Client.is_logged_in() && Client.is_virtual()) {
             paymentMethodsContainer.find('.fx-real').hide();
             paymentMethodsContainer.find('.fx-logged-out').hide();
-        } else if (Client.is_logged_in() && (Client.is_virtual() !== 0)) {
+        } else if (Client.is_logged_in() && !Client.is_virtual()) {
             paymentMethodsContainer.find('.fx-real').show();
             paymentMethodsContainer.find('.fx-logged-out').hide();
         } else {

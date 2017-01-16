@@ -14,9 +14,9 @@ const CashierTopUpVirtual = (function() {
         viewError   = container.find('#viewError');
         viewSuccess = container.find('#viewSuccess');
 
-        if (Client.is_logged_in() && (Client.is_virtual() === 1)) {
+        if (Client.is_logged_in() && Client.is_virtual()) {
             top_up_virtual();
-        } else if (Client.is_logged_in() && (Client.is_virtual() !== 0)) {
+        } else if (Client.is_logged_in() && !Client.is_virtual()) {
             viewError.removeClass('hidden')
                 .find('.notice-msg')
                 .text('Sorry, this feature is available to virtual accounts only.');

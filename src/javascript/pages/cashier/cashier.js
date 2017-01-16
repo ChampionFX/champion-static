@@ -8,7 +8,7 @@ const Cashier = (function() {
     const load = () => {
         cashierContainer = $('.fx-cashier');
 
-        if (Client.is_logged_in() && (Client.is_virtual() === 1)) {
+        if (Client.is_logged_in() && Client.is_virtual()) {
             cashierContainer.find('.fx-virtual').show();
             cashierContainer.find('.fx-real').hide();
             if (Client.get_value('balance') > 1000) {
@@ -16,7 +16,7 @@ const Cashier = (function() {
                     .prop('href', 'javascript;:')
                     .addClass('button-disabled');
             }
-        } else if (Client.is_logged_in() && (Client.is_virtual() !== 0)) {
+        } else if (Client.is_logged_in() && !Client.is_virtual()) {
             cashierContainer.find('.fx-real').show();
             cashierContainer.find('.fx-virtual').hide();
         } else {
