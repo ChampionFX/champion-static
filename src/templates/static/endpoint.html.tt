@@ -4,37 +4,32 @@
         <form id="frm_endpoint">
             <fieldset>
                 <legend>[% l('Details') %]</legend>
-                <div class="row">
+                <div class="row form-row">
                     <div class="col-xs-4">
-                        <div class="form-label">
-                            <label for="txt_server_url">[% l('Server') %]</label>
-                        </div>
+                        <label for="txt_server_url">[% l('Server') %]</label>
                     </div>
                     <div class="col-xs-8">
-                        <div class="form-input">
-                            <input type="text" class="form-control" id="txt_server_url" maxlength="30" />
-                            <div class="hint">[% l('e.g. ws.binaryws.com') %]</div>
-                            <p class="errorfield" id="error-server_url" style="display:none"></p>
-                        </div>
+                        <input type="text" class="form-control" id="txt_server_url" maxlength="30" />
+                        <div class="hint">[% l('e.g. ws.binaryws.com') %]</div>
+                        <p class="errorfield" id="error-server_url" style="display:none"></p>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row form-row">
                     <div class="col-xs-4">
-                        <div class="form-label">
-                            <label for="txt_app_id">[% l('OAuth App ID (Optional)') %]</label>
-                        </div>
+                        <label for="txt_app_id">[% l('OAuth App ID (Optional)') %]</label>
                     </div>
                     <div class="col-xs-8">
-                        <div class="form-input">
-                            <input type="text" class="form-control" id="txt_app_id" maxlength="5" />
-                            <p class="errorfield" id="error-app_id" style="display:none"></p>
-                        </div>
+                        <input type="text" class="form-control" id="txt_app_id" maxlength="5" />
+                        <p class="errorfield" id="error-app_id" style="display:none"></p>
                     </div>
                 </div>
             </fieldset>
-            <div class="submit-holder">
-                <button id="btn_set_endpoint" type="submit">[% l('Submit') %]</button>
-                <button class="button-secondary" id="btn_reset_endpoint">[% l('Reset to Original Settings') %]</button>
+
+            <div class="row">
+                <div class="col-xs-8 offset-md-4">
+                    <button id="btn_set_endpoint" type="submit">[% l('Submit') %]</button>
+                    <button class="button-secondary" id="btn_reset_endpoint">[% l('Reset to Original Settings') %]</button>
+                </div>
             </div>
         </form>
     </div>

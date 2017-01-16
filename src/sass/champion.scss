@@ -367,19 +367,13 @@ fieldset {
     border: 1px solid $borderColor;
     padding: 5px;
     margin-bottom: 10px;
-    .form-label {
-        text-align: right;
-        margin: 10px 0;
-    }
-    .form-input {
-        margin: 10px 0;
-    }
 }
 
-.submit-holder {
-    text-align: center;
-    p {
+.form-row {
+    padding: 10px 0;
+    label {
         display: block;
+        text-align: right;
     }
 }
 
