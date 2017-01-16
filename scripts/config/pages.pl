@@ -19,11 +19,14 @@ sub all_pages {
         ['why-mt5',                    'static/why_mt5',               'full_width', 'Why MT5'],
         ['new-account/virtual',        'new_account/virtual',          'full_width', 'Create new virtual account'],
         ['new-account/real',           'new_account/real',             'full_width', 'Create new real account'],
-        ['cashier',                    'static/cashier',               'full_width', 'Cashier'],
         ['endpoint',                   'static/endpoint',              'full_width', 'Endpoint'],
         ['logged_inws',                'static/common/logged_in',      'full_width', 'Logging in...'],
         ['partnerships',               'static/partnerships',          'full_width', 'Partnerships'],
 #       ['other-markets',              'static/other_markets',         'full_width', 'Other Markets'],
+
+        ['cashier',                    'cashier/cashier',              'full_width', 'Cashier'],
+        ['cashier/payment_methods',    'cashier/payment_methods',      'full_width', 'Payment Methods'],
+        ['cashier/top_up_virtual',     'cashier/top_up_virtual',       'full_width', 'Give Me More Money!'],
 
         ['user/security/change_password', 'user/security/change_password', 'full-width', 'Change Password'],
 
