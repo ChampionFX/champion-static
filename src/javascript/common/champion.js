@@ -1,19 +1,21 @@
-const ChampionSocket      = require('./socket');
-const ChampionRouter      = require('./router');
-const ChampionSignup      = require('./../pages/signup');
-const ChampionNewVirtual  = require('./../pages/new_account/virtual');
-const ChampionNewReal     = require('./../pages/new_account/real');
-const ChampionContact     = require('./../pages/contact');
-const ChampionEndpoint    = require('./../pages/endpoint');
-const ChangePassword      = require('./../pages/user/security/change_password');
-const BinaryOptions       = require('./../pages/binary_options');
+const ChampionSocket     = require('./socket');
+const ChampionRouter     = require('./router');
+const ChampionSignup     = require('./../pages/signup');
+const ChampionNewVirtual = require('./../pages/new_account/virtual');
+const ChampionNewReal    = require('./../pages/new_account/real');
+const ChampionContact    = require('./../pages/contact');
+const ChampionEndpoint   = require('./../pages/endpoint');
+const ChangePassword     = require('./../pages/user/change_password');
+const LostPassword       = require('./../pages/lost_password');
+const ResetPassword      = require('./../pages/reset_password');
+const BinaryOptions      = require('./../pages/binary_options');
+const Client             = require('./client');
+const LoggedIn           = require('./logged_in');
+const Login              = require('./login');
+const Utility            = require('./utility');
 const Cashier             = require('./../pages/cashier/cashier');
 const CashierTopUpVirtual = require('./../pages/cashier/top_up_virtual');
 const CashierPaymentMethods = require('./../pages/cashier/payment_methods');
-const Client              = require('./client');
-const LoggedIn            = require('./logged_in');
-const Login               = require('./login');
-const Utility             = require('./utility');
 
 const Champion = (function() {
     'use strict';
@@ -47,16 +49,18 @@ const Champion = (function() {
     const afterContentChange = (e, content) => {
         const page = content.getAttribute('data-page');
         const pages_map = {
-            virtual         : ChampionNewVirtual,
-            real            : ChampionNewReal,
-            contact         : ChampionContact,
-            endpoint        : ChampionEndpoint,
-            logged_inws     : LoggedIn,
-            'binary-options': BinaryOptions,
-            change_password : ChangePassword,
-            cashier         : Cashier,
-            top_up_virtual  : CashierTopUpVirtual,
-            payment_methods : CashierPaymentMethods,
+            virtual          : ChampionNewVirtual,
+            real             : ChampionNewReal,
+            contact          : ChampionContact,
+            endpoint         : ChampionEndpoint,
+            logged_inws      : LoggedIn,
+            'binary-options' : BinaryOptions,
+            'change-password': ChangePassword,
+            'lost-password'  : LostPassword,
+            'reset-password' : ResetPassword,
+            cashier          : Cashier,
+            top_up_virtual   : CashierTopUpVirtual,
+            payment_methods  : CashierPaymentMethods,
         };
         if (page in pages_map) {
             _active_script = pages_map[page];

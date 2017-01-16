@@ -73,14 +73,17 @@
                                 <p>[% l('The Foreign Exchange Market (Forex) is a global market for buying, selling, and exchanging currencies. It’s the largest market in the world where anyone can trade.') %]</p>
                                 <div class="row centered">
                                     <div class="col-sm">
+                                        <div class="fx-md fx-245-icon"></div>
                                         <h5>[% l('24/5 market action') %]</h5>
                                         <p>[% l('Trade 24 hours a day, five days a week and take advantage of opportunities whenever they happen.') %]</p>
                                     </div>
                                     <div class="col-sm">
+                                        <div class="fx-md fx-hili-icon"></div>
                                         <h5>[% l('High liquidity') %]</h5>
                                         <p>[% l('Buy and sell foreign currencies easily even at large volumes with minimal effect on price.') %]</p>
                                     </div>
                                     <div class="col-sm">
+                                        <div class="fx-md fx-lever-icon"></div>
                                         <h5>[% l('Leverage') %]</h5>
                                         <p>[% l('Trade with leverage, which means the ability to control more money than the initial capital you started with.') %]</p>
                                     </div>
