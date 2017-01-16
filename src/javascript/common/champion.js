@@ -13,6 +13,7 @@ const Client             = require('./client');
 const LoggedIn           = require('./logged_in');
 const Login              = require('./login');
 const Utility            = require('./utility');
+const TNCApproval        = require('./../pages/tnc_approval');
 
 const Champion = (function() {
     'use strict';
@@ -55,6 +56,7 @@ const Champion = (function() {
             'change-password': ChangePassword,
             'lost-password'  : LostPassword,
             'reset-password' : ResetPassword,
+            'tnc-approval'   : TNCApproval,
         };
         if (page in pages_map) {
             _active_script = pages_map[page];
@@ -69,6 +71,7 @@ const Champion = (function() {
             ChampionSignup.load(form.length ? form : _signup);
         }
         Utility.handleActive();
+        Client.set_check_tnc();
     };
 
     return {

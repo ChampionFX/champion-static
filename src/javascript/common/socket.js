@@ -9,10 +9,18 @@ const ChampionSocket = (function() {
 
     let socket,
         req_id = 0,
-        message_callback;
+        message_callback,
+        socketResolve,
+        socketReject;
 
     const buffered = [],
-        registered_callbacks = {};
+        registered_callbacks = {},
+        priority_requests = { authorize: false, balance: false, get_settings: false };
+
+    const promise = new Promise((resolve, reject) => {
+        socketResolve = resolve;
+        socketReject = reject;
+    });
 
     const socketMessage = (message) => {
         if (!message) { // socket just opened
@@ -22,7 +30,6 @@ const ChampionSocket = (function() {
             } else {
                 Header.userMenu();
             }
-            ChampionSocket.send({ website_status: 1 });
         } else {
             let country_code;
             State.set(['response', message.msg_type], message);
@@ -30,6 +37,7 @@ const ChampionSocket = (function() {
                 case 'authorize':
                     if (message.error || message.authorize.loginid !== Client.get_value('loginid')) {
                         ChampionSocket.send({ logout: '1' });
+                        socketReject();
                     } else {
                         Client.response_authorize(message);
                         ChampionSocket.send({ balance: 1, subscribe: 1 });
@@ -38,6 +46,7 @@ const ChampionSocket = (function() {
                         $('#btn_logout').click(() => { // TODO: to be moved from here
                             ChampionSocket.send({ logout: 1 });
                         });
+                        priority_requests.authorize = true;
                     }
                     break;
                 case 'logout':
@@ -45,16 +54,24 @@ const ChampionSocket = (function() {
                     break;
                 case 'balance':
                     Header.updateBalance(message);
+                    priority_requests.balance = true;
                     break;
                 case 'get_settings':
-                    if (message.error) return;
+                    if (message.error) {
+                        socketReject();
+                        return;
+                    }
                     country_code = message.get_settings.country_code;
                     if (country_code) {
                         Client.set_value('residence', country_code);
                         ChampionSocket.send({ landing_company: country_code });
                     }
+                    priority_requests.get_settings = true;
                     break;
                 // no default
+            }
+            if (Object.keys(priority_requests).every(c => priority_requests[c])) {
+                socketResolve();
             }
         }
     };
@@ -93,13 +110,25 @@ const ChampionSocket = (function() {
 
     const send = (data, callback, subscribe) => {
         if (typeof callback === 'function') {
+            let msg_type = '';
+            Object.keys(priority_requests).some((c) => {
+                if (c in data) {
+                    msg_type = c;
+                    return true;
+                }
+                return false;
+            });
+            const exist_in_state = State.get('response')[msg_type];
+            if (exist_in_state) {
+                callback(exist_in_state);
+                return;
+            }
             registered_callbacks[++req_id] = {
                 callback : callback,
                 subscribe: subscribe,
             };
             data.req_id = req_id;
         }
-
         if (isReady()) {
             socket.send(JSON.stringify(data));
         } else {
@@ -141,6 +170,7 @@ const ChampionSocket = (function() {
         send     : send,
         getAppId : getAppId,
         getServer: getServer,
+        promise  : promise,
     };
 })();
 
