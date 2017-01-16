@@ -572,7 +572,7 @@
                                                  alt="MetaTrader 5 Desktop App">
                                             <h4>[% l('MetaTrader 5 Desktop App') %]</h4>
                                             <p class="app-info">[% l('Trade with a powerful interface known as the global industry standard.') %]</p>
-                                            <p><a class="button bottom" href="[% request.url_for('/download/binarycom_mt5_setup.exe') %]"><span>[% l('Download Now') %]</span></a>
+                                            <p><a class="button bottom no-ajax" href="[% request.url_for('download/binarycom_mt5_setup.exe') %]"><span>[% l('Download Now') %]</span></a>
                                             </p>
                                         </div>
                                         <div class="col-md">
