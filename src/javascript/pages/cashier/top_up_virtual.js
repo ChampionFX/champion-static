@@ -30,10 +30,6 @@ const CashierTopUpVirtual = (function() {
         }
     };
 
-    const unload = () => {
-
-    };
-
     const top_up_virtual = () => {
         const data = {
             topup_virtual: '1',
@@ -57,7 +53,6 @@ const CashierTopUpVirtual = (function() {
 
     return {
         load          : load,
-        unload        : unload,
         top_up_virtual: top_up_virtual,
     };
 })();

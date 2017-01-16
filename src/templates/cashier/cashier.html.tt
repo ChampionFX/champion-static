@@ -18,7 +18,7 @@
                 <div>[% l('You can request more virtual money if your virtual balance falls below USD 1,000.00.') %]</div>
             </div>
             <div class="col-md-4">
-                <a class="button button_large" href="[% request.url_for('/cashier/top_up_virtual') %]" id="VRT_topup_link">
+                <a class="button button_large" href="[% request.url_for('/cashier/top-up-virtual') %]" id="VRT_topup_link">
                     <span>[% l('Get USD 10,000.00') %]</span>
                 </a>
             </div>
@@ -33,7 +33,7 @@
             </div>
             <div class="col-md-6">
                 <div>[% l('Deposit or withdraw to your account via bank-wire, credit card, or e-cash wallet.') %]</div>
-                <a href="[% request.url_for('cashier/payment_methods') %]">[% l('View available payment methods') %]</a>
+                <a href="[% request.url_for('cashier/payment-methods') %]">[% l('View available payment methods') %]</a>
             </div>
             <div class="fx-real col-md-4">
                 <button id="deposit-btn">[% l('Deposit') %]</button>

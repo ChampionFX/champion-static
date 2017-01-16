@@ -25,13 +25,8 @@ const Cashier = (function() {
         }
     };
 
-    const unload = () => {
-
-    };
-
     return {
-        load  : load,
-        unload: unload,
+        load: load,
     };
 })();
 

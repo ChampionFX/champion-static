@@ -59,8 +59,8 @@ const Champion = (function() {
             'lost-password'  : LostPassword,
             'reset-password' : ResetPassword,
             cashier          : Cashier,
-            top_up_virtual   : CashierTopUpVirtual,
-            payment_methods  : CashierPaymentMethods,
+            'payment-methods': CashierPaymentMethods,
+            'top-up-virtual' : CashierTopUpVirtual,
         };
         if (page in pages_map) {
             _active_script = pages_map[page];

@@ -20,13 +20,8 @@ const CashierPaymentMethods = (function() {
         }
     };
 
-    const unload = () => {
-
-    };
-
     return {
-        load  : load,
-        unload: unload,
+        load: load,
     };
 })();
 

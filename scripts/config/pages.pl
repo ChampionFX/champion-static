@@ -33,8 +33,8 @@ sub all_pages {
         ['user/change-password',       'user/change_password',         'full-width', 'Change Password'],
 
         ['cashier',                    'cashier/cashier',              'full_width', 'Cashier'],
-        ['cashier/payment_methods',    'cashier/payment_methods',      'full_width', 'Payment Methods'],
-        ['cashier/top_up_virtual',     'cashier/top_up_virtual',       'full_width', 'Give Me More Money!'],
+        ['cashier/payment-methods',    'cashier/payment_methods',      'full_width', 'Payment Methods'],
+        ['cashier/top-up-virtual',     'cashier/top_up_virtual',       'full_width', 'Give Me More Money!'],
     );
 }
 
