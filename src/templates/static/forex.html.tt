@@ -580,7 +580,7 @@
                                                  alt="MetaTrader 5 Web Platform">
                                             <h4>[% l('MetaTrader 5 Web Platform') %]</h4>
                                             <p class="app-info">[% l('Trade from any browser in Windows, MacOS, or Linux operating systems.') %]</p>
-                                            <p><a class="button bottom" href="https://trade.mql5.com/trade?servers=Binary.com-Server&trade_server=Binary.com-Server&login=12045" target="_blank"><span>[% l('Launch Platform') %]</span></a>
+                                            <p><a class="button bottom" href="https://trade.mql5.com/trade?servers=Binary.com-Server&trade_server=Binary.com-Server" target="_blank"><span>[% l('Launch Platform') %]</span></a>
                                             </p>
                                         </div>
                                         <div class="col-md">
