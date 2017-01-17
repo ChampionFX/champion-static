@@ -572,7 +572,7 @@
                                                  alt="MetaTrader 5 Desktop App">
                                             <h4>[% l('MetaTrader 5 Desktop App') %]</h4>
                                             <p class="app-info">[% l('Trade with a powerful interface known as the global industry standard.') %]</p>
-                                            <p><a class="button bottom" href=""><span>[% l('Download Now') %]</span></a>
+                                            <p><a class="button bottom no-ajax" href="[% request.url_for('download/binarycom_mt5_setup.exe') %]"><span>[% l('Download Now') %]</span></a>
                                             </p>
                                         </div>
                                         <div class="col-md">
@@ -580,7 +580,7 @@
                                                  alt="MetaTrader 5 Web Platform">
                                             <h4>[% l('MetaTrader 5 Web Platform') %]</h4>
                                             <p class="app-info">[% l('Trade from any browser in Windows, MacOS, or Linux operating systems.') %]</p>
-                                            <p><a class="button bottom" href=""><span>[% l('Launch Platform') %]</span></a>
+                                            <p><a class="button bottom" href="https://trade.mql5.com/trade?servers=Binary.com-Server&trade_server=Binary.com-Server" target="_blank"><span>[% l('Launch Platform') %]</span></a>
                                             </p>
                                         </div>
                                         <div class="col-md">
@@ -588,8 +588,18 @@
                                                  alt="MetaTrader 5 Web Platform">
                                             <h4>[% l('MetaTrader 5 mobile app') %]</h4>
                                             <p class="app-info">[% l('Trade from your iOS or Android devices with native mobile apps.') %]</p>
-                                            <p><a class="button bottom" href=""><span>[% l('Download now') %]</span></a>
-                                            </p>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                <a class="button bottom" href="https://download.mql5.com/cdn/mobile/mt5/ios?server=Binary.com-Server" target="_blank">
+                                                    <div class="app-store-badge"></div>
+                                                </a>
+                                                </div>
+                                                <div class="col-md-6">
+                                                <a class="button bottom" href="https://download.mql5.com/cdn/mobile/mt5/android?server=Binary.com-Server" target="_blank">
+                                                    <div class="google-play-badge"></div>
+                                                </a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="fx-divider-xl"></div>
