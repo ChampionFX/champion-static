@@ -10,12 +10,13 @@ const ChampionSocket = (function() {
     let socket,
         req_id = 0,
         message_callback,
+        socket_resolved = false,
         socketResolve,
         socketReject;
 
     const buffered = [],
         registered_callbacks = {},
-        priority_requests = { authorize: false, balance: false, get_settings: false };
+        priority_requests = { authorize: false, balance: false, get_settings: false, website_status: false };
 
     const promise = new Promise((resolve, reject) => {
         socketResolve = resolve;
@@ -30,6 +31,7 @@ const ChampionSocket = (function() {
             } else {
                 Header.userMenu();
             }
+            ChampionSocket.send({ website_status: 1 });
         } else {
             let country_code;
             State.set(['response', message.msg_type], message);
@@ -68,10 +70,14 @@ const ChampionSocket = (function() {
                     }
                     priority_requests.get_settings = true;
                     break;
+                case 'website_status':
+                    priority_requests.website_status = true;
                 // no default
             }
-            if (Object.keys(priority_requests).every(c => priority_requests[c])) {
+            if (!socket_resolved && Object.keys(priority_requests).every(c => priority_requests[c])) {
                 socketResolve();
+                Client.check_tnc();
+                socket_resolved = true;
             }
         }
     };
@@ -118,7 +124,7 @@ const ChampionSocket = (function() {
                 }
                 return false;
             });
-            const exist_in_state = State.get('response')[msg_type];
+            const exist_in_state = State.get(['response', msg_type]);
             if (exist_in_state) {
                 callback(exist_in_state);
                 return;

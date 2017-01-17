@@ -6,6 +6,7 @@ const ChampionNewReal    = require('./../pages/new_account/real');
 const ChampionContact    = require('./../pages/contact');
 const ChampionEndpoint   = require('./../pages/endpoint');
 const ChangePassword     = require('./../pages/user/change_password');
+const TNCApproval        = require('./../pages/user/tnc_approval');
 const LostPassword       = require('./../pages/lost_password');
 const ResetPassword      = require('./../pages/reset_password');
 const BinaryOptions      = require('./../pages/binary_options');
@@ -13,7 +14,6 @@ const Client             = require('./client');
 const LoggedIn           = require('./logged_in');
 const Login              = require('./login');
 const Utility            = require('./utility');
-const TNCApproval        = require('./../pages/tnc_approval');
 
 const Champion = (function() {
     'use strict';
@@ -71,7 +71,6 @@ const Champion = (function() {
             ChampionSignup.load(form.length ? form : _signup);
         }
         Utility.handleActive();
-        Client.set_check_tnc();
     };
 
     return {

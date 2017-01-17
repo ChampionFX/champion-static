@@ -25,7 +25,7 @@ const LoggedIn = (function() {
             Client.set_cookie('loginid_list', loginid_list);
         }
         Client.set_cookie('token', tokens[loginid]);
-        Client.set_check_tnc();
+
         // redirect url
         redirect_url = sessionStorage.getItem('redirect_url');
         sessionStorage.removeItem('redirect_url');
