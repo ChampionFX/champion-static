@@ -1,5 +1,5 @@
-const Client         = require('./../../common/client');
-const Login          = require('./../../common/login');
+const Client = require('./../../common/client');
+const Login  = require('./../../common/login');
 
 const ChampionSettings = (function() {
     'use strict';
