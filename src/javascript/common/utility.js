@@ -1,5 +1,9 @@
 require('jquery.scrollto');
 
+function showLoadingImage(container) {
+    container.empty().append('<div class="barspinner dark"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div>');
+}
+
 function isEmptyObject(obj) {
     let isEmpty = true;
     if (obj && obj instanceof Object) {
@@ -110,7 +114,14 @@ function dateValueChanged(element, type) {
     return true;
 }
 
+function template(string, content) {
+    return string.replace(/\[_(\d+)\]/g, function(s, index) {
+        return content[(+index) - 1];
+    });
+}
+
 module.exports = {
+    showLoadingImage  : showLoadingImage,
     isEmptyObject     : isEmptyObject,
     animateAppear     : animateAppear,
     animateDisappear  : animateDisappear,
@@ -121,4 +132,5 @@ module.exports = {
     toISOFormat       : toISOFormat,
     checkInput        : checkInput,
     dateValueChanged  : dateValueChanged,
+    template          : template,
 };
