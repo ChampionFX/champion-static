@@ -1,5 +1,6 @@
 <div class="fx-section">
     <div class="fx-settings container">
+
         <div class="row">
             <div class="col-sm">
                 <h1>[% l('Settings') %]</h1>
@@ -14,14 +15,33 @@
             </div>
         </div>
 
-        <div class="row" id="fx-settings-content" style="display: none">
-            <div class="col-xs-3">
-                <a href="[% request.url_for('user/change-password') %]">
-                    <div class="fx-md fx-advisors"></div>
-                    <h4>[% l('Account Password') %]</h4>
-                </a>
-                <p>[% l('Change your main login password.') %]</p>
+        <div id="fx-settings-content" style="display: none">
+            <div class="row">
+                <div class="col-xs-3">
+                    <a href="[% request.url_for('user/change-password') %]">
+                        <div class="fx-md fx-account-password"></div>
+                        <h4>[% l('Account Password') %]</h4>
+                    </a>
+                    <p>[% l('Change your main login password.') %]</p>
+                </div>
+
+                <div class="col-xs-3">
+                    <a href="[% request.url_for('cashier') %]">
+                        <div class="fx-md fx-manage-your-funds"></div>
+                        <h4>[% l('Manage your funds') %]</h4>
+                    </a>
+                    <p>[% l('Deposit and withdraw funds via bank wire, credit card, or e-cash.') %]</p>
+                </div>
+
+                <div class="col-xs-3">
+                    <a href="http://webtrader.champion-fx.com/v2.1.17/main.html" target="_blank">
+                        <div class="fx-md fx-webtrader"></div>
+                        <h4>[% l('Webtrader') %]</h4>
+                    </a>
+                    <p>[% l('Manage your Webtrader account for binary options trading.') %]</p>
+                </div>
             </div>
         </div>
+
     </div>
 </div>
