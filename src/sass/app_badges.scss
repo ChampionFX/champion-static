@@ -1,0 +1,14 @@
+.app-store-badge, .google-play-badge {
+    background-repeat: no-repeat;
+    width: 135px;
+    height: 40px;
+    display: inline-block;
+}
+
+.app-store-badge {
+    background-image: url('../images/buttons/appstore.svg');
+}
+
+.google-play-badge {
+    background-image: url('../images/buttons/googleplay.svg');
+}
