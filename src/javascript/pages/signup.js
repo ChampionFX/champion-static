@@ -2,17 +2,41 @@ const ChampionSocket = require('../common/socket');
 const ChampionRouter = require('../common/router');
 const url_for        = require('../common/url').url_for;
 const Validation     = require('../common/validation');
+const Client         = require('../common/client');
 
 const ChampionSignup = (function() {
     'use strict';
 
-    const form_selector = '.frm-verify-email';
+    const form_selector = '.frm-verify-email',
+        signup_selector = '#signup';
     let is_active = false,
         $form,
         $input,
         $button;
 
     const load = () => {
+        if (Client.is_logged_in() || /(new-account|terms-and-conditions)/.test(window.location.pathname)) {
+            changeVisibility($(form_selector), 'hide');
+        } else {
+            changeVisibility($(form_selector), 'show');
+            if ($(form_selector).length === 1) {
+                changeVisibility($(signup_selector), 'show');
+            } else {
+                changeVisibility($(signup_selector), 'hide');
+            }
+            eventHandler();
+        }
+    };
+
+    const changeVisibility = ($selector, action) => {
+        if (action === 'hide') {
+            $selector.addClass('hidden');
+        } else {
+            $selector.removeClass('hidden');
+        }
+    };
+
+    const eventHandler = () => {
         $form   = $(`${form_selector}:visible`);
         $input  = $form.find('input');
         $button = $form.find('button');
@@ -25,7 +49,6 @@ const ChampionSignup = (function() {
 
     const unload = () => {
         if (is_active) {
-            $form.addClass('hidden');
             $button.off('click', submit);
             $input.val('');
         }
