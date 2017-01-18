@@ -178,14 +178,17 @@
 
 .fx-account-password {
     background: url('../images/symbols/account_password.svg'); // todo: replace with new icon
+    margin-left: 0 !important; // overwrite 
 }
 
 .fx-manage-your-funds {
     background: url('../images/symbols/cashier_password.svg');  // todo: replace with new icon
+    margin-left: 0 !important;
 }
 
 .fx-webtrader {
     background: url('../images/symbols/cashier_password.svg');  // todo: replace with new icon
+    margin-left: 0 !important;
 }
 
 .fx-xlg, .fx-lg, .fx-md, .fx-sm, .fx-xs, .fx-xxs {
