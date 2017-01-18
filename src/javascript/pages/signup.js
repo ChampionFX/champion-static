@@ -2,17 +2,32 @@ const ChampionSocket = require('../common/socket');
 const ChampionRouter = require('../common/router');
 const url_for        = require('../common/url').url_for;
 const Validation     = require('../common/validation');
+const Client         = require('../common/client');
 
 const ChampionSignup = (function() {
     'use strict';
 
-    const form_selector = '.frm-verify-email';
+    const form_selector = '.frm-verify-email',
+        signup_selector = '#signup';
     let is_active = false,
         $form,
         $input,
         $button;
 
     const load = () => {
+        if (Client.is_logged_in() || /new-account/.test(window.location.pathname)) {
+            $(form_selector).hide();
+        } else {
+            if ($(form_selector).length === 1) {
+                $(signup_selector).removeClass('hidden');
+            } else {
+                $(signup_selector).addClass('hidden');
+            }
+            eventHandler();
+        }
+    };
+
+    const eventHandler = () => {
         $form   = $(`${form_selector}:visible`);
         $input  = $form.find('input');
         $button = $form.find('button');
@@ -25,7 +40,6 @@ const ChampionSignup = (function() {
 
     const unload = () => {
         if (is_active) {
-            $form.addClass('hidden');
             $button.off('click', submit);
             $input.val('');
         }
