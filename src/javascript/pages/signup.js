@@ -16,14 +16,23 @@ const ChampionSignup = (function() {
 
     const load = () => {
         if (Client.is_logged_in() || /(new-account|terms-and-conditions)/.test(window.location.pathname)) {
-            $(form_selector).hide();
+            changeVisibility($(form_selector), 'hide');
         } else {
+            changeVisibility($(form_selector), 'show');
             if ($(form_selector).length === 1) {
-                $(signup_selector).removeClass('hidden');
+                changeVisibility($(signup_selector), 'show');
             } else {
-                $(signup_selector).addClass('hidden');
+                changeVisibility($(signup_selector), 'hide');
             }
             eventHandler();
+        }
+    };
+
+    const changeVisibility = ($selector, action) => {
+        if (action === 'hide') {
+            $selector.addClass('hidden');
+        } else {
+            $selector.removeClass('hidden');
         }
     };
 
