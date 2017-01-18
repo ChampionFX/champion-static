@@ -6,6 +6,7 @@ const ChampionNewReal    = require('./../pages/new_account/real');
 const ChampionContact    = require('./../pages/contact');
 const ChampionEndpoint   = require('./../pages/endpoint');
 const ChangePassword     = require('./../pages/user/change_password');
+const TNCApproval        = require('./../pages/user/tnc_approval');
 const LostPassword       = require('./../pages/lost_password');
 const ResetPassword      = require('./../pages/reset_password');
 const BinaryOptions      = require('./../pages/binary_options');
@@ -61,6 +62,7 @@ const Champion = (function() {
             cashier          : Cashier,
             'payment-methods': CashierPaymentMethods,
             'top-up-virtual' : CashierTopUpVirtual,
+            'tnc-approval'   : TNCApproval,
         };
         if (page in pages_map) {
             _active_script = pages_map[page];

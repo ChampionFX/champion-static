@@ -1,6 +1,8 @@
 const CookieStorage        = require('./storage').CookieStorage;
 const LocalStore           = require('./storage').LocalStore;
+const State                = require('./storage').State;
 const default_redirect_url = require('./url').default_redirect_url;
+const url_for              = require('./url').url_for;
 const Cookies              = require('../lib/js-cookie');
 
 const Client = (function () {
@@ -70,6 +72,20 @@ const Client = (function () {
 
         if (authorize.is_virtual && !get_boolean('has_real')) {
             $('.upgrade-message').removeClass('hidden');
+        }
+    };
+
+    const check_tnc = function() {
+        if (/tnc-approval/.test(window.location.href) ||
+            /terms-and-conditions/.test(window.location.href) ||
+            get_boolean('is_virtual')) {
+            return;
+        }
+        const client_tnc_status = State.get(['response', 'get_settings', 'get_settings', 'client_tnc_status']),
+            terms_conditions_version = State.get(['response', 'website_status', 'website_status', 'terms_conditions_version']);
+        if (client_tnc_status !== terms_conditions_version) {
+            sessionStorage.setItem('tnc_redirect', window.location.href);
+            window.location.href = url_for('user/tnc-approval');
         }
     };
 
@@ -171,6 +187,7 @@ const Client = (function () {
         get_value           : get_storage_value,
         get_boolean         : get_boolean,
         response_authorize  : response_authorize,
+        check_tnc           : check_tnc,
         clear_storage_values: clear_storage_values,
         get_token           : get_token,
         add_token           : add_token,
