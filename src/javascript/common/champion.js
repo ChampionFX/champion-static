@@ -22,12 +22,10 @@ const Champion = (function() {
     'use strict';
 
     let _container,
-        _signup,
         _active_script = null;
 
     const init = () => {
         _container = $('#champion-container');
-        _signup = $('#signup');
         _container.on('champion:before', beforeContentChange);
         _container.on('champion:after', afterContentChange);
         Client.init();
@@ -69,13 +67,8 @@ const Champion = (function() {
             _active_script.load();
         }
 
-        const form = _container.find('#verify-email-form');
-        if (Client.is_logged_in() || /new-account/.test(window.location.pathname)) {
-            form.hide();
-        } else {
-            if (!_active_script) _active_script = ChampionSignup;
-            ChampionSignup.load(form.length ? form : _signup);
-        }
+        if (!_active_script) _active_script = ChampionSignup;
+        ChampionSignup.load();
         Utility.handleActive();
     };
 
