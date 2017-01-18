@@ -31,6 +31,7 @@ sub all_pages {
         ['new-account/real',           'new_account/real',             'full_width', 'Create new real account'],
 
         ['user/change-password',       'user/change_password',         'full-width', 'Change Password'],
+        ['user/metatrader',            'user/metatrader',              'full-width', 'MetaTrader account management'],
     );
 }
 
