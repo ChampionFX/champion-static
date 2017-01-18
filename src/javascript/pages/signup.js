@@ -15,7 +15,7 @@ const ChampionSignup = (function() {
         $button;
 
     const load = () => {
-        if (Client.is_logged_in() || /new-account/.test(window.location.pathname)) {
+        if (Client.is_logged_in() || /(new-account|terms-and-conditions)/.test(window.location.pathname)) {
             $(form_selector).hide();
         } else {
             if ($(form_selector).length === 1) {
