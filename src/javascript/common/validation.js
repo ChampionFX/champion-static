@@ -49,12 +49,13 @@ const Validation = (function() {
     // ------------------------------
     // ----- Validation Methods -----
     // ------------------------------
-    const validRequired = value => value.length;
-    const validEmail    = value => /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/.test(value);
-    const validPassword = value => /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+/.test(value);
-    const validGeneral  = value => !/[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/.test(value);
-    const validPostCode = value => /^[a-zA-Z\d-]*$/.test(value);
-    const validPhone    = value => /^\+?[0-9\s]*$/.test(value);
+    const validRequired   = value => value.length;
+    const validEmail      = value => /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/.test(value);
+    const validPassword   = value => /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+/.test(value);
+    const validGeneral    = value => !/[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/.test(value);
+    const validPostCode   = value => /^[a-zA-Z\d-]*$/.test(value);
+    const validPhone      = value => /^\+?[0-9\s]*$/.test(value);
+    const validEmailToken = value => value.trim().length === 48;
 
     const validCompare = (value, options) => value === $(options.to).val();
     const validMin     = (value, options) => (options.min ? value.trim().length >= options.min : true);
@@ -63,7 +64,24 @@ const Validation = (function() {
         (options.max ? value.trim().length <= options.max : true)
     );
 
-    const validEmailToken = value => value.trim().length === 48;
+    const validNumber = (value, options) => {
+        let is_ok = true,
+            message = '';
+
+        if (!(options.type === 'float' ? /^\d+(\.\d+)?$/ : /^\d+$/).test(value) || !$.isNumeric(value)) {
+            is_ok = false;
+            message = 'Should be a valid number';
+        } else if (options.min && +value < +options.min) {
+            is_ok = false;
+            message = 'Should be more than [_1]'.replace('[_1]', options.min);
+        } else if (options.max && +value > +options.max) {
+            is_ok = false;
+            message = 'Should be less than [_1]'.replace('[_1]', options.max);
+        }
+
+        validators_map.number.message = message;
+        return is_ok;
+    };
 
     const validators_map = {
         req        : { func: validRequired,   message: 'This field is required' },
@@ -76,6 +94,7 @@ const Validation = (function() {
         compare    : { func: validCompare,    message: 'The two passwords that you entered do not match.' },
         min        : { func: validMin,        message: 'Minimum of [_1] characters required.' },
         length     : { func: validLength,     message: 'You should enter [_1] characters.' },
+        number     : { func: validNumber,     message: '' },
     };
 
     const pass_length = { min: 6, max: 25 };

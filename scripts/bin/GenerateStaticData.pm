@@ -43,6 +43,9 @@ sub _texts {
         push @texts, localize('Only letters, numbers, hyphen are allowed.');
         push @texts, localize('Only numbers, space are allowed.');
         push @texts, localize('Please input a valid date');
+        push @texts, localize('Should be a valid number');
+        push @texts, localize('Should be more than [_1]');
+        push @texts, localize('Should be less than [_1]');
 
         # new virtual account
         push @texts, localize('Please submit a valid verification token.');
