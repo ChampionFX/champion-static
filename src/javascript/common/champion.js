@@ -6,6 +6,7 @@ const ChampionNewReal    = require('./../pages/new_account/real');
 const ChampionContact    = require('./../pages/contact');
 const ChampionEndpoint   = require('./../pages/endpoint');
 const ChangePassword     = require('./../pages/user/change_password');
+const MetaTrader         = require('./../pages/user/metatrader/metatrader');
 const LostPassword       = require('./../pages/lost_password');
 const ResetPassword      = require('./../pages/reset_password');
 const BinaryOptions      = require('./../pages/binary_options');
@@ -51,6 +52,7 @@ const Champion = (function() {
             contact          : ChampionContact,
             endpoint         : ChampionEndpoint,
             logged_inws      : LoggedIn,
+            metatrader       : MetaTrader,
             'binary-options' : BinaryOptions,
             'change-password': ChangePassword,
             'lost-password'  : LostPassword,

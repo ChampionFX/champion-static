@@ -75,6 +75,12 @@ sub _texts {
         push @texts, localize('[_1] Please click the link below to restart the password recovery process. If you require further assistance, please contact our Customer Support.');
         push @texts, localize('Your password has been successfully reset. Please log into your account using your new password.');
 
+        # metatrader
+        push @texts, localize('Congratulations! Your [_1] Account has been created.');
+        push @texts, localize('Your main password has been changed.');
+        push @texts, localize('Deposit is done. Transaction ID: [_1]');
+        push @texts, localize('Withdrawal is done. Transaction ID: [_1]');
+
         # date_picker
         push @texts, localize('January');
         push @texts, localize('February');
