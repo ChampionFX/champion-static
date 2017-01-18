@@ -70,6 +70,12 @@ const ChampionRouter = (function() {
         if (url.length <= 0) {
             return;
         }
+
+        // Exclude links having no-ajax
+        if (link.classList.contains('no-ajax')) {
+            return;
+        }
+
         // Middle click, cmd click, and ctrl click should open
         // links in a new tab as normal.
         if (event.which > 1 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
