@@ -33,6 +33,7 @@ sub all_pages {
         ['user/settings',              'user/settings',                'full_width', 'Settings'],
         ['user/change-password',       'user/change_password',         'full-width', 'Change Password'],
 
+        ['user/tnc-approval',          'user/tnc_approval',            'full_width', 'Terms and Conditions Approval'],
     );
 }
 

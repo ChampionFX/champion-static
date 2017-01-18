@@ -82,7 +82,7 @@ const ChampionNewRealAccount = (function() {
 
     const populateResidence = () => {
         ddl_residence = container.find(fields.ddl_residence);
-        residences = State.get('response').residence_list;
+        residences = State.get(['response', 'residence_list']);
         const renderResidence = () => {
             Utility.dropDownFromObject(ddl_residence, residences, client_residence);
         };
@@ -98,7 +98,7 @@ const ChampionNewRealAccount = (function() {
 
     const populateState = () => {
         ddl_state = container.find(fields.ddl_state);
-        states = State.get('response').states_list;
+        states = State.get(['response', 'states_list']);
         const renderState = () => {
             if (states && states.length) {
                 Utility.dropDownFromObject(ddl_state, states);
