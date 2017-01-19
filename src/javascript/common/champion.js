@@ -14,6 +14,10 @@ const Client             = require('./client');
 const LoggedIn           = require('./logged_in');
 const Login              = require('./login');
 const Utility            = require('./utility');
+const Cashier             = require('./../pages/cashier/cashier');
+const CashierTopUpVirtual = require('./../pages/cashier/top_up_virtual');
+const CashierPaymentMethods = require('./../pages/cashier/payment_methods');
+const CashierPassword       = require('./../pages/cashier/cashier_password');
 
 const Champion = (function() {
     'use strict';
@@ -45,16 +49,20 @@ const Champion = (function() {
     const afterContentChange = (e, content) => {
         const page = content.getAttribute('data-page');
         const pages_map = {
-            virtual          : ChampionNewVirtual,
-            real             : ChampionNewReal,
-            contact          : ChampionContact,
-            endpoint         : ChampionEndpoint,
-            logged_inws      : LoggedIn,
-            'binary-options' : BinaryOptions,
-            'change-password': ChangePassword,
-            'lost-password'  : LostPassword,
-            'reset-password' : ResetPassword,
-            'tnc-approval'   : TNCApproval,
+            virtual           : ChampionNewVirtual,
+            real              : ChampionNewReal,
+            contact           : ChampionContact,
+            endpoint          : ChampionEndpoint,
+            logged_inws       : LoggedIn,
+            'binary-options'  : BinaryOptions,
+            'change-password' : ChangePassword,
+            'lost-password'   : LostPassword,
+            'reset-password'  : ResetPassword,
+            cashier           : Cashier,
+            'payment-methods' : CashierPaymentMethods,
+            'top-up-virtual'  : CashierTopUpVirtual,
+            'cashier-password': CashierPassword,
+            'tnc-approval'    : TNCApproval,
         };
         if (page in pages_map) {
             _active_script = pages_map[page];

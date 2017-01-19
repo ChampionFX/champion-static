@@ -102,6 +102,10 @@ sub _texts {
         push @texts, localize('Next');
         push @texts, localize('Previous');
 
+        # cashier
+        push @texts, localize('[_1] [_2] has been credited to your Virtual money account [_3]');
+        push @texts, localize('Sorry, this feature is available to virtual accounts only.');
+
         my %as_hash = @texts;
         $js .= "texts_json['" . $language . "'] = " . JSON::to_json(\%as_hash) . ";\n";
     }
