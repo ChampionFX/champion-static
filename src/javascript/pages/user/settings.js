@@ -18,15 +18,13 @@ const ChampionSettings = (function() {
                     Login.redirect_to_login();
                 });
         } else {
-            if (Client.is_virtual()) {
-                settingsContainer
-                    .find('#fx-settings-content').show()
-                    .find('.fx-real').hide();
-            } else {
+            if (!Client.is_virtual()) {
                 settingsContainer
                     .find('#fx-settings-content').show()
                     .find('.fx-real').show();
+                return;
             }
+            settingsContainer.find('#fx-settings-content').show();
         }
     };
 
