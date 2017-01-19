@@ -30,6 +30,7 @@ sub all_pages {
         ['new-account/virtual',        'new_account/virtual',          'full_width', 'Create new virtual account'],
         ['new-account/real',           'new_account/real',             'full_width', 'Create new real account'],
 
+        ['user/settings',              'user/settings',                'full_width', 'Settings'],
         ['user/change-password',       'user/change_password',         'full-width', 'Change Password'],
 
         ['cashier',                    'cashier/cashier',              'full_width', 'Cashier'],

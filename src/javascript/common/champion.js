@@ -5,6 +5,7 @@ const ChampionNewVirtual = require('./../pages/new_account/virtual');
 const ChampionNewReal    = require('./../pages/new_account/real');
 const ChampionContact    = require('./../pages/contact');
 const ChampionEndpoint   = require('./../pages/endpoint');
+const ChampionSettings   = require('./../pages/user/settings');
 const ChangePassword     = require('./../pages/user/change_password');
 const TNCApproval        = require('./../pages/user/tnc_approval');
 const LostPassword       = require('./../pages/lost_password');
@@ -53,6 +54,7 @@ const Champion = (function() {
             real              : ChampionNewReal,
             contact           : ChampionContact,
             endpoint          : ChampionEndpoint,
+            settings          : ChampionSettings,
             logged_inws       : LoggedIn,
             'binary-options'  : BinaryOptions,
             'change-password' : ChangePassword,
