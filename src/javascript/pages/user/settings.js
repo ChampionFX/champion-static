@@ -10,9 +10,7 @@ const ChampionSettings = (function() {
         settingsContainer = $('.fx-settings');
 
         if (!Client.is_logged_in()) {
-            settingsContainer
-                .find('#client_message')
-                .show()
+            $('#client_message').show()
                 .find('.notice-msg')
                 .html('Please <a href="javascript:;">log in</a> to view this page.')
                 .find('a')
@@ -20,7 +18,15 @@ const ChampionSettings = (function() {
                     Login.redirect_to_login();
                 });
         } else {
-            settingsContainer.find('#fx-settings-content').show();
+            if (Client.is_virtual()) {
+                settingsContainer
+                    .find('#fx-settings-content').show()
+                    .find('.fx-real').hide();
+            } else {
+                settingsContainer
+                    .find('#fx-settings-content').show()
+                    .find('.fx-real').show();
+            }
         }
     };
 

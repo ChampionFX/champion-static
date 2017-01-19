@@ -54,6 +54,7 @@ const Champion = (function() {
             real              : ChampionNewReal,
             contact           : ChampionContact,
             endpoint          : ChampionEndpoint,
+            settings          : ChampionSettings,
             logged_inws       : LoggedIn,
             'binary-options'  : BinaryOptions,
             'change-password' : ChangePassword,
