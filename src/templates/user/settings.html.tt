@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="col-xs-3">
-                    <a href="https://mt.binary.com/en/home.html" target="_blank">
+                    <a href="[% request.url_for('user/metatrader') %]" target="_blank">
                         <div class="fx-md fx-mt5"></div>
                         <h4>[% l('MetaTrader') %]</h4>
                     </a>
