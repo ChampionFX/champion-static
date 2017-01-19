@@ -48,6 +48,14 @@
                     </a>
                     <p>[% l('Manage your Webtrader account for binary options trading.') %]</p>
                 </div>
+
+                <div class="col-xs-3">
+                    <a href="https://mt.binary.com/en/home.html" target="_blank">
+                        <div class="fx-md fx-mt5"></div>
+                        <h4>[% l('MetaTrader') %]</h4>
+                    </a>
+                    <p>[% l('Manage your MetaTrader account for Forex and CFD trading.') %]</p>
+                </div>
             </div>
         </div>
 
