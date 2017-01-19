@@ -497,3 +497,7 @@ select[disabled=disabled] {
     font-size: 10em;
     font-weight: normal;
 }
+
+a:hover {
+    text-decoration: none !important;
+}

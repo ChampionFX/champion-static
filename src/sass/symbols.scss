@@ -177,18 +177,27 @@
 }
 
 .fx-account-password {
-    background: url('../images/symbols/account_password.svg'); // todo: replace with new icon
-    margin-left: 0 !important; // overwrite 
+    background: url('../images/symbols/pd_icon.svg');
+    margin-left: 0 !important; // overwrite rule for margin left
+}
+
+.fx-cashier-password {
+    background: url('../images/symbols/cp_icon.svg');
+    margin-left: 0 !important;
 }
 
 .fx-manage-your-funds {
-    background: url('../images/symbols/cashier_password.svg');  // todo: replace with new icon
+    background: url('../images/symbols/chp_icon.svg');
     margin-left: 0 !important;
 }
 
 .fx-webtrader {
-    background: url('../images/symbols/cashier_password.svg');  // todo: replace with new icon
+    background: url('../images/symbols/wt_icon.svg');
     margin-left: 0 !important;
+}
+
+.fx-mt5 {
+    background: url('../images/symbols/mt5_icon.svg');
 }
 
 .fx-xlg, .fx-lg, .fx-md, .fx-sm, .fx-xs, .fx-xxs {

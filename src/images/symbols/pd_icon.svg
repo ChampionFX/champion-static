@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <defs>
+        <style>
+            .cls-1{fill:#99b4ce;}
+            .cls-2{fill:#fff;}
+            .cls-3{fill:#004385;}
+            .cls-4{fill:#668eb6;}
+            .cls-5{fill:#f3f3f3;}
+        </style>
+    </defs>
+    <rect class="cls-1" y="3" width="24" height="18" rx="1" ry="1"/>
+    <rect class="cls-2" x="2" y="5" width="8" height="7"/>
+    <rect class="cls-3" x="13" y="5" width="9" height="1"/>
+    <rect class="cls-3" x="13" y="8" width="9" height="1"/>
+    <rect class="cls-3" x="13" y="11" width="9" height="1"/>
+    <rect class="cls-4" x="2" y="14" width="20" height="5" rx="1" ry="1"/>
+    <circle class="cls-3" cx="6" cy="7" r="1"/>
+    <path class="cls-3" d="M8.45,9.72,7,9A1,1,0,0,1,5,9l-1.45.72a1,1,0,0,0-.55.89V12H9V10.62A1,1,0,0,0,8.45,9.72Z"/>
+    <rect class="cls-5" x="4" y="16" width="16" height="1"/>
+</svg>

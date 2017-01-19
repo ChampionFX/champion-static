@@ -20,9 +20,17 @@
                 <div class="col-xs-3">
                     <a href="[% request.url_for('user/change-password') %]">
                         <div class="fx-md fx-account-password"></div>
-                        <h4>[% l('Account Password') %]</h4>
+                        <h4>[% l('Account password') %]</h4>
                     </a>
                     <p>[% l('Change your main login password.') %]</p>
+                </div>
+
+                <div class="col-xs-3">
+                    <a href="[% request.url_for('cashier/cashier-password') %]">
+                        <div class="fx-md fx-cashier-password"></div>
+                        <h4>[% l('Cashier password') %]</h4>
+                    </a>
+                    <p>[% l('Change the password used for deposits and withdrawals.') %]</p>
                 </div>
 
                 <div class="col-xs-3">
