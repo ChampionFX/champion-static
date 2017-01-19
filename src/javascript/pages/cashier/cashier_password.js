@@ -25,14 +25,16 @@ const CashierPassword = (function() {
     };
 
     const load = () => {
-        ChampionSocket.promise.then(() => checkCashierState());
-
         if (!Client.is_logged_in()) {
             renderView(views.logged_out);
-        } else if (Client.is_logged_in()) {
-            if (Client.is_virtual()) {
-                renderView(views.virtual);
-            }
+        } else {
+            ChampionSocket.promise.then(() => {
+                if (Client.is_virtual()) {
+                    renderView(views.virtual);
+                } else {
+                    checkCashierState();
+                }
+            });
         }
     };
 
@@ -71,16 +73,15 @@ const CashierPassword = (function() {
         const form_selector = `#form_${form_type}_cashier`,
             $form = $(form_selector);
 
+        btn_submit = $form.find(fields.btn_submit);
+        btn_submit.on('click', submit);
+
         if (form === views.lock_cashier) {
-            btn_submit = $form.find(fields.btn_submit);
-            btn_submit.on('click', submit);
             Validation.init(form_selector, [
                 { selector: fields.txt_lock_password, validations: ['req', 'password'] },
                 { selector: fields.txt_re_password,   validations: ['req', ['compare', { to: fields.txt_lock_password }]] },
             ]);
         } else {
-            btn_submit = $form.find(fields.btn_submit);
-            btn_submit.on('click', submit);
             Validation.init(form_selector, [
                 { selector: fields.txt_unlock_password, validations: ['req', 'password'] },
             ]);
@@ -121,12 +122,8 @@ const CashierPassword = (function() {
     };
 
     return {
-        load             : load,
-        unload           : unload,
-        checkCashierState: checkCashierState,
-        renderView       : renderView,
-        initForm         : initForm,
-        submit           : submit,
+        load  : load,
+        unload: unload,
     };
 })();
 
