@@ -35,6 +35,8 @@ sub all_pages {
         ['cashier',                    'cashier/cashier',              'full_width', 'Cashier'],
         ['cashier/payment-methods',    'cashier/payment_methods',      'full_width', 'Payment Methods'],
         ['cashier/top-up-virtual',     'cashier/top_up_virtual',       'full_width', 'Give Me More Money!'],
+        ['cashier/cashier-password',   'cashier/cashier_password',     'full_width', 'Cashier Password'],
+
         ['user/tnc-approval',          'user/tnc_approval',            'full_width', 'Terms and Conditions Approval'],
     );
 }
