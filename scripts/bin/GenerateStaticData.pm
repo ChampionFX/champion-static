@@ -110,7 +110,7 @@ sub _texts {
         # financial assessment
         push @texts, localize('You did not change anything.');
         push @texts, localize('Sorry, an error occurred while processing your request.');
-        push @texts, localize('Your settings have been updated successfully.');
+        push @texts, localize('Your changes have been updated successfully.');
 
         my %as_hash = @texts;
         $js .= "texts_json['" . $language . "'] = " . JSON::to_json(\%as_hash) . ";\n";

@@ -1,7 +1,7 @@
-const showLoadingImage = require('../../../common/utility').showLoadingImage;
-const Client           = require('../../../common/client');
-const ChampionSocket   = require('../../../common/socket');
-const Validation       = require('../../../common/validation');
+const showLoadingImage = require('../../common/utility').showLoadingImage;
+const Client           = require('../../common/client');
+const ChampionSocket   = require('../../common/socket');
+const Validation       = require('../../common/validation');
 
 const FinancialAssessment = (() => {
     'use strict';
@@ -66,7 +66,7 @@ const FinancialAssessment = (() => {
                 if ('error' in response) {
                     showFormMessage('Sorry, an error occurred while processing your request.', false);
                 } else {
-                    showFormMessage('Your settings have been updated successfully.', true);
+                    showFormMessage('Your changes have been updated successfully.', true);
                 }
             });
         } else {

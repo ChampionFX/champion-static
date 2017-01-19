@@ -36,8 +36,7 @@ sub all_pages {
 
         ['user/change-password',       'user/change_password',         'full_width', 'Change Password'],
         ['user/tnc-approval',          'user/tnc_approval',            'full_width', 'Terms and Conditions Approval'],
-
-        ['user/settings/assessment',   'user/settings/financial_assessment', 'full_width', 'Financial Assessment'],
+        ['user/assessment',            'user/financial_assessment',    'full_width', 'Financial Assessment'],
     );
 }
 
