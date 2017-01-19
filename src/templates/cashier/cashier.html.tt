@@ -12,7 +12,7 @@
                 <h2>[% l('Get more virtual money') %]</h2>
             </div>
             <div class="col-md-2">
-                <div class="fx-md fx-king"></div>
+                <div class="fx-md fx-virtual-money"></div>
             </div>
             <div class="col-md-6">
                 <div>[% l('You can request more virtual money if your virtual balance falls below USD 1,000.00.') %]</div>
@@ -29,7 +29,7 @@
                 <h2>[% l('Bank-wire, credit card, e-cash wallet') %]</h2>
             </div>
             <div class="col-md-2">
-                <div class="fx-md fx-king"></div>
+                <div class="fx-md fx-ecw"></div>
             </div>
             <div class="col-md-6">
                 <div>[% l('Deposit or withdraw to your account via bank-wire, credit card, or e-cash wallet.') %]</div>
