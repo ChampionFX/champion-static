@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-sm">
                     <ul>
-                        <li><a class="" href=""></a></li>
+                        <li><a class="" href="[% request.url_for('cashier/payment-methods') %]">[% l("Payment Methods") %]</a></li>
                     </ul>
                 </div>
                 <div class="col-sm">

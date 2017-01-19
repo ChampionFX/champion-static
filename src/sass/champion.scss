@@ -498,6 +498,21 @@ select[disabled=disabled] {
     font-weight: normal;
 }
 
+.fx-payment-methods table {
+    tr {
+        height: 60px;
+    }
+    th, td {
+        text-align: left;
+        border-bottom: none;
+    }
+    .fx-subheader {
+        background-color: $white;
+        font-weight: 100;
+        border-top: solid 1px $borderColor;
+    }
+}
+
 a:hover {
     text-decoration: none !important;
 }
