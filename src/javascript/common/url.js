@@ -43,7 +43,7 @@ function url_for_static(path) {
 }
 
 function default_redirect_url() {
-    return url_for('home');
+    return url_for('user/settings');
 }
 
 module.exports = {
