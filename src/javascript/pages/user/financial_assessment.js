@@ -29,10 +29,9 @@ const FinancialAssessment = (() => {
                     $(`#${key}`).val(val);
                 });
                 arr_validation = [];
-                const all_ids = $(form_selector).find('.form-input').find('>:first-child');
-                for (let i = 0; i < all_ids.length; i++) {
-                    arr_validation.push({ selector: `#${all_ids[i].getAttribute('id')}`, validations: ['req'] });
-                }
+                $(form_selector).find('select').map(function() {
+                    arr_validation.push({ selector: `#${$(this).attr('id')}`, validations: ['req'] });
+                });
                 Validation.init(form_selector, arr_validation);
             });
         });
