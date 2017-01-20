@@ -498,7 +498,9 @@ select[disabled=disabled] {
     font-weight: normal;
 }
 
+// Payment methods table
 .fx-payment-methods table {
+    margin: 20px 0;
     tr {
         height: 60px;
     }
@@ -511,4 +513,9 @@ select[disabled=disabled] {
         font-weight: 100;
         border-top: solid 1px $borderColor;
     }
+}
+
+// Settings page
+a:hover {
+    text-decoration: none !important;
 }

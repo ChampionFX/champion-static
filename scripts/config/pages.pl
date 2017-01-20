@@ -29,14 +29,16 @@ sub all_pages {
         ['new-account/virtual',        'new_account/virtual',          'full_width', 'Create new virtual account'],
         ['new-account/real',           'new_account/real',             'full_width', 'Create new real account'],
 
+        ['user/settings',              'user/settings',                'full_width', 'Settings'],
+        ['user/change-password',       'user/change_password',         'full-width', 'Change Password'],
+        ['user/tnc-approval',          'user/tnc_approval',            'full_width', 'Terms and Conditions Approval'],
+        ['user/assessment',            'user/financial_assessment',    'full_width', 'Financial Assessment'],
+
         ['cashier',                    'cashier/cashier',              'full_width', 'Cashier'],
         ['cashier/payment-methods',    'cashier/payment_methods',      'full_width', 'Payment Methods'],
         ['cashier/top-up-virtual',     'cashier/top_up_virtual',       'full_width', 'Give Me More Money!'],
         ['cashier/cashier-password',   'cashier/cashier_password',     'full_width', 'Cashier Password'],
 
-        ['user/change-password',       'user/change_password',         'full_width', 'Change Password'],
-        ['user/tnc-approval',          'user/tnc_approval',            'full_width', 'Terms and Conditions Approval'],
-        ['user/assessment',            'user/financial_assessment',    'full_width', 'Financial Assessment'],
     );
 }
 
