@@ -7,56 +7,56 @@
                     <div class="tab-menu">
                         <div class="tab-menu-wrap">
                             <ul class="tm-ul">
-                                <li id="first-tab" class="tm-li active first">
+                                <li id="what-is-forex" class="tm-li active first">
                                     <span class="menu-wrap-a">
                                         <span class="menu-wrap-b">
                                             <a class="tm-a first a-active">[% l('What is Forex trading') %]</a>
                                         </span>
                                     </span>
                                 </li>
-                                <li id="second-tab" class="tm-li">
+                                <li id="how-to-trade" class="tm-li">
                                     <span class="menu-wrap-a">
                                         <span class="menu-wrap-b">
                                             <a class="tm-a">[% l('How to trade Forex') %]</a>
                                         </span>
                                     </span>
                                 </li>
-                                <li id="third-tab" class="tm-li">
+                                <li id="margin-policy" class="tm-li">
                                     <span class="menu-wrap-a">
                                         <span class="menu-wrap-b">
                                             <a class="tm-a">[% l('Margin Policy') %]</a>
                                         </span>
                                     </span>
                                 </li>
-                                <li id="fourth-tab" class="tm-li">
+                                <li id="why-mt5" class="tm-li">
                                     <span class="menu-wrap-a">
                                         <span class="menu-wrap-b">
                                             <a class="tm-a">[% l('Why MT5') %]</a>
                                         </span>
                                     </span>
                                 </li>
-                                <li id="fifth-tab" class="tm-li">
+                                <li id="forex-accounts" class="tm-li">
                                     <span class="menu-wrap-a">
                                         <span class="menu-wrap-b">
                                             <a class="tm-a">[% l('Forex Trading Accounts') %]</a>
                                         </span>
                                     </span>
                                     <ul class="tm-ul-2">
-                                        <li id="fifth-tab-subsection-one" class="tm-li-2">
+                                        <li id="forex-accounts-intro" class="tm-li-2">
                                             <span class="tm-a-2 a-active">[% l('Trading Accounts') %]</span>
                                         </li>
-                                        <li id="fifth-tab-subsection-two" class="tm-li-2">
+                                        <li id="forex-accounts-cent" class="tm-li-2">
                                             <span class="tm-a-2">[% l('Cent') %]</span>
                                         </li>
-                                        <li id="fifth-tab-subsection-three" class="tm-li-2">
+                                        <li id="forex-accounts-standard" class="tm-li-2">
                                             <span class="tm-a-2">[% l('Standard') %]</span>
                                         </li>
-                                        <li id="fifth-tab-subsection-four" class="tm-li-2">
+                                        <li id="forex-accounts-stp" class="tm-li-2">
                                             <span class="tm-a-2">[% l('STP') %]</span>
                                         </li>
                                     </ul>
                                 </li>
-                                <li id="sixth-tab" class="tm-li">
+                                <li id="trading-platforms" class="tm-li">
                                     <span class="menu-wrap-a">
                                         <span class="menu-wrap-b">
                                             <a class="tm-a">[% l('Forex Trading Platforms') %]</a>
@@ -68,7 +68,7 @@
                     </div>
                     <div class="tab-content">
                         <div class="tab-content-wrapper menu-has-sub-item">
-                            <div id="first-tab-content" class="toggle-content">
+                            <div id="what-is-forex-content" class="toggle-content">
                                 <h2>[% l('What is Forex trading') %]</h2>
                                 <p>[% l('The Foreign Exchange Market (Forex) is a global market for buying, selling, and exchanging currencies. It’s the largest market in the world where anyone can trade.') %]</p>
                                 <div class="row centered">
@@ -90,7 +90,7 @@
                                 </div>
                                 <p class="centered"><a class="button" href=""><span>[% l('Learn more') %]</span></a></p>
                             </div>
-                            <div id="second-tab-content" class="toggle-content invisible">
+                            <div id="how-to-trade-content" class="toggle-content invisible">
                                 <h2>[% l('How to trade Forex') %]</h2>
                                 <p>[% l('A Forex trader has one objective in mind when trading: to exchange one currency for another in order to make a profit.') %]</p>
                                 <p>[% l('But if you’re new to Forex or financial trading of any kind, there’s still a long way to go before you even purchase your first contract. This is why we’ve come up with a basic, step-by-step tutorial to help you bridge that gap and make your first trade.') %]</p>
@@ -154,7 +154,7 @@
                                 <p>[% l('To go long, you’ll click on ‘Buy’ to purchase GBP 1 for USD 1.22781.') %]</p>
                                 <p>[% l('To go short, you’ll click on ‘Sell’ to sell GBP 1 and receive USD 1.22771 in return.') %]</p>
                             </div>
-                            <div id="third-tab-content" class="toggle-content invisible">
+                            <div id="margin-policy-content" class="toggle-content invisible">
                                 <h2>[% l('Margin policy') %]</h2>
                                 <p>[% l('We explain our margin policy to give you a better understanding of how Forex trading works.') %]</p>
                                 <h2>[% l('What is margin?') %]</h2>
@@ -187,7 +187,7 @@
                                     <li>[% l('We will continue to close open positions until your margin level becomes higher than the stop out level.') %]</li>
                                 </ul>
                             </div>
-                            <div id="fourth-tab-content" class="toggle-content invisible">
+                            <div id="why-mt5-content" class="toggle-content invisible">
                                 <h2>[% l('Why MT5') %]</h2>
                                 <p>[% l('Champion FX believes in giving our clients the best trading platform available. This is why we chose MetaTrader 5. We focus all our efforts and resources to take full advantage of MetaTrader 5\'s advanced features to give our clients a powerful trading experience that\'s built to last.') %]</p>
                                 <p class="centered lg-padding">
@@ -319,7 +319,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div id="fifth-tab-subsection-one-content" class="toggle-content invisible">
+                            <div id="forex-accounts-intro-content" class="toggle-content invisible">
                                 <h2>[% l('Forex trading accounts') %]</h2>
                                 <p>[% l('Champion FX offers a variety of account types to cater to the diverse needs of traders everywhere, whether you’re an experienced trader or just starting out. Each account has been tailored to provide you with a unique opportunity in the world of Forex trading.') %]</p>
                                 <div class="fx-divider"></div>
@@ -420,7 +420,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="fifth-tab-subsection-two-content" class="toggle-content invisible">
+                            <div id="forex-accounts-cent-content" class="toggle-content invisible">
                                 <h2>[% l('Cent account') %]</h2>
                                 <p>[% l('The Cent account offers the highest leverage, as well as low margin call and stop out level. It is ideal for new traders who want to start trading with a smaller capital.') %]</p>
                                 <p class="centered"><a class="button" href=""><span>[% l('Sign up') %]</span></a></p>
@@ -466,7 +466,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div id="fifth-tab-subsection-three-content" class="toggle-content invisible">
+                            <div id="forex-accounts-standard-content" class="toggle-content invisible">
                                 <h2>[% l('Standard account') %]</h2>
                                 <p>[% l('The Standard account is suitable for a wide range of traders, both new and experienced. It gives you mid-range leverage and variable spreads that give you a great deal of flexibility for whatever position you wish to take in the market.') %]</p>
                                 <p class="centered"><a class="button" href=""><span>[% l('Sign up') %]</span></a></p>
@@ -512,7 +512,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div id="fifth-tab-subsection-four-content" class="toggle-content invisible">
+                            <div id="forex-accounts-stp-content" class="toggle-content invisible">
                                 <h2>[% l('STP account') %]</h2>
                                 <p>[% l('The STP account provides you with the tightest spreads and connects you directly to the market, and provides you with different prices from a variety of liquidity providers such as banks and brokerages. STP stands for ‘Straight Through Processing’ meaning your orders are sent directly to our liquidity providers.') %]</p>
                                 <p class="centered"><a class="button" href=""><span>[% l('Sign up') %]</span></a></p>
@@ -558,7 +558,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div id="sixth-tab-content" class="toggle-content invisible">
+                            <div id="trading-platforms-content" class="toggle-content invisible">
                                 <h2>[% l('Forex trading platforms') %]</h2>
                                 <p>[% l('Champion FX knows that our traders require quick access to their trading accounts anywhere in the world, and at any time of the day. So, we offer the most efficient and powerful range of trading platforms. Browse our range of platforms and services, and start trading on your chosen device.') %]</p>
                                 <p>[% l('Successful trading on financial markets begins with a comfortable and multi-functional trading platform. MetaTrader 5 is the best choice for the modern trader. Now you can trade anytime and anywhere, with the global markets at your fingertips.') %]</p>
