@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <defs>
+        <style>
+            .cls-1{fill:#004385;}
+            .cls-2{fill:#99b4ce;}
+            .cls-3{fill:#ccd9e7;}
+            .cls-4{fill:#fff;}
+        </style>
+    </defs>
+    <rect class="cls-1" width="24" height="17" rx="1" ry="1"/>
+    <rect class="cls-2" x="1" y="1" width="22" height="14"/>
+    <rect class="cls-3" x="1" y="1" width="22" height="2"/>
+    <polygon class="cls-2" points="15 22 9 22 10 17 14 17 15 22"/>
+    <rect class="cls-3" x="3" y="22" width="18" height="2"/>
+    <rect class="cls-3" x="3" y="6" width="4" height="6"/>
+    <rect class="cls-3" x="10" y="6" width="4" height="6"/>
+    <rect class="cls-4" x="17" y="6" width="4" height="6"/>
+    <rect class="cls-1" x="3" y="6" width="4" height="1"/>
+    <rect class="cls-1" x="10" y="6" width="4" height="1"/>
+    <rect class="cls-1" x="17" y="6" width="4" height="1"/>
+</svg>

@@ -46,6 +46,7 @@ sub _texts {
         push @texts, localize('Should be a valid number');
         push @texts, localize('Should be more than [_1]');
         push @texts, localize('Should be less than [_1]');
+        push @texts, localize('This feature is not relevant to virtual-money accounts.');
 
         # new virtual account
         push @texts, localize('Please submit a valid verification token.');
@@ -113,6 +114,15 @@ sub _texts {
         push @texts, localize('Sa');
         push @texts, localize('Next');
         push @texts, localize('Previous');
+
+        # cashier
+        push @texts, localize('[_1] [_2] has been credited to your Virtual money account [_3]');
+        push @texts, localize('Sorry, this feature is available to virtual accounts only.');
+
+        # financial assessment
+        push @texts, localize('You did not change anything.');
+        push @texts, localize('Sorry, an error occurred while processing your request.');
+        push @texts, localize('Your changes have been updated successfully.');
 
         my %as_hash = @texts;
         $js .= "texts_json['" . $language . "'] = " . JSON::to_json(\%as_hash) . ";\n";
