@@ -17,7 +17,17 @@
                 margin-bottom: 10px;
             }
             .no-account {
-                margin: 60px 0;
+                margin-bottom: 20px;
+                .info {
+                    padding: 10px;
+                    font-size: 0.9rem;
+                    height: 120px;
+                    a:before {
+                        content: ' ';
+                        display: block;
+                        margin-top: 5px;
+                    }
+                }
             }
             .loading {
                 margin: 75px 0;
@@ -63,5 +73,8 @@
                 }
             }
         }
+    }
+    .txt-left {
+        text-align: left;
     }
 }
