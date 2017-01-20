@@ -21,7 +21,6 @@ sub all_pages {
         ['logged_inws',                'static/common/logged_in',      'full_width', 'Logging in...'],
         ['partnerships',               'static/partnerships',          'full_width', 'Partnerships'],
 #       ['other-markets',              'static/other_markets',         'full_width', 'Other Markets'],
-
         ['lost-password',              'static/lost_password',         'full_width', 'Password Reset'],
         ['reset-password',             'static/reset_password',        'full_width', 'Password Reset'],
 
@@ -32,13 +31,14 @@ sub all_pages {
 
         ['user/settings',              'user/settings',                'full_width', 'Settings'],
         ['user/change-password',       'user/change_password',         'full-width', 'Change Password'],
+        ['user/tnc-approval',          'user/tnc_approval',            'full_width', 'Terms and Conditions Approval'],
+        ['user/assessment',            'user/financial_assessment',    'full_width', 'Financial Assessment'],
 
         ['cashier',                    'cashier/cashier',              'full_width', 'Cashier'],
         ['cashier/payment-methods',    'cashier/payment_methods',      'full_width', 'Payment Methods'],
         ['cashier/top-up-virtual',     'cashier/top_up_virtual',       'full_width', 'Give Me More Money!'],
         ['cashier/cashier-password',   'cashier/cashier_password',     'full_width', 'Cashier Password'],
 
-        ['user/tnc-approval',          'user/tnc_approval',            'full_width', 'Terms and Conditions Approval'],
     );
 }
 

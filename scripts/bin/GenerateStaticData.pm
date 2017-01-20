@@ -43,6 +43,7 @@ sub _texts {
         push @texts, localize('Only letters, numbers, hyphen are allowed.');
         push @texts, localize('Only numbers, space are allowed.');
         push @texts, localize('Please input a valid date');
+        push @texts, localize('This feature is not relevant to virtual-money accounts.');
 
         # new virtual account
         push @texts, localize('Please submit a valid verification token.');
@@ -105,6 +106,11 @@ sub _texts {
         # cashier
         push @texts, localize('[_1] [_2] has been credited to your Virtual money account [_3]');
         push @texts, localize('Sorry, this feature is available to virtual accounts only.');
+
+        # financial assessment
+        push @texts, localize('You did not change anything.');
+        push @texts, localize('Sorry, an error occurred while processing your request.');
+        push @texts, localize('Your changes have been updated successfully.');
 
         my %as_hash = @texts;
         $js .= "texts_json['" . $language . "'] = " . JSON::to_json(\%as_hash) . ";\n";

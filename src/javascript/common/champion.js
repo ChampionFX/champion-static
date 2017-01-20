@@ -19,6 +19,7 @@ const Cashier             = require('./../pages/cashier/cashier');
 const CashierTopUpVirtual = require('./../pages/cashier/top_up_virtual');
 const CashierPaymentMethods = require('./../pages/cashier/payment_methods');
 const CashierPassword       = require('./../pages/cashier/cashier_password');
+const FinancialAssessment   = require('./../pages/user/financial_assessment');
 
 const Champion = (function() {
     'use strict';
@@ -65,6 +66,7 @@ const Champion = (function() {
             'top-up-virtual'  : CashierTopUpVirtual,
             'cashier-password': CashierPassword,
             'tnc-approval'    : TNCApproval,
+            assessment        : FinancialAssessment,
         };
         if (page in pages_map) {
             _active_script = pages_map[page];
