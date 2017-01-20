@@ -497,3 +497,25 @@ select[disabled=disabled] {
     font-size: 10em;
     font-weight: normal;
 }
+
+// Payment methods table
+.fx-payment-methods table {
+    margin: 20px 0;
+    tr {
+        height: 60px;
+    }
+    th, td {
+        text-align: left;
+        border-bottom: none;
+    }
+    .fx-subheader {
+        background-color: $white;
+        font-weight: 100;
+        border-top: solid 1px $borderColor;
+    }
+}
+
+// Settings page
+a:hover {
+    text-decoration: none !important;
+}

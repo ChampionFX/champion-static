@@ -5,6 +5,7 @@ const ChampionNewVirtual = require('./../pages/new_account/virtual');
 const ChampionNewReal    = require('./../pages/new_account/real');
 const ChampionContact    = require('./../pages/contact');
 const ChampionEndpoint   = require('./../pages/endpoint');
+const ChampionSettings   = require('./../pages/user/settings');
 const ChangePassword     = require('./../pages/user/change_password');
 const TNCApproval        = require('./../pages/user/tnc_approval');
 const LostPassword       = require('./../pages/lost_password');
@@ -14,6 +15,11 @@ const Client             = require('./client');
 const LoggedIn           = require('./logged_in');
 const Login              = require('./login');
 const Utility            = require('./utility');
+const Cashier             = require('./../pages/cashier/cashier');
+const CashierTopUpVirtual = require('./../pages/cashier/top_up_virtual');
+const CashierPaymentMethods = require('./../pages/cashier/payment_methods');
+const CashierPassword       = require('./../pages/cashier/cashier_password');
+const FinancialAssessment   = require('./../pages/user/financial_assessment');
 
 const Champion = (function() {
     'use strict';
@@ -45,16 +51,22 @@ const Champion = (function() {
     const afterContentChange = (e, content) => {
         const page = content.getAttribute('data-page');
         const pages_map = {
-            virtual          : ChampionNewVirtual,
-            real             : ChampionNewReal,
-            contact          : ChampionContact,
-            endpoint         : ChampionEndpoint,
-            logged_inws      : LoggedIn,
-            'binary-options' : BinaryOptions,
-            'change-password': ChangePassword,
-            'lost-password'  : LostPassword,
-            'reset-password' : ResetPassword,
-            'tnc-approval'   : TNCApproval,
+            virtual           : ChampionNewVirtual,
+            real              : ChampionNewReal,
+            contact           : ChampionContact,
+            endpoint          : ChampionEndpoint,
+            settings          : ChampionSettings,
+            logged_inws       : LoggedIn,
+            'binary-options'  : BinaryOptions,
+            'change-password' : ChangePassword,
+            'lost-password'   : LostPassword,
+            'reset-password'  : ResetPassword,
+            cashier           : Cashier,
+            'payment-methods' : CashierPaymentMethods,
+            'top-up-virtual'  : CashierTopUpVirtual,
+            'cashier-password': CashierPassword,
+            'tnc-approval'    : TNCApproval,
+            assessment        : FinancialAssessment,
         };
         if (page in pages_map) {
             _active_script = pages_map[page];

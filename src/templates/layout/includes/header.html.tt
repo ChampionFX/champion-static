@@ -47,6 +47,10 @@
                                 <div class="nav-caret"></div>
                             </a>
                             <ul>
+                                <a class="link" href="[% request.url_for('user/settings') %]">
+                                    <li class="topMenuSettings">[% l('Settings') %]</li>
+                                </a>
+                                <div class="separator-line-thin-gray"></div>
                                 <a class="link" href="[% request.url_for('cashier') %]">
                                     <li class="topMenuCashier">[% l('Cashier') %]</li>
                                 </a>
