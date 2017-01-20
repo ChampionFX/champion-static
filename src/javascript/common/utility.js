@@ -1,7 +1,7 @@
 require('jquery.scrollto');
 
-function showLoadingImage(container) {
-    container.empty().append('<div class="barspinner dark"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div>');
+function showLoadingImage(container, theme = 'dark') {
+    container.empty().append(`<div class="barspinner ${theme}"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div>`);
 }
 
 function isEmptyObject(obj) {
