@@ -8,28 +8,31 @@ const MetaTraderConfig = (function() {
 
     const types_info = {
         demo             : { account_type: 'demo',      sub_account_type: '',         title: 'Demo',          max_leverage: 1000, is_demo: true },
-        champion_cent    : { account_type: 'financial', sub_account_type: 'cent',     title: 'Real Cent',     max_leverage: 1000 }, // TODO: remove account_info
+        champion_cent    : { account_type: 'financial', sub_account_type: 'cent',     title: 'Real Cent',     max_leverage: 1000 },
         champion_standard: { account_type: 'financial', sub_account_type: 'standard', title: 'Real Standard', max_leverage: 300 },
         champion_stp     : { account_type: 'financial', sub_account_type: 'stp',      title: 'Real STP',      max_leverage: 100 },
     };
 
+    const needsRealMessage = () => (
+         Client.has_real() ?
+            'To perform this action, please switch to your [_1] Real Account.'
+                .replace('[_1]', 'Champion-FX.com') :
+            'To perform this action, please <a href="[_1]"> upgrade to [_2] Real Account</a>.'
+                .replace('[_1]', url_for('new-account/real'))
+                .replace('[_2]', 'Champion-FX.com')
+    );
+
     const actions_info = {
         new_account: {
             title        : 'Create Account',
-            success_msg  : response => 'Congratulations! Your [_1] Account has been created.'.replace('[_1]', response.mt5_new_account.login),
+            success_msg  : response => 'Congratulations! Your [_1] Account has been created.'.replace('[_1]', types_info[response.mt5_new_account.account_type].title),
+            login        : response => response.mt5_new_account.login,
             prerequisites: acc_type => (
                 new Promise((resolve) => {
                     if (types_info[acc_type].is_demo) {
                         resolve();
                     } else if (Client.is_virtual()) {
-                        resolve(Client.has_real() ?
-                            'To create a [_1] Account for MT5, please switch to your [_2] Real Account.'
-                                .replace('[_1]', types_info[acc_type].title)
-                                .replace('[_2]', 'Champion-FX.com') :
-                            'To create a [_1] Account for MT5, please <a href="[_2]"> upgrade to [_3] Real Account</a>.'
-                                .replace('[_1]', types_info[acc_type].title)
-                                .replace('[_2]', url_for('new-account/real'))
-                                .replace('[_3]', 'Champion-FX.com'));
+                        resolve(needsRealMessage());
                     } else {
                         ChampionSocket.send({ get_account_status: 1 }, (response_status) => {
                             if ($.inArray('authenticated', response_status.get_account_status.status) === -1) {
@@ -38,7 +41,7 @@ const MetaTraderConfig = (function() {
                                 ChampionSocket.send({ get_financial_assessment: 1 }, (response_financial) => {
                                     if (isEmptyObject(response_financial.get_financial_assessment)) {
                                         resolve('To create a Financial Account for MT5, please complete the <a href="[_1]">Financial Assessment</a>.'
-                                            .replace('[_1]', url_for('user/financial')));
+                                            .replace('[_1]', url_for('user/assessment')));
                                     } else {
                                         resolve();
                                     }
@@ -76,7 +79,7 @@ const MetaTraderConfig = (function() {
         deposit: {
             title        : 'Deposit',
             success_msg  : response => 'Deposit is done. Transaction ID: [_1]'.replace('[_1]', response.binary_transaction_id),
-            prerequisites: () => new Promise(resolve => resolve('')),
+            prerequisites: () => new Promise(resolve => resolve(Client.is_virtual() ? needsRealMessage() : '')),
             formValues   : ($form, acc_type, action) => {
                 // From, To
                 $form.find(fields[action].lbl_from.id).text(fields[action].additional_fields(acc_type).from_binary);
@@ -86,7 +89,7 @@ const MetaTraderConfig = (function() {
         withdrawal: {
             title        : 'Withdraw',
             success_msg  : response => 'Withdrawal is done. Transaction ID: [_1]'.replace('[_1]', response.binary_transaction_id),
-            prerequisites: () => new Promise(resolve => resolve('')),
+            prerequisites: () => new Promise(resolve => resolve(Client.is_virtual() ? needsRealMessage() : '')),
             formValues   : ($form, acc_type, action) => {
                 // From, To
                 $form.find(fields[action].lbl_from.id).text(fields[action].additional_fields(acc_type).from_mt5);
@@ -107,11 +110,14 @@ const MetaTraderConfig = (function() {
             txt_investor_pass   : { id: '#txt_investor_pass', request_field: 'investPassword' },
             chk_tnc             : { id: '#chk_tnc' },
             additional_fields   :
-                acc_type => ({
-                    account_type    : types_info[acc_type].account_type,
-                    sub_account_type: types_info[acc_type].sub_account_type,
-                    email           : Client.get_value('email'),
-                }),
+                acc_type => ($.extend(
+                    {
+                        account_type: types_info[acc_type].account_type,
+                        email       : Client.get_value('email'),
+                    },
+                    types_info[acc_type].sub_account_type ? {
+                        sub_account_type: types_info[acc_type].sub_account_type,
+                    } : {})),
         },
         password_change: {
             lbl_login          : { id: '#lbl_login' },

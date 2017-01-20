@@ -1,6 +1,8 @@
-const Validation       = require('../../../common/validation');
-const formatMoney      = require('../../../common/currency').formatMoney;
-const MetaTraderConfig = require('./metatrader.config');
+const Validation        = require('../../../common/validation');
+const formatMoney       = require('../../../common/currency').formatMoney;
+const redirect_to_login = require('../../../common/login').redirect_to_login;
+const showLoadingImage  = require('../../../common/utility').showLoadingImage;
+const MetaTraderConfig  = require('./metatrader.config');
 
 const MetaTraderUI = (function() {
     'use strict';
@@ -52,9 +54,15 @@ const MetaTraderUI = (function() {
         $action.find('.close').click(() => { closeForm(true); });
     };
 
+    const displayLoadingAccount = (acc_type) => {
+        const $acc_item = $list.find(`#${acc_type}`);
+        $acc_item.find('> div > div[class!="title"]').addClass(hidden_class);
+        $acc_item.find('.loading').removeClass(hidden_class);
+    };
+
     const updateAccount = (acc_type) => {
         const $acc_item = $list.find(`#${acc_type}`);
-        $acc_item.find('.loading').remove();
+        $acc_item.find('.loading').addClass(hidden_class);
         if (types_info[acc_type].account_info) {
             // Update account info
             $acc_item.find('.acc-info div[data]').map(function () {
@@ -117,6 +125,10 @@ const MetaTraderUI = (function() {
         $main_msg.empty().addClass(hidden_class);
     };
 
+    const hideFormMessage = () => {
+        $form.find('#msg_form').html('').addClass(hidden_class);
+    };
+
     const displayFormMessage = (message) => {
         $form.find('#msg_form').text(message).removeClass(hidden_class);
     };
@@ -126,12 +138,42 @@ const MetaTraderUI = (function() {
         $.scrollTo($main_msg, 500, { offset: -10 });
     };
 
+    const displayLoginMessage = () => {
+        $('#mt_account_management #accounts_list').removeClass('row')
+            .html($('<p/>', { class: 'centered notice-msg', html: 'Please <a href="javascript:;">log in</a> to view this page.' }))
+            .find('a')
+            .on('click', () => { redirect_to_login(); });
+    };
+
+    const disableButton = () => {
+        const $btn = $form.find('button');
+        if ($btn.length && !$btn.find('.barspinner').length) {
+            $btn.attr('disabled', 'disabled');
+            const $btn_text = $('<span/>', { text: $btn.text(), class: hidden_class });
+            showLoadingImage($btn, 'white');
+            $btn.append($btn_text);
+        }
+    };
+
+    const enableButton = () => {
+        const $btn = $form.find('button');
+        if ($btn.length && $btn.find('.barspinner').length) {
+            $btn.removeAttr('disabled').html($btn.find('span').text());
+        }
+    };
+
     return {
-        init              : init,
-        $form             : () => $form,
-        updateAccount     : updateAccount,
-        displayFormMessage: displayFormMessage,
-        displayMainMessage: displayMainMessage,
+        init                 : init,
+        $form                : () => $form,
+        displayLoadingAccount: displayLoadingAccount,
+        updateAccount        : updateAccount,
+        closeForm            : closeForm,
+        hideFormMessage      : hideFormMessage,
+        displayFormMessage   : displayFormMessage,
+        displayMainMessage   : displayMainMessage,
+        displayLoginMessage  : displayLoginMessage,
+        disableButton        : disableButton,
+        enableButton         : enableButton,
     };
 })();
 

@@ -1,7 +1,6 @@
 const ChampionSocket       = require('../../../common/socket');
 const Client               = require('../../../common/client');
 const Validation           = require('../../../common/validation');
-const default_redirect_url = require('../../../common/url').default_redirect_url;
 const MetaTraderConfig     = require('./metatrader.config');
 const MetaTraderUI         = require('./metatrader.ui');
 
@@ -15,7 +14,7 @@ const MetaTrader = (function() {
 
     const load = () => {
         if (!Client.is_logged_in()) {
-            window.location.href = default_redirect_url();
+            MetaTraderUI.displayLoginMessage();
             return;
         }
 
@@ -30,7 +29,7 @@ const MetaTrader = (function() {
                     const acc_type = getAccountType(obj.group);
                     if (acc_type) { // ignore old accounts which are not linked to any group
                         types_info[acc_type].account_info = { login: obj.login };
-                        getAccountDetails(obj.login);
+                        getAccountDetails(obj.login, acc_type);
                     }
                 });
             }
@@ -43,13 +42,14 @@ const MetaTrader = (function() {
         });
     };
 
-    const getAccountDetails = (login) => {
+    const getAccountDetails = (login, acc_type) => {
+        MetaTraderUI.displayLoadingAccount(acc_type);
         ChampionSocket.send({
             mt5_get_settings: 1,
             login           : login,
         }, (response) => {
             if (response.mt5_get_settings) {
-                const acc_type = getAccountType(response.mt5_get_settings.group);
+                // const acc_type = getAccountType(response.mt5_get_settings.group);
                 types_info[acc_type].account_info = response.mt5_get_settings;
                 MetaTraderUI.updateAccount(acc_type);
             }
@@ -68,8 +68,9 @@ const MetaTrader = (function() {
         const req = {};
 
         Object.keys(fields[action]).forEach((field) => {
-            if (field.request_field) {
-                req[field.request_field] = MetaTraderUI.$form().find(field.id).val();
+            const field_obj = fields[action][field];
+            if (field_obj.request_field) {
+                req[field_obj.request_field] = MetaTraderUI.$form().find(field_obj.id).val();
             }
         });
 
@@ -84,18 +85,22 @@ const MetaTrader = (function() {
 
     const submit = (e) => {
         e.preventDefault();
+        MetaTraderUI.hideFormMessage();
         const $btn_submit = $(e.target);
-        $btn_submit.attr('disabled', 'disabled');
         const acc_type = $btn_submit.attr('acc_type');
         const action = $btn_submit.attr('action');
         if (Validation.validate(`#frm_${action}`)) {
+            MetaTraderUI.disableButton();
             const req = makeRequestObject(acc_type, action);
             ChampionSocket.send(req, (response) => {
                 if (response.error) {
                     MetaTraderUI.displayFormMessage(response.error.message);
-                    $btn_submit.removeAttr('disabled');
+                    MetaTraderUI.enableButton();
                 } else {
+                    MetaTraderUI.closeForm();
                     MetaTraderUI.displayMainMessage(actions_info[action].success_msg(response));
+                    getAccountDetails(actions_info[action].login ?
+                        actions_info[action].login(response) : types_info[acc_type].account_info.login, acc_type);
                 }
             });
         }
