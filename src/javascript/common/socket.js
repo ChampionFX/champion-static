@@ -16,7 +16,8 @@ const ChampionSocket = (function() {
 
     const buffered = [],
         registered_callbacks = {},
-        priority_requests = { authorize: false, balance: false, get_settings: false, website_status: false };
+        priority_requests = { authorize: false, balance: false, get_settings: false, website_status: false },
+        no_duplicate_requests = ['get_account_status', 'get_financial_assessment'];
 
     const promise = new Promise((resolve, reject) => {
         socketResolve = resolve;
@@ -34,7 +35,6 @@ const ChampionSocket = (function() {
             ChampionSocket.send({ website_status: 1 });
         } else {
             let country_code;
-            State.set(['response', message.msg_type], message);
             switch (message.msg_type) {
                 case 'authorize':
                     if (message.error || message.authorize.loginid !== Client.get_value('loginid')) {
@@ -116,14 +116,9 @@ const ChampionSocket = (function() {
 
     const send = (data, callback, subscribe) => {
         if (typeof callback === 'function') {
-            let msg_type = '';
-            Object.keys(priority_requests).some((c) => {
-                if (c in data) {
-                    msg_type = c;
-                    return true;
-                }
-                return false;
-            });
+            const msg_type = Object.keys(priority_requests)
+                .concat(no_duplicate_requests)
+                .find(c => c in data);
             const exist_in_state = State.get(['response', msg_type]);
             if (exist_in_state) {
                 callback(exist_in_state);
@@ -158,6 +153,7 @@ const ChampionSocket = (function() {
 
     const onMessage = (message) => {
         const response = JSON.parse(message.data);
+        State.set(['response', response.msg_type], response);
         const this_req_id = response.req_id;
         const reg = this_req_id ? registered_callbacks[this_req_id] : null;
 
