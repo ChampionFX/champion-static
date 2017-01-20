@@ -80,7 +80,7 @@ const Header = (function () {
         if (!currency) {
             return;
         }
-        const view = formatMoney(currency, balance);
+        const view = formatMoney(balance, currency);
         $('.topMenuBalance').text(view).css('visibility', 'visible');
     };
 
