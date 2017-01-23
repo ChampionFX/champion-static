@@ -25,7 +25,7 @@
                 </div>
                 <p>[% l('Trade over 70 FX pairs, combining ultra-low or fixed spreads and Non Dealing Desk (NDD) execution in a high-speed trading environment.') %]</p>
                 <ul class="bullet">
-                    <li>[% l('Leverage up to 1,000') %]</li>
+                    <li>[% l('Leverage Up To 1,000') %]</li>
                     <li>[% l('Fixed of Floating Spreads') %]</li>
                     <li>[% l('Instant Execution') %]</li>
                     <li>[% l('Over 70 FX Pairs Available') %]</li>
@@ -40,7 +40,7 @@
                 </div>
                 <p>[% l('Trade a variety of flexible precious metals contracts, including gold (per gram or ounce) with highly competitive pricing.') %]</p>
                 <ul class="bullet">
-                    <li>[% l('Leverage up to 1,000') %]</li>
+                    <li>[% l('Leverage Up To 1,000') %]</li>
                     <li>[% l('Fixed of Floating Spreads') %]</li>
                     <li>[% l('Instant Execution') %]</li>
                     <li>[% l('Over 70 FX Pairs Available') %]</li>
@@ -74,9 +74,9 @@
                 </div>
                 <p>[% l('Trade contracts for difference (CFD) across equity indices, energies, alternative asset futures, and other instruments for more trading opportunities.') %]</p>
                 <ul class="bullet">
-                    <li>[% l('Diversify Your trading') %]</li>
+                    <li>[% l('Diversify Your Trading') %]</li>
                     <li>[% l('Access Global Markets') %]</li>
-                    <li>[% l('Trade long or Short') %]</li>
+                    <li>[% l('Trade Long or Short') %]</li>
                 </ul>
             </div>
         </div>
