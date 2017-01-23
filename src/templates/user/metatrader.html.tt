@@ -7,7 +7,7 @@
 
         <div class="row">
             <div class="fst-container">
-                <div id="main_msg" class="notice-msg centered hidden"></div>
+                <div id="main_msg" class="notice-msg center-text hidden"></div>
                 <fieldset id="fst_action" class="hidden">
                     <legend></legend>
                     <span class="close"></span>
@@ -21,7 +21,7 @@
                 <div>
                     <div class="title"></div>
                     <div class="loading">[% INCLUDE static/common/loading.html.tt %]</div>
-                    <div class="centered no-account hidden">
+                    <div class="center-text no-account hidden">
                         <div class="info"></div>
                         <span class="button"><span class="act_new_account">[% l('Create Account') %]</span></span>
                     </div>
@@ -122,7 +122,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12 centered">
+                    <div class="col-xs-12 center-text">
                         <p>
                             <input id="chk_tnc" type="checkbox" />
                             <label for="chk_tnc">[% l('I have read and agree to the') %] <a target="_blank" href="[% request.url_for('/terms-and-conditions') %]">[% l('terms and conditions') %]</a> [% l('of the site.') %]</label>

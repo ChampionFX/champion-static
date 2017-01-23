@@ -153,7 +153,7 @@
 
             <fieldset class="center-text">
                 <div class="row">
-                    <div class="col-xs-12 centered">
+                    <div class="col-xs-12 center-text">
                         <p>
                             <input id="chk_tnc" type="checkbox" />
                             <label for="chk_tnc">[% l('I have read and agree to the') %] <a target="_blank" href="[% request.url_for('/terms-and-conditions') %]">[% l('terms and conditions') %]</a> [% l('of the site.') %]</label>

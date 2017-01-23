@@ -262,7 +262,7 @@
         <div class="center-text">
             <div id="form_message"></div>
         </div>
-        <div class="centered">
+        <div class="center-text">
             <button class="button" id="submit">[% l("Update") %]</button>
         </div>
     </form>

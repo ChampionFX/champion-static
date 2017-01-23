@@ -144,7 +144,7 @@ const MetaTraderUI = (function() {
 
     const displayLoginMessage = () => {
         $('#mt_account_management #accounts_list').removeClass('row')
-            .html($('<p/>', { class: 'centered notice-msg', html: 'Please <a href="javascript:;">log in</a> to view this page.' }))
+            .html($('<p/>', { class: 'center-text notice-msg', html: 'Please <a href="javascript:;">log in</a> to view this page.' }))
             .find('a')
             .on('click', () => { redirect_to_login(); });
     };

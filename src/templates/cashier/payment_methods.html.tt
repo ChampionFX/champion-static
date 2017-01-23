@@ -7,7 +7,7 @@
             </div>
         </div>
 
-        <div class="row centered">
+        <div class="row center-text">
             <div class="col-sm">
                 <div class="fx-logged-out">
                     <a href="[% request.url_for('/') %]" class="button button_large">
