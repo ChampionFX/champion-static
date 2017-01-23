@@ -21,7 +21,7 @@ const FinancialAssessment = (() => {
             submitForm();
             return false;
         });
-        ChampionSocket.promise.then(() => {
+        ChampionSocket.promise().then(() => {
             if (checkIsVirtual()) return;
             ChampionSocket.send({ get_financial_assessment: 1 }, (response) => {
                 handleForm(response);

@@ -41,7 +41,7 @@ const ChampionNewRealAccount = (function() {
     };
 
     const load = () => {
-        ChampionSocket.promise.then(() => {
+        ChampionSocket.promise().then(() => {
             if (!Client.is_logged_in() || Client.has_real()) {
                 window.location.href = default_redirect_url();
                 return;

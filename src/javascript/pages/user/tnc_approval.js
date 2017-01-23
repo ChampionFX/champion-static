@@ -21,7 +21,7 @@ const TNCApproval = (function() {
         redirectUrl = sessionStorage.getItem('tnc_redirect');
         sessionStorage.removeItem('tnc_redirect');
 
-        ChampionSocket.promise.then(() => { showTNC(); });
+        ChampionSocket.promise().then(() => { showTNC(); });
 
         $(btn_accept).on('click', function (e) { approveTNC(e); });
     };
