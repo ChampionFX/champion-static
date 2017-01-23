@@ -6,8 +6,8 @@ const Login          = require('./../../common/login');
 const DepositWithdrawal = (function() {
     'use strict';
 
-    let btn_submit,
-        form_type;
+    let btn_submit;
+       // form_type;
 
     // const fields = {
     //     btn_submit: '#btn_submit',
