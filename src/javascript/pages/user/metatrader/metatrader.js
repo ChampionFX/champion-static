@@ -10,7 +10,6 @@ const MetaTrader = (function() {
     const types_info   = MetaTraderConfig.types_info;
     const actions_info = MetaTraderConfig.actions_info;
     const fields       = MetaTraderConfig.fields;
-    // const validations  = MetaTraderConfig.validations;
 
     const load = () => {
         if (!Client.is_logged_in()) {
@@ -49,7 +48,6 @@ const MetaTrader = (function() {
             login           : login,
         }, (response) => {
             if (response.mt5_get_settings) {
-                // const acc_type = getAccountType(response.mt5_get_settings.group);
                 types_info[acc_type].account_info = response.mt5_get_settings;
                 MetaTraderUI.updateAccount(acc_type);
             }

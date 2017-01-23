@@ -19,7 +19,6 @@ const MetaTraderUI = (function() {
 
     const types_info   = MetaTraderConfig.types_info;
     const actions_info = MetaTraderConfig.actions_info;
-    // const fields       = MetaTraderConfig.fields;
     const validations  = MetaTraderConfig.validations;
 
     const init = (submit_func) => {
