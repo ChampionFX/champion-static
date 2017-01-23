@@ -39,6 +39,7 @@ sub all_pages {
         ['cashier/top-up-virtual',     'cashier/top_up_virtual',       'full_width', 'Give Me More Money!'],
         ['cashier/cashier-password',   'cashier/cashier_password',     'full_width', 'Cashier Password'],
 
+        ['cashier/deposit-withdrawal',            'cashier/deposit_withdrawal',   'full_width', 'Deposit'],
     );
 }
 
