@@ -105,6 +105,7 @@ sub _texts {
 
         # cashier
         push @texts, localize('[_1] [_2] has been credited to your Virtual money account [_3]');
+        push @texts, localize('Sorry, this feature is available to virtual accounts only.');
         push @texts, localize('Your settings have been updated successfully.');
 
         # financial assessment

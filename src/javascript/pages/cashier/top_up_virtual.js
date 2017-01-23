@@ -19,7 +19,7 @@ const CashierTopUpVirtual = (function() {
         } else if (Client.is_logged_in() && !Client.is_virtual()) {
             viewError.removeClass('hidden')
                 .find('.notice-msg')
-                .text('This feature is not relevant to virtual-money accounts.');
+                .text('Sorry, this feature is available to virtual accounts only.');
         } else {
             viewError.removeClass('hidden')
                 .find('.notice-msg').html('Please <a href="javascript:;">log in</a> to view this page.')
