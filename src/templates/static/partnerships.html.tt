@@ -46,7 +46,7 @@
                                 <p>[% l('We want to help you grow your business by providing you with all the necessary tools and resources that allow you to prosper and flourish. Because we believe that our opportunities improve when we help you win.') %]</p>
                                 <p>[% l('Explore our wide range of partnership programmes. Each programme opens a window of opportunity to one of the world\'s most significant financial markets, and each has been developed with the intention of perfectly matching the diverse needs of our potential partners.') %]</p>
                                 <div class="fx-divider"></div>
-                                <div class="centered">
+                                <div class="center-text">
                                     <h2>[% l('Forex, CFDs, metals, futures') %]</h2>
                                     <h4>[% l('Introducing Broker (IB)') %]</h4>
                                     <p>[% l('Earn a commission on all ongoing trades done by your referred clients.') %]</p>
@@ -88,7 +88,7 @@
                                 <p>[% l('Earn commission on the trading activity of clients that you refer to Champion FX, thanks to our IB programme.') %]</p>
                                 <p>[% l('Promote our services to prospective clients, expand your client portfolio, and earn the rewards you richly deserve. We’ll even provide you with all the marketing tools you need to attract and convert prospective clients.') %]</p>
                                 <div class="fx-divider"></div>
-                                <div class="centered">
+                                <div class="center-text">
                                     <h2>[% l('Why join the Champion FX IB programme?') %]</h2>
                                     <div class="row">
                                         <div class="col-md">
@@ -148,7 +148,7 @@
                                 <h2>[% l('Affiliate programme') %]</h2>
                                 <p>[% l('Searching for the best binary options affiliate programme? Look no further. Start earning up to 35% of the net revenue for all trades purchased by clients you refer to Champion FX.') %]</p>
                                 <div class="fx-divider"></div>
-                                <div class="centered">
+                                <div class="center-text">
                                     <h2>[% l('Why should I join the Champion FX Affiliate programme?') %]</h2>
                                     <div class="row">
                                         <div class="col-md">
@@ -224,7 +224,7 @@
                                     <li>[% l('Use the latest industry trends to their advantage.') %]</li>
                                 </ul>
                                 <div class="fx-divider"></div>
-                                <div class="centered">
+                                <div class="center-text">
                                     <h2>[% l('Why should I join the Champion FX Content Contributor programme?') %]</h2>
 
                                     <div class="row">

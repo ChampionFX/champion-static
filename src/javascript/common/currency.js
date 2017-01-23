@@ -1,18 +1,20 @@
 const addComma    = require('./utility').addComma;
 const getLanguage = require('./language').getLanguage;
+const State       = require('./storage').State;
 
-function formatMoney(currencyValue, amount) {
+function formatMoney(amount, currency) {
     let money;
+    currency = currency || State.get(['response', 'authorize', 'authorize', 'currency']);
     if (amount) amount = String(amount).replace(/,/g, '');
-    if (typeof Intl !== 'undefined' && currencyValue && currencyValue !== '' && amount && amount !== '') {
-        const options = { style: 'currency', currency: currencyValue },
+    if (typeof Intl !== 'undefined' && currency && currency !== '' && amount && amount !== '') {
+        const options = { style: 'currency', currency: currency },
             language = typeof window !== 'undefined' ? getLanguage().toLowerCase() : 'en';
         money = new Intl.NumberFormat(language.replace('_', '-'), options).format(amount);
     } else {
         const updatedAmount = addComma(parseFloat(amount).toFixed(2));
-        const symbol = formatCurrency(currencyValue);
+        const symbol = formatCurrency(currency);
         if (symbol === undefined) {
-            money = `${currencyValue} ${updatedAmount}`;
+            money = `${currency} ${updatedAmount}`;
         } else {
             money = symbol + updatedAmount;
         }

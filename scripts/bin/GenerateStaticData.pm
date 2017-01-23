@@ -43,6 +43,9 @@ sub _texts {
         push @texts, localize('Only letters, numbers, hyphen are allowed.');
         push @texts, localize('Only numbers, space are allowed.');
         push @texts, localize('Please input a valid date');
+        push @texts, localize('Should be a valid number');
+        push @texts, localize('Should be more than [_1]');
+        push @texts, localize('Should be less than [_1]');
         push @texts, localize('This feature is not relevant to virtual-money accounts.');
 
         # new virtual account
@@ -72,6 +75,15 @@ sub _texts {
         # reset password
         push @texts, localize('[_1] Please click the link below to restart the password recovery process. If you require further assistance, please contact our Customer Support.');
         push @texts, localize('Your password has been successfully reset. Please log into your account using your new password.');
+
+        # metatrader
+        push @texts, localize('Congratulations! Your [_1] Account has been created.');
+        push @texts, localize('The main password of account number [_1] has been changed.');
+        push @texts, localize('[_1] deposit from [_2] to account number [_3] is done. Transaction ID: [_4]');
+        push @texts, localize('[_1] withdrawal from account number [_2] to [_3] is done. Transaction ID: [_4]');
+        push @texts, localize('To create a [_1] Account for MT5, please switch to your [_2] Real Account.');
+        push @texts, localize('To create a [_1] Account for MT5, please <a href="[_2]"> upgrade to [_3] Real Account</a>.');
+        push @texts, localize('To create a Financial Account for MT5, please complete the <a href="[_1]">Financial Assessment</a>.');
 
         # date_picker
         push @texts, localize('January');

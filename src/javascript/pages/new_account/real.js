@@ -41,19 +41,21 @@ const ChampionNewRealAccount = (function() {
     };
 
     const load = () => {
-        if (!Client.is_logged_in() || Client.has_real()) {
-            window.location.href = default_redirect_url();
-            return;
-        }
-        container = $('#champion-container');
+        ChampionSocket.promise().then(() => {
+            if (!Client.is_logged_in() || Client.has_real()) {
+                window.location.href = default_redirect_url();
+                return;
+            }
 
-        client_residence = Client.get_value('residence');
-        populateResidence();
-        populateState();
-        attachDatePicker();
+            container        = $('#champion-container');
+            client_residence = Client.get_value('residence');
+            populateResidence();
+            populateState();
+            attachDatePicker();
 
-        btn_submit = container.find(fields.btn_submit);
-        btn_submit.on('click dblclick', submit);
+            btn_submit = container.find(fields.btn_submit);
+            btn_submit.on('click dblclick', submit);
+        });
     };
 
     const unload = () => {
