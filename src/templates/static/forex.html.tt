@@ -143,7 +143,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p>[% l('Here\’s an example: how does going long or going short apply to the GBP/USD?') %]</p>
+                                <p>[% l("Here\’s an example: how does going long or going short apply to the GBP/USD?") %]</p>
                                 <p>[% l('After your analysis, you’ve come to the conclusion that the British economy will outperform its U.S. counterpart. Thus, you decide to go long and buy into the GBP/USD, expecting the GBP to rise in value.') %]</p>
                                 <p>[% l('If you decided that the British economy will underperform instead, then you will go short on the GBP/USD.') %]</p>
                                 <h2>[% l('Step 3: Buy your first currency pair') %]</h2>
@@ -158,7 +158,7 @@
                                 <h2>[% l('Margin policy') %]</h2>
                                 <p>[% l('We explain our margin policy to give you a better understanding of how Forex trading works.') %]</p>
                                 <h2>[% l('What is margin?') %]</h2>
-                                <p>[% l('Margin allows you to trade on leverage –– giving you the same level of market exposure using much less capital.') %]</p>
+                                <p>[% l('Margin allows you to trade on leverage, giving you the same level of market exposure using much less capital.') %]</p>
                                 <p>[% l('For example, if you wanted to purchase 100 units of a particular asset trading at USD 50 per unit through a traditional broker, it would cost you USD 5,000 for this transaction.') %]</p>
                                 <p>[% l('With CFD (which is a leveraged product), you can purchase 100 units of the same asset at a fraction of the cost.') %]</p>
                                 <h2>[% l('How is margin calculated?') %]</h2>
@@ -166,7 +166,7 @@
                                 <div class="fill-bg-color lg-padding centered">
                                     <p>[% l('Volume (trade size) x price x margin rate = Margin') %]</p>
                                     <p>[% l('For e.g. If you buy 1 Volume of an underlying asset at a price of EUR 20,000 and a margin rate of 0.01, the margin required to purchase that one lot will be calculated as follows:') %]</p>
-                                    <p>[% l('1 * 20000 * 0.01 = EUR 200') %]</p>
+                                    <p>[% l('1 x 20,000 / 100 = EUR 200') %]</p>
                                 </div>
                                 <p>[% l('The margin for our Forex trades is calculated as follows:') %]</p>
                                 <div class="fill-bg-color lg-padding centered">
@@ -174,10 +174,10 @@
                                     <p>[% l('For e.g. If you buy one lot of the EUR/USD symbol with a contract size of 100,000 and leverage of 100:1, the margin required to purchase that one lot will be calculated as follows:') %]</p>
                                     <p>[% l('1 x 100,000 / 100 = EUR 1,000') %]</p>
                                 </div>
-                                <h2>[% l('What\’s a margin call and how do we apply it?') %]</h2>
+                                <h2>[% l("What\’s a margin call and how do we apply it?") %]</h2>
                                 <p>[% l('When your account equity is unable to cover the margin requirement, your account will be placed under margin call. This state does not affect your ability to open new positions') %]</p>
-                                <h2>[% l('What\’s a stop out level and how do we apply it?') %]</h2>
-                                <p>[% l('If your account is placed under margin call for an extended period of time, it will reach the stop out level where it\’s unable to sustain an open position. This will lead to your pending orders being deleted, and open positions being forcibly closed (also known as forced liquidation).') %]</p>
+                                <h2>[% l("What\’s a stop out level and how do we apply it?") %]</h2>
+                                <p>[% l("If your account is placed under margin call for an extended period of time, it will reach the stop out level where it\’s unable to sustain an open position. This will lead to your pending orders being deleted, and open positions being forcibly closed (also known as forced liquidation).") %]</p>
                                 <p>[% l('Our forced liquidation level is 50% for Volatility Indices, and 100% for Forex. Once your account hits the forced liquidation level, your orders and positions are forcibly closed in the following order:') %]</p>
                                 <ul class="bullet">
                                     <li>[% l('We analyse your pending orders.') %]</li>
@@ -189,7 +189,7 @@
                             </div>
                             <div id="why-mt5-content" class="toggle-content invisible">
                                 <h2>[% l('Why MT5') %]</h2>
-                                <p>[% l('Champion FX believes in giving our clients the best trading platform available. This is why we chose MetaTrader 5. We focus all our efforts and resources to take full advantage of MetaTrader 5\'s advanced features to give our clients a powerful trading experience that\'s built to last.') %]</p>
+                                <p>[% l("Champion FX believes in giving our clients the best trading platform available. This is why we chose MetaTrader 5. We focus all our efforts and resources to take full advantage of MetaTrader 5\'s advanced features to give our clients a powerful trading experience that\'s built to last.") %]</p>
                                 <p class="centered lg-padding">
                                     <iframe width="640" height="360"
                                             src="https://www.youtube.com/embed/mXuR_SRP-XI?rel=0" frameborder="0"

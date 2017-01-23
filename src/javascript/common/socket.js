@@ -16,10 +16,15 @@ const ChampionSocket = (function() {
         socketResolve,
         socketReject;
 
-    const buffered = [],
-        registered_callbacks = {},
-        priority_requests = { authorize: false, balance: false, get_settings: false, website_status: false },
-        no_duplicate_requests = ['get_account_status', 'get_financial_assessment'];
+    const buffered = [];
+    const registered_callbacks = {};
+    const priority_requests = {
+        authorize         : false,
+        get_settings      : false,
+        website_status    : false,
+        get_account_status: false,
+    };
+    const no_duplicate_requests = ['get_account_status', 'get_financial_assessment'];
 
     const initPromise = () => {
         socket_resolved = false;
@@ -39,7 +44,6 @@ const ChampionSocket = (function() {
             }
             ChampionSocket.send({ website_status: 1 });
         } else {
-            let country_code;
             switch (message.msg_type) {
                 case 'authorize':
                     if (message.error || message.authorize.loginid !== Client.get_value('loginid')) {
@@ -49,6 +53,12 @@ const ChampionSocket = (function() {
                         Client.response_authorize(message);
                         ChampionSocket.send({ balance: 1, subscribe: 1 });
                         ChampionSocket.send({ get_settings: 1 });
+                        ChampionSocket.send({ get_account_status: 1 });
+                        const country_code = message.authorize.country;
+                        if (country_code) {
+                            Client.set_value('residence', country_code);
+                            ChampionSocket.send({ landing_company: country_code });
+                        }
                         Header.userMenu();
                         $('#btn_logout').click(() => { // TODO: to be moved from here
                             ChampionSocket.send({ logout: 1 });
@@ -61,22 +71,27 @@ const ChampionSocket = (function() {
                     break;
                 case 'balance':
                     Header.updateBalance(message);
-                    priority_requests.balance = true;
                     break;
                 case 'get_settings':
                     if (message.error) {
                         socketReject();
                         return;
                     }
-                    country_code = message.get_settings.country_code;
-                    if (country_code) {
-                        Client.set_value('residence', country_code);
-                        ChampionSocket.send({ landing_company: country_code });
-                    }
                     priority_requests.get_settings = true;
                     break;
                 case 'website_status':
                     priority_requests.website_status = true;
+                    break;
+                case 'get_account_status':
+                    priority_requests.get_account_status = true;
+                    if (message.get_account_status && message.get_account_status.risk_classification === 'high') {
+                        priority_requests.get_financial_assessment = false;
+                        ChampionSocket.send({ get_financial_assessment: 1 });
+                    }
+                    break;
+                case 'get_financial_assessment':
+                    priority_requests.get_financial_assessment = true;
+                    break;
                 // no default
             }
             if (!socket_resolved && Object.keys(priority_requests).every(c => priority_requests[c])) {

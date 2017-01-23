@@ -1,7 +1,9 @@
-const showLoadingImage = require('../../common/utility').showLoadingImage;
-const Client           = require('../../common/client');
-const ChampionSocket   = require('../../common/socket');
-const Validation       = require('../../common/validation');
+const showLoadingImage   = require('../../common/utility').showLoadingImage;
+const Client             = require('../../common/client');
+const ChampionSocket     = require('../../common/socket');
+const Validation         = require('../../common/validation');
+const State              = require('../../common/storage').State;
+const RiskClassification = require('./risk_classification');
 
 const FinancialAssessment = (() => {
     'use strict';
@@ -22,19 +24,26 @@ const FinancialAssessment = (() => {
         ChampionSocket.promise.then(() => {
             if (checkIsVirtual()) return;
             ChampionSocket.send({ get_financial_assessment: 1 }, (response) => {
-                hideLoadingImg();
-                financial_assessment = response.get_financial_assessment;
-                Object.keys(response.get_financial_assessment).forEach((key) => {
-                    const val = response.get_financial_assessment[key];
-                    $(`#${key}`).val(val);
-                });
-                arr_validation = [];
-                $(form_selector).find('select').map(function() {
-                    arr_validation.push({ selector: `#${$(this).attr('id')}`, validations: ['req'] });
-                });
-                Validation.init(form_selector, arr_validation);
+                handleForm(response);
             });
         });
+    };
+
+    const handleForm = (response) => {
+        if (!response) {
+            response = State.get(['response', 'get_financial_assessment']);
+        }
+        hideLoadingImg();
+        financial_assessment = response.get_financial_assessment;
+        Object.keys(response.get_financial_assessment).forEach((key) => {
+            const val = response.get_financial_assessment[key];
+            $(`#${key}`).val(val);
+        });
+        arr_validation = [];
+        $(form_selector).find('select').map(function() {
+            arr_validation.push({ selector: `#${$(this).attr('id')}`, validations: ['req'] });
+        });
+        Validation.init(form_selector, arr_validation);
     };
 
     const submitForm = () => {
@@ -66,6 +75,7 @@ const FinancialAssessment = (() => {
                     showFormMessage('Sorry, an error occurred while processing your request.', false);
                 } else {
                     showFormMessage('Your changes have been updated successfully.', true);
+                    RiskClassification.cleanup();
                 }
             });
         } else {
@@ -107,8 +117,10 @@ const FinancialAssessment = (() => {
     };
 
     return {
-        load  : load,
-        unload: unload,
+        load      : load,
+        unload    : unload,
+        handleForm: handleForm,
+        submitForm: submitForm,
     };
 })();
 

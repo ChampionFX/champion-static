@@ -21,6 +21,7 @@ const CashierTopUpVirtual = require('./../pages/cashier/top_up_virtual');
 const CashierPaymentMethods = require('./../pages/cashier/payment_methods');
 const CashierPassword       = require('./../pages/cashier/cashier_password');
 const FinancialAssessment   = require('./../pages/user/financial_assessment');
+const checkRiskClassification = require('./../pages/user/check_risk_classification');
 
 const Champion = (function() {
     'use strict';
@@ -78,6 +79,7 @@ const Champion = (function() {
         if (!_active_script) _active_script = ChampionSignup;
         ChampionSignup.load();
         Utility.handleActive();
+        checkRiskClassification();
     };
 
     return {
