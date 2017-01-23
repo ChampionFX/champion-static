@@ -1,5 +1,6 @@
 const ChampionSocket = require('../../../common/socket');
 const Client         = require('../../../common/client');
+const formatMoney    = require('../../../common/currency').formatMoney;
 const url_for        = require('../../../common/url').url_for;
 const isEmptyObject  = require('../../../common/utility').isEmptyObject;
 
@@ -24,8 +25,9 @@ const MetaTraderConfig = (function() {
 
     const actions_info = {
         new_account: {
-            title        : 'Create Account',
-            success_msg  : response => 'Congratulations! Your [_1] Account has been created.'.replace('[_1]', types_info[response.mt5_new_account.account_type].title),
+            title      : 'Create Account',
+            success_msg: response => 'Congratulations! Your [_1] Account has been created.'.replace('[_1]',
+                types_info[response.mt5_new_account.account_type === 'financial' ? `champion_${response.mt5_new_account.sub_account_type}` : response.mt5_new_account.account_type].title),
             login        : response => response.mt5_new_account.login,
             prerequisites: acc_type => (
                 new Promise((resolve) => {
@@ -69,7 +71,7 @@ const MetaTraderConfig = (function() {
         },
         password_change: {
             title        : 'Change Password',
-            success_msg  : () => 'Your main password has been changed.',
+            success_msg  : response => 'The main password of account number [_1] has been changed.'.replace('[_1]', response.echo_req.login),
             prerequisites: () => new Promise(resolve => resolve('')),
             formValues   : ($form, acc_type, action) => {
                 // Login ID
@@ -77,8 +79,12 @@ const MetaTraderConfig = (function() {
             },
         },
         deposit: {
-            title        : 'Deposit',
-            success_msg  : response => 'Deposit is done. Transaction ID: [_1]'.replace('[_1]', response.binary_transaction_id),
+            title      : 'Deposit',
+            success_msg: response => '[_1] deposit from [_2] to account number [_3] is done. Transaction ID: [_4]'
+                .replace('[_1]', formatMoney(response.echo_req.amount))
+                .replace('[_2]', response.echo_req.from_binary)
+                .replace('[_3]', response.echo_req.to_mt5)
+                .replace('[_4]', response.binary_transaction_id),
             prerequisites: () => new Promise(resolve => resolve(Client.is_virtual() ? needsRealMessage() : '')),
             formValues   : ($form, acc_type, action) => {
                 // From, To
@@ -87,10 +93,30 @@ const MetaTraderConfig = (function() {
             },
         },
         withdrawal: {
-            title        : 'Withdraw',
-            success_msg  : response => 'Withdrawal is done. Transaction ID: [_1]'.replace('[_1]', response.binary_transaction_id),
+            title      : 'Withdraw',
+            success_msg: response => '[_1] withdrawal from account number [_2] to [_3] is done. Transaction ID: [_4]'
+                .replace('[_1]', formatMoney(response.echo_req.amount))
+                .replace('[_2]', response.echo_req.from_mt5)
+                .replace('[_3]', response.echo_req.to_binary)
+                .replace('[_4]', response.binary_transaction_id),
             prerequisites: () => new Promise(resolve => resolve(Client.is_virtual() ? needsRealMessage() : '')),
-            formValues   : ($form, acc_type, action) => {
+            pre_submit   : ($form, acc_type, displayFormMessage) => (
+                new Promise((resolve) => {
+                    ChampionSocket.send({
+                        mt5_password_check: 1,
+                        login             : types_info[acc_type].account_info.login,
+                        password          : $form.find(fields.withdrawal.txt_main_pass.id).val(),
+                    }, (response) => {
+                        if (response.error) {
+                            displayFormMessage(response.error.message);
+                            resolve(false);
+                        } else if (+response.mt5_password_check === 1) {
+                            resolve(true);
+                        }
+                    });
+                })
+            ),
+            formValues: ($form, acc_type, action) => {
                 // From, To
                 $form.find(fields[action].lbl_from.id).text(fields[action].additional_fields(acc_type).from_mt5);
                 $form.find(fields[action].lbl_to.id).text(fields[action].additional_fields(acc_type).to_binary);

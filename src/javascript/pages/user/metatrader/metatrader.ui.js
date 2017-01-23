@@ -69,7 +69,7 @@ const MetaTraderUI = (function() {
                 const key  = $(this).attr('data');
                 const info = types_info[acc_type].account_info[key];
                 $(this).text(
-                    key === 'balance' ? formatMoney(+info) :
+                    key === 'balance' ? formatMoney(+info, 'USD') :
                     key === 'leverage' ? `1:${info}` : info);
             });
             $acc_item.find('.has-account').removeClass(hidden_class);
@@ -125,6 +125,11 @@ const MetaTraderUI = (function() {
         $main_msg.empty().addClass(hidden_class);
     };
 
+    const postValidate = (acc_type, action) => {
+        const validate = actions_info[action].pre_submit;
+        return validate ? validate($form, acc_type, displayFormMessage) : new Promise(resolve => resolve(true));
+    };
+
     const hideFormMessage = () => {
         $form.find('#msg_form').html('').addClass(hidden_class);
     };
@@ -168,6 +173,7 @@ const MetaTraderUI = (function() {
         displayLoadingAccount: displayLoadingAccount,
         updateAccount        : updateAccount,
         closeForm            : closeForm,
+        postValidate         : postValidate,
         hideFormMessage      : hideFormMessage,
         displayFormMessage   : displayFormMessage,
         displayMainMessage   : displayMainMessage,

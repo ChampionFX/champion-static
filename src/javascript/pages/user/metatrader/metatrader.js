@@ -18,7 +18,7 @@ const MetaTrader = (function() {
             return;
         }
 
-        ChampionSocket.promise.then(() => { getAllAccountsInfo(); });
+        ChampionSocket.promise().then(() => { getAllAccountsInfo(); });
         MetaTraderUI.init(submit);
     };
 
@@ -57,11 +57,7 @@ const MetaTrader = (function() {
     };
 
     const getAccountType = function(group) {
-        const typeMap = {
-            virtual: 'demo',
-            vanuatu: 'financial',
-        };
-        return group ? (typeMap[group.split('\\')[1]] || '') : '';
+        return group ? (/demo/.test(group) ? 'demo' : group.split('\\')[1] || '') : '';
     };
 
     const makeRequestObject = (acc_type, action) => {
@@ -91,17 +87,25 @@ const MetaTrader = (function() {
         const action = $btn_submit.attr('action');
         if (Validation.validate(`#frm_${action}`)) {
             MetaTraderUI.disableButton();
-            const req = makeRequestObject(acc_type, action);
-            ChampionSocket.send(req, (response) => {
-                if (response.error) {
-                    MetaTraderUI.displayFormMessage(response.error.message);
+            // further validations before submit (password_check)
+            MetaTraderUI.postValidate(acc_type, action).then((is_ok) => {
+                if (!is_ok) {
                     MetaTraderUI.enableButton();
-                } else {
-                    MetaTraderUI.closeForm();
-                    MetaTraderUI.displayMainMessage(actions_info[action].success_msg(response));
-                    getAccountDetails(actions_info[action].login ?
-                        actions_info[action].login(response) : types_info[acc_type].account_info.login, acc_type);
+                    return;
                 }
+
+                const req = makeRequestObject(acc_type, action);
+                ChampionSocket.send(req, (response) => {
+                    if (response.error) {
+                        MetaTraderUI.displayFormMessage(response.error.message);
+                        MetaTraderUI.enableButton();
+                    } else {
+                        MetaTraderUI.closeForm();
+                        MetaTraderUI.displayMainMessage(actions_info[action].success_msg(response));
+                        getAccountDetails(actions_info[action].login ?
+                            actions_info[action].login(response) : types_info[acc_type].account_info.login, acc_type);
+                    }
+                });
             });
         }
     };

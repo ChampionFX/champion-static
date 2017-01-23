@@ -78,9 +78,9 @@ sub _texts {
 
         # metatrader
         push @texts, localize('Congratulations! Your [_1] Account has been created.');
-        push @texts, localize('Your main password has been changed.');
-        push @texts, localize('Deposit is done. Transaction ID: [_1]');
-        push @texts, localize('Withdrawal is done. Transaction ID: [_1]');
+        push @texts, localize('The main password of account number [_1] has been changed.');
+        push @texts, localize('[_1] deposit from [_2] to account number [_3] is done. Transaction ID: [_4]');
+        push @texts, localize('[_1] withdrawal from account number [_2] to [_3] is done. Transaction ID: [_4]');
         push @texts, localize('To create a [_1] Account for MT5, please switch to your [_2] Real Account.');
         push @texts, localize('To create a [_1] Account for MT5, please <a href="[_2]"> upgrade to [_3] Real Account</a>.');
         push @texts, localize('To create a Financial Account for MT5, please complete the <a href="[_1]">Financial Assessment</a>.');
