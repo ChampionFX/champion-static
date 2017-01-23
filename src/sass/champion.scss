@@ -1,3 +1,14 @@
+html {
+    height: 100%;
+    body {
+        display: flex;
+        flex-direction: column;
+        #champion-container {
+            flex: 1 1 auto;
+        }
+    }
+}
+
 //top bar
 .topbar-container div {
     display: inline-flex;
@@ -287,10 +298,6 @@
 }
 
 // Helpers
-.centered {
-    text-align: center;
-}
-
 .space-sm {
     width: 130px;
     display: inline;
@@ -367,19 +374,13 @@ fieldset {
     border: 1px solid $borderColor;
     padding: 5px;
     margin-bottom: 10px;
-    .form-label {
-        text-align: right;
-        margin: 10px 0;
-    }
-    .form-input {
-        margin: 10px 0;
-    }
 }
 
-.submit-holder {
-    text-align: center;
-    p {
+.form-row {
+    padding: 10px 0;
+    label {
         display: block;
+        text-align: right;
     }
 }
 

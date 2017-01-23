@@ -8,6 +8,7 @@ const ChampionEndpoint   = require('./../pages/endpoint');
 const ChampionSettings   = require('./../pages/user/settings');
 const ChangePassword     = require('./../pages/user/change_password');
 const TNCApproval        = require('./../pages/user/tnc_approval');
+const MetaTrader         = require('./../pages/user/metatrader/metatrader');
 const LostPassword       = require('./../pages/lost_password');
 const ResetPassword      = require('./../pages/reset_password');
 const BinaryOptions      = require('./../pages/binary_options');
@@ -53,22 +54,23 @@ const Champion = (function() {
     const afterContentChange = (e, content) => {
         const page = content.getAttribute('data-page');
         const pages_map = {
-            virtual             : ChampionNewVirtual,
-            real                : ChampionNewReal,
+            assessment          : FinancialAssessment,
+            cashier             : Cashier,
             contact             : ChampionContact,
             endpoint            : ChampionEndpoint,
-            settings            : ChampionSettings,
             logged_inws         : LoggedIn,
+            metatrader          : MetaTrader,
+            real                : ChampionNewReal,
+            settings            : ChampionSettings,
+            virtual             : ChampionNewVirtual,
             'binary-options'    : BinaryOptions,
+            'cashier-password'  : CashierPassword,
             'change-password'   : ChangePassword,
             'lost-password'     : LostPassword,
-            'reset-password'    : ResetPassword,
-            cashier             : Cashier,
             'payment-methods'   : CashierPaymentMethods,
-            'top-up-virtual'    : CashierTopUpVirtual,
-            'cashier-password'  : CashierPassword,
+            'reset-password'    : ResetPassword,
             'tnc-approval'      : TNCApproval,
-            assessment          : FinancialAssessment,
+            'top-up-virtual'    : CashierTopUpVirtual,
             'deposit-withdrawal': DepositWithdrawal,
         };
         if (page in pages_map) {

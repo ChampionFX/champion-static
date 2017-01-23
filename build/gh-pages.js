@@ -9,7 +9,7 @@ module.exports = function (grunt) {
                 base   : 'dist',
                 add    : (is_cleanup ? false : true),
                 only   : cleanup_only,
-                message: 'Auto-generated commit',
+                message: global.release_target ? 'Release to ' + global.release_target : 'Auto-generated commit',
             },
             src: source
         }

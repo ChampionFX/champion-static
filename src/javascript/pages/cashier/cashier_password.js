@@ -28,7 +28,7 @@ const CashierPassword = (function() {
         if (!Client.is_logged_in()) {
             renderView(views.logged_out);
         } else {
-            ChampionSocket.promise.then(() => {
+            ChampionSocket.promise().then(() => {
                 if (Client.is_virtual()) {
                     renderView(views.virtual);
                 } else {

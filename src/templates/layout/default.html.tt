@@ -6,7 +6,7 @@
     [% INCLUDE layout/includes/top_bar.html.tt %]
     [% INCLUDE layout/includes/header.html.tt %]
 
-    <div class="fill-bg-color centered hidden" id="signup">
+    <div class="fill-bg-color center-text hidden" id="signup">
         <div class="container">
             <div class="row">
                 <div class="col-sm flex-sm-middle">

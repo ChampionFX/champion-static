@@ -9,24 +9,30 @@ const ChampionSocket = (function() {
 
     let socket,
         req_id = 0,
+        promise,
         message_callback,
-        socket_resolved = false,
+        keep_alive_timeout,
+        socket_resolved,
         socketResolve,
         socketReject;
 
-    const buffered = [],
-        registered_callbacks = {},
-        priority_requests = {
-            authorize         : false,
-            get_settings      : false,
-            website_status    : false,
-            get_account_status: false,
-        };
+    const buffered = [];
+    const registered_callbacks = {};
+    const priority_requests = {
+        authorize         : false,
+        get_settings      : false,
+        website_status    : false,
+        get_account_status: false,
+    };
+    const no_duplicate_requests = ['get_account_status', 'get_financial_assessment'];
 
-    const promise = new Promise((resolve, reject) => {
-        socketResolve = resolve;
-        socketReject = reject;
-    });
+    const initPromise = () => {
+        socket_resolved = false;
+        promise = promise || new Promise((resolve, reject) => {
+            socketResolve = resolve;
+            socketReject  = reject;
+        });
+    };
 
     const socketMessage = (message) => {
         if (!message) { // socket just opened
@@ -38,7 +44,6 @@ const ChampionSocket = (function() {
             }
             ChampionSocket.send({ website_status: 1 });
         } else {
-            State.set(['response', message.msg_type], message);
             switch (message.msg_type) {
                 case 'authorize':
                     if (message.error || message.authorize.loginid !== Client.get_value('loginid')) {
@@ -94,6 +99,11 @@ const ChampionSocket = (function() {
                 Client.check_tnc();
                 socket_resolved = true;
             }
+
+            clearTimeout(keep_alive_timeout);
+            keep_alive_timeout = setTimeout(() => {
+                send({ ping: 1 });
+            }, 60000);
         }
     };
 
@@ -119,26 +129,15 @@ const ChampionSocket = (function() {
         return `wss://${server}/websockets/v3${params.length ? `?${params.join('&')}` : ''}`;
     };
 
-    const connect = () => {
-        socket = new WebSocket(getSocketURL());
-        socket.onopen    = onOpen;
-        socket.onmessage = onMessage;
-    };
-
     const isReady = () => (socket && socket.readyState === 1);
 
     const isClosed = () => (!socket || socket.readyState === 2 || socket.readyState === 3);
 
     const send = (data, callback, subscribe) => {
         if (typeof callback === 'function') {
-            let msg_type = '';
-            Object.keys(priority_requests).some((c) => {
-                if (c in data) {
-                    msg_type = c;
-                    return true;
-                }
-                return false;
-            });
+            const msg_type = Object.keys(priority_requests)
+                .concat(no_duplicate_requests)
+                .find(c => c in data);
             const exist_in_state = State.get(['response', msg_type]);
             if (exist_in_state) {
                 callback(exist_in_state);
@@ -160,19 +159,27 @@ const ChampionSocket = (function() {
         }
     };
 
+    const onClose = () => {
+        promise = undefined;
+        clearTimeout(keep_alive_timeout);
+    };
+
     const onOpen = () => {
         if (typeof message_callback === 'function') {
             message_callback();
         }
         if (isReady()) {
-            while (buffered.length > 0) {
-                send(buffered.shift());
-            }
+            promise.then(() => {
+                while (buffered.length > 0) {
+                    send(buffered.shift());
+                }
+            });
         }
     };
 
     const onMessage = (message) => {
         const response = JSON.parse(message.data);
+        State.set(['response', response.msg_type], response);
         const this_req_id = response.req_id;
         const reg = this_req_id ? registered_callbacks[this_req_id] : null;
 
@@ -186,12 +193,22 @@ const ChampionSocket = (function() {
         }
     };
 
+    const connect   = () => {
+        initPromise();
+        Object.keys(priority_requests).forEach((key) => { priority_requests[key] = false; });
+
+        socket = new WebSocket(getSocketURL());
+        socket.onopen    = onOpen;
+        socket.onclose   = onClose;
+        socket.onmessage = onMessage;
+    };
+
     return {
         init     : init,
         send     : send,
         getAppId : getAppId,
         getServer: getServer,
-        promise  : promise,
+        promise  : () => promise,
     };
 })();
 
