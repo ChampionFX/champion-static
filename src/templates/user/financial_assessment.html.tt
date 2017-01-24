@@ -6,7 +6,7 @@
         <p class="invisible" id="high_risk_classification">
             [% l("Due to recent changes in the regulations, we are required to ask our clients to complete the following Financial Assessment. Please note that you will not be able to continue trading until this is completed.") %]
         </p>
-        <fieldset>
+        <fieldset class="left-label">
             <legend>[% l("Financial Information") %]</legend>
 
             <div class="row form-row">
@@ -107,7 +107,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-xs-4">
                     <label for="stocks_trading_frequency">[% l("Stocks trading frequency") %]</label>
                 </div>
