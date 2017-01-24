@@ -352,8 +352,8 @@
                                                 <tr>
                                                     <td>[% l('Order execution<sup>3</sup>') %]</td>
                                                     <td>[% l('Instant') %]</td>
-                                                    <td>[% l('Instant') %]</td>
-                                                    <td>[% l('Instant') %]</td>
+                                                    <td>[% l('Market') %]</td>
+                                                    <td>[% l('Market') %]</td>
                                                 </tr>
                                                 <tr>
                                                     <td>[% l('Forex spread<sup>4</sup>') %]</td>
