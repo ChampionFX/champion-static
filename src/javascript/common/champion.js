@@ -22,6 +22,7 @@ const CashierPaymentMethods = require('./../pages/cashier/payment_methods');
 const CashierPassword       = require('./../pages/cashier/cashier_password');
 const FinancialAssessment   = require('./../pages/user/financial_assessment');
 const checkRiskClassification = require('./../pages/user/check_risk_classification');
+const default_redirect_url    = require('./url').default_redirect_url;
 
 const Champion = (function() {
     'use strict';
@@ -38,6 +39,8 @@ const Champion = (function() {
         ChampionRouter.init(_container, '#champion-content');
         if (!Client.is_logged_in()) {
             $('#main-login').find('a').on('click', () => { Login.redirect_to_login(); });
+        } else {
+            $('a.logo-parent').attr('href', default_redirect_url());
         }
     };
 
