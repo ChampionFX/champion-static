@@ -22,6 +22,7 @@ const CashierPaymentMethods = require('./../pages/cashier/payment_methods');
 const CashierPassword       = require('./../pages/cashier/cashier_password');
 const FinancialAssessment   = require('./../pages/user/financial_assessment');
 const checkRiskClassification = require('./../pages/user/check_risk_classification');
+const DepositWithdrawal  = require('./../pages/cashier/deposit_withdrawal');
 
 const Champion = (function() {
     'use strict';
@@ -53,23 +54,24 @@ const Champion = (function() {
     const afterContentChange = (e, content) => {
         const page = content.getAttribute('data-page');
         const pages_map = {
-            assessment        : FinancialAssessment,
-            cashier           : Cashier,
-            contact           : ChampionContact,
-            endpoint          : ChampionEndpoint,
-            logged_inws       : LoggedIn,
-            metatrader        : MetaTrader,
-            real              : ChampionNewReal,
-            settings          : ChampionSettings,
-            virtual           : ChampionNewVirtual,
-            'binary-options'  : BinaryOptions,
-            'cashier-password': CashierPassword,
-            'change-password' : ChangePassword,
-            'lost-password'   : LostPassword,
-            'payment-methods' : CashierPaymentMethods,
-            'reset-password'  : ResetPassword,
-            'tnc-approval'    : TNCApproval,
-            'top-up-virtual'  : CashierTopUpVirtual,
+            assessment          : FinancialAssessment,
+            cashier             : Cashier,
+            contact             : ChampionContact,
+            endpoint            : ChampionEndpoint,
+            logged_inws         : LoggedIn,
+            metatrader          : MetaTrader,
+            real                : ChampionNewReal,
+            settings            : ChampionSettings,
+            virtual             : ChampionNewVirtual,
+            'binary-options'    : BinaryOptions,
+            'cashier-password'  : CashierPassword,
+            'change-password'   : ChangePassword,
+            'lost-password'     : LostPassword,
+            'payment-methods'   : CashierPaymentMethods,
+            'reset-password'    : ResetPassword,
+            'tnc-approval'      : TNCApproval,
+            'top-up-virtual'    : CashierTopUpVirtual,
+            'deposit-withdrawal': DepositWithdrawal,
         };
         if (page in pages_map) {
             _active_script = pages_map[page];

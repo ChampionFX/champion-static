@@ -1,0 +1,48 @@
+<div class="fx-section">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm">
+                <h1>[% l('Deposit') %]</h1> <!-- todo: deposit / withdrawal template -->
+            </div>
+        </div>
+
+        <form id="form_currency" style="display: none;">
+            <fieldset>
+                <legend>[% l('Transaction Currency') %]</legend>
+
+                <div class="row">
+                	<div class=col-xs-12>
+                		<p class="current-currency"></p>
+                		<p>[% l('Please choose which currency you would like to transact in.') %]</p>
+                	</div>
+                    <div class="col-xs-4">
+                        <div class="form-label">
+                            <label for="txt_cashier_currency">[% l('Transact in') %]</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="form-input">
+                    		<select id="select-currency"></select>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="submit-holder">
+                <p class="error-msg hidden" id="error-set-currency"></p>
+                <button id="btn_submit" type="submit">[% l('Continue') %]</button>
+            </div>
+        </form>
+
+        <!-- TODO: Deposit and Withdrawal forms -->
+
+        <div class="errorbox rbox centered" id="client_message" style="display: none">
+            <div class="rbox-wrap">
+                <div class="gr-12 rbox-content" id="client_message_content">
+                    <p class="center notice-msg"></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

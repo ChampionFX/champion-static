@@ -161,6 +161,7 @@ const ChampionNewRealAccount = (function() {
                 } else {
                     const acc_info = response.new_account_real;
                     Client.process_new_account(Client.get_value('email'), acc_info.client_id, acc_info.oauth_token);
+                    ChampionSocket.send({ set_account_currency: 'USD ' });
                     window.location.href = default_redirect_url();
                 }
             });
