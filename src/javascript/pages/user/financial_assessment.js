@@ -94,7 +94,7 @@ const FinancialAssessment = (() => {
     };
 
     const checkIsVirtual = () => {
-        if (Client.get_boolean('is_virtual')) {
+        if (Client.is_virtual()) {
             $('#assessment_form').addClass('invisible');
             $('#response_on_success').addClass('notice-msg center-text').removeClass('invisible').text('This feature is not relevant to virtual-money accounts.');
             hideLoadingImg(false);

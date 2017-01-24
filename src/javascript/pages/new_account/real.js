@@ -48,7 +48,7 @@ const ChampionNewRealAccount = (function() {
             }
 
             container        = $('#champion-container');
-            client_residence = Client.get_value('residence');
+            client_residence = Client.get('residence');
             populateResidence();
             populateState();
             attachDatePicker();
@@ -160,7 +160,7 @@ const ChampionNewRealAccount = (function() {
                     btn_submit.removeAttr('disabled');
                 } else {
                     const acc_info = response.new_account_real;
-                    Client.process_new_account(Client.get_value('email'), acc_info.client_id, acc_info.oauth_token);
+                    Client.process_new_account(Client.get('email'), acc_info.client_id, acc_info.oauth_token);
                     window.location.href = default_redirect_url();
                 }
             });

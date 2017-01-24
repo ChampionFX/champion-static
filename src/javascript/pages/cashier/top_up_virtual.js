@@ -45,7 +45,7 @@ const CashierTopUpVirtual = (function() {
                     .text('[_1] [_2] has been credited to your Virtual money account [_3]', [
                         response.topup_virtual.currency,
                         response.topup_virtual.amount,
-                        Client.get_value('loginid'),
+                        Client.get('loginid'),
                     ]);
             }
         });

@@ -11,7 +11,7 @@ const Cashier = (function() {
         if (Client.is_logged_in() && Client.is_virtual()) {
             cashierContainer.find('.fx-virtual').show();
             cashierContainer.find('.fx-real').hide();
-            if (Client.get_value('balance') > 1000) {
+            if (Client.get('balance') > 1000) {
                 $('#VRT_topup_link')
                     .prop('href', 'javascript;:')
                     .addClass('button-disabled');

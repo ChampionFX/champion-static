@@ -23,7 +23,7 @@ const Header = (function () {
             }
         });
         let loginid_select = '';
-        const loginid_array = Client.get_value('loginid_array');
+        const loginid_array = Client.get('loginid_array');
         for (let i = 0; i < loginid_array.length; i++) {
             const login = loginid_array[i];
             if (!login.disabled) {
@@ -31,7 +31,7 @@ const Header = (function () {
                 const type = `${login.real ? 'Real' : 'Virtual'} Account`;
 
                 // default account
-                if (curr_id === Client.get_value('loginid')) {
+                if (curr_id === Client.get('loginid')) {
                     $('.account-type').html(type);
                     $('.account-id').html(curr_id);
                 } else {
@@ -62,7 +62,7 @@ const Header = (function () {
         Client.clear_storage_values();
         sessionStorage.removeItem('client_status');
         // set cookies: loginid, token
-        Client.set_value('loginid', loginid);
+        Client.set('loginid', loginid);
         Client.set_cookie('loginid', loginid);
         Client.set_cookie('token',   token);
         $('.login-id-list a').removeAttr('disabled');
@@ -75,7 +75,7 @@ const Header = (function () {
             return;
         }
         const balance = response.balance.balance;
-        Client.set_value('balance', balance);
+        Client.set('balance', balance);
         const currency = response.balance.currency;
         if (!currency) {
             return;
