@@ -9,19 +9,15 @@
 
         <div class="row center-text">
             <div class="col-sm">
-                <div class="fx-logged-out">
-                    <a href="[% request.url_for('/') %]" class="button button_large">
-                        <span>[% l('Open an account now') %]</span>
-                    </a>
-                </div>
-                <div class="fx-real">
-                    <a href="[% request.url_for('') %]" class="button button_large">
-                        <span>[% l('Deposit') %]</span>
-                    </a>
-                    <a href="[% request.url_for('') %]" class="button button_large">
-                        <span class="withdraw">[% l('Withdraw') %]</span>
-                    </a>
-                </div>
+                <a id="btn-open-account" href="[% request.url_for('/') %]" class="button button_large hidden">
+                    <span>[% l('Open an account now') %]</span>
+                </a>
+                <a id="btn-deposit" href="[% request.url_for('') %]" class="button button_large hidden">
+                    <span>[% l('Deposit') %]</span>
+                </a>
+                <a id="btn-withdraw" href="[% request.url_for('') %]" class="button button_large hidden">
+                    <span class="withdraw">[% l('Withdraw') %]</span>
+                </a>
             </div>
         </div>
 
