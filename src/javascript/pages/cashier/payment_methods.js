@@ -15,9 +15,7 @@ const CashierPaymentMethods = (function() {
             paymentMethodsContainer.find('#btn-open-account').removeClass(hidden_class);
         } else {
             ChampionSocket.promise().then(() => {
-                if (Client.is_virtual()) {
-                    return;
-                } else {
+                if (!Client.is_virtual()) {
                     paymentMethodsContainer.find('#btn-deposit').removeClass(hidden_class);
                     paymentMethodsContainer.find('#btn-withdraw').removeClass(hidden_class);
                 }

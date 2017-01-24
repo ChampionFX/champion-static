@@ -11,9 +11,7 @@ const Cashier = (function() {
     const load = () => {
         cashierContainer = $('.fx-cashier');
 
-        if (!Client.is_logged_in()) {
-            return;
-        } else {
+        if (Client.is_logged_in()) {
             ChampionSocket.promise().then(() => {
                 if (Client.is_virtual()) {
                     cashierContainer.find('.fx-virtual').removeClass(hidden_class);
