@@ -114,7 +114,8 @@ const ChampionSocket = (function() {
         connect();
     };
 
-    const getAppId = () => (localStorage.getItem('config.app_id') ? localStorage.getItem('config.app_id') : '2472');
+    const getAppId = () => (localStorage.getItem('config.app_id') ? localStorage.getItem('config.app_id') :
+        (/^\/beta\//i.test(window.location.pathname) ? '2586' : '2472'));
 
     const getServer = () => (localStorage.getItem('config.server_url') || 'ws.binaryws.com');
 
