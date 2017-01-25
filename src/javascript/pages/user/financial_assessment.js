@@ -3,6 +3,7 @@ const Client             = require('../../common/client');
 const ChampionSocket     = require('../../common/socket');
 const Validation         = require('../../common/validation');
 const State              = require('../../common/storage').State;
+const url_for            = require('../../common/url').url_for;
 const RiskClassification = require('./risk_classification');
 
 const FinancialAssessment = (() => {
@@ -110,6 +111,9 @@ const FinancialAssessment = (() => {
             .css('display', 'block')
             .delay(5000)
             .fadeOut(1000);
+        if (isSuccess) {
+            setTimeout(() => { window.location.href = url_for('user/metatrader'); }, 5000);
+        }
     };
 
     const unload = () => {
