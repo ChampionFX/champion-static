@@ -1,7 +1,5 @@
 const ChampionSocket = require('./../../common/socket');
-const Client         = require('./../../common/client');
 const Validation     = require('./../../common/validation');
-const Login          = require('./../../common/login');
 
 const ChangePassword = (function() {
     'use strict';
@@ -20,16 +18,6 @@ const ChangePassword = (function() {
 
     const load = () => {
         $form = $(`${form_selector}:visible`);
-        if (!Client.is_logged_in()) {
-            $form.addClass('hidden');
-            $('#client_message').show()
-                .find('.notice-msg').html('Please <a href="javascript:;">log in</a> to view this page.')
-                .find('a')
-                .on('click', () => {
-                    Login.redirect_to_login();
-                });
-            return;
-        }
         btn_submit = $form.find(fields.btn_submit);
         btn_submit.on('click', submit);
         Validation.init(form_selector, [

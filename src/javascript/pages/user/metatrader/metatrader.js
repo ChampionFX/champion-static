@@ -1,5 +1,4 @@
 const ChampionSocket       = require('../../../common/socket');
-const Client               = require('../../../common/client');
 const Validation           = require('../../../common/validation');
 const MetaTraderConfig     = require('./metatrader.config');
 const MetaTraderUI         = require('./metatrader.ui');
@@ -12,12 +11,7 @@ const MetaTrader = (function() {
     const fields       = MetaTraderConfig.fields;
 
     const load = () => {
-        if (!Client.is_logged_in()) {
-            MetaTraderUI.displayLoginMessage();
-            return;
-        }
-
-        ChampionSocket.promise().then(() => { getAllAccountsInfo(); });
+        getAllAccountsInfo();
         MetaTraderUI.init(submit);
     };
 

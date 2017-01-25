@@ -1,7 +1,5 @@
 const ChampionSocket = require('./../../common/socket');
-const Client         = require('./../../common/client');
 const Validation     = require('./../../common/validation');
-const Login          = require('./../../common/login');
 
 const CashierPassword = (function() {
     'use strict';
@@ -25,20 +23,6 @@ const CashierPassword = (function() {
     };
 
     const load = () => {
-        if (!Client.is_logged_in()) {
-            renderView(views.logged_out);
-        } else {
-            ChampionSocket.promise().then(() => {
-                if (Client.is_virtual()) {
-                    renderView(views.virtual);
-                } else {
-                    checkCashierState();
-                }
-            });
-        }
-    };
-
-    const checkCashierState = () => {
         ChampionSocket.send({ cashier_password: 1 }, (response) => {
             if (response.error) return;
             if (response.cashier_password === 1) {
@@ -46,27 +30,9 @@ const CashierPassword = (function() {
             } else {
                 form_type = views.lock_cashier;
             }
-            renderView(views.real, form_type);
+            $(`#form_${form_type}_cashier`).show();
             initForm(form_type);
         });
-    };
-
-    const renderView = (view, form) => {
-        const $form = $(`#form_${form}_cashier`);
-
-        if (view === views.logged_out) {
-            $('#client_message').show()
-                .find('.notice-msg').html('Please <a href="javascript:;">log in</a> to view this page.')
-                .find('a')
-                .on('click', () => {
-                    Login.redirect_to_login();
-                });
-        } else if (view === views.virtual) {
-            $('#client_message').show()
-                .find('.notice-msg').html('This feature is not relevant to virtual-money accounts.');
-        } else if (view === views.real) {
-            $form.show();
-        }
     };
 
     const initForm = (form) => {
