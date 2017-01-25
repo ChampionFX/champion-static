@@ -160,6 +160,60 @@ const ChampionSocket = (function() {
         }
     };
 
+    const waiting_list = {
+        items: {},
+        add  : (msg_type, promise_obj) => {
+            if (!waiting_list.items[msg_type]) {
+                waiting_list.items[msg_type] = [];
+            }
+            waiting_list.items[msg_type].push(promise_obj);
+        },
+        resolve: (response) => {
+            const msg_type = response.msg_type;
+            const promises = waiting_list.items[msg_type];
+            if (promises && promises.length) {
+                promises.forEach((pr) => {
+                    if (!waiting_list.another_exists(pr, msg_type)) {
+                        pr.resolve(response);
+                    }
+                });
+                waiting_list.items[msg_type] = [];
+            }
+        },
+        another_exists: (pr, msg_type) => (
+            Object.keys(waiting_list.items)
+                .some(type => (
+                    type !== msg_type &&
+                    $.inArray(pr, waiting_list.items[type]) >= 0
+                ))
+        ),
+    };
+    class PromiseClass {
+        constructor() {
+            this.promise = new Promise((resolve, reject) => {
+                this.reject = reject;
+                this.resolve = resolve;
+            });
+        }
+    }
+    const wait = (...msg_types) => {
+        const promise_obj = new PromiseClass();
+        let is_resolved = true;
+        msg_types.forEach((msg_type) => {
+            const prev_response = State.get(['response', msg_type]);
+            if (!prev_response) {
+                waiting_list.add(msg_type, promise_obj);
+                is_resolved = false;
+            } else if (msg_types.length === 1) {
+                promise_obj.resolve(prev_response);
+            }
+        });
+        if (is_resolved) {
+            promise_obj.resolve();
+        }
+        return promise_obj.promise;
+    };
+
     const onClose = () => {
         promise = undefined;
         clearTimeout(keep_alive_timeout);
@@ -181,6 +235,7 @@ const ChampionSocket = (function() {
     const onMessage = (message) => {
         const response = JSON.parse(message.data);
         State.set(['response', response.msg_type], response);
+        waiting_list.resolve(response);
         const this_req_id = response.req_id;
         const reg = this_req_id ? registered_callbacks[this_req_id] : null;
 
@@ -207,6 +262,7 @@ const ChampionSocket = (function() {
     return {
         init     : init,
         send     : send,
+        wait     : wait,
         getAppId : getAppId,
         getServer: getServer,
         promise  : () => promise,
