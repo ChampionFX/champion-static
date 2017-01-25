@@ -1,27 +1,28 @@
-const ChampionSocket     = require('./socket');
-const ChampionRouter     = require('./router');
-const ChampionSignup     = require('./../pages/signup');
-const ChampionNewVirtual = require('./../pages/new_account/virtual');
-const ChampionNewReal    = require('./../pages/new_account/real');
-const ChampionContact    = require('./../pages/contact');
-const ChampionEndpoint   = require('./../pages/endpoint');
-const ChampionSettings   = require('./../pages/user/settings');
-const ChangePassword     = require('./../pages/user/change_password');
-const TNCApproval        = require('./../pages/user/tnc_approval');
-const MetaTrader         = require('./../pages/user/metatrader/metatrader');
-const LostPassword       = require('./../pages/lost_password');
-const ResetPassword      = require('./../pages/reset_password');
-const BinaryOptions      = require('./../pages/binary_options');
-const Client             = require('./client');
-const LoggedIn           = require('./logged_in');
-const Login              = require('./login');
-const Utility            = require('./utility');
-const Cashier             = require('./../pages/cashier/cashier');
-const CashierTopUpVirtual = require('./../pages/cashier/top_up_virtual');
-const CashierPaymentMethods = require('./../pages/cashier/payment_methods');
-const CashierPassword       = require('./../pages/cashier/cashier_password');
-const FinancialAssessment   = require('./../pages/user/financial_assessment');
+const Client                  = require('./client');
+const LoggedIn                = require('./logged_in');
+const Login                   = require('./login');
+const ChampionRouter          = require('./router');
+const ChampionSocket          = require('./socket');
+const default_redirect_url    = require('./url').default_redirect_url;
+const Utility                 = require('./utility');
+const BinaryOptions           = require('./../pages/binary_options');
+const ChampionContact         = require('./../pages/contact');
+const ChampionEndpoint        = require('./../pages/endpoint');
+const ChampionSignup          = require('./../pages/signup');
+const ChampionNewReal         = require('./../pages/new_account/real');
+const ChampionNewVirtual      = require('./../pages/new_account/virtual');
+const LostPassword            = require('./../pages/lost_password');
+const ResetPassword           = require('./../pages/reset_password');
+const Cashier                 = require('./../pages/cashier/cashier');
+const CashierPassword         = require('./../pages/cashier/cashier_password');
+const CashierPaymentMethods   = require('./../pages/cashier/payment_methods');
+const CashierTopUpVirtual     = require('./../pages/cashier/top_up_virtual');
+const ChangePassword          = require('./../pages/user/change_password');
 const checkRiskClassification = require('./../pages/user/check_risk_classification');
+const FinancialAssessment     = require('./../pages/user/financial_assessment');
+const MetaTrader              = require('./../pages/user/metatrader/metatrader');
+const ChampionSettings        = require('./../pages/user/settings');
+const TNCApproval             = require('./../pages/user/tnc_approval');
 
 const Champion = (function() {
     'use strict';
@@ -38,6 +39,8 @@ const Champion = (function() {
         ChampionRouter.init(_container, '#champion-content');
         if (!Client.is_logged_in()) {
             $('#main-login').find('a').on('click', () => { Login.redirect_to_login(); });
+        } else {
+            $('a.logo-parent').attr('href', default_redirect_url());
         }
     };
 

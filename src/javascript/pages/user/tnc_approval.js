@@ -47,7 +47,7 @@ const TNCApproval = (function() {
         $('#tnc_approval').removeClass(hiddenClass);
         const $tnc_msg = $('#tnc-message');
         const tnc_message = template($tnc_msg.html(), [
-            Client.get_value('landing_company_fullname'),
+            Client.get('landing_company_fullname'),
             url_for('terms-and-conditions'),
         ]);
         $tnc_msg.html(tnc_message).removeClass(hiddenClass);

@@ -15,7 +15,7 @@ const Cashier = (function() {
             ChampionSocket.promise().then(() => {
                 if (Client.is_virtual()) {
                     cashierContainer.find('.fx-virtual').removeClass(hidden_class);
-                    if (Client.get_value('balance') > 1000) {
+                    if (Client.get('balance') > 1000) {
                         $('#VRT_topup_link')
                             .prop('href', 'javascript;:')
                             .addClass('button-disabled');

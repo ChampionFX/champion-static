@@ -63,7 +63,7 @@ const LoggedIn = (function() {
             }
         }
         if (!isEmptyObject(tokens)) {
-            Client.set_value('tokens', JSON.stringify(tokens));
+            Client.set('tokens', JSON.stringify(tokens));
         }
         return tokens;
     };

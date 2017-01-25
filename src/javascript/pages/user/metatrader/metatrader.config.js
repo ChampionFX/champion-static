@@ -139,7 +139,7 @@ const MetaTraderConfig = (function() {
                 acc_type => ($.extend(
                     {
                         account_type: types_info[acc_type].account_type,
-                        email       : Client.get_value('email'),
+                        email       : Client.get('email'),
                     },
                     types_info[acc_type].sub_account_type ? {
                         sub_account_type: types_info[acc_type].sub_account_type,
@@ -161,7 +161,7 @@ const MetaTraderConfig = (function() {
             txt_amount       : { id: '#txt_amount', request_field: 'amount' },
             additional_fields:
                 acc_type => ({
-                    from_binary: Client.get_value('loginid'),
+                    from_binary: Client.get('loginid'),
                     to_mt5     : types_info[acc_type].account_info.login,
                 }),
         },
@@ -173,7 +173,7 @@ const MetaTraderConfig = (function() {
             additional_fields:
                 acc_type => ({
                     from_mt5 : types_info[acc_type].account_info.login,
-                    to_binary: Client.get_value('loginid'),
+                    to_binary: Client.get('loginid'),
                 }),
         },
     };

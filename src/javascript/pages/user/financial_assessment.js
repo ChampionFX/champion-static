@@ -3,6 +3,7 @@ const Client             = require('../../common/client');
 const ChampionSocket     = require('../../common/socket');
 const Validation         = require('../../common/validation');
 const State              = require('../../common/storage').State;
+const url_for            = require('../../common/url').url_for;
 const RiskClassification = require('./risk_classification');
 
 const FinancialAssessment = (() => {
@@ -94,7 +95,7 @@ const FinancialAssessment = (() => {
     };
 
     const checkIsVirtual = () => {
-        if (Client.get_boolean('is_virtual')) {
+        if (Client.is_virtual()) {
             $('#assessment_form').addClass('invisible');
             $('#response_on_success').addClass('notice-msg center-text').removeClass('invisible').text('This feature is not relevant to virtual-money accounts.');
             hideLoadingImg(false);
@@ -110,6 +111,9 @@ const FinancialAssessment = (() => {
             .css('display', 'block')
             .delay(5000)
             .fadeOut(1000);
+        if (isSuccess) {
+            setTimeout(() => { window.location.href = url_for('user/metatrader'); }, 5000);
+        }
     };
 
     const unload = () => {

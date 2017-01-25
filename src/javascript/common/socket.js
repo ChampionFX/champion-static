@@ -46,7 +46,7 @@ const ChampionSocket = (function() {
         } else {
             switch (message.msg_type) {
                 case 'authorize':
-                    if (message.error || message.authorize.loginid !== Client.get_value('loginid')) {
+                    if (message.error || message.authorize.loginid !== Client.get('loginid')) {
                         ChampionSocket.send({ logout: '1' });
                         socketReject();
                     } else {
@@ -56,7 +56,7 @@ const ChampionSocket = (function() {
                         ChampionSocket.send({ get_account_status: 1 });
                         const country_code = message.authorize.country;
                         if (country_code) {
-                            Client.set_value('residence', country_code);
+                            Client.set('residence', country_code);
                             ChampionSocket.send({ landing_company: country_code });
                         }
                         Header.userMenu();
@@ -114,7 +114,8 @@ const ChampionSocket = (function() {
         connect();
     };
 
-    const getAppId = () => (localStorage.getItem('config.app_id') ? localStorage.getItem('config.app_id') : '2472');
+    const getAppId = () => (localStorage.getItem('config.app_id') ? localStorage.getItem('config.app_id') :
+        (/^\/beta\//i.test(window.location.pathname) ? '2586' : '2472'));
 
     const getServer = () => (localStorage.getItem('config.server_url') || 'ws.binaryws.com');
 
