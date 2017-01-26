@@ -7,14 +7,12 @@ const CashierPaymentMethods = (function() {
     const hidden_class = 'hidden';
 
     const load = () => {
-        const container = $('.fx-payment-methods');
-
         ChampionSocket.wait('authorize').then(() => {
+            const container = $('.fx-payment-methods');
             if (!Client.is_logged_in()) {
                 container.find('#btn-open-account').removeClass(hidden_class);
             } else if (!Client.is_virtual()) {
-                container.find('#btn-deposit').removeClass(hidden_class);
-                container.find('#btn-withdraw').removeClass(hidden_class);
+                container.find('#btn-deposit, #btn-withdraw').removeClass(hidden_class);
             }
         });
     };
