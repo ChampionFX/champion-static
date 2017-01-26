@@ -1,23 +1,20 @@
+const ChampionSocket = require('./../../common/socket');
 const Client = require('../../common/client');
 
 const CashierPaymentMethods = (function() {
     'use strict';
 
-    let paymentMethodsContainer;
+    const hidden_class = 'hidden';
 
     const load = () => {
-        paymentMethodsContainer = $('.fx-payment-methods');
-
-        if (Client.is_logged_in() && Client.is_virtual()) {
-            paymentMethodsContainer.find('.fx-real').hide();
-            paymentMethodsContainer.find('.fx-logged-out').hide();
-        } else if (Client.is_logged_in() && !Client.is_virtual()) {
-            paymentMethodsContainer.find('.fx-real').show();
-            paymentMethodsContainer.find('.fx-logged-out').hide();
-        } else {
-            paymentMethodsContainer.find('.fx-real').hide();
-            paymentMethodsContainer.find('.fx-logged-out').show();
-        }
+        ChampionSocket.wait('authorize').then(() => {
+            const container = $('.fx-payment-methods');
+            if (!Client.is_logged_in()) {
+                container.find('#btn-open-account').removeClass(hidden_class);
+            } else if (!Client.is_virtual()) {
+                container.find('#btn-deposit, #btn-withdraw').removeClass(hidden_class);
+            }
+        });
     };
 
     return {

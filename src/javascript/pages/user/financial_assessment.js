@@ -1,7 +1,9 @@
-const showLoadingImage = require('../../common/utility').showLoadingImage;
-const Client           = require('../../common/client');
-const ChampionSocket   = require('../../common/socket');
-const Validation       = require('../../common/validation');
+const showLoadingImage   = require('../../common/utility').showLoadingImage;
+const ChampionSocket     = require('../../common/socket');
+const Validation         = require('../../common/validation');
+const State              = require('../../common/storage').State;
+const url_for            = require('../../common/url').url_for;
+const RiskClassification = require('./risk_classification');
 
 const FinancialAssessment = (() => {
     'use strict';
@@ -13,29 +15,32 @@ const FinancialAssessment = (() => {
 
     const load = () => {
         showLoadingImage($('<div/>', { id: 'loading', class: 'center-text' }).insertAfter('#heading'));
-        if (checkIsVirtual()) return;
         $(form_selector).on('submit', (event) => {
             event.preventDefault();
             submitForm();
             return false;
         });
-        ChampionSocket.promise.then(() => {
-            if (checkIsVirtual()) return;
-            ChampionSocket.send({ get_financial_assessment: 1 }, (response) => {
-                hideLoadingImg();
-                financial_assessment = response.get_financial_assessment;
-                Object.keys(response.get_financial_assessment).forEach((key) => {
-                    const val = response.get_financial_assessment[key];
-                    $(`#${key}`).val(val);
-                });
-                arr_validation = [];
-                const all_ids = $(form_selector).find('.form-input').find('>:first-child');
-                for (let i = 0; i < all_ids.length; i++) {
-                    arr_validation.push({ selector: `#${all_ids[i].getAttribute('id')}`, validations: ['req'] });
-                }
-                Validation.init(form_selector, arr_validation);
-            });
+
+        ChampionSocket.send({ get_financial_assessment: 1 }).then((response) => {
+            handleForm(response);
         });
+    };
+
+    const handleForm = (response) => {
+        if (!response) {
+            response = State.get(['response', 'get_financial_assessment']);
+        }
+        hideLoadingImg();
+        financial_assessment = response.get_financial_assessment;
+        Object.keys(response.get_financial_assessment).forEach((key) => {
+            const val = response.get_financial_assessment[key];
+            $(`#${key}`).val(val);
+        });
+        arr_validation = [];
+        $(form_selector).find('select').map(function() {
+            arr_validation.push({ selector: `#${$(this).attr('id')}`, validations: ['req'] });
+        });
+        Validation.init(form_selector, arr_validation);
     };
 
     const submitForm = () => {
@@ -61,12 +66,13 @@ const FinancialAssessment = (() => {
             $('#assessment_form').find('select').each(function() {
                 financial_assessment[$(this).attr('id')] = data[$(this).attr('id')] = $(this).val();
             });
-            ChampionSocket.send(data, (response) => {
+            ChampionSocket.send(data).then((response) => {
                 $('#submit').removeAttr('disabled');
                 if ('error' in response) {
                     showFormMessage('Sorry, an error occurred while processing your request.', false);
                 } else {
                     showFormMessage('Your changes have been updated successfully.', true);
+                    RiskClassification.cleanup();
                 }
             });
         } else {
@@ -84,16 +90,6 @@ const FinancialAssessment = (() => {
         }
     };
 
-    const checkIsVirtual = () => {
-        if (Client.get_boolean('is_virtual')) {
-            $('#assessment_form').addClass('invisible');
-            $('#response_on_success').addClass('notice-msg center-text').removeClass('invisible').text('This feature is not relevant to virtual-money accounts.');
-            hideLoadingImg(false);
-            return true;
-        }
-        return false;
-    };
-
     const showFormMessage = (msg, isSuccess) => {
         $('#form_message')
             .attr('class', isSuccess ? 'success-msg' : 'errorfield')
@@ -101,6 +97,9 @@ const FinancialAssessment = (() => {
             .css('display', 'block')
             .delay(5000)
             .fadeOut(1000);
+        if (isSuccess) {
+            setTimeout(() => { window.location.href = url_for('user/metatrader'); }, 5000);
+        }
     };
 
     const unload = () => {
@@ -108,8 +107,10 @@ const FinancialAssessment = (() => {
     };
 
     return {
-        load  : load,
-        unload: unload,
+        load      : load,
+        unload    : unload,
+        handleForm: handleForm,
+        submitForm: submitForm,
     };
 })();
 

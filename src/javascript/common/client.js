@@ -3,6 +3,8 @@ const LocalStore           = require('./storage').LocalStore;
 const State                = require('./storage').State;
 const default_redirect_url = require('./url').default_redirect_url;
 const url_for              = require('./url').url_for;
+const template             = require('./utility').template;
+const ChampionSocket       = require('./socket');
 const Cookies              = require('../lib/js-cookie');
 
 const Client = (function () {
@@ -24,61 +26,85 @@ const Client = (function () {
     };
 
     const init = () => {
-        const loginid = Cookies.get('loginid');
         client_object.loginid_array = parseLoginIDList(Cookies.get('loginid_list') || '');
-        const is_logged_in = !!(
-            loginid &&
-            client_object.loginid_array.length > 0 &&
-            get_storage_value('tokens') &&
-            Cookies.get('token')
-        );
 
-        set_storage_value('email', Cookies.get('email'));
-        set_storage_value('loginid', loginid);
-        set_storage_value('is_logged_in', is_logged_in);
-        set_storage_value('residence', Cookies.get('residence'));
+        set('email',     Cookies.get('email'));
+        set('loginid',   Cookies.get('loginid'));
+        set('residence', Cookies.get('residence'));
+
+        endpoint_notification();
     };
+
+    const is_logged_in = () => (
+        Cookies.get('token') &&
+        Cookies.get('loginid') &&
+        get('tokens') &&
+        client_object.loginid_array.length > 0
+    );
 
     const redirect_if_login = () => {
-        if (is_logged_in()) {
+        const client_is_logged_in = is_logged_in();
+        if (client_is_logged_in) {
             window.location.href = default_redirect_url();
         }
-        return is_logged_in();
+        return client_is_logged_in;
     };
 
-    const set_storage_value = (key, value) => {
+    const set = (key, value) => {
         if (value === undefined) value = '';
         client_object[key] = value;
         return LocalStore.set(`client.${key}`, value);
     };
 
     // use this function to get variables that have values
-    const get_storage_value = key => client_object[key] || LocalStore.get(`client.${key}`) || '';
-
-    // use this function to get variables that are a boolean
-    const get_boolean = value => JSON.parse(client_object[value] || get_storage_value(value) || false);
+    const get = (key) => {
+        let value = client_object[key] || LocalStore.get(`client.${key}`) || '';
+        if (!Array.isArray(value) && (+value === 1 || +value === 0 || value === 'true' || value === 'false')) {
+            value = JSON.parse(value || false);
+        }
+        return value;
+    };
 
     const response_authorize = (response) => {
+        if (response.error || response.authorize.loginid !== Client.get('loginid')) {
+            request_logout();
+            return;
+        }
+
         const authorize = response.authorize;
         if (!Cookies.get('email')) {
             set_cookie('email', authorize.email);
-            set_storage_value('email', authorize.email);
+            set('email', authorize.email);
         }
-        set_storage_value('is_virtual', authorize.is_virtual);
-        set_storage_value('landing_company_name', authorize.landing_company_name);
-        set_storage_value('landing_company_fullname', authorize.landing_company_fullname);
-        set_storage_value('currency', authorize.currency);
+        set('is_virtual', authorize.is_virtual);
+        set('landing_company_name', authorize.landing_company_name);
+        set('landing_company_fullname', authorize.landing_company_fullname);
+        set('currency', authorize.currency);
+        set('balance', authorize.balance);
         client_object.values_set = true;
 
-        if (authorize.is_virtual && !get_boolean('has_real')) {
+        if (authorize.is_virtual && !get('has_real')) {
             $('.upgrade-message').removeClass('hidden');
         }
+
+        ChampionSocket.send({ balance: 1, subscribe: 1 });
+        ChampionSocket.send({ get_settings: 1 });
+        ChampionSocket.send({ get_account_status: 1 });
+        const country_code = response.authorize.country;
+        if (country_code) {
+            Client.set('residence', country_code);
+            ChampionSocket.send({ landing_company: country_code });
+        }
+
+        $('#btn_logout').click(() => {
+            request_logout();
+        });
     };
 
     const check_tnc = function() {
         if (/tnc-approval/.test(window.location.href) ||
             /terms-and-conditions/.test(window.location.href) ||
-            get_boolean('is_virtual')) {
+            get('is_virtual')) {
             return;
         }
         const client_tnc_status = State.get(['response', 'get_settings', 'get_settings', 'client_tnc_status']),
@@ -101,7 +127,7 @@ const Client = (function () {
 
     const get_token = (client_loginid) => {
         let token;
-        const tokens = get_storage_value('tokens');
+        const tokens = get('tokens');
         if (client_loginid && tokens) {
             const tokensObj = JSON.parse(tokens);
             if (client_loginid in tokensObj && tokensObj[client_loginid]) {
@@ -115,10 +141,10 @@ const Client = (function () {
         if (!client_loginid || !token || get_token(client_loginid)) {
             return false;
         }
-        const tokens = get_storage_value('tokens');
+        const tokens = get('tokens');
         const tokensObj = tokens && tokens.length > 0 ? JSON.parse(tokens) : {};
         tokensObj[client_loginid] = token;
-        set_storage_value('tokens', JSON.stringify(tokensObj));
+        set('tokens', JSON.stringify(tokensObj));
         return true;
     };
 
@@ -142,13 +168,13 @@ const Client = (function () {
         set_cookie('loginid',      client_loginid);
         set_cookie('loginid_list', virtual_client ? `${client_loginid}:V:E` : `${client_loginid}:R:E+${Cookies.get('loginid_list')}`);
         // set local storage
-        set_storage_value('loginid', client_loginid);
+        set('loginid', client_loginid);
         window.location.href = default_redirect_url();
     };
 
-    const is_logged_in = () => get_boolean('is_logged_in');
-    const is_virtual   = () => get_boolean('is_virtual');
-    const has_real     = () => get_boolean('has_real');
+    const request_logout = () => {
+        ChampionSocket.send({ logout: '1' });
+    };
 
     const do_logout = (response) => {
         if (response.logout !== 1) return;
@@ -180,12 +206,22 @@ const Client = (function () {
         window.location.reload();
     };
 
+    const endpoint_notification = () => {
+        const server  = localStorage.getItem('config.server_url');
+        if (server && server.length > 0) {
+            const message = template('This is a staging server - For testing purposes only - The server <a href="[_1]">endpoint</a> is: [_2]',
+                [url_for('endpoint'), server]);
+            const $end_note = $('#end_note');
+            $end_note.html(message).removeClass('invisible');
+            $('#footer').css('padding-bottom', $end_note.height() + 10);
+        }
+    };
+
     return {
         init                : init,
         redirect_if_login   : redirect_if_login,
-        set_value           : set_storage_value,
-        get_value           : get_storage_value,
-        get_boolean         : get_boolean,
+        set                 : set,
+        get                 : get,
         response_authorize  : response_authorize,
         check_tnc           : check_tnc,
         clear_storage_values: clear_storage_values,
@@ -194,8 +230,8 @@ const Client = (function () {
         set_cookie          : set_cookie,
         process_new_account : process_new_account,
         is_logged_in        : is_logged_in,
-        is_virtual          : is_virtual,
-        has_real            : has_real,
+        is_virtual          : () => get('is_virtual'),
+        has_real            : () => get('has_real'),
         do_logout           : do_logout,
     };
 })();

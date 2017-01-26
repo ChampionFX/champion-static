@@ -1,27 +1,27 @@
-const Client = require('../../common/client');
+const ChampionSocket = require('./../../common/socket');
+const Client         = require('../../common/client');
 
 const Cashier = (function() {
     'use strict';
 
-    let cashierContainer;
+    const hidden_class = 'hidden';
 
     const load = () => {
-        cashierContainer = $('.fx-cashier');
+        const container = $('.fx-cashier');
 
-        if (Client.is_logged_in() && Client.is_virtual()) {
-            cashierContainer.find('.fx-virtual').show();
-            cashierContainer.find('.fx-real').hide();
-            if (Client.get_value('balance') > 1000) {
-                $('#VRT_topup_link')
-                    .prop('href', 'javascript;:')
-                    .addClass('button-disabled');
-            }
-        } else if (Client.is_logged_in() && !Client.is_virtual()) {
-            cashierContainer.find('.fx-real').show();
-            cashierContainer.find('.fx-virtual').hide();
-        } else {
-            cashierContainer.find('.fx-virtual').hide();
-            cashierContainer.find('.fx-real').hide();
+        if (Client.is_logged_in()) {
+            ChampionSocket.wait('authorize').then(() => {
+                if (Client.is_virtual()) {
+                    container.find('.fx-virtual').removeClass(hidden_class);
+                    if (Client.get('balance') > 1000) {
+                        $('#VRT_topup_link')
+                            .prop('href', 'javascript;:')
+                            .addClass('button-disabled');
+                    }
+                } else {
+                    container.find('.fx-real').removeClass(hidden_class);
+                }
+            });
         }
     };
 

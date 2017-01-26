@@ -1,7 +1,7 @@
 require('jquery.scrollto');
 
-function showLoadingImage(container) {
-    container.empty().append('<div class="barspinner dark"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div>');
+function showLoadingImage(container, theme = 'dark') {
+    container.empty().append(`<div class="barspinner ${theme}"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div>`);
 }
 
 function isEmptyObject(obj) {
@@ -38,21 +38,45 @@ function handleActive() {
     const hash = window.location.hash,
         menu = '.tab-menu-wrap',
         content = '.tab-content-wrapper';
-    if (menu && content) {
+    if ($(menu).length > 0 && $(content).length > 0) {
         // tabListener is called from binary-style
         // to init when page loaded with pjax
         tabListener();
         if (hash) {
+            const parent_active = 'active';
+            const child_active  = 'a-active';
+            const hidden_class  = 'invisible';
+
+            $(menu)
+                .find('li')
+                .removeClass(parent_active)
+                .find('span')
+                .removeClass(child_active);
+
+            let $tab_to_show = $(hash);
+            // if hash is a subtab or has subtabs
+            if ($tab_to_show.find('.tm-li-2').length > 0 || /tm-li-2/.test($(hash).attr('class'))) {
+                $tab_to_show =
+                    $tab_to_show
+                        .find('.tm-a-2')
+                        .first()
+                        .addClass(child_active)
+                        .closest('.tm-li');
+            }
+            $tab_to_show.addClass(parent_active);
+
+            let content_to_show = `div${hash}-content`;
+            if ($(content_to_show).length === 0) {
+                content_to_show = `div#${$(hash).find('.tm-li-2').first().attr('id')}-content`;
+            }
+            $(content)
+                .find('> div')
+                .addClass(hidden_class)
+                .end()
+                .find(content_to_show)
+                .removeClass(hidden_class);
+
             $.scrollTo($(hash), 500, { offset: -5 });
-            const parent_active = 'first active',
-                child_active = 'first a-active',
-                hidden_class = 'invisible';
-            /* eslint-disable newline-per-chained-call */
-            $(menu).find('li').removeClass(parent_active).find('a').removeClass(child_active)
-                .end().end().find(hash).addClass(parent_active).find('a').addClass(child_active);
-            $(content).find('> div').addClass(hidden_class)
-                .end().find(`div${hash}-content`).removeClass(hidden_class);
-            /* eslint-enable newline-per-chained-call */
         }
     }
 }

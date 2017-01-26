@@ -1,5 +1,5 @@
 <div class="container">
-    <div id="tnc-loading"></div>
+    <div id="tnc-loading">[% INCLUDE static/common/loading.html.tt %]</div>
 
     <div class="row fx-section invisible" id="tnc_approval">
         <div class="col-xs-2">
@@ -10,7 +10,7 @@
                 <p id="tnc-message" class="invisible">
                     [% l('[_1] has updated its  <a class="pjaxload" href="[_2]">Terms & Conditions</a>. By clicking OK, you confirm that you have read and accepted the updated <a class="pjaxload" href="[_2]">Terms & Conditions</a>.', '[_1]' ,'[_2]') %]
                 </p>
-                <div class="centered">
+                <div class="center-text">
                     <span class="button">
                         <button class="button" id="btn-accept"></button>
                     </span>

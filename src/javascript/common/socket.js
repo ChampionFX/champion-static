@@ -1,7 +1,5 @@
 const Cookies     = require('../lib/js-cookie');
 const getLanguage = require('./language').getLanguage;
-const Client      = require('./client');
-const Header      = require('./header');
 const State       = require('./storage').State;
 
 const ChampionSocket = (function() {
@@ -9,87 +7,28 @@ const ChampionSocket = (function() {
 
     let socket,
         req_id = 0,
-        message_callback,
-        socket_resolved = false,
-        socketResolve,
-        socketReject;
+        client_is_logged_in,
+        keep_alive_timeout;
 
-    const buffered = [],
-        registered_callbacks = {},
-        priority_requests = { authorize: false, balance: false, get_settings: false, website_status: false };
+    const buffered = [];
+    const registered_callbacks = {};
+    const no_duplicate_requests = [
+        'authorize',
+        'get_settings',
+        'website_status',
+        'get_account_status',
+        'get_financial_assessment',
+    ];
+    const default_calls = {};
 
-    const promise = new Promise((resolve, reject) => {
-        socketResolve = resolve;
-        socketReject = reject;
-    });
-
-    const socketMessage = (message) => {
-        if (!message) { // socket just opened
-            const token = Cookies.get('token');
-            if (token) {
-                ChampionSocket.send({ authorize: token });
-            } else {
-                Header.userMenu();
-            }
-            ChampionSocket.send({ website_status: 1 });
-        } else {
-            let country_code;
-            State.set(['response', message.msg_type], message);
-            switch (message.msg_type) {
-                case 'authorize':
-                    if (message.error || message.authorize.loginid !== Client.get_value('loginid')) {
-                        ChampionSocket.send({ logout: '1' });
-                        socketReject();
-                    } else {
-                        Client.response_authorize(message);
-                        ChampionSocket.send({ balance: 1, subscribe: 1 });
-                        ChampionSocket.send({ get_settings: 1 });
-                        Header.userMenu();
-                        $('#btn_logout').click(() => { // TODO: to be moved from here
-                            ChampionSocket.send({ logout: 1 });
-                        });
-                        priority_requests.authorize = true;
-                    }
-                    break;
-                case 'logout':
-                    Client.do_logout(message);
-                    break;
-                case 'balance':
-                    Header.updateBalance(message);
-                    priority_requests.balance = true;
-                    break;
-                case 'get_settings':
-                    if (message.error) {
-                        socketReject();
-                        return;
-                    }
-                    country_code = message.get_settings.country_code;
-                    if (country_code) {
-                        Client.set_value('residence', country_code);
-                        ChampionSocket.send({ landing_company: country_code });
-                    }
-                    priority_requests.get_settings = true;
-                    break;
-                case 'website_status':
-                    priority_requests.website_status = true;
-                // no default
-            }
-            if (!socket_resolved && Object.keys(priority_requests).every(c => priority_requests[c])) {
-                socketResolve();
-                Client.check_tnc();
-                socket_resolved = true;
-            }
-        }
-    };
-
-    const init = (callback = socketMessage) => {
-        if (typeof callback === 'function') {
-            message_callback = callback;
-        }
+    const init = (defaults, is_logged_in) => {
+        $.extend(default_calls, defaults);
+        client_is_logged_in = is_logged_in;
         connect();
     };
 
-    const getAppId = () => (localStorage.getItem('config.app_id') ? localStorage.getItem('config.app_id') : '2472');
+    const getAppId = () => (localStorage.getItem('config.app_id') ? localStorage.getItem('config.app_id') :
+        (/^\/beta\//i.test(window.location.pathname) ? '2586' : '2472'));
 
     const getServer = () => (localStorage.getItem('config.server_url') || 'ws.binaryws.com');
 
@@ -104,37 +43,29 @@ const ChampionSocket = (function() {
         return `wss://${server}/websockets/v3${params.length ? `?${params.join('&')}` : ''}`;
     };
 
-    const connect = () => {
-        socket = new WebSocket(getSocketURL());
-        socket.onopen    = onOpen;
-        socket.onmessage = onMessage;
-    };
-
     const isReady = () => (socket && socket.readyState === 1);
 
     const isClosed = () => (!socket || socket.readyState === 2 || socket.readyState === 3);
 
-    const send = (data, callback, subscribe) => {
-        if (typeof callback === 'function') {
-            let msg_type = '';
-            Object.keys(priority_requests).some((c) => {
-                if (c in data) {
-                    msg_type = c;
-                    return true;
-                }
-                return false;
-            });
+    const send = (data, force_send) => {
+        const promise_obj = new PromiseClass();
+        const msg_type = no_duplicate_requests.find(c => c in data);
+
+        if (!force_send) {
             const exist_in_state = State.get(['response', msg_type]);
             if (exist_in_state) {
-                callback(exist_in_state);
-                return;
+                promise_obj.resolve(exist_in_state);
+                return promise_obj.promise;
             }
-            registered_callbacks[++req_id] = {
-                callback : callback,
-                subscribe: subscribe,
-            };
-            data.req_id = req_id;
         }
+
+        registered_callbacks[++req_id] = {
+            callback : (response) => { promise_obj.resolve(response); },
+            subscribe: !!data.subscribe,
+        };
+
+        data.req_id = req_id;
+
         if (isReady()) {
             socket.send(JSON.stringify(data));
         } else {
@@ -143,40 +74,124 @@ const ChampionSocket = (function() {
                 connect();
             }
         }
+
+        return promise_obj.promise;
+    };
+
+    const waiting_list = {
+        items: {},
+        add  : (msg_type, promise_obj) => {
+            if (!waiting_list.items[msg_type]) {
+                waiting_list.items[msg_type] = [];
+            }
+            waiting_list.items[msg_type].push(promise_obj);
+        },
+        resolve: (response) => {
+            const msg_type = response.msg_type;
+            const promises = waiting_list.items[msg_type];
+            if (promises && promises.length) {
+                promises.forEach((pr) => {
+                    if (!waiting_list.another_exists(pr, msg_type)) {
+                        pr.resolve(response);
+                    }
+                });
+                waiting_list.items[msg_type] = [];
+            }
+        },
+        another_exists: (pr, msg_type) => (
+            Object.keys(waiting_list.items)
+                .some(type => (
+                    type !== msg_type &&
+                    $.inArray(pr, waiting_list.items[type]) >= 0
+                ))
+        ),
+    };
+    class PromiseClass {
+        constructor() {
+            this.promise = new Promise((resolve, reject) => {
+                this.reject = reject;
+                this.resolve = resolve;
+            });
+        }
+    }
+    const wait = (...msg_types) => {
+        const promise_obj = new PromiseClass();
+        let is_resolved = true;
+        msg_types.forEach((msg_type) => {
+            const prev_response = State.get(['response', msg_type]);
+            if (!prev_response) {
+                if (msg_type !== 'authorize' || client_is_logged_in) {
+                    waiting_list.add(msg_type, promise_obj);
+                    is_resolved = false;
+                }
+            } else if (msg_types.length === 1) {
+                promise_obj.resolve(prev_response);
+            }
+        });
+        if (is_resolved) {
+            promise_obj.resolve();
+        }
+        return promise_obj.promise;
+    };
+
+    const onClose = () => {
+        clearTimeout(keep_alive_timeout);
     };
 
     const onOpen = () => {
-        if (typeof message_callback === 'function') {
-            message_callback();
-        }
         if (isReady()) {
-            while (buffered.length > 0) {
-                send(buffered.shift());
+            const token = Cookies.get('token');
+            if (token) {
+                send({ authorize: token });
             }
+            send({ website_status: 1 });
+
+            wait('authorize').then(() => {
+                while (buffered.length > 0) {
+                    send(buffered.shift());
+                }
+            });
         }
     };
 
     const onMessage = (message) => {
         const response = JSON.parse(message.data);
+        State.set(['response', response.msg_type], response);
+        if (typeof default_calls[response.msg_type] === 'function') {
+            default_calls[response.msg_type](response);
+        }
         const this_req_id = response.req_id;
         const reg = this_req_id ? registered_callbacks[this_req_id] : null;
+
+        // keep alive
+        clearTimeout(keep_alive_timeout);
+        keep_alive_timeout = setTimeout(() => {
+            send({ ping: 1 });
+        }, 60000);
 
         if (reg && typeof reg.callback === 'function') {
             reg.callback(response);
             if (!reg.subscribe) {
                 delete registered_callbacks[this_req_id];
             }
-        } else if (typeof message_callback === 'function') {
-            message_callback(response);
         }
+
+        waiting_list.resolve(response);
+    };
+
+    const connect   = () => {
+        socket = new WebSocket(getSocketURL());
+        socket.onopen    = onOpen;
+        socket.onclose   = onClose;
+        socket.onmessage = onMessage;
     };
 
     return {
         init     : init,
         send     : send,
+        wait     : wait,
         getAppId : getAppId,
         getServer: getServer,
-        promise  : promise,
     };
 })();
 

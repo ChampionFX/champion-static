@@ -41,13 +41,13 @@ const ChampionNewRealAccount = (function() {
     };
 
     const load = () => {
-        if (!Client.is_logged_in() || Client.has_real()) {
+        if (Client.has_real()) {
             window.location.href = default_redirect_url();
             return;
         }
-        container = $('#champion-container');
 
-        client_residence = Client.get_value('residence');
+        container        = $('#champion-container');
+        client_residence = Client.get('residence');
         populateResidence();
         populateState();
         attachDatePicker();
@@ -87,7 +87,7 @@ const ChampionNewRealAccount = (function() {
             Utility.dropDownFromObject(ddl_residence, residences, client_residence);
         };
         if (!residences) {
-            ChampionSocket.send({ residence_list: 1 }, (response) => {
+            ChampionSocket.send({ residence_list: 1 }).then((response) => {
                 residences = response.residence_list;
                 renderResidence();
             });
@@ -108,7 +108,7 @@ const ChampionNewRealAccount = (function() {
             initValidation();
         };
         if (!states) {
-            ChampionSocket.send({ states_list: client_residence }, (response) => {
+            ChampionSocket.send({ states_list: client_residence }).then((response) => {
                 states = response.states_list;
                 renderState();
             });
@@ -152,13 +152,13 @@ const ChampionNewRealAccount = (function() {
                 secret_question : $(fields.ddl_secret_question).val(),
                 secret_answer   : $(fields.txt_secret_answer).val(),
             };
-            ChampionSocket.send(data, (response) => {
+            ChampionSocket.send(data).then((response) => {
                 if (response.error) {
                     $('#error-create-account').removeClass('hidden').text(response.error.message);
                     btn_submit.removeAttr('disabled');
                 } else {
                     const acc_info = response.new_account_real;
-                    Client.process_new_account(Client.get_value('email'), acc_info.client_id, acc_info.oauth_token);
+                    Client.process_new_account(Client.get('email'), acc_info.client_id, acc_info.oauth_token);
                     window.location.href = default_redirect_url();
                 }
             });

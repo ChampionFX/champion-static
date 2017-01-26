@@ -68,7 +68,7 @@
                                         <p>[% l('Champion FX knows our traders love options. That\'s why we\'ve provided them with access to a different kind of trading: binary options.') %]</p>
                                     </div>
                                 </div>
-                                <div class="centered">
+                                <div class="center-text">
                                     <div class="row">
                                         <div class="col-md">
                                             <h2>[% l('What is binary options trading') %]</h2>
@@ -129,7 +129,7 @@
                                 <h2>[% l('What is binary options trading?') %]</h2>
                                 <p>[% l('A binary option is a type of option with a fixed payout. The payout is determined at the start before you purchase the trade. If your prediction is correct, you receive the fixed (and stated) payout. If not, you will lose your initial stake and nothing more. It is called a \'binary\' option because there can only be two outcomes: you either win or lose.') %]</p>
                                 <p>[% l('Whatever market you trade in, always remember that you\'re not purchasing the asset itself, but a contract (or "option") that determines how the asset performs over a period of time. This limits your risk and makes it easy for anyone to start trading.') %]</p>
-                                <div class="centered">
+                                <div class="center-text">
                                     <div class="fx-divider"></div>
                                     <h2>[% l('Benefits of binary options trading with Champion FX') %]</h2>
                                     <div class="row">
@@ -179,7 +179,7 @@
                             <div id="third-tab-content" class="toggle-content invisible">
                                 <h2>[% l("How to trade binary options") %]</h2>
                                 <p>[% l("Trading binary options is relatively easy, and you can purchase a trade in only three simple steps.") %]</p>
-                                <div class="row centered">
+                                <div class="row center-text">
                                     <div class="col-md">
                                         <div class="fx-step-one fx-lg"></div>
                                         <p><strong>[% l("Define your position") %]</strong></p>
@@ -251,7 +251,7 @@
                                                 <li>[% l("Practice your trading strategy with USD 10,000 worth of virtual funds") %]</li>
                                                 <li>[% l("Replenish your virtual funds when your balance dips below USD 1,000") %]</li>
                                             </ul>
-                                            <div class="centered">
+                                            <div class="center-text">
                                                 <a class="button" href=""><span>[% l("Create account") %]</span></a>
                                             </div>
                                         </div>
@@ -262,7 +262,7 @@
                                                 <li>[% l("Start trading from as little as USD 5 per contract") %]</li>
                                                 <li>[% l("Win up to USD 50,000 with each correct prediction") %]</li>
                                             </ul>
-                                            <div class="centered">
+                                            <div class="center-text">
                                                 <a class="button" href=""><span>[% l("Upgrade") %]</span></a>
                                             </div>
                                         </div>
@@ -274,7 +274,7 @@
                                 <p>[% l("Introducing the world’s most versatile binary options trading platform.") %]</p>
                                 <p>[% l("Enjoy a rich user experience on a full-screen trading interface that can be customised according to your personal preferences.") %]</p>
                                 <p>[% l("Webtrader lets you monitor all your favourite assets and markets at the same time, as well as charts, the asset index, trading times, and historical data. Most importantly, you get to choose what you want to see on your screen.") %]</p>
-                                <div class="centered">
+                                <div class="center-text">
                                     <a class="button" href="https://webtrader.champion-fx.com" target="_blank">
                                         <span>[% l("Lauch Webtrader") %]</span>
                                     </a>
