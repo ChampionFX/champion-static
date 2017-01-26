@@ -1,9 +1,14 @@
-const Client      = require('./client');
-const Utility     = require('./utility');
-const formatMoney = require('./currency').formatMoney;
+const Client         = require('./client');
+const ChampionSocket = require('./socket');
+const Utility        = require('./utility');
+const formatMoney    = require('./currency').formatMoney;
 
 const Header = (function () {
     'use strict';
+
+    const init = () => {
+        ChampionSocket.wait('authorize').then(() => { userMenu(); });
+    };
 
     const userMenu = function() {
         if (!Client.is_logged_in()) {
@@ -85,7 +90,7 @@ const Header = (function () {
     };
 
     return {
-        userMenu     : userMenu,
+        init         : init,
         updateBalance: updateBalance,
     };
 })();

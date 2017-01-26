@@ -3,7 +3,6 @@ const FinancialAssessment = require('./financial_assessment');
 const Client              = require('../../common/client');
 const url_for             = require('../../common/url').url_for;
 const ChampionSocket      = require('../../common/socket');
-const State               = require('../../common/storage').State;
 
 const renderRiskClassificationPopUp = () => {
     if (window.location.pathname === '/user/assessment') {
@@ -43,11 +42,13 @@ const handleForm = ($risk_classification) => {
 };
 
 const checkRiskClassification = () => {
-    ChampionSocket.promise().then(() => {
-        if (!State.get(['response', 'get_financial_assessment', 'get_financial_assessment']) &&
-            State.get(['response', 'get_account_status', 'get_account_status', 'risk_classification']) === 'high' &&
-            Client.is_logged_in() && !Client.is_virtual()) {
-            renderRiskClassificationPopUp();
+    ChampionSocket.wait('get_account_status').then((response_account_status) => {
+        if (response_account_status.get_account_status && response_account_status.get_account_status.risk_classification === 'high') {
+            ChampionSocket.send({ get_financial_assessment: 1 }).then((response_financial_assessment) => {
+                if (!response_financial_assessment.get_financial_assessment && !Client.is_virtual()) {
+                    renderRiskClassificationPopUp();
+                }
+            });
         }
     });
 };

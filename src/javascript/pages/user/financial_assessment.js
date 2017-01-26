@@ -1,5 +1,4 @@
 const showLoadingImage   = require('../../common/utility').showLoadingImage;
-const Client             = require('../../common/client');
 const ChampionSocket     = require('../../common/socket');
 const Validation         = require('../../common/validation');
 const State              = require('../../common/storage').State;
@@ -16,17 +15,14 @@ const FinancialAssessment = (() => {
 
     const load = () => {
         showLoadingImage($('<div/>', { id: 'loading', class: 'center-text' }).insertAfter('#heading'));
-        if (checkIsVirtual()) return;
         $(form_selector).on('submit', (event) => {
             event.preventDefault();
             submitForm();
             return false;
         });
-        ChampionSocket.promise().then(() => {
-            if (checkIsVirtual()) return;
-            ChampionSocket.send({ get_financial_assessment: 1 }, (response) => {
-                handleForm(response);
-            });
+
+        ChampionSocket.send({ get_financial_assessment: 1 }).then((response) => {
+            handleForm(response);
         });
     };
 
@@ -70,7 +66,7 @@ const FinancialAssessment = (() => {
             $('#assessment_form').find('select').each(function() {
                 financial_assessment[$(this).attr('id')] = data[$(this).attr('id')] = $(this).val();
             });
-            ChampionSocket.send(data, (response) => {
+            ChampionSocket.send(data).then((response) => {
                 $('#submit').removeAttr('disabled');
                 if ('error' in response) {
                     showFormMessage('Sorry, an error occurred while processing your request.', false);
@@ -92,16 +88,6 @@ const FinancialAssessment = (() => {
         if (show_form) {
             $('#assessment_form').removeClass('invisible');
         }
-    };
-
-    const checkIsVirtual = () => {
-        if (Client.is_virtual()) {
-            $('#assessment_form').addClass('invisible');
-            $('#response_on_success').addClass('notice-msg center-text').removeClass('invisible').text('This feature is not relevant to virtual-money accounts.');
-            hideLoadingImg(false);
-            return true;
-        }
-        return false;
     };
 
     const showFormMessage = (msg, isSuccess) => {

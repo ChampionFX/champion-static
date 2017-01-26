@@ -1,5 +1,5 @@
 <div class="container">
-    <div id="tnc-loading"></div>
+    <div id="tnc-loading">[% INCLUDE static/common/loading.html.tt %]</div>
 
     <div class="row fx-section invisible" id="tnc_approval">
         <div class="col-xs-2">

@@ -38,7 +38,7 @@ const LostPassword = (function() {
                 verify_email: $(fields.txt_email).val(),
                 type        : 'reset_password',
             };
-            ChampionSocket.send(data, (response) => {
+            ChampionSocket.send(data).then((response) => {
                 if (response.error) {
                     $('#error-lost-password').removeClass('invisible').text(response.error.message);
                 } else {

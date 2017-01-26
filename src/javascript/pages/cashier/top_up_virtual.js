@@ -1,6 +1,5 @@
 const ChampionSocket = require('../../common/socket');
 const Client         = require('../../common/client');
-const Login          = require('../../common/login');
 
 const CashierTopUpVirtual = (function() {
     'use strict';
@@ -16,31 +15,14 @@ const CashierTopUpVirtual = (function() {
         viewError      = topUpContainer.find('#viewError');
         viewSuccess    = topUpContainer.find('#viewSuccess');
 
-        if (!Client.is_logged_in()) {
-            viewError.removeClass(hidden_class)
-                .find('.notice-msg').html('Please <a href="javascript:;">log in</a> to view this page.')
-                .find('a')
-                .on('click', () => {
-                    Login.redirect_to_login();
-                });
-        } else {
-            ChampionSocket.promise().then(() => {
-                if (Client.is_virtual()) {
-                    top_up_virtual();
-                } else {
-                    viewError.removeClass(hidden_class)
-                        .find('.notice-msg')
-                        .text('Sorry, this feature is available to virtual accounts only.');
-                }
-            });
-        }
+        top_up_virtual();
     };
 
     const top_up_virtual = () => {
         const data = {
             topup_virtual: '1',
         };
-        ChampionSocket.send(data, (response) => {
+        ChampionSocket.send(data).then((response) => {
             if (response.error) {
                 viewError.removeClass(hidden_class)
                     .find('.notice-msg')

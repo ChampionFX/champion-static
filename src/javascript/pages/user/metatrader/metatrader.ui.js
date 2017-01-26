@@ -1,6 +1,5 @@
 const Validation        = require('../../../common/validation');
 const formatMoney       = require('../../../common/currency').formatMoney;
-const redirect_to_login = require('../../../common/login').redirect_to_login;
 const showLoadingImage  = require('../../../common/utility').showLoadingImage;
 const MetaTraderConfig  = require('./metatrader.config');
 
@@ -28,6 +27,7 @@ const MetaTraderUI = (function() {
         $action    = $container.find('#fst_action');
         $templates = $container.find('#templates');
         $main_msg  = $container.find('#main_msg');
+        $container.find('#mt_loading').remove();
 
         populateAccountList();
     };
@@ -142,13 +142,6 @@ const MetaTraderUI = (function() {
         $.scrollTo($main_msg, 500, { offset: -10 });
     };
 
-    const displayLoginMessage = () => {
-        $('#mt_account_management #accounts_list').removeClass('row')
-            .html($('<p/>', { class: 'center-text notice-msg', html: 'Please <a href="javascript:;">log in</a> to view this page.' }))
-            .find('a')
-            .on('click', () => { redirect_to_login(); });
-    };
-
     const disableButton = () => {
         const $btn = $form.find('button');
         if ($btn.length && !$btn.find('.barspinner').length) {
@@ -176,7 +169,6 @@ const MetaTraderUI = (function() {
         hideFormMessage      : hideFormMessage,
         displayFormMessage   : displayFormMessage,
         displayMainMessage   : displayMainMessage,
-        displayLoginMessage  : displayLoginMessage,
         disableButton        : disableButton,
         enableButton         : enableButton,
     };

@@ -61,7 +61,7 @@ const ChampionSignup = (function() {
             ChampionSocket.send({
                 verify_email: $input.val(),
                 type        : 'account_opening',
-            }, function(response) {
+            }).then((response) => {
                 if (response.verify_email) {
                     ChampionRouter.forward(url_for('new-account/virtual'));
                 } else if (response.error) {

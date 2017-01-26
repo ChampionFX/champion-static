@@ -69,7 +69,7 @@ sub _texts {
         push @texts, localize('Dec');
 
         # change password
-        push @texts, localize('Please <a href="javascript:;">log in</a> to view this page.');
+        push @texts, localize('Please <a href="[_1]">log in</a> to view this page.');
         push @texts, localize('Your password has been changed. Please log in again.');
 
         # reset password

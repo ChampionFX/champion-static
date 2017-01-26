@@ -28,6 +28,7 @@ const Login = (function() {
 
     return {
         redirect_to_login: redirect_to_login,
+        login_url        : login_url,
     };
 })();
 
