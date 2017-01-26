@@ -91,7 +91,7 @@
                             <option value="50">1:50</option>
                             <option value="100" selected="selected">1:100</option>
                             <option value="200">1:200</option>
-                            <option value="200">1:300</option>
+                            <option value="300">1:300</option>
                             <option value="500">1:500</option>
                             <option value="1000">1:1000</option>
                         </select>
