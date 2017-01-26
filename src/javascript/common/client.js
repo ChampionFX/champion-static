@@ -3,6 +3,7 @@ const LocalStore           = require('./storage').LocalStore;
 const State                = require('./storage').State;
 const default_redirect_url = require('./url').default_redirect_url;
 const url_for              = require('./url').url_for;
+const template             = require('./utility').template;
 const ChampionSocket       = require('./socket');
 const Cookies              = require('../lib/js-cookie');
 
@@ -30,6 +31,8 @@ const Client = (function () {
         set('email',     Cookies.get('email'));
         set('loginid',   Cookies.get('loginid'));
         set('residence', Cookies.get('residence'));
+
+        endpoint_notification();
     };
 
     const is_logged_in = () => (
@@ -201,6 +204,17 @@ const Client = (function () {
             }
         });
         window.location.reload();
+    };
+
+    const endpoint_notification = () => {
+        const server  = localStorage.getItem('config.server_url');
+        if (server && server.length > 0) {
+            const message = template('This is a staging server - For testing purposes only - The server <a href="[_1]">endpoint</a> is: [_2]',
+                [url_for('endpoint'), server]);
+            const $end_note = $('#end_note');
+            $end_note.html(message).removeClass('invisible');
+            $('#footer').css('padding-bottom', $end_note.height() + 10);
+        }
     };
 
     return {

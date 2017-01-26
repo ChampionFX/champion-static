@@ -70,32 +70,48 @@ html {
     .signup-box input {
         margin: 15px 0;
     }
-}
-
-// Footer
-.fx-footer {
-    display: table;
-    width: 100%;
-    padding: 10px 0;
-    font-size: $FONT_SIZE_S;
-}
-
-#footer-menu {
-    padding: 10px 0;
-    ul {
-        margin-bottom: 10px;
-        padding: 0;
+    #end_note {
+        display: none;
     }
 }
 
-#footer-regulatory {
-    padding: 10px 0;
-    font-size: 10px;
-    text-align: justify;
-}
-
-#footer-last {
-    padding-top: 10px;
+// Footer
+#footer {
+    .fx-footer {
+        display: table;
+        width: 100%;
+        padding: 10px 0;
+        font-size: $FONT_SIZE_S;
+    }
+    #footer-menu {
+        padding: 10px 0;
+        ul {
+            margin-bottom: 10px;
+            padding: 0;
+        }
+    }
+    #footer-regulatory {
+        padding: 10px 0;
+        font-size: 10px;
+        text-align: justify;
+    }
+    #footer-last {
+        padding-top: 10px;
+        font-size: $FONT_SIZE_S;
+    }
+    #end_note {
+        line-height: 25px;
+        text-align: center;
+        background: $secondaryContentColor;
+        position: fixed;
+        bottom: 0;
+        z-index: 10;
+        width: 100%;
+        &, a {
+            color: $black;
+            font-size: $FONT_SIZE_XS;
+        }
+    }
 }
 
 // Panel
