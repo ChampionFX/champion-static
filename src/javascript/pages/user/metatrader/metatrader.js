@@ -16,7 +16,7 @@ const MetaTrader = (function() {
     };
 
     const getAllAccountsInfo = () => {
-        ChampionSocket.send({ mt5_login_list: 1 }, (response) => {
+        ChampionSocket.send({ mt5_login_list: 1 }).then((response) => {
             if (response.mt5_login_list && response.mt5_login_list.length > 0) {
                 response.mt5_login_list.map(function(obj) {
                     const acc_type = getAccountType(obj.group);
@@ -40,7 +40,7 @@ const MetaTrader = (function() {
         ChampionSocket.send({
             mt5_get_settings: 1,
             login           : login,
-        }, (response) => {
+        }).then((response) => {
             if (response.mt5_get_settings) {
                 types_info[acc_type].account_info = response.mt5_get_settings;
                 MetaTraderUI.updateAccount(acc_type);
@@ -87,7 +87,7 @@ const MetaTrader = (function() {
                 }
 
                 const req = makeRequestObject(acc_type, action);
-                ChampionSocket.send(req, (response) => {
+                ChampionSocket.send(req).then((response) => {
                     if (response.error) {
                         MetaTraderUI.displayFormMessage(response.error.message);
                         MetaTraderUI.enableButton();

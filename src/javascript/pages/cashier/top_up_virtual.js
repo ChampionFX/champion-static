@@ -22,7 +22,7 @@ const CashierTopUpVirtual = (function() {
         const data = {
             topup_virtual: '1',
         };
-        ChampionSocket.send(data, (response) => {
+        ChampionSocket.send(data).then((response) => {
             if (response.error) {
                 viewError.removeClass(hidden_class)
                     .find('.notice-msg')

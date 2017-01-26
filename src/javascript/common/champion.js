@@ -1,4 +1,5 @@
 const Client                  = require('./client');
+const Header                  = require('./header');
 const LoggedIn                = require('./logged_in');
 const Login                   = require('./login');
 const ChampionRouter          = require('./router');
@@ -27,16 +28,20 @@ const TNCApproval             = require('./../pages/user/tnc_approval');
 const Champion = (function() {
     'use strict';
 
-    let _container,
-        _active_script = null;
+    let container,
+        active_script = null;
 
     const init = () => {
-        _container = $('#champion-container');
-        _container.on('champion:before', beforeContentChange);
-        _container.on('champion:after', afterContentChange);
+        container = $('#champion-container');
+        container.on('champion:before', beforeContentChange);
+        container.on('champion:after', afterContentChange);
         Client.init();
-        ChampionSocket.init();
-        ChampionRouter.init(_container, '#champion-content');
+        ChampionSocket.init({
+            authorize: (response) => { Client.response_authorize(response); },
+            balance  : (response) => { Header.updateBalance(response); },
+            logout   : (response) => { Client.do_logout(response); },
+        }, Client.is_logged_in());
+        ChampionRouter.init(container, '#champion-content');
         if (!Client.is_logged_in()) {
             $('#main-login').find('a').on('click', () => { Login.redirect_to_login(); });
         } else {
@@ -45,18 +50,18 @@ const Champion = (function() {
     };
 
     const beforeContentChange = () => {
-        if (_active_script) {
-            if (typeof _active_script.unload === 'function') {
-                _active_script.unload();
+        if (active_script) {
+            if (typeof active_script.unload === 'function') {
+                active_script.unload();
             }
-            _active_script = null;
+            active_script = null;
         }
     };
 
     const afterContentChange = (e, content) => {
         const page = content.getAttribute('data-page');
         const pages_map = {
-            assessment        : { module: FinancialAssessment, is_authenticated: true, only_virtual: true },
+            assessment        : { module: FinancialAssessment, is_authenticated: true, only_real: true },
             cashier           : { module: Cashier },
             contact           : { module: ChampionContact },
             endpoint          : { module: ChampionEndpoint },
@@ -71,16 +76,18 @@ const Champion = (function() {
             'lost-password'   : { module: LostPassword,        not_authenticated: true },
             'payment-methods' : { module: CashierPaymentMethods },
             'reset-password'  : { module: ResetPassword,       not_authenticated: true },
-            'tnc-approval'    : { module: TNCApproval,         is_authenticated: true },
+            'tnc-approval'    : { module: TNCApproval,         is_authenticated: true, only_real: true },
             'top-up-virtual'  : { module: CashierTopUpVirtual, is_authenticated: true, only_virtual: true },
         };
         if (page in pages_map) {
             loadHandler(pages_map[page]);
         }
 
-        if (!_active_script) _active_script = ChampionSignup;
+        if (!active_script) active_script = ChampionSignup;
+        Header.init();
         ChampionSignup.load();
         Utility.handleActive();
+        ChampionSocket.wait('get_settings', 'get_account_status').then(() => { Client.check_tnc(); });
         checkRiskClassification();
     };
 
@@ -91,7 +98,7 @@ const Champion = (function() {
     };
 
     const loadHandler = (config) => {
-        _active_script = config.module;
+        active_script = config.module;
         if (config.is_authenticated) {
             if (!Client.is_logged_in()) {
                 displayMessage(errorMessages.login());
@@ -104,19 +111,20 @@ const Champion = (function() {
                             displayMessage(errorMessages.only_virtual);
                         } else if (config.only_real && Client.is_virtual()) {
                             displayMessage(errorMessages.only_real);
+                        } else {
+                            active_script.load();
                         }
-                        _active_script.load();
                     });
             }
         } else if (config.not_authenticated && Client.is_logged_in()) {
             ChampionRouter.forward(default_redirect_url(), true);
         } else {
-            _active_script.load();
+            active_script.load();
         }
     };
 
     const displayMessage = (message) => {
-        const $content = _container.find('#champion-content .container');
+        const $content = container.find('#champion-content .container');
         $content.html($content.find('h1'))
             .append($('<p/>', { class: 'center-text notice-msg', html: message }));
     };

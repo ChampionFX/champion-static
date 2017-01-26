@@ -3,6 +3,7 @@
         <div class="row">
             <h1>[% l('MetaTrader account management') %]</h1>
         </div>
+        <div id="mt_loading">[% INCLUDE static/common/loading.html.tt %]</div>
         <div id="accounts_list" class="row"></div>
 
         <div class="row">

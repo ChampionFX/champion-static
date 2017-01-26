@@ -36,11 +36,11 @@ const MetaTraderConfig = (function() {
                     } else if (Client.is_virtual()) {
                         resolve(needsRealMessage());
                     } else {
-                        ChampionSocket.send({ get_account_status: 1 }, (response_status) => {
+                        ChampionSocket.send({ get_account_status: 1 }).then((response_status) => {
                             if ($.inArray('authenticated', response_status.get_account_status.status) === -1) {
                                 resolve($('#msg_authenticate').html());
                             } else {
-                                ChampionSocket.send({ get_financial_assessment: 1 }, (response_financial) => {
+                                ChampionSocket.send({ get_financial_assessment: 1 }).then((response_financial) => {
                                     if (isEmptyObject(response_financial.get_financial_assessment)) {
                                         resolve('To create a Financial Account for MT5, please complete the <a href="[_1]">Financial Assessment</a>.'
                                             .replace('[_1]', url_for('user/assessment')));
@@ -101,19 +101,17 @@ const MetaTraderConfig = (function() {
                 .replace('[_4]', response.binary_transaction_id),
             prerequisites: () => new Promise(resolve => resolve(Client.is_virtual() ? needsRealMessage() : '')),
             pre_submit   : ($form, acc_type, displayFormMessage) => (
-                new Promise((resolve) => {
-                    ChampionSocket.send({
-                        mt5_password_check: 1,
-                        login             : types_info[acc_type].account_info.login,
-                        password          : $form.find(fields.withdrawal.txt_main_pass.id).val(),
-                    }, (response) => {
-                        if (response.error) {
-                            displayFormMessage(response.error.message);
-                            resolve(false);
-                        } else if (+response.mt5_password_check === 1) {
-                            resolve(true);
-                        }
-                    });
+                ChampionSocket.send({
+                    mt5_password_check: 1,
+                    login             : types_info[acc_type].account_info.login,
+                    password          : $form.find(fields.withdrawal.txt_main_pass.id).val(),
+                }).then((response) => {
+                    if (+response.mt5_password_check === 1) {
+                        return true;
+                    } else if (response.error) {
+                        displayFormMessage(response.error.message);
+                    }
+                    return false;
                 })
             ),
             formValues: ($form, acc_type, action) => {

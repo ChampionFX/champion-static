@@ -41,7 +41,7 @@ const ChangePassword = (function() {
                 old_password   : $(fields.txt_old_password).val(),
                 new_password   : $(fields.txt_new_password).val(),
             };
-            ChampionSocket.send(data, (response) => {
+            ChampionSocket.send(data).then((response) => {
                 if (response.error) {
                     $('#error-change-password').removeClass('hidden').text(response.error.message);
                 } else {

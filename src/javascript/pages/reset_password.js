@@ -58,7 +58,7 @@ const ResetPassword = (function() {
             if (real_acc.is(':checked')) {
                 data.date_of_birth = $(fields.txt_birth_date).val();
             }
-            ChampionSocket.send(data, (response) => {
+            ChampionSocket.send(data).then((response) => {
                 btn_submit.prop('disabled', true);
                 $(form_selector).addClass(hiddenClass);
                 if (response.error) {

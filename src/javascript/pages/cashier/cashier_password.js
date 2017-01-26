@@ -23,7 +23,7 @@ const CashierPassword = (function() {
     };
 
     const load = () => {
-        ChampionSocket.send({ cashier_password: 1 }, (response) => {
+        ChampionSocket.send({ cashier_password: 1 }).then((response) => {
             if (response.error) return;
             if (response.cashier_password === 1) {
                 form_type = views.unlock_cashier;
@@ -75,7 +75,7 @@ const CashierPassword = (function() {
                 [req_key]       : req_val,
             };
 
-            ChampionSocket.send(data, (response) => {
+            ChampionSocket.send(data).then((response) => {
                 if (response.error) {
                     $('#error-cashier-password').removeClass('hidden').text(response.error.message);
                 } else {

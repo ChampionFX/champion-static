@@ -47,7 +47,7 @@ const ChampionNewVirtualAccount = (function() {
             Utility.dropDownFromObject(ddl_residence, residences);
         };
         if (!residences) {
-            ChampionSocket.send({ residence_list: 1 }, (response) => {
+            ChampionSocket.send({ residence_list: 1 }).then((response) => {
                 residences = response.residence_list;
                 renderResidence();
             });
@@ -72,7 +72,7 @@ const ChampionNewVirtualAccount = (function() {
                 client_password    : $(fields.txt_password).val(),
                 residence          : $(fields.ddl_residence).val(),
             };
-            ChampionSocket.send(data, (response) => {
+            ChampionSocket.send(data).then((response) => {
                 if (response.error) {
                     $('#error-create-account').removeClass('hidden').text(response.error.message);
                     btn_submit.removeAttr('disabled');

@@ -1,7 +1,5 @@
 const Cookies     = require('../lib/js-cookie');
 const getLanguage = require('./language').getLanguage;
-const Client      = require('./client');
-const Header      = require('./header');
 const State       = require('./storage').State;
 
 const ChampionSocket = (function() {
@@ -9,108 +7,23 @@ const ChampionSocket = (function() {
 
     let socket,
         req_id = 0,
-        promise,
-        message_callback,
-        keep_alive_timeout,
-        socket_resolved,
-        socketResolve,
-        socketReject;
+        client_is_logged_in,
+        keep_alive_timeout;
 
     const buffered = [];
     const registered_callbacks = {};
-    const priority_requests = {
-        authorize         : false,
-        get_settings      : false,
-        website_status    : false,
-        get_account_status: false,
-    };
-    const no_duplicate_requests = ['get_account_status', 'get_financial_assessment'];
+    const no_duplicate_requests = [
+        'authorize',
+        'get_settings',
+        'website_status',
+        'get_account_status',
+        'get_financial_assessment',
+    ];
+    const default_calls = {};
 
-    const initPromise = () => {
-        socket_resolved = false;
-        promise = promise || new Promise((resolve, reject) => {
-            socketResolve = resolve;
-            socketReject  = reject;
-        });
-    };
-
-    const socketMessage = (message) => {
-        if (!message) { // socket just opened
-            const token = Cookies.get('token');
-            if (token) {
-                ChampionSocket.send({ authorize: token });
-            } else {
-                Header.userMenu();
-            }
-            ChampionSocket.send({ website_status: 1 });
-        } else {
-            switch (message.msg_type) {
-                case 'authorize':
-                    if (message.error || message.authorize.loginid !== Client.get('loginid')) {
-                        ChampionSocket.send({ logout: '1' });
-                        socketReject();
-                    } else {
-                        Client.response_authorize(message);
-                        ChampionSocket.send({ balance: 1, subscribe: 1 });
-                        ChampionSocket.send({ get_settings: 1 });
-                        ChampionSocket.send({ get_account_status: 1 });
-                        const country_code = message.authorize.country;
-                        if (country_code) {
-                            Client.set('residence', country_code);
-                            ChampionSocket.send({ landing_company: country_code });
-                        }
-                        Header.userMenu();
-                        $('#btn_logout').click(() => { // TODO: to be moved from here
-                            ChampionSocket.send({ logout: 1 });
-                        });
-                        priority_requests.authorize = true;
-                    }
-                    break;
-                case 'logout':
-                    Client.do_logout(message);
-                    break;
-                case 'balance':
-                    Header.updateBalance(message);
-                    break;
-                case 'get_settings':
-                    if (message.error) {
-                        socketReject();
-                        return;
-                    }
-                    priority_requests.get_settings = true;
-                    break;
-                case 'website_status':
-                    priority_requests.website_status = true;
-                    break;
-                case 'get_account_status':
-                    priority_requests.get_account_status = true;
-                    if (message.get_account_status && message.get_account_status.risk_classification === 'high') {
-                        priority_requests.get_financial_assessment = false;
-                        ChampionSocket.send({ get_financial_assessment: 1 });
-                    }
-                    break;
-                case 'get_financial_assessment':
-                    priority_requests.get_financial_assessment = true;
-                    break;
-                // no default
-            }
-            if (!socket_resolved && Object.keys(priority_requests).every(c => priority_requests[c])) {
-                socketResolve();
-                Client.check_tnc();
-                socket_resolved = true;
-            }
-
-            clearTimeout(keep_alive_timeout);
-            keep_alive_timeout = setTimeout(() => {
-                send({ ping: 1 });
-            }, 60000);
-        }
-    };
-
-    const init = (callback = socketMessage) => {
-        if (typeof callback === 'function') {
-            message_callback = callback;
-        }
+    const init = (defaults, is_logged_in) => {
+        $.extend(default_calls, defaults);
+        client_is_logged_in = is_logged_in;
         connect();
     };
 
@@ -134,22 +47,25 @@ const ChampionSocket = (function() {
 
     const isClosed = () => (!socket || socket.readyState === 2 || socket.readyState === 3);
 
-    const send = (data, callback, subscribe) => {
-        if (typeof callback === 'function') {
-            const msg_type = Object.keys(priority_requests)
-                .concat(no_duplicate_requests)
-                .find(c => c in data);
+    const send = (data, force_send) => {
+        const promise_obj = new PromiseClass();
+        const msg_type = no_duplicate_requests.find(c => c in data);
+
+        if (!force_send) {
             const exist_in_state = State.get(['response', msg_type]);
             if (exist_in_state) {
-                callback(exist_in_state);
-                return;
+                promise_obj.resolve(exist_in_state);
+                return promise_obj.promise;
             }
-            registered_callbacks[++req_id] = {
-                callback : callback,
-                subscribe: subscribe,
-            };
-            data.req_id = req_id;
         }
+
+        registered_callbacks[++req_id] = {
+            callback : (response) => { promise_obj.resolve(response); },
+            subscribe: !!data.subscribe,
+        };
+
+        data.req_id = req_id;
+
         if (isReady()) {
             socket.send(JSON.stringify(data));
         } else {
@@ -158,6 +74,8 @@ const ChampionSocket = (function() {
                 connect();
             }
         }
+
+        return promise_obj.promise;
     };
 
     const waiting_list = {
@@ -202,8 +120,10 @@ const ChampionSocket = (function() {
         msg_types.forEach((msg_type) => {
             const prev_response = State.get(['response', msg_type]);
             if (!prev_response) {
-                waiting_list.add(msg_type, promise_obj);
-                is_resolved = false;
+                if (msg_type !== 'authorize' || client_is_logged_in) {
+                    waiting_list.add(msg_type, promise_obj);
+                    is_resolved = false;
+                }
             } else if (msg_types.length === 1) {
                 promise_obj.resolve(prev_response);
             }
@@ -215,16 +135,18 @@ const ChampionSocket = (function() {
     };
 
     const onClose = () => {
-        promise = undefined;
         clearTimeout(keep_alive_timeout);
     };
 
     const onOpen = () => {
-        if (typeof message_callback === 'function') {
-            message_callback();
-        }
         if (isReady()) {
-            promise.then(() => {
+            const token = Cookies.get('token');
+            if (token) {
+                send({ authorize: token });
+            }
+            send({ website_status: 1 });
+
+            wait('authorize').then(() => {
                 while (buffered.length > 0) {
                     send(buffered.shift());
                 }
@@ -235,24 +157,29 @@ const ChampionSocket = (function() {
     const onMessage = (message) => {
         const response = JSON.parse(message.data);
         State.set(['response', response.msg_type], response);
-        waiting_list.resolve(response);
+        if (typeof default_calls[response.msg_type] === 'function') {
+            default_calls[response.msg_type](response);
+        }
         const this_req_id = response.req_id;
         const reg = this_req_id ? registered_callbacks[this_req_id] : null;
+
+        // keep alive
+        clearTimeout(keep_alive_timeout);
+        keep_alive_timeout = setTimeout(() => {
+            send({ ping: 1 });
+        }, 60000);
 
         if (reg && typeof reg.callback === 'function') {
             reg.callback(response);
             if (!reg.subscribe) {
                 delete registered_callbacks[this_req_id];
             }
-        } else if (typeof message_callback === 'function') {
-            message_callback(response);
         }
+
+        waiting_list.resolve(response);
     };
 
     const connect   = () => {
-        initPromise();
-        Object.keys(priority_requests).forEach((key) => { priority_requests[key] = false; });
-
         socket = new WebSocket(getSocketURL());
         socket.onopen    = onOpen;
         socket.onclose   = onClose;
@@ -265,7 +192,6 @@ const ChampionSocket = (function() {
         wait     : wait,
         getAppId : getAppId,
         getServer: getServer,
-        promise  : () => promise,
     };
 })();
 

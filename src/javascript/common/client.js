@@ -3,6 +3,7 @@ const LocalStore           = require('./storage').LocalStore;
 const State                = require('./storage').State;
 const default_redirect_url = require('./url').default_redirect_url;
 const url_for              = require('./url').url_for;
+const ChampionSocket       = require('./socket');
 const Cookies              = require('../lib/js-cookie');
 
 const Client = (function () {
@@ -62,6 +63,11 @@ const Client = (function () {
     };
 
     const response_authorize = (response) => {
+        if (response.error || response.authorize.loginid !== Client.get('loginid')) {
+            request_logout();
+            return;
+        }
+
         const authorize = response.authorize;
         if (!Cookies.get('email')) {
             set_cookie('email', authorize.email);
@@ -71,11 +77,25 @@ const Client = (function () {
         set('landing_company_name', authorize.landing_company_name);
         set('landing_company_fullname', authorize.landing_company_fullname);
         set('currency', authorize.currency);
+        set('balance', authorize.balance);
         client_object.values_set = true;
 
         if (authorize.is_virtual && !get('has_real')) {
             $('.upgrade-message').removeClass('hidden');
         }
+
+        ChampionSocket.send({ balance: 1, subscribe: 1 });
+        ChampionSocket.send({ get_settings: 1 });
+        ChampionSocket.send({ get_account_status: 1 });
+        const country_code = response.authorize.country;
+        if (country_code) {
+            Client.set('residence', country_code);
+            ChampionSocket.send({ landing_company: country_code });
+        }
+
+        $('#btn_logout').click(() => {
+            request_logout();
+        });
     };
 
     const check_tnc = function() {
@@ -147,6 +167,10 @@ const Client = (function () {
         // set local storage
         set('loginid', client_loginid);
         window.location.href = default_redirect_url();
+    };
+
+    const request_logout = () => {
+        ChampionSocket.send({ logout: '1' });
     };
 
     const do_logout = (response) => {

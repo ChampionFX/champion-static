@@ -27,6 +27,7 @@ const MetaTraderUI = (function() {
         $action    = $container.find('#fst_action');
         $templates = $container.find('#templates');
         $main_msg  = $container.find('#main_msg');
+        $container.find('#mt_loading').remove();
 
         populateAccountList();
     };
