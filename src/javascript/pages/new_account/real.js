@@ -162,6 +162,8 @@ const ChampionNewRealAccount = (function() {
                     window.location.href = default_redirect_url();
                 }
             });
+        } else {
+            btn_submit.removeAttr('disabled');
         }
     };
 
