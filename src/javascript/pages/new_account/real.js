@@ -85,7 +85,7 @@ const ChampionNewRealAccount = (function() {
         const renderResidence = () => {
             Utility.dropDownFromObject(ddl_residence, residences, client_residence);
             const country_obj = residences.find(r => r.value === client_residence);
-            if (country_obj && !Utility.isEmptyObject(country_obj)) {
+            if (country_obj && country_obj.phone_idd) {
                 $(fields.txt_phone).val(`+${country_obj.phone_idd}`);
             }
         };
