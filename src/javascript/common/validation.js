@@ -57,9 +57,10 @@ const Validation = (function() {
     const validPhone      = value => /^\+?[0-9\s]*$/.test(value);
     const validEmailToken = value => value.trim().length === 48;
 
-    const validCompare = (value, options) => value === $(options.to).val();
-    const validMin     = (value, options) => (options.min ? value.trim().length >= options.min : true);
-    const validLength  = (value, options) => (
+    const validCompare  = (value, options) => value === $(options.to).val();
+    const validNotEqual = (value, options) => value !== $(options.to).val();
+    const validMin      = (value, options) => (options.min ? value.trim().length >= options.min : true);
+    const validLength   = (value, options) => (
         (options.min ? value.trim().length >= options.min : true) &&
         (options.max ? value.trim().length <= options.max : true)
     );
@@ -92,6 +93,7 @@ const Validation = (function() {
         phone      : { func: validPhone,      message: 'Only numbers and spaces are allowed.' },
         email_token: { func: validEmailToken, message: 'Please submit a valid verification token.' },
         compare    : { func: validCompare,    message: 'The two passwords that you entered do not match.' },
+        not_equal  : { func: validNotEqual,   message: '[_1] and [_2] cannot be the same.' },
         min        : { func: validMin,        message: 'Minimum of [_1] characters required.' },
         length     : { func: validLength,     message: 'You should enter [_1] characters.' },
         number     : { func: validNumber,     message: '' },
@@ -133,6 +135,8 @@ const Validation = (function() {
                     message = message.replace('[_1]', options.min === options.max ? options.min : `${options.min}-${options.max}`);
                 } else if (type === 'min') {
                     message = message.replace('[_1]', options.min);
+                } else if (type === 'not_equal') {
+                    message = message.replace('[_1]', options.name1).replace('[_2]', options.name2);
                 }
                 all_is_ok = false;
                 return true;

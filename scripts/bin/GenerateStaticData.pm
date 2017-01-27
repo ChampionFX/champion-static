@@ -39,6 +39,7 @@ sub _texts {
         push @texts, localize('You should enter [_1] characters.');
         push @texts, localize('Minimum of [_1] characters required.');
         push @texts, localize('The two passwords that you entered do not match.');
+        push @texts, localize('[_1] and [_2] cannot be the same.');
         push @texts, localize('Only letters, space, hyphen, period, apost are allowed.');
         push @texts, localize('Only letters, numbers, hyphen are allowed.');
         push @texts, localize('Only numbers, space are allowed.');
