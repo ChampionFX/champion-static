@@ -62,7 +62,7 @@
                         <label>[% l('Account type') %]</label>
                     </div>
                     <div class="col-xs-8">
-                        <span id="lbl_account_type"></span> <span id="lbl_sub_account_type"></span>
+                        <span id="lbl_account_type"></span>
                     </div>
                 </div>
                 <div class="row form-row">

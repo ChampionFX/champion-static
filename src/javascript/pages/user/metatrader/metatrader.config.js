@@ -56,9 +56,6 @@ const MetaTraderConfig = (function() {
             formValues: ($form, acc_type, action) => {
                 // Account type, Sub account type
                 $form.find(fields[action].lbl_account_type.id).text(types_info[acc_type].title);
-                if (types_info[acc_type].sub_account_type) {
-                    $form.find(fields[action].lbl_sub_account_type.id).text(`: ${types_info[acc_type].sub_account_type}`);
-                }
                 // Email
                 $form.find(fields[action].lbl_email.id).text(fields[action].additional_fields(acc_type).email);
                 // Max leverage
