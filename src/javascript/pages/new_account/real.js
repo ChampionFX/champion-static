@@ -64,14 +64,14 @@ const ChampionNewRealAccount = (function() {
 
     const initValidation = () => {
         Validation.init(form_selector, [
-            { selector: fields.txt_fname,           validations: ['req', 'general', ['min', { min: 2 }]] },
-            { selector: fields.txt_lname,           validations: ['req', 'general', ['min', { min: 2 }]] },
+            { selector: fields.txt_fname,           validations: ['req', 'letter_symbol', ['min', { min: 2 }]] },
+            { selector: fields.txt_lname,           validations: ['req', 'letter_symbol', ['min', { min: 2 }]] },
             { selector: fields.txt_birth_date,      validations: ['req'] },
             { selector: fields.ddl_residence,       validations: ['req'] },
             { selector: fields.txt_address1,        validations: ['req', 'general'] },
             { selector: fields.txt_address2,        validations: ['general'] },
-            { selector: fields.txt_city,            validations: ['req', 'general'] },
-            { selector: fields.txt_state,           validations: ['general'] },
+            { selector: fields.txt_city,            validations: ['req', 'letter_symbol'] },
+            { selector: fields.txt_state,           validations: ['letter_symbol'] },
             { selector: fields.txt_postcode,        validations: ['postcode'] },
             { selector: fields.txt_phone,           validations: ['req', 'phone', ['min', { min: 6 }]] },
             { selector: fields.ddl_secret_question, validations: ['req'] },

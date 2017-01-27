@@ -49,13 +49,14 @@ const Validation = (function() {
     // ------------------------------
     // ----- Validation Methods -----
     // ------------------------------
-    const validRequired   = value => value.length;
-    const validEmail      = value => /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/.test(value);
-    const validPassword   = value => /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+/.test(value);
-    const validGeneral    = value => !/[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/.test(value);
-    const validPostCode   = value => /^[a-zA-Z\d-]*$/.test(value);
-    const validPhone      = value => /^\+?[0-9\s]*$/.test(value);
-    const validEmailToken = value => value.trim().length === 48;
+    const validRequired     = value => value.length;
+    const validEmail        = value => /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/.test(value);
+    const validPassword     = value => /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+/.test(value);
+    const validLetterSymbol = value => !/[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/.test(value);
+    const validGeneral      = value => !/[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|]+/.test(value);
+    const validPostCode     = value => /^[a-zA-Z\d-]*$/.test(value);
+    const validPhone        = value => /^\+?[0-9\s]*$/.test(value);
+    const validEmailToken   = value => value.trim().length === 48;
 
     const validCompare  = (value, options) => value === $(options.to).val();
     const validNotEqual = (value, options) => value !== $(options.to).val();
@@ -85,18 +86,19 @@ const Validation = (function() {
     };
 
     const validators_map = {
-        req        : { func: validRequired,   message: 'This field is required' },
-        email      : { func: validEmail,      message: 'Invalid email address' },
-        password   : { func: validPassword,   message: 'Password should have lower and uppercase letters with numbers.' },
-        general    : { func: validGeneral,    message: 'Only letters, space, hyphen, period, and apostrophe are allowed.' },
-        postcode   : { func: validPostCode,   message: 'Only letters, numbers, and hyphen are allowed.' },
-        phone      : { func: validPhone,      message: 'Only numbers and spaces are allowed.' },
-        email_token: { func: validEmailToken, message: 'Please submit a valid verification token.' },
-        compare    : { func: validCompare,    message: 'The two passwords that you entered do not match.' },
-        not_equal  : { func: validNotEqual,   message: '[_1] and [_2] cannot be the same.' },
-        min        : { func: validMin,        message: 'Minimum of [_1] characters required.' },
-        length     : { func: validLength,     message: 'You should enter [_1] characters.' },
-        number     : { func: validNumber,     message: '' },
+        req          : { func: validRequired,     message: 'This field is required' },
+        email        : { func: validEmail,        message: 'Invalid email address' },
+        password     : { func: validPassword,     message: 'Password should have lower and uppercase letters with numbers.' },
+        general      : { func: validGeneral,      message: 'Only letters, numbers, space, hyphen, period, and apostrophe are allowed.' },
+        letter_symbol: { func: validLetterSymbol, message: 'Only letters, space, hyphen, period, and apostrophe are allowed.' },
+        postcode     : { func: validPostCode,     message: 'Only letters, numbers, and hyphen are allowed.' },
+        phone        : { func: validPhone,        message: 'Only numbers and spaces are allowed.' },
+        email_token  : { func: validEmailToken,   message: 'Please submit a valid verification token.' },
+        compare      : { func: validCompare,      message: 'The two passwords that you entered do not match.' },
+        not_equal    : { func: validNotEqual,     message: '[_1] and [_2] cannot be the same.' },
+        min          : { func: validMin,          message: 'Minimum of [_1] characters required.' },
+        length       : { func: validLength,       message: 'You should enter [_1] characters.' },
+        number       : { func: validNumber,       message: '' },
     };
 
     const pass_length = { min: 6, max: 25 };

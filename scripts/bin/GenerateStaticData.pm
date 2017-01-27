@@ -40,9 +40,10 @@ sub _texts {
         push @texts, localize('Minimum of [_1] characters required.');
         push @texts, localize('The two passwords that you entered do not match.');
         push @texts, localize('[_1] and [_2] cannot be the same.');
-        push @texts, localize('Only letters, space, hyphen, period, apost are allowed.');
-        push @texts, localize('Only letters, numbers, hyphen are allowed.');
-        push @texts, localize('Only numbers, space are allowed.');
+        push @texts, localize('Only letters, numbers, space, hyphen, period, and apostrophe are allowed.');
+        push @texts, localize('Only letters, space, hyphen, period, and apostrophe are allowed.');
+        push @texts, localize('Only letters, numbers, and hyphen are allowed.');
+        push @texts, localize('Only numbers and spaces are allowed.');
         push @texts, localize('Please input a valid date');
         push @texts, localize('Should be a valid number');
         push @texts, localize('Should be more than [_1]');

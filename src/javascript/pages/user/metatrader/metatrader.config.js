@@ -178,7 +178,7 @@ const MetaTraderConfig = (function() {
 
     const validations = {
         new_account: [
-            { selector: fields.new_account.txt_name.id,          validations: ['req', 'general', ['length', { min: 2, max: 30 }]] },
+            { selector: fields.new_account.txt_name.id,          validations: ['req', 'letter_symbol', ['length', { min: 2, max: 30 }]] },
             { selector: fields.new_account.txt_main_pass.id,     validations: ['req', 'password'] },
             { selector: fields.new_account.txt_re_main_pass.id,  validations: ['req', ['compare', { to: fields.new_account.txt_main_pass.id }]] },
             { selector: fields.new_account.txt_investor_pass.id, validations: ['req', 'password', ['not_equal', { to: fields.new_account.txt_main_pass.id, name1: 'Main password', name2: 'Investor password' }]] },
