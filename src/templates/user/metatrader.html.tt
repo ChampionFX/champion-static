@@ -28,7 +28,7 @@
                     </div>
                     <div class="acc-info has-account row hidden">
                         <div class="col-xs-4">[% l('Login ID:') %]</div><div data="login" class="col-xs-8"></div>
-                        <div class="col-xs-4">[% l('Name:') %]</div><div data="name" class="col-xs-8"></div>
+                        <div class="col-xs-4">[% l('Name:') %]</div><div data="name" class="col-xs-7"></div>
                         <div class="col-xs-4">[% l('Balance:') %]</div><div data="balance" class="col-xs-8"></div>
                         <div class="col-xs-4">[% l('Leverage:') %]</div><div data="leverage" class="col-xs-8"></div>
                     </div>
