@@ -276,7 +276,7 @@
                                 <p>[% l("Webtrader lets you monitor all your favourite assets and markets at the same time, as well as charts, the asset index, trading times, and historical data. Most importantly, you get to choose what you want to see on your screen.") %]</p>
                                 <div class="center-text">
                                     <a class="button" href="https://webtrader.champion-fx.com" target="_blank">
-                                        <span>[% l("Lauch Webtrader") %]</span>
+                                        <span>[% l("Launch Webtrader") %]</span>
                                     </a>
                                 </div>
                             </div>
