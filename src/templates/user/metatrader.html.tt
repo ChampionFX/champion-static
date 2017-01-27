@@ -81,7 +81,7 @@
                         <input id="txt_name" type="text" maxlength="30" autocomplete="off" />
                     </div>
                 </div>
-                <div class="row form-row">
+                <div class="row form-row hidden">
                     <div class="col-xs-4">
                         <label for="ddl_leverage">[% l('Leverage') %]</label>
                     </div>
