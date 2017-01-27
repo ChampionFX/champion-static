@@ -82,8 +82,21 @@ const MetaTraderConfig = (function() {
                 .replace('[_2]', response.echo_req.from_binary)
                 .replace('[_3]', response.echo_req.to_mt5)
                 .replace('[_4]', response.binary_transaction_id),
-            prerequisites: () => new Promise(resolve => resolve(Client.is_virtual() ? needsRealMessage() : '')),
-            formValues   : ($form, acc_type, action) => {
+            prerequisites: () => new Promise((resolve) => {
+                if (Client.is_virtual()) {
+                    resolve(needsRealMessage());
+                } else {
+                    ChampionSocket.send({ cashier_password: 1 }).then((response) => {
+                        if (!response.error && response.cashier_password === 1) {
+                            resolve('Your cashier is locked as per your request - to unlock it, please click <a href="[_1]">here</a>.'
+                                .replace('[_1]', url_for('cashier/cashier-password')));
+                        } else {
+                            resolve();
+                        }
+                    });
+                }
+            }),
+            formValues: ($form, acc_type, action) => {
                 // From, To
                 $form.find(fields[action].lbl_from.id).text(fields[action].additional_fields(acc_type).from_binary);
                 $form.find(fields[action].lbl_to.id).text(fields[action].additional_fields(acc_type).to_mt5);

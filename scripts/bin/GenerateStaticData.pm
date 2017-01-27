@@ -86,6 +86,7 @@ sub _texts {
         push @texts, localize('To create a [_1] Account for MT5, please switch to your [_2] Real Account.');
         push @texts, localize('To create a [_1] Account for MT5, please <a href="[_2]"> upgrade to [_3] Real Account</a>.');
         push @texts, localize('To create a Financial Account for MT5, please complete the <a href="[_1]">Financial Assessment</a>.');
+        push @texts, localize('Your cashier is locked as per your request - to unlock it, please click <a href="[_1]">here</a>.');
 
         # date_picker
         push @texts, localize('January');
