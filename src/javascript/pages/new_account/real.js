@@ -112,7 +112,7 @@ const ChampionNewRealAccount = (function() {
             initValidation();
         };
 
-        let states = State.get(['response', 'states_list']);
+        let states = State.get(['response', 'states_list', 'states_list']);
         if (!states) {
             ChampionSocket.send({ states_list: client_residence }).then((response) => {
                 states = response.states_list;
