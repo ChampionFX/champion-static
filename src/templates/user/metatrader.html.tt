@@ -262,11 +262,17 @@
 
             <div id="msg_authenticate">
                 <div class="txt-left">
-                    <p>[% l('Authenticate your Champion-FX.com account to create an MT5 Financial Account.') %]</p>
-                    <p>[% l('Kindly email the following documents to <a href="mailto:[_1]">[_1]</a> to authenticate your account:', 'support@champion-fx.com') %]</p>
-                    <ul class="bullet">
-                        <li>[% l('A scanned copy of your passport, driving licence (provisional or full), or identity card that shows your full name and date of birth.') %]</li>
-                        <li>[% l('A scanned copy of a utility bill or bank statement that is no more than three months old.') %]</li>
+                    <p>[% l('To create an MT5 Financial Account please:') %]</p>
+                    <ul class="checked">
+                        <li class="authenticate hidden">
+                            [% l('Authenticate your Champion-FX.com account.') %]
+                            <p>[% l('Kindly email the following documents to <a href="mailto:[_1]">[_1]</a> to authenticate your account:', 'support@champion-fx.com') %]</p>
+                            <ul class="bullet">
+                                <li>[% l('A scanned copy of your passport, driving licence (provisional or full), or identity card that shows your full name and date of birth.') %]</li>
+                                <li>[% l('A scanned copy of a utility bill or bank statement that is no more than three months old.') %]</li>
+                            </ul>
+                        </li>
+                        <li class="assessment hidden">[% l('Complete the <a href="[_1]">Financial Assessment</a>.', request.url_for('user/assessment')) %]</li>
                     </ul>
                 </div>
             </div>

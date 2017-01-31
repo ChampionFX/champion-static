@@ -37,18 +37,16 @@ const MetaTraderConfig = (function() {
                         resolve(needsRealMessage());
                     } else {
                         ChampionSocket.send({ get_account_status: 1 }).then((response_status) => {
+                            const $msg = $('#msg_authenticate').clone();
                             if ($.inArray('authenticated', response_status.get_account_status.status) === -1) {
-                                resolve($('#msg_authenticate').html());
-                            } else {
-                                ChampionSocket.send({ get_financial_assessment: 1 }).then((response_financial) => {
-                                    if (isEmptyObject(response_financial.get_financial_assessment)) {
-                                        resolve('To create a Financial Account for MT5, please complete the <a href="[_1]">Financial Assessment</a>.'
-                                            .replace('[_1]', url_for('user/assessment')));
-                                    } else {
-                                        resolve();
-                                    }
-                                });
+                                $msg.find('li.authenticate').removeClass('hidden');
                             }
+                            ChampionSocket.send({ get_financial_assessment: 1 }).then((response_financial) => {
+                                if (isEmptyObject(response_financial.get_financial_assessment)) {
+                                    $msg.find('li.assessment').removeClass('hidden');
+                                }
+                                resolve($msg.find('.checked > li:not(.hidden)').length ? $msg.html() : '');
+                            });
                         });
                     }
                 })
