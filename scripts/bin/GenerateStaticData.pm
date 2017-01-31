@@ -39,9 +39,11 @@ sub _texts {
         push @texts, localize('You should enter [_1] characters.');
         push @texts, localize('Minimum of [_1] characters required.');
         push @texts, localize('The two passwords that you entered do not match.');
-        push @texts, localize('Only letters, space, hyphen, period, apost are allowed.');
-        push @texts, localize('Only letters, numbers, hyphen are allowed.');
-        push @texts, localize('Only numbers, space are allowed.');
+        push @texts, localize('[_1] and [_2] cannot be the same.');
+        push @texts, localize('Only letters, numbers, space, hyphen, period, and apostrophe are allowed.');
+        push @texts, localize('Only letters, space, hyphen, period, and apostrophe are allowed.');
+        push @texts, localize('Only letters, numbers, and hyphen are allowed.');
+        push @texts, localize('Only numbers and spaces are allowed.');
         push @texts, localize('Please input a valid date');
         push @texts, localize('Should be a valid number');
         push @texts, localize('Should be more than [_1]');
@@ -83,7 +85,7 @@ sub _texts {
         push @texts, localize('[_1] withdrawal from account number [_2] to [_3] is done. Transaction ID: [_4]');
         push @texts, localize('To create a [_1] Account for MT5, please switch to your [_2] Real Account.');
         push @texts, localize('To create a [_1] Account for MT5, please <a href="[_2]"> upgrade to [_3] Real Account</a>.');
-        push @texts, localize('To create a Financial Account for MT5, please complete the <a href="[_1]">Financial Assessment</a>.');
+        push @texts, localize('Your cashier is locked as per your request - to unlock it, please click <a href="[_1]">here</a>.');
 
         # date_picker
         push @texts, localize('January');

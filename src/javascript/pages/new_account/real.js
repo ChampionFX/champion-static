@@ -12,14 +12,13 @@ const ChampionNewRealAccount = (function() {
 
     const form_selector = '#frm_new_account_real';
 
-    let client_residence,
-        residences = null,
-        states     = null;
+    let client_residence;
 
     let container,
         btn_submit,
         ddl_residence,
-        ddl_state;
+        ddl_state,
+        datePickerInst;
 
     const fields = {
         ddl_title          : '#ddl_title',
@@ -60,18 +59,21 @@ const ChampionNewRealAccount = (function() {
         if (btn_submit) {
             btn_submit.off('click', submit);
         }
+        if (datePickerInst) {
+            datePickerInst.hide();
+        }
     };
 
     const initValidation = () => {
         Validation.init(form_selector, [
-            { selector: fields.txt_fname,           validations: ['req', 'general', ['min', { min: 2 }]] },
-            { selector: fields.txt_lname,           validations: ['req', 'general', ['min', { min: 2 }]] },
+            { selector: fields.txt_fname,           validations: ['req', 'letter_symbol', ['min', { min: 2 }]] },
+            { selector: fields.txt_lname,           validations: ['req', 'letter_symbol', ['min', { min: 2 }]] },
             { selector: fields.txt_birth_date,      validations: ['req'] },
             { selector: fields.ddl_residence,       validations: ['req'] },
             { selector: fields.txt_address1,        validations: ['req', 'general'] },
             { selector: fields.txt_address2,        validations: ['general'] },
-            { selector: fields.txt_city,            validations: ['req', 'general'] },
-            { selector: fields.txt_state,           validations: ['general'] },
+            { selector: fields.txt_city,            validations: ['req', 'letter_symbol'] },
+            { selector: fields.txt_state,           validations: ['letter_symbol'] },
             { selector: fields.txt_postcode,        validations: ['postcode'] },
             { selector: fields.txt_phone,           validations: ['req', 'phone', ['min', { min: 6 }]] },
             { selector: fields.ddl_secret_question, validations: ['req'] },
@@ -82,10 +84,15 @@ const ChampionNewRealAccount = (function() {
 
     const populateResidence = () => {
         ddl_residence = container.find(fields.ddl_residence);
-        residences = State.get(['response', 'residence_list']);
         const renderResidence = () => {
             Utility.dropDownFromObject(ddl_residence, residences, client_residence);
+            const country_obj = residences.find(r => r.value === client_residence);
+            if (country_obj && country_obj.phone_idd) {
+                $(fields.txt_phone).val(`+${country_obj.phone_idd}`);
+            }
         };
+
+        let residences = State.get(['response', 'residence_list', 'residence_list']);
         if (!residences) {
             ChampionSocket.send({ residence_list: 1 }).then((response) => {
                 residences = response.residence_list;
@@ -98,7 +105,6 @@ const ChampionNewRealAccount = (function() {
 
     const populateState = () => {
         ddl_state = container.find(fields.ddl_state);
-        states = State.get(['response', 'states_list']);
         const renderState = () => {
             if (states && states.length) {
                 Utility.dropDownFromObject(ddl_state, states);
@@ -107,6 +113,8 @@ const ChampionNewRealAccount = (function() {
             }
             initValidation();
         };
+
+        let states = State.get(['response', 'states_list', 'states_list']);
         if (!states) {
             ChampionSocket.send({ states_list: client_residence }).then((response) => {
                 states = response.states_list;
@@ -118,8 +126,7 @@ const ChampionNewRealAccount = (function() {
     };
 
     const attachDatePicker = () => {
-        const datePickerInst = new DatePicker(fields.txt_birth_date);
-        datePickerInst.hide();
+        datePickerInst = new DatePicker(fields.txt_birth_date);
         datePickerInst.show({
             minDate  : -100 * 365,
             maxDate  : (-18 * 365) - 5,
@@ -129,7 +136,8 @@ const ChampionNewRealAccount = (function() {
             .attr('data-value', Utility.toISOFormat(moment()))
             .change(function() {
                 return Utility.dateValueChanged(this, 'date');
-            });
+            })
+            .val('');
     };
 
     const submit = (e) => {
@@ -162,6 +170,8 @@ const ChampionNewRealAccount = (function() {
                     window.location.href = default_redirect_url();
                 }
             });
+        } else {
+            btn_submit.removeAttr('disabled');
         }
     };
 

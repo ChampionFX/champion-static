@@ -37,18 +37,16 @@ const MetaTraderConfig = (function() {
                         resolve(needsRealMessage());
                     } else {
                         ChampionSocket.send({ get_account_status: 1 }).then((response_status) => {
+                            const $msg = $('#msg_authenticate').clone();
                             if ($.inArray('authenticated', response_status.get_account_status.status) === -1) {
-                                resolve($('#msg_authenticate').html());
-                            } else {
-                                ChampionSocket.send({ get_financial_assessment: 1 }).then((response_financial) => {
-                                    if (isEmptyObject(response_financial.get_financial_assessment)) {
-                                        resolve('To create a Financial Account for MT5, please complete the <a href="[_1]">Financial Assessment</a>.'
-                                            .replace('[_1]', url_for('user/assessment')));
-                                    } else {
-                                        resolve();
-                                    }
-                                });
+                                $msg.find('li.authenticate').removeClass('hidden');
                             }
+                            ChampionSocket.send({ get_financial_assessment: 1 }).then((response_financial) => {
+                                if (isEmptyObject(response_financial.get_financial_assessment)) {
+                                    $msg.find('li.assessment').removeClass('hidden');
+                                }
+                                resolve($msg.find('.checked > li:not(.hidden)').length ? $msg.html() : '');
+                            });
                         });
                     }
                 })
@@ -56,9 +54,6 @@ const MetaTraderConfig = (function() {
             formValues: ($form, acc_type, action) => {
                 // Account type, Sub account type
                 $form.find(fields[action].lbl_account_type.id).text(types_info[acc_type].title);
-                if (types_info[acc_type].sub_account_type) {
-                    $form.find(fields[action].lbl_sub_account_type.id).text(`: ${types_info[acc_type].sub_account_type}`);
-                }
                 // Email
                 $form.find(fields[action].lbl_email.id).text(fields[action].additional_fields(acc_type).email);
                 // Max leverage
@@ -85,8 +80,21 @@ const MetaTraderConfig = (function() {
                 .replace('[_2]', response.echo_req.from_binary)
                 .replace('[_3]', response.echo_req.to_mt5)
                 .replace('[_4]', response.binary_transaction_id),
-            prerequisites: () => new Promise(resolve => resolve(Client.is_virtual() ? needsRealMessage() : '')),
-            formValues   : ($form, acc_type, action) => {
+            prerequisites: () => new Promise((resolve) => {
+                if (Client.is_virtual()) {
+                    resolve(needsRealMessage());
+                } else {
+                    ChampionSocket.send({ cashier_password: 1 }).then((response) => {
+                        if (!response.error && response.cashier_password === 1) {
+                            resolve('Your cashier is locked as per your request - to unlock it, please click <a href="[_1]">here</a>.'
+                                .replace('[_1]', url_for('cashier/cashier-password')));
+                        } else {
+                            resolve();
+                        }
+                    });
+                }
+            }),
+            formValues: ($form, acc_type, action) => {
                 // From, To
                 $form.find(fields[action].lbl_from.id).text(fields[action].additional_fields(acc_type).from_binary);
                 $form.find(fields[action].lbl_to.id).text(fields[action].additional_fields(acc_type).to_mt5);
@@ -178,16 +186,16 @@ const MetaTraderConfig = (function() {
 
     const validations = {
         new_account: [
-            { selector: fields.new_account.txt_name.id,          validations: ['req', 'general', ['length', { min: 2, max: 30 }]] },
+            { selector: fields.new_account.txt_name.id,          validations: ['req', 'letter_symbol', ['length', { min: 2, max: 30 }]] },
             { selector: fields.new_account.txt_main_pass.id,     validations: ['req', 'password'] },
             { selector: fields.new_account.txt_re_main_pass.id,  validations: ['req', ['compare', { to: fields.new_account.txt_main_pass.id }]] },
-            { selector: fields.new_account.txt_investor_pass.id, validations: ['req', 'password'] },
+            { selector: fields.new_account.txt_investor_pass.id, validations: ['req', 'password', ['not_equal', { to: fields.new_account.txt_main_pass.id, name1: 'Main password', name2: 'Investor password' }]] },
             { selector: fields.new_account.ddl_leverage.id,      validations: ['req'] },
             { selector: fields.new_account.chk_tnc.id,           validations: ['req'] },
         ],
         password_change: [
             { selector: fields.password_change.txt_old_password.id,    validations: ['req'] },
-            { selector: fields.password_change.txt_new_password.id,    validations: ['req', 'password'] },
+            { selector: fields.password_change.txt_new_password.id,    validations: ['req', 'password', ['not_equal', { to: fields.password_change.txt_old_password.id, name1: 'Current password', name2: 'New password' }]] },
             { selector: fields.password_change.txt_re_new_password.id, validations: ['req', ['compare', { to: fields.password_change.txt_new_password.id }]] },
         ],
         deposit: [
