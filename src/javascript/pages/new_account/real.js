@@ -59,7 +59,9 @@ const ChampionNewRealAccount = (function() {
         if (btn_submit) {
             btn_submit.off('click', submit);
         }
-        datePickerInst.hide();
+        if (datePickerInst) {
+            datePickerInst.hide();
+        }
     };
 
     const initValidation = () => {
