@@ -14,15 +14,22 @@ const Cashier = (function() {
                 if (Client.is_virtual()) {
                     container.find('.fx-virtual').removeClass(hidden_class);
                     if (Client.get('balance') > 1000) {
-                        $('#VRT_topup_link')
-                            .prop('href', 'javascript;:')
-                            .addClass('button-disabled');
+                        disableButton($('#VRT_topup_link'));
                     }
                 } else {
-                    container.find('.fx-real').removeClass(hidden_class);
+                    ChampionSocket.send({ cashier_password: 1 }).then((response) => {
+                        if (!response.error && response.cashier_password === 1) {
+                            disableButton($('#deposit-btn, #withdraw-btn'));
+                        }
+                        container.find('.fx-real').removeClass(hidden_class);
+                    });
                 }
             });
         }
+    };
+
+    const disableButton = ($btn) => {
+        $btn.attr('href', `${'javascr'}${'ipt:;'}`).addClass('button-disabled');
     };
 
     return {

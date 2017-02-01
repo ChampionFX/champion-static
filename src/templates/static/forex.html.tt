@@ -88,7 +88,7 @@
                                         <p>[% l('Trade with leverage, which means the ability to control more money than the initial capital you started with.') %]</p>
                                     </div>
                                 </div>
-                                <p class="center-text"><a class="button" href=""><span>[% l('Learn more') %]</span></a></p>
+                                <p class="center-text"><a class="button" href="#how-to-trade"><span>[% l('Learn more') %]</span></a></p>
                             </div>
                             <div id="how-to-trade-content" class="toggle-content invisible">
                                 <h2>[% l('How to trade Forex') %]</h2>
@@ -394,9 +394,9 @@
 
                                                 <tr>
                                                     <td></td>
-                                                    <td><a class="button" href=""><span>[% l('Sign up') %]</span></a></td>
-                                                    <td><a class="button" href=""><span>[% l('Sign up') %]</span></a></td>
-                                                    <td><a class="button" href=""><span>[% l('Sign up') %]</span></a></td>
+                                                    <td><a class="button" href="[% request.url_for('user/metatrader') %]"><span>[% l('Sign up') %]</span></a></td>
+                                                    <td><a class="button" href="[% request.url_for('user/metatrader') %]"><span>[% l('Sign up') %]</span></a></td>
+                                                    <td><a class="button" href="[% request.url_for('user/metatrader') %]"><span>[% l('Sign up') %]</span></a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -423,7 +423,7 @@
                             <div id="forex-accounts-cent-content" class="toggle-content invisible">
                                 <h2>[% l('Cent account') %]</h2>
                                 <p>[% l('The Cent account offers the highest leverage, as well as low margin call and stop out level. It is ideal for new traders who want to start trading with a smaller capital.') %]</p>
-                                <p class="center-text"><a class="button" href=""><span>[% l('Sign up') %]</span></a></p>
+                                <p class="center-text"><a class="button" href="[% request.url_for('user/metatrader') %]"><span>[% l('Sign up') %]</span></a></p>
                                 <h2>[% l('Account specifications') %]</h2>
                                 <table class="forex-accounts">
                                     <tbody>
@@ -469,7 +469,7 @@
                             <div id="forex-accounts-standard-content" class="toggle-content invisible">
                                 <h2>[% l('Standard account') %]</h2>
                                 <p>[% l('The Standard account is suitable for a wide range of traders, both new and experienced. It gives you mid-range leverage and variable spreads that give you a great deal of flexibility for whatever position you wish to take in the market.') %]</p>
-                                <p class="center-text"><a class="button" href=""><span>[% l('Sign up') %]</span></a></p>
+                                <p class="center-text"><a class="button" href="[% request.url_for('user/metatrader') %]"><span>[% l('Sign up') %]</span></a></p>
                                 <h2>[% l('Account specifications') %]</h2>
                                 <table class="forex-accounts">
                                     <tbody>
@@ -515,7 +515,7 @@
                             <div id="forex-accounts-stp-content" class="toggle-content invisible">
                                 <h2>[% l('STP account') %]</h2>
                                 <p>[% l('The STP account provides you with the tightest spreads and connects you directly to the market, and provides you with different prices from a variety of liquidity providers such as banks and brokerages. STP stands for ‘Straight Through Processing’ meaning your orders are sent directly to our liquidity providers.') %]</p>
-                                <p class="center-text"><a class="button" href=""><span>[% l('Sign up') %]</span></a></p>
+                                <p class="center-text"><a class="button" href="[% request.url_for('user/metatrader') %]"><span>[% l('Sign up') %]</span></a></p>
                                 <h2>[% l('Account specifications') %]</h2>
                                 <table class="forex-accounts">
                                     <tbody>
