@@ -5,6 +5,8 @@
         > div {
             height: 100%;
             border: 1px solid $borderColor;
+            display: flex;
+            flex-direction: column;
             &:hover, &.active {
                 border-color: $secondaryContentColor;
                 background: $fillColor;
@@ -39,10 +41,20 @@
                 word-break: break-all;
             }
             .acc-actions {
-                margin-top: 10px;
+                margin-top: auto;
                 padding: 10px;
                 border-top: 1px solid $borderColor;
-                font-size: 0.9rem;
+                font-size: 0.8rem;
+                a {
+                    display: inline-block;
+                    width: 64px;
+                    text-align: center;
+                    margin: 0 3px;
+                    img {
+                        height: 32px;
+                        margin-bottom: 7px;
+                    }
+                }
             }
         }
     }
