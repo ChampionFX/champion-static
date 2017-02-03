@@ -1,7 +1,6 @@
 const moment               = require('moment');
 const ChampionSocket       = require('../../common/socket');
 const Client               = require('../../common/client');
-const State                = require('../../common/storage').State;
 const Utility              = require('../../common/utility');
 const default_redirect_url = require('../../common/url').default_redirect_url;
 const Validation           = require('../../common/validation');
@@ -16,8 +15,6 @@ const ChampionNewRealAccount = (function() {
 
     let container,
         btn_submit,
-        ddl_residence,
-        ddl_state,
         datePickerInst;
 
     const fields = {
@@ -83,46 +80,31 @@ const ChampionNewRealAccount = (function() {
     };
 
     const populateResidence = () => {
-        ddl_residence = container.find(fields.ddl_residence);
-        const renderResidence = () => {
-            Utility.dropDownFromObject(ddl_residence, residences, client_residence);
-            const country_obj = residences.find(r => r.value === client_residence);
+        ChampionSocket.send({ residence_list: 1 }).then((response) => {
+            const $ddl_residence = container.find(fields.ddl_residence);
+            Utility.dropDownFromObject($ddl_residence, response.residence_list, client_residence);
+            container.find('#residence_loading').remove();
+            $ddl_residence.removeClass('hidden');
+            const country_obj = response.residence_list.find(r => r.value === client_residence);
             if (country_obj && country_obj.phone_idd) {
                 $(fields.txt_phone).val(`+${country_obj.phone_idd}`);
             }
-        };
-
-        let residences = State.get(['response', 'residence_list', 'residence_list']);
-        if (!residences) {
-            ChampionSocket.send({ residence_list: 1 }).then((response) => {
-                residences = response.residence_list;
-                renderResidence();
-            });
-        } else {
-            renderResidence();
-        }
+        });
     };
 
     const populateState = () => {
-        ddl_state = container.find(fields.ddl_state);
-        const renderState = () => {
+        ChampionSocket.send({ states_list: client_residence }).then((response) => {
+            const $ddl_state = container.find(fields.ddl_state);
+            const states = response.states_list;
+            container.find('#state_loading').remove();
             if (states && states.length) {
-                Utility.dropDownFromObject(ddl_state, states);
+                Utility.dropDownFromObject($ddl_state, states);
+                $ddl_state.removeClass('hidden');
             } else {
-                ddl_state.replaceWith($('<input/>', { type: 'text', id: fields.txt_state.replace('#', ''), class: 'text', maxlength: '35' }));
+                $ddl_state.replaceWith($('<input/>', { type: 'text', id: fields.txt_state.replace('#', ''), class: 'text', maxlength: '35' }));
             }
             initValidation();
-        };
-
-        let states = State.get(['response', 'states_list', 'states_list']);
-        if (!states) {
-            ChampionSocket.send({ states_list: client_residence }).then((response) => {
-                states = response.states_list;
-                renderState();
-            });
-        } else {
-            renderState();
-        }
+        });
     };
 
     const attachDatePicker = () => {
