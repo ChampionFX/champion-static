@@ -56,8 +56,8 @@
                         <label for="ddl_residence">[% l('Country of residence') %]</label>
                     </div>
                     <div class="col-xs-8">
-                        <span id="move-residence-back"></span>
-                        <select id="ddl_residence" disabled="disabled"></select>
+                        <div id="residence_loading" class="small-spinner">[% INCLUDE static/common/loading.html.tt %]</div>
+                        <select id="ddl_residence" class="hidden" disabled="disabled"></select>
                     </div>
                 </div>
             </fieldset>
@@ -97,7 +97,8 @@
                         <label for="ddl_state">[% l('State/Province') %]</label>
                     </div>
                     <div class="col-xs-8">
-                        <select id="ddl_state"></select>
+                        <div id="state_loading" class="small-spinner">[% INCLUDE static/common/loading.html.tt %]</div>
+                        <select id="ddl_state" class="hidden"></select>
                     </div>
                 </div>
 

@@ -49,7 +49,8 @@
                         <label for="ddl_residence">[% l('Country of residence') %]</label>
                     </div>
                     <div class="col-xs-8">
-                        <select id="ddl_residence"></select>
+                        <div id="residence_loading" class="small-spinner">[% INCLUDE static/common/loading.html.tt %]</div>
+                        <select id="ddl_residence" class="hidden"></select>
                     </div>
                 </div>
             </fieldset>

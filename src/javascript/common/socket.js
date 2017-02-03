@@ -14,10 +14,11 @@ const ChampionSocket = (function() {
     const registered_callbacks = {};
     const no_duplicate_requests = [
         'authorize',
-        'get_settings',
-        'website_status',
         'get_account_status',
         'get_financial_assessment',
+        'get_settings',
+        'residence_list',
+        'website_status',
     ];
     const default_calls = {};
 
@@ -47,11 +48,19 @@ const ChampionSocket = (function() {
 
     const isClosed = () => (!socket || socket.readyState === 2 || socket.readyState === 3);
 
-    const send = (data, force_send) => {
-        const promise_obj = new PromiseClass();
+    class PromiseClass {
+        constructor() {
+            this.promise = new Promise((resolve, reject) => {
+                this.reject = reject;
+                this.resolve = resolve;
+            });
+        }
+    }
+
+    const send = (data, force_send, promise_obj = new PromiseClass()) => {
         const msg_type = no_duplicate_requests.find(c => c in data);
 
-        if (!force_send) {
+        if (!force_send && msg_type) {
             const exist_in_state = State.get(['response', msg_type]);
             if (exist_in_state) {
                 promise_obj.resolve(exist_in_state);
@@ -69,7 +78,7 @@ const ChampionSocket = (function() {
         if (isReady()) {
             socket.send(JSON.stringify(data));
         } else {
-            buffered.push(data);
+            buffered.push({ request: data, promise: promise_obj });
             if (isClosed()) {
                 connect();
             }
@@ -106,14 +115,6 @@ const ChampionSocket = (function() {
                 ))
         ),
     };
-    class PromiseClass {
-        constructor() {
-            this.promise = new Promise((resolve, reject) => {
-                this.reject = reject;
-                this.resolve = resolve;
-            });
-        }
-    }
     const wait = (...msg_types) => {
         const promise_obj = new PromiseClass();
         let is_resolved = true;
@@ -148,7 +149,8 @@ const ChampionSocket = (function() {
 
             wait('authorize').then(() => {
                 while (buffered.length > 0) {
-                    send(buffered.shift());
+                    const req_obj = buffered.shift();
+                    send(req_obj.request, false, req_obj.promise);
                 }
             });
         }

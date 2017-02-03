@@ -1,6 +1,5 @@
 const ChampionSocket       = require('../../common/socket');
 const Client               = require('../../common/client');
-const State                = require('../../common/storage').State;
 const Utility              = require('../../common/utility');
 const default_redirect_url = require('../../common/url').default_redirect_url;
 const Validation           = require('../../common/validation');
@@ -10,11 +9,8 @@ const ChampionNewVirtualAccount = (function() {
 
     const form_selector = '#frm_new_account_virtual';
 
-    let residences = null;
-
     let container,
-        btn_submit,
-        ddl_residence;
+        btn_submit;
 
     const fields = {
         txt_verification_code: '#txt_verification_code',
@@ -41,19 +37,12 @@ const ChampionNewVirtualAccount = (function() {
     };
 
     const populateResidence = () => {
-        ddl_residence = container.find(fields.ddl_residence);
-        residences = State.get(['response', 'residence_list']);
-        const renderResidence = () => {
-            Utility.dropDownFromObject(ddl_residence, residences);
-        };
-        if (!residences) {
-            ChampionSocket.send({ residence_list: 1 }).then((response) => {
-                residences = response.residence_list;
-                renderResidence();
-            });
-        } else {
-            renderResidence();
-        }
+        ChampionSocket.send({ residence_list: 1 }).then((response) => {
+            const $ddl_residence = container.find(fields.ddl_residence);
+            Utility.dropDownFromObject($ddl_residence, response.residence_list);
+            container.find('#residence_loading').remove();
+            $ddl_residence.removeClass('hidden');
+        });
     };
 
     const unload = () => {
