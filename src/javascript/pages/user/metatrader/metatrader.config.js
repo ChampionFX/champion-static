@@ -14,14 +14,7 @@ const MetaTraderConfig = (function() {
         champion_stp     : { account_type: 'financial', sub_account_type: 'stp',      title: 'Real STP',      max_leverage: 100 },
     };
 
-    const needsRealMessage = () => (
-         Client.has_real() ?
-            'To perform this action, please switch to your [_1] Real Account.'
-                .replace('[_1]', 'Champion-FX.com') :
-            'To perform this action, please <a href="[_1]"> upgrade to [_2] Real Account</a>.'
-                .replace('[_1]', url_for('new-account/real'))
-                .replace('[_2]', 'Champion-FX.com')
-    );
+    const needsRealMessage = () => $(`#msg_${Client.has_real() ? 'switch' : 'upgrade'}`).html();
 
     const actions_info = {
         new_account: {
@@ -36,17 +29,8 @@ const MetaTraderConfig = (function() {
                     } else if (Client.is_virtual()) {
                         resolve(needsRealMessage());
                     } else {
-                        ChampionSocket.send({ get_account_status: 1 }).then((response_status) => {
-                            const $msg = $('#msg_authenticate').clone();
-                            if ($.inArray('authenticated', response_status.get_account_status.status) === -1) {
-                                $msg.find('li.authenticate').removeClass('hidden');
-                            }
-                            ChampionSocket.send({ get_financial_assessment: 1 }).then((response_financial) => {
-                                if (isEmptyObject(response_financial.get_financial_assessment)) {
-                                    $msg.find('li.assessment').removeClass('hidden');
-                                }
-                                resolve($msg.find('.checked > li:not(.hidden)').length ? $msg.html() : '');
-                            });
+                        ChampionSocket.send({ get_financial_assessment: 1 }).then((response_financial) => {
+                            resolve(isEmptyObject(response_financial.get_financial_assessment) ? $('#msg_assessment').html() : '');
                         });
                     }
                 })
@@ -107,8 +91,16 @@ const MetaTraderConfig = (function() {
                 .replace('[_2]', response.echo_req.from_mt5)
                 .replace('[_3]', response.echo_req.to_binary)
                 .replace('[_4]', response.binary_transaction_id),
-            prerequisites: () => new Promise(resolve => resolve(Client.is_virtual() ? needsRealMessage() : '')),
-            pre_submit   : ($form, acc_type, displayFormMessage) => (
+            prerequisites: () => new Promise((resolve) => {
+                if (Client.is_virtual()) {
+                    resolve(needsRealMessage());
+                } else {
+                    ChampionSocket.send({ get_account_status: 1 }).then((response_status) => {
+                        resolve($.inArray('authenticated', response_status.get_account_status.status) === -1 ? $('#msg_authenticate').html() : '');
+                    });
+                }
+            }),
+            pre_submit: ($form, acc_type, displayFormMessage) => (
                 ChampionSocket.send({
                     mt5_password_check: 1,
                     login             : types_info[acc_type].account_info.login,
