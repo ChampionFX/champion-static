@@ -1,8 +1,7 @@
 const CookieStorage        = require('./storage').CookieStorage;
 const LocalStore           = require('./storage').LocalStore;
 const State                = require('./storage').State;
-const default_redirect_url = require('./url').default_redirect_url;
-const url_for              = require('./url').url_for;
+const url                  = require('./url');
 const template             = require('./utility').template;
 const ChampionSocket       = require('./socket');
 const Cookies              = require('../lib/js-cookie');
@@ -33,6 +32,7 @@ const Client = (function () {
         set('residence', Cookies.get('residence'));
 
         endpoint_notification();
+        recordAffiliateExposure();
     };
 
     const is_logged_in = () => (
@@ -45,7 +45,7 @@ const Client = (function () {
     const redirect_if_login = () => {
         const client_is_logged_in = is_logged_in();
         if (client_is_logged_in) {
-            window.location.href = default_redirect_url();
+            window.location.href = url.default_redirect_url();
         }
         return client_is_logged_in;
     };
@@ -111,7 +111,7 @@ const Client = (function () {
             terms_conditions_version = State.get(['response', 'website_status', 'website_status', 'terms_conditions_version']);
         if (client_tnc_status !== terms_conditions_version) {
             sessionStorage.setItem('tnc_redirect', window.location.href);
-            window.location.href = url_for('user/tnc-approval');
+            window.location.href = url.url_for('user/tnc-approval');
         }
     };
 
@@ -169,7 +169,7 @@ const Client = (function () {
         set_cookie('loginid_list', virtual_client ? `${client_loginid}:V:E` : `${client_loginid}:R:E+${Cookies.get('loginid_list')}`);
         // set local storage
         set('loginid', client_loginid);
-        window.location.href = default_redirect_url();
+        window.location.href = url.default_redirect_url();
     };
 
     const request_logout = () => {
@@ -210,11 +210,40 @@ const Client = (function () {
         const server  = localStorage.getItem('config.server_url');
         if (server && server.length > 0) {
             const message = template('This is a staging server - For testing purposes only - The server <a href="[_1]">endpoint</a> is: [_2]',
-                [url_for('endpoint'), server]);
+                [url.url_for('endpoint'), server]);
             const $end_note = $('#end_note');
             $end_note.html(message).removeClass('invisible');
             $('#footer').css('padding-bottom', $end_note.height() + 10);
         }
+    };
+
+    const recordAffiliateExposure = () => {
+        const is_subsidiary = /\w{1}/.test(url.get_params().s);
+        const cookie_token = Cookies.getJSON('affiliate_tracking');
+        if (cookie_token && cookie_token.t) {
+            set('affiliate_token', cookie_token.t);
+            if (is_subsidiary) { // Already exposed to some other affiliate
+                return false;
+            }
+        }
+
+        const token = url.get_params().t;
+        if (!token || token.length !== 32) {
+            return false;
+        }
+
+        // Record the affiliate exposure. Overwrite existing cookie, if any.
+        const cookie_hash = {};
+        if (token.length === 32) {
+            cookie_hash.t = token.toString();
+        }
+        if (is_subsidiary) {
+            cookie_hash.s = '1';
+        }
+
+        set_cookie('affiliate_tracking', cookie_hash);
+        set('affiliate_token', cookie_hash.t);
+        return true;
     };
 
     return {
