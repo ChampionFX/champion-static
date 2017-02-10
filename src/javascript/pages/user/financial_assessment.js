@@ -2,13 +2,13 @@ const showLoadingImage   = require('../../common/utility').showLoadingImage;
 const ChampionSocket     = require('../../common/socket');
 const Validation         = require('../../common/validation');
 const State              = require('../../common/storage').State;
-const url_for            = require('../../common/url').url_for;
 const RiskClassification = require('./risk_classification');
 
 const FinancialAssessment = (() => {
     'use strict';
 
     const form_selector = '#assessment_form';
+    const hidden_class  = 'invisible';
 
     let financial_assessment = {},
         arr_validation = [];
@@ -86,19 +86,22 @@ const FinancialAssessment = (() => {
             show_form = true;
         }
         if (show_form) {
-            $('#assessment_form').removeClass('invisible');
+            $('#assessment_form').removeClass(hidden_class);
         }
     };
 
     const showFormMessage = (msg, isSuccess) => {
-        $('#form_message')
-            .attr('class', isSuccess ? 'success-msg' : 'errorfield')
-            .html(isSuccess ? `<ul class="checked" style="display: inline-block;"><li>${msg}</li></ul>` : msg)
-            .css('display', 'block')
-            .delay(5000)
-            .fadeOut(1000);
         if (isSuccess) {
-            setTimeout(() => { window.location.href = url_for('user/metatrader'); }, 5000);
+            $.scrollTo($('h1#heading'), 500, { offset: -10 });
+            $('#assessment_form').addClass(hidden_class);
+            $('#msg_success').removeClass(hidden_class);
+            ChampionSocket.send({ get_account_status: 1 }).then((response_status) => {
+                if ($.inArray('authenticated', response_status.get_account_status.status) === -1) {
+                    $('#msg_authenticate').removeClass(hidden_class);
+                }
+            });
+        } else {
+            $('#form_message').html(msg).delay(5000).fadeOut(1000);
         }
     };
 
