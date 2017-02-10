@@ -142,6 +142,9 @@ const ChampionNewRealAccount = (function() {
                 secret_question : $(fields.ddl_secret_question).val(),
                 secret_answer   : $(fields.txt_secret_answer).val(),
             };
+            if (Client.get('affiliate_token')) {
+                data.affiliate_token = Client.get('affiliate_token');
+            }
             ChampionSocket.send(data).then((response) => {
                 if (response.error) {
                     $('#error-create-account').removeClass('hidden').text(response.error.message);
