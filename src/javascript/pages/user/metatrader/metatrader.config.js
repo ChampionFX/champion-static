@@ -8,10 +8,10 @@ const MetaTraderConfig = (function() {
     'use strict';
 
     const types_info = {
-        demo             : { account_type: 'demo',      sub_account_type: '',         title: 'Demo',          max_leverage: 1000, is_demo: true },
-        champion_cent    : { account_type: 'financial', sub_account_type: 'cent',     title: 'Real Cent',     max_leverage: 1000 },
-        champion_standard: { account_type: 'financial', sub_account_type: 'standard', title: 'Real Standard', max_leverage: 300 },
-        champion_stp     : { account_type: 'financial', sub_account_type: 'stp',      title: 'Real STP',      max_leverage: 100 },
+        demo             : { account_type: 'demo',      mt5_account_type: '',         title: 'Demo',          max_leverage: 1000, is_demo: true },
+        champion_cent    : { account_type: 'financial', mt5_account_type: 'cent',     title: 'Real Cent',     max_leverage: 1000 },
+        champion_standard: { account_type: 'financial', mt5_account_type: 'standard', title: 'Real Standard', max_leverage: 300 },
+        champion_stp     : { account_type: 'financial', mt5_account_type: 'stp',      title: 'Real STP',      max_leverage: 100 },
     };
 
     const needsRealMessage = () => $(`#msg_${Client.has_real() ? 'switch' : 'upgrade'}`).html();
@@ -20,7 +20,7 @@ const MetaTraderConfig = (function() {
         new_account: {
             title      : 'Create Account',
             success_msg: response => 'Congratulations! Your [_1] Account has been created.'.replace('[_1]',
-                types_info[response.mt5_new_account.account_type === 'financial' ? `champion_${response.mt5_new_account.sub_account_type}` : response.mt5_new_account.account_type].title),
+                types_info[response.mt5_new_account.account_type === 'financial' ? `champion_${response.mt5_new_account.mt5_account_type}` : response.mt5_new_account.account_type].title),
             login        : response => response.mt5_new_account.login,
             prerequisites: acc_type => (
                 new Promise((resolve) => {
@@ -126,23 +126,22 @@ const MetaTraderConfig = (function() {
 
     const fields = {
         new_account: {
-            lbl_account_type    : { id: '#lbl_account_type' },
-            lbl_sub_account_type: { id: '#lbl_sub_account_type' },
-            lbl_email           : { id: '#lbl_email' },
-            txt_name            : { id: '#txt_name',          request_field: 'name' },
-            ddl_leverage        : { id: '#ddl_leverage',      request_field: 'leverage' },
-            txt_main_pass       : { id: '#txt_main_pass',     request_field: 'mainPassword' },
-            txt_re_main_pass    : { id: '#txt_re_main_pass' },
-            txt_investor_pass   : { id: '#txt_investor_pass', request_field: 'investPassword' },
-            chk_tnc             : { id: '#chk_tnc' },
-            additional_fields   :
+            lbl_account_type : { id: '#lbl_account_type' },
+            lbl_email        : { id: '#lbl_email' },
+            txt_name         : { id: '#txt_name',          request_field: 'name' },
+            ddl_leverage     : { id: '#ddl_leverage',      request_field: 'leverage' },
+            txt_main_pass    : { id: '#txt_main_pass',     request_field: 'mainPassword' },
+            txt_re_main_pass : { id: '#txt_re_main_pass' },
+            txt_investor_pass: { id: '#txt_investor_pass', request_field: 'investPassword' },
+            chk_tnc          : { id: '#chk_tnc' },
+            additional_fields:
                 acc_type => ($.extend(
                     {
                         account_type: types_info[acc_type].account_type,
                         email       : Client.get('email'),
                     },
-                    types_info[acc_type].sub_account_type ? {
-                        sub_account_type: types_info[acc_type].sub_account_type,
+                    types_info[acc_type].mt5_account_type ? {
+                        mt5_account_type: types_info[acc_type].mt5_account_type,
                     } : {})),
         },
         password_change: {
