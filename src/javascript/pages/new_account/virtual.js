@@ -61,6 +61,9 @@ const ChampionNewVirtualAccount = (function() {
                 client_password    : $(fields.txt_password).val(),
                 residence          : $(fields.ddl_residence).val(),
             };
+            if (Client.get('affiliate_token')) {
+                data.affiliate_token = Client.get('affiliate_token');
+            }
             ChampionSocket.send(data).then((response) => {
                 if (response.error) {
                     $('#error-create-account').removeClass('hidden').text(response.error.message);
