@@ -83,8 +83,6 @@ sub _texts {
         push @texts, localize('The main password of account number [_1] has been changed.');
         push @texts, localize('[_1] deposit from [_2] to account number [_3] is done. Transaction ID: [_4]');
         push @texts, localize('[_1] withdrawal from account number [_2] to [_3] is done. Transaction ID: [_4]');
-        push @texts, localize('To create a [_1] Account for MT5, please switch to your [_2] Real Account.');
-        push @texts, localize('To create a [_1] Account for MT5, please <a href="[_2]"> upgrade to [_3] Real Account</a>.');
         push @texts, localize('Your cashier is locked as per your request - to unlock it, please click <a href="[_1]">here</a>.');
 
         # date_picker
