@@ -46,8 +46,18 @@ function default_redirect_url() {
     return url_for('user/settings');
 }
 
+function get_params() {
+    const urlParams = {};
+    window.location.search.substring(1).split('&').forEach((pair) => {
+        const keyValue = pair.split('=');
+        if (keyValue[0] && keyValue[1]) urlParams[keyValue[0]] = decodeURIComponent(keyValue[1]);
+    });
+    return urlParams;
+}
+
 module.exports = {
     url_for             : url_for,
     url_for_static      : url_for_static,
     default_redirect_url: default_redirect_url,
+    get_params          : get_params,
 };

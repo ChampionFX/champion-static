@@ -79,7 +79,7 @@
                 if(lang) {
                     isDelayedRedirect();
                 } else {
-                    var ws = new WebSocket('wss://ws.binaryws.com/websockets/v3?brand=champion');
+                    var ws = new WebSocket('wss://ws.binaryws.com/websockets/v3?app_id=2472&brand=champion');
                     ws.onopen = function(e) {
                         ws.send(JSON.stringify({'website_status': '1'}));
                     };

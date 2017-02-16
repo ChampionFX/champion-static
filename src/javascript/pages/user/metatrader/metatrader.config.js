@@ -8,26 +8,19 @@ const MetaTraderConfig = (function() {
     'use strict';
 
     const types_info = {
-        demo             : { account_type: 'demo',      sub_account_type: '',         title: 'Demo',          max_leverage: 1000, is_demo: true },
-        champion_cent    : { account_type: 'financial', sub_account_type: 'cent',     title: 'Real Cent',     max_leverage: 1000 },
-        champion_standard: { account_type: 'financial', sub_account_type: 'standard', title: 'Real Standard', max_leverage: 300 },
-        champion_stp     : { account_type: 'financial', sub_account_type: 'stp',      title: 'Real STP',      max_leverage: 100 },
+        demo             : { account_type: 'demo',      mt5_account_type: '',         title: 'Demo',          max_leverage: 1000, is_demo: true },
+        champion_cent    : { account_type: 'financial', mt5_account_type: 'cent',     title: 'Real Cent',     max_leverage: 1000 },
+        champion_standard: { account_type: 'financial', mt5_account_type: 'standard', title: 'Real Standard', max_leverage: 300 },
+        champion_stp     : { account_type: 'financial', mt5_account_type: 'stp',      title: 'Real STP',      max_leverage: 100 },
     };
 
-    const needsRealMessage = () => (
-         Client.has_real() ?
-            'To perform this action, please switch to your [_1] Real Account.'
-                .replace('[_1]', 'Champion-FX.com') :
-            'To perform this action, please <a href="[_1]"> upgrade to [_2] Real Account</a>.'
-                .replace('[_1]', url_for('new-account/real'))
-                .replace('[_2]', 'Champion-FX.com')
-    );
+    const needsRealMessage = () => $(`#msg_${Client.has_real() ? 'switch' : 'upgrade'}`).html();
 
     const actions_info = {
         new_account: {
             title      : 'Create Account',
             success_msg: response => 'Congratulations! Your [_1] Account has been created.'.replace('[_1]',
-                types_info[response.mt5_new_account.account_type === 'financial' ? `champion_${response.mt5_new_account.sub_account_type}` : response.mt5_new_account.account_type].title),
+                types_info[response.mt5_new_account.account_type === 'financial' ? `champion_${response.mt5_new_account.mt5_account_type}` : response.mt5_new_account.account_type].title),
             login        : response => response.mt5_new_account.login,
             prerequisites: acc_type => (
                 new Promise((resolve) => {
@@ -36,17 +29,8 @@ const MetaTraderConfig = (function() {
                     } else if (Client.is_virtual()) {
                         resolve(needsRealMessage());
                     } else {
-                        ChampionSocket.send({ get_account_status: 1 }).then((response_status) => {
-                            const $msg = $('#msg_authenticate').clone();
-                            if ($.inArray('authenticated', response_status.get_account_status.status) === -1) {
-                                $msg.find('li.authenticate').removeClass('hidden');
-                            }
-                            ChampionSocket.send({ get_financial_assessment: 1 }).then((response_financial) => {
-                                if (isEmptyObject(response_financial.get_financial_assessment)) {
-                                    $msg.find('li.assessment').removeClass('hidden');
-                                }
-                                resolve($msg.find('.checked > li:not(.hidden)').length ? $msg.html() : '');
-                            });
+                        ChampionSocket.send({ get_financial_assessment: 1 }).then((response_financial) => {
+                            resolve(isEmptyObject(response_financial.get_financial_assessment) ? $('#msg_assessment').html() : '');
                         });
                     }
                 })
@@ -107,8 +91,18 @@ const MetaTraderConfig = (function() {
                 .replace('[_2]', response.echo_req.from_mt5)
                 .replace('[_3]', response.echo_req.to_binary)
                 .replace('[_4]', response.binary_transaction_id),
-            prerequisites: () => new Promise(resolve => resolve(Client.is_virtual() ? needsRealMessage() : '')),
-            pre_submit   : ($form, acc_type, displayFormMessage) => (
+            prerequisites: () => new Promise((resolve) => {
+                if (Client.is_virtual()) {
+                    resolve(needsRealMessage());
+                } else {
+                    ChampionSocket.send({ get_account_status: 1 }).then((response_status) => {
+                        resolve($.inArray('authenticated', response_status.get_account_status.status) === -1 ?
+                            $('#msg_authenticate').find('.show_for_mt5').removeClass('invisible').end()
+                                .html() : '');
+                    });
+                }
+            }),
+            pre_submit: ($form, acc_type, displayFormMessage) => (
                 ChampionSocket.send({
                     mt5_password_check: 1,
                     login             : types_info[acc_type].account_info.login,
@@ -132,23 +126,22 @@ const MetaTraderConfig = (function() {
 
     const fields = {
         new_account: {
-            lbl_account_type    : { id: '#lbl_account_type' },
-            lbl_sub_account_type: { id: '#lbl_sub_account_type' },
-            lbl_email           : { id: '#lbl_email' },
-            txt_name            : { id: '#txt_name',          request_field: 'name' },
-            ddl_leverage        : { id: '#ddl_leverage',      request_field: 'leverage' },
-            txt_main_pass       : { id: '#txt_main_pass',     request_field: 'mainPassword' },
-            txt_re_main_pass    : { id: '#txt_re_main_pass' },
-            txt_investor_pass   : { id: '#txt_investor_pass', request_field: 'investPassword' },
-            chk_tnc             : { id: '#chk_tnc' },
-            additional_fields   :
+            lbl_account_type : { id: '#lbl_account_type' },
+            lbl_email        : { id: '#lbl_email' },
+            txt_name         : { id: '#txt_name',          request_field: 'name' },
+            ddl_leverage     : { id: '#ddl_leverage',      request_field: 'leverage' },
+            txt_main_pass    : { id: '#txt_main_pass',     request_field: 'mainPassword' },
+            txt_re_main_pass : { id: '#txt_re_main_pass' },
+            txt_investor_pass: { id: '#txt_investor_pass', request_field: 'investPassword' },
+            chk_tnc          : { id: '#chk_tnc' },
+            additional_fields:
                 acc_type => ($.extend(
                     {
                         account_type: types_info[acc_type].account_type,
                         email       : Client.get('email'),
                     },
-                    types_info[acc_type].sub_account_type ? {
-                        sub_account_type: types_info[acc_type].sub_account_type,
+                    types_info[acc_type].mt5_account_type ? {
+                        mt5_account_type: types_info[acc_type].mt5_account_type,
                     } : {})),
         },
         password_change: {
