@@ -283,19 +283,21 @@
 </ol>
 
 <h2>O. [% l("Prohibited Trades") %]</h2>
-<p>[% l("The Company reserves the right to refuse to do business with, to discontinue to do business with, and to reverse the transactions of, Clients who engage in any trading activity:") %]</p>
 <ol>
-    <li>[% l("that contravenes any laws, regulations, instruments, ordinances or rules that govern the operation of any exchange, financial market, or financial regulatory environment; or") %]</li>
-    <li>[% l("with insider knowledge of any financial market or instrument.") %]</li>
+    <li>[% l("The Company reserves the right to refuse to do business with, to discontinue to do business with, and to reverse the transactions of, Clients who engage in any trading activity:") %]</li>
+    <ol>
+        <li>[% l("that contravenes any laws, regulations, instruments, ordinances or rules that govern the operation of any exchange, financial market, or financial regulatory environment; or") %]</li>
+        <li>[% l("with insider knowledge of any financial market or instrument.") %]</li>
+    </ol>
+    <li>[% l("The Company has the discretion to seek information from Clients to verify compliance with these terms.") %]</li>
+    <li>[% l("It is a condition of using the website that:") %]</li>
+    <ol>
+        <li>[% l("any Client that is employed in the banking and/or finance sector must only conduct trades through the website with the knowledge of his/her employer and in accordance with the employer&rsquo;s policies; and that") %]</li>
+        <li>[% l("Clients agree to comply with the reasonable requests made by the Company for the purpose of verifying compliance with this term.") %]</li>
+    </ol>
+    <li>[% l("The Company may withhold payment of funds accumulated in a Client&rsquo;s account while it takes steps to verify compliance with these terms.") %]</li>
+    <li>[% l("If the Company (in its sole discretion) is not satisfied that a Client is complying with these terms, or if a Client does not comply with a reasonable request for information made by the Company, the Company may cancel the Client&rsquo;s account and withhold any funds accumulated therein.") %]</li>
 </ol>
-<p>[% l("The Company has the discretion to seek information from Clients to verify compliance with these terms.") %]</p>
-<p>[% l("It is a condition of using the website that:") %]</p>
-<ol>
-    <li>[% l("any Client that is employed in the banking and/or finance sector must only conduct trades through the website with the knowledge of his/her employer and in accordance with the employer&rsquo;s policies; and that") %]</li>
-    <li>[% l("Clients agree to comply with the reasonable requests made by the Company for the purpose of verifying compliance with this term.") %]</li>
-</ol>
-<p>[% l("The Company may withhold payment of funds accumulated in a Client&rsquo;s account while it takes steps to verify compliance with these terms.") %]</p>
-<p>[% l("If the Company (in its sole discretion) is not satisfied that a Client is complying with these terms, or if a Client does not comply with a reasonable request for information made by the Company, the Company may cancel the Client&rsquo;s account and withhold any funds accumulated therein.") %]</p>
 
 <h2>P. [% l("Representations and Warranties") %]</h2>
 <ol>
