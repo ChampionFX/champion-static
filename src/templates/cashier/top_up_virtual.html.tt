@@ -8,11 +8,11 @@
 
         <div class="row">
             <div id="topup_virtual" class="col-md-12 center-text">
-                <div id="viewError" class="viewItem hidden">
+                <div id="viewError" class="hidden">
                     <p class="notice-msg"></p>
                 </div>
 
-                <div id="viewSuccess" class="viewItem hidden">
+                <div id="viewSuccess" class="hidden">
                     <p class="success-msg"></p>
                     <a class="button pjaxload" href="[% request.url_for('/user/portfoliows') %]">
                         <span>[% l('View Updated Portfolio') %]</span>

@@ -24,6 +24,7 @@ const FinancialAssessment     = require('./../pages/user/financial_assessment');
 const MetaTrader              = require('./../pages/user/metatrader/metatrader');
 const ChampionSettings        = require('./../pages/user/settings');
 const TNCApproval             = require('./../pages/user/tnc_approval');
+const CashierDeposit          = require('./../pages/cashier/deposit');
 
 const Champion = (function() {
     'use strict';
@@ -78,6 +79,7 @@ const Champion = (function() {
             'reset-password'  : { module: ResetPassword,       not_authenticated: true },
             'tnc-approval'    : { module: TNCApproval,         is_authenticated: true, only_real: true },
             'top-up-virtual'  : { module: CashierTopUpVirtual, is_authenticated: true, only_virtual: true },
+            deposit           : { module: CashierDeposit },
         };
         if (page in pages_map) {
             loadHandler(pages_map[page]);

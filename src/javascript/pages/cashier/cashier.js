@@ -4,15 +4,21 @@ const Client         = require('../../common/client');
 const Cashier = (function() {
     'use strict';
 
+    let cashierContainer,
+        viewVirtual,
+        viewReal;
+
     const hidden_class = 'hidden';
 
     const load = () => {
-        const container = $('.fx-cashier');
+        cashierContainer = $('.fx-cashier');
+        viewVirtual = cashierContainer.find('.fx-virtual-account');
+        viewReal = cashierContainer.find('.fx-real-account');
 
         if (Client.is_logged_in()) {
             ChampionSocket.wait('authorize').then(() => {
                 if (Client.is_virtual()) {
-                    container.find('.fx-virtual').removeClass(hidden_class);
+                    viewVirtual.removeClass(hidden_class);
                     if (Client.get('balance') > 1000) {
                         disableButton($('#VRT_topup_link'));
                     }
@@ -21,7 +27,7 @@ const Cashier = (function() {
                         if (!response.error && response.cashier_password === 1) {
                             disableButton($('#deposit-btn, #withdraw-btn'));
                         }
-                        container.find('.fx-real').removeClass(hidden_class);
+                        viewReal.removeClass(hidden_class);
                     });
                 }
             });
