@@ -7,28 +7,26 @@ const CashierDeposit = (function() {
     let depositContainer,
         errorMessage;
 
-    const hidden_class = 'hidden';
-
     const load = () => {
         depositContainer = $('#cashier_deposit');
         errorMessage = depositContainer.find('#error_msg');
-
-        ChampionSocket.wait('authorize').then((response) => {
+        ChampionSocket.send({ cashier_password: '1' }).then((response) => {
             if (response.error) {
-                console.log(response.error);
-                return;
+                errorMessage.removeClass('hidden').html(response.error.message);
+            } else if (response.cashier_password) {
+                errorMessage.removeClass('hidden')
+                    .html('Your cashier is locked as per your request - to unlock it, please click <a href="[_1]">here</a>.'
+                        .replace('[_1]', url_for('/cashier/cashier-password')));
+            } else {
+                deposit();
             }
-            deposit();
         });
     };
 
     const deposit = () => {
-        const data = {
-            cashier: 'deposit',
-        };
-        ChampionSocket.send(data).then((response) => {
+        ChampionSocket.send({ cashier: 'deposit' }).then((response) => {
             if (response.error) {
-                errorMessage.removeClass(hidden_class);
+                errorMessage.removeClass('hidden');
                 switch (response.error.code) {
                     case 'ASK_TNC_APPROVAL':
                         window.location.href = url_for('user/tnc_approval');
@@ -37,46 +35,36 @@ const CashierDeposit = (function() {
                         errorMessage.html(response.error.details);
                         break;
                     case 'ASK_UK_FUNDS_PROTECTION':
-                        $('#ukgc_funds_protection').removeClass(hidden_class);
+                        $('#ukgc_funds_protection').removeClass('hidden');
                         break;
                     case 'ASK_AUTHENTICATE':
                         errorMessage.html('Your account is not fully authenticated.');
                         break;
                     case 'ASK_FINANCIAL_RISK_APPROVAL':
-                        errorMessage.html('Financial Risk approval is required. Please contact <a href="[_1]">customer support</a> for more information.', [url_for('/contact')]);
+                        errorMessage
+                            .html('Financial Risk approval is required. Please contact <a href="[_1]">customer support</a> for more information.'
+                                .replace('[_1]', url_for('/contact')));
                         break;
                     case 'ASK_AGE_VERIFICATION':
-                        errorMessage.html('Your account needs age verification. Please contact <a href="[_1]">customer support</a> for more information.', [url_for('/contact')]);
+                        errorMessage
+                            .html('Your account needs age verification. Please contact <a href="[_1]">customer support</a> for more information.'
+                                .replace('[_1]', url_for('/contact')));
                         break;
-                    case 'ASK_CURRENCY': // set account currency to USD if not set
-                        ChampionSocket.send({ set_account_currency: 'USD' });
+                    case 'ASK_CURRENCY': // set account currency to USD if not set // TODO: remove this after currency set by default in backend
+                        ChampionSocket.send({ set_account_currency: 'USD' }).then((res) => {
+                            if (res.error) errorMessage.html(res.error.message);
+                            deposit();
+                        });
                         break;
                     default:
                         errorMessage.html(response.error.message);
                 }
             } else {
-                errorMessage.addClass(hidden_class);
-                $('#ukgc_funds_protection').addClass(hidden_class);
-                switch (response.msg_type) {
-                    case 'cashier_password':
-                        if (response.cashier_password) {
-                            errorMessage.removeClass(hidden_class)
-                                .html('Your cashier is locked as per your request - to unlock it, please click <a class="pjaxload" href="[_1]">here</a>.', [url_for('/user/security/cashier_passwordws')]);
-                        }
-                        break;
-                    case 'cashier':
-                        $('#deposit_iframe_container')
-                            .removeClass(hidden_class)
-                            .find('iframe').attr('src', response.cashier)
-                            .end();
-                        break;
-                    case 'set_account_currency':
-                    case 'tnc_approval':
-                        // CashierDeposit.getCashierURL();
-                        break;
-                    default:
-                        break;
-                }
+                $('#error_msg, #ukgc_funds_protection').addClass('hidden');
+                $('#deposit_iframe_container').removeClass('hidden')
+                    .find('iframe')
+                    .attr('src', response.cashier)
+                    .end();
             }
         });
     };

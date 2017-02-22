@@ -7,7 +7,7 @@
             </div>
         </div>
 
-        <div class="fx-virtual-account row hidden">
+        <div id="fx-virtual" class="row hidden">
             <div class="col-md-12">
                 <h2>[% l('Get more virtual money') %]</h2>
             </div>
@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div id="fx-real" class="row hidden">
             <div class="col-md-12">
                 <h2>[% l('Bank-wire, credit card, e-cash wallet') %]</h2>
             </div>
@@ -35,7 +35,7 @@
                 <div>[% l('Deposit or withdraw to your account via bank-wire, credit card, or e-cash wallet.') %]</div>
                 <a href="[% request.url_for('cashier/payment-methods') %]">[% l('View available payment methods') %]</a>
             </div>
-            <div class="fx-real-account col-md-4">
+            <div class="col-md-4">
                 <a class="button button_large" href="[% request.url_for('/cashier/deposit') %]" id="deposit-btn">
                     <span>[% l('Deposit') %]</span>
                 </a>
