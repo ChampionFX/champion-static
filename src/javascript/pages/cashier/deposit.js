@@ -4,12 +4,11 @@ const url_for        = require('../../common/url').url_for;
 const CashierDeposit = (function() {
     'use strict';
 
-    let depositContainer,
-        errorMessage;
+    let errorMessage;
 
     const load = () => {
-        depositContainer = $('#cashier_deposit');
-        errorMessage = depositContainer.find('#error_msg');
+        const container = $('#cashier_deposit');
+        errorMessage = container.find('#error_msg');
         ChampionSocket.send({ cashier_password: '1' }).then((response) => {
             if (response.error) {
                 errorMessage.removeClass('hidden').html(response.error.message);
@@ -24,7 +23,10 @@ const CashierDeposit = (function() {
     };
 
     const deposit = () => {
-        ChampionSocket.send({ cashier: 'deposit' }).then((response) => {
+        const data = {
+            cashier: 'deposit',
+        };
+        ChampionSocket.send(data).then((response) => {
             if (response.error) {
                 errorMessage.removeClass('hidden');
                 switch (response.error.code) {
