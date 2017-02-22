@@ -13,7 +13,7 @@ const Cashier = (function() {
                 if (Client.get('balance') > 1000) {
                     disableButton($('#VRT_topup_link'));
                 }
-            } else {
+            } else if (Client.is_logged_in() && !Client.is_virtual()) {
                 cashierContainer.find('#fx-virtual').addClass('hidden');
                 $('#deposit-btn, #withdraw-btn').removeClass('hidden');
                 ChampionSocket.send({ cashier_password: 1 }).then((response) => {
@@ -21,6 +21,8 @@ const Cashier = (function() {
                         disableButton($('#deposit-btn, #withdraw-btn'));
                     }
                 });
+            } else {
+                $('#deposit-btn, #withdraw-btn').addClass('hidden');
             }
         });
     };
