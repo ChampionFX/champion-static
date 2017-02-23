@@ -66,6 +66,7 @@ const Champion = (function() {
             cashier           : { module: Cashier },
             contact           : { module: ChampionContact },
             endpoint          : { module: ChampionEndpoint },
+            forward           : { module: CashierDepositWithdraw, is_authenticated: true, only_real: true },
             logged_inws       : { module: LoggedIn },
             metatrader        : { module: MetaTrader,          is_authenticated: true },
             real              : { module: ChampionNewReal,     is_authenticated: true, only_virtual: true },
@@ -79,7 +80,6 @@ const Champion = (function() {
             'reset-password'  : { module: ResetPassword,       not_authenticated: true },
             'tnc-approval'    : { module: TNCApproval,         is_authenticated: true, only_real: true },
             'top-up-virtual'  : { module: CashierTopUpVirtual, is_authenticated: true, only_virtual: true },
-            forward           : { module: CashierDepositWithdraw, is_authenticated: true },
         };
         if (page in pages_map) {
             loadHandler(pages_map[page]);

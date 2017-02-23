@@ -24,7 +24,7 @@ const CashierDepositWithdraw = (function() {
         } else if (/deposit/.test(window.location.hash.substring(1))) {
             cashier_type = 'deposit';
         } else {
-            window.location.href = url_for('/home');
+            window.location.href = url_for('/cashier');
         }
 
         const container = $('#cashier_deposit');
@@ -91,7 +91,7 @@ const CashierDepositWithdraw = (function() {
                 error_msg.removeClass('hidden');
                 switch (response.error.code) {
                     case 'ASK_TNC_APPROVAL':
-                        window.location.href = url_for('user/tnc_approval');
+                        window.location.href = url_for('user/tnc-approval');
                         break;
                     case 'ASK_FIX_DETAILS':
                         error_msg.html(response.error.details);
@@ -114,8 +114,11 @@ const CashierDepositWithdraw = (function() {
                         break;
                     case 'ASK_CURRENCY': // set account currency to USD if not set // TODO: remove this after currency set by default in backend
                         ChampionSocket.send({ set_account_currency: 'USD' }).then((res) => {
-                            if (res.error) error_msg.html(res.error.message);
-                            deposit_withdraw();
+                            if (res.error) {
+                                error_msg.html(res.error.message);
+                            } else {
+                                deposit_withdraw();
+                            }
                         });
                         break;
                     default:
