@@ -8,23 +8,6 @@
 
         <div class="row">
             <div id="error_msg" class="col-xs-12 notice-msg center-text hidden"></div>
-            <div id="ukgc_funds_protection" class="hidden">
-                <div class="col-xs-12">
-                    <p>
-                        [% l("We are required by our license to inform you about what happens to funds which we hold on account for you, and the extent to which funds are protected in the event of insolvency <a href='[_1]' target='_blank'>[_1]</a>.", "http://www.gamblingcommission.gov.uk/Consumers/Protection-of-customer-funds.aspx")
-                        %]
-                    </p>
-                    <p>
-                        [% l("The company holds customer funds in separate bank accounts to the operational accounts which would not, in the event of insolvency, form part of the Company's assets. This meets the Gambling Commission's requirements for the segregation of customer
-                funds at the level: <strong>medium protection</strong>.") %]
-                    </p>
-                    <div class='col-xs-12'>
-                        <span class="button">
-                              <button id="submit-ukgc-funds-protection" class="button" value="ok" type="submit">[% l('Proceed') %]</button>
-                          </span>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div id="form_withdraw" class="hidden">
