@@ -104,11 +104,6 @@ const CashierDepositWithdraw = (function() {
                             .html('Financial Risk approval is required. Please contact <a href="[_1]">customer support</a> for more information.'
                                 .replace('[_1]', url_for('/contact')));
                         break;
-                    case 'ASK_AGE_VERIFICATION':
-                        error_msg
-                            .html('Your account needs age verification. Please contact <a href="[_1]">customer support</a> for more information.'
-                                .replace('[_1]', url_for('/contact')));
-                        break;
                     case 'ASK_CURRENCY': // set account currency to USD if not set // TODO: remove this after currency set by default in backend
                         ChampionSocket.send({ set_account_currency: 'USD' }).then((res) => {
                             if (res.error) {
@@ -122,7 +117,7 @@ const CashierDepositWithdraw = (function() {
                         error_msg.html(response.error.message);
                 }
             } else {
-                $('#error_msg, #ukgc_funds_protection').addClass('hidden'); // hide error messages row
+                $('#error_msg').addClass('hidden');
                 $(`#${cashier_type}_iframe_container`).removeClass('hidden')
                     .find('iframe')
                     .attr('src', response.cashier)
