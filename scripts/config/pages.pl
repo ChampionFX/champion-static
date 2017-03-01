@@ -30,6 +30,8 @@ sub all_pages {
         ['cashier/cashier-password',   'cashier/cashier_password',     'full_width', 'Cashier Password'],
         ['cashier/payment-methods',    'cashier/payment_methods',      'full_width', 'Payment Methods'],
         ['cashier/top-up-virtual',     'cashier/top_up_virtual',       'full_width', 'Give Me More Money!'],
+        ['cashier/cashier-password',   'cashier/cashier_password',     'full_width', 'Cashier Password'],
+        ['cashier/forward',            'cashier/deposit_withdraw',     'full_width', 'Cashier'],
 
         ['new-account/real',           'new_account/real',             'full_width', 'Create new real account'],
         ['new-account/virtual',        'new_account/virtual',          'full_width', 'Create new virtual account'],
