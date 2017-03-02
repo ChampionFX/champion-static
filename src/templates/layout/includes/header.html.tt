@@ -15,7 +15,43 @@
             </div>
             <div class="col-lg-7">
                 <ul class="top-nav-menu mobile-hide">
-                    <li><a href="[% request.url_for('about-us') %]">[% l('About') %]</a></li>
+                    <li><a href="javascript:;" class="nav-dropdown-toggle">
+                      [% l('About') %]
+                      <span class="nav-caret"></span>
+                    </a>
+                    <ul>
+                      <li>
+                        <a href="javascript:;">
+                          Menu Item
+                          <span class="nav-submenu-caret"></span>
+                        </a>
+                        <ul>
+                          <li>
+                            <a href="javascript:;">
+                              Menu Item
+                              <span class="nav-submenu-caret"></span>
+                            </a>
+                            <ul>
+                              <li>
+                                <a href="javascript:;">Menu Item</a>
+                              </li>
+                            </ul>
+                          </li>
+                          <li>
+                            <a href="javascript:;">
+                              Menu Item
+                              <span class="nav-submenu-caret"></span>
+                            </a>
+                            <ul>
+                              <li>
+                                <a href="javascript:;">Menu Item</a>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    </li>
                     <li><a href="[% request.url_for('forex') %]">[% l('Forex') %]</a></li>
                     <li><a href="[% request.url_for('binary-options') %]">[% l('Binary Options') %]</a></li>
                     <li><a href="[% request.url_for('range-of-markets') %]">[% l('Markets') %]</a></li>
@@ -62,9 +98,6 @@
                             </ul>
                         </li>
                     </ul>
-                </div>
-                <div id="main-login" class="FX__Header__cta hidden">
-                    <a class="button-secondary" href="javascript:;"><span>[% l('Log In') %]</span></a>
                 </div>
             </div>
         </div>

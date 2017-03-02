@@ -1,0 +1,40 @@
+<div class="slider">
+    <div class="row">
+        <div class="col-lg">
+            <ul class="col-lg">
+                <li class="col-lg"><img src="../../images/about-2.jpg" alt="" /></li>
+            </ul>
+        </div>
+    </div>
+		<div class="row">
+        <div class="col-lg">
+            <ul class="col-lg">
+                <li class="col-lg"><img src="../../images/about-2.jpg" alt="" /></li>
+            </ul>
+        </div>
+    </div><div class="row">
+        <div class="col-lg">
+            <ul class="col-lg">
+                <li class="col-lg"><img src="../../images/about-2.jpg" alt="" /></li>
+            </ul>
+        </div>
+    </div><div class="row">
+        <div class="col-lg">
+            <ul class="col-lg">
+                <li class="col-lg"><img src="../../images/about-2.jpg" alt="" /></li>
+            </ul>
+        </div>
+    </div><div class="row">
+        <div class="col-lg">
+            <ul class="col-lg">
+                <li class="col-lg"><img src="../../images/about-2.jpg" alt="" /></li>
+            </ul>
+        </div>
+    </div><div class="row">
+        <div class="col-lg">
+            <ul class="col-lg">
+                <li class="col-lg"><img src="../../images/about-2.jpg" alt="" /></li>
+            </ul>
+        </div>
+    </div>
+</div>

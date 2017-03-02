@@ -8,6 +8,7 @@
                 <div class="topbar-contacts">
                     <ul>
                         <li class="last"><a href="[% request.url_for('contact') %]">[% l('Contact Us') %]</a></li>
+                        <li id="main-login" class="FX__Header__cta hidden"><a class="button-secondary" href="javascript:;">[% l('Log In') %]</a></li>
                     </ul>
                 </div>
                 <div class="invisible">
