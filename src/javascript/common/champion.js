@@ -67,7 +67,6 @@ const Champion = (function() {
             contact           : { module: ChampionContact },
             endpoint          : { module: ChampionEndpoint },
             forward           : { module: CashierDepositWithdraw, is_authenticated: true, only_real: true },
-            epg_forward       : { module: CashierDepositWithdraw, is_authenticated: true, only_real: true },
             logged_inws       : { module: LoggedIn },
             metatrader        : { module: MetaTrader,          is_authenticated: true },
             real              : { module: ChampionNewReal,     is_authenticated: true, only_virtual: true },

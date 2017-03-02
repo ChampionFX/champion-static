@@ -78,8 +78,7 @@ const CashierDepositWithdraw = (function() {
     };
 
     const deposit_withdraw = (token) => {
-        const req = { cashier: cashier_type };
-        if (/epg/.test(window.location.pathname)) req.provider = 'epg';
+        const req = { cashier: cashier_type, provider: 'epg' };
         if (token) req.verification_code = token;
 
         ChampionSocket.send(req).then((response) => {

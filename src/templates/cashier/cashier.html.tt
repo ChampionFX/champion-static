@@ -36,10 +36,10 @@
                 <a href="[% request.url_for('cashier/payment-methods') %]">[% l('View available payment methods') %]</a>
             </div>
             <div class="col-md-4">
-                <a class="button button_large hidden" href="[% request.url_for('/cashier/epg_forward#deposit') %]" id="deposit-btn">
+                <a class="button button_large hidden" href="[% request.url_for('/cashier/forward#deposit') %]" id="deposit-btn">
                     <span>[% l('Deposit') %]</span>
                 </a>
-                <a class="button button_large hidden" href="[% request.url_for('/cashier/epg_forward#withdraw') %]" id="withdraw-btn">
+                <a class="button button_large hidden" href="[% request.url_for('/cashier/forward#withdraw') %]" id="withdraw-btn">
                     <span>[% l('Withdraw') %]</span>
                 </a>
             </div>
