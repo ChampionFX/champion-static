@@ -6,10 +6,10 @@ const Validation     = require('./../../common/validation');
 const CashierDepositWithdraw = (function() {
     'use strict';
 
-    let error_msg,
-        btn_submit,
+    let $btn_submit,
+        $form_withdraw,
         cashier_type,
-        form_withdraw;
+        error_msg;
 
     const fields = {
         cashier_title: '#cashier_title',
@@ -27,9 +27,9 @@ const CashierDepositWithdraw = (function() {
             window.location.href = url_for('/cashier');
         }
 
-        const container = $('#cashier_deposit');
-        form_withdraw   = $('#form_withdraw');
-        error_msg       = container.find(fields.error_msg);
+        const $container = $('#cashier_deposit');
+        $form_withdraw   = $('#form_withdraw');
+        error_msg       = $container.find(fields.error_msg);
 
         $(fields.cashier_title).html(cashier_type);
         if (cashier_type === 'withdraw') initForm();
@@ -49,8 +49,8 @@ const CashierDepositWithdraw = (function() {
 
     const initForm = () => {
         const form_selector = '#form_withdraw';
-        btn_submit = form_withdraw.find(fields.btn_submit);
-        btn_submit.on('click', submit);
+        $btn_submit = $form_withdraw.find(fields.btn_submit);
+        $btn_submit.on('click', submit);
         Validation.init(form_selector, [
             { selector: fields.token, validations: ['req', 'email_token'] },
         ]);
@@ -58,13 +58,13 @@ const CashierDepositWithdraw = (function() {
     };
 
     const unload = () => {
-        if (btn_submit) {
-            btn_submit.off('click', submit);
+        if ($btn_submit) {
+            $btn_submit.off('click', submit);
         }
     };
 
     const verify_email = () => {
-        form_withdraw.removeClass('hidden');
+        $form_withdraw.removeClass('hidden');
         ChampionSocket.send({
             verify_email: Client.get('email'),
             type        : 'payment_withdraw',
@@ -73,18 +73,13 @@ const CashierDepositWithdraw = (function() {
 
     const submit = (e) => {
         e.preventDefault();
-        form_withdraw.addClass('hidden');
+        $form_withdraw.addClass('hidden');
         deposit_withdraw($(fields.token).val());
     };
 
     const deposit_withdraw = (token) => {
-        let req;
-        if (token) {
-            req = {
-                cashier          : cashier_type,
-                verification_code: token,
-            };
-        } else req = { cashier: cashier_type };
+        const req = { cashier: cashier_type, provider: 'epg' };
+        if (token) req.verification_code = token;
 
         ChampionSocket.send(req).then((response) => {
             if (response.error) {
