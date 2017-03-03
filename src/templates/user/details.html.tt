@@ -1,0 +1,135 @@
+<div class="fx-section">
+    <div class="container">
+        <h1 id="heading">[% l("Personal Details") %]</h1>
+
+        <form id="frm_personal_details">
+            <fieldset>
+                <legend>[% l('Details') %]</legend>
+                <div class="row form-row">
+                    <div class="col-xs-4">
+                        <label for="txt_name">[% l('Name') %]</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <span id=""></span>
+                        <!-- input id="txt_old_password" type="text" maxlength="25" / -->
+                    </div>
+                </div>
+                <div class="row form-row">
+                    <div class="col-xs-4">
+                        <label for="txt_date_of_birth">[% l('Date of birth') %]</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <span id=""></span>
+                        <!-- input id="txt_old_password" type="password" maxlength="25" / -->
+                    </div>
+                </div>
+                <div class="row form-row fx-real-acc">
+                    <div class="col-xs-4">
+                        <label for="txt_place_of_birth">[% l('Place of birth') %]</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <select id="txt_place_of_birth"></select>
+                    </div>
+                </div>
+                <div class="row form-row fx-real-acc">
+                    <div class="col-xs-4">
+                        <label for="txt_old_password">[% l('Country of residence') %]</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <span id=""></span>
+                        <!-- input id="txt_old_password" type="password" maxlength="25" / -->
+                    </div>
+                </div>
+                <div class="row form-row fx-real-acc">
+                    <div class="col-xs-4">
+                        <label for="txt_old_password">[% l('Email address') %]</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <span id=""></span>
+                        <!-- input id="txt_old_password" type="password" maxlength="25" / -->
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="fx-real-acc">
+                <legend>[% l('Tax Information') %]</legend>
+                <div class="row form-row">
+                    <div class="col-xs-4">
+                        <label for="txt_tax_residence">[% l('Tax residence') %]</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <select id="txt_tax_residence" multiple="multiple"></select>
+                    </div>
+                </div>
+                <div class="row form-row">
+                    <div class="col-xs-4">
+                        <label for="txt_tax_information_number">[% l('Tax information number') %]</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <input id="txt_tax_information_number" type="text" maxlength="20" />
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="fx-real-acc">
+                <legend>[% l('Address') %]</legend>
+                <div class="row form-row">
+                    <div class="col-xs-4">
+                        <label for="txt_address_line_1">[% l('First line of home address') %]</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <input id="txt_address_line_1" type="text" maxlength="70" />
+                    </div>
+                </div>
+                <div class="row form-row">
+                    <div class="col-xs-4">
+                        <label for="txt_address_line_2">[% l('Second line of home address') %]</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <input id="txt_address_line_2" type="text" maxlength="70" />
+                    </div>
+                </div>
+                <div class="row form-row">
+                    <div class="col-xs-4">
+                        <label for="txt_town">[% l('Town / City') %]</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <input id="txt_town" type="text" maxlength="35" />
+                    </div>
+                </div>
+                <div class="row form-row">
+                    <div class="col-xs-4">
+                        <label for="txt_state">[% l('State / Province') %]</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <input id="txt_state" type="password" maxlength="25" />
+                    </div>
+                </div>
+                <div class="row form-row">
+                    <div class="col-xs-4">
+                        <label for="txt_postal_code">[% l('Postal Code / ZIP') %]</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <input id="txt_postal_code" type="text" maxlength="20" />
+                    </div>
+                </div>
+                <div class="row form-row">
+                    <div class="col-xs-4">
+                        <label for="txt_phone">[% l('Telephone') %]</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <input id="txt_phone" type="text" maxlength="35" />
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="row fx-real-acc">
+                <div class="col-xs-8 offset-md-4">
+                    <p class="error-msg hidden" id="error-update-details"></p>
+                    <button id="btn_submit" type="submit">[% l('Update') %]</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

@@ -41,6 +41,7 @@ sub all_pages {
         ['user/metatrader',            'user/metatrader',              'full-width', 'MetaTrader account management'],
         ['user/settings',              'user/settings',                'full_width', 'Settings'],
         ['user/tnc-approval',          'user/tnc_approval',            'full_width', 'Terms and Conditions Approval'],
+        ['user/details',               'user/details',                 'full_width', 'Personal Details'],
     );
 }
 
