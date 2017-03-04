@@ -15,11 +15,18 @@ const Slider = (() => {
 })();
 
 const positionFooterAndDots = function() {
-    const height = $('.fx-slider-footer').innerHeight();
+    const height = -$('.fx-slider-footer').innerHeight();
+    const dotsMargin = height - 40;
     setTimeout(function () {
-        $('.fx-slider-footer').css('bottom', height);
-        $('.slick-dots').css('bottom', height + 40);
-        $('.fx-slider-text').css('margin-bottom', height);
+        /*eslint-disable */
+        $('.fx-slider-footer').css({
+            transform: 'translateY(' + height + 'px)',
+        });
+        $('.slick-dots').css({
+            transform: 'translateY(' + dotsMargin + 'px)',
+        });
+        $('.fx-slider-text').css('margin-bottom', -height + 'px');
+        /*eslint-enable */
     }, 10);
 };
 
