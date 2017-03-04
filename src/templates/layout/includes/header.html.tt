@@ -15,47 +15,114 @@
             </div>
             <div class="col-lg-7">
                 <ul class="top-nav-menu mobile-hide">
-                    <li><a href="javascript:;" class="nav-dropdown-toggle">
+                    <li>
+                      <a href="javascript:;" class="nav-dropdown-toggle">
                       [% l('About') %]
                       <span class="nav-caret"></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href="javascript:;">
-                          Menu Item
-                          <span class="nav-submenu-caret"></span>
-                        </a>
-                        <ul>
-                          <li>
-                            <a href="javascript:;">
-                              Menu Item
-                              <span class="nav-submenu-caret"></span>
-                            </a>
-                            <ul>
-                              <li>
-                                <a href="javascript:;">Menu Item</a>
-                              </li>
-                            </ul>
-                          </li>
-                          <li>
-                            <a href="javascript:;">
-                              Menu Item
-                              <span class="nav-submenu-caret"></span>
-                            </a>
-                            <ul>
-                              <li>
-                                <a href="javascript:;">Menu Item</a>
-                              </li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
+                      </a>
+                      <ul>
+                        <li>
+                          <a href="javascript:;">
+                            Menu Item
+                            <span class="nav-submenu-caret"></span>
+                          </a>
+                          <ul>
+                            <li>
+                              <a href="javascript:;">
+                                Menu Item
+                                <span class="nav-submenu-caret"></span>
+                              </a>
+                              <ul>
+                                <li>
+                                  <a href="javascript:;">Menu Item</a>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
                     </li>
-                    <li><a href="[% request.url_for('forex') %]">[% l('Forex') %]</a></li>
-                    <li><a href="[% request.url_for('binary-options') %]">[% l('Binary Options') %]</a></li>
-                    <li><a href="[% request.url_for('range-of-markets') %]">[% l('Markets') %]</a></li>
-                    <li><a href="[% request.url_for('partnerships') %]">[% l('Partnerships') %]</a></li>
+                    <li>
+                      <a href="javascript:;" class="nav-dropdown-toggle">
+                        [% l('MT5') %]
+                        <span class="nav-caret"></span>
+                      </a>
+                      <ul>
+                        <li>
+                          <a href="javascript:;">
+                            Menu Item
+                            <span class="nav-submenu-caret"></span>
+                          </a>
+                          <ul>
+                            <li>
+                              <a href="javascript:;">
+                                Menu Item
+                                <span class="nav-submenu-caret"></span>
+                              </a>
+                              <ul>
+                                <li>
+                                  <a href="javascript:;">Menu Item</a>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="javascript:;" class="nav-dropdown-toggle">
+                        [% l('Binary Options') %]
+                        <span class="nav-caret"></span>
+                      </a>
+                      <ul>
+                        <li>
+                          <a href="javascript:;">
+                            Menu Item
+                            <span class="nav-submenu-caret"></span>
+                          </a>
+                          <ul>
+                            <li>
+                              <a href="javascript:;">
+                                Menu Item
+                                <span class="nav-submenu-caret"></span>
+                              </a>
+                              <ul>
+                                <li>
+                                  <a href="javascript:;">Menu Item</a>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="javascript:;" class="nav-dropdown-toggle">
+                        [% l('Partnerships') %]
+                        <span class="nav-caret"></span>
+                      </a>
+                      <ul>
+                        <li>
+                          <a href="javascript:;">
+                            Menu Item
+                            <span class="nav-submenu-caret"></span>
+                          </a>
+                          <ul>
+                            <li>
+                              <a href="javascript:;">
+                                Menu Item
+                                <span class="nav-submenu-caret"></span>
+                              </a>
+                              <ul>
+                                <li>
+                                  <a href="javascript:;">Menu Item</a>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
                 </ul>
             </div>
             <div class="col-lg-2">
@@ -99,6 +166,12 @@
                         </li>
                     </ul>
                 </div>
+                <div>
+                    <ul class="signup-button">
+                        <li class=""><button class="button-default" href="javascript:;">[% l('Sign Up') %]</button></li>
+                    </ul>
+                </div>
+            </div>
             </div>
         </div>
     </div>

@@ -1,7 +1,27 @@
 body .top-nav-menu li a {
-    padding: 30px;
+    padding: 25px;
 }
 
 .main-nav > li > ul {
     box-sizing: content-box;
+}
+
+.top-nav-menu > li > ul {
+    z-index: 10;
+}
+
+.top-nav-menu {
+    float: right;
+}
+
+.logo > div {
+    height: 45px;
+}
+
+.binary-logo-text > div {
+    height: 45px;
+}
+
+.logo-wrapper .logo-parent .logo, .logo-wrapper .logo-parent .logo-dark {
+    height: 45px;
 }

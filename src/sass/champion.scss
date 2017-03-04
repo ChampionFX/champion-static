@@ -43,10 +43,15 @@ html {
 // Sign up form
 #verify-email-form {
     @include no-margin-padding;
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
 }
 
 .signup-box {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 20px 0;
     padding: 10px;
     div {
@@ -54,7 +59,7 @@ html {
         @include no-margin-padding;
     }
     input {
-        padding: 5px;
+        padding: 5px 15px;
         margin-right: 5px;
     }
     span {
@@ -63,6 +68,23 @@ html {
     }
     button {
         margin: 0;
+    }
+}
+
+.signup-button {
+    text-align: right;
+}
+
+.license-box {
+    display: inline-block;
+    margin: 20px 0;
+    padding: 10px;
+    div {
+        display: inline;
+        @include no-margin-padding;
+    }
+    img {
+        width: 65px;
     }
 }
 
@@ -493,7 +515,7 @@ fieldset {
 }
 
 .logo-parent {
-    padding: 11px 0;
+    padding: 0;
     margin: 0;
 }
 

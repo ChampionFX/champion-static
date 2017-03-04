@@ -1,40 +1,44 @@
 <div class="slider">
     <div class="row">
-        <div class="col-lg">
-            <ul class="col-lg">
-                <li class="col-lg"><img src="../../images/about-2.jpg" alt="" /></li>
+            <ul class="col">
+                <li id="slide-1"></li>
             </ul>
-        </div>
     </div>
 		<div class="row">
-        <div class="col-lg">
-            <ul class="col-lg">
-                <li class="col-lg"><img src="../../images/about-2.jpg" alt="" /></li>
-            </ul>
-        </div>
-    </div><div class="row">
-        <div class="col-lg">
-            <ul class="col-lg">
-                <li class="col-lg"><img src="../../images/about-2.jpg" alt="" /></li>
-            </ul>
-        </div>
-    </div><div class="row">
-        <div class="col-lg">
-            <ul class="col-lg">
-                <li class="col-lg"><img src="../../images/about-2.jpg" alt="" /></li>
-            </ul>
-        </div>
-    </div><div class="row">
-        <div class="col-lg">
-            <ul class="col-lg">
-                <li class="col-lg"><img src="../../images/about-2.jpg" alt="" /></li>
-            </ul>
-        </div>
-    </div><div class="row">
-        <div class="col-lg">
-            <ul class="col-lg">
-                <li class="col-lg"><img src="../../images/about-2.jpg" alt="" /></li>
-            </ul>
-        </div>
+      <div class="col">
+        <ul class="row">
+          <li class="col-md-6 fx-slider-text center-text">
+            <h2>[% l('No funds, no problem.') %]</h2>
+            <h2>[% l('Your first trade is on us.') %]</h2>
+            <p>[% l('Sign up now and get a free welcome bonus worth $10.') %]</p>
+            <p>[% l('No deposit required.') %]</p>
+          </li>
+          <li class="col-md-6 flex-md-middle" id="slide-2"></li>
+        </ul>
+      </div>
     </div>
+    
+</div>
+<div class="fx-slider-footer">
+  <div class="fx-container">
+    <div class="row align-items-center">
+      <div class="col-md">
+        [% INCLUDE layout/includes/signup.html.tt %]
+      </div>
+      <div class="col-md">
+        <div class="row align-items-center">
+          <div class="col-md-3">
+            <div class="license-box">
+              <img src="[% request.url_for('images/symbols/cfx_l.svg') %]" alt="">
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="license-box">
+              [% l('Join a licensed broker with a clear vision and an unwavering commitment to treating all its clients like champions.') %]
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
