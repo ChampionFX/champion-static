@@ -3,7 +3,7 @@ require('./../lib/slick');
 const Slider = (() => {
     const init = function() {
         $('.slider').slick({
-            infinite    : true,
+            infinite    : false,
             dots        : true,
             arrows      : false,
             slidesToShow: 1,
