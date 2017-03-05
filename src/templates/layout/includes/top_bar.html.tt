@@ -1,5 +1,5 @@
 <div class="topbar primary-color-dark">
-    <div class="fx-container">
+    <div class="menu-container">
         <div class="row">
             <div class="col-sm-12 topbar-container flex-items-sm-middle">
                 <div class=" col-sm-3 upgrade-message hidden">

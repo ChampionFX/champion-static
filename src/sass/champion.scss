@@ -15,6 +15,14 @@ button {
     white-space: nowrap;
 }
 
+.bold {
+    font-weight: bold;
+}
+
+.white {
+    color: $white;
+}
+
 //top bar
 .topbar-container div {
     display: inline-flex;
@@ -44,6 +52,10 @@ button {
 .FX__Header__cta {
     text-align: right;
     margin-top: 20px;
+}
+
+.menu-container {
+    margin: 0 15px;
 }
 
 // Sign up form

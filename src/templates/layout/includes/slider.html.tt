@@ -1,8 +1,16 @@
 <div class="slider">
-    <div class="row">
-            <ul class="col">
-                <li id="slide-1"></li>
-            </ul>
+    <div id="slide-1">
+      <div class="fx-section center-text">
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm col-md-6 offset-md-3 col-lg-6 offset-lg-3 flex-md-middle">
+                      <h3 class="bold white">[% l('ChampionFX: Where the Client is King') %]</h3>
+                      <p class="white">[% l('Trade in the financial markets with a multi-asset trading platform: Meta trader 5.') %]</p>
+                      <p class="white">[% l('The choise of the modern trader. One platform, many markets.') %]</p>
+                  </div>
+              </div>
+          </div>
+        </div>
     </div>
 		<div class="row">
       <div class="col">
