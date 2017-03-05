@@ -7,7 +7,7 @@
 		<div class="row">
       <div class="col">
         <ul class="row">
-          <li class="col-md-6 fx-slider-text center-text">
+          <li class="col-md-6 slider-text center-text">
             <h2>[% l('No funds, no problem.') %]</h2>
             <h2>[% l('Your first trade is on us.') %]</h2>
             <p>[% l('Sign up now and get a free welcome bonus worth $10.') %]</p>
@@ -19,7 +19,7 @@
     </div>
 
 </div>
-<div class="fx-slider-footer">
+<div class="slider-footer">
   <div class="fx-container">
     <div class="row align-items-center">
       <div class="col-md">
