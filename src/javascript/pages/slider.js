@@ -29,7 +29,7 @@ const positionFooterAndDots = function() {
           $('#slider-dots').css({
               transform: 'translateY(' + dotsMargin + 'px)',
           });
-          $('.slider-text').css('margin-bottom', -height + 'px');
+          $('.slider-text').css('height', 400 + height + 'px');
         }, 10);
 
         /*eslint-enable */
@@ -41,7 +41,7 @@ const positionFooterAndDots = function() {
             $('#slider-dots').css({
                 transform: 'translateY(-40px)',
             });
-            $('.slider-text').css('margin-bottom', 0);
+            $('.slider-text').css('height', 'auto');
         });
     }
 };
