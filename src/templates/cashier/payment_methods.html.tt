@@ -9,14 +9,14 @@
 
         <div class="row center-text">
             <div class="col-sm">
-                <a id="btn-open-account" href="[% request.url_for('/') %]" class="button button_large hidden">
+                <a class="button button_large hidden" href="[% request.url_for('/') %]" id="btn-open-account">
                     <span>[% l('Open an account now') %]</span>
                 </a>
-                <a id="btn-deposit" href="javascript:;" class="button button_large hidden">
+                <a class="button button_large hidden" href="[% request.url_for('/cashier/forward#deposit') %]" id="btn-deposit">
                     <span>[% l('Deposit') %]</span>
                 </a>
-                <a id="btn-withdraw" href="javascript:;" class="button button_large hidden">
-                    <span class="withdraw">[% l('Withdraw') %]</span>
+                <a class="button button_large hidden" href="[% request.url_for('/cashier/forward#withdraw') %]" id="btn-withdraw">
+                    <span>[% l('Withdraw') %]</span>
                 </a>
             </div>
         </div>

@@ -25,6 +25,7 @@ const FinancialAssessment     = require('./../pages/user/financial_assessment');
 const MetaTrader              = require('./../pages/user/metatrader/metatrader');
 const ChampionSettings        = require('./../pages/user/settings');
 const TNCApproval             = require('./../pages/user/tnc_approval');
+const CashierDepositWithdraw  = require('./../pages/cashier/deposit_withdraw');
 
 const Champion = (function() {
     'use strict';
@@ -67,6 +68,7 @@ const Champion = (function() {
             cashier           : { module: Cashier },
             contact           : { module: ChampionContact },
             endpoint          : { module: ChampionEndpoint },
+            forward           : { module: CashierDepositWithdraw, is_authenticated: true, only_real: true },
             logged_inws       : { module: LoggedIn },
             metatrader        : { module: MetaTrader,          is_authenticated: true },
             real              : { module: ChampionNewReal,     is_authenticated: true, only_virtual: true },
