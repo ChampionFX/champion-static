@@ -1,7 +1,7 @@
 <div class="dark-blue header">
     <div class="fx-container">
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-sm-6 col-xs-6">
                 <div class="logo-wrapper">
                     <a href="[% request.url_for('home') %]" class="logo-parent">
                         <div class="logo">
@@ -13,8 +13,55 @@
                     </a>
                 </div>
             </div>
-            <div class="col-lg-7">
-                <ul class="top-nav-menu mobile-hide">
+            <div class="col-lg-2 push-lg-7 col-sm-6 col-xs-6">
+                <div id="main-logout" class="hidden">
+                    <ul id="main-account" class="nav-menu main-nav">
+                        <li class="account">
+                            <a href="javascript:;">
+                                <div class="main-account">
+                                    <div class="account-type"></div>
+                                    <div class="account-id"></div>
+                                    <div class="topMenuBalance"></div>
+                                </div>
+                                <div class="nav-caret"></div>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul id="all-accounts" class="nav-menu main-nav">
+                        <li class="account">
+                            <a href="javascript:;">
+                                <div class="main-account">
+                                    <div class="account-type"></div>
+                                    <div class="account-id"></div>
+                                    <div class="topMenuBalance"></div>
+                                </div>
+                                <div class="nav-caret"></div>
+                            </a>
+                            <ul>
+                                <a class="link" href="[% request.url_for('user/settings') %]">
+                                    <li class="topMenuSettings">[% l('Settings') %]</li>
+                                </a>
+                                <div class="separator-line-thin-gray"></div>
+                                <a class="link" href="[% request.url_for('cashier') %]">
+                                    <li class="topMenuCashier">[% l('Cashier') %]</li>
+                                </a>
+                                <div class="separator-line-thin-gray"></div>
+                                <div class="login-id-list"></div>
+                                <a href="javascript:;" id="btn_logout" class="logout">
+                                    <li>[% l("Sign out") %]</li>
+                                </a>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="signup-button">
+                        <li class=""><button class="button-default" href="javascript:;">[% l('Sign Up') %]</button></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-7 pull-lg-2">
+                <ul class="top-nav-menu">
                     <li>
                       <a href="javascript:;" class="nav-dropdown-toggle">
                       [% l('About') %]
@@ -124,54 +171,7 @@
                       </ul>
                     </li>
                 </ul>
-            </div>
-            <div class="col-lg-2">
-                <div id="main-logout" class="hidden">
-                    <ul id="main-account" class="nav-menu main-nav">
-                        <li class="account">
-                            <a href="javascript:;">
-                                <div class="main-account">
-                                    <div class="account-type"></div>
-                                    <div class="account-id"></div>
-                                    <div class="topMenuBalance"></div>
-                                </div>
-                                <div class="nav-caret"></div>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul id="all-accounts" class="nav-menu main-nav">
-                        <li class="account">
-                            <a href="javascript:;">
-                                <div class="main-account">
-                                    <div class="account-type"></div>
-                                    <div class="account-id"></div>
-                                    <div class="topMenuBalance"></div>
-                                </div>
-                                <div class="nav-caret"></div>
-                            </a>
-                            <ul>
-                                <a class="link" href="[% request.url_for('user/settings') %]">
-                                    <li class="topMenuSettings">[% l('Settings') %]</li>
-                                </a>
-                                <div class="separator-line-thin-gray"></div>
-                                <a class="link" href="[% request.url_for('cashier') %]">
-                                    <li class="topMenuCashier">[% l('Cashier') %]</li>
-                                </a>
-                                <div class="separator-line-thin-gray"></div>
-                                <div class="login-id-list"></div>
-                                <a href="javascript:;" id="btn_logout" class="logout">
-                                    <li>[% l("Sign out") %]</li>
-                                </a>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <ul class="signup-button">
-                        <li class=""><button class="button-default" href="javascript:;">[% l('Sign Up') %]</button></li>
-                    </ul>
-                </div>
-            </div>
+              </div>
             </div>
         </div>
     </div>

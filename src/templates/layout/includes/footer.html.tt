@@ -36,8 +36,8 @@
             </div>
         </div>
     </div>
-    <div id="footer-last" class="">
-        <div class="container center-text">
+    <div id="footer-last" class="primary-color-dark">
+        <div class="container">
             <div class="row">
                 <div class="col-sm">
                     [% l('&copy; 2017 Champion FX') %]
