@@ -1,12 +1,18 @@
 html {
     height: 100%;
+    overflow-x: hidden;
     body {
         display: flex;
         flex-direction: column;
+        overflow-x: hidden;
         #champion-container {
             flex: 1 1 auto;
         }
     }
+}
+
+button {
+    white-space: nowrap;
 }
 
 //top bar
@@ -61,9 +67,11 @@ html {
     input {
         padding: 5px 15px;
         margin-right: 5px;
+        margin-bottom: 5px;
     }
     span {
         display: block;
+        text-align: left;
         @include no-margin-padding;
     }
     button {
@@ -93,6 +101,9 @@ html {
         margin: 15px 0;
     }
     #end_note {
+        display: none;
+    }
+    #license-box-container {
         display: none;
     }
 }
