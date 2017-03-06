@@ -26,3 +26,9 @@ body .top-nav-menu li a {
 .logo-wrapper .logo-parent .logo, .logo-wrapper .logo-parent .logo-dark {
     height: 45px;
 }
+
+@media screen and (max-width: 796px) {
+    .top-nav-menu {
+        float: left;
+    }
+}
