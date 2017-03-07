@@ -107,7 +107,7 @@ const Validation = (function() {
     // ----- Validate -----
     // --------------------
     const checkField = (field) => {
-        if (!field.$.is(':visible')) return true;
+        if (!field.$.is(':visible') || !field.validations) return true;
         let all_is_ok = true,
             message;
 

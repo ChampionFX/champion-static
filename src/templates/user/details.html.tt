@@ -5,48 +5,44 @@
         <form id="frm_personal_details">
             <fieldset>
                 <legend>[% l('Details') %]</legend>
-                <div class="row form-row">
+                <div class="row form-row fx-real-acc">
                     <div class="col-xs-4">
                         <label for="txt_name">[% l('Name') %]</label>
                     </div>
                     <div class="col-xs-8">
-                        <span id=""></span>
-                        <!-- input id="txt_old_password" type="text" maxlength="25" / -->
+                        <span id="txt_name"></span>
                     </div>
                 </div>
-                <div class="row form-row">
+                <div class="row form-row fx-real-acc">
                     <div class="col-xs-4">
                         <label for="txt_date_of_birth">[% l('Date of birth') %]</label>
                     </div>
                     <div class="col-xs-8">
-                        <span id=""></span>
-                        <!-- input id="txt_old_password" type="password" maxlength="25" / -->
+                        <span id="txt_date_of_birth"></span>
                     </div>
                 </div>
                 <div class="row form-row fx-real-acc">
                     <div class="col-xs-4">
-                        <label for="txt_place_of_birth">[% l('Place of birth') %]</label>
+                        <label for="place_of_birth">[% l('Place of birth') %]</label>
                     </div>
                     <div class="col-xs-8">
-                        <select id="txt_place_of_birth"></select>
+                        <select id="place_of_birth"></select>
                     </div>
                 </div>
-                <div class="row form-row fx-real-acc">
+                <div class="row form-row">
                     <div class="col-xs-4">
-                        <label for="txt_old_password">[% l('Country of residence') %]</label>
+                        <label for="txt_country">[% l('Country of residence') %]</label>
                     </div>
                     <div class="col-xs-8">
-                        <span id=""></span>
-                        <!-- input id="txt_old_password" type="password" maxlength="25" / -->
+                        <span id="txt_country"></span>
                     </div>
                 </div>
-                <div class="row form-row fx-real-acc">
+                <div class="row form-row">
                     <div class="col-xs-4">
-                        <label for="txt_old_password">[% l('Email address') %]</label>
+                        <label for="txt_email">[% l('Email address') %]</label>
                     </div>
                     <div class="col-xs-8">
-                        <span id=""></span>
-                        <!-- input id="txt_old_password" type="password" maxlength="25" / -->
+                        <span id="txt_email"></span>
                     </div>
                 </div>
             </fieldset>
@@ -55,18 +51,18 @@
                 <legend>[% l('Tax Information') %]</legend>
                 <div class="row form-row">
                     <div class="col-xs-4">
-                        <label for="txt_tax_residence">[% l('Tax residence') %]</label>
+                        <label for="tax_residence">[% l('Tax residence') %]</label>
                     </div>
                     <div class="col-xs-8">
-                        <select id="txt_tax_residence" multiple="multiple"></select>
+                        <select id="tax_residence" class="invisible" multiple="multiple"></select>
                     </div>
                 </div>
                 <div class="row form-row">
                     <div class="col-xs-4">
-                        <label for="txt_tax_information_number">[% l('Tax information number') %]</label>
+                        <label for="tax_information_number">[% l('Tax information number') %]</label>
                     </div>
                     <div class="col-xs-8">
-                        <input id="txt_tax_information_number" type="text" maxlength="20" />
+                        <input id="tax_information_number" type="text" maxlength="20" />
                     </div>
                 </div>
             </fieldset>
@@ -75,50 +71,50 @@
                 <legend>[% l('Address') %]</legend>
                 <div class="row form-row">
                     <div class="col-xs-4">
-                        <label for="txt_address_line_1">[% l('First line of home address') %]</label>
+                        <label for="address_line_1">[% l('First line of home address') %]</label>
                     </div>
                     <div class="col-xs-8">
-                        <input id="txt_address_line_1" type="text" maxlength="70" />
+                        <input id="address_line_1" type="text" maxlength="70" />
                     </div>
                 </div>
                 <div class="row form-row">
                     <div class="col-xs-4">
-                        <label for="txt_address_line_2">[% l('Second line of home address') %]</label>
+                        <label for="address_line_2">[% l('Second line of home address') %]</label>
                     </div>
                     <div class="col-xs-8">
-                        <input id="txt_address_line_2" type="text" maxlength="70" />
+                        <input id="address_line_2" type="text" maxlength="70" />
                     </div>
                 </div>
                 <div class="row form-row">
                     <div class="col-xs-4">
-                        <label for="txt_town">[% l('Town / City') %]</label>
+                        <label for="address_city">[% l('Town / City') %]</label>
                     </div>
                     <div class="col-xs-8">
-                        <input id="txt_town" type="text" maxlength="35" />
+                        <input id="address_city" type="text" maxlength="35" />
                     </div>
                 </div>
                 <div class="row form-row">
                     <div class="col-xs-4">
-                        <label for="txt_state">[% l('State / Province') %]</label>
+                        <label for="address_state">[% l('State / Province') %]</label>
                     </div>
                     <div class="col-xs-8">
-                        <input id="txt_state" type="password" maxlength="25" />
+                        <select id="address_state"></select>
                     </div>
                 </div>
                 <div class="row form-row">
                     <div class="col-xs-4">
-                        <label for="txt_postal_code">[% l('Postal Code / ZIP') %]</label>
+                        <label for="address_postcode">[% l('Postal Code / ZIP') %]</label>
                     </div>
                     <div class="col-xs-8">
-                        <input id="txt_postal_code" type="text" maxlength="20" />
+                        <input id="address_postcode" type="text" maxlength="20" />
                     </div>
                 </div>
                 <div class="row form-row">
                     <div class="col-xs-4">
-                        <label for="txt_phone">[% l('Telephone') %]</label>
+                        <label for="phone">[% l('Telephone') %]</label>
                     </div>
                     <div class="col-xs-8">
-                        <input id="txt_phone" type="text" maxlength="35" />
+                        <input id="phone" type="text" maxlength="35" />
                     </div>
                 </div>
             </fieldset>
