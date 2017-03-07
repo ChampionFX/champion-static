@@ -1,9 +1,9 @@
-const moment         = require('moment');
+const Client           = require('../../common/client');
+const ChampionSocket   = require('../../common/socket');
+const Validation       = require('../../common/validation');
+const showLoadingImage = require('../../common/utility').showLoadingImage;
+const moment = require('moment');
 require('select2');
-
-const Client         = require('../../common/client');
-const ChampionSocket = require('../../common/socket');
-const Validation     = require('../../common/validation');
 
 const Details = (() => {
     'use strict';
@@ -14,9 +14,12 @@ const Details = (() => {
         tax_residence_values;
 
     const form_selector = '#frm_personal_details',
-        editable_fields = {};
+        editable_fields = {},
+        hidden_class    = 'hidden';
 
     const load = () => {
+        showLoadingImage($('<div/>', { id: 'loading', class: 'center-text' }).insertAfter('#heading'));
+
         $(form_selector).on('submit', onSubmit);
         ChampionSocket.send({ get_settings: 1 }).then((response) => {
             get_settings_data = response.get_settings;
@@ -46,6 +49,9 @@ const Details = (() => {
     };
 
     const displayGetSettingsData = (data, populate = true) => {
+        $('.barspinner').addClass(hidden_class);
+        $(form_selector).removeClass(hidden_class);
+
         if (data.tax_residence) {
             tax_residence_values = data.tax_residence.split(',');
         }

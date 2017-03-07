@@ -2,7 +2,7 @@
     <div class="container">
         <h1 id="heading">[% l("Personal Details") %]</h1>
 
-        <form id="frm_personal_details">
+        <form id="frm_personal_details" class="hidden">
             <fieldset>
                 <legend>[% l('Details') %]</legend>
                 <div class="row form-row fx-real-acc">
