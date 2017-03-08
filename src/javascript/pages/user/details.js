@@ -95,9 +95,11 @@ const Details = (() => {
 
         if (residence_list && residence_list.length > 0) {
             let option = '';
-            for (const res of residence_list) {
-                option += `<option value=${res.value}>${res.text}</option>`;
-            }
+            Object.keys(residence_list).forEach((res) => {
+                const value = residence_list[res].value;
+                const text  = residence_list[res].text;
+                option += `<option value=${value}>${text}</option>`;
+            });
             $place_of_birth.append(option);
             $tax_residence.append(option);
             $place_of_birth.val(place_of_birth_value || residence);
@@ -114,9 +116,11 @@ const Details = (() => {
 
         if (states_list && states_list.length > 0) {
             let option = '<option value=\'\'>Please select</option>';
-            for (const state of states_list) {
-                option += `<option value=${state.value}>${state.text}</option>`;
-            }
+            Object.keys(states_list).forEach((state) => {
+                const value = states_list[state].value;
+                const text  = states_list[state].text;
+                option += `<option value=${value}>${text}</option>`;
+            });
             $address_state.append(option);
         } else {
             $address_state.replaceWith('<input/>', { id: '#address_state'.replace('#', ''), name: 'address_state', type: 'text', maxlength: '35' });
