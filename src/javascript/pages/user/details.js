@@ -36,7 +36,10 @@ const Details = (() => {
                         populateStates(states_list_response);
                     });
                 }
-            } else $('.fx-real-acc').addClass('hidden');
+            } else $('.fx-real-acc').addClass(hidden_class);
+
+            $(form_selector).removeClass(hidden_class);
+            $('.barspinner').addClass(hidden_class);
         });
     };
 
@@ -45,13 +48,10 @@ const Details = (() => {
         get_settings.name  = `${get_settings.salutation} ${get_settings.first_name} ${get_settings.last_name}`;
         get_settings.date_of_birth = get_settings.date_of_birth ? moment.utc(new Date(get_settings.date_of_birth * 1000)).format('YYYY-MM-DD') : '';
 
-        displayGetSettingsData(get_settings);
+        return displayGetSettingsData(get_settings);
     };
 
     const displayGetSettingsData = (data, populate = true) => {
-        $('.barspinner').addClass(hidden_class);
-        $(form_selector).removeClass(hidden_class);
-
         if (data.tax_residence) {
             tax_residence_values = data.tax_residence.split(',');
         }
@@ -65,7 +65,7 @@ const Details = (() => {
             has_key,
             has_lbl_key;
 
-        $.each(data, (key) => {
+        Object.keys(data).forEach((key) => {
             $key        = $(`${form_selector} #${key}`);
             $lbl_key    = $(`#txt_${key}`);
             has_key     = $key.length > 0;
@@ -94,10 +94,12 @@ const Details = (() => {
             $tax_residence   = $(`${form_selector} #tax_residence`);
 
         if (residence_list && residence_list.length > 0) {
-            $.each(residence_list, (idx) => {
-                $place_of_birth.append($('<option/>', { value: residence_list[idx].value, text: residence_list[idx].text }));
-                $tax_residence.append($('<option/>', { value: residence_list[idx].value, text: residence_list[idx].text }));
-            });
+            let option = '';
+            for (const res of residence_list) {
+                option += `<option value=${res.value}>${res.text}</option>`;
+            }
+            $place_of_birth.append(option);
+            $tax_residence.append(option);
             $place_of_birth.val(place_of_birth_value || residence);
         }
 
@@ -111,10 +113,11 @@ const Details = (() => {
             $address_state = $(`${form_selector} #address_state`);
 
         if (states_list && states_list.length > 0) {
-            $address_state.append($('<option/>', { value: '', text: 'Please select' }));
-            $.each(states_list, (idx) => {
-                $address_state.append($('<option/>', { value: states_list[idx].value, text: states_list[idx].text }));
-            });
+            let option = '<option value=\'\'>Please select</option>';
+            for (const state of states_list) {
+                option += `<option value=${state.value}>${state.text}</option>`;
+            }
+            $address_state.append(option);
         } else {
             $address_state.replaceWith('<input/>', { id: '#address_state'.replace('#', ''), name: 'address_state', type: 'text', maxlength: '35' });
         }
@@ -151,13 +154,12 @@ const Details = (() => {
 
         if (Validation.validate(form_selector)) {
             const req = { set_settings: 1 };
-            $.each(get_settings_data, (key) => {
+            Object.keys(get_settings_data).forEach((key) => {
                 const $frm_el = $(`${form_selector} #${key}`);
                 if (/(SELECT|INPUT)/.test($frm_el.prop('nodeName'))) {
                     req[key] = $frm_el.val();
                 }
             });
-
             ChampionSocket.send(req).then((response) => {
                 if (response.error) {
                     $('#error-update-details').removeClass('hidden').html(response.error.message);
