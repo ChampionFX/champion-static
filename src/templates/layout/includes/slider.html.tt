@@ -4,7 +4,9 @@
           <div class="container">
               <div class="row">
                   <div class="col-sm col-md-10 offset-md-1 col-lg-8 offset-lg-2 flex-md-middle flex-sm-middle flex-lg-middle flex-xs-middle">
-                      <h3 class="bold white">[% l('ChampionFX: Where the Client is King') %]</h3>
+                      <h3 class="white">
+                          <strong>[% l('ChampionFX: Where the Client is King') %]</strong>
+                      </h3>
                       <p class="white">[% l('Trade in the financial markets with a multi-asset trading platform: Meta trader 5. The choise of the modern trader. One platform, many markets.') %]</p>
                   </div>
               </div>
@@ -18,7 +20,7 @@
             <h3 class="blue">[% l('No funds, no problem.') %]</h3>
             <h3 class="blue">[% l('Your first trade is on us.') %]</h3>
             <p>[% l('Sign up now and get a free welcome bonus worth $10.<br>No deposit required.') %]</p>
-            <a href="#" class="secondary-link">[% l('Learn more') %]
+            <a href="#">[% l('Learn more') %]
               <img src="[% request.url_for('images/symbols/next.svg') %]" alt="">
             </a>
           </li>
