@@ -64,8 +64,7 @@
 .slider-text {
     padding: 30px;
     .container {
-        height: 100%;
-        .row {
+        &, .row {
             height: 100%;
         }
     }

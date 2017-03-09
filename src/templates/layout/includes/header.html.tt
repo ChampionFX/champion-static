@@ -56,122 +56,123 @@
                 </div>
                 <div id="main-signup" class="hidden">
                     <ul class="signup-button">
-                        <li class=""><button class="button-secondary" href="javascript:;">[% l('Sign Up') %]</button></li>
+                        <li class="">
+                            <button class="button-secondary" href="javascript:;">[% l('Sign Up') %]</button>
+                        </li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-7 pull-lg-2">
                 <ul class="top-nav-menu">
                     <li>
-                      <a href="javascript:;" class="nav-dropdown-toggle">
-                      [% l('About') %]
-                      <span class="nav-caret"></span>
-                      </a>
-                      <ul>
-                        <li>
-                          <a href="javascript:;">
-                            Menu Item
-                            <span class="nav-submenu-caret"></span>
-                          </a>
-                          <ul>
+                        <a href="javascript:;" class="nav-dropdown-toggle">
+                            [% l('About') %]
+                            <span class="nav-caret"></span>
+                        </a>
+                        <ul>
                             <li>
-                              <a href="javascript:;">
-                                Menu Item
-                                <span class="nav-submenu-caret"></span>
-                              </a>
-                              <ul>
-                                <li>
-                                  <a href="javascript:;">Menu Item</a>
-                                </li>
-                              </ul>
+                                <a href="javascript:;">
+                                  Menu Item
+                                  <span class="nav-submenu-caret"></span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="javascript:;">
+                                            Menu Item
+                                            <span class="nav-submenu-caret"></span>
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:;">Menu Item</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
                             </li>
-                          </ul>
-                        </li>
-                      </ul>
+                        </ul>
                     </li>
                     <li>
-                      <a href="javascript:;" class="nav-dropdown-toggle">
-                        [% l('MT5') %]
-                        <span class="nav-caret"></span>
-                      </a>
-                      <ul>
-                        <li>
-                          <a href="javascript:;">
-                            Menu Item
-                            <span class="nav-submenu-caret"></span>
-                          </a>
-                          <ul>
+                        <a href="javascript:;" class="nav-dropdown-toggle">
+                            [% l('MT5') %]
+                            <span class="nav-caret"></span>
+                        </a>
+                        <ul>
                             <li>
-                              <a href="javascript:;">
-                                Menu Item
-                                <span class="nav-submenu-caret"></span>
-                              </a>
-                              <ul>
-                                <li>
-                                  <a href="javascript:;">Menu Item</a>
-                                </li>
-                              </ul>
+                                <a href="javascript:;">
+                                    Menu Item
+                                    <span class="nav-submenu-caret"></span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="javascript:;">
+                                            Menu Item
+                                            <span class="nav-submenu-caret"></span>
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:;">Menu Item</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
                             </li>
-                          </ul>
-                        </li>
-                      </ul>
+                        </ul>
                     </li>
                     <li>
-                      <a href="javascript:;" class="nav-dropdown-toggle">
-                        [% l('Binary Options') %]
-                        <span class="nav-caret"></span>
-                      </a>
-                      <ul>
-                        <li>
-                          <a href="javascript:;">
-                            Menu Item
-                            <span class="nav-submenu-caret"></span>
-                          </a>
-                          <ul>
+                        <a href="javascript:;" class="nav-dropdown-toggle">
+                            [% l('Binary Options') %]
+                            <span class="nav-caret"></span>
+                        </a>
+                        <ul>
                             <li>
-                              <a href="javascript:;">
-                                Menu Item
-                                <span class="nav-submenu-caret"></span>
-                              </a>
-                              <ul>
-                                <li>
-                                  <a href="javascript:;">Menu Item</a>
-                                </li>
-                              </ul>
+                                <a href="javascript:;">
+                                    Menu Item
+                                    <span class="nav-submenu-caret"></span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="javascript:;">
+                                            Menu Item
+                                            <span class="nav-submenu-caret"></span>
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:;">Menu Item</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
                             </li>
-                          </ul>
-                        </li>
-                      </ul>
+                        </ul>
                     </li>
                     <li>
-                      <a href="javascript:;" class="nav-dropdown-toggle">
-                        [% l('Partnerships') %]
-                        <span class="nav-caret"></span>
-                      </a>
-                      <ul>
-                        <li>
-                          <a href="javascript:;">
-                            Menu Item
-                            <span class="nav-submenu-caret"></span>
-                          </a>
-                          <ul>
+                        <a href="javascript:;" class="nav-dropdown-toggle">
+                            [% l('Partnerships') %]
+                            <span class="nav-caret"></span>
+                        </a>
+                        <ul>
                             <li>
-                              <a href="javascript:;">
-                                Menu Item
-                                <span class="nav-submenu-caret"></span>
-                              </a>
-                              <ul>
-                                <li>
-                                  <a href="javascript:;">Menu Item</a>
-                                </li>
-                              </ul>
+                                <a href="javascript:;">
+                                    Menu Item
+                                    <span class="nav-submenu-caret"></span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="javascript:;">
+                                            Menu Item
+                                            <span class="nav-submenu-caret"></span>
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:;">Menu Item</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
                             </li>
-                          </ul>
-                        </li>
-                      </ul>
+                        </ul>
                     </li>
                 </ul>
-              </div>
             </div>
         </div>
     </div>
