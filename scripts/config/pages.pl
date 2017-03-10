@@ -11,7 +11,7 @@ sub all_pages {
         ['binary-options',             'static/binary_options',        'full_width', 'Binary Options'],
         ['contact',                    'static/contact',               'full_width', 'Contact Us'],
         ['endpoint',                   'static/endpoint',              'full_width', 'Endpoint'],
-        ['forex',                      'static/forex',                 'full_width', 'Forex'],
+        ['mt5',                        'static/mt5',                 'full_width', 'Forex'],
         ['home',                       'static/home',                  'full_width', 'Champion FX'],
         ['licensing',                  'static/licensing',             'full_width', 'Licensing'],
         ['logged_inws',                'static/common/logged_in',      'full_width', 'Logging in...'],
