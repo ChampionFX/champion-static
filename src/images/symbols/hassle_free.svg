@@ -1,20 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-19668 -19671 62 62">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-23443 -15163 50 50">
   <defs>
     <style>
-      .cls-1, .cls-2 {
-        fill: #004385;
+      .cls-1 {
+        fill: #0080ff;
+        font-size: 36px;
+        font-family: Roboto-Bold, Roboto;
+        font-weight: 700;
       }
 
-      .cls-1 {
+      .cls-2, .cls-4 {
+        fill: none;
+      }
+
+      .cls-2 {
         stroke: #004385;
-        stroke-width: 2px;
+        stroke-width: 4px;
+      }
+
+      .cls-3 {
+        stroke: none;
       }
     </style>
   </defs>
-  <g id="no-questions" transform="translate(-19667 -19670)">
-    <g id="group">
-      <path id="path" class="cls-1" d="M51.986,50.384A29.983,29.983,0,1,0,7.876,9.762c-.02.019-.046.026-.063.046s-.022.044-.038.064A29.982,29.982,0,0,0,51.889,50.484c.02-.019.044-.025.062-.045S51.971,50.4,51.986,50.384ZM30,1.935A28.042,28.042,0,0,1,51.164,48.4L34.3,32.877c.68-.27,1.453-.532,2.361-.811,3.5-1.039,7.925-2.845,7.925-10.28-.053-8.749-7.708-11.208-14.762-11.208-5.168,0-10.827,1.6-13.333,5.907L9.913,10.428A27.975,27.975,0,0,1,30,1.935Zm2.239,29.043L18.666,18.484c1.807-4.147,7.048-5.284,11.159-5.284,5.25,0,11.974,1.422,11.974,8.585,0,5.467-2.732,6.835-5.85,7.764A20.412,20.412,0,0,0,32.238,30.979ZM30,58.065A28.044,28.044,0,0,1,8.61,11.86l7.074,6.512a11.012,11.012,0,0,0-.511,3.359h2.844a9.343,9.343,0,0,1,.08-1.138l12.46,11.47c-2.441,1.962-3.246,4.843-3.246,9.738H30.1c0-4.646.4-6.644,2.361-7.984L49.849,49.823A27.987,27.987,0,0,1,30,58.065Z"/>
-      <path id="path-2" data-name="path" class="cls-2" d="M97.111,166.555a2.133,2.133,0,1,0,4.265,0A2.133,2.133,0,1,0,97.111,166.555Z" transform="translate(-70.293 -119.015)"/>
+  <g id="Group_376" data-name="Group 376" transform="translate(-23993 -16809)">
+    <text id="_" data-name="?" class="cls-1" transform="translate(566 1685)"><tspan x="0" y="0">?</tspan></text>
+    <g id="Ellipse_110" data-name="Ellipse 110" class="cls-2" transform="translate(550 1646)">
+      <circle class="cls-3" cx="25" cy="25" r="25"/>
+      <circle class="cls-4" cx="25" cy="25" r="23"/>
     </g>
+    <line id="Line_10" data-name="Line 10" class="cls-2" x2="34" y2="34" transform="translate(558.5 1653.5)"/>
   </g>
 </svg>

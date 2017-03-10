@@ -1,0 +1,59 @@
+<div class="slider">
+    <div id="slide-1">
+        <div class="fx-section center-text slider-text">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm col-md-10 offset-md-1 col-lg-8 offset-lg-2 flex-md-middle flex-sm-middle flex-lg-middle flex-xs-middle">
+                        <h3 class="white">
+                            <strong>[% l('ChampionFX: Where the Client is King') %]</strong>
+                        </h3>
+                        <p class="white">
+                            [% l('Trade in the financial markets with a multi-asset trading platform: Meta trader 5. The choise of the modern trader. One platform, many markets.') %]
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+		<div class="row">
+        <div class="col">
+            <ul class="row">
+                <li class="col-md-6 col-sm-6 slider-text center-text flex-sm-middle">
+                    <h3 class="blue">[% l('No funds, no problem.') %]</h3>
+                    <h3 class="blue">[% l('Your first trade is on us.') %]</h3>
+                    <p>[% l('Sign up now and get a free welcome bonus worth $10.<br>No deposit required.') %]</p>
+                    <a href="#">[% l('Learn more') %]
+                        <img src="[% request.url_for('images/symbols/next.svg') %]" alt="">
+                    </a>
+                </li>
+                <li class="col-md-6 col-sm-6 flex-md-middle" id="slide-2"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="slider-dots">
+</div>
+
+<div class="slider-footer">
+    <div class="fx-container">
+        <div class="row align-items-center">
+            <div class="col-md">
+                [% INCLUDE layout/includes/signup.html.tt %]
+            </div>
+            <div class="col-md" id="license-box-container">
+                <div class="row align-items-center">
+                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3">
+                        <div class="license-box license-box-icon">
+                        </div>
+                    </div>
+                    <div class="col-lg-10 col-md-9 col-sm-9 col-xs-9">
+                        <div class="license-box">
+                            [% l('Join a licensed broker with a clear vision and an unwavering commitment to treating all its clients like champions.') %]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

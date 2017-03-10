@@ -10,6 +10,7 @@ const BinaryOptions           = require('./../pages/binary_options');
 const ChampionContact         = require('./../pages/contact');
 const ChampionEndpoint        = require('./../pages/endpoint');
 const ChampionSignup          = require('./../pages/signup');
+const Slider             = require('./../pages/slider');
 const ChampionNewReal         = require('./../pages/new_account/real');
 const ChampionNewVirtual      = require('./../pages/new_account/virtual');
 const LostPassword            = require('./../pages/lost_password');
@@ -38,6 +39,7 @@ const Champion = (function() {
         container.on('champion:before', beforeContentChange);
         container.on('champion:after', afterContentChange);
         Client.init();
+        Slider.init();
         ChampionSocket.init({
             authorize: (response) => { Client.response_authorize(response); },
             balance  : (response) => { Header.updateBalance(response); },

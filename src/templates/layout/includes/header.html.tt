@@ -1,28 +1,19 @@
 <div class="dark-blue header">
-    <div class="fx-container">
+    <div class="menu-container">
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-sm-6 col-xs-6">
                 <div class="logo-wrapper">
                     <a href="[% request.url_for('home') %]" class="logo-parent">
                         <div class="logo">
                             <div></div>
                         </div>
-                        <div class="mobile-hide binary-logo-text ">
+                        <div class="mobile-hide binary-logo-text">
                             <div></div>
                         </div>
                     </a>
                 </div>
             </div>
-            <div class="col-lg-7">
-                <ul class="top-nav-menu mobile-hide">
-                    <li><a href="[% request.url_for('about-us') %]">[% l('About') %]</a></li>
-                    <li><a href="[% request.url_for('forex') %]">[% l('Forex') %]</a></li>
-                    <li><a href="[% request.url_for('binary-options') %]">[% l('Binary Options') %]</a></li>
-                    <li><a href="[% request.url_for('range-of-markets') %]">[% l('Markets') %]</a></li>
-                    <li><a href="[% request.url_for('partnerships') %]">[% l('Partnerships') %]</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-2">
+            <div class="col-lg-2 push-lg-7 col-sm-6 col-xs-6">
                 <div id="main-logout" class="hidden">
                     <ul id="main-account" class="nav-menu main-nav">
                         <li class="account">
@@ -63,9 +54,125 @@
                         </li>
                     </ul>
                 </div>
-                <div id="main-login" class="FX__Header__cta hidden">
-                    <a class="button-secondary" href="javascript:;"><span>[% l('Log In') %]</span></a>
+                <div id="main-signup" class="hidden">
+                    <ul class="signup-button">
+                        <li class="">
+                            <button class="button-secondary" href="javascript:;">[% l('Sign Up') %]</button>
+                        </li>
+                    </ul>
                 </div>
+            </div>
+            <div class="col-lg-7 pull-lg-2">
+                <ul class="top-nav-menu">
+                    <li>
+                        <a href="javascript:;" class="nav-dropdown-toggle">
+                            [% l('About') %]
+                            <span class="nav-caret"></span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="javascript:;">
+                                  Menu Item
+                                  <span class="nav-submenu-caret"></span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="javascript:;">
+                                            Menu Item
+                                            <span class="nav-submenu-caret"></span>
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:;">Menu Item</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="nav-dropdown-toggle">
+                            [% l('MT5') %]
+                            <span class="nav-caret"></span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="javascript:;">
+                                    Menu Item
+                                    <span class="nav-submenu-caret"></span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="javascript:;">
+                                            Menu Item
+                                            <span class="nav-submenu-caret"></span>
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:;">Menu Item</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="nav-dropdown-toggle">
+                            [% l('Binary Options') %]
+                            <span class="nav-caret"></span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="javascript:;">
+                                    Menu Item
+                                    <span class="nav-submenu-caret"></span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="javascript:;">
+                                            Menu Item
+                                            <span class="nav-submenu-caret"></span>
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:;">Menu Item</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="nav-dropdown-toggle">
+                            [% l('Partnerships') %]
+                            <span class="nav-caret"></span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="javascript:;">
+                                    Menu Item
+                                    <span class="nav-submenu-caret"></span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="javascript:;">
+                                            Menu Item
+                                            <span class="nav-submenu-caret"></span>
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:;">Menu Item</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

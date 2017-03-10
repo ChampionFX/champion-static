@@ -1,16 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20190 -19663 60 59.988">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-23883 -15163.001 50.01 50">
   <defs>
     <style>
       .cls-1 {
+        fill: #0080ff;
+      }
+
+      .cls-2 {
         fill: #004385;
       }
     </style>
   </defs>
-  <g id="target" transform="translate(-20190 -19663.051)">
+  <g id="target" transform="translate(-23883 -15163.051)">
     <g id="group" transform="translate(0 0.05)">
-      <path id="path" class="cls-1" d="M188.486,26.6a5.713,5.713,0,1,0,4.194,5.506,5.623,5.623,0,0,0-.208-1.521l15.918-15.918,2.575.343,8.057-8.057-6.1-.809-.809-6.1L204.06,8.107l.343,2.575Z" transform="translate(-159.022 -0.05)"/>
-      <path id="path-2" data-name="path" class="cls-1" d="M110,131.974l4.709-4.709a16.559,16.559,0,1,0,10.363,10.351l-4.709,4.709A11,11,0,1,1,110,131.974Z" transform="translate(-81.441 -110.892)"/>
-      <path id="path-3" data-name="path" class="cls-1" d="M47.687,52.229A21.853,21.853,0,1,1,37.325,41.866l4.5-4.5A27.932,27.932,0,1,0,52.176,47.716Z" transform="translate(0 -29.553)"/>
+      <path id="path" class="cls-1" d="M187.281,22.18a4.762,4.762,0,1,0,3.5,4.59A4.687,4.687,0,0,0,190.6,25.5l13.268-13.268,2.147.286L212.733,5.8l-5.08-.675L206.978.05l-6.716,6.716.286,2.147Z" transform="translate(-162.723 -0.05)"/>
+      <path id="path-2" data-name="path" class="cls-1" d="M107.138,131.043l3.925-3.925a13.8,13.8,0,1,0,8.637,8.627l-3.925,3.925a9.165,9.165,0,1,1-8.637-8.627Z" transform="translate(-83.337 -113.472)"/>
+      <path id="path-3" data-name="path" class="cls-2" d="M39.748,49.14A18.214,18.214,0,1,1,31.11,40.5l3.751-3.751a23.281,23.281,0,1,0,8.627,8.627Z" transform="translate(0 -30.24)"/>
     </g>
   </g>
 </svg>
