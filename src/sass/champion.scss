@@ -87,8 +87,11 @@ button {
     }
 }
 
-.signup-button {
-    text-align: right;
+#main-signup {
+    margin-left: auto;
+    .signup-button {
+        margin: auto;
+    }
 }
 
 .license-box {
@@ -553,14 +556,6 @@ fieldset {
 .logo-parent {
     padding: 0;
     margin: 0;
-}
-
-.binary-logo-text {
-    padding: 0;
-    div {
-        width: 150px !important;
-        margin-top: 8px;
-    }
 }
 
 .test {

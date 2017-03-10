@@ -1,7 +1,7 @@
 <div class="dark-blue header">
     <div class="menu-container">
         <div class="row">
-            <div class="col-lg-3 col-sm-6 col-xs-6">
+            <div class="col-lg-3 col-sm-6 col-xs-6 vertical-center">
                 <div class="logo-wrapper">
                     <a href="[% request.url_for('home') %]" class="logo-parent">
                         <div class="logo">
@@ -13,7 +13,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-lg-2 push-lg-7 col-sm-6 col-xs-6">
+            <div class="col-lg-2 push-lg-7 col-sm-6 col-xs-6 vertical-center">
                 <div id="main-logout" class="hidden">
                     <ul id="main-account" class="nav-menu main-nav">
                         <li class="account">
