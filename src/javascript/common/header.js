@@ -12,10 +12,11 @@ const Header = (function () {
 
     const userMenu = function() {
         if (!Client.is_logged_in()) {
-            $('#main-login').removeClass('hidden');
+            $('#main-login, #main-signup').removeClass('hidden');
             return;
         }
         $('#main-logout').removeClass('hidden');
+        $('#main-signup').addClass('hidden');
         const all_accounts = $('#all-accounts');
         const language = $('#select_language');
         $('.nav-menu').unbind('click').on('click', function(e) {

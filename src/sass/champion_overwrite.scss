@@ -1,7 +1,34 @@
 body .top-nav-menu li a {
-    padding: 30px;
+    height: auto;
+    padding: 25px 15px;
 }
 
 .main-nav > li > ul {
     box-sizing: content-box;
+}
+
+.top-nav-menu > li > ul {
+    z-index: 10;
+}
+
+.top-nav-menu {
+    float: right;
+}
+
+.logo > div {
+    height: 45px;
+}
+
+.binary-logo-text > div {
+    height: 45px;
+}
+
+.logo, .logo-dark {
+    height: 45px;
+}
+
+@media screen and (max-width: 796px) {
+    .top-nav-menu {
+        float: left;
+    }
 }
