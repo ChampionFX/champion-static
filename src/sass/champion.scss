@@ -87,8 +87,11 @@ button {
     }
 }
 
-.signup-button {
-    text-align: right;
+#main-signup {
+    margin-left: auto;
+    .signup-button {
+        margin: auto;
+    }
 }
 
 .license-box {

@@ -13,7 +13,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-lg-2 push-lg-7 col-sm-6 col-xs-6">
+            <div class="col-lg-2 push-lg-7 col-sm-6 col-xs-6 vertical-center">
                 <div id="main-logout" class="hidden">
                     <ul id="main-account" class="nav-menu main-nav">
                         <li class="account">
