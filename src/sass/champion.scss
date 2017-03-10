@@ -19,6 +19,16 @@ button {
     color: $white;
 }
 
+h1.main-title {
+    border-bottom: 2px solid $fillColor;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+.separator.fill-bg-color {
+    margin: 40px 0;
+}
+
 //top bar
 .topbar-container div {
     display: inline-flex;
@@ -219,7 +229,7 @@ button {
 
 // Page Sections
 .fx-section {
-    padding: 50px 0;
+    padding: 20px 0 40px;
     .fx-features-title {
         margin-bottom: 50px;
     }

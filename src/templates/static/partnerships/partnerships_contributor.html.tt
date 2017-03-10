@@ -1,0 +1,51 @@
+<div class="fx-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm" id="content">
+                <h1 class="main-title">[% l('Partnerships') %]</h1>
+                <div class="center-text">
+                    <h2 class="lg-padding">[% l('Content Contributor programme') %]</h2>
+                    <p>[% l('Are you a successful financial trader or investment coach with extensive speaking and writing experiences?') %]</p>
+                    <p>[% l('Join us as a content contributor and position yourself as a leading expert on binary options trading and the financial markets.') %]</p>
+                    <h2>[% l('What does a Champion FX Content Contributor do?') %]</h2>
+                    <p>[% l('Contribute webinars, ebooks, and market reports that help our prospects and clients:') %]</p>
+                    <ul class="bullet">
+                        <li>[% l('Master strategies and popular techniques for trading.') %]</li>
+                        <li>[% l('Keep up with the latest news in the financial markets.') %]</li>
+                        <li>[% l('Use the latest industry trends to their advantage.') %]</li>
+                    </ul>
+                    <div class="separator fill-bg-color"></div>
+                    <div class="center-text">
+                        <h2>[% l('Why should I join the Champion FX Content Contributor programme?') %]</h2>
+                        <div class="row">
+                            <div class="col-md">
+                                <h4>[% l('Enhanced reputation') %]</h4>
+                                <p>[% l('Join the ranks of the world’s most successful traders.') %]</p>
+                            </div>
+                            <div class="col-md">
+                                <h4>[% l('Wider reach') %]</h4>
+                                <p>[% l('Extend your reach through free marketing campaigns.') %]</p>
+                            </div>
+                            <div class="col-md">
+                                <h4>[% l('Affiliate commission') %]</h4>
+                                <p>[% l('Convert viewers and readers into Champion FX clients.') %]</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md">
+                                <div class="separator fill-bg-color"></div>
+                                <p>
+                                    <a class="button" href="mailto:marketing@champion-fx.com" rel="nofollow">
+                                        <span>[% l('Apply now') %]</span>
+                                    </a>
+                                </p>
+                                <div class="separator fill-bg-color"></div>
+                                <p class="font-s">[% l('Note: Your affiliate commission is only generated through Champion FX clients who trade binary options using our Webtrader platform.') %]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
