@@ -10,6 +10,9 @@
                         <p class="white">
                             [% l('Trade in the financial markets with a multi-asset trading platform: Meta trader 5. The choise of the modern trader. One platform, many markets.') %]
                         </p>
+                        <div class="row">
+                            <div class="col-md">[% INCLUDE layout/includes/signup.html.tt %]</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -38,16 +41,13 @@
 <div class="slider-footer">
     <div class="fx-container">
         <div class="row align-items-center">
-            <div class="col-md">
-                [% INCLUDE layout/includes/signup.html.tt %]
-            </div>
-            <div class="col-md" id="license-box-container">
+            <div class="col-md-8 offset-md-2" id="license-box-container">
                 <div class="row align-items-center">
-                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3">
+                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
                         <div class="license-box license-box-icon">
                         </div>
                     </div>
-                    <div class="col-lg-10 col-md-9 col-sm-9 col-xs-9">
+                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
                         <div class="license-box">
                             [% l('Join a licensed broker with a clear vision and an unwavering commitment to treating all its clients like champions.') %]
                         </div>

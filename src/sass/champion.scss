@@ -11,6 +11,19 @@ html {
     }
 }
 
+.page-title {
+    border-bottom: 1px solid $borderColor;
+    padding-bottom: 10px;
+}
+
+.section-title {
+    padding-bottom: 5px;
+    color: $white;
+    border-bottom: 2px solid $borderColor;
+    display: inline-block;
+    width: auto;
+}
+
 button {
     white-space: nowrap;
 }
@@ -91,6 +104,10 @@ button {
     margin-left: auto;
     .signup-button {
         margin: auto;
+        text-align: right;
+        li {
+            padding: 10px 0;
+        }
     }
 }
 
@@ -175,7 +192,7 @@ button {
 // Panel
 .fx-panel-container {
     background: $white;
-    border: 1px solid $borderColor;
+    border: 1px solid $primaryBrandColor;
 }
 
 .fx-panel {
@@ -268,10 +285,6 @@ button {
     padding: 10px;
 }
 
-.p-title {
-    padding-bottom: 40px;
-}
-
 .fx-feature-box {
     text-align: center;
     margin-top: 30px;
@@ -327,14 +340,27 @@ button {
     margin-bottom: 10px;
 }
 
-#cs_telephone_number {
-    width: 90%;
-}
-
 #phone-result {
-    padding-left: 10px;
     text-align: left;
     margin: 20px 0;
+}
+
+#contacts-emails-container {
+    padding: 0;
+    .contacts-emails {
+        padding-bottom: 30px;
+        color: $white;
+        .row {
+            padding: 25px 0 0;
+            h6, p {
+                color: $white;
+            }
+            &.emails {
+                border-bottom: 2px solid $lightBorderColor;
+                padding: 25px 0;
+            }
+        }
+    }
 }
 
 .phone-note {

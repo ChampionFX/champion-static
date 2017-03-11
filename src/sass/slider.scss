@@ -66,6 +66,9 @@
     .container {
         &, .row {
             height: 100%;
+            h3, p, .row {
+                padding: 10px;
+            }
         }
     }
 }
@@ -77,6 +80,7 @@
     height: 100%;
     margin: 0;
     background-position: center center;
+    max-width: 80px;
 }
 
 #slide-1 {

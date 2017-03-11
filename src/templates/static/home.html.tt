@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm flex-md-middle">
-                <h2 class="p-title">[% l('Gain access to our multi-asset trading platform and you can trade Forex, stocks, futures, and CFDs all through one platform.') %]</h2>
+                <h2>[% l('Gain access to our multi-asset trading platform and you can trade Forex, stocks, futures, and CFDs all through one platform.') %]</h2>
                 <p>[% l('We provide you with all the necessary tools for financial trading, including:') %]</p>
             </div>
         </div>
