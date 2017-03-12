@@ -46,9 +46,8 @@ const positionFooterAndDots = function() {
     }
 };
 
-$(document).ready(
-    function() {
-        positionFooterAndDots();
-        $(window).resize(positionFooterAndDots);
-    });
+$(function() {
+    positionFooterAndDots();
+    $(window).resize(positionFooterAndDots);
+});
 module.exports = Slider;
