@@ -32,15 +32,23 @@
                 </div>
             </div>
             <div class="col-md-5">
-                <h3 class="blue">[% l('Skype') %]</h3>
-                <p>[% l('Marketing') %]</p>
-                <a href="mailto:marketing@champion-fx.com" rel="nofollow">marketing@champion-fx.com</a>
-                <p>[% l('Customer support') %]</p>
-                <a href="mailto:support@champion-fx.com" rel="nofollow">support@champion-fx.com</a>
+                <div class="row">
+                    <div class="col-md">
+                        <h3 class="blue">[% l('Skype') %]</h3>
+                        <p>[% l('Marketing') %]</p>
+                        <a href="mailto:marketing@champion-fx.com" rel="nofollow">marketing@champion-fx.com</a>
+                        <p>[% l('Customer support') %]</p>
+                        <a href="mailto:support@champion-fx.com" rel="nofollow">support@champion-fx.com</a>
+                    </div>
+                </div>
             </div>
             <div class="col-md-2">
-                <h3 class="blue">[% l('Live chat') %]</h3>
-                <div class="fx-sm fx-customer-service"></div>
+                <div class="row">
+                    <div class="col-md">
+                        <h3 class="blue">[% l('Live chat') %]</h3>
+                        <div class="fx-sm fx-customer-service"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
