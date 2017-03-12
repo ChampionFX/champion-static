@@ -39,6 +39,7 @@ const Champion = (function() {
         container.on('champion:after', afterContentChange);
         Client.init();
         Slider.init();
+
         ChampionSocket.init({
             authorize: (response) => { Client.response_authorize(response); },
             balance  : (response) => { Header.updateBalance(response); },

@@ -105,6 +105,7 @@ button {
     .signup-button {
         margin: auto;
         text-align: right;
+        padding: 0;
         li {
             padding: 10px 0;
         }
@@ -577,6 +578,10 @@ fieldset {
 
 .top-nav-menu a {
     color: $contentInverseColor !important;
+    li {
+        border-bottom: 3px solid $primaryBrandColor;
+        margin-bottom: -4px;
+    }
 }
 
 .logo-parent {

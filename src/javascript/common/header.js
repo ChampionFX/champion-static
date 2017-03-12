@@ -8,6 +8,20 @@ const Header = (function () {
 
     const init = () => {
         ChampionSocket.wait('authorize').then(() => { userMenu(); });
+        $(function () {
+            const window_path = window.location.pathname;
+            const path = window_path.replace(/\/$/, "");
+            const href = decodeURIComponent(path);
+            $('#top-nav-menu li a').each(function() {
+                const target = $(this).attr('href');
+                if(target === href) {
+                    $(this).addClass('active');
+                }
+                else {
+                    $(this).removeClass('active');
+                }
+            });
+        });
     };
 
     const userMenu = function() {
