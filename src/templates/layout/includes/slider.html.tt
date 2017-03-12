@@ -18,7 +18,7 @@
             </div>
         </div>
     </div>
-		<div class="row">
+    <div class="row">
         <div class="col">
             <ul class="row">
                 <li class="col-md-6 col-sm-6 slider-text center-text flex-sm-middle">
@@ -34,10 +34,8 @@
         </div>
     </div>
 </div>
-
 <div id="slider-dots">
 </div>
-
 <div class="slider-footer">
     <div class="fx-container">
         <div class="row align-items-center">

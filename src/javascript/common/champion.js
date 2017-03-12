@@ -10,7 +10,7 @@ const BinaryOptions           = require('./../pages/binary_options');
 const ChampionContact         = require('./../pages/contact');
 const ChampionEndpoint        = require('./../pages/endpoint');
 const ChampionSignup          = require('./../pages/signup');
-const Slider             = require('./../pages/slider');
+const Slider                  = require('./../pages/slider');
 const ChampionNewReal         = require('./../pages/new_account/real');
 const ChampionNewVirtual      = require('./../pages/new_account/virtual');
 const LostPassword            = require('./../pages/lost_password');
@@ -38,7 +38,6 @@ const Champion = (function() {
         container.on('champion:before', beforeContentChange);
         container.on('champion:after', afterContentChange);
         Client.init();
-        Slider.init();
 
         ChampionSocket.init({
             authorize: (response) => { Client.response_authorize(response); },
@@ -54,6 +53,7 @@ const Champion = (function() {
     };
 
     const beforeContentChange = () => {
+        Slider.destroy();
         if (active_script) {
             if (typeof active_script.unload === 'function') {
                 active_script.unload();
@@ -92,6 +92,8 @@ const Champion = (function() {
         Header.init();
         ChampionSignup.load();
         Utility.handleActive();
+        Slider.init();
+
         ChampionSocket.wait('get_settings', 'get_account_status').then(() => { Client.check_tnc(); });
         checkRiskClassification();
     };
