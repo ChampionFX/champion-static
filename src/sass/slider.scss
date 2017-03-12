@@ -63,12 +63,27 @@
 
 .slider-text {
     padding: 30px;
+    display: table;
+    .center-items {
+        display: table-cell;
+        vertical-align: middle;
+    }
     .container {
         &, .row {
             height: 100%;
             h3, p, .row {
                 padding: 10px;
             }
+            ul {
+                li {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    .slide-list {
+        li {
+            height: auto !important;
         }
     }
 }
@@ -94,6 +109,41 @@
 }
 
 #slide-2 {
+    background: url('../images/about-2.jpg') no-repeat center center;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+}
+
+#slide-3 {
+    background: url('../images/about-2.jpg') no-repeat center center;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+}
+
+#slide-4 {
+    background: url('../images/about-2.jpg') no-repeat center center;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+}
+
+#slide-5 {
+    background: url('../images/image1.jpg') no-repeat center center;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+}
+
+#slide-6 {
+    background: url('../images/about-2.jpg') no-repeat center center;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+}
+
+#slide-7 {
     background: url('../images/about-2.jpg') no-repeat center center;
     background-size: cover;
     height: 500px;
