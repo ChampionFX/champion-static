@@ -67,36 +67,36 @@
             </div>
             <div class="row emails">
                 <div class="col-md">
-                    <p><strong>[% l('General enquiries') %]</strong></p>
-                    <p>support@champion-fx.com</p>
+                    <h5><strong>[% l('General enquiries') %]</strong></h5>
+                    <h5>support@champion-fx.com</h5>
                 </div>
                 <div class="col-md">
-                    <p><strong>[% l('Partnership opportunities') %]</strong></p>
-                    <p>partners@champion-fx.com</p>
+                    <h5><strong>[% l('Partnership opportunities') %]</strong></h5>
+                    <h5>partners@champion-fx.com</h5>
                 </div>
                 <div class="col-md">
-                    <p><strong>[% l('Introducing Broker (IB) programme') %]</strong></p>
-                    <p>bsupport@champion-fx.com</p>
-                </div>
-            </div>
-            <div class="row emails">
-                <div class="col-md">
-                    <p><strong>[% l('Affiliate  programme') %]</strong></p>
-                    <p>affiliates@champion-fx.com</p>
-                </div>
-                <div class="col-md">
-                    <p><strong>[% l('New accounts') %]</strong></p>
-                    <p>accounts@champion-fx.com</p>
-                </div>
-                <div class="col-md">
-                    <p><strong>[% l('Trading') %]</strong></p>
-                    <p>risk@champion-fx.com</p>
+                    <h5><strong>[% l('Introducing Broker (IB) programme') %]</strong></h5>
+                    <h5>bsupport@champion-fx.com</h5>
                 </div>
             </div>
             <div class="row emails">
                 <div class="col-md">
-                    <p><strong>[% l('Disputes and complaints') %]</strong></p>
-                    <p>compliance@champion-fx.com</p>
+                    <h5><strong>[% l('Affiliate  programme') %]</strong></h5>
+                    <h5>affiliates@champion-fx.com</h5>
+                </div>
+                <div class="col-md">
+                    <h5><strong>[% l('New accounts') %]</strong></h5>
+                    <h5>accounts@champion-fx.com</h5>
+                </div>
+                <div class="col-md">
+                    <h5><strong>[% l('Trading') %]</strong></h5>
+                    <h5>risk@champion-fx.com</h5>
+                </div>
+            </div>
+            <div class="row emails">
+                <div class="col-md">
+                    <h5><strong>[% l('Disputes and complaints') %]</strong></h5>
+                    <h5>compliance@champion-fx.com</h5>
                 </div>
             </div>
         </div>
