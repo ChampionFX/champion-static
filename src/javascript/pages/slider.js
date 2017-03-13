@@ -10,7 +10,7 @@ const Slider = (() => {
                 slidesToShow: 1,
                 appendDots  : $('#slider-dots'),
                 lazyLoad    : 'progressive',
-                autoplay    :  true,
+                autoplay    : true,
             });
             positionFooterAndDots();
         });
