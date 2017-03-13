@@ -3,58 +3,62 @@
 
         <div class="row">
             <div class="col-sm">
-                <h1>[% l('Settings') %]</h1>
-            </div>
-        </div>
+                [% INCLUDE components/page_title.html.tt title=l('ChampionFX account settings') %]
+                <p>
+                    [% l('Trade Forex, CFDs, and binary options with our industry-leading trading platforms.') %]
+                </p>
 
-        <div class="errorbox rbox center-text" id="client_message" style="display:none">
-            <div class="rbox-wrap">
-                <div class="gr-12 rbox-content" id="client_message_content">
-                    <p class="center notice-msg"></p>
-                </div>
-            </div>
-        </div>
-
-        <div id="fx-settings-content" style="display: none">
-            <div class="row">
-                <div class="col-xs-3">
-                    <a href="[% request.url_for('user/metatrader') %]">
-                        <div class="fx-md fx-mt5"></div>
-                        <h4>[% l('MetaTrader') %]</h4>
-                    </a>
-                    <p>[% l('Manage your MetaTrader account for Forex and CFD trading.') %]</p>
+                <div class="fx-divider"></div>
+                <div class="errorbox rbox center-text" id="client_message" style="display:none">
+                    <div class="rbox-wrap">
+                        <div class="gr-12 rbox-content" id="client_message_content">
+                            <p class="center notice-msg"></p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-xs-3">
-                    <a href="http://webtrader.champion-fx.com" target="_blank">
-                        <div class="fx-md fx-webtrader"></div>
-                        <h4>[% l('Webtrader') %]</h4>
-                    </a>
-                    <p>[% l('Manage your Webtrader account for binary options trading.') %]</p>
-                </div>
+                <div id="fx-settings-content" style="display: none">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="[% request.url_for('user/details') %]">
+                                <h3>[% l('Profile') %]</h3>
+                            </a>
+                            <div class="separator primary-color"></div>
+                            <p>[% l('Manage your personal details and financial assessment information.') %]</p>
+                        </div>
 
-                <div class="col-xs-3">
-                    <a href="[% request.url_for('cashier') %]">
-                        <div class="fx-md fx-manage-your-funds"></div>
-                        <h4>[% l('Manage your funds') %]</h4>
-                    </a>
-                    <p>[% l('Deposit and withdraw funds via bank wire, credit card, or e-cash.') %]</p>
-                </div>
+                        <div class="col-md-3 offset-xs-1">
+                            <a href="[% request.url_for('user/metatrader') %]">
+                                <h3>[% l('MetaTrader 5') %]</h3>
+                            </a>
+                            <div class="separator primary-color"></div>
+                            <p>[% l('Manage your MetaTrader 5 account for Forex and CFD trading.') %]</p>
+                        </div>
 
-                <div class="col-xs-3">
-                    <a href="[% request.url_for('user/change-password') %]">
-                        <div class="fx-md fx-account-password"></div>
-                        <h4>[% l('Account password') %]</h4>
-                    </a>
-                    <p>[% l('Change your main login password.') %]</p>
-                </div>
+                        <div class="col-md-3 offset-xs-1">
+                            <a href="http://webtrader.champion-fx.com">
+                                <h3>[% l('Champion Trader') %]</h3>
+                            </a>
+                            <div class="separator primary-color"></div>
+                            <p>[% l('Manage your Champion Trader account for binary options trading.') %]</p>
+                        </div>
 
-                <div class="col-xs-3 fx-real" style="display: none">
-                    <a href="[% request.url_for('cashier/cashier-password') %]">
-                        <div class="fx-md fx-cashier-password"></div>
-                        <h4>[% l('Cashier password') %]</h4>
-                    </a>
-                    <p>[% l('Change the password used for deposits and withdrawals.') %]</p>
+                        <div class="col-md-3">
+                            <a href="[% request.url_for('user/security') %]">
+                                <h3>[% l('Security') %]</h3>
+                            </a>
+                            <div class="separator primary-color"></div>
+                            <p>[% l('Change your account and cashier passwords. View your login history.') %]</p>
+                        </div>
+
+                        <div class="col-md-3 offset-xs-1 fx-real" style="display: none">
+                            <a href="[% request.url_for('cashier') %]">
+                                <h3>[% l('Cashier') %]</h3>
+                            </a>
+                            <div class="separator primary-color"></div>
+                            <p>[% l('Manage your funds. Deposit and withdraw funds via bank wire, credit card or e-cash.') %]</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-xs-3">
