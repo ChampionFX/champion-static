@@ -1,6 +1,6 @@
 <div class="slider">
     <div id="slide-1">
-        <div class="fx-section center-text slider-text">
+        <div class="fx-section center-text large-slider-text">
             <div class="container">
                 <div class="row">
                     <div class="col-sm col-md-10 offset-md-1 col-lg-8 offset-lg-2 flex-md-middle flex-sm-middle flex-lg-middle flex-xs-middle">
