@@ -20,7 +20,7 @@
                 <div id="fx-settings-content" style="display: none">
                     <div class="row">
                         <div class="col-md-3">
-                            <a href="[% request.url_for('profile') %]">
+                            <a href="[% request.url_for('user/details') %]">
                                 <h3>[% l('Profile') %]</h3>
                             </a>
                             <div class="separator primary-color col-xs-10"></div>
