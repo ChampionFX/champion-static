@@ -15,20 +15,20 @@
                 <div id="fx-security-content" style="display: none">
                     <div class="row">
                         <div class="col-md-3">
-                            <a href="[% request.url_for('user/security/change_password') %]">
+                            <a href="[% request.url_for('user/change-password') %]">
                                 <h3>[% l('Account password') %]</h3>
                             </a>
                             <div class="separator primary-color"></div>
                             <p>[% l('Change your ChampionFX account login password.') %]</p>
                         </div>
                         <div class="col-md-3 offset-xs-1 fx-real" style="display: none">
-                            <a href="[% request.url_for('user/security/cashier_password') %]">
+                            <a href="[% request.url_for('cashier/cashier-password') %]">
                                 <h3>[% l('Cashier password') %]</h3>
                             </a>
                             <div class="separator primary-color"></div>
                             <p>[% l('Create or change your cashier password to restrict deposits and withdrawals.') %]</p>
                         </div>
-                        <div class="col-md-3 offset-xs-1">
+                        <div class="col-md-3 offset-xs-1" style="display: none">
                             <a href="[% request.url_for('user/security/ip_history') %]">
                                 <h3>[% l('Login history') %]</h3>
                             </a>
