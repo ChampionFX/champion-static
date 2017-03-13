@@ -10,3 +10,4 @@ scripts/cpanfile.snapshot
 scripts/local
 npm-debug.log
 *.swp
+src/javascript/config.js
