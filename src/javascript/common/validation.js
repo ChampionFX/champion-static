@@ -172,7 +172,7 @@ const Validation = (function() {
         form.fields.forEach((field) => {
             if (!checkField(field)) {
                 if (form.is_ok) { // first error
-                    $.scrollTo(field.$, 500, { offset: -10 });
+                    $.scrollTo(field.$.parent('div'), 500, { offset: -10 });
                 }
                 form.is_ok = false;
             }

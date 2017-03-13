@@ -2,65 +2,41 @@
     <div class="container">
         <div class="row">
             <div class="col-sm">
-                <h1>[% l('Create New Account') %]</h1>
+                [% INCLUDE components/page_title.html.tt title=l('Complete your ChampionFX virtual account signup') %]
             </div>
         </div>
         <div class="row">
             <div class="col-sm">
-                <p>[% l('Thank you for signing up! Please check your email to retrieve the verification token.') %]</p>
+                <p>[% l('Your new ChampionFX virtual account lets you trade binary options with unlimited virtual currency.') %]</p>
             </div>
         </div>
 
-        <form id="frm_new_account_virtual">
-            <fieldset>
-                <legend>[% l('Details') %]</legend>
+        <h2>[% l('Details') %]</h2>
 
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="txt_verification_code">[% l('Verification token') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <input id="txt_verification_code" type="text" maxlength="48" autocomplete="off" />
-                        <div class="hint">[% l('Please check your email for the value of this token') %]</div>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col-lg-5 col-md-6">
+                <form id="frm_new_account_virtual">
+                    [% INCLUDE components/forms/form_row.html.tt id='txt_verification_code' type='text' label=l('Verification token')
+                        attributes='maxlength="48" autocomplete="off"' hint=l('Please check your email for the token') %]
 
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="txt_password">[% l('Choose a password') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <input id="txt_password" type="password" maxlength="25" />
-                        <div class="hint">[% l('Minimum of six lower and uppercase letters with numbers') %]</div>
-                    </div>
-                </div>
+                    [% INCLUDE components/forms/form_row.html.tt id='txt_password' type='password' label=l('Choose password')
+                        hint=l('Minimum of six lower and uppercase letters with numbers') %]
 
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="txt_re_password">[% l('Re-enter password') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <input id="txt_re_password" type="password" maxlength="25" />
-                    </div>
-                </div>
+                    [% INCLUDE components/forms/form_row.html.tt id='txt_re_password' type='password' label=l('Verify password') %]
 
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="ddl_residence">[% l('Country of residence') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <div id="residence_loading" class="small-spinner">[% INCLUDE static/common/loading.html.tt %]</div>
-                        <select id="ddl_residence" class="hidden"></select>
-                    </div>
-                </div>
-            </fieldset>
+                    [% INCLUDE components/forms/form_row.html.tt id='ddl_residence' type='select' label=l('Country of residence')
+                        attributes='class="hidden"' loading=1 loading_id='residence_loading' %]
 
-            <div class="row">
-                <div class="col-xs-8 offset-md-4">
-                    <p class="error-msg hidden" id="error-create-account"></p>
-                    <button id="btn_submit" type="submit">[% l('Create Free Account') %]</button>
-                </div>
+                    [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Create account') %]
+                </form>
             </div>
-        </form>
+            <div class="col-lg-7 col-md-6">
+                <p>[% l("Once you've finished setting up your ChampionFX virtual account, you can upgrade to a real account to unlock the following features:") %]</p>
+                <ul class="bullet">
+                    <li>[% l("Trade binary options with real money using our dedicated binary options trading platform - Champion Trader.") %]</li>
+                    <li>[% l("Upgrade to Cent, Standard, or STP account to trade Forex and other assets using our MetaTrader 5 platform.") %]</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>

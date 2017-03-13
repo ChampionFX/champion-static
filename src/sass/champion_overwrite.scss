@@ -19,10 +19,6 @@ body .top-nav-menu li a {
     height: 45px;
 }
 
-.binary-logo-text > div {
-    height: 45px;
-}
-
 .logo, .logo-dark {
     height: 45px;
 }
@@ -30,5 +26,11 @@ body .top-nav-menu li a {
 @media screen and (max-width: 796px) {
     .top-nav-menu {
         float: left;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        width: 1200px;
     }
 }
