@@ -10,7 +10,7 @@ const Slider = (() => {
                 slidesToShow: 1,
                 appendDots  : $('#slider-dots'),
                 lazyLoad    : 'progressive',
-                autoplay    : true,
+                autoplay    :  true,
             });
             positionFooterAndDots();
         });
@@ -33,7 +33,7 @@ const Slider = (() => {
                 $('#slider-dots').css({
                     transform: 'translateY(' + dotsMargin + 'px)',
                 });
-                $('.slider-text').css('height', 500 + height + 'px');
+                $('.slider-text, .large-slider-text').css('height', 500 + height + 'px');
             }, 10);
 
             /*eslint-enable */
@@ -45,7 +45,7 @@ const Slider = (() => {
                 $('#slider-dots').css({
                     transform: 'translateY(-40px)',
                 });
-                $('.slider-text').css('height', '100%');
+                $('.slider-text, .large-slider-text').css('height', '100%');
             });
         }
     };
