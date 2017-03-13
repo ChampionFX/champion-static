@@ -3,7 +3,7 @@
 
         <div class="row">
             <div class="col-sm">
-                <h1 class="main-title">[% l('ChampionFX account settings') %]</h1>
+                [% INCLUDE components/page_title.html.tt title=l('ChampionFX account settings') %]
                 <p>
                     [% l('Trade Forex, CFDs, and binary options with our industry-leading trading platforms.') %]
                 </p>
@@ -44,7 +44,7 @@
                         </div>
 
                         <div class="col-md-3">
-                            <a href="[% request.url_for('security') %]">
+                            <a href="[% request.url_for('user/security') %]">
                                 <h3>[% l('Security') %]</h3>
                             </a>
                             <div class="separator primary-color col-xs-10"></div>
