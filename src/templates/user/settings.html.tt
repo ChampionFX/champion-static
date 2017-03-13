@@ -23,7 +23,7 @@
                             <a href="[% request.url_for('user/details') %]">
                                 <h3>[% l('Profile') %]</h3>
                             </a>
-                            <div class="separator primary-color col-xs-10"></div>
+                            <div class="separator primary-color"></div>
                             <p>[% l('Manage your personal details and financial assessment information.') %]</p>
                         </div>
 
@@ -31,7 +31,7 @@
                             <a href="[% request.url_for('user/metatrader') %]">
                                 <h3>[% l('MetaTrader 5') %]</h3>
                             </a>
-                            <div class="separator primary-color col-xs-10"></div>
+                            <div class="separator primary-color"></div>
                             <p>[% l('Manage your MetaTrader 5 account for Forex and CFD trading.') %]</p>
                         </div>
 
@@ -39,7 +39,7 @@
                             <a href="http://webtrader.champion-fx.com">
                                 <h3>[% l('Champion Trader') %]</h3>
                             </a>
-                            <div class="separator primary-color col-xs-10"></div>
+                            <div class="separator primary-color"></div>
                             <p>[% l('Manage your Champion Trader account for binary options trading.') %]</p>
                         </div>
 
@@ -47,7 +47,7 @@
                             <a href="[% request.url_for('user/security') %]">
                                 <h3>[% l('Security') %]</h3>
                             </a>
-                            <div class="separator primary-color col-xs-10"></div>
+                            <div class="separator primary-color"></div>
                             <p>[% l('Change your account and cashier passwords. View your login history.') %]</p>
                         </div>
 
@@ -55,7 +55,7 @@
                             <a href="[% request.url_for('cashier') %]">
                                 <h3>[% l('Cashier') %]</h3>
                             </a>
-                            <div class="separator primary-color col-xs-10"></div>
+                            <div class="separator primary-color"></div>
                             <p>[% l('Manage your funds. Deposit and withdraw funds via bank wire, credit card or e-cash.') %]</p>
                         </div>
                     </div>
