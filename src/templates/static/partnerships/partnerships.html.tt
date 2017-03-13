@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm" id="content">
-                <h1 class="main-title">[% l('Partnerships') %]</h1>
+                [% INCLUDE components/page_title.html.tt title=l('Partnerships') %]
                 <p>[% l('Champion FX understands the importance of building long-lasting partnerships. We use a fresh and unique approach to understand your needs and what makes you tick.') %]</p>
                 <p>[% l('We want to help you grow your business by providing you with all the necessary tools and resources that allow you to prosper and flourish. Because we believe that our opportunities improve when we help you win.') %]</p>
                 <p>[% l('Explore our wide range of partnership programmes. Each programme opens a window of opportunity to one of the world\'s most significant financial markets, and each has been developed with the intention of perfectly matching the diverse needs of our potential partners.') %]</p>
