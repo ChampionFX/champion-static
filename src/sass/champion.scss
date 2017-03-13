@@ -32,6 +32,16 @@ button {
     color: $white;
 }
 
+h1.main-title {
+    border-bottom: 2px solid $fillColor;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+.separator.fill-bg-color {
+    margin: 40px 0;
+}
+
 //top bar
 .topbar-container div {
     display: inline-flex;
@@ -237,7 +247,7 @@ button {
 
 // Page Sections
 .fx-section {
-    padding: 50px 0;
+    padding: 20px 0 40px;
     .fx-features-title {
         margin-bottom: 50px;
     }
@@ -478,16 +488,16 @@ fieldset {
 }
 
 .form-row {
-    padding: 10px 0;
-    label {
-        display: block;
-        text-align: right;
+    width: 350px;
+    max-width: 100%;
+    margin-bottom: 20px;
+    select, input, textarea {
+        width: 100%;
     }
 }
 
-.left-label .form-row label {
-    text-align: left;
-    margin-left: 30px;
+.submit-row {
+    margin: 40px 0;
 }
 
 .hidden {
