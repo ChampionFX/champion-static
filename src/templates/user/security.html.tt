@@ -1,0 +1,43 @@
+<div class="fx-section">
+    <div class="fx-security container">
+        <div class="row">
+            <div class="col-sm">
+                [% INCLUDE components/page_title.html.tt title=l('Security settings') %]
+
+                <div class="errorbox rbox center-text" id="client_message" style="display:none">
+                    <div class="rbox-wrap">
+                        <div class="gr-12 rbox-content" id="client_message_content">
+                            <p class="center notice-msg"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="fx-security-content" style="display: none">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="[% request.url_for('user/security/change_password') %]">
+                                <h3>[% l('Account password') %]</h3>
+                            </a>
+                            <div class="separator primary-color"></div>
+                            <p>[% l('Change your ChampionFX account login password.') %]</p>
+                        </div>
+                        <div class="col-md-3 offset-xs-1 fx-real" style="display: none">
+                            <a href="[% request.url_for('user/security/cashier_password') %]">
+                                <h3>[% l('Cashier password') %]</h3>
+                            </a>
+                            <div class="separator primary-color"></div>
+                            <p>[% l('Create or change your cashier password to restrict deposits and withdrawals.') %]</p>
+                        </div>
+                        <div class="col-md-3 offset-xs-1">
+                            <a href="[% request.url_for('user/security/ip_history') %]">
+                                <h3>[% l('Login history') %]</h3>
+                            </a>
+                            <div class="separator primary-color"></div>
+                            <p>[% l('View your login history, including date, time, browser, and IP address.') %]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
