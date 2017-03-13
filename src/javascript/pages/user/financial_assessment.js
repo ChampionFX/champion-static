@@ -62,7 +62,7 @@ const FinancialAssessment = (() => {
             }
 
             const data = { set_financial_assessment: 1 };
-            showLoadingImage($('#form_message'));
+            showLoadingImage($('#msg_form'));
             $('#assessment_form').find('select').each(function() {
                 financial_assessment[$(this).attr('id')] = data[$(this).attr('id')] = $(this).val();
             });
@@ -101,7 +101,7 @@ const FinancialAssessment = (() => {
                 }
             });
         } else {
-            $('#form_message').html(msg).delay(5000).fadeOut(1000);
+            $('#msg_form').html(msg).delay(5000).fadeOut(1000);
         }
     };
 
