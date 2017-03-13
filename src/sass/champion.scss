@@ -464,16 +464,16 @@ fieldset {
 }
 
 .form-row {
-    padding: 10px 0;
-    label {
-        display: block;
-        text-align: right;
+    width: 350px;
+    max-width: 100%;
+    margin-bottom: 20px;
+    select, input, textarea {
+        width: 100%;
     }
 }
 
-.left-label .form-row label {
-    text-align: left;
-    margin-left: 30px;
+.submit-row {
+    margin: 40px 0;
 }
 
 .hidden {
