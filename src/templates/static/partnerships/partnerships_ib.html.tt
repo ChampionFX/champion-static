@@ -1,0 +1,60 @@
+[% BLOCK rows %]
+<div class="row lg-padding">
+    <div class="col-md-4 push-md-1">
+        <h3>[% title_1 %]</h3>
+        <div class="separator primary-color col-xs-8 push-xs-2"></div>
+        <p>[% desc_1 %]</p>
+    </div>
+    <div class="col-md-4 push-md-3">
+        <h3>[% title_2 %]</h3>
+        <div class="separator primary-color col-xs-8 push-xs-2"></div>
+        <p>[% desc_2 %]</p>
+    </div>
+</div>
+[% END %]
+
+<div class="fx-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm" id="content">
+                <h1 class="main-title">[% l('Partnerships') %]</h1>
+                <div class="center-text">
+                    <h2 class="lg-padding">[% l('Introducing Broker (IB) programme') %]</h2>
+                    <p>[% l('Earn commission on the trading activity of clients that you refer to Champion FX, thanks to our IB programme.') %]</p>
+                    <p>[% l('Promote our services to prospective clients, expand your client portfolio, and earn the rewards you richly deserve. We’ll even provide you with all the marketing tools you need to attract and convert prospective clients.') %]</p>
+                    [% INCLUDE static/common/separator_line.html.tt %]
+                    <div>
+                        <h2 class="lg-padding">[% l('Why join the Champion FX IB programme?') %]</h2>
+
+                        [% INCLUDE rows title_1=l('High commission') desc_1=l('Earn increasingly higher commissions as your clients generate higher volumes.')
+                            title_2=l('Marketing tools') desc_2=l('Track every click, impression, download, and signup to optimise your campaigns.') %]
+
+                        [% INCLUDE rows title_1=l('On-time payouts') desc_1=l('Receive your IB commission on time, every time.')
+                            title_2=l('Localised support') desc_2=l('Use local payment agent solutions to generate income and increase client loyalty.') %]
+
+                        [% INCLUDE rows title_1=l('Multilevel rebate tiers') desc_1=l('Enrol your clients in the IB programme and earn more through a tiered structure.')
+                            title_2=l('Spread bonus') desc_2=l('Receive up to 50% of the average spread on all your clients’ transactions.') %]
+
+                        [% INCLUDE rows title_1=l('Custom promotions') desc_1=l('Talk to us to create custom marketing promotions to increase your conversions.')
+                            title_2=l('Hassle-free client signup') desc_2=l('Convert clients easily with our fast and hassle-free client signup process.') %]
+
+                        <div class="row lg-padding">
+                            <div class="col-md lg-padding">
+                                <p>
+                                    <a class="button" href="mailto:ibsupport@champion-fx.com" rel="nofollow">
+                                        <span>[% l('Apply now') %]</span>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8 push-lg-2">
+                                <p class="notice-msg">[% l('<strong>Note:</strong> Your IB commission is only generated through Champion FX clients who trade Forex, CFDs, metals, and futures using our MetaTrader 5 platform.') %]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

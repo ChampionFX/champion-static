@@ -1,0 +1,28 @@
+[% IF type=='checkbox' -%]
+<div class="form-row">
+    <input id="[% id %]" type="checkbox" />
+    <label for="[% id %]">[% label %]</label>
+</div>
+[% ELSE -%]
+<div class="form-row [% row_class %]">
+    <label[% IF type!='label' %] for="[% id %]"[% END %]>[% label %]</label>
+    [% IF loading %]<div id="[% loading_id %]" class="small-spinner">[% INCLUDE static/common/loading.html.tt %]</div>[% END %]
+    [% SWITCH type -%]
+        [%- CASE 'select' -%]
+            <select id="[% id %]" [% attributes %]>
+            [%= content -%]
+            </select>
+        [%- CASE ['text', 'password'] -%]
+            [% input_prefix %]<input type="[% type %]" id="[% id %]"[% IF type=='password' %] maxlength="25"[% END %] [% attributes %] />
+        [%- CASE 'label' -%]
+            <span class="text-display">
+                [% IF is_bold -%]
+                <strong id="[% id %]" [% attributes %]></strong>
+                [% ELSE -%]
+                <span id="[% id %]" [% attributes %]></span>
+                [%- END %]
+            </span>
+    [%- END %]
+    [% IF hint %]<p class="hint">[% hint %]</p>[% END %]
+</div>
+[%- END %]
