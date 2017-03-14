@@ -8,7 +8,7 @@
 
         <form id="frm_new_account_real">
             <fieldset>
-                <legend>[% l('Details') %]</legend>
+                <legend>[% l('Profile') %]</legend>
 
                 <div class="row form-row">
                     <div class="col-xs-4">

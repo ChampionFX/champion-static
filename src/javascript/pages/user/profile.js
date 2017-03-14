@@ -2,25 +2,44 @@ const Client           = require('../../common/client');
 const ChampionSocket   = require('../../common/socket');
 const Validation       = require('../../common/validation');
 const showLoadingImage = require('../../common/utility').showLoadingImage;
+const FinancialAssessment        = require('./financial_assessment');
+
 const moment = require('moment');
 require('select2');
 
-const Details = (() => {
+const Profile = (() => {
     'use strict';
+
+    const form_selector = '#details_form';
+    const hidden_class  = 'invisible';
+    const editable_fields = {};
 
     let residence,
         get_settings_data,
-        place_of_birth_value,
-        tax_residence_values;
-
-    const form_selector = '#frm_personal_details',
-        editable_fields = {},
-        hidden_class    = 'hidden';
+        place_of_birth_value;
+        // tax_residence_values;
 
     const load = () => {
         showLoadingImage($('<div/>', { id: 'loading', class: 'center-text' }).insertAfter('#heading'));
 
-        $(form_selector).on('submit', onSubmit);
+        $('.tabs-vertical').tabs();
+        $('.tabs-vertical li').on('click', () => {
+            const active_tab = $('.ui-tabs-active').attr('id');
+            if (/assessment_tab/.test(active_tab)) {
+                Profile.unload();
+                if (!Client.is_virtual()) FinancialAssessment.load();
+            } else {
+                Profile.load();
+                if (!Client.is_virtual()) FinancialAssessment.unload();
+            }
+        });
+
+        $(form_selector).on('submit', (event) => {
+            event.preventDefault();
+            submitForm();
+            return false;
+        });
+
         ChampionSocket.send({ get_settings: 1 }).then((response) => {
             get_settings_data = response.get_settings;
             residence = response.get_settings.country_code;
@@ -36,9 +55,11 @@ const Details = (() => {
                         populateStates(states_list_response);
                     });
                 }
-            } else $('.fx-real-acc').addClass(hidden_class);
+            } else {
+                $('.is-real').addClass(hidden_class);
+            }
 
-            $(form_selector).removeClass(hidden_class);
+            $('#fx-profile').removeClass(hidden_class);
             $('.barspinner').addClass(hidden_class);
         });
     };
@@ -52,9 +73,9 @@ const Details = (() => {
     };
 
     const displayGetSettingsData = (data, populate = true) => {
-        if (data.tax_residence) {
-            tax_residence_values = data.tax_residence.split(',');
-        }
+        // if (data.tax_residence) {
+        //     tax_residence_values = data.tax_residence.split(',');
+        // }
         if (data.place_of_birth) {
             place_of_birth_value = data.place_of_birth;
         }
@@ -67,7 +88,7 @@ const Details = (() => {
 
         Object.keys(data).forEach((key) => {
             $key        = $(`${form_selector} #${key}`);
-            $lbl_key    = $(`#txt_${key}`);
+            $lbl_key    = $(`#${key}`);
             has_key     = $key.length > 0;
             has_lbl_key = $lbl_key.length > 0;
 
@@ -105,9 +126,9 @@ const Details = (() => {
             $place_of_birth.val(place_of_birth_value || residence);
         }
 
-        $tax_residence.select2()
-            .val(tax_residence_values).trigger('change')
-            .removeClass('invisible');
+        // $tax_residence.select2()
+        //     .val(tax_residence_values).trigger('change')
+        //     .removeClass('invisible');
     };
 
     const populateStates = (response) => {
@@ -140,22 +161,21 @@ const Details = (() => {
             { selector: '#address_postcode', validations: ['postcode', ['length', { min: 0, max: 20 }]] },
             { selector: '#phone',            validations: ['phone', ['length', { min: 6, max: 35 }]] },
 
-            { selector: '#place_of_birth', validations: '' },
-            { selector: '#tax_residence',  validations: '' },
+            // { selector: '#place_of_birth', validations: '' },
+            // { selector: '#tax_residence',  validations: '' },
         ];
-        const tax_id_validation = { selector: '#tax_identification_number',  validations: ['postcode', ['length', { min: 0, max: 20 }]] };
+        // const tax_id_validation = { selector: '#tax_identification_number',
+        // validations: ['postcode', ['length', { min: 0, max: 20 }]] };
         // if (Client.is_financial()) {
         //     tax_id_validation.validations[1][1].min = 1;
         //     tax_id_validation.validations.unshift('req');
         // }
-        validations.push(tax_id_validation);
+        // validations.push(tax_id_validation);
 
         return validations;
     };
 
-    const onSubmit = (e) => {
-        e.preventDefault();
-
+    const submitForm = () => {
         if (Validation.validate(form_selector)) {
             const req = { set_settings: 1 };
             Object.keys(get_settings_data).forEach((key) => {
@@ -174,7 +194,9 @@ const Details = (() => {
         }
     };
 
-    const unload = () => { $(form_selector).off('submit', onSubmit); };
+    const unload = () => {
+        $(form_selector).off('submit', submitForm);
+    };
 
     return {
         load  : load,
@@ -182,4 +204,4 @@ const Details = (() => {
     };
 })();
 
-module.exports = Details;
+module.exports = Profile;

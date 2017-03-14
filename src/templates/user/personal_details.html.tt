@@ -1,0 +1,39 @@
+[% INCLUDE components/page_title.html.tt title=l('Personal details') attributes='id="heading"' %]
+
+<form class="formObject" id="personalDetails_form" name="personalDetails_form">
+    <h2>[% l('Personal information') %]</h2>
+
+    [% INCLUDE components/forms/form_row.html.tt row_class='is-real' label=l("Name") %]
+    [% INCLUDE components/forms/form_row.html.tt id='name' row_class='is-real' type='label' %]
+
+    [% INCLUDE components/forms/form_row.html.tt row_class='is-real' label=l("Date of birth") %]
+    [% INCLUDE components/forms/form_row.html.tt id='date_of_birth' row_class='is-real' type='label' %]
+
+    [% INCLUDE components/forms/form_row.html.tt row_class='is-real' id='place_of_birth' row_class='is-real' label=l("Place of birth") type='select' %]
+    [% INCLUDE components/forms/form_row.html.tt label=l("Country of residence") %]
+    [% INCLUDE components/forms/form_row.html.tt id='country' type='label' %]
+
+    [% INCLUDE components/forms/form_row.html.tt label=l("Email address") %]
+    [% INCLUDE components/forms/form_row.html.tt id='email' type='label' %]
+
+    <h2 class="is-real">[% l('Contact information') %]</h2>
+
+    [% INCLUDE components/forms/form_row.html.tt id='address_line_1' row_class='is-real' label=l("Address") type='text' %]
+    [% INCLUDE components/forms/form_row.html.tt id='address_line_2' row_class='is-real' type='text' %]
+
+    [% INCLUDE components/forms/form_row.html.tt id='address_city' row_class='is-real' label=l("City/Town") type='text' %]
+
+    [% INCLUDE components/forms/form_row.html.tt id='address_state' row_class='is-real' label=l("State/Province") type='select' %]
+
+    [% INCLUDE components/forms/form_row.html.tt id='address_postcode' row_class='is-real' label=l("Postal code") type='text' %]
+
+    [% INCLUDE components/forms/form_row.html.tt id='phone' row_class='is-real' label=l("Telephone no.") type='text' %]
+
+    <p id="error-update-details" class="error-msg"></p>
+    [% INCLUDE components/forms/submit_button.html.tt type='submit' row_class='is-real' text=l('Update') id='submit' %]
+
+    <p class="notice-msg is-real">*[% l('To update your personal information, please contact our <a href="[_1]">customer support</a> team.', request.url_for('contact')) %]</p>
+
+</form>
+
+

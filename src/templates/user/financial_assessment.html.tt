@@ -18,7 +18,7 @@
     [% END %]
 [% END %]
 
-<div class="fx-section container">
+
     [% INCLUDE components/page_title.html.tt title=l('Financial Assessment') attributes='id="heading"' %]
     <div id="msg_success" class="invisible">
         <p>[% l('Thank you for completing the Financial Assessment and registering your Financial Account. You can now deposit funds and trade Forex with real money on MT5.') %]</p>
@@ -36,7 +36,7 @@
         <p class="invisible" id="high_risk_classification">
             [% l("Due to recent changes in the regulations, we are required to ask our clients to complete the following Financial Assessment. Please note that you will not be able to continue trading until this is completed.") %]
         </p>
-        <h2>[% l("Financial Information") %]</h2>
+        <h2>[% l("Financial information") %]</h2>
 
         [% INCLUDE select_row con='experience' id='forex_trading_experience' label=l("Forex trading experience") %]
 
@@ -125,6 +125,6 @@
 
         <p class="notice-msg">[% l("The financial trading services contained within this site are only suitable for customers who are able to bear the loss of all the money they invest and who understand and have experience of the risk involved in the acquistion of financial contracts. Transactions in financial contracts carry a high degree of risk. If purchased contracts expire worthless, you will suffer a total loss of your investment, which consists of the contract premium.") %]</p>
 
-        [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Create account') id='submit' %]
+        [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Update') id='submit' %]
     </form>
-</div>
+

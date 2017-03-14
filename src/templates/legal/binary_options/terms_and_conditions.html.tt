@@ -23,7 +23,7 @@
     [% l("These Terms and Conditions, for the convenience of our Clients are provided in several different languages; however, these translations do reflect the same principles. We attempt, as much as possible to provide a faithful translation in English of the prevailing language. In the event of any differences between the English version of the website and any other language, the English version shall prevail.") %]
 </p>
 <p>
-    [% l("You may communicate with us through this website by means of Live Chat, email, or phone. Details can be found in the <a href=\"[_1]\">Contact Us</a> page.", request.url_for('contact')) %]
+    [% l("You may communicate with us through this website by means of Live Chat, email, or phone. Profile can be found in the <a href=\"[_1]\">Contact Us</a> page.", request.url_for('contact')) %]
 </p>
 <p>
     [% l("Generally, we will communicate with you through this website or by email to the email address used when opening your Champion FX Real Account. We will communicate with you in English or, if you select another preferred language when opening your Champion FX Real Account, in that language.") %]
