@@ -541,7 +541,16 @@ fieldset {
 
 // fix
 .topbar {
-    padding: 3px 0 !important;
+    padding: 0 !important;
+    height: 30px;
+    .menu-container {
+        line-height: 30px;
+    }
+    .upgrade-message a {
+        padding: 0 10px;
+        background: $contentInverseColor;
+        color: $darkPrimaryBrandColor;
+    }
 }
 
 .languages {
