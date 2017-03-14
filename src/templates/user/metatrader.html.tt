@@ -7,7 +7,7 @@
         <div id="accounts_list" class="row"></div>
 
         <div class="row">
-            <div class="fst-container">
+            <div class="fst-container col-xs-12">
                 <div id="main_msg" class="notice-msg center-text hidden"></div>
                 <div id="fst_action" class="hidden">
                     <h4></h4>
