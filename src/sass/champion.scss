@@ -467,8 +467,11 @@ fieldset {
     width: 350px;
     max-width: 100%;
     margin-bottom: 20px;
-    select, input, textarea {
+    select, input:not([type='checkbox']), textarea {
         width: 100%;
+    }
+    &.checkbox label {
+        display: inline;
     }
 }
 
@@ -682,4 +685,12 @@ ol ol ol ol {
 ol ol ol ol li:before {
     content: counter(item1)'.'counter(item2)'.'counter(item3)'.'counter(item4)'.';
     counter-increment: item4;
+}
+
+.text-display {
+    display: block;
+    font-weight: 400;
+    border: 1px solid $fillColor;
+    padding: 5px 10px;
+    border-radius: 5px;
 }

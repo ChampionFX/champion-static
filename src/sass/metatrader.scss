@@ -4,24 +4,16 @@
         margin-bottom: 10px;
         > div {
             height: 100%;
-            border: 1px solid $borderColor;
             display: flex;
             flex-direction: column;
             &:hover, &.active {
-                border-color: $secondaryContentColor;
-                background: $fillColor;
-            }
-            .title {
-                line-height: 40px;
-                text-align: center;
-                background: $primaryBrandColor;
-                color: $white;
-                margin-bottom: 10px;
+                border-bottom: 2px solid $primaryBrandColor;
             }
             .no-account {
                 margin-bottom: 20px;
                 .info {
                     padding: 10px;
+                    padding-left: 0;
                     font-size: 0.9rem;
                     height: 120px;
                     a:before {
@@ -61,10 +53,8 @@
     .fst-container {
         width: 100%;
         padding-right: 10px;
+        margin-top: 50px;
         #fst_action {
-            border: 1px solid $fillColor;
-            margin: 0;
-            padding-bottom: 30px;
             position: relative;
             legend {
                 background: $primaryBrandColor;
@@ -75,8 +65,8 @@
             .close {
                 cursor: pointer;
                 position: absolute;
-                top: 16px;
-                right: -1px;
+                top: 0;
+                right: 0;
                 z-index: 1;
                 width: 32px;
                 height: 32px;
