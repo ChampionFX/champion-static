@@ -13,7 +13,7 @@
 
                 <div class="row">
                     <div class="col-md-5 push-md-1 col-xs-12 vertical-center">
-                        <h2>[% l('What does a Champion FX Content Contributor do?') %]</h2>
+                        <h2>[% l('What does a ChampionFX content contributor do?') %]</h2>
                     </div>
                     <div class="col-md-5 push-md-1 col-xs-12">
                         <p>[% l('Contribute webinars, ebooks, and market reports that help our prospects and clients:') %]</p>
@@ -27,7 +27,7 @@
 
                 [% INCLUDE static/common/separator_line.html.tt %]
 
-                <h2 class="center-text col-md-8 push-md-2">[% l('Why should I join the Champion FX Content Contributor programme?') %]</h2>
+                <h2 class="center-text col-md-8 push-md-2">[% l('Why should I join the ChampionFX Content Contributor programme?') %]</h2>
                 <div class="fx-divider"></div>
                 <div class="row">
                     <div class="col-md">
@@ -43,7 +43,7 @@
                     <div class="col-md">
                         <h4>[% l('Affiliate commission') %]</h4>
                         <div class="separator primary-color col-xs-8"></div>
-                        <p>[% l('Convert viewers and readers into Champion FX clients.') %]</p>
+                        <p>[% l('Convert viewers and readers into ChampionFX clients.') %]</p>
                     </div>
                 </div>
 
@@ -54,6 +54,12 @@
                             <span>[% l('Apply now') %]</span>
                         </a>
                     </p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8 push-lg-2">
+                        <p class="notice-msg lg-padding">[% l('<strong>Note:</strong> Your affiliate commission is only generated through ChampionFX clients who trade binary options using our Champion Trader platform.') %]</p>
+                    </div>
                 </div>
             </div>
         </div>

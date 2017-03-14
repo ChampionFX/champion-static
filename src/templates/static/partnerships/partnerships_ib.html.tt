@@ -20,11 +20,11 @@
                 <h1 class="main-title">[% l('Partnerships') %]</h1>
                 <div class="center-text">
                     <h2 class="lg-padding">[% l('Introducing Broker (IB) programme') %]</h2>
-                    <p>[% l('Earn commission on the trading activity of clients that you refer to Champion FX, thanks to our IB programme.') %]</p>
+                    <p>[% l('Earn commission on the trading activity of clients that you refer to ChampionFX, thanks to our IB programme.') %]</p>
                     <p>[% l('Promote our services to prospective clients, expand your client portfolio, and earn the rewards you richly deserve. We’ll even provide you with all the marketing tools you need to attract and convert prospective clients.') %]</p>
                     [% INCLUDE static/common/separator_line.html.tt %]
                     <div>
-                        <h2 class="lg-padding">[% l('Why join the Champion FX IB programme?') %]</h2>
+                        <h2 class="lg-padding">[% l('Why join the ChampionFX IB programme?') %]</h2>
 
                         [% INCLUDE rows title_1=l('High commission') desc_1=l('Earn increasingly higher commissions as your clients generate higher volumes.')
                             title_2=l('Marketing tools') desc_2=l('Track every click, impression, download, and signup to optimise your campaigns.') %]
@@ -49,7 +49,7 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-8 push-lg-2">
-                                <p class="notice-msg">[% l('<strong>Note:</strong> Your IB commission is only generated through Champion FX clients who trade Forex, CFDs, metals, and futures using our MetaTrader 5 platform.') %]</p>
+                                <p class="notice-msg">[% l('<strong>Note:</strong> Your IB commission is only generated through ChampionFX clients who trade Forex, CFDs, metals, and futures using our MetaTrader 5 platform.') %]</p>
                             </div>
                         </div>
                     </div>

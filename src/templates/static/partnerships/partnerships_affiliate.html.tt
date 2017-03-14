@@ -5,12 +5,12 @@
                 <h1 class="main-title">[% l('Partnerships') %]</h1>
                 <div class="center-text">
                     <h2 class="lg-padding">[% l('Affiliate programme') %]</h2>
-                    <p>[% l('Searching for the best binary options affiliate programme? Look no further. Start earning up to 35% of the net revenue for all trades purchased by clients you refer to Champion FX.') %]</p>
+                    <p>[% l('Searching for the best binary options affiliate programme? Look no further. Start earning up to 35% of the net revenue for all trades purchased by clients you refer to ChampionFX.') %]</p>
                 </div>
 
                 [% INCLUDE static/common/separator_line.html.tt %]
 
-                <h2 class="center-text">[% l('Why should I join the Champion FX Affiliate programme?') %]</h2>
+                <h2 class="center-text">[% l('Why should I join the ChampionFX Affiliate programme?') %]</h2>
                 <div class="fx-divider"></div>
                 <div class="row">
                     <div class="col-md">
@@ -21,7 +21,7 @@
                     <div class="col-md">
                         <h4>[% l('Advanced marketing tools') %]</h4>
                         <div class="separator primary-color col-xs-8"></div>
-                        <p>[% l('Promote Champion FX and track your earnings easily with the tools we provide.') %]</p>
+                        <p>[% l('Promote ChampionFX and track your earnings easily with the tools we provide.') %]</p>
                     </div>
                     <div class="col-md">
                         <h4>[% l('Multilingual support') %]</h4>
@@ -42,7 +42,7 @@
                             <thead>
                                 <tr>
                                     <th>[% l('Tier') %]</th>
-                                    <th>[% l('Total Net Revenue Per Month (USD)') %]</th>
+                                    <th>[% l('Total net revenue per month (USD)') %]</th>
                                     <th>[% l('Commission Rates') %]</th>
                                 </tr>
                             </thead>
@@ -77,7 +77,7 @@
                 <h2>[% l('Getting started') %]</h2>
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
-                        <p>[% l('Being an affiliate is easy. Just tell your friends and followers about Champion FX. You can share your unique referral link on your website, or send it to your mailing list. If your friends and followers click the link and sign up as a Champion FX client, you’ll earn up to 35% of the net revenue for all trades they purchase.') %]</p>
+                        <p>[% l('Being an affiliate is easy. Just tell your friends and followers about ChampionFX. You can share your unique referral link on your website, or send it to your mailing list. If your friends and followers click the link and sign up as a ChampionFX client, you’ll earn up to 35% of the net revenue for all trades they purchase.') %]</p>
                         <p>
                             <a class="button" href="mailto:affiliates@champion-fx.com" rel="nofollow">
                                 <span>[% l('Apply now') %]</span>
@@ -85,7 +85,7 @@
                         </p>
                     </div>
                     <div class="col-md-6 col-xs-12">
-                        <p class="notice-msg lg-padding">[% l('<strong>Note:</strong> Your affiliate commission is only generated through Champion FX clients who trade binary options using our Webtrader platform.') %]</p>
+                        <p class="notice-msg lg-padding">[% l('<strong>Note:</strong> Your affiliate commission is only generated through ChampionFX clients who trade binary options using our Champion Trader platform.') %]</p>
                     </div>
                 </div>
             </div>
