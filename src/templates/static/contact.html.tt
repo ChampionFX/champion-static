@@ -67,36 +67,36 @@
             </div>
             <div class="row emails">
                 <div class="col-md">
-                    <h5><strong>[% l('General enquiries') %]</strong></h5>
-                    <h5>support@champion-fx.com</h5>
+                    <p><strong><small>[% l('General enquiries') %]</small></strong></p>
+                    <p><small>support@champion-fx.com</small></p>
                 </div>
                 <div class="col-md">
-                    <h5><strong>[% l('Partnership opportunities') %]</strong></h5>
-                    <h5>partners@champion-fx.com</h5>
+                    <p><strong><small>[% l('Partnership opportunities') %]</small></strong></p>
+                    <p><small>partners@champion-fx.com</small></p>
                 </div>
                 <div class="col-md">
-                    <h5><strong>[% l('Introducing Broker (IB) programme') %]</strong></h5>
-                    <h5>bsupport@champion-fx.com</h5>
-                </div>
-            </div>
-            <div class="row emails">
-                <div class="col-md">
-                    <h5><strong>[% l('Affiliate  programme') %]</strong></h5>
-                    <h5>affiliates@champion-fx.com</h5>
-                </div>
-                <div class="col-md">
-                    <h5><strong>[% l('New accounts') %]</strong></h5>
-                    <h5>accounts@champion-fx.com</h5>
-                </div>
-                <div class="col-md">
-                    <h5><strong>[% l('Trading') %]</strong></h5>
-                    <h5>risk@champion-fx.com</h5>
+                    <p><strong><small>[% l('Introducing Broker (IB) programme') %]</small></strong></p>
+                    <p><small>bsupport@champion-fx.com</small></p>
                 </div>
             </div>
             <div class="row emails">
                 <div class="col-md">
-                    <h5><strong>[% l('Disputes and complaints') %]</strong></h5>
-                    <h5>compliance@champion-fx.com</h5>
+                    <p><strong><small>[% l('Affiliate  programme') %]</small></strong></p>
+                    <p><small>affiliates@champion-fx.com</small></p>
+                </div>
+                <div class="col-md">
+                    <p><strong><small>[% l('New accounts') %]</small></strong></p>
+                    <p><small>accounts@champion-fx.com</small></p>
+                </div>
+                <div class="col-md">
+                    <p><strong><small>[% l('Trading') %]</small></strong></p>
+                    <p><small>risk@champion-fx.com</small></p>
+                </div>
+            </div>
+            <div class="row emails">
+                <div class="col-md">
+                    <p><strong><small>[% l('Disputes and complaints') %]</small></strong></p>
+                    <p><small>compliance@champion-fx.com</small></p>
                 </div>
             </div>
         </div>
