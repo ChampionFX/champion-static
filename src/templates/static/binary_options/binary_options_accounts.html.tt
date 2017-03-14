@@ -3,9 +3,7 @@
         <div class="row">
             <div class="col-sm">
                 [% INCLUDE components/page_title.html.tt title=l('Binary options trading accounts') %]
-                <p>
-                    [% l('Ready to start trading binary options? Every client starts with a risk-free virtual account before upgrading to a real account.') %]
-                </p>
+                <p>[% l('Ready to start trading binary options? Every client starts with a risk-free virtual account before upgrading to a real account.') %]</p>
                 <div class="fx-divider"></div>
                 <div class="row">
                     <div class="col-md-6">
@@ -14,15 +12,9 @@
                             <div class="row">
                                 <div class="col-sm pull-xs-1">
                                     <ul class="bullet">
-                                        <li>
-                                            [% l('Learn the ins and outs of binary options trading, risk-free') %]
-                                        </li>
-                                        <li>
-                                            [% l('Practice your trading strategy with USD 10,000 worth of virtual funds') %]
-                                        </li>
-                                        <li>
-                                            [% l('Replenish your virtual funds when your balance dips below USD 1,000') %]
-                                        </li>
+                                        <li>[% l('Learn the ins and outs of binary options trading, risk-free') %]</li>
+                                        <li>[% l('Practice your trading strategy with USD 10,000 worth of virtual funds') %]</li>
+                                        <li>[% l('Replenish your virtual funds when your balance dips below USD 1,000') %]</li>
                                     </ul>
                                 </div>
                             </div>
@@ -39,20 +31,13 @@
                             <div class="row">
                                 <div class="col-sm pull-xs-1">
                                     <ul class="bullet">
-                                        <li>
-                                            [% l('Deposit as little as USD 5 to fund your account') %]
-                                        </li>
-                                        <li>
-                                            [% l('Start trading from as little as USD 5 per contract') %]
-                                        </li>
-                                        <li>
-                                            [% l('Win up to USD 50,000 with each correct prediction') %]
-                                        </li>
+                                        <li>[% l('Deposit as little as USD 5 to fund your account') %]</li>
+                                        <li>[% l('Start trading from as little as USD 5 per contract') %]</li>
+                                        <li>[% l('Win up to USD 50,000 with each correct prediction') %]</li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="fx-divider"></div>
-                            <div class="fx-divider"></div>
+                            <div class="fx-divider-xl"></div>
                             <p>
                                 <a class="button" href="[% request.url_for('new-account/real') %]">
                                     <span>[% l('Upgrade') %]</span>
@@ -62,9 +47,8 @@
                     </div>
                 </div>
                 <div class="center-text">
-                    <p>
-                        [% l("Got questions? Read our <a href='#''>FAQ</a> or <a href='[_1]'>contact us</a>.", request.url_for('contact')) %]
-                    </p>
+                    <p>[% l("Got questions? Read our
+                        <a href='#' '>FAQ</a> or <a href='[_1] '>contact us</a>.", request.url_for('contact ')) %]</p>
                 </div>
             </div>
         </div>
