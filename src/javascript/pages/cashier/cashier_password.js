@@ -7,6 +7,8 @@ const CashierPassword = (function() {
     let btn_submit,
         form_type;
 
+    const hidden_class = 'invisible';
+
     const fields = {
         txt_unlock_password: '#txt_unlock_password',
         txt_lock_password  : '#txt_lock_password',
@@ -30,7 +32,7 @@ const CashierPassword = (function() {
             } else {
                 form_type = views.lock_cashier;
             }
-            $(`#form_${form_type}_cashier`).show();
+            $(`#form_${form_type}_cashier`).removeClass(hidden_class);
             initForm(form_type);
         });
     };
@@ -77,11 +79,10 @@ const CashierPassword = (function() {
 
             ChampionSocket.send(data).then((response) => {
                 if (response.error) {
-                    $('#error-cashier-password').removeClass('hidden').text(response.error.message);
+                    $(`${form_selector} #msg_form`).removeClass(hidden_class).text(response.error.message);
                 } else {
-                    $form.hide();
-                    $('#client_message').show()
-                        .find('.notice-msg').text('Your settings have been updated successfully.');
+                    $form.addClass(hidden_class);
+                    $('.notice-msg').removeClass(hidden_class).text('Your settings have been updated successfully.');
                 }
             });
         }
