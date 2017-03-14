@@ -21,12 +21,10 @@ const CashierPaymentMethods   = require('./../pages/cashier/payment_methods');
 const CashierTopUpVirtual     = require('./../pages/cashier/top_up_virtual');
 const ChangePassword          = require('./../pages/user/change_password');
 const checkRiskClassification = require('./../pages/user/check_risk_classification');
-const FinancialAssessment     = require('./../pages/user/financial_assessment');
 const MetaTrader              = require('./../pages/user/metatrader/metatrader');
 const ChampionSettings        = require('./../pages/user/settings');
 const TNCApproval             = require('./../pages/user/tnc_approval');
 const CashierDepositWithdraw  = require('./../pages/cashier/deposit_withdraw');
-const PersonalDetails         = require('./../pages/user/personal_details');
 const ChampionProfile         = require('./../pages/user/profile');
 const ChampionSecurity        = require('./../pages/user/security');
 
