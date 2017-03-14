@@ -4,10 +4,11 @@ const Validation     = require('./../../common/validation');
 const ChangePassword = (function() {
     'use strict';
 
-    const form_selector = '#frm_change_password';
-
     let $form,
         btn_submit;
+
+    const form_selector = '#frm_change_password',
+        hidden_class = 'hidden';
 
     const fields = {
         txt_old_password: '#txt_old_password',
@@ -48,8 +49,8 @@ const ChangePassword = (function() {
                     setTimeout(() => {
                         ChampionSocket.send({ logout: 1 });
                     }, 5000);
-                    $form.addClass('hidden');
-                    $('.notice-msg').removeClass('invisible').text('Your password has been changed.');
+                    $form.addClass(hidden_class);
+                    $('.notice-msg').removeClass(hidden_class).text('Your password has been changed.');
                 }
             });
         }
