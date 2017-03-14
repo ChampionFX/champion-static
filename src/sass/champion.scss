@@ -11,6 +11,19 @@ html {
     }
 }
 
+.page-title {
+    border-bottom: 1px solid $borderColor;
+    padding-bottom: 10px;
+}
+
+.section-title {
+    padding-bottom: 5px;
+    color: $white;
+    border-bottom: 2px solid $borderColor;
+    display: inline-block;
+    width: auto;
+}
+
 button {
     white-space: nowrap;
 }
@@ -83,7 +96,6 @@ h1.main-title {
         @include no-margin-padding;
     }
     input {
-        padding: 5px 15px;
         margin-right: 5px;
         margin-bottom: 5px;
     }
@@ -101,6 +113,11 @@ h1.main-title {
     margin-left: auto;
     .signup-button {
         margin: auto;
+        text-align: right;
+        padding: 0;
+        li {
+            padding: 10px 0;
+        }
     }
 }
 
@@ -185,7 +202,6 @@ h1.main-title {
 // Panel
 .fx-panel-container {
     background: $white;
-    border: 1px solid $borderColor;
 }
 
 .fx-panel {
@@ -278,10 +294,6 @@ h1.main-title {
     padding: 10px;
 }
 
-.p-title {
-    padding-bottom: 40px;
-}
-
 .fx-feature-box {
     text-align: center;
     margin-top: 30px;
@@ -337,14 +349,25 @@ h1.main-title {
     margin-bottom: 10px;
 }
 
-#cs_telephone_number {
-    width: 90%;
-}
-
 #phone-result {
-    padding-left: 10px;
     text-align: left;
     margin: 20px 0;
+}
+
+#contacts-emails-container {
+    padding: 0;
+    background: url('../images/c_img.png');
+    .contacts-emails {
+        padding-bottom: 30px;
+        color: $white;
+        .row {
+            padding: 25px 0 0;
+            &.emails {
+                padding: 25px 0;
+                border-bottom: 1px solid $borderColor;
+            }
+        }
+    }
 }
 
 .phone-note {
@@ -568,6 +591,10 @@ fieldset {
 
 .top-nav-menu a {
     color: $contentInverseColor !important;
+    li {
+        border-bottom: 3px solid $primaryBrandColor;
+        margin-bottom: -4px;
+    }
 }
 
 .logo-parent {
