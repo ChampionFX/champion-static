@@ -144,8 +144,7 @@ const PersonalDetails = (() => {
             { selector: '#place_of_birth', validations: '' },
             { selector: '#tax_residence',  validations: '' },
         ];
-        const tax_id_validation = { selector: '#tax_identification_number',
-        validations: ['postcode', ['length', { min: 0, max: 20 }]] };
+        const tax_id_validation = { selector: '#tax_identification_number', validations: ['postcode', ['length', { min: 0, max: 20 }]] };
 
         tax_id_validation.validations[1][1].min = 1;
         tax_id_validation.validations.unshift('req');
