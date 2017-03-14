@@ -1,6 +1,7 @@
 body .top-nav-menu li a {
     height: auto;
     padding: 25px 15px;
+    margin-bottom: -4px;
 }
 
 .main-nav > li > ul {
@@ -9,6 +10,10 @@ body .top-nav-menu li a {
 
 .top-nav-menu > li > ul {
     z-index: 10;
+}
+
+.top-nav-menu a.active {
+    border-bottom: 4px solid $borderColor;
 }
 
 .top-nav-menu {
@@ -23,9 +28,9 @@ body .top-nav-menu li a {
     height: 45px;
 }
 
-@media screen and (max-width: 796px) {
+@media screen and (max-width: 991px) {
     .top-nav-menu {
-        float: left;
+        float: left !important;
     }
 }
 
