@@ -49,7 +49,7 @@ const ChangePassword = (function() {
                         ChampionSocket.send({ logout: 1 });
                     }, 5000);
                     $form.addClass('hidden');
-                    $('#client_message').show().find('.notice-msg').text('Your password has been changed. Please log in again.');
+                    $('.notice-msg').removeClass('invisible').text('Your password has been changed.');
                 }
             });
         }
