@@ -1,0 +1,31 @@
+<div class="fx-section container">
+    [% INCLUDE components/page_title.html.tt title=l('Profile') attributes='id="heading"' %]
+
+    <div id="fx-profile" class="has-tabs tabs-vertical ui-tabs-vertical invisible">
+        <ul id="profile-tabs">
+            <li>
+                <a href="#details">
+                    <h4>[% l('Personal details') %]</h4>
+                    <div class="separator primary-color"></div>
+                    <p>[% l('View and edit your personal information.') %]</p>
+                </a>
+            </li>
+            <li class="is-real">
+                <a href="#assessment">
+                    <h4>[% l('Financial assessments') %]</h4>
+                    <div class="separator primary-color"></div>
+                    <p>[% l('View and edit your financial information.') %]</p>
+                </a>
+            </li>
+        </ul>
+
+        <div id="details">
+            [% INCLUDE user/personal_details.html.tt %]
+        </div>
+
+        <div id="assessment" class="is-real">
+            [% INCLUDE user/financial_assessment.html.tt %]
+        </div>
+    </div>
+
+</div>

@@ -1,182 +1,61 @@
+[% BLOCK form_title %]
+    <h4>[% title %]</h4>
+    <div class="separator primary-color"></div>
+    <div class="fx-divider"></div>
+[% END %]
 <div class="fx-section">
     <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <h1>[% l('Real Money Account Opening') %]</h1>
-            </div>
-        </div>
+        [% INCLUDE components/page_title.html.tt title=l('Create a ChampionFX real account') %]
 
         <form id="frm_new_account_real">
-            <fieldset>
-                <legend>[% l('Details') %]</legend>
-
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="ddl_title">[% l('Title') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <select id="ddl_title">
-                            <option value="Mr">[% l('Mr') %]</option>
-                            <option value="Mrs">[% l('Mrs') %]</option>
-                            <option value="Ms">[% l('Ms') %]</option>
-                            <option value="Miss">[% l('Miss') %]</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="txt_fname">[% l('First name') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <input id="txt_fname" type="text" class="text" maxlength="30" />
-                    </div>
-                </div>
-
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="txt_lname">[% l('Family name') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <input id="txt_lname" type="text" class="text" maxlength="30" />
-                    </div>
-                </div>
-
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="ddl_day">[% l('Date of birth') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <input id="txt_birth_date" type="text" class="text" size="12" readonly="readonly" />
-                    </div>
-                </div>
-
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="ddl_residence">[% l('Country of residence') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <div id="residence_loading" class="small-spinner">[% INCLUDE static/common/loading.html.tt %]</div>
-                        <select id="ddl_residence" class="hidden" disabled="disabled"></select>
-                    </div>
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <legend id="address">[% l('Address') %]</legend>
-
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="txt_address1">[% l('First line of home address') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <input id="txt_address1" type="text" class="text" maxlength="70" />
-                    </div>
-                </div>
-
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="txt_address2">[% l('Second line of home address') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <input id="txt_address2" type="text" class="text" maxlength="70" />
-                    </div>
-                </div>
-
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="txt_city">[% l('Town/City') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <input id="txt_city" type="text" class="text" maxlength="35" />
-                    </div>
-                </div>
-
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="ddl_state">[% l('State/Province') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <div id="state_loading" class="small-spinner">[% INCLUDE static/common/loading.html.tt %]</div>
-                        <select id="ddl_state" class="hidden"></select>
-                    </div>
-                </div>
-
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="txt_postcode">[% l('Postal code/ZIP') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <input id="txt_postcode" type="text" class="text" maxlength="20" />
-                    </div>
-                </div>
-
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="txt_phone">[% l('Telephone') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <input id="txt_phone" type="text" class="text" maxlength="35" />
-                    </div>
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <legend id="security">[% l('Security') %]</legend>
-
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="ddl_secret_question">[% l('Secret question') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <select id="ddl_secret_question">
-                            <option value="Favourite dish">[% l('Favourite dish') %]</option>
-                            <option value="Mother's maiden name">[% l("Mother's maiden name") %]</option>
-                            <option value="Name of your pet">[% l('Name of your pet') %]</option>
-                            <option value="Name of first love">[% l('Name of first love') %]</option>
-                            <option value="Memorable town/city">[% l('Memorable town/city') %]</option>
-                            <option value="Memorable date">[% l('Memorable date') %]</option>
-                            <option value="Brand of first car">[% l('Brand of first car') %]</option>
-                            <option value="Favourite artist">[% l('Favourite artist') %]</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="txt_secret_answer">[% l('Answer to secret question') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <input id="txt_secret_answer" type="text" class="text" maxlength="50" autocomplete="off" />
-                    </div>
-                </div>
-            </fieldset>
-
-            <fieldset class="center-text">
-                <div class="row">
-                    <div class="col-xs-12 center-text">
-                        <p>
-                            <input id="chk_tnc" type="checkbox" />
-                            <label for="chk_tnc">[% l('I have read and agree to the') %] <a target="_blank" href="[% request.url_for('/terms-and-conditions') %]">[% l('terms and conditions') %]</a> [% l('of the site.') %]</label>
-                        </p>
-                    </div>
-                </div>
-            </fieldset>
-
             <div class="row">
-                <div class="col-xs-8 offset-md-4">
-                    <p class="error-msg hidden" id="error-create-account"></p>
-                    <button id="btn_submit" type="submit">[% l('Open Account') %]</button>
+                <div class="col-md-4">
+                    [% INCLUDE form_title title=l('Details') %]
+                    [% WRAPPER components/forms/form_row.html.tt type='select' id='ddl_title' label=l("Title") %]
+                        <option value="Mr">[% l('Mr') %]</option>
+                        <option value="Mrs">[% l('Mrs') %]</option>
+                        <option value="Ms">[% l('Ms') %]</option>
+                        <option value="Miss">[% l('Miss') %]</option>
+                    [% END %]
+                    [% INCLUDE components/forms/form_row.html.tt type='text'   id='txt_fname'      label=l('First name')           attributes='maxlength="30"' %]
+                    [% INCLUDE components/forms/form_row.html.tt type='text'   id='txt_lname'      label=l('Family name')          attributes='maxlength="30"' %]
+                    [% INCLUDE components/forms/form_row.html.tt type='text'   id='txt_birth_date' label=l('Date of birth')        attributes='size="12" readonly="readonly"' %]
+                    [% INCLUDE components/forms/form_row.html.tt type='select' id='ddl_residence'  label=l('Country of residence') attributes='disabled="disabled"'
+                        attributes='class="hidden"' loading=1 loading_id='residence_loading' %]
                 </div>
+
+                <div class="col-md-4">
+                    [% INCLUDE form_title title=l('Address') %]
+                    [% INCLUDE components/forms/form_row.html.tt type='text'   id='txt_address1' label=l('First line of home address')  attributes='maxlength="70"' %]
+                    [% INCLUDE components/forms/form_row.html.tt type='text'   id='txt_address2' label=l('Second line of home address') attributes='maxlength="70"' %]
+                    [% INCLUDE components/forms/form_row.html.tt type='text'   id='txt_city'     label=l('Town/City')                   attributes='maxlength="35"' %]
+                    [% INCLUDE components/forms/form_row.html.tt type='select' id='ddl_state'    label=l('State/Province')
+                        attributes='class="hidden"' loading=1 loading_id='state_loading' %]
+                    [% INCLUDE components/forms/form_row.html.tt type='text'   id='txt_postcode' label=l('Postal code/ZIP')             attributes='maxlength="20"' %]
+                    [% INCLUDE components/forms/form_row.html.tt type='text'   id='txt_phone'    label=l('Telephone')                   attributes='maxlength="35"' %]
+                </div>
+
+                <div class="col-md-4">
+                    [% INCLUDE form_title title=l('Security') %]
+                    [% WRAPPER components/forms/form_row.html.tt type='select' id='ddl_secret_question' label=l("Secret question") %]
+                        <option value="Favourite dish">[% l('Favourite dish') %]</option>
+                        <option value="Mother's maiden name">[% l("Mother's maiden name") %]</option>
+                        <option value="Name of your pet">[% l('Name of your pet') %]</option>
+                        <option value="Name of first love">[% l('Name of first love') %]</option>
+                        <option value="Memorable town/city">[% l('Memorable town/city') %]</option>
+                        <option value="Memorable date">[% l('Memorable date') %]</option>
+                        <option value="Brand of first car">[% l('Brand of first car') %]</option>
+                        <option value="Favourite artist">[% l('Favourite artist') %]</option>
+                    [% END %]
+                    [% INCLUDE components/forms/form_row.html.tt type='text' id='txt_secret_answer' label=l('Answer to secret question') attributes='maxlength="50" autocomplete="off"' %]
+                </div>
+            </div>
+
+            <div class="center-text">
+                <div class="fx-divider"></div>
+                [% INCLUDE components/forms/form_row.html.tt      type='checkbox' id='chk_tnc' label=l('I have read and agree to the <a target="_blank" href="[_1]">terms and conditions</a> of the site.', request.url_for('/terms-and-conditions')) %]
+                [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Create account') %]
             </div>
         </form>
-
-        <div class="errorbox rbox" id="client_message" style="display:none">
-            <div class="rbox-wrap">
-                <div class="gr-12 rbox-content" id="client_message_content">
-                    <p class="center notice-msg"></p>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
