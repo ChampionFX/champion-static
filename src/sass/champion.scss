@@ -749,3 +749,13 @@ img.float-right {
 .separator-vertical-lg {
     height: 210px;
 }
+
+.center-align {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.no-gutters {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
