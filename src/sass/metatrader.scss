@@ -1,27 +1,19 @@
 #mt_account_management {
     #accounts_list .acc-box {
-        padding: 0 10px 0 0;
         margin-bottom: 10px;
         > div {
             height: 100%;
-            border: 1px solid $borderColor;
             display: flex;
             flex-direction: column;
+            border-bottom: 2px solid transparent;
             &:hover, &.active {
-                border-color: $secondaryContentColor;
-                background: $fillColor;
-            }
-            .title {
-                line-height: 40px;
-                text-align: center;
-                background: $primaryBrandColor;
-                color: $white;
-                margin-bottom: 10px;
+                border-bottom-color: $primaryBrandColor;
             }
             .no-account {
                 margin-bottom: 20px;
                 .info {
                     padding: 10px;
+                    padding-left: 0;
                     font-size: 0.9rem;
                     height: 120px;
                     a:before {
@@ -34,16 +26,17 @@
             .loading {
                 margin: 75px 0;
             }
-            .acc-info div {
-                font-size: 0.9rem;
-                padding: 0 0 0 25px;
-                line-height: 1.6em;
-                word-break: break-all;
+            .acc-info {
+                padding-top: 10px;
+                div {
+                    font-size: 0.9rem;
+                    line-height: 1.6em;
+                    word-break: break-all;
+                }
             }
             .acc-actions {
                 margin-top: auto;
-                padding: 10px;
-                border-top: 1px solid $borderColor;
+                padding: 10px 0;
                 font-size: 0.8rem;
                 a {
                     display: inline-block;
@@ -61,10 +54,8 @@
     .fst-container {
         width: 100%;
         padding-right: 10px;
+        margin-top: 50px;
         #fst_action {
-            border: 1px solid $fillColor;
-            margin: 0;
-            padding-bottom: 30px;
             position: relative;
             legend {
                 background: $primaryBrandColor;
@@ -75,8 +66,8 @@
             .close {
                 cursor: pointer;
                 position: absolute;
-                top: 16px;
-                right: -1px;
+                top: 0;
+                right: 0;
                 z-index: 1;
                 width: 32px;
                 height: 32px;

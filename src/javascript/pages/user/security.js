@@ -3,17 +3,14 @@ const Client = require('./../../common/client');
 const ChampionSettings = (function() {
     'use strict';
 
-    let settingsContainer;
+    let securityContainer;
 
     const load = () => {
-        settingsContainer = $('.fx-settings');
-
+        securityContainer = $('.fx-security');
+        securityContainer.find('#fx-security-content').show();
         if (!Client.is_virtual()) {
-            settingsContainer
-                .find('#fx-settings-content, .fx-real').show();
-            return;
+            securityContainer.find('.fx-real').show();
         }
-        settingsContainer.find('#fx-settings-content').show();
     };
 
     return {

@@ -1,30 +1,33 @@
 <div class="fx-section">
     <div id="mt_account_management" class="container">
-        <div class="row">
-            <h1>[% l('MetaTrader account management') %]</h1>
-        </div>
+        [% INCLUDE components/page_title.html.tt title=l('MetaTrader account management') %]
+
         <div id="mt_loading">[% INCLUDE static/common/loading.html.tt %]</div>
+
         <div id="accounts_list" class="row"></div>
 
         <div class="row">
-            <div class="fst-container">
+            <div class="fst-container col-xs-12">
                 <div id="main_msg" class="notice-msg center-text hidden"></div>
-                <fieldset id="fst_action" class="hidden">
-                    <legend></legend>
+                <div id="fst_action" class="hidden">
+                    <h4></h4>
+                    <div class="separator primary-color"></div>
                     <span class="close"></span>
+                    <div class="fx-divider"></div>
                     <form id="frm_action"></form>
-                </fieldset>
+                </div>
             </div>
         </div>
 
         <div id="templates" class="hidden">
             <div class="acc-box col-xs-12 col-sm-6 col-md-6 col-lg-3">
                 <div>
-                    <div class="title"></div>
+                    <h4 class="title"></h4>
+                    <div class="separator primary-color"></div>
                     <div class="loading">[% INCLUDE static/common/loading.html.tt %]</div>
-                    <div class="center-text no-account hidden">
+                    <div class="no-account hidden">
                         <div class="info"></div>
-                        <span class="button"><span class="act_new_account">[% l('Create Account') %]</span></span>
+                        <span class="button"><span class="act_new_account">[% l('Sign up') %]</span></span>
                     </div>
                     <div class="acc-info has-account row hidden">
                         <div class="col-xs-4">[% l('Login ID:') %]</div><div data="login" class="col-xs-8"></div>
@@ -32,7 +35,7 @@
                         <div class="col-xs-4">[% l('Balance:') %]</div><div data="balance" class="col-xs-8"></div>
                         <div class="col-xs-4">[% l('Leverage:') %]</div><div data="leverage" class="col-xs-8"></div>
                     </div>
-                    <div class="acc-actions has-account center-text hidden">
+                    <div class="acc-actions has-account hidden">
                         <a href="javascript:;" class="act_deposit">
                             <img src="[% request.url_for('images/metatrader/deposit.svg') %]" alt="" />
                             [% l('Deposit') %]
@@ -66,207 +69,54 @@
             </div>
 
             <form id="frm_new_account">
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label>[% l('Account type') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <span id="lbl_account_type"></span>
-                    </div>
-                </div>
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label>[% l('Email') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <span id="lbl_email"></span>
-                    </div>
-                </div>
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="txt_name">[% l('Name') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <input id="txt_name" type="text" maxlength="30" autocomplete="off" />
-                    </div>
-                </div>
-                <div class="row form-row hidden">
-                    <div class="col-xs-4">
-                        <label for="ddl_leverage">[% l('Leverage') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <select id="ddl_leverage">
-                            <option value="1">1:1</option>
-                            <option value="50">1:50</option>
-                            <option value="100" selected="selected">1:100</option>
-                            <option value="200">1:200</option>
-                            <option value="300">1:300</option>
-                            <option value="500">1:500</option>
-                            <option value="1000">1:1000</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="txt_main_pass">[% l('Main password (trading access)') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <input id="txt_main_pass" type="password" maxlength="25" />
-                        <div class="hint">[% l('Minimum eight characters. Must contain numbers, and mix of upper and lower case letters.') %]</div>
-                    </div>
-                </div>
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="txt_re_main_pass">[% l('Verify main password') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <input id="txt_re_main_pass" type="password" maxlength="25" />
-                    </div>
-                </div>
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="txt_investor_pass">[% l('Investor password (read-only access)') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <input id="txt_investor_pass" type="password" maxlength="25" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 center-text">
-                        <p>
-                            <input id="chk_tnc" type="checkbox" />
-                            <label for="chk_tnc">[% l('I have read and agree to the') %] <a target="_blank" href="[% request.url_for('/terms-and-conditions') %]">[% l('terms and conditions') %]</a> [% l('of the site.') %]</label>
-                        </p>
-                    </div>
-                </div>
+                [% INCLUDE components/forms/form_row.html.tt type='label'  id='lbl_account_type' label=l('Account type') %]
+                [% INCLUDE components/forms/form_row.html.tt type='label'  id='lbl_email'        label=l('Email') %]
+                [% INCLUDE components/forms/form_row.html.tt type='text'   id='txt_name'         label=l('Name') attributes='maxlength="30" autocomplete="off"' %]
+                [% WRAPPER components/forms/form_row.html.tt type='select' id='ddl_leverage'     label=l('Leverage') row_class='hidden' %]
+                    <option value="1">1:1</option>
+                    <option value="50">1:50</option>
+                    <option value="100" selected="selected">1:100</option>
+                    <option value="200">1:200</option>
+                    <option value="300">1:300</option>
+                    <option value="500">1:500</option>
+                    <option value="1000">1:1000</option>
+                [% END %]
+                [% INCLUDE components/forms/form_row.html.tt type='password' id='txt_main_pass' label=l('Main password (trading access)')
+                    hint=l('Minimum eight characters. Must contain numbers, and mix of upper and lower case letters.') %]
+                [% INCLUDE components/forms/form_row.html.tt type='password' id='txt_re_main_pass' label=l('Verify main password') %]
+                [% INCLUDE components/forms/form_row.html.tt type='password' id='txt_investor_pass' label=l('Investor password (read-only access)') %]
+                [% INCLUDE components/forms/form_row.html.tt type='checkbox' id='chk_tnc' label=l('I have read and agree to the <a target="_blank" href="[_1]">terms and conditions</a> of the site.', request.url_for('/terms-and-conditions')) %]
 
-                <div class="row">
-                    <div class="col-xs-8 offset-md-4">
-                        <p id="msg_form" class="error-msg hidden"></p>
-                        <button id="btn_submit" type="submit">[% l('Create Account') %]</button>
-                    </div>
-                </div>
+                [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Create account') %]
             </form>
 
             <form id="frm_password_change">
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label>[% l('Login ID') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <span id="lbl_login"></span>
-                    </div>
-                </div>
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="txt_old_password">[% l('Current password') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <input id="txt_old_password" type="password" maxlength="25" />
-                    </div>
-                </div>
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="txt_new_password">[% l('New password') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <input id="txt_new_password" type="password" maxlength="25" />
-                        <div class="hint">[% l('Minimum eight characters. Must contain numbers, and mix of upper and lower case letters.') %]</div>
-                    </div>
-                </div>
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="txt_re_new_password">[% l('Verify new password') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <input id="txt_re_new_password" type="password" maxlength="25" />
-                    </div>
-                </div>
+                [% INCLUDE components/forms/form_row.html.tt type='label'    id='lbl_login'           label=l('Login ID') %]
+                [% INCLUDE components/forms/form_row.html.tt type='password' id='txt_old_password'    label=l('Current password') %]
+                [% INCLUDE components/forms/form_row.html.tt type='password' id='txt_new_password'    label=l('New password')
+                    hint=l('Minimum eight characters. Must contain numbers, and mix of upper and lower case letters.') %]
+                [% INCLUDE components/forms/form_row.html.tt type='password' id='txt_re_new_password' label=l('Verify new password') %]
 
-                <div class="row">
-                    <div class="col-xs-8 offset-md-4">
-                        <p id="msg_form" class="error-msg hidden"></p>
-                        <button id="btn_submit" type="submit">[% l('Change Password') %]</button>
-                    </div>
-                </div>
+                [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Change Password') %]
             </form>
 
             <form id="frm_deposit">
                 <p class="col-sm">[% l('Transfer funds from Champion-FX.com account into your MT5 account:') %]</p>
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label>[% l('Transfer from') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <span id="lbl_from"></span>
-                    </div>
-                </div>
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label>[% l('Deposit into') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <span id="lbl_to"></span>
-                    </div>
-                </div>
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="txt_amount">[% l('Amount') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        &#36; <input id="txt_amount" type="text" maxlength="10" />
-                    </div>
-                </div>
+                [% INCLUDE components/forms/form_row.html.tt type='label' id='lbl_from'   label=l('Transfer from') %]
+                [% INCLUDE components/forms/form_row.html.tt type='label' id='lbl_to'     label=l('Deposit into') %]
+                [% INCLUDE components/forms/form_row.html.tt type='text'  id='txt_amount' label=l('Amount') input_prefix='&#36; ' attributes='maxlength="10"' %]
 
-                <div class="row">
-                    <div class="col-xs-8 offset-md-4">
-                        <p id="msg_form" class="error-msg hidden"></p>
-                        <button id="btn_submit" type="submit">[% l('Deposit') %]</button>
-                    </div>
-                </div>
+                [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Deposit') %]
             </form>
 
             <form id="frm_withdrawal">
                 <p class="col-sm">[% l('Transfer funds from your MT5 account into your Champion-FX.com account:') %]</p>
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label>[% l('Withdraw from') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <span id="lbl_from"></span>
-                    </div>
-                </div>
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label>[% l('Transfer into') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <span id="lbl_to"></span>
-                    </div>
-                </div>
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="txt_main_pass">[% l('MT5 main password') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        <input id="txt_main_pass" type="password" maxlength="25" />
-                    </div>
-                </div>
-                <div class="row form-row">
-                    <div class="col-xs-4">
-                        <label for="txt_amount">[% l('Amount') %]</label>
-                    </div>
-                    <div class="col-xs-8">
-                        &#36; <input id="txt_amount" type="text" maxlength="10" />
-                    </div>
-                </div>
+                [% INCLUDE components/forms/form_row.html.tt type='label'    id='lbl_from'      label=l('Withdraw from') %]
+                [% INCLUDE components/forms/form_row.html.tt type='label'    id='lbl_to'        label=l('Transfer into') %]
+                [% INCLUDE components/forms/form_row.html.tt type='password' id='txt_main_pass' label=l('MT5 main password') %]
+                [% INCLUDE components/forms/form_row.html.tt type='text'     id='txt_amount'    label=l('Amount') input_prefix='&#36; ' attributes='maxlength="10"' %]
 
-                <div class="row">
-                    <div class="col-xs-8 offset-md-4">
-                        <p id="msg_form" class="error-msg hidden"></p>
-                        <button id="btn_submit" type="submit">[% l('Withdraw') %]</button>
-                    </div>
-                </div>
+                [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Withdraw') %]
             </form>
 
             <div id="messages">

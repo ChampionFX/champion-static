@@ -55,7 +55,7 @@ const MetaTraderUI = (function() {
 
     const displayLoadingAccount = (acc_type) => {
         const $acc_item = $list.find(`#${acc_type}`);
-        $acc_item.find('> div > div[class!="title"]').addClass(hidden_class);
+        $acc_item.find('> div > div:not(.title, .separator)').addClass(hidden_class);
         $acc_item.find('.loading').removeClass(hidden_class);
     };
 
@@ -103,8 +103,8 @@ const MetaTraderUI = (function() {
             if (formValues) formValues($form, acc_type, action);
             $form.find('#btn_submit').attr({ acc_type: acc_type, action: action }).on('click dblclick', submit);
 
-            // update legend, append form
-            $action.find('legend').text(`${types_info[acc_type].title}: ${actions_info[action].title}`).end()
+            // update title, append form
+            $action.find('h4').text(`${types_info[acc_type].title}: ${actions_info[action].title}`).end()
                 .find('#frm_action')
                 .html($form)
                 .end()

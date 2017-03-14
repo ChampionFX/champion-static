@@ -147,7 +147,7 @@ const ChampionNewRealAccount = (function() {
             }
             ChampionSocket.send(data).then((response) => {
                 if (response.error) {
-                    $('#error-create-account').removeClass('hidden').text(response.error.message);
+                    $('#msg_form').removeClass('hidden').text(response.error.message);
                     btn_submit.removeAttr('disabled');
                 } else {
                     const acc_info = response.new_account_real;
