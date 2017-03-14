@@ -10,7 +10,7 @@
                     <p>[% l('View and edit your personal information.') %]</p>
                 </a>
             </li>
-            <li id="assessment_tab">
+            <li id="assessment_tab" class="is-real">
                 <a href="#assessment_tab_content">
                     <h4>[% l('Financial assessments') %]</h4>
                     <div class="separator primary-color"></div>
@@ -23,7 +23,7 @@
             [% INCLUDE user/personal_details.html.tt %]
         </div>
 
-        <div id="assessment_tab_content">
+        <div id="assessment_tab_content" class="is-real">
             [% INCLUDE user/financial_assessment.html.tt %]
         </div>
     </div>
