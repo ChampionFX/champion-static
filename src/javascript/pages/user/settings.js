@@ -10,8 +10,7 @@ const ChampionSettings = (function() {
 
         if (!Client.is_virtual()) {
             settingsContainer
-                .find('#fx-settings-content').show()
-                .find('.fx-real').show();
+                .find('#fx-settings-content, .fx-real').show();
             return;
         }
         settingsContainer.find('#fx-settings-content').show();
