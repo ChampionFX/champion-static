@@ -96,7 +96,6 @@ h1.main-title {
         @include no-margin-padding;
     }
     input {
-        padding: 5px 15px;
         margin-right: 5px;
         margin-bottom: 5px;
     }
@@ -358,6 +357,7 @@ h1.main-title {
 
 #contacts-emails-container {
     padding: 0;
+    background: url('../images/c_img.png');
     .contacts-emails {
         padding-bottom: 30px;
         color: $white;
