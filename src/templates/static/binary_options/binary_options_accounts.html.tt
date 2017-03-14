@@ -4,7 +4,7 @@
             <div class="col-sm">
                 [% INCLUDE components/page_title.html.tt title=l('Binary options trading accounts') %]
                 <p>
-                    [% l('Ready to start trading binary options? Every client startswith a risk-free virtual account before upgrading to a real account.') %]
+                    [% l('Ready to start trading binary options? Every client starts with a risk-free virtual account before upgrading to a real account.') %]
                 </p>
                 <div class="fx-divider"></div>
                 <div class="row">
@@ -63,7 +63,7 @@
                 </div>
                 <div class="center-text">
                     <p>
-                        [% l("Got questions? <a href='[_1]'>Contact us</a>.", request.url_for('contact')) %]
+                        [% l("Got questions? Read our <a href='#''>FAQ</a> or <a href='[_1]'>contact us</a>.", request.url_for('contact')) %]
                     </p>
                 </div>
             </div>

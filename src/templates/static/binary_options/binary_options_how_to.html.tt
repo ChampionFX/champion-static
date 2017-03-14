@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm">
-                [% INCLUDE components/page_title.html.tt title=l('Binary options trading accounts') %]
+                [% INCLUDE components/page_title.html.tt title=l('How to trade binary options') %]
                 <p>[% l('Trading binaries is relatively easy, and you can purchase a trade in only three simple steps.') %]</p>
                 <div class="fx-divider"></div>
                 <div class="row">
@@ -85,7 +85,7 @@
                             [% l('1. Underlying market') %]
                         </h4>
                         <p>
-                            [% l('Choose the asset you wish to trade. such as gold. oil. stocks. or currency pairs. The value of a binary option is derived from the price of the underlying asset. One advantage of trading binary options is that you are not buying or selling the actual asset. only a contract that determines how that asset performs.') %]
+                            [% l('Choose the asset you wish to trade, such as gold, oil, stocks, or currency pairs. The value of a binary option is derived from the price of the underlying asset. One advantage of trading binary options is that you are not buying or selling the actual asset, only a contract that determines how that asset performs.') %]
                         </p>
                         <p>
                             [% l('Choose from ﬁve types of markets and their respective assets:') %]
@@ -202,7 +202,7 @@
                         [% l('Step 2: Get your price') %]
                     </h3>
                     <p>
-                        [% l('Our prices are benchmarked against the interbank options market, so you always get the most competitive prices You\'ll always receive fair and transparent pricing, whatever your position.') %]
+                        [% l('Our prices are benchmarked against the interbank options market, so you always get the most competitive prices. You\'ll always receive fair and transparent pricing, whatever your position.') %]
                     </p>
                 </div>
                 <div class="fx-divider"></div>
