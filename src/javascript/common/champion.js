@@ -9,8 +9,9 @@ const Utility                 = require('./utility');
 const BinaryOptions           = require('./../pages/binary_options');
 const ChampionContact         = require('./../pages/contact');
 const ChampionEndpoint        = require('./../pages/endpoint');
+const MT5                     = require('./../pages/mt5');
 const ChampionSignup          = require('./../pages/signup');
-const Slider             = require('./../pages/slider');
+const Slider                  = require('./../pages/slider');
 const ChampionNewReal         = require('./../pages/new_account/real');
 const ChampionNewVirtual      = require('./../pages/new_account/virtual');
 const LostPassword            = require('./../pages/lost_password');
@@ -72,6 +73,7 @@ const Champion = (function() {
             forward           : { module: CashierDepositWithdraw, is_authenticated: true, only_real: true },
             logged_inws       : { module: LoggedIn },
             metatrader        : { module: MetaTrader,          is_authenticated: true },
+            mt5               : { module: MT5 },
             real              : { module: ChampionNewReal,     is_authenticated: true, only_virtual: true },
             settings          : { module: ChampionSettings,    is_authenticated: true },
             security          : { module: ChampionSecurity,    is_authenticated: true },
