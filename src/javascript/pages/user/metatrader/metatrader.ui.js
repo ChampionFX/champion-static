@@ -55,7 +55,7 @@ const MetaTraderUI = (function() {
 
     const displayLoadingAccount = (acc_type) => {
         const $acc_item = $list.find(`#${acc_type}`);
-        $acc_item.find('> div > div[class!="title"]').addClass(hidden_class);
+        $acc_item.find('> div > div:not(.title, .separator)').addClass(hidden_class);
         $acc_item.find('.loading').removeClass(hidden_class);
     };
 
