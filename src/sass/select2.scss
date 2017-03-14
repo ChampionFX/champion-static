@@ -143,7 +143,7 @@
         border: 1px solid $fillColor;
         border-radius: $BORDER_RADIUS;
         .select2-selection__rendered {
-            color: $darkGray;
+            color: $black;
             line-height: 28px;
         }
         .select2-selection__clear {
@@ -152,7 +152,7 @@
             font-weight: bold;
         }
         .select2-selection__placeholder {
-            color: $darkWhite;
+            color: $secondaryContentColor;
         }
         .select2-selection__arrow {
             height: 26px;
@@ -233,7 +233,7 @@
             }
         }
         .select2-selection__placeholder {
-            color: $darkWhite;
+            color: $secondaryContentColor;
             margin-top: 5px;
             float: left;
         }
@@ -255,13 +255,13 @@
             padding: 0 5px;
         }
         .select2-selection__choice__remove {
-            color: $darkWhite;
+            color: $secondaryContentColor;
             cursor: pointer;
             display: inline-block;
             font-weight: bold;
             margin-right: 2px;
             &:hover {
-                color: $darkGray;
+                color: $black;
             }
         }
     }
@@ -269,13 +269,13 @@
         padding: 0;
     }
     .select2-results__option[aria-disabled=true] {
-        color: $darkWhite;
+        color: $secondaryContentColor;
     }
     .select2-results__option[aria-selected=true] {
         background-color: $borderColor;
     }
     .select2-results__option--highlighted[aria-selected] {
-        background-color: $lightBlue;
+        background-color: $primaryBrandColor;
         color: $white;
     }
     .select2-results__group {
@@ -368,10 +368,10 @@
         /* stylelint-disable-next-line function-name-case */
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFFFF', endColorstr='#FFEEEEEE', GradientType=0);
         &:focus {
-            border: 1px solid $lightBlue;
+            border: 1px solid $primaryBrandColor;
         }
         .select2-selection__rendered {
-            color: $darkGray;
+            color: $black;
             line-height: 28px;
         }
         .select2-selection__clear {
@@ -381,7 +381,7 @@
             margin-right: 10px;
         }
         .select2-selection__placeholder {
-            color: $darkWhite;
+            color: $secondaryContentColor;
         }
         .select2-selection__arrow {
             background-color: $borderColor;
@@ -394,7 +394,7 @@
             top: 1px;
             right: 1px;
             width: 20px;
-            background-image: linear-gradient(to bottom, $borderColor 50%, $darkWhite 100%);
+            background-image: linear-gradient(to bottom, $borderColor 50%, $secondaryContentColor 100%);
             background-repeat: repeat-x;
             /* stylelint-disable-next-line function-name-case */
             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFEEEEEE', endColorstr='#FFCCCCCC', GradientType=0);
@@ -414,7 +414,7 @@
     }
     &.select2-container--open {
         .select2-selection--single {
-            border: 1px solid $lightBlue;
+            border: 1px solid $primaryBrandColor;
             .select2-selection__arrow {
                 background: transparent;
                 border: none;
@@ -470,7 +470,7 @@
         cursor: text;
         outline: 0;
         &:focus {
-            border: 1px solid $lightBlue;
+            border: 1px solid $primaryBrandColor;
         }
         .select2-selection__rendered {
             list-style: none;
@@ -497,7 +497,7 @@
             font-weight: bold;
             margin-right: 2px;
             &:hover {
-                color: $darkGray;
+                color: $black;
             }
         }
     }
@@ -518,7 +518,7 @@
         color: $borderColor;
     }
     .select2-results__option--highlighted[aria-selected] {
-        background-color: $lightBlue;
+        background-color: $primaryBrandColor;
         color: $white;
     }
     .select2-results__group {

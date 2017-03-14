@@ -40,7 +40,8 @@ sub all_pages {
         ['new-account/real',           'new_account/real',             'full_width', 'Create new real account'],
         ['new-account/virtual',        'new_account/virtual',          'full_width', 'Create new virtual account'],
 
-        ['user/assessment',            'user/financial_assessment',    'full_width', 'Financial Assessment'],
+        # ['user/assessment',            'user/financial_assessment',    'full_width', 'Financial Assessment'],
+        # ['user/details',               'user/personal_details',        'full_width', 'Personal Details'],
         ['user/change-password',       'user/change_password',         'full-width', 'Change Password'],
         ['user/metatrader',            'user/metatrader',              'full-width', 'MetaTrader account management'],
         ['user/settings',              'user/settings',                'full_width', 'Settings'],

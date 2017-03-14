@@ -27,6 +27,7 @@ const ChampionSettings        = require('./../pages/user/settings');
 const TNCApproval             = require('./../pages/user/tnc_approval');
 const CashierDepositWithdraw  = require('./../pages/cashier/deposit_withdraw');
 const Profile                 = require('./../pages/user/profile');
+const PersonalDetails         = require('./../pages/user/personal_details');
 
 const Champion = (function() {
     'use strict';
@@ -68,11 +69,12 @@ const Champion = (function() {
             assessment        : { module: FinancialAssessment, is_authenticated: true, only_real: true },
             cashier           : { module: Cashier },
             contact           : { module: ChampionContact },
-            profile           : { module: Profile, is_authenticated: true },
+            details           : { module: PersonalDetails,     is_authenticated: true },
             endpoint          : { module: ChampionEndpoint },
             forward           : { module: CashierDepositWithdraw, is_authenticated: true, only_real: true },
             logged_inws       : { module: LoggedIn },
             metatrader        : { module: MetaTrader,          is_authenticated: true },
+            profile           : { module: Profile,             is_authenticated: true },
             real              : { module: ChampionNewReal,     is_authenticated: true, only_virtual: true },
             settings          : { module: ChampionSettings,    is_authenticated: true },
             virtual           : { module: ChampionNewVirtual,  not_authenticated: true },
@@ -131,7 +133,7 @@ const Champion = (function() {
 
     const displayMessage = (message) => {
         const $content = container.find('#champion-content .container');
-        $content.html($content.find('h1'))
+        $content.html($content.find('h1').first())
             .append($('<p/>', { class: 'center-text notice-msg', html: message }));
     };
 

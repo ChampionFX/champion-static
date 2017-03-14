@@ -54,7 +54,7 @@ const Validation = (function() {
     const validPassword     = value => /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+/.test(value);
     const validLetterSymbol = value => !/[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><|\d]+/.test(value);
     const validGeneral      = value => !/[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><|]+/.test(value);
-    const validPostCode     = value => /^[a-zA-Z\d-]*$/.test(value);
+    const validPostCode     = value => /^[a-zA-Z\d-\s]*$/.test(value);
     const validPhone        = value => /^\+?[0-9\s]*$/.test(value);
     const validEmailToken   = value => value.trim().length === 48;
 

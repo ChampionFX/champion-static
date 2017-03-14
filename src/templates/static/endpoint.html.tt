@@ -3,7 +3,7 @@
         <h1>[% l('Change API Endpoint') %]</h1>
         <form id="frm_endpoint">
             <fieldset>
-                <legend>[% l('Profile') %]</legend>
+                <legend>[% l('Details') %]</legend>
                 <div class="row form-row">
                     <div class="col-xs-4">
                         <label for="txt_server_url">[% l('Server') %]</label>

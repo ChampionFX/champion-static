@@ -6,7 +6,7 @@
             </div>
         </div>
 
-        <h2>[% l('Profile') %]</h2>
+        <h2>[% l('Details') %]</h2>
 
         <div class="row">
             <div class="col-lg-5 col-md-6">

@@ -695,8 +695,13 @@ ol ol ol ol li:before {
     border-radius: 5px;
 }
 
-// vertical tab in profile page
-#fx-profile ul li {
+#profile-tabs li {
     white-space: normal !important;
     margin-bottom: 30px;
+}
+
+.underline-title {
+    border-bottom: 2px solid $primaryBrandColor;
+    padding-bottom: 10px;
+    width: 350px;
 }
