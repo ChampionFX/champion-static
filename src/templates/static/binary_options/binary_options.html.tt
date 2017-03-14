@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-sm">
                 <div class="center-text">
-                    <h2>[% l('What is binary otions trading') %]</h2>
+                    <h2>[% l('What is binary options trading') %]</h2>
                     <div class="fx-divider"></div>
                     <p>
                         [% l('Understand the simple idea behind binary options, how they work and their advantages over other financial instruments.') %]
@@ -85,7 +85,7 @@
         </div>
         [% INCLUDE static/common/separator_line.html.tt %]
         <div class="center-text">
-            <h2>[% l('Champion Trader - The world\'s most versatilee binary options trading platform.') %]</h2>
+            <h2>[% l('Champion Trader - The world\'s most versatile binary options trading platform.') %]</h2>
             <div class="fx-divider"></div>
             <p>
                 [% l('The Champion Trader is designed to be the most versatile binary options trading platform available, with a rich user experience that can be customised according to your personal preference.') %]
@@ -95,7 +95,7 @@
             </p>
             <div class="fx-divider"></div>
             <p>
-                <a class="button" href="[% request.url_for('champion-trader') %]">
+                <a class="button" href="https://webtrader.champion-fx.com/">
                     <span>[% l('Learn more') %]</span>
                 </a>
             </p>
