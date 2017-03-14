@@ -7,7 +7,7 @@
         <div id="accounts_list" class="row"></div>
 
         <div class="row">
-            <div class="fst-container">
+            <div class="fst-container col-xs-12">
                 <div id="main_msg" class="notice-msg center-text hidden"></div>
                 <div id="fst_action" class="hidden">
                     <h4></h4>
@@ -35,7 +35,7 @@
                         <div class="col-xs-4">[% l('Balance:') %]</div><div data="balance" class="col-xs-8"></div>
                         <div class="col-xs-4">[% l('Leverage:') %]</div><div data="leverage" class="col-xs-8"></div>
                     </div>
-                    <div class="acc-actions has-account center-text hidden">
+                    <div class="acc-actions has-account hidden">
                         <a href="javascript:;" class="act_deposit">
                             <img src="[% request.url_for('images/metatrader/deposit.svg') %]" alt="" />
                             [% l('Deposit') %]
