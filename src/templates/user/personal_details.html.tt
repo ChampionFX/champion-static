@@ -1,6 +1,6 @@
 [% INCLUDE components/page_title.html.tt title=l('Personal details') attributes='id="heading"' %]
 
-<form class="formObject" id="personalDetails_form" name="personalDetails_form">
+<form class="formObject" id="details_form" name="details_form">
     <h2>[% l('Personal information') %]</h2>
 
     [% INCLUDE components/forms/form_row.html.tt row_class='is-real' label=l("Name") %]
