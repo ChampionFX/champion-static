@@ -26,6 +26,7 @@ const MetaTrader              = require('./../pages/user/metatrader/metatrader')
 const ChampionSettings        = require('./../pages/user/settings');
 const TNCApproval             = require('./../pages/user/tnc_approval');
 const CashierDepositWithdraw  = require('./../pages/cashier/deposit_withdraw');
+const ChampionSecurity        = require('./../pages/user/security');
 
 const Champion = (function() {
     'use strict';
@@ -73,6 +74,7 @@ const Champion = (function() {
             metatrader        : { module: MetaTrader,          is_authenticated: true },
             real              : { module: ChampionNewReal,     is_authenticated: true, only_virtual: true },
             settings          : { module: ChampionSettings,    is_authenticated: true },
+            security          : { module: ChampionSecurity,    is_authenticated: true },
             virtual           : { module: ChampionNewVirtual,  not_authenticated: true },
             'binary-options'  : { module: BinaryOptions },
             'cashier-password': { module: CashierPassword,     is_authenticated: true, only_real: true },
