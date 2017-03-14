@@ -67,10 +67,8 @@ const Champion = (function() {
     const afterContentChange = (e, content) => {
         const page = content.getAttribute('data-page');
         const pages_map = {
-            assessment        : { module: FinancialAssessment, is_authenticated: true, only_real: true },
             cashier           : { module: Cashier },
             contact           : { module: ChampionContact },
-            details           : { module: PersonalDetails,     is_authenticated: true },
             endpoint          : { module: ChampionEndpoint },
             forward           : { module: CashierDepositWithdraw, is_authenticated: true, only_real: true },
             logged_inws       : { module: LoggedIn },
