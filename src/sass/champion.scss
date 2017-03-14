@@ -458,7 +458,7 @@ h1.main-title {
 }
 
 fieldset {
-    border: 1px solid $borderColor;
+    border: none !important; // 1px solid $borderColor;
     padding: 5px;
     margin-bottom: 10px;
 }
@@ -473,6 +473,10 @@ fieldset {
     &.checkbox label {
         display: inline;
     }
+}
+
+.center-text .form-row {
+    width: auto;
 }
 
 .submit-row {
@@ -693,6 +697,17 @@ ol ol ol ol li:before {
     border: 1px solid $fillColor;
     padding: 5px 10px;
     border-radius: 5px;
+}
+
+#profile-tabs li {
+    white-space: normal !important;
+    margin-bottom: 30px;
+}
+
+.underline-title {
+    border-bottom: 2px solid $primaryBrandColor;
+    padding-bottom: 10px;
+    width: 350px;
 }
 
 .no-margin-top {
