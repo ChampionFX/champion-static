@@ -9,10 +9,12 @@
                 [% INCLUDE static/common/separator_line.html.tt %]
                 <div class="center-text">
                     <h2>[% l('Introduce clients to Forex, CFDs, metals, futures trading on MetaTrader 5') %]</h2>
+                    <div class="fx-divider"></div>
                     <h3>[% l('Introducing Broker (IB)') %]</h3>
                     <div class="separator primary-color col-xs-8 push-xs-2 col-md-2 push-md-5"></div>
                     <p>[% l('Earn a commission on all ongoing trades done by your referred clients.') %]</p>
-                    <p class="lg-padding">
+                    <div class="fx-divider"></div>
+                    <p>
                         <a class="button" href="[% request.url_for('partnerships-ib') %]">
                             <span>[% l('Apply now') %]</span>
                         </a>
@@ -21,11 +23,13 @@
                     <div class="row">
                         <div class="col-sm">
                             <h2>[% l('Introduce clients to binary options trading on Champion Trader') %]</h2>
+                            <div class="fx-divider"></div>
                             <div class="row">
                                 <div class="col-md-5 push-md-1">
                                     <h3>[% l('Affiliate Programme') %]</h3>
                                     <div class="separator primary-color col-xs-6 push-xs-3"></div>
                                     <p>[% l('Earn up to 35% commission on all binary options trades performed by your referred clients.') %]</p>
+                                    <div class="fx-divider"></div>
                                     <p>
                                         <a class="button" href="[% request.url_for('partnerships-affiliate') %]">
                                             <span>[% l('Apply now') %]</span>
@@ -36,6 +40,7 @@
                                     <h3>[% l('Content Contributors') %]</h3>
                                     <div class="separator primary-color col-xs-6 push-xs-3"></div>
                                     <p>[% l('Create premium content to help clients trade. Earn a commission by converting viewers into regular clients.') %]</p>
+                                    <div class="fx-divider"></div>
                                     <p>
                                         <a class="button" href="[% request.url_for('partnerships-contributor') %]">
                                             <span>[% l('Apply now') %]</span>

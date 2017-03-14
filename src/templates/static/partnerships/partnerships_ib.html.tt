@@ -39,7 +39,7 @@
                             title_2=l('Hassle-free client signup') desc_2=l('Convert clients easily with our fast and hassle-free client signup process.') %]
 
                         <div class="row lg-padding">
-                            <div class="col-md lg-padding">
+                            <div class="col-md">
                                 <p>
                                     <a class="button" href="mailto:ibsupport@champion-fx.com" rel="nofollow">
                                         <span>[% l('Apply now') %]</span>

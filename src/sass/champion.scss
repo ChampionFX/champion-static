@@ -525,7 +525,7 @@ fieldset {
 }
 
 .lg-padding {
-    padding: 20px;
+    padding: 20px !important;
 }
 
 .txt-right {
@@ -690,6 +690,13 @@ ol ol ol ol {
 ol ol ol ol li:before {
     content: counter(item1)'.'counter(item2)'.'counter(item3)'.'counter(item4)'.';
     counter-increment: item4;
+}
+
+ul.no-padding {
+    &, li {
+        padding-left: 0;
+        margin-left: 0;
+    }
 }
 
 #profile-tabs li {
