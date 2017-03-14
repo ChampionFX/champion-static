@@ -11,6 +11,7 @@ sub all_pages {
 
         ['binary-options',             'static/binary_options/binary_options',            'full_width', 'Binary Options'],
         ['what-is-binary-options',     'static/binary_options/what_is_binary_options',    'full_width', 'What is binary options trading'],
+        ['types-of-accounts',          'static/binary_options/binary_options_accounts',   'full_width', 'Binary options trading accounts'],
 
         ['contact',                    'static/contact',               'full_width', 'Contact Us'],
         ['endpoint',                   'static/endpoint',              'full_width', 'Endpoint'],

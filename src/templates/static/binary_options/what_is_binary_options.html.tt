@@ -82,6 +82,7 @@
                         </div>
                     </div>
                     <div class="fx-divider"></div>
+                    <!-- Un-comment this after there's academy for champion-fx
                     <div class="row">
                         <div class="col-sm">
                             <h2>
@@ -116,6 +117,7 @@
                             <span>[% l('Visit the academy') %]</span>
                         </a>
                     </p>
+                    -->
                 </div>
             </div>
         </div>
