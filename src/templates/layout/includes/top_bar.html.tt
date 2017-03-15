@@ -1,3 +1,4 @@
+<div id="msg_notification" class="notice-msg center-text"></div>
 <div class="topbar primary-color-dark">
     <div class="menu-container">
         <div class="row">
