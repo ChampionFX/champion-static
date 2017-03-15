@@ -70,7 +70,7 @@
                 <div id="main-signup" class="hidden">
                     <ul class="signup-button">
                         <li class="">
-                            <button class="button-secondary" href="javascript:;">[% l('Sign Up') %]</button>
+                            <a class="button-secondary" href="[% request.url_for('home') %]"><span>[% l('Sign Up') %]</span></a>
                         </li>
                     </ul>
                 </div>
