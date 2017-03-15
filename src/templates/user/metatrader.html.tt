@@ -56,15 +56,15 @@
                 <div id="demo">[% l('Open a free Demo account.') %]</div>
                 <div id="champion_cent">
                     [% l('The Cent account offers the highest leverage, as well as low margin call and stop out level.') %]
-                    <a href="[% request.url_for('forex') %]#forex-accounts-cent" target="_blank">[% l('Read more') %]</a>
+                    <a href="[% request.url_for('forex/accounts/cent') %]" target="_blank">[% l('Read more') %]</a>
                 </div>
                 <div id="champion_standard">
                     [% l('The Standard account is suitable for a wide range of traders, both new and experienced.') %]
-                    <a href="[% request.url_for('forex') %]#forex-accounts-standard" target="_blank">[% l('Read more') %]</a>
+                    <a href="[% request.url_for('forex/accounts/standard') %]" target="_blank">[% l('Read more') %]</a>
                 </div>
                 <div id="champion_stp">
                     [% l('The STP account provides you with the tightest spreads and connects you directly to the market.') %]
-                    <a href="[% request.url_for('forex') %]#forex-accounts-stp" target="_blank">[% l('Read more') %]</a>
+                    <a href="[% request.url_for('forex/accounts/stp') %]" target="_blank">[% l('Read more') %]</a>
                 </div>
             </div>
 
