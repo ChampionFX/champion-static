@@ -119,11 +119,19 @@ sub _texts {
         push @texts, localize('[_1] [_2] has been credited to your Virtual money account [_3]');
         push @texts, localize('Sorry, this feature is available to virtual accounts only.');
         push @texts, localize('Your settings have been updated successfully.');
+        push @texts, localize('Please accept the latest Terms and Conditions.');
 
         # financial assessment
         push @texts, localize('You did not change anything.');
         push @texts, localize('Sorry, an error occurred while processing your request.');
         push @texts, localize('Your changes have been updated successfully.');
+
+        # header notification
+        push @texts, localize('Please [_1]authenticate your account[_2] to lift your withdrawal and trading limits.');
+        push @texts, localize('Please complete the [_1]financial assessment form[_2] to lift your withdrawal and trading limits.');
+        push @texts, localize('Please [_1]complete your account profile[_2] to lift your withdrawal and trading limits.');
+        push @texts, localize('Please [_1]accept the updated Terms and Conditions[_2] to lift your withdrawal and trading limits.');
+        push @texts, localize('Your account is restricted. Kindly [_1]contact customer support[_2] for assistance.');
 
         my %as_hash = @texts;
         $js .= "texts_json['" . $language . "'] = " . JSON::to_json(\%as_hash) . ";\n";

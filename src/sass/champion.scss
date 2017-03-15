@@ -749,3 +749,10 @@ img.float-right {
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
+
+#msg_notification {
+    font-size: $FONT_SIZE_S;
+    padding: 3px 0;
+    line-height: 20px;
+    display: none;
+}

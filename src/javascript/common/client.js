@@ -90,6 +90,7 @@ const Client = (function () {
         ChampionSocket.send({ balance: 1, subscribe: 1 });
         ChampionSocket.send({ get_settings: 1 });
         ChampionSocket.send({ get_account_status: 1 });
+        ChampionSocket.send({ get_financial_assessment: 1 });
         const country_code = response.authorize.country;
         if (country_code) {
             Client.set('residence', country_code);
@@ -101,18 +102,11 @@ const Client = (function () {
         });
     };
 
-    const check_tnc = function() {
-        if (/tnc-approval/.test(window.location.href) ||
-            /terms-and-conditions/.test(window.location.href) ||
-            get('is_virtual')) {
-            return;
-        }
-        const client_tnc_status = State.get(['response', 'get_settings', 'get_settings', 'client_tnc_status']),
-            terms_conditions_version = State.get(['response', 'website_status', 'website_status', 'terms_conditions_version']);
-        if (client_tnc_status !== terms_conditions_version) {
-            sessionStorage.setItem('tnc_redirect', window.location.href);
-            window.location.href = url.url_for('user/tnc-approval');
-        }
+    const should_accept_tnc = () => {
+        if (get('is_virtual')) return false;
+        const website_tnc_version = State.get(['response', 'website_status', 'website_status', 'terms_conditions_version']);
+        const client_tnc_status = State.get(['response', 'get_settings', 'get_settings', 'client_tnc_status']);
+        return client_tnc_status && website_tnc_version && client_tnc_status !== website_tnc_version;
     };
 
     const clear_storage_values = () => {
@@ -180,7 +174,6 @@ const Client = (function () {
         if (response.logout !== 1) return;
         Client.clear_storage_values();
         LocalStore.remove('client.tokens');
-        sessionStorage.removeItem('client_status');
         const cookies = ['token', 'loginid', 'loginid_list', 'email'];
         const domains = [
             `.${document.domain.split('.').slice(-2).join('.')}`,
@@ -252,7 +245,7 @@ const Client = (function () {
         set                 : set,
         get                 : get,
         response_authorize  : response_authorize,
-        check_tnc           : check_tnc,
+        should_accept_tnc   : should_accept_tnc,
         clear_storage_values: clear_storage_values,
         get_token           : get_token,
         add_token           : add_token,

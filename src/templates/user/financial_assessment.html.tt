@@ -18,7 +18,7 @@
     [% END %]
 [% END %]
 
-<div class="">
+<div class="container fx-section">
     <h2>[% l('Financial assessments') %]</h2>
     <div id="msg_success" class="invisible">
         <p>[% l('Thank you for completing the Financial Assessment and registering your Financial Account. You can now deposit funds and trade Forex with real money on MT5.') %]</p>
@@ -32,7 +32,6 @@
     </div>
 
     <form class="formObject invisible" id="assessment_form" name="assessment_form">
-        <h2 id="heading_risk" class="invisible">[% l("Financial Assessment") %]</h2>
         <p class="invisible" id="high_risk_classification">
             [% l("Due to recent changes in the regulations, we are required to ask our clients to complete the following Financial Assessment. Please note that you will not be able to continue trading until this is completed.") %]
         </p>
