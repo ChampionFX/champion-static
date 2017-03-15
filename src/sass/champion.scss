@@ -762,3 +762,10 @@ img.float-right {
         margin-right: 20px;
     }
 }
+
+#msg_notification {
+    font-size: $FONT_SIZE_S;
+    padding: 3px 0;
+    line-height: 20px;
+    display: none;
+}

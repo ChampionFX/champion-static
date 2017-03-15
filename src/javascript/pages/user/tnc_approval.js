@@ -1,40 +1,19 @@
-const template             = require('../../common/utility').template;
 const Client               = require('../../common/client');
-const url_for_static       = require('../../common/url').url_for_static;
-const url_for              = require('../../common/url').url_for;
-const default_redirect_url = require('../../common/url').default_redirect_url;
+const Header               = require('../../common/header');
 const ChampionSocket       = require('../../common/socket');
+const default_redirect_url = require('../../common/url').default_redirect_url;
+const url_for              = require('../../common/url').url_for;
+const url_for_static       = require('../../common/url').url_for_static;
+const template             = require('../../common/utility').template;
 
 const TNCApproval = (function() {
     'use strict';
 
-    let hiddenClass,
-        redirectUrl;
+    const hiddenClass = 'invisible';
 
     const btn_accept = '#btn-accept';
 
     const load = () => {
-        hiddenClass = 'invisible';
-
-        redirectUrl = sessionStorage.getItem('tnc_redirect');
-        sessionStorage.removeItem('tnc_redirect');
-
-        showTNC();
-    };
-
-    const approveTNC = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        ChampionSocket.send({ tnc_approval: '1' }).then((response) => {
-            if (!Object.prototype.hasOwnProperty.call(response, 'error')) {
-                window.location.href = redirectUrl || default_redirect_url();
-            } else {
-                $('#err_message').html(response.error.message).removeClass(hiddenClass);
-            }
-        });
-    };
-
-    const showTNC = () => {
         $('#tnc-loading').addClass(hiddenClass);
         $('#tnc_image').attr('src', url_for_static('images/protection-icon.svg'));
         $('#tnc_approval').removeClass(hiddenClass);
@@ -45,6 +24,21 @@ const TNCApproval = (function() {
         ]);
         $tnc_msg.html(tnc_message).removeClass(hiddenClass);
         $(btn_accept).text('OK').on('click', function (e) { approveTNC(e); });
+    };
+
+    const approveTNC = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        ChampionSocket.send({ tnc_approval: '1' }).then((response) => {
+            if (!Object.prototype.hasOwnProperty.call(response, 'error')) {
+                ChampionSocket.send({ get_settings: 1 }, true).then(() => {
+                    Header.displayAccountStatus();
+                });
+                window.location.href = default_redirect_url();
+            } else {
+                $('#err_message').html(response.error.message).removeClass(hiddenClass);
+            }
+        });
     };
 
     const unload = () => {

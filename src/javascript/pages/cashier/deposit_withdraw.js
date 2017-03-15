@@ -86,7 +86,7 @@ const CashierDepositWithdraw = (function() {
                 error_msg.removeClass('hidden');
                 switch (response.error.code) {
                     case 'ASK_TNC_APPROVAL':
-                        window.location.href = url_for('user/tnc-approval');
+                        error_msg.html('Please accept the latest Terms and Conditions.');
                         break;
                     case 'ASK_FIX_DETAILS':
                         error_msg.html(response.error.details);

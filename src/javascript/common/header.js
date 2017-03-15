@@ -1,7 +1,11 @@
 const Client         = require('./client');
-const ChampionSocket = require('./socket');
-const Utility        = require('./utility');
 const formatMoney    = require('./currency').formatMoney;
+const ChampionSocket = require('./socket');
+const State          = require('./storage').State;
+const url_for        = require('./url').url_for;
+const Utility        = require('./utility');
+const isEmptyObject  = require('./utility').isEmptyObject;
+const template       = require('./utility').template;
 
 const Header = (function () {
     'use strict';
@@ -27,6 +31,9 @@ const Header = (function () {
         if (!Client.is_logged_in()) {
             $('#main-login, #main-signup').removeClass('hidden');
             return;
+        }
+        if (!Client.is_virtual()) {
+            displayAccountStatus();
         }
         $('#main-logout').removeClass('hidden');
         $('#main-signup').addClass('hidden');
@@ -67,6 +74,69 @@ const Header = (function () {
         });
     };
 
+    const displayNotification = (message) => {
+        const $msg_notification = $('#msg_notification');
+        $msg_notification.html(message);
+        if ($msg_notification.is(':hidden')) $msg_notification.slideDown(500);
+    };
+
+    const hideNotification = () => {
+        const $msg_notification = $('#msg_notification');
+        if ($msg_notification.is(':visible')) $msg_notification.slideUp(500, () => { $msg_notification.html(''); });
+    };
+
+    const displayAccountStatus = () => {
+        ChampionSocket.wait('authorize').then(() => {
+            let get_account_status,
+                status;
+
+            const riskAssessment = () => {
+                if (get_account_status.risk_classification === 'high') {
+                    return isEmptyObject(State.get(['response', 'get_financial_assessment', 'get_financial_assessment']));
+                }
+                return false;
+            };
+
+            const messages = {
+                authenticate: () => template('Please [_1]authenticate your account[_2] to lift your withdrawal and trading limits.',
+                    [`<a href="${url_for('user/authenticate')}">`, '</a>']),
+                risk: () => template('Please complete the [_1]financial assessment form[_2] to lift your withdrawal and trading limits.',
+                    [`<a href="${url_for('user/profile')}#assessment">`, '</a>']),
+                tnc: () => template('Please [_1]accept the updated Terms and Conditions[_2] to lift your withdrawal and trading limits.',
+                    [`<a href="${url_for('user/tnc-approval')}">`, '</a>']),
+                unwelcome: () => template('Your account is restricted. Kindly [_1]contact customer support[_2] for assistance.',
+                    [`<a href="${url_for('contact')}">`, '</a>']),
+            };
+
+            const validations = {
+                authenticate: () => !/authenticated/.test(status) || !/age_verification/.test(status),
+                risk        : () => riskAssessment(),
+                tnc         : () => Client.should_accept_tnc(),
+                unwelcome   : () => /(unwelcome|(cashier|withdrawal)_locked)/.test(status),
+            };
+
+            const check_statuses = [
+                { validation: validations.tnc,          message: messages.tnc },
+                { validation: validations.risk,         message: messages.risk },
+                { validation: validations.authenticate, message: messages.authenticate },
+                { validation: validations.unwelcome,    message: messages.unwelcome },
+            ];
+
+            ChampionSocket.wait('website_status', 'get_account_status', 'get_settings', 'get_financial_assessment').then(() => {
+                get_account_status = State.get(['response', 'get_account_status', 'get_account_status']) || {};
+                status = get_account_status.status;
+                const notified = check_statuses.some((object) => {
+                    if (object.validation()) {
+                        displayNotification(object.message());
+                        return true;
+                    }
+                    return false;
+                });
+                if (!notified) hideNotification();
+            });
+        });
+    };
+
     const switchLoginId = (loginid) => {
         if (!loginid || loginid.length === 0) {
             return;
@@ -79,7 +149,6 @@ const Header = (function () {
 
         // cleaning the previous values
         Client.clear_storage_values();
-        sessionStorage.removeItem('client_status');
         // set cookies: loginid, token
         Client.set('loginid', loginid);
         Client.set_cookie('loginid', loginid);
@@ -104,8 +173,9 @@ const Header = (function () {
     };
 
     return {
-        init         : init,
-        updateBalance: updateBalance,
+        init                : init,
+        displayAccountStatus: displayAccountStatus,
+        updateBalance       : updateBalance,
     };
 })();
 

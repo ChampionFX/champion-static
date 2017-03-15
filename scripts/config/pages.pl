@@ -51,6 +51,7 @@ sub all_pages {
 
         # ['user/assessment',            'user/financial_assessment',    'full_width', 'Financial Assessment'],
         # ['user/details',               'user/personal_details',        'full_width', 'Personal Details'],
+        ['user/authenticate',          'user/authenticate',            'full_width', 'Authenticate', 'ja'],
         ['user/change-password',       'user/change_password',         'full-width', 'Change Password'],
         ['user/metatrader',            'user/metatrader',              'full-width', 'MetaTrader account management'],
         ['user/settings',              'user/settings',                'full_width', 'Settings'],

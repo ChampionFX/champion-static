@@ -19,8 +19,8 @@ const Cashier                 = require('./../pages/cashier/cashier');
 const CashierPassword         = require('./../pages/cashier/cashier_password');
 const CashierPaymentMethods   = require('./../pages/cashier/payment_methods');
 const CashierTopUpVirtual     = require('./../pages/cashier/top_up_virtual');
+const Authenticate            = require('./../pages/user/authenticate');
 const ChangePassword          = require('./../pages/user/change_password');
-const checkRiskClassification = require('./../pages/user/check_risk_classification');
 const MetaTrader              = require('./../pages/user/metatrader/metatrader');
 const ChampionSettings        = require('./../pages/user/settings');
 const TNCApproval             = require('./../pages/user/tnc_approval');
@@ -66,6 +66,7 @@ const Champion = (function() {
     const afterContentChange = (e, content) => {
         const page = content.getAttribute('data-page');
         const pages_map = {
+            authenticate      : { module: Authenticate,           is_authenticated: true, only_real: true },
             cashier           : { module: Cashier },
             contact           : { module: ChampionContact },
             endpoint          : { module: ChampionEndpoint },
@@ -96,9 +97,6 @@ const Champion = (function() {
         Header.init();
         ChampionSignup.load();
         Utility.handleActive();
-
-        ChampionSocket.wait('get_settings', 'get_account_status').then(() => { Client.check_tnc(); });
-        checkRiskClassification();
     };
 
     const errorMessages = {
