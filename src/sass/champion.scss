@@ -83,6 +83,10 @@ h1.main-title {
     display: flex;
     flex-grow: 1;
     height: 100%;
+    #email {
+        text-align: center;
+        width: 280px;
+    }
 }
 
 .signup-box {
