@@ -48,7 +48,7 @@
                 </div>
                 <div class="center-text">
                     <p>[% l("Got questions? Read our
-                        <a href='#' '>FAQ</a> or <a href='[_1] '>contact us</a>.", request.url_for('contact ')) %]</p>
+                        <a href='#' '>FAQ</a> or <a href='[_1] '>contact us</a>.", request.url_for('contact')) %]</p>
                 </div>
             </div>
         </div>
