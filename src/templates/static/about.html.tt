@@ -1,46 +1,79 @@
-<div class="fx-section-sm center-text">
+<div class="fx-section-sm">
     <div class="container">
+        <div class="row center-text">
+            <div class="col-sm">
+                [% INCLUDE components/page_title.html.tt title=l('About ChampionFX') %]
+                <p>
+                    [% l('Customer service is not just a department, it is the entire company.') %]
+                    <br> [% l('Trade with ChampionFX –– where the client is king.') %]
+                    <br> [% l('The world’s first dedicated MT5 broker.') %]
+                </p>
+            </div>
+        </div>
+        <div class="fx-divider"></div>
+        <div class="row fx-about-header content-inverse-color">
+            <div class="col-md-7 flex-xs-middle">
+                <p>[% l('The ChampionFX brand was founded and launched in 2017 with a clear vision to provide traders with the world’s best customer experience, superior customised trading conditions, state-of-the-art trading tools, and access to many markets.') %]</p>
+            </div>
+        </div>
+        <div class="fx-divider"></div>
         <div class="row">
             <div class="col-sm">
-                <h2>[% l('Customer service is not just a department, it is the entire company. Trade with Champion FX - where the client is <i>KING.</i>') %]</h2>
+                <p>[% l('We’re committed to delivering the necessary trading tools and resources that enable traders to further develop their trading skills, and ultimately become champion traders.') %]</p>
+                <p>[% l('Our client-centric approach puts our clients’ needs at the centre of our operations.') %]</p>
+                <p>[% l('We provide our clients with access to top-tier liquidity and advanced trade execution with the No Dealing Desk (NDD) model.') %]</p>
             </div>
         </div>
-    </div>
-</div>
-<div class="fx-about-header content-inverse-color">
-    <div class="container">
+        [% INCLUDE static/common/separator_line.html.tt %]
         <div class="row">
-            <div class="col-sm-8 flex-sm-middle">
-                <p>[% l('The Champion FX brand was founded and launched in 2017 with a clear vision to provide traders with the world\'s best customer experience, superior customised trading conditions, state-of-the-art trading tools and access to many markets.') %]</p>
-            </div>
-            <div class="col-sm-4 flex-sm-middle">
-                <img src="[% request.url_for('images/logo/CFX_logomark_light.svg') %]" alt="">
+            <div class="col-sm">
+                <h2>[% l('Mission') %]</h2>
+                <p>[% l('Our mission is to make trading accessible to all by offering smart custom trading solutions to local markets around the world.') %]</p>
+                <p>[% l('We aim to place our clients’ needs at the centre of our operations and dedicate ourselves to maintain the highest level of client satisfaction.') %]</p>
+                <p>[% l('ChampionFX is committed to becoming an industry leader by placing our clients’ needs at the centre of every decision we make. As the markets continually evolve, ChampionFX will continuously update our services to meet trader demands.') %]</p>
             </div>
         </div>
-    </div>
-</div>
-<div class="fx-section">
-    <div class="container">
+        [% INCLUDE static/common/separator_line.html.tt %]
         <div class="row">
-            <div class="col-md center-text">
-                <p><img class="responsive img-lg" src="[% request.url_for('images/about-1.jpg') %]" alt=""></p>
-            </div>
-            <div class="col-md flex-md-middle">
-                <p>[% l('Binary options trading is a special type of online trading with a fixed payout, in which you predict the outcome from two possible results. You also know exactly what you stand to win or lose. Best of all, you never have to worry about slippages, margin calls, or stops.') %]</p>
+            <div class="col-sm">
+                <h2>[% l('Values') %]</h2>
+                <p>[% l('At ChampionFX, we remain dedicated to creating a dynamic environment that both respects traders and equips them with all necessary tools to take their customer experience to a whole new “champion” level. ') %]</p>
+                <p>[% l('We will accomplish this by committing ourselves to these values:') %]</p>
+                <ul class="bullet">
+                    <li>[% l('Client satisfaction') %]</li>
+                    <li>[% l('Expansion and refinement of our business model — always with a trader’s needs in mind') %]</li>
+                    <li>[% l('Honesty and integrity') %]</li>
+                    <li>[% l('Respect and appreciation') %]</li>
+                    <li>[% l('Positive thinking') %]</li>
+                    <li>[% l('Inspiring and motivating people to achieve greatness') %]</li>
+                </ul>
             </div>
         </div>
-        <div class="fx-hr"></div>
+        [% INCLUDE static/common/separator_line.html.tt %]
         <div class="row">
-            <div class="col-md center-text">
-                <p>[% l('Our client-centric approach puts our client\'s needs at the centre of our operations.') %]</p>
-                <p><img class="responsive img-lg" src="[% request.url_for('images/about-2.jpg') %]" alt=""></p>
+            <div class="col-sm">
+                <h2>[% l('License') %]</h2>
+                <div class="fx-divider"></div>
+                <div class="row content-inverse-color">
+                    <div class="col-sm-5 primary-color">
+                        <img src="../images/vfsc.png" class="fx-about-image" />
+                        <div class="row fx-tb">
+                            <div class="col-sm">
+                                <p>[% l('ChampionFX is fully regulated by the Vanuatu Financial Services Commission (VFSC) bearing license number 14772. Its registered office is located at Govant Building, Port Vila, P.O. Box 1276, Vanuatu, Republic of Vanuatu.') %]</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 push-sm-2 primary-color fx-tb">
+                        <img src="../images/fiuv.png" class="fx-about-image" />
+                        <div class="row fx-tb">
+                            <div class="col-sm">
+                                <p>[% l('ChampionFX is also registered with the Financial Intelligence Unit (FIU) of Vanuatu for compliance with VFSC Anti-Money Laundering rules. ') %]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="fx-hr"></div>
-        <div class="row">
-            <div class="col-md center-text">
-                <p>[% l('Champion FX offers Forex, commodities, energies, indices, stocks, and CFDs. We provide our clients with access to top-tier liquidity and advanced trade execution with the No Dealing Desk (NDD) model.') %]</p>
-            </div>
-        </div>
+        <div class="fx-divider"></div>
     </div>
 </div>
