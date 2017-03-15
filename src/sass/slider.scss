@@ -159,7 +159,7 @@
     width: 100%;
 }
 
-@media screen and (max-width: 796px) {
+@media screen and (max-width: 767px) {
     .slider-footer {
         position: relative;
         background: $fillColor;
@@ -169,7 +169,7 @@
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 575px) {
     .slider-footer {
         position: relative;
         background: $fillColor;
