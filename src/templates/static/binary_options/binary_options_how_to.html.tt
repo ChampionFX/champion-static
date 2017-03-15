@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm">
                 [% INCLUDE components/page_title.html.tt title=l('How to trade binary options') %]
-                <p>[% l('Trading binaries is relatively easy, and you can purchase a trade in only three simple steps.') %]</p>
+                <p>[% l('Trading binary options is relatively easy, and you can purchase a trade in only three simple steps.') %]</p>
                 <div class="fx-divider"></div>
                 <div class="row">
                     <div class="col-md-3">
@@ -64,7 +64,7 @@
                 <div class="fx-divider"></div>
                 <div class="center-text">
                     <h3 id="step-1">[% l('Step 1: Define your position') %]</h3>
-                    <p>[% l('First you need to set the parameters of your trade. Here\'s what you need to consider.') %]</p>
+                    <p>[% l('First, you need to set the parameters of your trade. Here\'s what you need to consider.') %]</p>
                 </div>
                 <div class="fx-divider"></div>
                 <div class="row">
@@ -79,7 +79,7 @@
                     <div class="col-md-5 push-md-1">
                         <h4>[% l('1. Underlying market') %]</h4>
                         <p>[% l('Choose the asset you wish to trade, such as gold, oil, stocks, or currency pairs. The value of a binary option is derived from the price of the underlying asset. One advantage of trading binary options is that you are not buying or selling the actual asset, only a contract that determines how that asset performs.') %]</p>
-                        <p>[% l('Choose from ﬁve types of markets and their respective assets:') %]</p>
+                        <p>[% l('Choose from five types of markets and their respective assets:') %]</p>
                         <ul class="bullet">
                             <li>[% l('Currencies - All major Forex pairs') %]</li>
                             <li>[% l('Stock indices - All major worldwide stock indices sourced from the over-the-counter market') %]</li>
@@ -121,7 +121,7 @@
                     </div>
                     <div class="col-md-5 push-md-1 flex-md-middle">
                         <h4>[% l('3. Duration') %]</h4>
-                        <p>[% l('Set the length of your trade. from 10 seconds to 365 days. You don\'t even need to wait until expiry. Sell back any long-term trades that you purchased at any time to proﬁt from favourable market conditions.') %]</p>
+                        <p>[% l('Set the length of your trade, from 10 seconds to 365 days. You don’t even need to wait until expiry. Sell back any long-term trades that you purchased at any time to profit from favourable market conditions.') %]</p>
                     </div>
                 </div>
                 <div class="fx-divider"></div>
@@ -162,7 +162,7 @@
                 <div class="fx-divider-xl"></div>
                 <div class="center-text">
                     <h3 id="step-3">[% l('Step 3: Make your trade') %]</h3>
-                    <p>[% l('When you are satisﬁed with the price that you receive, execute your trade immediately. With our unique platform, there\'s no risk of \'slippage\' or gaping markets. And most importantly, there are no hidden fees. You can also sell back any long-term trades at any time to proﬁt from favourable market conditions.') %]</p>
+                    <p>[% l('When you are satisfied with the price that you receive, execute your trade immediately. With our unique platform, there\'s no risk of \'slippage\' or gaping markets. And most importantly, there are no hidden fees. You can also sell back any long-term trades at any time to profit from favourable market conditions.') %]</p>
                 </div>
             </div>
         </div>
