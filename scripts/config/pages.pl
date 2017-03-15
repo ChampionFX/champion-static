@@ -8,12 +8,6 @@ sub all_pages {
         # url pathname,                template file path,             layout,       title,                  exclude languages
         ['404',                        'static/404',                   'full_width', '404'],
         ['about-us',                   'static/about',                 'full_width', 'About Us'],
-
-        ['binary-options',             'static/binary_options/binary_options',            'full_width', 'Binary Options'],
-        ['what-is-binary-options',     'static/binary_options/what_is_binary_options',    'full_width', 'What is binary options trading'],
-        ['types-of-accounts',          'static/binary_options/binary_options_accounts',   'full_width', 'Binary options trading accounts'],
-        ['how-to-trade-binary-options','static/binary_options/binary_options_how_to',     'full_width', 'How to trade binary options'],
-
         ['contact',                    'static/contact',               'full_width', 'Contact Us'],
         ['endpoint',                   'static/endpoint',              'full_width', 'Endpoint'],
         ['mt5',                        'static/mt5',                   'full_width', 'Forex'],
@@ -28,23 +22,27 @@ sub all_pages {
         ['trading',                    'static/trading',               'full_width', 'Trading'],
         ['why-mt5',                    'static/why_mt5',               'full_width', 'Why MT5'],
 
+        ['binary-options',             'static/binary_options/binary_options',    'full_width', 'Binary Options'],
+        ['what-is-binary-options',     'static/binary_options/what_is',           'full_width', 'What is binary options trading'],
+        ['types-of-accounts',          'static/binary_options/types_of_accounts', 'full_width', 'Binary options trading accounts'],
+        ['how-to-trade-binary-options','static/binary_options/how_to',            'full_width', 'How to trade binary options'],
+
         ['forex/accounts/cent',        'static/forex/accounts/cent',     'full_width', 'Cent Account'],
         ['forex/accounts/standard',    'static/forex/accounts/standard', 'full_width', 'Standard Account'],
         ['forex/accounts/stp',         'static/forex/accounts/stp',      'full_width', 'STP Account'],
 
         ['partnerships',               'static/partnerships/partnerships',             'full_width', 'Partnerships'],
-        ['partnerships-ib',            'static/partnerships/partnerships_ib',          'full_width', 'Introducing Broker'],
         ['partnerships-affiliate',     'static/partnerships/partnerships_affiliate',   'full_width', 'Affiliate programme'],
         ['partnerships-contributor',   'static/partnerships/partnerships_contributor', 'full_width', 'Content Contributor programme'],
+        ['partnerships-ib',            'static/partnerships/partnerships_ib',          'full_width', 'Introducing Broker'],
 
         ['terms-and-conditions',       'legal/tac',                    'full_width', 'Terms and Conditions'],
 
         ['cashier',                    'cashier/cashier',              'full_width', 'Cashier'],
         ['cashier/cashier-password',   'cashier/cashier_password',     'full_width', 'Cashier Password'],
+        ['cashier/forward',            'cashier/deposit_withdraw',     'full_width', 'Cashier'],
         ['cashier/payment-methods',    'cashier/payment_methods',      'full_width', 'Payment Methods'],
         ['cashier/top-up-virtual',     'cashier/top_up_virtual',       'full_width', 'Give Me More Money!'],
-        ['cashier/cashier-password',   'cashier/cashier_password',     'full_width', 'Cashier Password'],
-        ['cashier/forward',            'cashier/deposit_withdraw',     'full_width', 'Cashier'],
 
         ['new-account/real',           'new_account/real',             'full_width', 'Create new real account'],
         ['new-account/virtual',        'new_account/virtual',          'full_width', 'Create new virtual account'],
@@ -54,10 +52,10 @@ sub all_pages {
         ['user/authenticate',          'user/authenticate',            'full_width', 'Authenticate', 'ja'],
         ['user/change-password',       'user/change_password',         'full-width', 'Change Password'],
         ['user/metatrader',            'user/metatrader',              'full-width', 'MetaTrader account management'],
-        ['user/settings',              'user/settings',                'full_width', 'Settings'],
-        ['user/tnc-approval',          'user/tnc_approval',            'full_width', 'Terms and Conditions Approval'],
         ['user/profile',               'user/profile',                 'full_width', 'Profile'],
         ['user/security',              'user/security',                'full_width', 'Security'],
+        ['user/settings',              'user/settings',                'full_width', 'Settings'],
+        ['user/tnc-approval',          'user/tnc_approval',            'full_width', 'Terms and Conditions Approval'],
 
     );
 }

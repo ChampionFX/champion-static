@@ -83,6 +83,10 @@ h1.main-title {
     display: flex;
     flex-grow: 1;
     height: 100%;
+    #email {
+        text-align: center;
+        width: 280px;
+    }
 }
 
 .signup-box {
@@ -116,7 +120,7 @@ h1.main-title {
         text-align: right;
         padding: 0;
         li {
-            padding: 10px 0;
+            margin-top: 0;
         }
     }
 }
@@ -568,14 +572,6 @@ fieldset {
 
 .language {
     padding: 0 5px;
-}
-
-.top-nav-menu a {
-    color: $contentInverseColor !important;
-    li {
-        border-bottom: 3px solid $primaryBrandColor;
-        margin-bottom: -4px;
-    }
 }
 
 .logo-parent {

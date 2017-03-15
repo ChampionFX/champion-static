@@ -129,7 +129,7 @@
 <div class="slider-footer">
     <div class="fx-container">
         <div class="row align-items-center">
-            <div class="col-md" id="license-box-container">
+            <div class="col-md hidden-xs-down">
                 <div class="row align-items-center">
                     <div class="col-md-2 col-sm-3 col-xs-3">
                         <div class="license-box license-box-icon">

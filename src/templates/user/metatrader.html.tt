@@ -56,15 +56,15 @@
                 <div id="demo">[% l('Open a free Demo account.') %]</div>
                 <div id="champion_cent">
                     [% l('The Cent account offers the highest leverage, as well as low margin call and stop out level.') %]
-                    <a href="[% request.url_for('forex') %]#forex-accounts-cent" target="_blank">[% l('Read more') %]</a>
+                    <a href="[% request.url_for('forex/accounts/cent') %]" target="_blank">[% l('Read more') %]</a>
                 </div>
                 <div id="champion_standard">
                     [% l('The Standard account is suitable for a wide range of traders, both new and experienced.') %]
-                    <a href="[% request.url_for('forex') %]#forex-accounts-standard" target="_blank">[% l('Read more') %]</a>
+                    <a href="[% request.url_for('forex/accounts/standard') %]" target="_blank">[% l('Read more') %]</a>
                 </div>
                 <div id="champion_stp">
                     [% l('The STP account provides you with the tightest spreads and connects you directly to the market.') %]
-                    <a href="[% request.url_for('forex') %]#forex-accounts-stp" target="_blank">[% l('Read more') %]</a>
+                    <a href="[% request.url_for('forex/accounts/stp') %]" target="_blank">[% l('Read more') %]</a>
                 </div>
             </div>
 
@@ -104,7 +104,7 @@
                 <p class="col-sm">[% l('Transfer funds from Champion-FX.com account into your MT5 account:') %]</p>
                 [% INCLUDE components/forms/form_row.html.tt type='label' id='lbl_from'   label=l('Transfer from') %]
                 [% INCLUDE components/forms/form_row.html.tt type='label' id='lbl_to'     label=l('Deposit into') %]
-                [% INCLUDE components/forms/form_row.html.tt type='text'  id='txt_amount' label=l('Amount') input_prefix='&#36; ' attributes='maxlength="10"' %]
+                [% INCLUDE components/forms/form_row.html.tt type='text'  id='txt_amount' label=l('Amount')_' (&#36;)' attributes='maxlength="10"' %]
 
                 [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Deposit') %]
             </form>
@@ -114,7 +114,7 @@
                 [% INCLUDE components/forms/form_row.html.tt type='label'    id='lbl_from'      label=l('Withdraw from') %]
                 [% INCLUDE components/forms/form_row.html.tt type='label'    id='lbl_to'        label=l('Transfer into') %]
                 [% INCLUDE components/forms/form_row.html.tt type='password' id='txt_main_pass' label=l('MT5 main password') %]
-                [% INCLUDE components/forms/form_row.html.tt type='text'     id='txt_amount'    label=l('Amount') input_prefix='&#36; ' attributes='maxlength="10"' %]
+                [% INCLUDE components/forms/form_row.html.tt type='text'     id='txt_amount'    label=l('Amount')_' (&#36;)' attributes='maxlength="10"' %]
 
                 [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Withdraw') %]
             </form>

@@ -20,6 +20,7 @@ const CashierTopUpVirtual = (function() {
             topup_virtual: '1',
         };
         ChampionSocket.send(data).then((response) => {
+            $('#topup_loading').remove();
             if (response.error) {
                 viewError.removeClass('hidden')
                     .find('.notice-msg')

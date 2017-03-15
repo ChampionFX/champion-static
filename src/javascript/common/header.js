@@ -16,7 +16,7 @@ const Header = (function () {
             const window_path = window.location.pathname;
             const path = window_path.replace(/\/$/, '');
             const href = decodeURIComponent(path);
-            $('#top-nav-menu li a').each(function() {
+            $('.top-nav-menu li a').each(function() {
                 const target = $(this).attr('href');
                 if (target === href) {
                     $(this).addClass('active');

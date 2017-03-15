@@ -1,10 +1,8 @@
 <div class="fx-section">
     <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <h1>[% l('Give Me More Money!') %]</h1>
-            </div>
-        </div>
+        [% INCLUDE components/page_title.html.tt title=l('Give Me More Money!') %]
+
+        <div id="topup_loading">[% INCLUDE static/common/loading.html.tt %]</div>
 
         <div class="row">
             <div id="topup_virtual" class="col-md-12 center-text">

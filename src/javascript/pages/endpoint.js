@@ -7,20 +7,20 @@ const ChampionEndpoint = (function() {
     let $container,
         $txt_server_url,
         $txt_app_id,
-        $btn_set_endpoint,
-        $btn_reset_endpoint;
+        $btn_submit,
+        $btn_reset;
 
     const load = () => {
-        $container          = $('#champion-container');
-        $txt_server_url     = $container.find('#txt_server_url');
-        $txt_app_id         = $container.find('#txt_app_id');
-        $btn_set_endpoint   = $container.find('#btn_set_endpoint');
-        $btn_reset_endpoint = $container.find('#btn_reset_endpoint');
+        $container      = $('#champion-container');
+        $txt_server_url = $container.find('#txt_server_url');
+        $txt_app_id     = $container.find('#txt_app_id');
+        $btn_submit     = $container.find('#btn_submit');
+        $btn_reset      = $container.find('#btn_reset');
 
         $txt_server_url.val(getServer());
         $txt_app_id.val(getAppId());
 
-        $btn_set_endpoint.on('click', (e) => {
+        $btn_submit.on('click', (e) => {
             e.preventDefault();
 
             const server_url = (($txt_server_url.val() || '').trim().toLowerCase()).replace(/[><()\"\']/g, '');
@@ -36,7 +36,7 @@ const ChampionEndpoint = (function() {
             window.location.reload();
         });
 
-        $btn_reset_endpoint.on('click', (e) => {
+        $btn_reset.on('click', (e) => {
             e.preventDefault();
             localStorage.removeItem('config.server_url');
             localStorage.removeItem('config.app_id');
@@ -45,8 +45,8 @@ const ChampionEndpoint = (function() {
     };
 
     const unload = () => {
-        $btn_set_endpoint.off('click');
-        $btn_reset_endpoint.off('click');
+        $btn_submit.off('click');
+        $btn_reset.off('click');
     };
 
     return {

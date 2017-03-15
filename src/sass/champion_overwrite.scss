@@ -1,23 +1,32 @@
-body .top-nav-menu li a {
-    height: auto;
-    padding: 25px 15px;
-    margin-bottom: -4px;
+#header {
+    border: 0 !important;
+    .top-nav-menu {
+        float: right;
+        margin-left: auto;
+        li {
+            a {
+                height: auto;
+                padding: 25px 15px;
+                border-bottom: 4px solid transparent;
+                color: $contentInverseColor !important;
+                &.active {
+                    border-bottom-color: $borderColor;
+                }
+                li {
+                    border-bottom: 3px solid $primaryBrandColor;
+                    margin-bottom: -4px;
+                }
+            }
+            ul {
+                z-index: 10;
+            }
+        }
+    }
 }
 
 .main-nav > li > ul {
     box-sizing: content-box;
-}
-
-.top-nav-menu > li > ul {
-    z-index: 10;
-}
-
-.top-nav-menu a.active {
-    border-bottom: 4px solid $borderColor;
-}
-
-.top-nav-menu {
-    float: right;
+    margin-top: 0 !important;
 }
 
 .logo > div {
@@ -26,16 +35,4 @@ body .top-nav-menu li a {
 
 .logo, .logo-dark {
     height: 45px;
-}
-
-@media screen and (max-width: 991px) {
-    .top-nav-menu {
-        float: left !important;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    .container {
-        width: 1200px;
-    }
 }
