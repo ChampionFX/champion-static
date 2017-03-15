@@ -99,19 +99,19 @@ const ChampionRouter = (function() {
         }
     };
 
-    const processUrl = (url, replace) => {
+    const processUrl = (url, replace, no_scroll) => {
         const cached_content = cacheGet(url);
         if (cached_content) {
-            replaceContent(url, cached_content, replace);
+            replaceContent(url, cached_content, replace, no_scroll);
         } else {
-            load(url, replace);
+            load(url, replace, no_scroll);
         }
     };
 
     /**
      * Load url from server
      */
-    const load = (url, replace) => {
+    const load = (url, replace, no_scroll) => {
         const lang = getLanguage();
         const options = $.extend(true, {}, $.ajaxSettings, defaults, {
             url: url.replace(new RegExp(`\/${lang}\/`, 'i'), `/${lang.toLowerCase()}/pjax/`) });
@@ -130,7 +130,7 @@ const ChampionRouter = (function() {
 
             setDataPage(result.content, url);
             cachePut(url, result);
-            replaceContent(url, result, replace);
+            replaceContent(url, result, replace, no_scroll);
         };
 
         // Cancel the current request if we're already loading some page
@@ -142,12 +142,12 @@ const ChampionRouter = (function() {
     const handlePopstate = (e) => {
         const url = e.originalEvent.state ? e.originalEvent.state.url : window.location.href;
         if (url) {
-            processUrl(url, true);
+            processUrl(url, true, true);
         }
         return false;
     };
 
-    const replaceContent = (url, content, replace) => {
+    const replaceContent = (url, content, replace, no_scroll) => {
         window.history[replace ? 'replaceState' : 'pushState']({ url: url }, content.title, url);
 
         params.container.trigger('champion:before');
@@ -157,6 +157,10 @@ const ChampionRouter = (function() {
         params.container.append(content.content.clone());
 
         params.container.trigger('champion:after', content.content);
+
+        if (!no_scroll) {
+            $.scrollTo('body', 500);
+        }
     };
 
     const abortXHR = (xhrObj) => {
