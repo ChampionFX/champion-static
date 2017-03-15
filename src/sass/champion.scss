@@ -709,3 +709,43 @@ ul.no-padding {
     padding-bottom: 10px;
     width: 350px;
 }
+
+.no-margin-top {
+    margin-top: 0;
+}
+
+.has-tabs {
+    * {
+        outline: none;
+    }
+    li.col-sm {
+        display: flex;
+        align-items: center;
+        min-width: 1vw;
+        a {
+            white-space: normal;
+            text-align: center;
+            width: 100%;
+        }
+    }
+}
+
+img.float-right {
+    display: flex;
+    margin-left: auto;
+    padding: 10px 0;
+}
+
+.separator-vertical {
+    width: 2px;
+}
+
+.center-align {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.no-gutters {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
