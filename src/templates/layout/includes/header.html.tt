@@ -1,4 +1,4 @@
-<div class="dark-blue header">
+<div id="header" class="dark-blue header">
     <div class="menu-container">
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-6 vertical-center">
@@ -75,7 +75,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-7 pull-md-2 hidden-sm-down">
+            <div class="col-md-7 pull-md-2 hidden-sm-down vertical-center">
                 <ul class="top-nav-menu">
                     <li>
                         <a href="[% request.url_for('about-us') %]" class="nav-dropdown-toggle">[% l('About') %]</a>
