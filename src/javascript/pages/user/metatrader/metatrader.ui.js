@@ -75,6 +75,15 @@ const MetaTraderUI = (function() {
         } else {
             $acc_item.find('.no-account').removeClass(hidden_class)
                 .find('.info').html($templates.find(`#${acc_type}`));
+
+            // Display account creation form if url has a hash like: #create_champion_cent
+            const hash = window.location.hash;
+            if (hash && hash === `#create_${acc_type}`) {
+                $acc_item.find('.act_new_account').click();
+                // remove hash from url
+                const url = window.location.href.split('#')[0];
+                window.history.replaceState({ url: url }, null, url);
+            }
         }
     };
 
