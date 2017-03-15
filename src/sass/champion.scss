@@ -750,6 +750,12 @@ img.float-right {
     padding-right: 0 !important;
 }
 
+.fx-cashier {
+    .button {
+        margin-right: 20px;
+    }
+}
+
 #msg_notification {
     font-size: $FONT_SIZE_S;
     padding: 3px 0;
