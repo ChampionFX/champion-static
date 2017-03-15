@@ -8,7 +8,12 @@ sub all_pages {
         # url pathname,                template file path,             layout,       title,                  exclude languages
         ['404',                        'static/404',                   'full_width', '404'],
         ['about-us',                   'static/about',                 'full_width', 'About Us'],
-        ['binary-options',             'static/binary_options',        'full_width', 'Binary Options'],
+
+        ['binary-options',             'static/binary_options/binary_options',            'full_width', 'Binary Options'],
+        ['what-is-binary-options',     'static/binary_options/what_is_binary_options',    'full_width', 'What is binary options trading'],
+        ['types-of-accounts',          'static/binary_options/binary_options_accounts',   'full_width', 'Binary options trading accounts'],
+        ['how-to-trade-binary-options','static/binary_options/binary_options_how_to',     'full_width', 'How to trade binary options'],
+
         ['contact',                    'static/contact',               'full_width', 'Contact Us'],
         ['endpoint',                   'static/endpoint',              'full_width', 'Endpoint'],
         ['mt5',                        'static/mt5',                   'full_width', 'Forex'],

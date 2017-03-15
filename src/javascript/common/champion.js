@@ -11,7 +11,6 @@ const ChampionContact         = require('./../pages/contact');
 const ChampionEndpoint        = require('./../pages/endpoint');
 const MT5                     = require('./../pages/mt5');
 const ChampionSignup          = require('./../pages/signup');
-const Slider                  = require('./../pages/slider');
 const ChampionNewReal         = require('./../pages/new_account/real');
 const ChampionNewVirtual      = require('./../pages/new_account/virtual');
 const LostPassword            = require('./../pages/lost_password');
@@ -26,6 +25,7 @@ const MetaTrader              = require('./../pages/user/metatrader/metatrader')
 const ChampionSettings        = require('./../pages/user/settings');
 const TNCApproval             = require('./../pages/user/tnc_approval');
 const CashierDepositWithdraw  = require('./../pages/cashier/deposit_withdraw');
+const Home                    = require('./../pages/home');
 const ChampionProfile         = require('./../pages/user/profile');
 const ChampionSecurity        = require('./../pages/user/security');
 
@@ -40,7 +40,7 @@ const Champion = (function() {
         container.on('champion:before', beforeContentChange);
         container.on('champion:after', afterContentChange);
         Client.init();
-        Slider.init();
+
         ChampionSocket.init({
             authorize: (response) => { Client.response_authorize(response); },
             balance  : (response) => { Header.updateBalance(response); },
@@ -86,6 +86,7 @@ const Champion = (function() {
             'reset-password'  : { module: ResetPassword,       not_authenticated: true },
             'tnc-approval'    : { module: TNCApproval,         is_authenticated: true, only_real: true },
             'top-up-virtual'  : { module: CashierTopUpVirtual, is_authenticated: true, only_virtual: true },
+            home              : { module: Home },
         };
         if (page in pages_map) {
             loadHandler(pages_map[page]);
@@ -95,6 +96,7 @@ const Champion = (function() {
         Header.init();
         ChampionSignup.load();
         Utility.handleActive();
+
         ChampionSocket.wait('get_settings', 'get_account_status').then(() => { Client.check_tnc(); });
         checkRiskClassification();
     };
