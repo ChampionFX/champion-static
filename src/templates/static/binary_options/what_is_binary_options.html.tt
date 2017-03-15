@@ -2,14 +2,14 @@
     <div class="container">
         <div class="row">
             <div class="col-sm">
-                [% INCLUDE components/page_title.html.tt title=l('What is binary options trading') %]
-                <p>[% l('A binary option is a type of ﬁnancial option with a ﬁxed payout. The payout is determined at the start before you purchase the trade. If your prediction is correct, you receive the ﬁxed (and stated) payout. If not, you will lose your initial stake and nothing more. It is called a \'binary\' option because there can only be two outcomes: you either win or lose.') %]</p>
+                [% INCLUDE components/page_title.html.tt title=l('What is binary options trading?') %]
+                <p>[% l('A binary option is a type of financial option with a fixed payout. The payout is determined at the start before you purchase the trade. If your prediction is correct, you receive the fixed (and stated) payout. If not, you will lose your initial stake and nothing more. It is called a \'binary\' option because there can only be two outcomes: you either win or lose.') %]</p>
                 <p>[% l('Whatever market you trade in, always remember that you\'re not purchasing the asset itself, but a contract (or \'option\') that determines how the asset performs over a period of time. This limits your risk and makes it easy for anyone to start trading.') %]</p>
                 <div class="fx-divider"></div>
                 <div class="center-text">
                     <div class="row">
                         <div class="col-sm">
-                            <h2>[% l('Beneﬁts of binary options trading with ChampionFX') %]</h2>
+                            <h2>[% l('Benefits of binary options trading with ChampionFX') %]</h2>
                         </div>
                     </div>
                     <div class="fx-divider"></div>
@@ -50,7 +50,7 @@
                         <div class="col-md-4">
                             <div class="box bordered">
                                 <h4>[% l('Sharp prices') %]</h4>
-                                <p>[% l('Beneﬁt from similar rates of return as interbank traders.') %]</p>
+                                <p>[% l('Benefit from similar rates of return as interbank traders.') %]</p>
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                         <div class="col-md-4">
                             <div class="box bordered">
                                 <h4>[% l('Simple and intuitive') %]</h4>
-                                <p>[% l('Enjoy a trading platform that\'s easy to navigate and use.') %]</p>
+                                <p>[% l('Enjoy a trading platform that’s easy to navigate and use.') %]</p>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -93,13 +93,13 @@
                         <div class="col-md-4">
                             <div class="box bordered">
                                 <h4>[% l('Videos') %]</h4>
-                                <p>[% l('Learn about trading and keep up with market trends with our free tutorials.') %]</p>
+                                <p>[% l('Learn about trading and keep up with the latest market trends with our free videos.') %]</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="box bordered">
                                 <h4>[% l('FAQ') %]</h4>
-                                <p>[% l('Get answers to all your questions you have about our account and platforms.') %]</p>
+                                <p>[% l('Get answers to all the questions you have about our accounts and platforms.') %]</p>
                             </div>
                         </div>
                     </div>
