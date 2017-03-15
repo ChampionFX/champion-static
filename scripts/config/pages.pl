@@ -28,6 +28,10 @@ sub all_pages {
         ['trading',                    'static/trading',               'full_width', 'Trading'],
         ['why-mt5',                    'static/why_mt5',               'full_width', 'Why MT5'],
 
+        ['forex/accounts/cent',        'static/forex/accounts/cent',     'full_width', 'Cent Account'],
+        ['forex/accounts/standard',    'static/forex/accounts/standard', 'full_width', 'Standard Account'],
+        ['forex/accounts/stp',         'static/forex/accounts/stp',      'full_width', 'STP Account'],
+
         ['partnerships',               'static/partnerships/partnerships',             'full_width', 'Partnerships'],
         ['partnerships-ib',            'static/partnerships/partnerships_ib',          'full_width', 'Introducing Broker'],
         ['partnerships-affiliate',     'static/partnerships/partnerships_affiliate',   'full_width', 'Affiliate programme'],
