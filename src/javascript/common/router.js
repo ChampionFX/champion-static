@@ -11,7 +11,6 @@ const ChampionRouter = (function() {
     let xhr;
     const params   = {},
         defaults = {
-            timeout : 650,
             type    : 'GET',
             dataType: 'html',
         },
