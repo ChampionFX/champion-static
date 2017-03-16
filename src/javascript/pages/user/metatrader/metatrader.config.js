@@ -187,7 +187,7 @@ const MetaTraderConfig = (function() {
             { selector: fields.new_account.chk_tnc.id,           validations: ['req'] },
         ],
         password_change: [
-            { selector: fields.password_change.txt_old_password.id,    validations: ['req', ['number', { type: 'float', min: 1, max: 20000, decimals: '1, 2' }]] },
+            { selector: fields.password_change.txt_old_password.id,    validations: ['req'] },
             { selector: fields.password_change.txt_new_password.id,    validations: ['req', ['password', 'mt'], ['not_equal', { to: fields.password_change.txt_old_password.id, name1: 'Current password', name2: 'New password' }]] },
             { selector: fields.password_change.txt_re_new_password.id, validations: ['req', ['compare', { to: fields.password_change.txt_new_password.id }]] },
         ],
