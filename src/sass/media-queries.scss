@@ -5,9 +5,6 @@
     .signup-box input {
         margin: 15px 0;
     }
-    #end_note, #license-box-container {
-        display: none;
-    }
 }
 
 @media (max-width: 767px) {
@@ -48,5 +45,11 @@
 @media (max-width: 1199px) {
     .hidden-lg-down {
         display: none !important;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    .container {
+        width: 1100px;
     }
 }

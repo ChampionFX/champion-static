@@ -176,7 +176,7 @@
                         <div class="separator primary-color"></div>
                         <p>[% l('Register now and trade just like a champion in any financial market. Get access to all the tools and platforms we offer, plus a commitment to put your needs at the heart of what we do.') %]</p>
                         <p>
-                            <a class="button" href="[% request.url_for('new-account/virtual') %]">
+                            <a class="button" href="[% request.url_for('home') %]#signup">
                                 <span>[% l('Create account') %]</span>
                             </a>
                         </p>

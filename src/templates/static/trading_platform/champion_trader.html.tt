@@ -52,7 +52,7 @@
                                 <div class="separator primary-color"></div>
                                 <p>[% l('Trade just like a champion in any financial market. Register now for access.') %]</p>
                                 <p>
-                                    <a class="button" href="[% request.url_for('new-account/virtual') %]">
+                                    <a class="button" href="[% request.url_for('home') %]#signup">
                                         <span>[% l('Create account') %]</span>
                                     </a>
                                 </p>

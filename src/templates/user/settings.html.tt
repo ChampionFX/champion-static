@@ -4,18 +4,9 @@
         <div class="row">
             <div class="col-sm">
                 [% INCLUDE components/page_title.html.tt title=l('ChampionFX account settings') %]
-                <p>
-                    [% l('Trade Forex, CFDs, and binary options with our industry-leading trading platforms.') %]
-                </p>
+                <p>[% l('Trade Forex, CFDs, and binary options with our industry-leading trading platforms.') %]</p>
 
                 <div class="fx-divider"></div>
-                <div class="errorbox rbox center-text" id="client_message" style="display:none">
-                    <div class="rbox-wrap">
-                        <div class="gr-12 rbox-content" id="client_message_content">
-                            <p class="center notice-msg"></p>
-                        </div>
-                    </div>
-                </div>
 
                 <div id="fx-settings-content" style="display: none">
                     <div class="row">

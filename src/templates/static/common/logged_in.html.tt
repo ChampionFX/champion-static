@@ -1,5 +1,5 @@
 <style>
-    #signup {display: none;}
+    #main-signup {display: none;}
     #loading_link {display: inline-block;}
 </style>
 <div id="login_loading" class="center-text">
