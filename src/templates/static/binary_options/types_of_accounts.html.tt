@@ -19,7 +19,7 @@
                                 </div>
                             </div>
                             <p>
-                                <a class="button virtual-signup" href="[% request.url_for('new-account/virtual') %]">
+                                <a class="button virtual-signup" href="[% request.url_for('home') %]#signup">
                                     <span>[% l('Create account') %]</span>
                                 </a>
                             </p>
@@ -47,11 +47,7 @@
                     </div>
                 </div>
                 <div class="center-text">
-<<<<<<< HEAD:src/templates/static/binary_options/binary_options_accounts.html.tt
                     <p>[% l("Got questions? Read our <a href='#'>FAQ</a> or <a href='[_1]'>contact us</a>.", request.url_for('contact')) %]</p>
-=======
-                    <p>[% l("Got questions? Read our <a href='[_1]'>FAQ</a> or <a href='[_2]'>contact us</a>.", '#', request.url_for('contact')) %]</p>
->>>>>>> e0fcdee020b71c9e05e4aa659049853f15778494:src/templates/static/binary_options/types_of_accounts.html.tt
                 </div>
             </div>
         </div>
