@@ -716,3 +716,13 @@ ul.no-padding {
     padding-bottom: 10px;
     width: 350px;
 }
+
+.icon-ok {
+    color: $okColor;
+    font-size: $FONT_SIZE_N;
+}
+
+.icon-remove {
+    color: $crossColor;
+    font-size: $FONT_SIZE_N;
+}

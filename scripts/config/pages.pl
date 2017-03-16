@@ -54,6 +54,11 @@ sub all_pages {
         ['user/profile',               'user/profile',                 'full_width', 'Profile'],
         ['user/security',              'user/security',                'full_width', 'Security'],
 
+        ['trading-platform',                                      'static/trading_platform/trading_platform',                    'full_width', 'Trading Platform'],
+        ['trading-platform/metatrader-5',                         'static/trading_platform/metatrader_5',                        'full_width', 'MetaTrader5'],
+        ['trading-platform/champion-trader',                      'static/trading_platform/champion_trader',                     'full_width', 'Champion Trader'],
+        ['/trading-platform/metatrader-5-versus-metatrader-4',    'static/trading_platform/metatrader-5-versus-metatrader-4',    'full_width', 'Champion Trader'],
+
     );
 }
 
