@@ -47,6 +47,11 @@ sub all_pages {
         ['new-account/real',           'new_account/real',             'full_width', 'Create new real account'],
         ['new-account/virtual',        'new_account/virtual',          'full_width', 'Create new virtual account'],
 
+        ['trading-platform',                                  'static/trading_platform/trading_platform',                 'full_width', 'Trading Platform'],
+        ['trading-platform/metatrader-5',                     'static/trading_platform/metatrader_5',                     'full_width', 'MetaTrader5'],
+        ['trading-platform/champion-trader',                  'static/trading_platform/champion_trader',                  'full_width', 'Champion Trader'],
+        ['trading-platform/metatrader-5-versus-metatrader-4', 'static/trading_platform/metatrader_5_versus_metatrader_4', 'full_width', 'Champion Trader'],
+
         # ['user/assessment',            'user/financial_assessment',    'full_width', 'Financial Assessment'],
         # ['user/details',               'user/personal_details',        'full_width', 'Personal Details'],
         ['user/authenticate',          'user/authenticate',            'full_width', 'Authenticate', 'ja'],
@@ -56,11 +61,6 @@ sub all_pages {
         ['user/security',              'user/security',                'full_width', 'Security'],
         ['user/settings',              'user/settings',                'full_width', 'Settings'],
         ['user/tnc-approval',          'user/tnc_approval',            'full_width', 'Terms and Conditions Approval'],
-
-        ['trading-platform',                                      'static/trading_platform/trading_platform',                    'full_width', 'Trading Platform'],
-        ['trading-platform/metatrader-5',                         'static/trading_platform/metatrader_5',                        'full_width', 'MetaTrader5'],
-        ['trading-platform/champion-trader',                      'static/trading_platform/champion_trader',                     'full_width', 'Champion Trader'],
-        ['/trading-platform/metatrader-5-versus-metatrader-4',    'static/trading_platform/metatrader_5_versus_metatrader_4',    'full_width', 'Champion Trader'],
 
     );
 }
