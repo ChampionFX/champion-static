@@ -1,6 +1,6 @@
 const Client = require('./../../common/client');
 
-const ChampionSettings = (function() {
+const ChampionSecurity = (function() {
     'use strict';
 
     let securityContainer;
@@ -18,4 +18,4 @@ const ChampionSettings = (function() {
     };
 })();
 
-module.exports = ChampionSettings;
+module.exports = ChampionSecurity;
