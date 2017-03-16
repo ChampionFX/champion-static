@@ -1,4 +1,3 @@
-const showLoadingImage = require('../../common/utility').showLoadingImage;
 const ChampionSocket   = require('../../common/socket');
 const moment      = require('moment');
 
@@ -8,8 +7,6 @@ const LoginHistory = (() => {
     const hidden_class = 'invisible';
 
     const load = () => {
-        showLoadingImage($('<div/>', { id: 'loading', class: 'center-text' }).insertAfter('.main-title'));
-
         const req = {
             login_history: 1,
             limit        : 50,

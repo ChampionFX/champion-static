@@ -83,7 +83,7 @@ const Champion = (function() {
             virtual            : { module: ChampionNewVirtual,  not_authenticated: true },
             'cashier-password' : { module: CashierPassword,     is_authenticated: true, only_real: true },
             'change-password'  : { module: ChangePassword,      is_authenticated: true },
-            'login-history'   : { module: LoginHistory,        is_authenticated: true },
+            'login-history'    : { module: LoginHistory,        is_authenticated: true },
             'lost-password'    : { module: LostPassword,        not_authenticated: true },
             'payment-methods'  : { module: CashierPaymentMethods },
             'reset-password'   : { module: ResetPassword,       not_authenticated: true },
