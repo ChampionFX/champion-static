@@ -19,7 +19,7 @@
                                 </div>
                             </div>
                             <p>
-                                <a class="button" href="[% request.url_for('new-account/virtual') %]">
+                                <a class="button virtual-signup" href="[% request.url_for('new-account/virtual') %]">
                                     <span>[% l('Create account') %]</span>
                                 </a>
                             </p>
@@ -39,7 +39,7 @@
                             </div>
                             <div class="fx-divider-xl"></div>
                             <p>
-                                <a class="button" href="[% request.url_for('new-account/real') %]">
+                                <a class="button real-signup" href="[% request.url_for('new-account/real') %]">
                                     <span>[% l('Upgrade') %]</span>
                                 </a>
                             </p>
@@ -47,8 +47,7 @@
                     </div>
                 </div>
                 <div class="center-text">
-                    <p>[% l("Got questions? Read our
-                        <a href='#' '>FAQ</a> or <a href='[_1] '>contact us</a>.", request.url_for('contact ')) %]</p>
+                    <p>[% l("Got questions? Read our <a href='[_1]'>FAQ</a> or <a href='[_2]'>contact us</a>.", '#', request.url_for('contact')) %]</p>
                 </div>
             </div>
         </div>

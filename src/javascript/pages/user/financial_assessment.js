@@ -1,8 +1,9 @@
-const showLoadingImage   = require('../../common/utility').showLoadingImage;
+const Header             = require('../../common/header');
 const ChampionSocket     = require('../../common/socket');
-const Validation         = require('../../common/validation');
 const State              = require('../../common/storage').State;
-const RiskClassification = require('./risk_classification');
+const isEmptyObject      = require('../../common/utility').isEmptyObject;
+const showLoadingImage   = require('../../common/utility').showLoadingImage;
+const Validation         = require('../../common/validation');
 
 const FinancialAssessment = (() => {
     'use strict';
@@ -21,7 +22,7 @@ const FinancialAssessment = (() => {
             return false;
         });
 
-        ChampionSocket.send({ get_financial_assessment: 1 }).then((response) => {
+        ChampionSocket.wait('get_financial_assessment').then((response) => {
             handleForm(response);
         });
     };
@@ -31,9 +32,19 @@ const FinancialAssessment = (() => {
             response = State.get(['response', 'get_financial_assessment']);
         }
         hideLoadingImg();
-        financial_assessment = response.get_financial_assessment;
-        Object.keys(response.get_financial_assessment).forEach((key) => {
-            const val = response.get_financial_assessment[key];
+        financial_assessment = $.extend({}, response.get_financial_assessment);
+
+        if (isEmptyObject(financial_assessment)) {
+            ChampionSocket.wait('get_account_status').then((data) => {
+                if (data.get_account_status.risk_classification === 'high') {
+                    $('#high_risk_classification').removeClass(hidden_class);
+                }
+            });
+        }
+
+
+        Object.keys(financial_assessment).forEach((key) => {
+            const val = financial_assessment[key];
             $(`#${key}`).val(val);
         });
         arr_validation = [];
@@ -72,7 +83,9 @@ const FinancialAssessment = (() => {
                     showFormMessage('Sorry, an error occurred while processing your request.', false);
                 } else {
                     showFormMessage('Your changes have been updated successfully.', true);
-                    RiskClassification.cleanup();
+                    ChampionSocket.send({ get_financial_assessment: 1 }, true).then(() => {
+                        Header.displayAccountStatus();
+                    });
                 }
             });
         } else {

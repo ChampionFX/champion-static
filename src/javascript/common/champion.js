@@ -6,9 +6,10 @@ const ChampionRouter          = require('./router');
 const ChampionSocket          = require('./socket');
 const default_redirect_url    = require('./url').default_redirect_url;
 const Utility                 = require('./utility');
-const BinaryOptions           = require('./../pages/binary_options');
+const ClientType              = require('./../pages/client_type');
 const ChampionContact         = require('./../pages/contact');
 const ChampionEndpoint        = require('./../pages/endpoint');
+const MT5                     = require('./../pages/mt5');
 const ChampionSignup          = require('./../pages/signup');
 const ChampionNewReal         = require('./../pages/new_account/real');
 const ChampionNewVirtual      = require('./../pages/new_account/virtual');
@@ -18,8 +19,8 @@ const Cashier                 = require('./../pages/cashier/cashier');
 const CashierPassword         = require('./../pages/cashier/cashier_password');
 const CashierPaymentMethods   = require('./../pages/cashier/payment_methods');
 const CashierTopUpVirtual     = require('./../pages/cashier/top_up_virtual');
+const Authenticate            = require('./../pages/user/authenticate');
 const ChangePassword          = require('./../pages/user/change_password');
-const checkRiskClassification = require('./../pages/user/check_risk_classification');
 const MetaTrader              = require('./../pages/user/metatrader/metatrader');
 const ChampionSettings        = require('./../pages/user/settings');
 const TNCApproval             = require('./../pages/user/tnc_approval');
@@ -66,27 +67,29 @@ const Champion = (function() {
     const afterContentChange = (e, content) => {
         const page = content.getAttribute('data-page');
         const pages_map = {
-            cashier           : { module: Cashier },
-            contact           : { module: ChampionContact },
-            endpoint          : { module: ChampionEndpoint },
-            forward           : { module: CashierDepositWithdraw, is_authenticated: true, only_real: true },
-            logged_inws       : { module: LoggedIn },
-            metatrader        : { module: MetaTrader,          is_authenticated: true },
-            profile           : { module: ChampionProfile,     is_authenticated: true },
-            real              : { module: ChampionNewReal,     is_authenticated: true, only_virtual: true },
-            settings          : { module: ChampionSettings,    is_authenticated: true },
-            security          : { module: ChampionSecurity,    is_authenticated: true },
-            virtual           : { module: ChampionNewVirtual,  not_authenticated: true },
-            'binary-options'  : { module: BinaryOptions },
-            'cashier-password': { module: CashierPassword,     is_authenticated: true, only_real: true },
-            'change-password' : { module: ChangePassword,      is_authenticated: true },
+            authenticate       : { module: Authenticate,           is_authenticated: true, only_real: true },
+            cashier            : { module: Cashier },
+            contact            : { module: ChampionContact },
+            endpoint           : { module: ChampionEndpoint },
+            forward            : { module: CashierDepositWithdraw, is_authenticated: true, only_real: true },
+            home               : { module: Home },
+            logged_inws        : { module: LoggedIn },
+            metatrader         : { module: MetaTrader,          is_authenticated: true },
+            mt5                : { module: MT5 },
+            profile            : { module: ChampionProfile,     is_authenticated: true },
+            real               : { module: ChampionNewReal,     is_authenticated: true, only_virtual: true },
+            settings           : { module: ChampionSettings,    is_authenticated: true },
+            security           : { module: ChampionSecurity,    is_authenticated: true },
+            virtual            : { module: ChampionNewVirtual,  not_authenticated: true },
+            'cashier-password' : { module: CashierPassword,     is_authenticated: true, only_real: true },
+            'change-password'  : { module: ChangePassword,      is_authenticated: true },
             'login-history'   : { module: LoginHistory,        is_authenticated: true },
-            'lost-password'   : { module: LostPassword,        not_authenticated: true },
-            'payment-methods' : { module: CashierPaymentMethods },
-            'reset-password'  : { module: ResetPassword,       not_authenticated: true },
-            'tnc-approval'    : { module: TNCApproval,         is_authenticated: true, only_real: true },
-            'top-up-virtual'  : { module: CashierTopUpVirtual, is_authenticated: true, only_virtual: true },
-            home              : { module: Home },
+            'lost-password'    : { module: LostPassword,        not_authenticated: true },
+            'payment-methods'  : { module: CashierPaymentMethods },
+            'reset-password'   : { module: ResetPassword,       not_authenticated: true },
+            'tnc-approval'     : { module: TNCApproval,         is_authenticated: true, only_real: true },
+            'top-up-virtual'   : { module: CashierTopUpVirtual, is_authenticated: true, only_virtual: true },
+            'types-of-accounts': { module: ClientType },
         };
         if (page in pages_map) {
             loadHandler(pages_map[page]);
@@ -96,9 +99,6 @@ const Champion = (function() {
         Header.init();
         ChampionSignup.load();
         Utility.handleActive();
-
-        ChampionSocket.wait('get_settings', 'get_account_status').then(() => { Client.check_tnc(); });
-        checkRiskClassification();
     };
 
     const errorMessages = {

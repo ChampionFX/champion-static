@@ -83,6 +83,10 @@ h1.main-title {
     display: flex;
     flex-grow: 1;
     height: 100%;
+    #email {
+        text-align: center;
+        width: 280px;
+    }
 }
 
 .signup-box {
@@ -116,7 +120,7 @@ h1.main-title {
         text-align: right;
         padding: 0;
         li {
-            padding: 10px 0;
+            margin-top: 0;
         }
     }
 }
@@ -310,8 +314,15 @@ h1.main-title {
 
 // About us
 .fx-about-header {
-    @include header-background(0.1, '../images/about-background.png');
+    background: url('../images/about-background.png') no-repeat center center;
+    background-size: cover;
+    height: 400px;
     padding: 0 20px;
+}
+
+.fx-about-image {
+    width: 100%;
+    height: auto;
 }
 
 // Contact us
@@ -563,14 +574,6 @@ fieldset {
     padding: 0 5px;
 }
 
-.top-nav-menu a {
-    color: $contentInverseColor !important;
-    li {
-        border-bottom: 3px solid $primaryBrandColor;
-        margin-bottom: -4px;
-    }
-}
-
 .logo-parent {
     padding: 0;
     margin: 0;
@@ -708,4 +711,57 @@ ul.no-padding {
     border-bottom: 2px solid $primaryBrandColor;
     padding-bottom: 10px;
     width: 350px;
+}
+
+.no-margin-top {
+    margin-top: 0;
+}
+
+.has-tabs {
+    * {
+        outline: none;
+    }
+    li.col-sm {
+        display: flex;
+        align-items: center;
+        min-width: 1vw;
+        a {
+            white-space: normal;
+            text-align: center;
+            width: 100%;
+        }
+    }
+}
+
+img.float-right {
+    display: flex;
+    margin-left: auto;
+    padding: 10px 0;
+}
+
+.separator-vertical {
+    width: 2px;
+}
+
+.center-align {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.no-gutters {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.fx-cashier {
+    .button {
+        margin-right: 20px;
+    }
+}
+
+#msg_notification {
+    font-size: $FONT_SIZE_S;
+    padding: 3px 0;
+    line-height: 20px;
+    display: none;
 }

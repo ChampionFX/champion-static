@@ -5,6 +5,10 @@ const Home = (function() {
 
     const load = () => {
         Slider.init();
+        const hash = window.location.hash.substring(1);
+        if (hash === 'signup') {
+            setTimeout(() => { $.scrollTo($('#verify-email-form'), 500); }, 500);
+        }
     };
 
     const unload = () => {

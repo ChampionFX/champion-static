@@ -4,14 +4,6 @@
             <div class="col-sm">
                 [% INCLUDE components/page_title.html.tt title=l('Security settings') %]
 
-                <div class="errorbox rbox center-text" id="client_message" style="display:none">
-                    <div class="rbox-wrap">
-                        <div class="gr-12 rbox-content" id="client_message_content">
-                            <p class="center notice-msg"></p>
-                        </div>
-                    </div>
-                </div>
-
                 <div id="fx-security-content" style="display: none">
                     <div class="row">
                         <div class="col-md-3">

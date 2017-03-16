@@ -3,8 +3,6 @@
         [% INCLUDE components/page_title.html.tt title=l('Complete your ChampionFX virtual account signup') %]
 
         <p>[% l('Your new ChampionFX virtual account lets you trade binary options with unlimited virtual currency.') %]</p>
-            </div>
-        </div>
 
         <h2>[% l('Details') %]</h2>
 

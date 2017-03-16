@@ -54,5 +54,5 @@
             </div>
         </div>
     </div>
-    <div id="end_note" class="invisible"></div>
+    <div id="end_note" class="invisible hidden-xs-down"></div>
 </footer>
