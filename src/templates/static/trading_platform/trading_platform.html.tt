@@ -27,7 +27,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row virtual-signup">
                     <div class="col-sm-5">
                         <h3>[% l('New to ChampionFX?') %]</h3>
                         <div class="separator primary-color"></div>

@@ -166,7 +166,7 @@
             </div>
         </div>
         [% INCLUDE static/common/separator_line.html.tt %]
-        <div class="row">
+        <div class="row virtual-signup">
             <div class="col-sm">
                 <h2>[% l('Trade now with MetaTrader5') %]</h2>
                 <div class="fx-divider"></div>

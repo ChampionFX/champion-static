@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 [% INCLUDE static/common/separator_line.html.tt %]
-                <div class="row">
+                <div class="row virtual-signup">
                     <div class="col-sm">
                         <h2 class="center-text">[% l('Trade now with Champion Trader') %]</h2>
                         <div class="fx-divider"></div>

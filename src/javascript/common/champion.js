@@ -28,7 +28,6 @@ const CashierDepositWithdraw  = require('./../pages/cashier/deposit_withdraw');
 const Home                    = require('./../pages/home');
 const ChampionProfile         = require('./../pages/user/profile');
 const ChampionSecurity        = require('./../pages/user/security');
-const ChampionTradingPlatform = require('./../pages/trading_platform');
 
 const Champion = (function() {
     'use strict';
@@ -89,9 +88,9 @@ const Champion = (function() {
             'tnc-approval'     : { module: TNCApproval,         is_authenticated: true, only_real: true },
             'top-up-virtual'   : { module: CashierTopUpVirtual, is_authenticated: true, only_virtual: true },
             'types-of-accounts': { module: ClientType },
-            'trading-platform' : { module: ChampionTradingPlatform },
-            'metatrader-5'     : { module: ChampionTradingPlatform },
-            'champion-trader'  : { module: ChampionTradingPlatform },
+            'trading-platform' : { module: ClientType },
+            'metatrader-5'     : { module: ClientType },
+            'champion-trader'  : { module: ClientType },
         };
         if (page in pages_map) {
             loadHandler(pages_map[page]);
@@ -101,6 +100,11 @@ const Champion = (function() {
         Header.init();
         ChampionSignup.load();
         Utility.handleActive();
+
+        // Handle login links
+        if (!Client.is_logged_in()) {
+            $('#login-link').find('a').off('click').on('click', () => { Login.redirect_to_login(); });
+        }
     };
 
     const errorMessages = {
