@@ -67,12 +67,12 @@ const ChampionNewRealAccount = (function() {
             { selector: fields.txt_fname,           validations: ['req', 'letter_symbol', ['min', { min: 2 }]] },
             { selector: fields.txt_lname,           validations: ['req', 'letter_symbol', ['min', { min: 2 }]] },
             { selector: fields.txt_birth_date,      validations: ['req'] },
-            { selector: fields.txt_address1,        validations: ['req', 'general'] },
-            { selector: fields.txt_address2,        validations: ['general'] },
+            { selector: fields.txt_address1,        validations: ['req', 'address'] },
+            { selector: fields.txt_address2,        validations: ['address'] },
             { selector: fields.txt_city,            validations: ['req', 'letter_symbol'] },
             { selector: fields.txt_state,           validations: ['letter_symbol'] },
-            { selector: fields.txt_postcode,        validations: ['postcode'] },
-            { selector: fields.txt_phone,           validations: ['req', 'phone', ['min', { min: 6 }]] },
+            { selector: fields.txt_postcode,        validations: ['postcode', ['length', { min: 0, max: 20 }]] },
+            { selector: fields.txt_phone,           validations: ['req', 'phone', ['length', { min: 6, max: 35 }]] },
             { selector: fields.ddl_secret_question, validations: ['req'] },
             { selector: fields.txt_secret_answer,   validations: ['req', ['min', { min: 4 }]] },
             { selector: fields.chk_tnc,             validations: ['req'] },
@@ -83,7 +83,6 @@ const ChampionNewRealAccount = (function() {
         ChampionSocket.send({ residence_list: 1 }).then((response) => {
             container.find('#residence_loading').remove();
             const $lbl_residence = container.find(fields.lbl_residence);
-            $lbl_residence.parent().removeClass(hidden_class);
             const country_obj = response.residence_list.find(r => r.value === client_residence);
             if (country_obj) {
                 $lbl_residence.text(country_obj.text);
@@ -91,6 +90,7 @@ const ChampionNewRealAccount = (function() {
                     $(fields.txt_phone).val(`+${country_obj.phone_idd}`);
                 }
             }
+            $lbl_residence.parent().removeClass(hidden_class);
         });
     };
 

@@ -20,7 +20,6 @@ const PersonalDetails = (() => {
         $(form_selector).on('submit', (event) => {
             event.preventDefault();
             submitForm();
-            return false;
         });
 
         ChampionSocket.send({ get_settings: 1 }).then((response) => {
@@ -130,29 +129,20 @@ const PersonalDetails = (() => {
         Validation.init(form_selector, getValidations());
     };
 
-    const getValidations = () => {
-        let validations = [];
-
-        validations = [
-            { selector: '#address_line_1',   validations: ['req', 'general', ['length', { min: 1, max: 70 }]] },
-            { selector: '#address_line_2',   validations: ['general', ['length', { min: 0, max: 70 }]] },
+    const getValidations = () => (
+        [
+            { selector: '#address_line_1',   validations: ['req', 'address', ['length', { min: 1, max: 70 }]] },
+            { selector: '#address_line_2',   validations: ['address', ['length', { min: 0, max: 70 }]] },
             { selector: '#address_city',     validations: ['req', 'letter_symbol', ['length', { min: 1, max: 35 }]] },
             { selector: '#address_state',    validations: $('#address_state').prop('nodeName') === 'SELECT' ? '' : ['letter_symbol'] },
             { selector: '#address_postcode', validations: ['postcode', ['length', { min: 0, max: 20 }]] },
-            { selector: '#phone',            validations: ['phone', ['length', { min: 6, max: 35 }]] },
+            { selector: '#phone',            validations: ['phone', ['length', { min: 6, max: 35, exclude: /^\+/ }]] },
 
             { selector: '#place_of_birth', validations: '' },
             { selector: '#tax_residence',  validations: '' },
-        ];
-        const tax_id_validation = { selector: '#tax_identification_number', validations: ['postcode', ['length', { min: 0, max: 20 }]] };
-
-        tax_id_validation.validations[1][1].min = 1;
-        tax_id_validation.validations.unshift('req');
-
-        validations.push(tax_id_validation);
-
-        return validations;
-    };
+            { selector: '#tax_identification_number', validations: ['postcode', ['length', { min: 0, max: 20 }]] },
+        ]
+    );
 
     const submitForm = () => {
         if (Validation.validate(form_selector)) {
@@ -166,11 +156,17 @@ const PersonalDetails = (() => {
                     }
                 }
             });
+
             ChampionSocket.send(req).then((response) => {
-                if (response.error) {
-                    $('#error-update-details').removeClass(hidden_class).html(response.error.message);
-                } else {
-                    $('#error-update-details').removeClass(hidden_class).html('Success');
+                const is_error = response.set_settings !== 1;
+                const $msg = $('#error-update-details');
+                $msg.removeClass(hidden_class).css('display', 'block').html(
+                    is_error ? response.error.message : 'Your settings have been updated successfully.');
+                if (!is_error) {
+                    $msg.delay(5000).fadeOut(1000);
+                    ChampionSocket.send({ get_settings: 1 }, true).then((data) => {
+                        getSettingsResponse(data.get_settings);
+                    });
                 }
             });
         }

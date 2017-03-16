@@ -180,23 +180,23 @@ const MetaTraderConfig = (function() {
     const validations = {
         new_account: [
             { selector: fields.new_account.txt_name.id,          validations: ['req', 'letter_symbol', ['length', { min: 2, max: 30 }]] },
-            { selector: fields.new_account.txt_main_pass.id,     validations: ['req', 'password'] },
+            { selector: fields.new_account.txt_main_pass.id,     validations: ['req', ['password', 'mt']] },
             { selector: fields.new_account.txt_re_main_pass.id,  validations: ['req', ['compare', { to: fields.new_account.txt_main_pass.id }]] },
-            { selector: fields.new_account.txt_investor_pass.id, validations: ['req', 'password', ['not_equal', { to: fields.new_account.txt_main_pass.id, name1: 'Main password', name2: 'Investor password' }]] },
+            { selector: fields.new_account.txt_investor_pass.id, validations: ['req', ['password', 'mt'], ['not_equal', { to: fields.new_account.txt_main_pass.id, name1: 'Main password', name2: 'Investor password' }]] },
             { selector: fields.new_account.ddl_leverage.id,      validations: ['req'] },
             { selector: fields.new_account.chk_tnc.id,           validations: ['req'] },
         ],
         password_change: [
-            { selector: fields.password_change.txt_old_password.id,    validations: ['req'] },
-            { selector: fields.password_change.txt_new_password.id,    validations: ['req', 'password', ['not_equal', { to: fields.password_change.txt_old_password.id, name1: 'Current password', name2: 'New password' }]] },
+            { selector: fields.password_change.txt_old_password.id,    validations: ['req', ['number', { type: 'float', min: 1, max: 20000, decimals: '1, 2' }]] },
+            { selector: fields.password_change.txt_new_password.id,    validations: ['req', ['password', 'mt'], ['not_equal', { to: fields.password_change.txt_old_password.id, name1: 'Current password', name2: 'New password' }]] },
             { selector: fields.password_change.txt_re_new_password.id, validations: ['req', ['compare', { to: fields.password_change.txt_new_password.id }]] },
         ],
         deposit: [
-            { selector: fields.deposit.txt_amount.id, validations: ['req', ['number', { type: 'float', min: 1, max: 20000 }]] },
+            { selector: fields.deposit.txt_amount.id, validations: ['req', ['number', { type: 'float', min: 1, max: 20000, decimals: '0, 2' }]] },
         ],
         withdrawal: [
             { selector: fields.withdrawal.txt_main_pass.id, validations: ['req'] },
-            { selector: fields.withdrawal.txt_amount.id,    validations: ['req', ['number', { type: 'float', min: 1, max: 20000 }]] },
+            { selector: fields.withdrawal.txt_amount.id,    validations: ['req', ['number', { type: 'float', min: 1, max: 20000, decimals: '0, 2' }]] },
         ],
     };
 
