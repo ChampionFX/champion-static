@@ -53,8 +53,8 @@ const ChampionNewVirtualAccount = (function() {
 
     const submit = (e) => {
         e.preventDefault();
-        btn_submit.attr('disabled', 'disabled');
         if (Validation.validate(form_selector)) {
+            btn_submit.attr('disabled', 'disabled');
             const data = {
                 new_account_virtual: 1,
                 verification_code  : $(fields.txt_verification_code).val(),
