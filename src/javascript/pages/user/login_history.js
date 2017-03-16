@@ -1,5 +1,5 @@
-const ChampionSocket   = require('../../common/socket');
-const moment      = require('moment');
+const ChampionSocket = require('../../common/socket');
+const moment         = require('moment');
 
 const LoginHistory = (() => {
     'use strict';
