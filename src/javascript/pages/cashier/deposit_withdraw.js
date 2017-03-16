@@ -6,6 +6,8 @@ const Validation     = require('./../../common/validation');
 const CashierDepositWithdraw = (function() {
     'use strict';
 
+    const hidden_class = 'invisible';
+
     let $btn_submit,
         $form_withdraw,
         cashier_type,
@@ -36,9 +38,9 @@ const CashierDepositWithdraw = (function() {
 
         ChampionSocket.send({ cashier_password: '1' }).then((response) => {
             if (response.error) {
-                error_msg.removeClass('hidden').html(response.error.message);
+                error_msg.removeClass(hidden_class).html(response.error.message);
             } else if (response.cashier_password) {
-                error_msg.removeClass('hidden')
+                error_msg.removeClass(hidden_class)
                     .html('Your cashier is locked as per your request - to unlock it, please click <a href="[_1]">here</a>.'
                         .replace('[_1]', url_for('/cashier/cashier-password')));
             } else {
@@ -64,7 +66,7 @@ const CashierDepositWithdraw = (function() {
     };
 
     const verify_email = () => {
-        $form_withdraw.removeClass('hidden');
+        $form_withdraw.removeClass(hidden_class);
         ChampionSocket.send({
             verify_email: Client.get('email'),
             type        : 'payment_withdraw',
@@ -73,7 +75,7 @@ const CashierDepositWithdraw = (function() {
 
     const submit = (e) => {
         e.preventDefault();
-        $form_withdraw.addClass('hidden');
+        $form_withdraw.addClass(hidden_class);
         deposit_withdraw($(fields.token).val());
     };
 
@@ -83,7 +85,7 @@ const CashierDepositWithdraw = (function() {
 
         ChampionSocket.send(req).then((response) => {
             if (response.error) {
-                error_msg.removeClass('hidden');
+                error_msg.removeClass(hidden_class);
                 switch (response.error.code) {
                     case 'ASK_TNC_APPROVAL':
                         error_msg.html('Please accept the latest Terms and Conditions.');
@@ -112,8 +114,8 @@ const CashierDepositWithdraw = (function() {
                         error_msg.html(response.error.message);
                 }
             } else {
-                $('#error_msg').addClass('hidden');
-                $(`#${cashier_type}_iframe_container`).removeClass('hidden')
+                $('#error_msg').addClass(hidden_class);
+                $(`#${cashier_type}_iframe_container`).removeClass(hidden_class)
                     .find('iframe')
                     .attr('src', response.cashier)
                     .end();

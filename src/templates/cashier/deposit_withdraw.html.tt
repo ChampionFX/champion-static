@@ -7,10 +7,10 @@
         </div>
 
         <div class="row">
-            <div id="error_msg" class="col-xs-12 notice-msg center-text hidden"></div>
+            <div id="error_msg" class="col-xs-12 notice-msg center-text invisible"></div>
         </div>
 
-        <div id="form_withdraw" class="hidden">
+        <div id="form_withdraw" class="invisible">
             <fieldset>
                 <div class="row form-row">
                     <div class="col-xs-4">
@@ -31,10 +31,10 @@
         </div>
 
         <div class="row">
-            <div id="deposit_iframe_container" class="hidden">
+            <div id="deposit_iframe_container" class="invisible">
                 <iframe src="" frameborder="0" width="100%" height="1500" scrolling="auto" style="padding:0;margin:0;"></iframe>
             </div>
-            <div id="withdraw_iframe_container" class="hidden">
+            <div id="withdraw_iframe_container" class="invisible">
                 <iframe src="" frameborder="0" width="100%" height="1500" scrolling="auto" style="padding:0;margin:0;"></iframe>
             </div>
         </div>

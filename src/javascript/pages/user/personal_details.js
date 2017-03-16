@@ -168,9 +168,9 @@ const PersonalDetails = (() => {
             });
             ChampionSocket.send(req).then((response) => {
                 if (response.error) {
-                    $('#error-update-details').removeClass('hidden').html(response.error.message);
+                    $('#error-update-details').removeClass(hidden_class).html(response.error.message);
                 } else {
-                    $('#error-update-details').removeClass('hidden').html('Success');
+                    $('#error-update-details').removeClass(hidden_class).html('Success');
                 }
             });
         }

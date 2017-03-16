@@ -84,7 +84,7 @@ const Client = (function () {
         client_object.values_set = true;
 
         if (authorize.is_virtual && !get('has_real')) {
-            $('.upgrade-message').removeClass('hidden');
+            $('.upgrade-message').removeClass('invisible');
         }
 
         ChampionSocket.send({ balance: 1, subscribe: 1 });

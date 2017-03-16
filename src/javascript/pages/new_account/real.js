@@ -10,6 +10,7 @@ const ChampionNewRealAccount = (function() {
     'use strict';
 
     const form_selector = '#frm_new_account_real';
+    const hidden_class  = 'invisible';
 
     let client_residence;
 
@@ -82,7 +83,7 @@ const ChampionNewRealAccount = (function() {
         ChampionSocket.send({ residence_list: 1 }).then((response) => {
             container.find('#residence_loading').remove();
             const $lbl_residence = container.find(fields.lbl_residence);
-            $lbl_residence.parent().removeClass('hidden');
+            $lbl_residence.parent().removeClass(hidden_class);
             const country_obj = response.residence_list.find(r => r.value === client_residence);
             if (country_obj) {
                 $lbl_residence.text(country_obj.text);
@@ -100,7 +101,7 @@ const ChampionNewRealAccount = (function() {
             container.find('#state_loading').remove();
             if (states && states.length) {
                 Utility.dropDownFromObject($ddl_state, states);
-                $ddl_state.removeClass('hidden');
+                $ddl_state.removeClass(hidden_class);
             } else {
                 $ddl_state.replaceWith($('<input/>', { type: 'text', id: fields.txt_state.replace('#', ''), class: 'text', maxlength: '35' }));
             }
@@ -148,7 +149,7 @@ const ChampionNewRealAccount = (function() {
             }
             ChampionSocket.send(data).then((response) => {
                 if (response.error) {
-                    $('#msg_form').removeClass('hidden').text(response.error.message);
+                    $('#msg_form').removeClass(hidden_class).text(response.error.message);
                     btn_submit.removeAttr('disabled');
                 } else {
                     const acc_info = response.new_account_real;

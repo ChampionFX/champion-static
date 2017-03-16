@@ -21,7 +21,7 @@
                     [% INCLUDE components/forms/form_row.html.tt type='text'  id='txt_lname'      label=l('Family name')          attributes='maxlength="30"' %]
                     [% INCLUDE components/forms/form_row.html.tt type='text'  id='txt_birth_date' label=l('Date of birth')        attributes='size="12" readonly="readonly"' %]
                     [% INCLUDE components/forms/form_row.html.tt type='label' id='lbl_residence'  label=l('Country of residence')
-                        class="hidden" loading=1 loading_id='residence_loading' %]
+                        class="invisible" loading=1 loading_id='residence_loading' %]
                 </div>
 
                 <div class="col-md-4">
@@ -30,7 +30,7 @@
                     [% INCLUDE components/forms/form_row.html.tt type='text'   id='txt_address2' label=l('Second line of home address') attributes='maxlength="70"' %]
                     [% INCLUDE components/forms/form_row.html.tt type='text'   id='txt_city'     label=l('Town/City')                   attributes='maxlength="35"' %]
                     [% INCLUDE components/forms/form_row.html.tt type='select' id='ddl_state'    label=l('State/Province')
-                        attributes='class="hidden"' loading=1 loading_id='state_loading' %]
+                        attributes='class="invisible"' loading=1 loading_id='state_loading' %]
                     [% INCLUDE components/forms/form_row.html.tt type='text'   id='txt_postcode' label=l('Postal code/ZIP')             attributes='maxlength="20"' %]
                     [% INCLUDE components/forms/form_row.html.tt type='text'   id='txt_phone'    label=l('Telephone')                   attributes='maxlength="35"' %]
                 </div>

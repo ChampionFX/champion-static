@@ -3,7 +3,7 @@ const Validation = (function() {
 
     const forms = {};
     const error_class  = 'error-msg';
-    const hidden_class = 'hidden';
+    const hidden_class = 'invisible';
 
     const events_map = {
         input   : 'input change',

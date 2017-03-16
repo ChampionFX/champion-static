@@ -4,6 +4,8 @@ const Client         = require('../../common/client');
 const CashierTopUpVirtual = (function() {
     'use strict';
 
+    const hidden_class = 'invisible';
+
     let viewError,
         viewSuccess;
 
@@ -22,11 +24,11 @@ const CashierTopUpVirtual = (function() {
         ChampionSocket.send(data).then((response) => {
             $('#topup_loading').remove();
             if (response.error) {
-                viewError.removeClass('hidden')
+                viewError.removeClass(hidden_class)
                     .find('.notice-msg')
                     .text(response.error.message);
             } else {
-                viewSuccess.removeClass('hidden')
+                viewSuccess.removeClass(hidden_class)
                     .find('.notice-msg')
                     .text('[_1] [_2] has been credited to your Virtual money account [_3]', [
                         response.topup_virtual.currency,
