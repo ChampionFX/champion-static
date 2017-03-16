@@ -27,6 +27,7 @@ const CashierDepositWithdraw  = require('./../pages/cashier/deposit_withdraw');
 const Home                    = require('./../pages/home');
 const ChampionProfile         = require('./../pages/user/profile');
 const ChampionSecurity        = require('./../pages/user/security');
+const LoginHistory            = require('./../pages/user/login_history');
 
 const Champion = (function() {
     'use strict';
@@ -79,6 +80,7 @@ const Champion = (function() {
             'binary-options'  : { module: BinaryOptions },
             'cashier-password': { module: CashierPassword,     is_authenticated: true, only_real: true },
             'change-password' : { module: ChangePassword,      is_authenticated: true },
+            'login-history'   : { module: LoginHistory,        is_authenticated: true },
             'lost-password'   : { module: LostPassword,        not_authenticated: true },
             'payment-methods' : { module: CashierPaymentMethods },
             'reset-password'  : { module: ResetPassword,       not_authenticated: true },

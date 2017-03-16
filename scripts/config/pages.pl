@@ -53,6 +53,7 @@ sub all_pages {
         ['user/tnc-approval',          'user/tnc_approval',            'full_width', 'Terms and Conditions Approval'],
         ['user/profile',               'user/profile',                 'full_width', 'Profile'],
         ['user/security',              'user/security',                'full_width', 'Security'],
+        ['user/login-history',         'user/login_history',           'full_width', 'Login History'],
 
     );
 }
