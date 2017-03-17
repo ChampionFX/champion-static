@@ -12,7 +12,7 @@
 
                 <div id="viewSuccess" class="invisible">
                     <p class="success-msg"></p>
-                    <a class="button pjaxload" href="[% request.url_for('/user/portfoliows') %]">
+                    <a class="button invisible" href="[% request.url_for('/user/portfoliows') %]">
                         <span>[% l('View Updated Portfolio') %]</span>
                     </a>
                 </div>
