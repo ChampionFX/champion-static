@@ -47,10 +47,16 @@ sub all_pages {
         ['new-account/real',           'new_account/real',             'full_width', 'Create new real account'],
         ['new-account/virtual',        'new_account/virtual',          'full_width', 'Create new virtual account'],
 
+        ['trading-platform',                 'static/trading_platform/trading_platform', 'full_width', 'Trading Platform'],
+        ['trading-platform/metatrader-5',    'static/trading_platform/metatrader_5',     'full_width', 'MetaTrader5'],
+        ['trading-platform/champion-trader', 'static/trading_platform/champion_trader',  'full_width', 'Champion Trader'],
+        ['trading-platform/mt5-vs-mt4',      'static/trading_platform/mt5_vs_mt4',       'full_width', 'MetaTrader5 vs MetaTrader4'],
+
         # ['user/assessment',            'user/financial_assessment',    'full_width', 'Financial Assessment'],
         # ['user/details',               'user/personal_details',        'full_width', 'Personal Details'],
         ['user/authenticate',          'user/authenticate',            'full_width', 'Authenticate', 'ja'],
         ['user/change-password',       'user/change_password',         'full-width', 'Change Password'],
+        ['user/login-history',         'user/login_history',           'full_width', 'Login History'],
         ['user/metatrader',            'user/metatrader',              'full-width', 'MetaTrader account management'],
         ['user/profile',               'user/profile',                 'full_width', 'Profile'],
         ['user/security',              'user/security',                'full_width', 'Security'],

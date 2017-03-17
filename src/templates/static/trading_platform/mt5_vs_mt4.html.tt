@@ -1,0 +1,173 @@
+<div class="fx-section-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                [% INCLUDE components/page_title.html.tt title=l('Comparing MT5 and MT4') %]
+                <div class="row">
+                    <div class="col-sm-5">
+                        <p>[% l('ChampionFX believes in giving our clients the best trading platform available. This is why we choose MetaTrader 5. We focus all our efforts and resources to take full advantage of MetaTrader 5’s advanced features to give our clients a powerful trading experience that’s built to last.') %]</p>
+                        <h4>[% l('Faster and more powerful. Groundbreaking flexibility.') %]</h4>
+                    </div>
+                    <div class="col-sm-5 push-sm-1">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/mXuR_SRP-XI" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fx-divider-xl"></div>
+        <div class="center-text">
+            <p>[% l('MetaTrader 5 is the most advanced trading platform available — the ideal platform for the modern trader. It contains everything you need to trade the financial markets.') %]</p>
+        </div>
+        <div class="fx-divider"></div>
+        <div class="row">
+            <div class="col-sm">
+                <table>
+                    <tr>
+                        <th></th>
+                        <th class="center-text">[% l('MetaTrader 5') %]</th>
+                        <th class="center-text">[% l('MetaTrader 4') %]</th>
+                    </tr>
+                    <tr>
+                        <td>[% l('Partial Order Filling Policies') %]</td>
+                        <td class="center-text">
+                            <span class="icon-ok">&#x2714;</span>
+                        </td>
+                        <td class="center-text">
+                            <span class="icon-remove">&#x2716;</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Order Fill Policy') %]</td>
+                        <td class="center-text">[% l('Fill or Kill Immediate or Cancel Return') %]</td>
+                        <td class="center-text">[% l('Fill or Kill') %]</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Pending Order Types') %]</td>
+                        <td class="center-text">[% l('6') %]</td>
+                        <td class="center-text">[% l('4') %]</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Depth of Market') %]</td>
+                        <td class="center-text">
+                            <span class="icon-ok">&#x2714;</span>
+                        </td>
+                        <td class="center-text">
+                            <span class="icon-remove">&#x2716;</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Time & Sales (Exchange data)') %]</td>
+                        <td class="center-text">
+                            <span class="icon-ok">&#x2714;</span>
+                        </td>
+                        <td class="center-text">
+                            <span class="icon-remove">&#x2716;</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Technical Indicators') %]</td>
+                        <td class="center-text">[% l('38') %]</td>
+                        <td class="center-text">[% l('30') %]</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Graphical Objects') %]</td>
+                        <td class="center-text">[% l('44') %]</td>
+                        <td class="center-text">[% l('31') %]</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Timeframes') %]</td>
+                        <td class="center-text">[% l('21') %]</td>
+                        <td class="center-text">[% l('9') %]</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Economic Calendar') %]</td>
+                        <td class="center-text">
+                            <span class="icon-ok">&#x2714;</span>
+                        </td>
+                        <td class="center-text">
+                            <span class="icon-remove">&#x2716;</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Email System') %]</td>
+                        <td class="center-text">
+                            <span class="icon-ok">&#x2714;</span>[% l(' (with attachments)') %]
+                        </td>
+                        <td class="center-text">
+                            <span class="icon-ok">&#x2714;</span>[% l(' (no attachments)') %]
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Transfer funds between accounts') %]</td>
+                        <td class="center-text">
+                            <span class="icon-ok">&#x2714;</span>
+                        </td>
+                        <td class="center-text">
+                            <span class="icon-remove">&#x2716;</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Embedded MQL5 community chat') %]</td>
+                        <td class="center-text">
+                            <span class="icon-ok">&#x2714;</span>
+                        </td>
+                        <td class="center-text">
+                            <span class="icon-remove">&#x2716;</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Strategy Tester') %]</td>
+                        <td class="center-text">[% l('Multi-threaded + Multi-currency + Real ticks') %]</td>
+                        <td class="center-text">[% l('Single thread') %]</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Multilingual Unicode') %]</td>
+                        <td class="center-text">
+                            <span class="icon-ok">&#x2714;</span>
+                        </td>
+                        <td class="center-text">
+                            <span class="icon-remove">&#x2716;</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Netting') %]</td>
+                        <td class="center-text">
+                            <span class="icon-ok">&#x2714;</span>
+                        </td>
+                        <td class="center-text">
+                            <span class="icon-remove">&#x2716;</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Hedging') %]</td>
+                        <td class="center-text">
+                            <span class="icon-ok">&#x2714;</span>
+                        </td>
+                        <td class="center-text">
+                            <span class="icon-ok">&#x2714;</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Symbols') %]</td>
+                        <td class="center-text">[% l('Unlimited') %]</td>
+                        <td class="center-text">[% l('1,024') %]</td>
+                    </tr>
+                    <tr>
+                        <td>[% l('Exchange Trading') %]</td>
+                        <td class="center-text">
+                            <span class="icon-ok">&#x2714;</span>
+                        </td>
+                        <td class="center-text">
+                            <span class="icon-remove">&#x2716;</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="fx-divider"></div>
+        <div class="center-text">
+            <p>[% l("Got questions? Read our <a href='#'>FAQ</a> or <a href='[_1] '>contact us</a>.", request.url_for('contact')) %]</p>
+        </div>
+        <div class="fx-divider"></div>
+    </div>
+</div>
