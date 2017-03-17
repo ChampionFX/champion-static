@@ -45,12 +45,12 @@ const ChampionRouter = (function() {
 
         // put current content to cache, so we won't need to load it again
         if (title && content && content.length) {
+            setDataPage(content, url);
             cachePut(url, {
                 title  : title,
-                content: content,
+                content: content.clone(),
             });
             window.history.replaceState({ url: url }, title, url);
-            setDataPage(content, url);
             params.container.trigger('champion:after', content);
         }
 
