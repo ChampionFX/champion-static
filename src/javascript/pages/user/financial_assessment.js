@@ -74,7 +74,7 @@ const FinancialAssessment = (() => {
 
             const data = { set_financial_assessment: 1 };
             showLoadingImage($('#msg_form'));
-            $('#assessment_form').find('select').each(function() {
+            $(form_selector).find('select').each(function() {
                 financial_assessment[$(this).attr('id')] = data[$(this).attr('id')] = $(this).val();
             });
             ChampionSocket.send(data).then((response) => {
@@ -93,20 +93,15 @@ const FinancialAssessment = (() => {
         }
     };
 
-    const hideLoadingImg = (show_form) => {
+    const hideLoadingImg = () => {
         $('#loading').remove();
-        if (typeof show_form === 'undefined') {
-            show_form = true;
-        }
-        if (show_form) {
-            $('#assessment_form').removeClass(hidden_class);
-        }
+        $(form_selector).removeClass(hidden_class);
     };
 
     const showFormMessage = (msg, isSuccess) => {
         if (isSuccess) {
             $.scrollTo($('h1#heading'), 500, { offset: -10 });
-            $('#assessment_form').addClass(hidden_class);
+            $(form_selector).addClass(hidden_class);
             $('#msg_success').removeClass(hidden_class);
             ChampionSocket.send({ get_account_status: 1 }).then((response_status) => {
                 if ($.inArray('authenticated', response_status.get_account_status.status) === -1) {
@@ -120,6 +115,7 @@ const FinancialAssessment = (() => {
 
     const unload = () => {
         $(form_selector).off('submit');
+        $('#msg_success').addClass(hidden_class);
     };
 
     return {
