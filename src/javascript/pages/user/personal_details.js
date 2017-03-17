@@ -88,26 +88,35 @@ const PersonalDetails = (() => {
         });
     };
 
+    const isChanged = data => (
+        Object.keys(editable_fields).some(key => (
+            (key in data && editable_fields[key] !== data[key])
+        ))
+    );
+
     const populateResidence = (response) => {
         const residence_list = response.residence_list,
             $place_of_birth  = $(`${form_selector} #place_of_birth`),
             $tax_residence   = $(`${form_selector} #tax_residence`);
 
         if (residence_list && residence_list.length > 0) {
-            let option = '';
+            let options = '';
             Object.keys(residence_list).forEach((res) => {
                 const value = residence_list[res].value;
                 const text  = residence_list[res].text;
-                option += `<option value=${value}>${text}</option>`;
+                options += `<option value=${value}>${text}</option>`;
             });
-            $place_of_birth.append(option);
-            $tax_residence.append(option);
+            $place_of_birth.html(options);
+            $('.select2').remove();
+            $tax_residence.html(options).promise().done(() => {
+                setTimeout(() => {
+                    $tax_residence.select2()
+                        .val(tax_residence_values).trigger('change')
+                        .removeClass('invisible');
+                }, 500);
+            });
             $place_of_birth.val(place_of_birth_value || residence);
         }
-
-        $tax_residence.select2()
-            .val(tax_residence_values).trigger('change')
-            .removeClass('invisible');
     };
 
     const populateStates = (response) => {
@@ -145,6 +154,9 @@ const PersonalDetails = (() => {
     );
 
     const submitForm = () => {
+        const $msg = $('#error-update-details');
+        $msg.empty();
+
         if (Validation.validate(form_selector)) {
             const req = { set_settings: 1 };
             Object.keys(get_settings_data).forEach((key) => {
@@ -157,11 +169,14 @@ const PersonalDetails = (() => {
                 }
             });
 
+            if (!isChanged(req)) {
+                showMessage($msg, 'You did not change anything.');
+                return;
+            }
+
             ChampionSocket.send(req).then((response) => {
                 const is_error = response.set_settings !== 1;
-                const $msg = $('#error-update-details');
-                $msg.removeClass(hidden_class).css('display', 'block').html(
-                    is_error ? response.error.message : 'Your settings have been updated successfully.');
+                showMessage($msg, is_error ? response.error.message : 'Your settings have been updated successfully.');
                 if (!is_error) {
                     $msg.delay(5000).fadeOut(1000);
                     ChampionSocket.send({ get_settings: 1 }, true).then((data) => {
@@ -170,6 +185,10 @@ const PersonalDetails = (() => {
                 }
             });
         }
+    };
+
+    const showMessage = function($msg_el, msg_text) {
+        $msg_el.removeClass(hidden_class).css('display', 'block').html(msg_text);
     };
 
     const unload = () => {
