@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm">
-                [% INCLUDE components/page_title.html.tt title=l('Trading Platform') %]
+                [% INCLUDE components/page_title.html.tt title=l('Trading Platforms') %]
                 <p>[% l('ChampionFX offers industry-leading trading platforms for a range of assets and markets. Explore what we have to offer, and start trading on your chosen device.') %]</p>
                 <div class="fx-divider"></div>
                 <div class="row">

@@ -100,11 +100,6 @@ const Champion = (function() {
         Header.init();
         ChampionSignup.load();
         Utility.handleActive();
-
-        // Handle login links
-        if (!Client.is_logged_in()) {
-            $('#login-link').find('a').off('click').on('click', () => { Login.redirect_to_login(); });
-        }
     };
 
     const errorMessages = {
