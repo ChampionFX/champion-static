@@ -19,7 +19,7 @@
                                 </div>
                             </div>
                             <p>
-                                <a class="button virtual-signup" href="[% request.url_for('new-account/virtual') %]">
+                                <a class="button virtual-signup" href="[% request.url_for('home') %]#signup">
                                     <span>[% l('Create account') %]</span>
                                 </a>
                             </p>

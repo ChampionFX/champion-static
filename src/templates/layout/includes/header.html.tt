@@ -87,6 +87,9 @@
                         <a href="[% request.url_for('binary-options') %]" class="nav-dropdown-toggle">[% l('Binary Options') %]</a>
                     </li>
                     <li>
+                        <a href="[% request.url_for('trading-platform') %]" class="nav-dropdown-toggle">[% l('Trading Platform') %]</a>
+                    </li>
+                    <li>
                         <a href="[% request.url_for('partnerships') %]" class="nav-dropdown-toggle">[% l('Partnerships') %]</a>
                     </li>
                 </ul>

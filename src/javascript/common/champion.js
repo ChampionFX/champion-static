@@ -90,6 +90,9 @@ const Champion = (function() {
             'tnc-approval'     : { module: TNCApproval,         is_authenticated: true, only_real: true },
             'top-up-virtual'   : { module: CashierTopUpVirtual, is_authenticated: true, only_virtual: true },
             'types-of-accounts': { module: ClientType },
+            'trading-platform' : { module: ClientType },
+            'metatrader-5'     : { module: ClientType },
+            'champion-trader'  : { module: ClientType },
         };
         if (page in pages_map) {
             loadHandler(pages_map[page]);
