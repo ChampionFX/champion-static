@@ -120,8 +120,8 @@ const PersonalDetails = (() => {
     };
 
     const populateStates = (response) => {
-        const states_list = response.states_list,
-            $address_state = $(`${form_selector} #address_state`);
+        const states_list = response.states_list;
+        let $address_state = $(`${form_selector} #address_state`);
 
         if (states_list && states_list.length > 0) {
             let option = '<option value=\'\'>Please select</option>';
@@ -133,7 +133,9 @@ const PersonalDetails = (() => {
             $address_state.append(option);
         } else {
             $address_state.replaceWith('<input/>', { id: '#address_state'.replace('#', ''), name: 'address_state', type: 'text', maxlength: '35' });
+            $address_state = $(`${form_selector} #address_state`);
         }
+        $address_state.val(get_settings_data.address_state);
 
         Validation.init(form_selector, getValidations());
     };
@@ -176,9 +178,8 @@ const PersonalDetails = (() => {
 
             ChampionSocket.send(req).then((response) => {
                 const is_error = response.set_settings !== 1;
-                showMessage($msg, is_error ? response.error.message : 'Your settings have been updated successfully.');
+                showMessage($msg, is_error ? response.error.message : 'Your settings have been updated successfully.', !is_error);
                 if (!is_error) {
-                    $msg.delay(5000).fadeOut(1000);
                     ChampionSocket.send({ get_settings: 1 }, true).then((data) => {
                         getSettingsResponse(data.get_settings);
                     });
@@ -187,8 +188,11 @@ const PersonalDetails = (() => {
         }
     };
 
-    const showMessage = function($msg_el, msg_text) {
-        $msg_el.removeClass(hidden_class).css('display', 'block').html(msg_text);
+    const showMessage = function($msg_el, msg_text, is_success) {
+        $msg_el.attr('class', is_success ? 'success-msg' : 'error-msg').css('display', 'block')
+            .html(msg_text)
+            .delay(5000)
+            .fadeOut(1000);
     };
 
     const unload = () => {
