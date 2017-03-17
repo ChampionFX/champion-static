@@ -2,9 +2,7 @@
     <div id="cashier_deposit" class="container">
         [% INCLUDE components/page_title.html.tt title=l('Complete your ChampionFX virtual account signup') attributes='id="cashier_title" style="text-transform: capitalize"' %]
 
-        <div class="row">
-            <div id="error_msg" class="col-xs-12 notice-msg center-text invisible"></div>
-        </div>
+        <p id="error_msg" class="notice-msg center-text invisible"></p>
 
         <div id="form_withdraw" class="invisible">
             [% INCLUDE components/forms/form_row.html.tt id='verification_token' type='text' label=l('Verification token')
