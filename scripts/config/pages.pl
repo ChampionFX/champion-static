@@ -21,6 +21,7 @@ sub all_pages {
         ['reset-password',             'static/reset_password',        'full_width', 'Password Reset'],
         ['trading',                    'static/trading',               'full_width', 'Trading'],
         ['why-mt5',                    'static/why_mt5',               'full_width', 'Why MT5'],
+        ['trading-times',              'static/trading_times',         'full_width', 'Trading Times'],
 
         ['binary-options',             'static/binary_options/binary_options',    'full_width', 'Binary Options'],
         ['what-is-binary-options',     'static/binary_options/what_is',           'full_width', 'What is binary options trading'],

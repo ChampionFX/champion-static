@@ -1,0 +1,10 @@
+<div class="fx-section container">
+    [% INCLUDE components/page_title.html.tt title=l('Trading times') %]
+    <div>
+        <span>Date:</span>
+        <input type="text" id="trading-date" readonly="readonly" size="12" />
+        <p>All times are in GMT (Greenwich Mean Time)</p>
+    </div>
+    [% INCLUDE static/common/loading.html.tt %]
+    <div id="fx-trading-times" class="has-tabs"></div>
+</div>
