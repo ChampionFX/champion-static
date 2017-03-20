@@ -75,7 +75,8 @@
                 if(document.referrer) {
                     localStorage.setItem('index_referrer', document.referrer);
                 }
-                var lang = getCookieItem('language');
+                // TODO: the following line should be uncommented once other languages has been added
+                var lang = 'en'; // getCookieItem('language');
                 if(lang) {
                     isDelayedRedirect();
                 } else {
