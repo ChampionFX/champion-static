@@ -22,7 +22,7 @@ const ChangePassword = (function() {
         btn_submit = $form.find(fields.btn_submit);
         btn_submit.on('click', submit);
         Validation.init(form_selector, [
-            { selector: fields.txt_old_password, validations: ['req', 'password'] },
+            { selector: fields.txt_old_password, validations: ['req'] },
             { selector: fields.txt_new_password, validations: ['req', 'password'] },
             { selector: fields.txt_re_password,  validations: ['req', ['compare', { to: fields.txt_new_password }]] },
         ]);

@@ -20,7 +20,6 @@ const PersonalDetails = (() => {
         $(form_selector).on('submit', (event) => {
             event.preventDefault();
             submitForm();
-            return false;
         });
 
         ChampionSocket.send({ get_settings: 1 }).then((response) => {
@@ -89,31 +88,40 @@ const PersonalDetails = (() => {
         });
     };
 
+    const isChanged = data => (
+        Object.keys(editable_fields).some(key => (
+            (key in data && editable_fields[key] !== data[key])
+        ))
+    );
+
     const populateResidence = (response) => {
         const residence_list = response.residence_list,
             $place_of_birth  = $(`${form_selector} #place_of_birth`),
             $tax_residence   = $(`${form_selector} #tax_residence`);
 
         if (residence_list && residence_list.length > 0) {
-            let option = '';
+            let options = '';
             Object.keys(residence_list).forEach((res) => {
                 const value = residence_list[res].value;
                 const text  = residence_list[res].text;
-                option += `<option value=${value}>${text}</option>`;
+                options += `<option value=${value}>${text}</option>`;
             });
-            $place_of_birth.append(option);
-            $tax_residence.append(option);
+            $place_of_birth.html(options);
+            $('.select2').remove();
+            $tax_residence.html(options).promise().done(() => {
+                setTimeout(() => {
+                    $tax_residence.select2()
+                        .val(tax_residence_values).trigger('change')
+                        .removeClass('invisible');
+                }, 500);
+            });
             $place_of_birth.val(place_of_birth_value || residence);
         }
-
-        $tax_residence.select2()
-            .val(tax_residence_values).trigger('change')
-            .removeClass('invisible');
     };
 
     const populateStates = (response) => {
-        const states_list = response.states_list,
-            $address_state = $(`${form_selector} #address_state`);
+        const states_list = response.states_list;
+        let $address_state = $(`${form_selector} #address_state`);
 
         if (states_list && states_list.length > 0) {
             let option = '<option value=\'\'>Please select</option>';
@@ -125,36 +133,32 @@ const PersonalDetails = (() => {
             $address_state.append(option);
         } else {
             $address_state.replaceWith('<input/>', { id: '#address_state'.replace('#', ''), name: 'address_state', type: 'text', maxlength: '35' });
+            $address_state = $(`${form_selector} #address_state`);
         }
+        $address_state.val(get_settings_data.address_state);
 
         Validation.init(form_selector, getValidations());
     };
 
-    const getValidations = () => {
-        let validations = [];
-
-        validations = [
-            { selector: '#address_line_1',   validations: ['req', 'general', ['length', { min: 1, max: 70 }]] },
-            { selector: '#address_line_2',   validations: ['general', ['length', { min: 0, max: 70 }]] },
+    const getValidations = () => (
+        [
+            { selector: '#address_line_1',   validations: ['req', 'address', ['length', { min: 1, max: 70 }]] },
+            { selector: '#address_line_2',   validations: ['address', ['length', { min: 0, max: 70 }]] },
             { selector: '#address_city',     validations: ['req', 'letter_symbol', ['length', { min: 1, max: 35 }]] },
             { selector: '#address_state',    validations: $('#address_state').prop('nodeName') === 'SELECT' ? '' : ['letter_symbol'] },
             { selector: '#address_postcode', validations: ['postcode', ['length', { min: 0, max: 20 }]] },
-            { selector: '#phone',            validations: ['phone', ['length', { min: 6, max: 35 }]] },
+            { selector: '#phone',            validations: ['phone', ['length', { min: 6, max: 35, exclude: /^\+/ }]] },
 
             { selector: '#place_of_birth', validations: '' },
             { selector: '#tax_residence',  validations: '' },
-        ];
-        const tax_id_validation = { selector: '#tax_identification_number', validations: ['postcode', ['length', { min: 0, max: 20 }]] };
-
-        tax_id_validation.validations[1][1].min = 1;
-        tax_id_validation.validations.unshift('req');
-
-        validations.push(tax_id_validation);
-
-        return validations;
-    };
+            { selector: '#tax_identification_number', validations: ['postcode', ['length', { min: 0, max: 20 }]] },
+        ]
+    );
 
     const submitForm = () => {
+        const $msg = $('#error-update-details');
+        $msg.empty();
+
         if (Validation.validate(form_selector)) {
             const req = { set_settings: 1 };
             Object.keys(get_settings_data).forEach((key) => {
@@ -166,14 +170,29 @@ const PersonalDetails = (() => {
                     }
                 }
             });
+
+            if (!isChanged(req)) {
+                showMessage($msg, 'You did not change anything.');
+                return;
+            }
+
             ChampionSocket.send(req).then((response) => {
-                if (response.error) {
-                    $('#error-update-details').removeClass('hidden').html(response.error.message);
-                } else {
-                    $('#error-update-details').removeClass('hidden').html('Success');
+                const is_error = response.set_settings !== 1;
+                showMessage($msg, is_error ? response.error.message : 'Your settings have been updated successfully.', !is_error);
+                if (!is_error) {
+                    ChampionSocket.send({ get_settings: 1 }, true).then((data) => {
+                        getSettingsResponse(data.get_settings);
+                    });
                 }
             });
         }
+    };
+
+    const showMessage = function($msg_el, msg_text, is_success) {
+        $msg_el.attr('class', is_success ? 'success-msg' : 'error-msg').css('display', 'block')
+            .html(msg_text)
+            .delay(5000)
+            .fadeOut(1000);
     };
 
     const unload = () => {

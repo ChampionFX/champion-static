@@ -51,7 +51,7 @@ const CashierPassword = (function() {
             ]);
         } else {
             Validation.init(form_selector, [
-                { selector: fields.txt_unlock_password, validations: ['req', 'password'] },
+                { selector: fields.txt_unlock_password, validations: ['req'] },
             ]);
         }
     };

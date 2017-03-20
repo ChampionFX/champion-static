@@ -1,7 +1,7 @@
 <div class="fx-section container">
     [% INCLUDE components/page_title.html.tt title=l('Cashier') %]
     <div class="fx-cashier">
-        <div id="fx-virtual" class="row hidden">
+        <div id="fx-virtual" class="row invisible">
             <div class="col-md-12">
                 <h3>[% l('Get more virtual money') %]</h3>
             </div>
@@ -33,10 +33,10 @@
                     <p>[% l('Not sure if your preferred payment methods is supported? Refer to our list of available payment methods to find out.') %]</p>
                 </div>
                 <div class="row">
-                    <a class="button button_large hidden" href="[% request.url_for('/cashier/forward#deposit') %]" id="deposit-btn">
+                    <a class="button button_large invisible" href="[% request.url_for('/cashier/forward#deposit') %]" id="deposit-btn">
                         <span>[% l('Deposit') %]</span>
                     </a>
-                    <a class="button button_large hidden" href="[% request.url_for('/cashier/forward#withdraw') %]" id="withdraw-btn">
+                    <a class="button button_large invisible" href="[% request.url_for('/cashier/forward#withdraw') %]" id="withdraw-btn">
                         <span>[% l('Withdraw') %]</span>
                     </a>
                 </div>

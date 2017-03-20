@@ -18,7 +18,7 @@
                     [% INCLUDE components/forms/form_row.html.tt id='txt_re_password' type='password' label=l('Verify password') %]
 
                     [% INCLUDE components/forms/form_row.html.tt id='ddl_residence' type='select' label=l('Country of residence')
-                        attributes='class="hidden"' loading=1 loading_id='residence_loading' %]
+                        attributes='class="invisible"' loading=1 loading_id='residence_loading' %]
 
                     [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Create account') %]
                 </form>

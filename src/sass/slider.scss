@@ -1,4 +1,10 @@
 // custome style
+#slider_wrapper.loading-state {
+    visibility: hidden;
+    height: 200px;
+    overflow: hidden !important;
+}
+
 .slick-slide {
     height: 500px;
     margin: 0;

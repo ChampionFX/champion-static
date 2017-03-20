@@ -8,6 +8,7 @@ const ChampionNewVirtualAccount = (function() {
     'use strict';
 
     const form_selector = '#frm_new_account_virtual';
+    const hidden_class  = 'invisible';
 
     let container,
         btn_submit;
@@ -41,7 +42,7 @@ const ChampionNewVirtualAccount = (function() {
             const $ddl_residence = container.find(fields.ddl_residence);
             Utility.dropDownFromObject($ddl_residence, response.residence_list);
             container.find('#residence_loading').remove();
-            $ddl_residence.removeClass('hidden');
+            $ddl_residence.removeClass(hidden_class);
         });
     };
 
@@ -53,8 +54,8 @@ const ChampionNewVirtualAccount = (function() {
 
     const submit = (e) => {
         e.preventDefault();
-        btn_submit.attr('disabled', 'disabled');
         if (Validation.validate(form_selector)) {
+            btn_submit.attr('disabled', 'disabled');
             const data = {
                 new_account_virtual: 1,
                 verification_code  : $(fields.txt_verification_code).val(),
@@ -66,7 +67,7 @@ const ChampionNewVirtualAccount = (function() {
             }
             ChampionSocket.send(data).then((response) => {
                 if (response.error) {
-                    $('#msg_form').removeClass('hidden').text(response.error.message);
+                    $('#msg_form').removeClass(hidden_class).text(response.error.message);
                     btn_submit.removeAttr('disabled');
                 } else {
                     const acc_info = response.new_account_virtual;
