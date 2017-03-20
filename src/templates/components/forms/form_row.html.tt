@@ -15,7 +15,7 @@
         [%- CASE ['text', 'password'] -%]
             [% input_prefix %]<input type="[% type %]" id="[% id %]"[% IF type=='password' %] maxlength="25"[% END %] [% attributes %] />
         [%- CASE 'label' -%]
-            <span class="text-display">
+            <span class="text-display [% class %]">
                 [% IF is_bold -%]
                 <strong id="[% id %]" [% attributes %]></strong>
                 [% ELSE -%]

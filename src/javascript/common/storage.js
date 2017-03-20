@@ -1,4 +1,6 @@
-const Cookies  = require('../lib/js-cookie');
+const getPropertyValue = require('./utility').getPropertyValue;
+const isEmptyObject    = require('./utility').isEmptyObject;
+const Cookies          = require('../lib/js-cookie');
 
 const isStorageSupported = function(storage) {
     if (typeof storage === 'undefined') {
@@ -42,30 +44,16 @@ const InScriptStore = function(object) {
 
 InScriptStore.prototype = {
     get: function(key) {
-        let obj = this.store;
-        const keys = key.slice(0);
-        if (Array.isArray(keys)) {
-            keys.some(function(k, idx) {
-                if (k in obj && idx !== keys.length - 1) {
-                    obj = obj[k];
-                    key.shift();
-                    return false;
-                }
-                key = k;
-                return true;
-            });
-        }
-        return obj[key];
+        return getPropertyValue(this.store, key);
     },
-    set: function(key, value) {
-        let obj = this.store;
-        if (Array.isArray(key)) {
-            key.forEach(function(k) {
-                if (k in obj) obj = obj[k];
-                else key = k;
-            });
+    set: function(key, value, obj = this.store) {
+        if (!Array.isArray(key)) key = [key];
+        if (key.length > 1) {
+            if (!(key[0] in obj) || isEmptyObject(obj[key[0]])) obj[key[0]] = {};
+            this.set(key.slice(1), value, obj[key[0]]);
+        } else {
+            obj[key[0]] = value;
         }
-        obj[key] = value;
     },
     remove: function(key) { delete this.store[key]; },
     clear : function()    { this.store = {}; },

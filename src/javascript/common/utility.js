@@ -144,6 +144,19 @@ function template(string, content) {
     });
 }
 
+function cloneObject(obj) {
+    return !isEmptyObject(obj) ? $.extend({}, obj) : obj;
+}
+
+function getPropertyValue(obj, keys) {
+    if (!Array.isArray(keys)) keys = [keys];
+    if (!isEmptyObject(obj) && keys[0] in obj && keys && keys.length > 1) {
+        return getPropertyValue(obj[keys[0]], keys.slice(1));
+    }
+    // else return clone of object to avoid overwriting data
+    return obj ? cloneObject(obj[keys[0]]) : undefined;
+}
+
 module.exports = {
     showLoadingImage  : showLoadingImage,
     isEmptyObject     : isEmptyObject,
@@ -157,4 +170,5 @@ module.exports = {
     checkInput        : checkInput,
     dateValueChanged  : dateValueChanged,
     template          : template,
+    getPropertyValue  : getPropertyValue,
 };

@@ -9,13 +9,13 @@
 
         <div class="row center-text">
             <div class="col-sm">
-                <a class="button button_large hidden" href="[% request.url_for('/') %]" id="btn-open-account">
+                <a class="button button_large invisible" href="[% request.url_for('/') %]" id="btn-open-account">
                     <span>[% l('Open an account now') %]</span>
                 </a>
-                <a class="button button_large hidden" href="[% request.url_for('/cashier/forward#deposit') %]" id="btn-deposit">
+                <a class="button button_large invisible" href="[% request.url_for('/cashier/forward#deposit') %]" id="btn-deposit">
                     <span>[% l('Deposit') %]</span>
                 </a>
-                <a class="button button_large hidden" href="[% request.url_for('/cashier/forward#withdraw') %]" id="btn-withdraw">
+                <a class="button button_large invisible" href="[% request.url_for('/cashier/forward#withdraw') %]" id="btn-withdraw">
                     <span>[% l('Withdraw') %]</span>
                 </a>
             </div>

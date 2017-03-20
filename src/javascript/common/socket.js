@@ -158,7 +158,7 @@ const ChampionSocket = (function() {
 
     const onMessage = (message) => {
         const response = JSON.parse(message.data);
-        State.set(['response', response.msg_type], response);
+        State.set(['response', response.msg_type], $.extend({}, response));
         if (typeof default_calls[response.msg_type] === 'function') {
             default_calls[response.msg_type](response);
         }

@@ -9,8 +9,8 @@ const moment         = require('moment');
 const ResetPassword = (function() {
     'use strict';
 
-    const form_selector = '#frm_reset_password',
-        hiddenClass = 'invisible';
+    const form_selector = '#frm_reset_password';
+    const hidden_class  = 'invisible';
 
     let container,
         btn_submit,
@@ -44,7 +44,7 @@ const ResetPassword = (function() {
     };
 
     const haveRealAccountHandler = function() {
-        container.find('#dob_row').toggleClass(hiddenClass);
+        container.find('#dob_row').toggleClass(hidden_class);
     };
 
     const submit = (e) => {
@@ -60,10 +60,10 @@ const ResetPassword = (function() {
             }
             ChampionSocket.send(data).then((response) => {
                 btn_submit.prop('disabled', true);
-                $(form_selector).addClass(hiddenClass);
+                $(form_selector).addClass(hidden_class);
                 if (response.error) {
-                    $('p.notice-msg').addClass(hiddenClass);
-                    $('#reset-error').removeClass(hiddenClass);
+                    $('p.notice-msg').addClass(hidden_class);
+                    $('#reset-error').removeClass(hidden_class);
 
                     const resetErrorTemplate = '[_1]' +
                         ' Please click the link below to restart the password recovery process. ' +

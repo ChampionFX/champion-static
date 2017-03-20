@@ -5,6 +5,7 @@ html {
         display: flex;
         flex-direction: column;
         overflow-x: hidden;
+        position: inherit;
         #champion-container {
             flex: 1 1 auto;
         }
@@ -480,10 +481,6 @@ fieldset {
 
 .submit-row {
     margin: 40px 0;
-}
-
-.hidden {
-    display: none !important;
 }
 
 .champion-accounts {

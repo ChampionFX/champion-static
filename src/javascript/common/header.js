@@ -10,6 +10,8 @@ const template       = require('./utility').template;
 const Header = (function () {
     'use strict';
 
+    const hidden_class = 'invisible';
+
     const init = function() {
         ChampionSocket.wait('authorize').then(() => { userMenu(); });
         $(function () {
@@ -29,14 +31,14 @@ const Header = (function () {
 
     const userMenu = function() {
         if (!Client.is_logged_in()) {
-            $('#main-login, #main-signup').removeClass('hidden');
+            $('#main-login, #main-signup').removeClass(hidden_class);
             return;
         }
         if (!Client.is_virtual()) {
             displayAccountStatus();
         }
-        $('#main-logout').removeClass('hidden');
-        $('#main-signup').addClass('hidden');
+        $('#main-logout').removeClass(hidden_class);
+        $('#main-signup').addClass(hidden_class);
         const all_accounts = $('#all-accounts');
         const language = $('#select_language');
         $('.nav-menu').unbind('click').on('click', function(e) {

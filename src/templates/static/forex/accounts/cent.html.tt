@@ -5,10 +5,15 @@
                 <div class="lg-padding no-gutters">
                     <h1>[% l('Cent account') %]</h1>
                     <p>[% l('The Cent account offers the highest leverage, as well as low margin call and stop out level. It is ideal for new traders who want to start trading with a smaller capital.') %]</p>
-                    <a class="button" href="[% request.url_for('user/metatrader') %]"><span>[% l('Create account') %]</span></a>
-                    <h2>[% l('Account specifications') %]</h2>
-                    <table>
+                    <a class="button" href="[% request.url_for('user/metatrader') %]#create_champion_cent"><span>[% l('Create account') %]</span></a>
+                    <div class="fx-divider"></div>
+                    <table class="col-md-8 push-md-2">
                         <tbody>
+                            <tr>
+                                <th colspan="2" class="center-text">
+                                    <strong>Account specifications</strong>
+                                </th>
+                            </tr>
                             <tr>
                                 <td>[% l('Account currency') %]</td>
                                 <td>USD</td>
@@ -47,7 +52,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <p>[% l('Got questions? Read our FAQ or contact us.') %]</p>
+                    <p class="lg-padding">[% l('Got questions? Read our FAQ or contact us.') %]</p>
                 </div>
             </div>
         </div>

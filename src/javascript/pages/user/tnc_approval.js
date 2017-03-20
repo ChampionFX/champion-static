@@ -9,20 +9,19 @@ const template             = require('../../common/utility').template;
 const TNCApproval = (function() {
     'use strict';
 
-    const hiddenClass = 'invisible';
-
-    const btn_accept = '#btn-accept';
+    const hidden_class = 'invisible';
+    const btn_accept   = '#btn-accept';
 
     const load = () => {
-        $('#tnc-loading').addClass(hiddenClass);
+        $('#tnc-loading').addClass(hidden_class);
         $('#tnc_image').attr('src', url_for_static('images/protection-icon.svg'));
-        $('#tnc_approval').removeClass(hiddenClass);
+        $('#tnc_approval').removeClass(hidden_class);
         const $tnc_msg = $('#tnc-message');
         const tnc_message = template($tnc_msg.html(), [
             Client.get('landing_company_fullname'),
             url_for('terms-and-conditions'),
         ]);
-        $tnc_msg.html(tnc_message).removeClass(hiddenClass);
+        $tnc_msg.html(tnc_message).removeClass(hidden_class);
         $(btn_accept).text('OK').on('click', function (e) { approveTNC(e); });
     };
 
@@ -36,7 +35,7 @@ const TNCApproval = (function() {
                 });
                 window.location.href = default_redirect_url();
             } else {
-                $('#err_message').html(response.error.message).removeClass(hiddenClass);
+                $('#err_message').html(response.error.message).removeClass(hidden_class);
             }
         });
     };
