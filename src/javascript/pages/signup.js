@@ -7,8 +7,10 @@ const Client         = require('../common/client');
 const ChampionSignup = (function() {
     'use strict';
 
-    const form_selector = '.frm-verify-email',
-        signup_selector = '#signup';
+    const form_selector   = '.frm-verify-email';
+    const signup_selector = '#signup';
+    const hidden_class    = 'invisible';
+
     let is_active = false,
         $form,
         $input,
@@ -30,9 +32,9 @@ const ChampionSignup = (function() {
 
     const changeVisibility = ($selector, action) => {
         if (action === 'hide') {
-            $selector.addClass('hidden');
+            $selector.addClass(hidden_class);
         } else {
-            $selector.removeClass('hidden');
+            $selector.removeClass(hidden_class);
         }
     };
 
@@ -65,7 +67,7 @@ const ChampionSignup = (function() {
                 if (response.verify_email) {
                     ChampionRouter.forward(url_for('new-account/virtual'));
                 } else if (response.error) {
-                    $(`${form_selector}:visible #signup_error`).text(response.error.message).removeClass('hidden');
+                    $(`${form_selector}:visible #signup_error`).text(response.error.message).removeClass(hidden_class);
                 }
             });
         }

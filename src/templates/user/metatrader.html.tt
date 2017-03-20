@@ -8,8 +8,8 @@
 
         <div class="row">
             <div class="fst-container col-xs-12">
-                <div id="main_msg" class="notice-msg center-text hidden"></div>
-                <div id="fst_action" class="hidden">
+                <div id="main_msg" class="notice-msg center-text invisible"></div>
+                <div id="fst_action" class="invisible">
                     <h4></h4>
                     <div class="separator primary-color"></div>
                     <span class="close"></span>
@@ -19,23 +19,23 @@
             </div>
         </div>
 
-        <div id="templates" class="hidden">
+        <div id="templates" class="invisible">
             <div class="acc-box col-xs-12 col-sm-6 col-md-6 col-lg-3">
                 <div>
                     <h4 class="title"></h4>
                     <div class="separator primary-color"></div>
                     <div class="loading">[% INCLUDE static/common/loading.html.tt %]</div>
-                    <div class="no-account hidden">
+                    <div class="no-account invisible">
                         <div class="info"></div>
                         <span class="button"><span class="act_new_account">[% l('Sign up') %]</span></span>
                     </div>
-                    <div class="acc-info has-account row hidden">
+                    <div class="acc-info has-account row invisible">
                         <div class="col-xs-4">[% l('Login ID:') %]</div><div data="login" class="col-xs-8"></div>
                         <div class="col-xs-4">[% l('Name:') %]</div><div data="name" class="col-xs-7"></div>
                         <div class="col-xs-4">[% l('Balance:') %]</div><div data="balance" class="col-xs-8"></div>
-                        <div class="col-xs-4">[% l('Leverage:') %]</div><div data="leverage" class="col-xs-8"></div>
+                        <div class="col-xs-4 invisible">[% l('Leverage:') %]</div><div data="leverage" class="col-xs-8 invisible"></div>
                     </div>
-                    <div class="acc-actions has-account hidden">
+                    <div class="acc-actions has-account invisible">
                         <a href="javascript:;" class="act_deposit">
                             <img src="[% request.url_for('images/metatrader/deposit.svg') %]" alt="" />
                             [% l('Deposit') %]
@@ -72,7 +72,7 @@
                 [% INCLUDE components/forms/form_row.html.tt type='label'  id='lbl_account_type' label=l('Account type') %]
                 [% INCLUDE components/forms/form_row.html.tt type='label'  id='lbl_email'        label=l('Email') %]
                 [% INCLUDE components/forms/form_row.html.tt type='text'   id='txt_name'         label=l('Name') attributes='maxlength="30" autocomplete="off"' %]
-                [% WRAPPER components/forms/form_row.html.tt type='select' id='ddl_leverage'     label=l('Leverage') row_class='hidden' %]
+                [% WRAPPER components/forms/form_row.html.tt type='select' id='ddl_leverage'     label=l('Leverage') row_class='invisible' %]
                     <option value="1">1:1</option>
                     <option value="50">1:50</option>
                     <option value="100" selected="selected">1:100</option>

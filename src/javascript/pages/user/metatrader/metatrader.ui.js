@@ -14,7 +14,7 @@ const MetaTraderUI = (function() {
         $main_msg,
         submit;
 
-    const hidden_class  = 'hidden';
+    const hidden_class  = 'invisible';
 
     const types_info   = MetaTraderConfig.types_info;
     const actions_info = MetaTraderConfig.actions_info;

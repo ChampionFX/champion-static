@@ -6,10 +6,10 @@
                 <div class="topbar-contacts">
                     <ul>
                         <li class="last"><a href="[% request.url_for('contact') %]">[% l('Contact Us') %]</a></li>
-                        <li id="main-login" class="FX__Header__cta hidden"><a class="button-secondary" href="javascript:;">[% l('Log In') %]</a></li>
+                        <li id="main-login" class="FX__Header__cta invisible"><a class="button-secondary" href="javascript:;">[% l('Log In') %]</a></li>
                     </ul>
                 </div>
-                <div class="upgrade-message hidden">
+                <div class="upgrade-message invisible">
                     <a href="[% request.url_for('new-account/real') %]">Upgrade to a Real Account</a>
                 </div>
                 <div class="invisible">

@@ -10,6 +10,7 @@ const ChampionNewRealAccount = (function() {
     'use strict';
 
     const form_selector = '#frm_new_account_real';
+    const hidden_class  = 'invisible';
 
     let client_residence;
 
@@ -22,7 +23,7 @@ const ChampionNewRealAccount = (function() {
         txt_fname          : '#txt_fname',
         txt_lname          : '#txt_lname',
         txt_birth_date     : '#txt_birth_date',
-        ddl_residence      : '#ddl_residence',
+        lbl_residence      : '#lbl_residence',
         txt_address1       : '#txt_address1',
         txt_address2       : '#txt_address2',
         txt_city           : '#txt_city',
@@ -44,7 +45,7 @@ const ChampionNewRealAccount = (function() {
 
         container        = $('#champion-container');
         client_residence = Client.get('residence');
-        populateResidence();
+        displayResidence();
         populateState();
         attachDatePicker();
 
@@ -66,29 +67,30 @@ const ChampionNewRealAccount = (function() {
             { selector: fields.txt_fname,           validations: ['req', 'letter_symbol', ['min', { min: 2 }]] },
             { selector: fields.txt_lname,           validations: ['req', 'letter_symbol', ['min', { min: 2 }]] },
             { selector: fields.txt_birth_date,      validations: ['req'] },
-            { selector: fields.ddl_residence,       validations: ['req'] },
-            { selector: fields.txt_address1,        validations: ['req', 'general'] },
-            { selector: fields.txt_address2,        validations: ['general'] },
-            { selector: fields.txt_city,            validations: ['req', 'letter_symbol'] },
+            { selector: fields.txt_address1,        validations: ['req', 'address', ['length', { min: 1, max: 70 }]] },
+            { selector: fields.txt_address2,        validations: ['address', ['length', { min: 0, max: 70 }]] },
+            { selector: fields.txt_city,            validations: ['req', 'letter_symbol', ['length', { min: 1, max: 35 }]] },
             { selector: fields.txt_state,           validations: ['letter_symbol'] },
-            { selector: fields.txt_postcode,        validations: ['postcode'] },
-            { selector: fields.txt_phone,           validations: ['req', 'phone', ['min', { min: 6 }]] },
+            { selector: fields.txt_postcode,        validations: ['postcode', ['length', { min: 0, max: 20 }]] },
+            { selector: fields.txt_phone,           validations: ['req', 'phone', ['length', { min: 6, max: 35, exclude: /^\+/ }]] },
             { selector: fields.ddl_secret_question, validations: ['req'] },
-            { selector: fields.txt_secret_answer,   validations: ['req', ['min', { min: 4 }]] },
+            { selector: fields.txt_secret_answer,   validations: ['req', 'general', ['length', { min: 4, max: 50 }]] },
             { selector: fields.chk_tnc,             validations: ['req'] },
         ]);
     };
 
-    const populateResidence = () => {
+    const displayResidence = () => {
         ChampionSocket.send({ residence_list: 1 }).then((response) => {
-            const $ddl_residence = container.find(fields.ddl_residence);
-            Utility.dropDownFromObject($ddl_residence, response.residence_list, client_residence);
             container.find('#residence_loading').remove();
-            $ddl_residence.removeClass('hidden');
+            const $lbl_residence = container.find(fields.lbl_residence);
             const country_obj = response.residence_list.find(r => r.value === client_residence);
-            if (country_obj && country_obj.phone_idd) {
-                $(fields.txt_phone).val(`+${country_obj.phone_idd}`);
+            if (country_obj) {
+                $lbl_residence.text(country_obj.text);
+                if (country_obj.phone_idd) {
+                    $(fields.txt_phone).val(`+${country_obj.phone_idd}`);
+                }
             }
+            $lbl_residence.parent().removeClass(hidden_class);
         });
     };
 
@@ -99,7 +101,7 @@ const ChampionNewRealAccount = (function() {
             container.find('#state_loading').remove();
             if (states && states.length) {
                 Utility.dropDownFromObject($ddl_state, states);
-                $ddl_state.removeClass('hidden');
+                $ddl_state.removeClass(hidden_class);
             } else {
                 $ddl_state.replaceWith($('<input/>', { type: 'text', id: fields.txt_state.replace('#', ''), class: 'text', maxlength: '35' }));
             }
@@ -132,7 +134,7 @@ const ChampionNewRealAccount = (function() {
                 first_name      : $(fields.txt_fname).val(),
                 last_name       : $(fields.txt_lname).val(),
                 date_of_birth   : $(fields.txt_birth_date).val(),
-                residence       : $(fields.ddl_residence).val(),
+                residence       : client_residence,
                 address_line_1  : $(fields.txt_address1).val(),
                 address_line_2  : $(fields.txt_address2).val(),
                 address_city    : $(fields.txt_city).val(),
@@ -147,7 +149,7 @@ const ChampionNewRealAccount = (function() {
             }
             ChampionSocket.send(data).then((response) => {
                 if (response.error) {
-                    $('#msg_form').removeClass('hidden').text(response.error.message);
+                    $('#msg_form').removeClass(hidden_class).text(response.error.message);
                     btn_submit.removeAttr('disabled');
                 } else {
                     const acc_info = response.new_account_real;
