@@ -5,6 +5,7 @@ html {
         display: flex;
         flex-direction: column;
         overflow-x: hidden;
+        position: inherit;
         #champion-container {
             flex: 1 1 auto;
         }

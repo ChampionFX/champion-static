@@ -3,7 +3,7 @@ require('./../lib/slick');
 const Slider = (() => {
     const init = function() {
         $(function () {
-            $(document).find('.slider').slick({
+            $(document).find('#slider').slick({
                 infinite    : false,
                 dots        : true,
                 arrows      : false,
@@ -13,12 +13,14 @@ const Slider = (() => {
                 autoplay    : true,
             });
             positionFooterAndDots();
+            $('#slider_wrapper').removeClass('loading-state');
+            $('#slider_loading').remove();
         });
     };
 
     const destroy = function () {
         $('#slider-dots').empty();
-        $('.slider').slick('unslick');
+        $('#slider').slick('unslick');
     };
 
     const positionFooterAndDots = function() {
