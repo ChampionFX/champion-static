@@ -92,6 +92,9 @@ const Champion = (function() {
             'top-up-virtual'   : { module: CashierTopUpVirtual, is_authenticated: true, only_virtual: true },
             'trading-times'    : { module: TradingTimes },
             'types-of-accounts': { module: ClientType },
+            'trading-platform' : { module: ClientType },
+            'metatrader-5'     : { module: ClientType },
+            'champion-trader'  : { module: ClientType },
         };
         if (page in pages_map) {
             loadHandler(pages_map[page]);

@@ -50,7 +50,8 @@
         window.location = getRoot() + '/' + (lang || 'en').toLowerCase() + '/404.html';
     }
 
-    var lang = getCookieItem('language');
+    // TODO: the following line should be uncommented once other languages has been added
+    var lang = 'en'; // getCookieItem('language');
     if (lang) {
         redirect();
     } else {

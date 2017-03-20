@@ -26,7 +26,6 @@
                     <li class="col-sm"><a href="#margin-policy">[% l('Forex margin policy') %]</a></li>
                     <li class="col-sm"><a href="#contract-spec">[% l('Forex contract specifications') %]</a></li>
                     <li class="col-sm"><a href="#forex-accounts">[% l('Types of accounts') %]</a></li>
-                    <li class="col-sm"><a href="#trading-platforms">[% l('Forex trading platforms') %]</a></li>
                 </ul>
 
                 <div id="what-is-forex">
@@ -615,10 +614,6 @@
                             <p>[% l('Is an account that incurs no interest or swap charges on overnight positions. This option is ideal for those with certain religious restrictions when it comes to paying interest.') %]</p>
                         </div>
                     </div>
-                </div>
-
-                <div id="trading-platforms">
-                    <h2>[% l('Forex trading platforms') %]</h2>
                 </div>
             </div>
         </div>
