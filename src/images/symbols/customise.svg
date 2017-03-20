@@ -1,1 +1,17 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><defs><style>.cls-1{fill:#004385;}</style></defs><title>customise</title><path class="cls-1" d="M0,12v2H5V12ZM0,2V4H9V2ZM9,16V14h7V12H9V10H7v6ZM3,5V7H0V9H3v2H5V5ZM16,9V7H7V9ZM11,6h2V4h3V2H13V0H11Z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-23663 -15163 50 50">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #004385;
+      }
+
+      .cls-2 {
+        fill: #0080ff;
+      }
+    </style>
+  </defs>
+  <g id="Group_372" data-name="Group 372" transform="translate(-24208 -16803)">
+    <path id="Path_640" data-name="Path 640" class="cls-1" d="M0,38.889v5.556H16.667V38.889ZM0,5.556v5.556H27.778V5.556ZM27.778,50V44.444H50V38.889H27.778V33.333H22.222V50ZM11.111,16.667v5.556H0v5.556H11.111v5.556h5.556V16.667ZM50,27.778V22.222H22.222v5.556ZM33.333,16.667h5.556V11.111H50V5.556H38.889V0H33.333Z" transform="translate(545 1640)"/>
+    <path id="Path_641" data-name="Path 641" class="cls-2" d="M561.611,1656.76v16.629h-5.568v-5.646h-10.92v-5.693h10.92v-5.289Z"/>
+  </g>
+</svg>

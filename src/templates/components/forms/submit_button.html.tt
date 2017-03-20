@@ -1,0 +1,5 @@
+<div class="submit-row[% is_centered ? ' center-text' : '' %] [% row_class %]">
+    <p id="[% msg_id || 'msg_form' %]" class="error-msg invisible"></p>
+    <button id="[% id || 'btn_submit' %]"[% IF type=='submit' %] type="submit"[% END %]>[% text %]</button>
+    [%= content -%]
+</div>

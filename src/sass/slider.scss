@@ -1,0 +1,186 @@
+// custome style
+.slick-slide {
+    height: 500px;
+    margin: 0;
+    width: 100%;
+    div {
+        width: 100%;
+    }
+    ul {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        li {
+            width: 100%;
+            margin: 0;
+            height: 100%;
+            h2 {
+                line-height: 1.9rem;
+            }
+            a {
+                img {
+                    width: 12px;
+                    display: inline;
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+}
+
+.slick-dots {
+    right: 15px;
+    position: relative;
+    float: right;
+    margin: 0;
+    li {
+        display: inline-block;
+        padding: 0 5px;
+        line-height: 0;
+        margin: 0;
+        button {
+            padding: 0;
+            width: 10px;
+            height: 10px;
+            font-size: 0;
+            border-radius: 100%;
+            background: $fillColor;
+        }
+    }
+}
+
+.slider-footer {
+    position: absolute;
+    width: 100%;
+    padding: 10px;
+    color: $white;
+    background: rgba(0, 0, 0, 0.65);
+    .row {
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+.slider-text {
+    padding: 30px;
+    display: table;
+    .center-items {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .container {
+        &, .row {
+            height: 100%;
+            h3, p, .row {
+                padding: 10px;
+            }
+        }
+    }
+    .slide-list {
+        li {
+            height: auto !important;
+            font-size: 14px;
+        }
+    }
+}
+
+.large-slider-text {
+    display: block;
+    height: 100%;
+    .container {
+        &, .row {
+            height: 100%;
+            h3, p, .row {
+                padding: 0;
+            }
+        }
+    }
+}
+
+.license-box-icon {
+    background: url('../images/symbols/cfx_l.svg') center center no-repeat;
+    text-align: center;
+    display: flex;
+    height: 100%;
+    margin: 0;
+    background-position: center center;
+    max-width: 80px;
+}
+
+#slide-1 {
+    background: url('../images/slider/banner1.jpg') no-repeat center center;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+    .row {
+        margin: 0 auto;
+    }
+}
+
+#slide-2 {
+    background: url('../images/slider/banner2.png') no-repeat center center;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+}
+
+#slide-3 {
+    background: url('../images/slider/banner3.png') no-repeat center center;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+}
+
+#slide-4 {
+    background: url('../images/slider/banner4.png') no-repeat center center;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+}
+
+#slide-5 {
+    background: url('../images/slider/banner5.png') no-repeat center center;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+}
+
+#slide-6 {
+    background: url('../images/slider/banner6.jpg') no-repeat center center;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+}
+
+#slide-7 {
+    background: url('../images/slider/banner7.jpg') no-repeat center center;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+    .slider-footer {
+        position: relative;
+        background: $fillColor;
+    }
+    .license-box {
+        color: $contentColor;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .slider-footer {
+        position: relative;
+        background: $fillColor;
+    }
+    .license-box {
+        color: $contentColor;
+    }
+    .signup-box div {
+        text-align: center;
+    }
+    .signup-box button {
+        margin: 0 0 15px;
+    }
+}

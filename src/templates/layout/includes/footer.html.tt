@@ -2,26 +2,35 @@
     <div id="footer-menu" class="">
         <div class="container">
             <div class="row">
-                <div class="col-sm">
+                <div class="col-sm flex-sm-middle col-md-3 col-lg-3">
                 <ul>
                     <li>
                         <a href="[% request.url_for('terms-and-conditions') %]">[% l("Terms and Conditions") %]</a>
                     </li>
                 </ul>
                 </div>
-                <div class="col-sm">
+                <div class="col-sm flex-sm-middle col-md-3 col-lg-3">
                     <ul>
                         <li><a class="" href="[% request.url_for('cashier/payment-methods') %]">[% l("Payment Methods") %]</a></li>
                     </ul>
                 </div>
-                <div class="col-sm">
-                    <ul>
-                        <li><a class="" href=""></a></li>
-                    </ul>
-                </div>
-                <div class="col-sm">
-                    <ul>
-                        <li><a class="" href=""></a></li>
+                <div class="col-sm flex-sm-middle col-md-6 col-lg-6">
+                    <ul class="social-network">
+                        <li>
+                            <a href="">
+                                <img src="[% request.url_for('images/symbols/fb.svg') %]" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="[% request.url_for('images/symbols/t.svg') %]" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="[% request.url_for('images/symbols/yt.svg') %]" alt="">
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -36,8 +45,8 @@
             </div>
         </div>
     </div>
-    <div id="footer-last" class="">
-        <div class="container center-text">
+    <div id="footer-last" class="primary-color-dark">
+        <div class="container">
             <div class="row">
                 <div class="col-sm">
                     [% l('&copy; 2017 Champion FX') %]
@@ -45,5 +54,5 @@
             </div>
         </div>
     </div>
-    <div id="end_note" class="invisible"></div>
+    <div id="end_note" class="invisible hidden-xs-down"></div>
 </footer>

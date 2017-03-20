@@ -52,9 +52,9 @@ const Validation = (function() {
     const validRequired     = value => value.length;
     const validEmail        = value => /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/.test(value);
     const validPassword     = value => /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+/.test(value);
-    const validLetterSymbol = value => !/[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/.test(value);
-    const validGeneral      = value => !/[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|]+/.test(value);
-    const validPostCode     = value => /^[a-zA-Z\d-]*$/.test(value);
+    const validLetterSymbol = value => !/[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><|\d]+/.test(value);
+    const validGeneral      = value => !/[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><|]+/.test(value);
+    const validPostCode     = value => /^[a-zA-Z\d-\s]*$/.test(value);
     const validPhone        = value => /^\+?[0-9\s]*$/.test(value);
     const validEmailToken   = value => value.trim().length === 48;
 
@@ -91,7 +91,7 @@ const Validation = (function() {
         password     : { func: validPassword,     message: 'Password should have lower and uppercase letters with numbers.' },
         general      : { func: validGeneral,      message: 'Only letters, numbers, space, hyphen, period, and apostrophe are allowed.' },
         letter_symbol: { func: validLetterSymbol, message: 'Only letters, space, hyphen, period, and apostrophe are allowed.' },
-        postcode     : { func: validPostCode,     message: 'Only letters, numbers, and hyphen are allowed.' },
+        postcode     : { func: validPostCode,     message: 'Only letters, numbers, space and hyphen are allowed.' },
         phone        : { func: validPhone,        message: 'Only numbers and spaces are allowed.' },
         email_token  : { func: validEmailToken,   message: 'Please submit a valid verification token.' },
         compare      : { func: validCompare,      message: 'The two passwords that you entered do not match.' },
@@ -107,7 +107,7 @@ const Validation = (function() {
     // ----- Validate -----
     // --------------------
     const checkField = (field) => {
-        if (!field.$.is(':visible')) return true;
+        if (!field.$.is(':visible') || !field.validations) return true;
         let all_is_ok = true,
             message;
 
@@ -172,7 +172,7 @@ const Validation = (function() {
         form.fields.forEach((field) => {
             if (!checkField(field)) {
                 if (form.is_ok) { // first error
-                    $.scrollTo(field.$, 500, { offset: -10 });
+                    $.scrollTo(field.$.parent('div'), 500, { offset: -10 });
                 }
                 form.is_ok = false;
             }

@@ -1,28 +1,19 @@
-<div class="dark-blue header">
-    <div class="fx-container">
+<div id="header" class="dark-blue header">
+    <div class="menu-container">
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-md-3 col-sm-6 col-xs-6 vertical-center">
                 <div class="logo-wrapper">
                     <a href="[% request.url_for('home') %]" class="logo-parent">
                         <div class="logo">
                             <div></div>
                         </div>
-                        <div class="mobile-hide binary-logo-text ">
+                        <div class="binary-logo-text hidden-xs-down">
                             <div></div>
                         </div>
                     </a>
                 </div>
             </div>
-            <div class="col-lg-7">
-                <ul class="top-nav-menu mobile-hide">
-                    <li><a href="[% request.url_for('about-us') %]">[% l('About') %]</a></li>
-                    <li><a href="[% request.url_for('forex') %]">[% l('Forex') %]</a></li>
-                    <li><a href="[% request.url_for('binary-options') %]">[% l('Binary Options') %]</a></li>
-                    <li><a href="[% request.url_for('range-of-markets') %]">[% l('Markets') %]</a></li>
-                    <li><a href="[% request.url_for('partnerships') %]">[% l('Partnerships') %]</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-2">
+            <div class="col-md-2 push-md-7 col-sm-6 col-xs-6 vertical-center">
                 <div id="main-logout" class="hidden">
                     <ul id="main-account" class="nav-menu main-nav">
                         <li class="account">
@@ -42,7 +33,7 @@
                                 <div class="main-account">
                                     <div class="account-type"></div>
                                     <div class="account-id"></div>
-                                    <div class="topMenuBalance"></div>
+                                    <div class="topMenuBalance">&nbsp;</div>
                                 </div>
                                 <div class="nav-caret"></div>
                             </a>
@@ -55,6 +46,19 @@
                                     <li class="topMenuCashier">[% l('Cashier') %]</li>
                                 </a>
                                 <div class="separator-line-thin-gray"></div>
+                                <a href="[% request.url_for('about-us') %]" class="hidden-sm-up">
+                                    <li>[% l('About') %]</li>
+                                </a>
+                                <a href="[% request.url_for('mt5') %]" class="hidden-sm-up">
+                                    <li>[% l('MT5') %]</li>
+                                </a>
+                                <a href="[% request.url_for('binary-options') %]" class="hidden-sm-up">
+                                    <li>[% l('Binary Options') %]</li>
+                                </a>
+                                <a href="[% request.url_for('partnerships') %]" class="hidden-sm-up">
+                                    <li>[% l('Partnerships') %]</li>
+                                </a>
+                                <div class="separator-line-thin-gray hidden-sm-up"></div>
                                 <div class="login-id-list"></div>
                                 <a href="javascript:;" id="btn_logout" class="logout">
                                     <li>[% l("Sign out") %]</li>
@@ -63,9 +67,32 @@
                         </li>
                     </ul>
                 </div>
-                <div id="main-login" class="FX__Header__cta hidden">
-                    <a class="button-secondary" href="javascript:;"><span>[% l('Log In') %]</span></a>
+                <div id="main-signup" class="hidden">
+                    <ul class="signup-button">
+                        <li class="">
+                            <a class="button-secondary" href="[% request.url_for('home') %]#signup"><span>[% l('Sign Up') %]</span></a>
+                        </li>
+                    </ul>
                 </div>
+            </div>
+            <div class="col-md-7 pull-md-2 hidden-sm-down vertical-center">
+                <ul class="top-nav-menu">
+                    <li>
+                        <a href="[% request.url_for('about-us') %]" class="nav-dropdown-toggle">[% l('About') %]</a>
+                    </li>
+                    <li>
+                        <a href="[% request.url_for('mt5') %]" class="nav-dropdown-toggle">[% l('MT5') %]</a>
+                    </li>
+                    <li>
+                        <a href="[% request.url_for('binary-options') %]" class="nav-dropdown-toggle">[% l('Binary Options') %]</a>
+                    </li>
+                    <li>
+                        <a href="[% request.url_for('trading-platform') %]" class="nav-dropdown-toggle">[% l('Trading Platform') %]</a>
+                    </li>
+                    <li>
+                        <a href="[% request.url_for('partnerships') %]" class="nav-dropdown-toggle">[% l('Partnerships') %]</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

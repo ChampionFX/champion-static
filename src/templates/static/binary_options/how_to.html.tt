@@ -1,0 +1,170 @@
+<div class="fx-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                [% INCLUDE components/page_title.html.tt title=l('How to trade binary options') %]
+                <p>[% l('Trading binary options is relatively easy, and you can purchase a trade in only three simple steps.') %]</p>
+                <div class="fx-divider"></div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <!-- pLace holder for image -->
+                        <div class="box fill-bg-color">
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                        </div>
+                        <h3>[% l('Define your position') %]</h3>
+                        <p>[% l('Consider the market, duration, barrier, and payout.')%]</p>
+                    </div>
+                    <div class="col-md-3 offset-md-1">
+                        <!-- pLace holder for image -->
+                        <div class="box fill-bg-color">
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                        </div>
+                        <h3>[% l('Get your price') %]</h3>
+                        <p>[% l('Receive instant prices based on your position.')%]</p>
+                    </div>
+                    <div class="col-md-3 offset-md-1">
+                        <!-- pLace holder for image -->
+                        <div class="box fill-bg-color">
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                        </div>
+                        <h3>[% l('Make your trade') %]</h3>
+                        <p>[% l('Choose to buy, or redefine your position.')%]</p>
+                    </div>
+                </div>
+                <div class="fx-divider"></div>
+                <div class="row">
+                    <div class="col-md-8 push-md-2">
+                        <div class="box bordered">
+                            <div class="row center-text">
+                                <div class="col-md-4">
+                                    <a href="#step-1">
+                                        <h4>[% l('Define your position') %]</h4>
+                                    </a>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="#step-2">
+                                        <h4>[% l('Get your price') %]</h4>
+                                    </a>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="#step-3">
+                                        <h4>[% l('Make your trade') %]</h4>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fx-divider"></div>
+                <div class="center-text">
+                    <h3 id="step-1">[% l('Step 1: Define your position') %]</h3>
+                    <p>[% l('First, you need to set the parameters of your trade. Here\'s what you need to consider.') %]</p>
+                </div>
+                <div class="fx-divider"></div>
+                <div class="row">
+                    <div class="col-md-5 push-md-1 flex-md-middle">
+                        <!-- pLace holder for image -->
+                        <div class="box fill-bg-color">
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                    <div class="col-md-5 push-md-1">
+                        <h4>[% l('1. Underlying market') %]</h4>
+                        <p>[% l('Choose the asset you wish to trade, such as gold, oil, stocks, or currency pairs. The value of a binary option is derived from the price of the underlying asset. One advantage of trading binary options is that you are not buying or selling the actual asset, only a contract that determines how that asset performs.') %]</p>
+                        <p>[% l('Choose from five types of markets and their respective assets:') %]</p>
+                        <ul class="bullet">
+                            <li>[% l('Currencies - All major Forex pairs') %]</li>
+                            <li>[% l('Stock indices - All major worldwide stock indices sourced from the over-the-counter market') %]</li>
+                            <li>[% l('Commodities - Major commodities such as gold and oil') %]</li>
+                            <li>[% l('OTC stocks - Blue-chip stock contracts sourced from the over-the-counter market') %]</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="fx-divider"></div>
+                <div class="row">
+                    <div class="col-md-5 push-md-1 flex-md-middle">
+                        <!-- pLace holder for image -->
+                        <div class="box fill-bg-color">
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                    <div class="col-md-5 push-md-1">
+                        <h4>[% l('2. Trade type') %]</h4>
+                        <p>[% l('There are four trade types for you to choose from:') %]</p>
+                        <ul class="bullet">
+                            <li>[% l('<strong>Rise/Fall</strong> - Predict if the market will rise or fall from its current level') %]</li>
+                            <li>[% l('<strong>Higher/Lower</strong> - Predict if the market will end higher or lower than a target price') %]</li>
+                            <li>[% l('<strong>Touch/No Touch</strong> - Predict if the market will touch or not touch a target price') %]</li>
+                            <li>[% l('<strong>In/Out</strong> - Predict if the market will stay between or outside two target prices') %]</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="fx-divider"></div>
+                <div class="row">
+                    <div class="col-md-5 push-md-1 flex-md-middle">
+                        <!-- pLace holder for image -->
+                        <div class="box fill-bg-color">
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                    <div class="col-md-5 push-md-1 flex-md-middle">
+                        <h4>[% l('3. Duration') %]</h4>
+                        <p>[% l('Set the length of your trade, from 10 seconds to 365 days. You don’t even need to wait until expiry. Sell back any long-term trades that you purchased at any time to profit from favourable market conditions.') %]</p>
+                    </div>
+                </div>
+                <div class="fx-divider"></div>
+                <div class="row">
+                    <div class="col-md-5 push-md-1 flex-md-middle">
+                        <!-- pLace holder for image -->
+                        <div class="box fill-bg-color">
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                    <div class="col-md-5 push-md-1 flex-md-middle">
+                        <h4>[% l('4. Barrier(s)') %]</h4>
+                        <p>[% l('Set barrier(s) to define your position and trigger the payout you will receive') %]</p>
+                    </div>
+                </div>
+                <div class="fx-divider"></div>
+                <div class="row">
+                    <div class="col-md-5 push-md-1 flex-md-middle">
+                        <!-- pLace holder for image -->
+                        <div class="box fill-bg-color">
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                    <div class="col-md-5 push-md-1 flex-md-middle">
+                        <h4>[% l('5. Payout') %]</h4>
+                        <p>[% l('Each trade comes with a pre-determined payout that you will see after adjusting each parameter. You\'ll win the payout if your prediction is correct.') %]</p>
+                    </div>
+                </div>
+                <div class="fx-divider-xl"></div>
+                <div class="center-text">
+                    <h3 id="step-2">[% l('Step 2: Get your price') %]</h3>
+                    <p>[% l('Our prices are benchmarked against the interbank options market, so you always get the most competitive prices. You\'ll always receive fair and transparent pricing, whatever your position.') %]</p>
+                </div>
+                <div class="fx-divider-xl"></div>
+                <div class="center-text">
+                    <h3 id="step-3">[% l('Step 3: Make your trade') %]</h3>
+                    <p>[% l('When you are satisfied with the price that you receive, execute your trade immediately. With our unique platform, there\'s no risk of \'slippage\' or gaping markets. And most importantly, there are no hidden fees. You can also sell back any long-term trades at any time to profit from favourable market conditions.') %]</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,38 @@
-body .top-nav-menu li a {
-    padding: 30px;
+#header {
+    border: 0 !important;
+    .top-nav-menu {
+        float: right;
+        margin-left: auto;
+        li {
+            a {
+                height: auto;
+                padding: 25px 15px;
+                border-bottom: 4px solid transparent;
+                color: $contentInverseColor !important;
+                &.active {
+                    border-bottom-color: $borderColor;
+                }
+                li {
+                    border-bottom: 3px solid $primaryBrandColor;
+                    margin-bottom: -4px;
+                }
+            }
+            ul {
+                z-index: 10;
+            }
+        }
+    }
 }
 
 .main-nav > li > ul {
     box-sizing: content-box;
+    margin-top: 0 !important;
+}
+
+.logo > div {
+    height: 45px;
+}
+
+.logo, .logo-dark {
+    height: 45px;
 }

@@ -1,1 +1,20 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><defs><style>.cls-1{fill:#004385;}</style></defs><title>licensed_broker</title><circle class="cls-1" cx="8" cy="9" r="3"/><path class="cls-1" d="M15,0H0V12H5.38a4,4,0,0,1-.82-1H1V1H15V11H11.45a4,4,0,0,1-.82,1H16V0Z"/><path class="cls-1" d="M6,12.45V16l2-1,2,1V12.45a3.88,3.88,0,0,1-4,0Z"/><rect class="cls-1" x="4" y="4" width="8" height="1"/><rect class="cls-1" x="5" y="2" width="6" height="1"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-24103 -15163 50 50">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #0080ff;
+      }
+
+      .cls-2 {
+        fill: #004385;
+      }
+    </style>
+  </defs>
+  <g id="Group_369" data-name="Group 369" transform="translate(-24103 -15163)">
+    <circle id="Ellipse_109" data-name="Ellipse 109" class="cls-1" cx="9.375" cy="9.375" r="9.375" transform="translate(15.625 18.75)"/>
+    <path id="Path_638" data-name="Path 638" class="cls-2" d="M46.875,0H0V37.5H16.875a12.235,12.235,0,0,1-2.5-3.125H3.125V3.125h43.75v31.25H35.625a12.235,12.235,0,0,1-2.5,3.125H50V0Z"/>
+    <path id="Path_639" data-name="Path 639" class="cls-1" d="M6,12.4V23.65l6.25-3.125L18.5,23.65V12.4A11.354,11.354,0,0,1,6,12.4Z" transform="translate(12.75 26.35)"/>
+    <rect id="Rectangle_282" data-name="Rectangle 282" class="cls-2" width="25" height="3.125" transform="translate(12.5 12.5)"/>
+    <rect id="Rectangle_283" data-name="Rectangle 283" class="cls-2" width="18.75" height="3.125" transform="translate(15.625 6.25)"/>
+  </g>
+</svg>
