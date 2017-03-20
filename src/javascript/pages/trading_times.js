@@ -24,9 +24,9 @@ const TradingTimes = (() => {
         });
 
         ChampionSocket.send({ active_symbols: 'brief' }).then((response) => {
+            $('.barspinner').addClass(hidden_class);
             if (response.error) {
                 $('#error-msg').html(response.error.message);
-                $('.barspinner').addClass(hidden_class);
             } else {
                 active_symbols = response.active_symbols.slice(0);
                 getTradingTimes('today');
@@ -36,6 +36,7 @@ const TradingTimes = (() => {
 
     const getTradingTimes = (date) => {
         ChampionSocket.send({ trading_times: date || 'today' }).then((response) => {
+            $('.barspinner').addClass(hidden_class);
             if (response.error) {
                 $('#error-msg').html(response.error.message);
             } else {
@@ -73,7 +74,6 @@ const TradingTimes = (() => {
         $('#fx-trading-times')
             .html(`${market_tabs}${market_contents}`)
             .tabs();
-        $('.barspinner').addClass(hidden_class);
     };
 
     const createTabs = tabs => (tabs.map((tab, index) => (`<li><a href="#market_${index++}">${tab.name}</a></li>`)).join(''));
