@@ -25,7 +25,8 @@ const TradingTimes = (() => {
 
         ChampionSocket.send({ active_symbols: 'brief' }).then((response) => {
             if (response.error) {
-                console.log(response.error.message);
+                $('#error-msg').html(response.error.message);
+                $('.barspinner').addClass(hidden_class);
             } else {
                 active_symbols = response.active_symbols.slice(0);
                 getTradingTimes('today');
@@ -36,7 +37,7 @@ const TradingTimes = (() => {
     const getTradingTimes = (date) => {
         ChampionSocket.send({ trading_times: date || 'today' }).then((response) => {
             if (response.error) {
-                console.log(response.error.message);
+                $('#error-msg').html(response.error.message);
             } else {
                 createTable(response.trading_times);
             }
