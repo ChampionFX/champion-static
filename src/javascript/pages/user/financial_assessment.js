@@ -12,7 +12,10 @@ const FinancialAssessment = (() => {
     const hidden_class  = 'invisible';
 
     let financial_assessment = {},
-        arr_validation = [];
+        arr_validation = [],
+        $btn_submit,
+        $msg_form,
+        $msg_success;
 
     const load = () => {
         showLoadingImage($('<div/>', { id: 'loading', class: 'center-text' }).insertAfter('#heading'));
@@ -21,6 +24,10 @@ const FinancialAssessment = (() => {
             submitForm();
             return false;
         });
+
+        $btn_submit  = $(form_selector).find('#submit');
+        $msg_form    = $(form_selector).find('#msg_form');
+        $msg_success = $(form_selector).find('#msg_success');
 
         ChampionSocket.wait('get_financial_assessment').then((response) => {
             handleForm(response);
@@ -55,30 +62,30 @@ const FinancialAssessment = (() => {
     };
 
     const submitForm = () => {
-        $('#submit').attr('disabled', 'disabled');
+        $btn_submit.attr('disabled', 'disabled');
 
         if (Validation.validate(form_selector)) {
-            let hasChanged = false;
+            let has_changed = false;
             Object.keys(financial_assessment).forEach((key) => {
                 const $key = $(`#${key}`);
                 if ($key.length && $key.val() !== financial_assessment[key]) {
-                    hasChanged = true;
+                    has_changed = true;
                 }
             });
-            if (Object.keys(financial_assessment).length === 0) hasChanged = true;
-            if (!hasChanged) {
+            if (Object.keys(financial_assessment).length === 0) has_changed = true;
+            if (!has_changed) {
                 showFormMessage('You did not change anything.', false);
-                setTimeout(() => { $('#submit').removeAttr('disabled'); }, 1000);
+                setTimeout(() => { $btn_submit.removeAttr('disabled'); }, 1000);
                 return;
             }
 
             const data = { set_financial_assessment: 1 };
-            showLoadingImage($('#msg_form'));
+            showLoadingImage($msg_form);
             $(form_selector).find('select').each(function() {
                 financial_assessment[$(this).attr('id')] = data[$(this).attr('id')] = $(this).val();
             });
             ChampionSocket.send(data).then((response) => {
-                $('#submit').removeAttr('disabled');
+                $btn_submit.removeAttr('disabled');
                 if ('error' in response) {
                     showFormMessage('Sorry, an error occurred while processing your request.', false);
                 } else {
@@ -89,7 +96,7 @@ const FinancialAssessment = (() => {
                 }
             });
         } else {
-            setTimeout(() => { $('#submit').removeAttr('disabled'); }, 1000);
+            setTimeout(() => { $btn_submit.removeAttr('disabled'); }, 1000);
         }
     };
 
@@ -99,17 +106,16 @@ const FinancialAssessment = (() => {
     };
 
     const showFormMessage = (msg, isSuccess) => {
+        $msg_form.removeClass(hidden_class).css('display', '').html('');
         if (isSuccess) {
-            $.scrollTo($('h1#heading'), 500, { offset: -10 });
-            $(form_selector).addClass(hidden_class);
-            $('#msg_success').removeClass(hidden_class);
+            $msg_success.removeClass(hidden_class);
             ChampionSocket.send({ get_account_status: 1 }).then((response_status) => {
                 if ($.inArray('authenticated', response_status.get_account_status.status) === -1) {
                     $('#msg_authenticate').removeClass(hidden_class);
                 }
             });
         } else {
-            $('#msg_form').html(msg).delay(5000).fadeOut(1000);
+            $msg_form.html(msg).delay(5000).fadeOut(1000);
         }
     };
 
