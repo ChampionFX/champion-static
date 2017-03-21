@@ -10,7 +10,7 @@
                                 <strong>[% l('ChampionFX: Where the Client is King') %]</strong>
                             </h3>
                             <p class="white">
-                                [% l('Trade in the financial markets with a multi-asset trading platform: Meta trader 5. The choise of the modern trader. One platform, many markets.') %]
+                                [% l('Trade in the financial markets with a multi-asset trading platform: Meta trader 5. The choice of the modern trader. One platform, many markets.') %]
                             </p>
                         </div>
                     </div>
@@ -73,14 +73,14 @@
                 <ul class="row">
                     <li class="col-md-6 col-sm-6 slider-text center-text">
                         <div class="center-items">
-                            <h3 class="blue">[% l("ChampionFX is the world's first dedicated MT5 broker") %]</h3>
-                            <p>[% l('Trade with ChampionFX and access:') %]</p>
+                            <h3 class="blue">[% l("ChampionFX is the world’s first dedicated MT5 broker.") %]</h3>
+                            <p>[% l('Trade with us and access:') %]</p>
                             <div class="row">
                                 <div class="col-lg-10 offset-lg-1 col-md-10 offset-md-1 text-center">
                                     <ul class="bullet slide-list">
-                                        <li>[% l("The most popular and the most advanced multi-asset trading platform in the world") %]</li>
-                                        <li>[% l("News feeds and macroeconomic indicators for comprehensive fundamental analysis") %]</li>
-                                        <li>[% l("Automated trading, copy trading, hedging, netting and a lot more - all on one platform") %]</li>
+                                        <li>[% l("The world’s most advanced multi-asset trading platform") %]</li>
+                                        <li>[% l("Superior tools for fundamental analysis") %]</li>
+                                        <li>[% l("Hedging, netting, automated trading, and lots more") %]</li>
                                     </ul>
                                 </div>
                             </div>
