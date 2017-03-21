@@ -245,6 +245,10 @@ h1.main-title {
     padding: 25px 0;
 }
 
+.mt5-header {
+    background-image: url('../images/forex.png');
+}
+
 // Home page
 .fx-home-header {
     @include header-background(0, '../images/header_imgfx-2x.jpg');

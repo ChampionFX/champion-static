@@ -7,7 +7,7 @@
     </tr>
 [% END %]
 
-<div class="primary-color-dark">
+<div class="primary-color-dark mt5-header">
     <div class="fx-panel center-text container">
         <h1 class="content-inverse-color">[% l('Forex') %]</h1>
         <p class="content-inverse-color">[% l('Make your mark in the world of Forex trading. We provide the power and flexibility to take you to a whole new level.') %]</p>
