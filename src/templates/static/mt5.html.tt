@@ -7,7 +7,7 @@
     </tr>
 [% END %]
 
-<div class="primary-color-dark">
+<div class="primary-color-dark mt5-header">
     <div class="fx-panel center-text container">
         <h1 class="content-inverse-color">[% l('Forex') %]</h1>
         <p class="content-inverse-color">[% l('Make your mark in the world of Forex trading. We provide the power and flexibility to take you to a whole new level.') %]</p>
@@ -85,13 +85,13 @@
                             <p>[% l('Forex trading involves buying one currency and selling another currency at the same time. This is why you always see them quoted in pairs, such as EUR/USD or GBP/USD.') %]</p>
                         </div>
                         <div class="col-sm">
-                            <img src="https://placehold.it/550x300" />
+                            <img src="[% request.url_for('images/fx.png') %]" />
                         </div>
                     </div>
 
                     <div class="row lg-padding no-gutters">
                         <div class="col-sm flex-sm-middle center-text">
-                            <img src="https://placehold.it/300x300">
+                            <img src="[% request.url_for('images/currency.svg') %]">
                         </div>
                         <div class="col-sm">
                             <h3>[% l('Which currencies are available for trading') %]</h3>
@@ -119,7 +119,7 @@
                             </ul>
                         </div>
                         <div class="col-sm">
-                            <img src="https://placehold.it/550x300" />
+                            <img src="[% request.url_for('images/spread.png') %]" />
                             <p>[% l('The spread is the difference between the buy (ask) price and sell (bid) price.') %]</p>
                             <div class="box bordered center-text">
                                 <p>[% l('Buy (ask) price - sell (bid) price = spread') %]</p>
@@ -135,9 +135,9 @@
                             <h3>[% l('What time is the market open for me to trade') %]</h3>
                             <p>[% l('The Forex is an over-the-counter market where trading takes place between two parties, and not with a centralised marketplace or exchange.') %]</p>
                         </div>
-                        <div class="col-xxs">
-                            <img class="float-right" src="https://placehold.it/100x60">
-                            <img class="float-right" src="https://placehold.it/100x60">
+                        <div class="col-xs">
+                            <img class="float-right" src="[% request.url_for('images/sydneyny.svg') %]">
+                            <img class="float-right" src="[% request.url_for('images/245.svg') %]">
                         </div>
                         <div class="col-sm">
                             <p>[% l('Trading starts when the Sydney market opens on Monday morning and ends when the New York market closes on Friday evening.') %]</p>
@@ -187,7 +187,7 @@
                             <div class="col-sm">
                                 <div class="row">
                                     <div class="col-xs">
-                                        <img class="float-right" src="https://placehold.it/50x250">
+                                        <img class="float-right" src="[% request.url_for('images/steps.svg') %]">
                                     </div>
                                     <div class="col-xlg">
                                         <h3>[% l('Learn') %]</h3>

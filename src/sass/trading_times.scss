@@ -1,0 +1,29 @@
+#fx-trading-times {
+    table {
+        margin-top: -2px;
+    }
+    tr:nth-child(1) {
+        th {
+            background-color: $secondaryContentColor;
+        }
+    }
+    th {
+        line-height: 30px;
+        &.submarket-name {
+            border-bottom: 1px solid $secondaryContentColor !important;
+            text-align: center !important;
+        }
+        &.asset {
+            width: 24%;
+        }
+        &.opens, &.closes, &.settles {
+            width: 12%;
+        }
+        &.upcomingevents {
+            width: 40%;
+        }
+    }
+    td.asset {
+        font-weight: 700;
+    }
+}

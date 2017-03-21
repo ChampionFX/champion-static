@@ -29,6 +29,7 @@ const Home                    = require('./../pages/home');
 const ChampionProfile         = require('./../pages/user/profile');
 const ChampionSecurity        = require('./../pages/user/security');
 const LoginHistory            = require('./../pages/user/login_history');
+const TradingTimes            = require('./../pages/trading_times');
 
 const Champion = (function() {
     'use strict';
@@ -89,6 +90,7 @@ const Champion = (function() {
             'reset-password'   : { module: ResetPassword,       not_authenticated: true },
             'tnc-approval'     : { module: TNCApproval,         is_authenticated: true, only_real: true },
             'top-up-virtual'   : { module: CashierTopUpVirtual, is_authenticated: true, only_virtual: true },
+            'trading-times'    : { module: TradingTimes },
             'types-of-accounts': { module: ClientType },
             'trading-platform' : { module: ClientType },
             'metatrader-5'     : { module: ClientType },
