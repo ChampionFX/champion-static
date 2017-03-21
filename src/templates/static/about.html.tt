@@ -21,9 +21,16 @@
 
         <div class="fx-divider"></div>
 
-        <p>[% l('We’re committed to delivering the necessary trading tools and resources that enable traders to further develop their trading skills, and ultimately become champion traders.') %]</p>
-        <p>[% l('Our client-centric approach puts our clients’ needs at the centre of our operations.') %]</p>
-        <p>[% l('We provide our clients with access to top-tier liquidity and advanced trade execution with the No Dealing Desk (NDD) model.') %]</p>
+        <div class="row">
+            <div class="col-sm-5 flex-sm-middle">
+                <p>[% l('We’re committed to delivering the necessary trading tools and resources that enable traders to further develop their trading skills, and ultimately become champion traders.') %]</p>
+                <p>[% l('Our client-centric approach puts our clients’ needs at the centre of our operations.') %]</p>
+                <p>[% l('We provide our clients with access to top-tier liquidity and advanced trade execution with the No Dealing Desk (NDD) model.') %]</p>
+            </div>
+            <div class="col-sm-5 push-sm-1">
+                <iframe width="520" height="315" src="https://www.youtube.com/embed/uTxJcFymyRE" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
 
         [% INCLUDE static/common/separator_line.html.tt %]
 
