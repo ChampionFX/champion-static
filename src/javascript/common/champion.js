@@ -30,6 +30,7 @@ const ChampionProfile         = require('./../pages/user/profile');
 const ChampionSecurity        = require('./../pages/user/security');
 const LoginHistory            = require('./../pages/user/login_history');
 const TradingTimes            = require('./../pages/trading_times');
+const Limits                  = require('./../pages/user/limits');
 
 const Champion = (function() {
     'use strict';
@@ -74,6 +75,7 @@ const Champion = (function() {
             endpoint           : { module: ChampionEndpoint },
             forward            : { module: CashierDepositWithdraw, is_authenticated: true, only_real: true },
             home               : { module: Home },
+            limits             : { module: Limits,              is_authenticated: true, only_real: true },
             logged_inws        : { module: LoggedIn },
             metatrader         : { module: MetaTrader,          is_authenticated: true },
             mt5                : { module: MT5 },

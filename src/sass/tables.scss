@@ -27,3 +27,16 @@
         font-weight: 700;
     }
 }
+
+#fx-limits {
+    th {
+        width: 80%;
+    }
+    td.market {
+        text-transform: capitalize;
+        font-weight: bold;
+    }
+    td.submarket {
+        padding-left: 50px;
+    }
+}

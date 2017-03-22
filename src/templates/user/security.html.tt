@@ -28,6 +28,15 @@
                             <p>[% l('View your login history, including date, time, browser, and IP address.') %]</p>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-3 fx-real">
+                            <a href="[% request.url_for('user/limits') %]">
+                                <h3>[% l('Limits') %]</h3>
+                            </a>
+                            <div class="separator primary-color"></div>
+                            <p>[% l('View your trading and withdrawal limits.') %]</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
