@@ -90,10 +90,10 @@
                     </div>
 
                     <div class="row lg-padding no-gutters">
-                        <div class="col-sm flex-sm-middle center-text">
+                        <div class="col-sm-4 push-sm-1 flex-sm-middle center-text">
                             <img src="[% request.url_for('images/currency.svg') %]">
                         </div>
-                        <div class="col-sm">
+                        <div class="col-sm-6 push-sm-2">
                             <h3>[% l('Which currencies are available for trading') %]</h3>
                             <p>[% l('Forex trading involves buying or selling currency pairs. When you buy a currency pair such as EUR/USD, it means that you are buying Euro and simultaneously selling the USD.') %]</p>
                             <p>[% l('Currency pairs are categorised in the following:') %]</p>
@@ -131,17 +131,30 @@
                     [% INCLUDE static/common/separator_line.html.tt %]
 
                     <div class="row lg-padding no-gutters">
-                        <div class="col-sm">
+                        <div class="col-sm-5">
                             <h3>[% l('What time is the market open for me to trade') %]</h3>
                             <p>[% l('The Forex is an over-the-counter market where trading takes place between two parties, and not with a centralised marketplace or exchange.') %]</p>
                         </div>
-                        <div class="col-xs">
-                            <img class="float-right" src="[% request.url_for('images/sydneyny.svg') %]">
-                            <img class="float-right" src="[% request.url_for('images/245.svg') %]">
+                        <div class="col-sm-1 hidden-xs-down">
+                            <img src="https://placehold.it/60x200" />
                         </div>
-                        <div class="col-sm">
-                            <p>[% l('Trading starts when the Sydney market opens on Monday morning and ends when the New York market closes on Friday evening.') %]</p>
-                            <p>[% l('This means that you can trade Forex up to 24 hours a day, five days a week - depending on your broker.') %]</p>
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <img class="float-right" src="[% request.url_for('images/sydneyny.svg') %]">
+                                </div>
+                                <div class="col-xs-9">
+                                    <p>[% l('Trading starts when the Sydney market opens on Monday morning and ends when the New York market closes on Friday evening.') %]</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <img class="float-right" src="[% request.url_for('images/245.svg') %]">
+                                </div>
+                                <div class="col-xs-9">
+                                    <p>[% l('This means that you can trade Forex up to 24 hours a day, five days a week - depending on your broker.') %]</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -186,10 +199,10 @@
                             </div>
                             <div class="col-sm">
                                 <div class="row">
-                                    <div class="col-xs">
+                                    <div class="col-sm-2 hidden-xs-down">
                                         <img class="float-right" src="[% request.url_for('images/steps.svg') %]">
                                     </div>
-                                    <div class="col-xlg">
+                                    <div class="col-sm-10">
                                         <h3>[% l('Learn') %]</h3>
                                         <p>[% l('to read currency pairs') %]</p>
                                         <h3>[% l('Understand') %]</h3>
