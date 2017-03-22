@@ -87,7 +87,7 @@
             <p>[% l('Monitor all your favourite assets and markets at the same time, as well as charts, the asset index, trading times, and historical data.') %]</p>
             <div class="fx-divider"></div>
             <p>
-                <a class="button" href="https://webtrader.champion-fx.com/">
+                <a class="button" href="https://webtrader.champion-fx.com/" target="_blank">
                     <span>[% l('Learn more') %]</span>
                 </a>
             </p>
