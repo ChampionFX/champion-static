@@ -85,13 +85,13 @@
                             <p>[% l('Forex trading involves buying one currency and selling another currency at the same time. This is why you always see them quoted in pairs, such as EUR/USD or GBP/USD.') %]</p>
                         </div>
                         <div class="col-sm">
-                            <img src="[% request.url_for('images/fx.png') %]" />
+                            <img src="[% request.url_for('images/mt5/fx.png') %]" />
                         </div>
                     </div>
 
                     <div class="row lg-padding no-gutters">
                         <div class="col-sm-4 push-sm-1 flex-sm-middle center-text">
-                            <img src="[% request.url_for('images/currency.svg') %]">
+                            <img src="[% request.url_for('images/mt5/currency.svg') %]">
                         </div>
                         <div class="col-sm-6 push-sm-2">
                             <h3>[% l('Which currencies are available for trading') %]</h3>
@@ -119,7 +119,7 @@
                             </ul>
                         </div>
                         <div class="col-sm">
-                            <img src="[% request.url_for('images/spread.png') %]" />
+                            <img src="[% request.url_for('images/mt5/spread.png') %]" />
                             <p>[% l('The spread is the difference between the buy (ask) price and sell (bid) price.') %]</p>
                             <div class="box bordered center-text">
                                 <p>[% l('Buy (ask) price - sell (bid) price = spread') %]</p>
@@ -136,12 +136,12 @@
                             <p>[% l('The Forex is an over-the-counter market where trading takes place between two parties, and not with a centralised marketplace or exchange.') %]</p>
                         </div>
                         <div class="col-sm-1 hidden-xs-down">
-                            <img src="https://placehold.it/60x200" />
+                            <img src="[% request.url_for('images/mt5/arrow_right.svg') %]" />
                         </div>
                         <div class="col-sm-6">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <img class="float-right" src="[% request.url_for('images/sydneyny.svg') %]">
+                                    <img class="float-right" src="[% request.url_for('images/mt5/sydneyny.svg') %]">
                                 </div>
                                 <div class="col-xs-9">
                                     <p>[% l('Trading starts when the Sydney market opens on Monday morning and ends when the New York market closes on Friday evening.') %]</p>
@@ -149,7 +149,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <img class="float-right" src="[% request.url_for('images/245.svg') %]">
+                                    <img class="float-right" src="[% request.url_for('images/mt5/245.svg') %]">
                                 </div>
                                 <div class="col-xs-9">
                                     <p>[% l('This means that you can trade Forex up to 24 hours a day, five days a week - depending on your broker.') %]</p>
@@ -200,7 +200,7 @@
                             <div class="col-sm">
                                 <div class="row">
                                     <div class="col-sm-2 hidden-xs-down">
-                                        <img class="float-right" src="[% request.url_for('images/steps.svg') %]">
+                                        <img class="float-right" src="[% request.url_for('images/mt5/steps.svg') %]">
                                     </div>
                                     <div class="col-sm-10">
                                         <h3>[% l('Learn') %]</h3>
@@ -308,7 +308,7 @@
                         </div>
 
                         <div class="center-text lg-padding">
-                            <img src="[% request.url_for('images/forex-2.png') %]" alt="">
+                            <img src="[% request.url_for('images/mt5/forex-2.png') %]" alt="">
                         </div>
 
                         <div class="row">
