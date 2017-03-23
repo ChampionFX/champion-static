@@ -1,0 +1,14 @@
+<div class="fx-section container">
+    [% INCLUDE components/page_title.html.tt title=l('Trading and withdrawal limits') %]
+    [% INCLUDE static/common/loading.html.tt %]
+
+    <p class="error-msg"></p>
+    <div id="fx-limits" class="invisible">
+        <div id="fx-trading-limits">
+            <h2>Trading limits</h2>
+        </div>
+        <div id="fx-withdrawal-limits">
+            <h2>Withdrawal limits</h2>
+        </div>
+    </div>
+</div>
