@@ -1,8 +1,8 @@
 <div class="fx-section">
     <div class="container">
-        [% INCLUDE components/page_title.html.tt title=l('Complete your ChampionFX virtual account signup') %]
+        [% INCLUDE components/page_title.html.tt title=l('Complete your ChampionFX virtual account setup') %]
 
-        <p>[% l('Your new ChampionFX virtual account lets you trade binary options with unlimited virtual currency.') %]</p>
+        <p>[% l('Use your new ChampionFX virtual account to trade binary options with unlimited virtual currency, or create an MT5 demo account.') %]</p>
 
         <h2>[% l('Details') %]</h2>
 
