@@ -34,7 +34,7 @@ const CashierDepositWithdraw = (function() {
         $form_withdraw   = $('#form_withdraw');
         $error_msg       = $container.find(fields.error_msg);
 
-        $(fields.cashier_title).html(cashier_type).removeClass(hidden_class);
+        $(fields.cashier_title).html(cashier_type);
         if (cashier_type === 'withdraw') initForm();
 
         ChampionSocket.send({ cashier_password: '1' }).then((response) => {
