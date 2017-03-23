@@ -19,7 +19,7 @@
             <div class="col-md flex-md-middle">
                 <div class="fx-feature-box">
                     <div class="fx-md fx-algorithmic"></div>
-                    <p>[% l('Alogorithmic and<br>copy trading') %]</p>
+                    <p>[% l('Algorithmic and<br>copy trading') %]</p>
                 </div>
             </div>
             <div class="col-md flex-md-middle">
@@ -35,7 +35,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm center-text">
-                <h2 class="fx-features-title">[% l('Why Choose Champion FX') %]</h2>
+                <h2 class="fx-features-title">[% l('Why choose ChampionFX') %]</h2>
             </div>
         </div>
         <div class="row fx-panel-container box bordered">
@@ -43,15 +43,15 @@
               <div class="fx-panel">
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-king"></div>
-                      <div>[% l('The Client is always King') %]</div>
+                      <div>[% l('The client is always king') %]</div>
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-no-commission"></div>
-                      <div>[% l('Low-Cost Trading') %]</div>
+                      <div>[% l('Low-Cost trading') %]</div>
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-licensed-broker"></div>
-                      <div>[% l('Licensed Broker') %]</div>
+                      <div>[% l('Licensed broker') %]</div>
                   </div>
               </div>
           </div>
@@ -75,15 +75,15 @@
               <div class="fx-panel">
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-type-accounts"></div>
-                      <div>[% l('Trade a Wide Range of Markets') %]</div>
+                      <div>[% l('Trade a wide range of markets') %]</div>
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-no-deal"></div>
-                      <div>[% l('No Dealing Desk (NDD) Execution') %]</div>
+                      <div>[% l('No dealing desk (NDD) execution') %]</div>
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-customise"></div>
-                      <div>[% l('Customised Trading Conditions') %]</div>
+                      <div>[% l('Customised trading conditions') %]</div>
                   </div>
               </div>
             </div>
@@ -91,15 +91,15 @@
               <div class="fx-panel">
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-rebate"></div>
-                      <div>[% l('Low Latency & Fast Execution') %]</div>
+                      <div>[% l('Low latency & fast execution') %]</div>
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-deposit-withdrawal"></div>
-                      <div>[% l('Lightning Fast deposits & Withdrawals ') %]</div>
+                      <div>[% l('Lightning fast deposits & Withdrawals ') %]</div>
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-hassle-free"></div>
-                      <div>[% l('Fast & Hassle-Free Account Opening') %]</div>
+                      <div>[% l('Fast & hassle-free account opening') %]</div>
                   </div>
               </div>
           </div>
@@ -107,15 +107,15 @@
               <div class="fx-panel">
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-cent"></div>
-                      <div>[% l('Gold Spreads Fixed at 10 Cents') %]</div>
+                      <div>[% l('Dedicated MetaTrader 5 broker') %]</div>
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-devices"></div>
-                      <div>[% l('Wide Choice of Platforms - Desktop, Web & Mobile') %]</div>
+                      <div>[% l('Wide choice of platforms - desktop, web & mobile') %]</div>
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-unbeatable"></div>
-                      <div>[% l('Unbeatable Leverage Up to 1,000') %]</div>
+                      <div>[% l('Unbeatable leverage up to 1,000:1') %]</div>
                   </div>
               </div>
             </div>
