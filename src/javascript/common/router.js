@@ -72,7 +72,7 @@ const ChampionRouter = (function() {
         }
 
         // Exclude links having no-ajax or target="_blank"
-        if (link.classList.contains('no-ajax') || link.target === '_blank') {
+        if (link.classList.contains('no-ajax') || link.target === '_blank' || !/\.html/i.test(url)) {
             return;
         }
 

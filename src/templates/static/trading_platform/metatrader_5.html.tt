@@ -94,20 +94,38 @@
                 <h2>[% l('Available on desktop, web, and mobile') %]</h2>
                 <div class="fx-divider"></div>
                 <div class="row">
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                         <h3>[% l('MetaTrader 5 desktop app') %]</h3>
                         <div class="separator primary-color"></div>
                         <p>[% l('Trade with a powerful interface known as the global industry standard.') %]</p>
+                        <p>
+                            <a class="button" href="[% request.url_for('/download/championgroup_mt5_setup.exe') %]"><span>Download Now</span></a>
+                        </p>
                     </div>
-                    <div class="col-sm-3 push-sm-1">
+                    <div class="col-sm-4">
                         <h3>[% l('MetaTrader 5 web platform') %]</h3>
                         <div class="separator primary-color"></div>
                         <p>[% l('Trade from any browser in Windows, MacOS, or Linux operating systems.') %]</p>
+                        <p>
+                            <a class="button" href="https://trade.mql5.com/trade?servers=ChampionGroup-Server&trade_server=ChampionGroup-Server&demo_server=ChampionGroup-Server&startup_mode=open_demo&lang=en" target="_blank"><span>Launch Platform</span></a>
+                        </p>
                     </div>
-                    <div class="col-sm-3 push-sm-2">
+                    <div class="col-sm-4">
                         <h3>[% l('MetaTrader 5 mobile app') %]</h3>
                         <div class="separator primary-color"></div>
                         <p>[% l('Trade from your iOS or Android devices with native mobile apps.') %]</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a class="button" href="https://download.mql5.com/cdn/mobile/mt5/ios?server=ChampionGroup-Server" target="_blank">
+                                    <div class="app-store-badge"></div>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a class="button" href="https://download.mql5.com/cdn/mobile/mt5/android?server=ChampionGroup-Server" target="_blank">
+                                    <div class="google-play-badge"></div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
