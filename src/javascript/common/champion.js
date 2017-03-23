@@ -5,6 +5,7 @@ const Login                   = require('./login');
 const ChampionRouter          = require('./router');
 const ChampionSocket          = require('./socket');
 const default_redirect_url    = require('./url').default_redirect_url;
+const url_for                 = require('./url').url_for;
 const Utility                 = require('./utility');
 const ClientType              = require('./../pages/client_type');
 const ChampionContact         = require('./../pages/contact');
@@ -109,7 +110,12 @@ const Champion = (function() {
     };
 
     const errorMessages = {
-        login       : () => Utility.template('Please <a href="[_1]">log in</a> to view this page.', [Login.login_url()]),
+        login: module => (
+            module === MetaTrader ?
+            Utility.template(`To register an MT5 account, please <a href="[_1]">log in</a> to your ChampionFX account<br />
+                Don't have a ChampionFX account? <a href="[_2]">Create one</a> now`, [Login.login_url(), url_for('/')]) :
+            Utility.template('Please <a href="[_1]">log in</a> to view this page.', [Login.login_url()])
+        ),
         only_virtual: 'Sorry, this feature is available to virtual accounts only.',
         only_real   : 'This feature is not relevant to virtual-money accounts.',
     };
@@ -118,7 +124,7 @@ const Champion = (function() {
         active_script = config.module;
         if (config.is_authenticated) {
             if (!Client.is_logged_in()) {
-                displayMessage(errorMessages.login());
+                displayMessage(errorMessages.login(config.module));
             } else {
                 ChampionSocket.wait('authorize')
                     .then((response) => {

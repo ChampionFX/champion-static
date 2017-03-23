@@ -26,7 +26,7 @@
                     <div>
                         <h2 class="lg-padding">[% l('Why join the ChampionFX IB programme?') %]</h2>
 
-                        [% INCLUDE rows title_1=l('High commission') desc_1=l('Earn increasingly higher commissions as your clients generate higher volumes.')
+                        [% INCLUDE rows title_1=l('High commissions') desc_1=l('Earn increasingly higher commissions as your clients generate higher volumes.')
                             title_2=l('Marketing tools') desc_2=l('Track every click, impression, download, and signup to optimise your campaigns.') %]
 
                         [% INCLUDE rows title_1=l('On-time payouts') desc_1=l('Receive your IB commission on time, every time.')

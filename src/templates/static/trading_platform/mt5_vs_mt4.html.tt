@@ -166,7 +166,7 @@
         </div>
         <div class="fx-divider"></div>
         <div class="center-text">
-            <p>[% l("Got questions? Read our <a href='#'>FAQ</a> or <a href='[_1] '>contact us</a>.", request.url_for('contact')) %]</p>
+            <p>[% l("Got questions? Read our <a href='[_1]'>FAQ</a> or <a href='[_2]'>contact us</a>.", '#', request.url_for('contact')) %]</p>
         </div>
         <div class="fx-divider"></div>
     </div>

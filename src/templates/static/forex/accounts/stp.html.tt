@@ -52,7 +52,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <p class="lg-padding">[% l('Got questions? Read our FAQ or contact us.') %]</p>
+                    <p class="lg-padding">[% l("Got questions? Read our <a href='[_1]'>FAQ</a> or <a href='[_2]'>contact us</a>.", '#', request.url_for('contact')) %]</p>
                 </div>
             </div>
         </div>

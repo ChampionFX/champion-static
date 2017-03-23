@@ -206,7 +206,7 @@
                                         <h3>[% l('Learn') %]</h3>
                                         <p>[% l('to read currency pairs') %]</p>
                                         <h3>[% l('Understand') %]</h3>
-                                        <p>[% l('when to buy (go long) and when to sell (go short') %]</p>
+                                        <p>[% l('when to buy (go long) and when to sell (go short)') %]</p>
                                         <h3>[% l('Buy') %]</h3>
                                         <p>[% l('your first currency pair') %]</p>
                                     </div>
@@ -367,7 +367,7 @@
                         <div class="col-sm">
                             <h2>[% l("What\’s a margin call and how do we apply it?") %]</h2>
                             <div class="separator primary-color"></div>
-                            <p>[% l('When your account equity is unable to cover the margin requirement, your account will be placed under margin call. This state does not affect your ability to open new positions') %]</p>
+                            <p>[% l('When your account equity is unable to cover the margin requirement, your account will be placed under margin call. This state does not affect your ability to open new positions.') %]</p>
                         </div>
                         <div class="col-sm">
                             <h2>[% l("What\’s a stop out level and how do we apply it?") %]</h2>
