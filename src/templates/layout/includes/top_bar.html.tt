@@ -9,7 +9,7 @@
                         <li id="main-login" class="FX__Header__cta invisible"><a class="button-secondary" href="javascript:;">[% l('Log In') %]</a></li>
                     </ul>
                 </div>
-                <div class="upgrade-message invisible">
+                <div class="upgrade-message pulser invisible">
                     <a href="[% request.url_for('new-account/real') %]">Upgrade to a Real Account</a>
                 </div>
                 <div class="invisible">

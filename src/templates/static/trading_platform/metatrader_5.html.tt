@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row">
             <div class="col-sm">
-                [% INCLUDE components/page_title.html.tt title=l('MetaTrade 5') %]
-                <p>[% l('Step into a whole new world of trading with ChampionFX –– the world’s first dedicated MT5 broker.') %]</p>
+                [% INCLUDE components/page_title.html.tt title=l('MetaTrader 5') %]
+                <p>[% l('Step into a whole new world of trading with ChampionFX –– Your dedicated MT5 broker.') %]</p>
                 <p>[% l('We know that our traders require quick access to their trading accounts anywhere in the world, and at any time of the day. So, we offer the most efficient and powerful range of trading platforms. Browse our range of platforms and services, and start trading on your chosen device.') %]</p>
                 <p>[% l('Successful trading in the financial markets begins with a comfortable and multi-functional trading platform. MetaTrader 5 is the best choice for the modern trader. Now you can trade anytime and anywhere, with the global markets at your fingertips.') %]</p>
             </div>
@@ -94,20 +94,38 @@
                 <h2>[% l('Available on desktop, web, and mobile') %]</h2>
                 <div class="fx-divider"></div>
                 <div class="row">
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                         <h3>[% l('MetaTrader 5 desktop app') %]</h3>
                         <div class="separator primary-color"></div>
                         <p>[% l('Trade with a powerful interface known as the global industry standard.') %]</p>
+                        <p>
+                            <a class="button" href="[% request.url_for('/download/championgroup_mt5_setup.exe') %]"><span>Download Now</span></a>
+                        </p>
                     </div>
-                    <div class="col-sm-3 push-sm-1">
+                    <div class="col-sm-4">
                         <h3>[% l('MetaTrader 5 web platform') %]</h3>
                         <div class="separator primary-color"></div>
                         <p>[% l('Trade from any browser in Windows, MacOS, or Linux operating systems.') %]</p>
+                        <p>
+                            <a class="button" href="https://trade.mql5.com/trade?servers=ChampionGroup-Server&trade_server=ChampionGroup-Server&demo_server=ChampionGroup-Server&startup_mode=open_demo&lang=en" target="_blank"><span>Launch Platform</span></a>
+                        </p>
                     </div>
-                    <div class="col-sm-3 push-sm-2">
+                    <div class="col-sm-4">
                         <h3>[% l('MetaTrader 5 mobile app') %]</h3>
                         <div class="separator primary-color"></div>
                         <p>[% l('Trade from your iOS or Android devices with native mobile apps.') %]</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a class="button" href="https://download.mql5.com/cdn/mobile/mt5/ios?server=ChampionGroup-Server" target="_blank">
+                                    <div class="app-store-badge"></div>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a class="button" href="https://download.mql5.com/cdn/mobile/mt5/android?server=ChampionGroup-Server" target="_blank">
+                                    <div class="google-play-badge"></div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -125,12 +143,12 @@
                         <div class="separator primary-color"></div>
                         <p>[% l('Trade the world’s most popular currency pairs with leverage up to 1,000:1 on a commission-free basis.') %]</p>
                         <p>
-                            <a class="button" href="[% request.url_for('forex') %]">
+                            <a class="button" href="[% request.url_for('mt5') %]">
                                 <span>[% l('Learn more') %]</span>
                             </a>
                         </p>
                     </div>
-                    <div class="col-md-5 push-md-2">
+                    <div class="col-md-5 push-md-2 invisible">
                         <h3>[% l('Metals') %]</h3>
                         <div class="separator primary-color"></div>
                         <p>[% l('Trade a variety of flexible precious metals contracts, including gold (per gram or ounce) with highly competitive pricing.') %]</p>
@@ -141,7 +159,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row invisible">
                     <div class="col-md-5">
                         <h3>[% l('Futures') %]</h3>
                         <div class="separator primary-color"></div>
