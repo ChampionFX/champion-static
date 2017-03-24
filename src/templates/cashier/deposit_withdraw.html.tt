@@ -6,7 +6,7 @@
 
         <div id="form_withdraw" class="invisible">
             [% INCLUDE components/forms/form_row.html.tt id='verification_token' type='text' label=l('Verification token')
-                attributes='maxlength="48" autocomplete="off"' hint=l('Please check your email for the token') %]
+                attributes='maxlength="8" autocomplete="off"' hint=l('Please check your email for the token') %]
 
             [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Submit') %]
         </div>
