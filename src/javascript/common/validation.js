@@ -57,7 +57,7 @@ const Validation = (function() {
     const validAddress      = value => !/[`~!#$%^&*)(_=+\[}{\]\\";:\?><|]+/.test(value);
     const validPostCode     = value => /^[a-zA-Z\d-\s]*$/.test(value);
     const validPhone        = value => /^\+?[0-9\s]*$/.test(value);
-    const validEmailToken   = value => value.trim().length === 48;
+    const validEmailToken   = value => value.trim().length === 8;
 
     const validCompare  = (value, options) => value === $(options.to).val();
     const validNotEqual = (value, options) => value !== $(options.to).val();
