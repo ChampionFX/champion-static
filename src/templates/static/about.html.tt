@@ -5,7 +5,7 @@
             <p>
                 [% l('Customer service is not just a department, it is the entire company.') %]
                 <br> [% l('Trade with ChampionFX –– where the client is king.') %]
-                <br> [% l('The world’s first dedicated MT5 broker.') %]
+                <br> [% l('Your dedicated MT5 broker.') %]
             </p>
         </div>
 
