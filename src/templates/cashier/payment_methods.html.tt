@@ -28,7 +28,7 @@
                     <th>Currencies</th>
                     <th>Min-Max Deposit</th>
                     <th>Min-Max Withdrawal</th>
-                    <th>Processing Time</th>
+                    <th>Processing Time*</th>
                 </tr>
 
                 <!-- Bank wire / Money transfer section -->
@@ -165,6 +165,8 @@
                     <td>Deposit: Instant</td>
                 </tr>
             </table>
+
+            <p class="hint">*All your withdrawals are processed by ChampionFX within 24 hours. However, there may be additional processing time required by your bank or money transfer service.</p>
         </div>
 
     </div>
