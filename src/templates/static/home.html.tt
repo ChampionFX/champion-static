@@ -95,7 +95,7 @@
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-deposit-withdrawal"></div>
-                      <div>[% l('Lightning Fast deposits & withdrawals ') %]</div>
+                      <div>[% l('Lightning fast deposits & withdrawals ') %]</div>
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-hassle-free"></div>
