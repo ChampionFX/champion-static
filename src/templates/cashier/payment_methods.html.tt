@@ -40,14 +40,14 @@
                     <td>USD GBP EUR AUD</td>
                     <td>25 - 100,000</td>
                     <td>25 - 100,000</td>
-                    <td>Deposit: 5 working days<br>Withdraw: 1 working day</td>
+                    <td>Deposit: 1 working day<br>Withdraw: 1 working day</td>
                 </tr>
                 <tr>
                     <td id="local_bank_transfer"></td>
                     <td>USD GBP EUR AUD</td>
                     <td>25 - 100,000</td>
                     <td>25 - 100,000</td>
-                    <td>Deposit: 5 working days<br>Withdraw: 1 working day</td>
+                    <td>Deposit: 1 working day<br>Withdraw: 1 working day</td>
                 </tr>
                 <tr>
                     <td id="western_union"></td>
@@ -61,7 +61,7 @@
                     <td>USD GBP EUR AUD</td>
                     <td>100 - 5,000</td>
                     <td>100 - 5,000</td>
-                    <td>Deposit: 5 working days<br>Withdraw: 1 working day</td>
+                    <td>Deposit: 1 working day<br>Withdraw: 1 working day</td>
                 </tr>
 
                 <!-- Credit / Debit card section -->
@@ -166,7 +166,7 @@
                 </tr>
             </table>
 
-            <p class="hint">*All your withdrawals are processed by ChampionFX within 24 hours. However, there may be additional processing time required by your bank or money transfer service.</p>
+            <p class="hint">*All your deposits and withdrawals are processed by ChampionFX within 24 hours. However, there may be additional processing time required by your bank or money transfer service.</p>
         </div>
 
     </div>
