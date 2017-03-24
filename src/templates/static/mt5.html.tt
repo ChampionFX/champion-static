@@ -85,7 +85,7 @@
                             <p>[% l('Forex trading involves buying one currency and selling another currency at the same time. This is why you always see them quoted in pairs, such as EUR/USD or GBP/USD.') %]</p>
                         </div>
                         <div class="col-sm">
-                            <img src="[% request.url_for('images/mt5/fx.png') %]" />
+                            <img src="[% request.url_for('images/mt5/fx.png') %]" class="responsive" />
                         </div>
                     </div>
 
@@ -119,7 +119,7 @@
                             </ul>
                         </div>
                         <div class="col-sm">
-                            <img src="[% request.url_for('images/mt5/spread.png') %]" />
+                            <img src="[% request.url_for('images/mt5/spread.png') %]" class="responsive" />
                             <p>[% l('The spread is the difference between the buy (ask) price and sell (bid) price.') %]</p>
                             <div class="box bordered center-text">
                                 <p>[% l('Buy (ask) price - sell (bid) price = spread') %]</p>
@@ -206,7 +206,7 @@
                                         <h3>[% l('Learn') %]</h3>
                                         <p>[% l('to read currency pairs') %]</p>
                                         <h3>[% l('Understand') %]</h3>
-                                        <p>[% l('when to buy (go long) and when to sell (go short') %]</p>
+                                        <p>[% l('when to buy (go long) and when to sell (go short)') %]</p>
                                         <h3>[% l('Buy') %]</h3>
                                         <p>[% l('your first currency pair') %]</p>
                                     </div>
@@ -367,7 +367,7 @@
                         <div class="col-sm">
                             <h2>[% l("What\’s a margin call and how do we apply it?") %]</h2>
                             <div class="separator primary-color"></div>
-                            <p>[% l('When your account equity is unable to cover the margin requirement, your account will be placed under margin call. This state does not affect your ability to open new positions') %]</p>
+                            <p>[% l('When your account equity is unable to cover the margin requirement, your account will be placed under margin call. This state does not affect your ability to open new positions.') %]</p>
                         </div>
                         <div class="col-sm">
                             <h2>[% l("What\’s a stop out level and how do we apply it?") %]</h2>

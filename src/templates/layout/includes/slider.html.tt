@@ -73,7 +73,7 @@
                 <ul class="row">
                     <li class="col-md-6 col-sm-6 slider-text center-text">
                         <div class="center-items">
-                            <h3 class="blue">[% l("ChampionFX is the world’s first dedicated MT5 broker.") %]</h3>
+                            <h3 class="blue">[% l("ChampionFX is your dedicated MT5 broker.") %]</h3>
                             <p>[% l('Trade with us and access:') %]</p>
                             <div class="row">
                                 <div class="col-lg-10 offset-lg-1 col-md-10 offset-md-1 text-center">
