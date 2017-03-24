@@ -1,6 +1,6 @@
 <div class="fx-section">
     <div id="cashier_deposit" class="container">
-        [% INCLUDE components/page_title.html.tt title=l('') attributes='id="cashier_title" style="text-transform: capitalize"' %]
+        [% INCLUDE components/page_title.html.tt title='' attributes='id="cashier_title" style="text-transform: capitalize"' %]
 
         <p id="error_msg" class="notice-msg center-text invisible"></p>
 
