@@ -43,15 +43,15 @@
               <div class="fx-panel">
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-king"></div>
-                      <div>[% l('The Client is always King') %]</div>
+                      <div>[% l('The client is always king') %]</div>
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-no-commission"></div>
-                      <div>[% l('Low-Cost Trading') %]</div>
+                      <div>[% l('Low-cost trading') %]</div>
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-licensed-broker"></div>
-                      <div>[% l('Licensed Broker') %]</div>
+                      <div>[% l('Licensed broker') %]</div>
                   </div>
               </div>
           </div>
@@ -59,15 +59,15 @@
               <div class="fx-panel">
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-customer-service"></div>
-                      <div>[% l('Personalised Customer Service') %]</div>
+                      <div>[% l('Personalised customer service') %]</div>
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-customised-trade"></div>
-                      <div>[% l('Tight Spreads with No Commission') %]</div>
+                      <div>[% l('Tight spreads with no Commission') %]</div>
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-fast-execution"></div>
-                      <div>[% l('Access to the Largest Market of Expert Advisors') %]</div>
+                      <div>[% l('Access to the largest market of Expert Advisors') %]</div>
                   </div>
               </div>
           </div>
@@ -75,15 +75,15 @@
               <div class="fx-panel">
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-type-accounts"></div>
-                      <div>[% l('Trade a Wide Range of Markets') %]</div>
+                      <div>[% l('Trade a wide range of markets') %]</div>
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-no-deal"></div>
-                      <div>[% l('No Dealing Desk (NDD) Execution') %]</div>
+                      <div>[% l('No Dealing Desk (NDD) execution') %]</div>
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-customise"></div>
-                      <div>[% l('Customised Trading Conditions') %]</div>
+                      <div>[% l('Customised trading conditions') %]</div>
                   </div>
               </div>
             </div>
@@ -95,7 +95,7 @@
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-deposit-withdrawal"></div>
-                      <div>[% l('Lightning Fast deposits & Withdrawals ') %]</div>
+                      <div>[% l('Lightning Fast deposits & withdrawals ') %]</div>
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-hassle-free"></div>
