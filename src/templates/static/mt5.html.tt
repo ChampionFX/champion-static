@@ -119,7 +119,7 @@
                             </ul>
                         </div>
                         <div class="col-sm">
-                            <img src="[% request.url_for('images/mt5/spread.png') %]" class="responsive" />
+                            <img src="[% request.url_for('images/mt5/spread.svg') %]" class="responsive" />
                             <p>[% l('The spread is the difference between the buy (ask) price and sell (bid) price.') %]</p>
                             <div class="box bordered center-text">
                                 <p>[% l('Buy (ask) price - sell (bid) price = spread') %]</p>
