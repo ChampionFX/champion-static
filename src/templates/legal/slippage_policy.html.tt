@@ -1,0 +1,26 @@
+<h2>[% l("Slippage Policy") %]</h2>
+<h2>A. [% l("Introduction") %]</h2>
+<p>[% l("The term \'we\', \'us\', \'our\', \'ours\', \'the Company\', or \'Champion-FX.com\' shall denote Champion Group Ltd.") %]</p>
+<p>[% l("Our slippage policy (the \"Policy\") sets out the overview and approach of how Champion-FX.com handles price changes between the time a client first submits an order (your requested price) until the time the order reaches the electronic trading system (your execution price).") %]</p>
+<h2>B. [% l("Scope") %]</h2>
+<p>[% l("This Policy applies to retail and professional clients of Champion-FX.com dealing in financial products offered by Champion-FX.com.") %]</p>
+<h2>C. [% l("Principles of Trade") %]</h2>
+<p>[% l("All orders initiated by you and accepted by us are based on principles of fair and transparent dealing, and good faith. We will endeavour to execute your transactions by observing high ethical standards and just and equitable principles of trade.") %]</p>
+<h2>D. [% l("Definition of Slippage") %]</h2>
+<p>[% l("Price slippage occurs between the time a client first submits an order (your requested price) until the time the order reaches the electronic trading system (your execution price). The difference between the requested price and execution price when orders are filled is known as slippage.") %]</p>
+<p>[% l("Slippage occurs during:") %]</p>
+<ul class="bullet">
+    <li>[% l("Extremely high or low market volatility") %]</li>
+    <li>[% l("Off market hours") %]</li>
+    <li>[% l("Low market liquidity") %]</li>
+    <li>[% l("Key news releases") %]</li>
+    <li>[% l("Rapid market price fluctuation") %]</li>
+    <li>[% l("Network latency") %]</li>
+</ul>
+<h2>E. [% l("Fair Execution Obligation") %]</h2>
+<p>[% l("Champion-FX.com owes you a duty of fair execution when executing orders on your behalf. In executing orders on your behalf, Champion-FX.com takes all reasonable steps to avoid conflict of interest by adhering to a non-asymmetrical slippage policy and by ensuring that orders are filled in a symmetrical manner when slippages occur.") %]</p>
+<p>[% l("When slippages occur, we may immediately requote you the current price and seek your confirmation prior to executing your order at the requoted price. Prices are requoted regardless of the direction the market has moved, i.e., when the market moves against us and when the market moves in our favour.") %]</p>
+<p>[% l("In certain scenarios, we may utilise our built-in slippage parameters to execute orders when slippage occurs. These built-in slippage parameters permit the execution of the order if the slippage is within the established parameters. The slippage settings are applied uniformly regardless of the direction the market has moved.") %]</p>
+<p>[% l("We use reasonable endeavours within our control to ensure that all electronic transactions instructed and accepted from you to us, and executed by us are not subject to network latency. As such, slippages only occur based on real market conditions.") %]</p>
+<h2>F. [% l("Monitoring and Review") %]</h2>
+<p>[% l("We will monitor the effectiveness of our slippage parameters and slippage policy. We will assess from time to time whether we need to make changes to our slippage parameters. We will also review our slippage parameters and slippage policy in respect of material changes that may otherwise affect our ability to continue to achieve fair execution.") %]</p>
