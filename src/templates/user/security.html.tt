@@ -27,7 +27,7 @@
                             <div class="separator primary-color"></div>
                             <p>[% l('View your login history, including date, time, browser, and IP address.') %]</p>
                         </div>
-                        <div class="col-md-3 fx-real">
+                        <div class="col-md-3 fx-real" style="display: none">
                             <a href="[% request.url_for('user/limits') %]">
                                 <h3>[% l('Limits') %]</h3>
                             </a>
