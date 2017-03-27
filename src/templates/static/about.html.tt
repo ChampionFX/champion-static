@@ -27,7 +27,7 @@
                 <p>[% l('Our client-centric approach puts our clients’ needs at the centre of our operations.') %]</p>
                 <p>[% l('We provide our clients with access to top-tier liquidity and advanced trade execution with the No Dealing Desk (NDD) model.') %]</p>
             </div>
-            <div class="col-sm-5 push-sm-1">
+            <div class="col-sm-6 push-sm-1">
                 <iframe width="520" height="315" src="https://www.youtube.com/embed/uTxJcFymyRE" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
@@ -58,7 +58,7 @@
         <h2>[% l('License') %]</h2>
         <div class="fx-divider"></div>
         <div class="row">
-            <div class="col-sm-5 primary-color">
+            <div class="col-sm-5 primary-color margin-bottom-3">
                 <div class="lg-padding">
                     <img src="[% request.url_for('images/vfsc.png') %]" class="fx-about-image" />
                 </div>
@@ -68,7 +68,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-5 push-sm-2 primary-color">
+            <div class="col-sm-5 push-sm-2 primary-color margin-bottom-3">
                 <div class="lg-padding">
                     <img src="[% request.url_for('images/fiuv.png') %]" class="fx-about-image" />
                 </div>
