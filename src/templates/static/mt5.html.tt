@@ -91,7 +91,7 @@
 
                     <div class="row lg-padding no-gutters">
                         <div class="col-sm-4 push-sm-1 flex-sm-middle center-text">
-                            <img src="[% request.url_for('images/mt5/currency.svg') %]">
+                            <img class="responsive" src="[% request.url_for('images/mt5/currency.svg') %]">
                         </div>
                         <div class="col-sm-6 push-sm-2">
                             <h3>[% l('Which currencies are available for trading') %]</h3>
@@ -136,7 +136,7 @@
                             <p>[% l('The Forex is an over-the-counter market where trading takes place between two parties, and not with a centralised marketplace or exchange.') %]</p>
                         </div>
                         <div class="col-sm-1 hidden-xs-down">
-                            <img src="[% request.url_for('images/mt5/arrow_right.svg') %]" />
+                            <img class="responsive" src="[% request.url_for('images/mt5/arrow_right.svg') %]" />
                         </div>
                         <div class="col-sm-6">
                             <div class="row">
