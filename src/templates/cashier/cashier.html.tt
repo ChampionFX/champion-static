@@ -10,7 +10,7 @@
             </div>
             <div class="col-md-10">
                 <div class="row">
-                    <p>[% l('You can request more virtual money if your virtual balance falls below USD 1,000.00.') %]</p>
+                    <p>[% l('You can request more virtual money if your virtual balance falls below USD 1,000') %]</p>
                 </div>
                 <div class="row">
                     <a class="button button_large" href="[% request.url_for('/cashier/top-up-virtual') %]" id="VRT_topup_link">
@@ -30,7 +30,7 @@
             <div class="col-md-10">
                 <div class="row">
                     <p>[% l('Manage the funds in your ChampionFX real account. You can deposit and withdraw funds via bank wire, credit card, or e-cash.') %]</p>
-                    <p>[% l('Not sure if your preferred payment methods is supported? Refer to our list of available payment methods to find out.') %]</p>
+                    <p>[% l('Not sure if your preferred payment methods is supported? Refer to our list of available <a href="[_1]">payment methods</a> to find out.', request.url_for('cashier/payment-methods')) %]</p>
                 </div>
                 <div class="row">
                     <a class="button button_large invisible" href="[% request.url_for('/cashier/forward#deposit') %]" id="deposit-btn">

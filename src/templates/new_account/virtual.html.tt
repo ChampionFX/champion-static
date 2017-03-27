@@ -1,8 +1,8 @@
 <div class="fx-section">
     <div class="container">
-        [% INCLUDE components/page_title.html.tt title=l('Complete your ChampionFX virtual account signup') %]
+        [% INCLUDE components/page_title.html.tt title=l('Complete your ChampionFX virtual account setup') %]
 
-        <p>[% l('Your new ChampionFX virtual account lets you trade binary options with unlimited virtual currency.') %]</p>
+        <p>[% l('Use your new ChampionFX virtual account to trade binary options with unlimited virtual currency, or create an MT5 demo account.') %]</p>
 
         <h2>[% l('Details') %]</h2>
 
@@ -10,7 +10,7 @@
             <div class="col-lg-5 col-md-6">
                 <form id="frm_new_account_virtual">
                     [% INCLUDE components/forms/form_row.html.tt id='txt_verification_code' type='text' label=l('Verification token')
-                        attributes='maxlength="48" autocomplete="off"' hint=l('Please check your email for the token') %]
+                        attributes='maxlength="8" autocomplete="off"' hint=l('Please check your email for the token') %]
 
                     [% INCLUDE components/forms/form_row.html.tt id='txt_password' type='password' label=l('Choose password')
                         hint=l('Minimum of six lower and uppercase letters with numbers') %]
