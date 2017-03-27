@@ -47,7 +47,7 @@
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-no-commission"></div>
-                      <div>[% l('Low-Cost trading') %]</div>
+                      <div>[% l('Low-cost trading') %]</div>
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-licensed-broker"></div>
@@ -59,15 +59,15 @@
               <div class="fx-panel">
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-customer-service"></div>
-                      <div>[% l('Personalised Customer Service') %]</div>
+                      <div>[% l('Personalised customer service') %]</div>
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-customised-trade"></div>
-                      <div>[% l('Tight Spreads with No Commission') %]</div>
+                      <div>[% l('Tight spreads with no Commission') %]</div>
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-fast-execution"></div>
-                      <div>[% l('Access to the Largest Market of Expert Advisors') %]</div>
+                      <div>[% l('Access to the largest market of Expert Advisors') %]</div>
                   </div>
               </div>
           </div>
@@ -79,7 +79,7 @@
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-no-deal"></div>
-                      <div>[% l('No dealing desk (NDD) execution') %]</div>
+                      <div>[% l('No Dealing Desk (NDD) execution') %]</div>
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-customise"></div>
@@ -95,7 +95,7 @@
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-deposit-withdrawal"></div>
-                      <div>[% l('Lightning fast deposits & Withdrawals ') %]</div>
+                      <div>[% l('Lightning fast deposits & withdrawals ') %]</div>
                   </div>
                   <div class="fx-panel-item">
                       <div class="fx-xxs fx-hassle-free"></div>

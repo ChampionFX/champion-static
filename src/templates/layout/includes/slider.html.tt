@@ -25,7 +25,7 @@
                             <h3 class="blue">[% l('Refer a friend.') %]</h3>
                             <h3 class="blue">[% l("We'll make it worth your time") %]</h3>
                             <p>[% l('Earn $25 for each new client that you introduce to ChampionFX.') %]</p>
-                            <a href="#">[% l('Learn more') %]
+                            <a class="invisible" href="#">[% l('Learn more') %]
                                 <img src="[% request.url_for('images/symbols/next.svg') %]" alt="">
                             </a>
                         </div>
@@ -42,7 +42,7 @@
                             <h3 class="blue">[% l('No funds, no problem.') %]</h3>
                             <h3 class="blue">[% l('Your first trade is on us.') %]</h3>
                             <p>[% l('Sign up now and get a free welcome bonus worth $10.<br>No deposit required.') %]</p>
-                            <a href="#">[% l('Learn more') %]
+                            <a class="invisible" href="#">[% l('Learn more') %]
                                 <img src="[% request.url_for('images/symbols/next.svg') %]" alt="">
                             </a>
                         </div>
@@ -59,7 +59,7 @@
                             <h3 class="blue">[% l('Trade gold with a fixed spread.') %]</h3>
                             <h3 class="blue">[% l('100% commission-free.') %]</h3>
                             <p>[% l("Don't miss out on this golden opportunity. Our gold spread is fixed at 10 cents. And it's absolutely commission-free.") %]</p>
-                            <a href="#">[% l('Learn more') %]
+                            <a class="invisible" href="#">[% l('Learn more') %]
                                 <img src="[% request.url_for('images/symbols/next.svg') %]" alt="">
                             </a>
                         </div>
@@ -84,7 +84,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <a href="#">[% l('Learn more') %]
+                            <a class="invisible" href="#">[% l('Learn more') %]
                                 <img src="[% request.url_for('images/symbols/next.svg') %]" alt="">
                             </a>
                         </div>
@@ -100,7 +100,7 @@
                         <div class="center-items">
                             <h3 class="blue">[% l('Follow the leader') %]</h3>
                             <p>[% l('Want to copy the best deals? Trade with ChampionFX and subscribe to the trading signals of more experienced and successful traders. You can even share your own signal with others.') %]</p>
-                            <a href="#">[% l('Learn more') %]
+                            <a class="invisible" href="#">[% l('Learn more') %]
                                 <img src="[% request.url_for('images/symbols/next.svg') %]" alt="">
                             </a>
                         </div>
@@ -116,7 +116,7 @@
                         <div class="center-items">
                             <h3 class="blue">[% l('Trade even while you sleep with algorithmic trading') %]</h3>
                             <p>[% l('Let trading robots analyse the market and execute your trades automatically.') %]</p>
-                            <a href="#">[% l('Learn more') %]
+                            <a class="invisible" href="#">[% l('Learn more') %]
                                 <img src="[% request.url_for('images/symbols/next.svg') %]" alt="">
                             </a>
                         </div>
