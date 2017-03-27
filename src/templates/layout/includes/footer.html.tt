@@ -33,16 +33,15 @@
                                 { link => '#',  text => l("Metals"), hidden=1 },
                                 { link => 'mt5', link_hash => '#contract-spec',  text => l("Contract Specifications") },
                                 { link => 'mt5', link_hash => '#margin-policy',  text => l("Trading Policies") },
+                                { link => 'mt5', link_hash => '#forex-accounts',  text => l("Types of accounts") },
+                                { link => 'trading-platform/metatrader-5', text => l("MT5 trading platforms") },
                             ] %]
                         </div>
                         <div class="col-xs-6 col-md-3">
                             [% INCLUDE link_group title=l('Binary options') items=[
                                 { link => 'range-of-markets',  text => l("Range of markets") },
                                 { link => 'types-of-accounts', text => l("Types of accounts") },
-                            ] %]
-                            [% INCLUDE link_group title=l('Trading platforms') items=[
-                                { link => 'trading-platform/metatrader-5',    text => l("MT5") },
-                                { link => 'trading-platform/champion-trader', text => l("Champion Trader") },
+                                { link => 'trading-platform/champion-trader', text => l("Binary options trading platforms") },
                             ] %]
                         </div>
                         <div class="col-xs-6 col-md-3">
