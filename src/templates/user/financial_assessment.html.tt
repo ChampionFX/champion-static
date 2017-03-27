@@ -111,7 +111,7 @@
             <option value="Over &#36;1,000,000">[% l("Over &#36;1,000,000") %]</option>
         [% END %]
 
-        <p class="notice-msg">[% l("The financial trading services contained within this site are only suitable for customers who are able to bear the loss of all the money they invest and who understand and have experience of the risk involved in the acquistion of financial contracts. Transactions in financial contracts carry a high degree of risk. If purchased contracts expire worthless, you will suffer a total loss of your investment, which consists of the contract premium.") %]</p>
+        <p class="notice-msg">[% l("The financial trading services contained within this site are only suitable for customers who are able to bear the loss of all the money they invest and who understand and have experience of the risk involved in the acquisition of financial contracts. Transactions in financial contracts carry a high degree of risk. If purchased contracts expire worthless, you will suffer a total loss of your investment, which consists of the contract premium.") %]</p>
 
         [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Update') id='submit' %]
 

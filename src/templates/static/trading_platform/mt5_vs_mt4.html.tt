@@ -8,7 +8,7 @@
                         <p>[% l('ChampionFX believes in giving our clients the best trading platform available. This is why we choose MetaTrader 5. We focus all our efforts and resources to take full advantage of MetaTrader 5’s advanced features to give our clients a powerful trading experience that’s built to last.') %]</p>
                         <h4>[% l('Faster and more powerful. Groundbreaking flexibility.') %]</h4>
                     </div>
-                    <div class="col-sm-5 push-sm-1">
+                    <div class="col-sm-6 push-sm-1">
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/mXuR_SRP-XI" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>

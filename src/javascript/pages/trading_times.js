@@ -57,6 +57,9 @@ const TradingTimes = (() => {
         const tabs = createTabs(markets);
         const market_tabs = `<ul>${tabs}</ul>`; // create market tabs, wrap tab items in <ul>
         const market_contents = markets.map((market, index) => {
+            if (market.name === 'Volatility Indices') {
+                return null;
+            }
             const market_table = market.submarkets.map((submarket) => {
                 const submarket_header  = createTableHeader(submarket.name); // create header row
                 const submarket_symbols = createTableRow(submarket.symbols); // create symbol rows
@@ -76,7 +79,8 @@ const TradingTimes = (() => {
             .tabs();
     };
 
-    const createTabs = tabs => (tabs.map((tab, index) => (`<li><a href="#market_${index++}">${tab.name}</a></li>`)).join(''));
+    const createTabs = tabs => (tabs.map((tab, index) =>
+        (tab.name === 'Volatility Indices' ? null : `<li><a href="#market_${index++}">${tab.name}</a></li>`)).join(''));
 
     const createTableHeader = title => (`<tr><th colspan="5" class="center-text">${title}</th></tr>`);
 

@@ -78,7 +78,7 @@ IF NOT selected_tab; selected_tab = 'legal-tab'; END;
                             <div id="legal-binary-options-content" class="toggle-content">
                                 [% INCLUDE legal/binary_options/terms_and_conditions.html.tt %]
                             </div>
-                            <div id="legal-cfd-content" class="toggle-content">
+                            <div id="legal-cfd-content" class="toggle-content invisible">
                                 [% INCLUDE legal/forex_cfd/terms_and_conditions.html.tt %]
                             </div>
                             <div id="risk-binary-options-content" class="toggle-content invisible">
