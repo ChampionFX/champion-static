@@ -62,6 +62,9 @@ const MetaTraderConfig = (function() {
                     mt5_date_joined: Math.floor(Date.now() / 1000),
                 };
                 gtm_data[`mt5_${acc_type}`] = new_login;
+                if (response.echo_req.mt5_account_type) {
+                    gtm_data.mt5_sub_account = response.echo_req.mt5_account_type;
+                }
                 if (acc_type === 'demo' && !Client.is_virtual()) {
                     gtm_data.visitorId = Client.get('loginid_array').find(login => !login.real).id;
                 }
