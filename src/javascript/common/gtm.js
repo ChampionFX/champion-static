@@ -1,6 +1,6 @@
 const moment      = require('moment');
 const Client      = require('./client');
-const getLanguage = require('./language').get;
+const getLanguage = require('./language').getLanguage;
 const Login       = require('./login');
 const getAppId    = require('./socket').getAppId;
 const State       = require('./storage').State;

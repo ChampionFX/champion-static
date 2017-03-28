@@ -1,7 +1,7 @@
-const ChampionSocket = require('../../../common/socket');
 const Client         = require('../../../common/client');
 const formatMoney    = require('../../../common/currency').formatMoney;
 const GTM            = require('../../../common/gtm');
+const ChampionSocket = require('../../../common/socket');
 const url_for        = require('../../../common/url').url_for;
 const isEmptyObject  = require('../../../common/utility').isEmptyObject;
 
@@ -57,11 +57,12 @@ const MetaTraderConfig = (function() {
 
                 // Push GTM
                 const gtm_data = {
-                    event          : 'mt5_new_account',
-                    url            : window.location.href,
-                    mt5_date_joined: Math.floor(Date.now() / 1000),
+                    event           : 'mt5_new_account',
+                    url             : window.location.href,
+                    mt5_date_joined : Math.floor(Date.now() / 1000),
+                    mt5_account_type: types_info[acc_type].account_type,
+                    mt5_login_id    : new_login,
                 };
-                gtm_data[`mt5_${acc_type}`] = new_login;
                 if (response.echo_req.mt5_account_type) {
                     gtm_data.mt5_sub_account = response.echo_req.mt5_account_type;
                 }

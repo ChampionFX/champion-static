@@ -1,7 +1,7 @@
-const Validation        = require('../../../common/validation');
+const MetaTraderConfig  = require('./metatrader.config');
 const formatMoney       = require('../../../common/currency').formatMoney;
 const showLoadingImage  = require('../../../common/utility').showLoadingImage;
-const MetaTraderConfig  = require('./metatrader.config');
+const Validation        = require('../../../common/validation');
 
 const MetaTraderUI = (function() {
     'use strict';
