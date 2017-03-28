@@ -10,7 +10,6 @@ sub all_pages {
         ['about-us',                   'static/about',                 'full_width', 'About Us'],
         ['contact',                    'static/contact',               'full_width', 'Contact Us'],
         ['endpoint',                   'static/endpoint',              'full_width', 'Endpoint'],
-        ['mt5',                        'static/mt5',                   'full_width', 'Forex'],
         ['home',                       'static/home',                  'full_width', 'Champion FX'],
         ['licensing',                  'static/licensing',             'full_width', 'Licensing'],
         ['logged_inws',                'static/common/logged_in',      'full_width', 'Logging in...'],
@@ -28,9 +27,11 @@ sub all_pages {
         ['types-of-accounts',          'static/binary_options/types_of_accounts', 'full_width', 'Binary options trading accounts'],
         ['how-to-trade-binary-options','static/binary_options/how_to',            'full_width', 'How to trade binary options'],
 
-        ['forex/accounts/cent',        'static/forex/accounts/cent',     'full_width', 'Cent Account'],
-        ['forex/accounts/standard',    'static/forex/accounts/standard', 'full_width', 'Standard Account'],
-        ['forex/accounts/stp',         'static/forex/accounts/stp',      'full_width', 'STP Account'],
+        ['forex',                      'mt5/forex/index',              'full_width', 'Forex'],
+        ['forex/accounts/cent',        'mt5/forex/accounts/cent',      'full_width', 'Cent Account'],
+        ['forex/accounts/standard',    'mt5/forex/accounts/standard',  'full_width', 'Standard Account'],
+        ['forex/accounts/stp',         'mt5/forex/accounts/stp',       'full_width', 'STP Account'],
+        ['cfd',                        'mt5/cfd',                      'full_width', 'Contracts for Difference'],
 
         ['partnerships',               'static/partnerships/partnerships',             'full_width', 'Partnerships'],
         ['partnerships-affiliate',     'static/partnerships/partnerships_affiliate',   'full_width', 'Affiliate programme'],

@@ -143,7 +143,7 @@
                         <div class="separator primary-color"></div>
                         <p>[% l('Trade the world’s most popular currency pairs with leverage up to 1,000:1 on a commission-free basis.') %]</p>
                         <p>
-                            <a class="button" href="[% request.url_for('mt5') %]">
+                            <a class="button" href="[% request.url_for('forex') %]">
                                 <span>[% l('Learn more') %]</span>
                             </a>
                         </p>

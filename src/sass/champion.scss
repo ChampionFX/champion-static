@@ -300,6 +300,10 @@ h1.main-title {
     background-image: url('../images/forex.png');
 }
 
+.cfd-header {
+    background-image: url('../images/CFDs.png');
+}
+
 // Home page
 .fx-home-header {
     @include header-background(0, '../images/header_imgfx-2x.jpg');
@@ -806,8 +810,13 @@ img.float-right {
 }
 
 .center-align {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.middle-align {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
 }
 
 .no-gutters {
