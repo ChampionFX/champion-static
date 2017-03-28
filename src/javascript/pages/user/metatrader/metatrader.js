@@ -96,6 +96,9 @@ const MetaTrader = (function() {
                         MetaTraderUI.displayMainMessage(actions_info[action].success_msg(response));
                         getAccountDetails(actions_info[action].login ?
                             actions_info[action].login(response) : types_info[acc_type].account_info.login, acc_type);
+                        if (typeof actions_info[action].onSuccess === 'function') {
+                            actions_info[action].onSuccess(response, acc_type);
+                        }
                     }
                 });
             });
@@ -103,7 +106,8 @@ const MetaTrader = (function() {
     };
 
     return {
-        load: load,
+        load          : load,
+        getAccountType: getAccountType,
     };
 })();
 

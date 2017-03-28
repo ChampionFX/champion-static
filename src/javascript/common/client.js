@@ -1,10 +1,11 @@
+const ChampionSocket       = require('./socket');
 const CookieStorage        = require('./storage').CookieStorage;
 const LocalStore           = require('./storage').LocalStore;
 const State                = require('./storage').State;
 const url                  = require('./url');
 const template             = require('./utility').template;
-const ChampionSocket       = require('./socket');
 const Cookies              = require('../lib/js-cookie');
+const MetaTrader           = require('../pages/user/metatrader/metatrader');
 
 const Client = (function () {
     const client_object = {};
@@ -96,10 +97,26 @@ const Client = (function () {
             Client.set('residence', country_code);
             ChampionSocket.send({ landing_company: country_code });
         }
+        if (!/user\/metatrader\.html/i.test(window.location.pathname)) {
+            ChampionSocket.send({ mt5_login_list: 1 });
+        }
 
         $('#btn_logout').click(() => {
             request_logout();
         });
+    };
+
+    const response_mt5_login_list = (response) => {
+        const mt5_logins = {};
+        if (response.mt5_login_list && response.mt5_login_list.length > 0) {
+            response.mt5_login_list.map((obj) => {
+                const account_type = MetaTrader.getAccountType(obj.group);
+                if (account_type) {
+                    mt5_logins[account_type] = obj.login;
+                }
+            });
+        }
+        set('mt5_logins', JSON.stringify(mt5_logins));
     };
 
     const should_accept_tnc = () => {
@@ -256,6 +273,8 @@ const Client = (function () {
         is_virtual          : () => get('is_virtual'),
         has_real            : () => get('has_real'),
         do_logout           : do_logout,
+
+        response_mt5_login_list: response_mt5_login_list,
     };
 })();
 

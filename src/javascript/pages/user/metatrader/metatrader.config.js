@@ -1,6 +1,7 @@
 const ChampionSocket = require('../../../common/socket');
 const Client         = require('../../../common/client');
 const formatMoney    = require('../../../common/currency').formatMoney;
+const GTM            = require('../../../common/gtm');
 const url_for        = require('../../../common/url').url_for;
 const isEmptyObject  = require('../../../common/utility').isEmptyObject;
 
@@ -46,6 +47,25 @@ const MetaTraderConfig = (function() {
                         $(this).remove();
                     }
                 });
+            },
+            onSuccess: (response, acc_type) => {
+                // Update mt5_logins in localStorage
+                const new_login = response.mt5_new_account.login;
+                const mt5_logins = JSON.parse(Client.get('mt5_logins') || '{}');
+                mt5_logins[acc_type] = new_login;
+                Client.set('mt5_logins', JSON.stringify(mt5_logins));
+
+                // Push GTM
+                const gtm_data = {
+                    event          : 'mt5_new_account',
+                    url            : window.location.href,
+                    mt5_date_joined: Math.floor(Date.now() / 1000),
+                };
+                gtm_data[`mt5_${acc_type}`] = new_login;
+                if (acc_type === 'demo' && !Client.is_virtual()) {
+                    gtm_data.visitorId = Client.get('loginid_array').find(login => !login.real).id;
+                }
+                GTM.pushDataLayer(gtm_data);
             },
         },
         password_change: {

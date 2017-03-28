@@ -19,8 +19,14 @@ const GTM = (() => {
             url      : document.URL,
             event    : 'page_load',
         };
+
         if (Client.is_logged_in()) {
             data_layer_info.visitorId = Client.get('loginid');
+
+            const mt5_logins = JSON.parse(Client.get('mt5_logins') || '{}');
+            Object.keys(mt5_logins).forEach((account_type) => {
+                data_layer_info[`mt5_${account_type}`] = mt5_logins[account_type];
+            });
         }
 
         $.extend(true, data_layer_info, data);
