@@ -3,6 +3,7 @@ const Client      = require('./client');
 const getLanguage = require('./language').get;
 const Login       = require('./login');
 const getAppId    = require('./socket').getAppId;
+const State       = require('./storage').State;
 const Cookies     = require('../lib/js-cookie');
 
 const GTM = (() => {
@@ -14,6 +15,7 @@ const GTM = (() => {
         const data_layer_info = {
             language : getLanguage(),
             pageTitle: pageTitle(),
+            pjax     : State.get('is_loaded_by_pjax'),
             url      : document.URL,
             event    : 'page_load',
         };
