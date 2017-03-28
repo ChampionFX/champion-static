@@ -17,6 +17,9 @@
         'module':  false,
         'console': false,
         'global':  false,
+
+        'dataLayer': true,
+
         // function from binary-style
         'tabListener': false
     },

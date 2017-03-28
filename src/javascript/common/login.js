@@ -24,11 +24,12 @@ const Login = (function() {
         );
     };
 
-    const is_login_pages = () => /logged_inws|oauth2/.test(document.URL);
+    const is_login_pages = () => /logged_inws/.test(document.URL);
 
     return {
         redirect_to_login: redirect_to_login,
         login_url        : login_url,
+        is_login_pages   : is_login_pages,
     };
 })();
 
