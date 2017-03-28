@@ -783,6 +783,14 @@ ul.no-padding {
     margin-top: 0;
 }
 
+.no-margin-left {
+    margin-left: 0 !important;
+}
+
+.box .no-margin-left {
+    padding-left: 20px !important;
+}
+
 .has-tabs {
     * {
         outline: none;

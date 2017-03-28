@@ -32,6 +32,7 @@ sub all_pages {
         ['forex/accounts/standard',    'mt5/forex/accounts/standard',  'full_width', 'Standard Account'],
         ['forex/accounts/stp',         'mt5/forex/accounts/stp',       'full_width', 'STP Account'],
         ['cfd',                        'mt5/cfd',                      'full_width', 'Contracts for Difference'],
+        ['metals',                     'mt5/metals',                   'full_width', 'Metals'],
 
         ['partnerships',               'static/partnerships/partnerships',             'full_width', 'Partnerships'],
         ['partnerships-affiliate',     'static/partnerships/partnerships_affiliate',   'full_width', 'Affiliate programme'],

@@ -81,6 +81,7 @@ const Champion = (function() {
             metatrader         : { module: MetaTrader,          is_authenticated: true },
             forex              : { module: MT5 },
             cfd                : { module: MT5 },
+            metals             : { module: MT5 },
             profile            : { module: ChampionProfile,     is_authenticated: true },
             real               : { module: ChampionNewReal,     is_authenticated: true, only_virtual: true },
             settings           : { module: ChampionSettings,    is_authenticated: true },
