@@ -136,7 +136,7 @@
                                 <p>[% l('When you are trading metals, you can choose to open a buy position (if you think that the price of an asset will rise) or a sell position (if you think that the price of an asset will fall).') %]</p>
                             </div>
                         </div>
-                        <div class="col-sm">
+                        <div class="col-sm margin-top-bottom">
                             <div class="box bordered">
                                 <div class="center-text">
                                     <img class="fx-md" src="[% request.url_for('images/mt5/high.svg') %]">
@@ -148,7 +148,7 @@
                                 <p>[% l('In this case, you predict that the price will rise. This is also known as ‘going long’.') %]</p>
                             </div>
                         </div>
-                        <div class="col-sm">
+                        <div class="col-sm margin-top-bottom">
                             <div class="box bordered">
                                 <div class="center-text">
                                     <img class="fx-md" src="[% request.url_for('images/mt5/low.svg') %]">
@@ -219,29 +219,29 @@
 
                     <div class="fx-divider"></div>
 
-                    <div class="col-xs-10 push-xs-1 no-gutters">
+                    <div class="col-xs-9 center-align">
                         <div class="row">
-                            <div class="center-text">
+                            <div class="center-text center-align margin-top-bottom">
                                 <div class="box fill-bg-color">
                                     <h4>[% l('(Closing price – Opening price)') %]</h4>
                                 </div>
                             </div>
-                            <div class="col-xs-1 middle-align center-text">
+                            <div class="col-xs-3 col-md-1 middle-align center-text center-align margin-top-bottom">
                                 <div class="center-text">
                                     <img class="fx-xxs" src="[% request.url_for('images/mt5/multiply_icon.svg') %]">
                                 </div>
                             </div>
-                            <div class="center-text">
+                            <div class="center-text center-align margin-top-bottom">
                                 <div class="box fill-bg-color">
                                     <h4>[% l('Lot units') %]</h4>
                                 </div>
                             </div>
-                            <div class="col-xs-1 middle-align center-text">
+                            <div class="col-xs-3 col-md-1 middle-align center-text center-align margin-top-bottom">
                                 <div class="center-text">
                                     <img class="fx-xs" src="[% request.url_for('images/mt5/equal_icon.svg') %]">
                                 </div>
                             </div>
-                            <div class="center-text">
+                            <div class="center-text center-align margin-top-bottom">
                                 <div class="box fill-bg-color">
                                     <h4>[% l('Profit/Loss') %]</h4>
                                 </div>
@@ -288,29 +288,29 @@
 
                     <div class="fx-divider"></div>
 
-                    <div class="col-xs-10 push-xs-1 no-gutters">
+                    <div class="col-xs-9 center-align">
                         <div class="row">
-                            <div class="center-text">
+                            <div class="center-text center-align margin-top-bottom">
                                 <div class="box fill-bg-color">
                                     <h4>[% l('Required Margin') %]</h4>
                                 </div>
                             </div>
-                            <div class="col-xs-1 middle-align center-text">
+                            <div class="col-xs-3 col-md-1 middle-align center-text center-align margin-top-bottom">
                                 <div class="center-text">
                                     <img class="fx-xs" src="[% request.url_for('images/mt5/equal_icon.svg') %]">
                                 </div>
                             </div>
-                            <div class="center-text">
+                            <div class="center-text center-align margin-top-bottom">
                                 <div class="box fill-bg-color">
                                     <h4>[% l('Trade Size (0z) / Leverage') %]</h4>
                                 </div>
                             </div>
-                            <div class="col-xs-1 middle-align center-text">
+                            <div class="col-xs-3 col-md-1 middle-align center-text center-align margin-top-bottom">
                                 <div class="center-text">
                                     <img class="fx-xxs" src="[% request.url_for('images/mt5/multiply_icon.svg') %]">
                                 </div>
                             </div>
-                            <div class="center-text">
+                            <div class="center-text center-align margin-top-bottom">
                                 <div class="box fill-bg-color">
                                     <h4>[% l('Market Price') %]</h4>
                                 </div>
@@ -354,8 +354,8 @@
                         <p>[% l('Once your account hits the forced liquidation level, your orders and positions are forcibly closed in the following order:') %]</p>
                     </div>
 
-                    <div class="col-xs-10 push-xs-1">
-                        <ul class="bullet">
+                    <div class="col-xs-12 col-md-10 center-align">
+                        <ul class="bullet no-margin-left">
                             <li>[% l('We analyse your pending orders.') %]</li>
                             <li>[% l('We delete an order with the largest margin reserved.') %]</li>
                             <li>[% l('If your margin level is still under the stop out level, your next order will be deleted. However, orders without margin requirements will not be deleted.') %]</li>

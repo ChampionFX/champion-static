@@ -87,7 +87,7 @@
                         </a>
                         <ul>
                             <li><a href="[% request.url_for('forex') %]">[% l('Forex') %]</a></li>
-                            <li><a href="[% request.url_for('cfd') %]">[% l('Contracts for Difference') %]</a></li>
+                            <li><a href="[% request.url_for('cfd') %]">[% l('CFDs') %]</a></li>
                             <li><a href="[% request.url_for('metals') %]">[% l('Metals') %]</a></li>
                         </ul>
                     </li>
