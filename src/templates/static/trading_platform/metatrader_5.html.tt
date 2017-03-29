@@ -148,7 +148,7 @@
                             </a>
                         </p>
                     </div>
-                    <div class="col-md-5 push-md-2 invisible">
+                    <div class="col-md-5 push-md-2">
                         <h3>[% l('Metals') %]</h3>
                         <div class="separator primary-color"></div>
                         <p>[% l('Trade a variety of flexible precious metals contracts, including gold (per gram or ounce) with highly competitive pricing.') %]</p>
@@ -159,23 +159,26 @@
                         </p>
                     </div>
                 </div>
-                <div class="row invisible">
-                    <div class="col-md-5">
-                        <h3>[% l('Futures') %]</h3>
-                        <div class="separator primary-color"></div>
-                        <p>[% l('Trade futures contracts on a variety of underlying instruments including indices, agricultural commodities, and energies.') %]</p>
-                        <p>
-                            <a class="button" href="[% request.url_for('futures') %]">
-                                <span>[% l('Learn more') %]</span>
-                            </a>
-                        </p>
+                <div class="row">
+                    <div class="invisible">
+                        <div class="col-md-5">
+                            <h3>[% l('Futures') %]</h3>
+                            <div class="separator primary-color"></div>
+                            <p>[% l('Trade futures contracts on a variety of underlying instruments including indices, agricultural commodities, and energies.') %]</p>
+                            <p>
+                                <a class="button" href="[% request.url_for('futures') %]">
+                                    <span>[% l('Learn more') %]</span>
+                                </a>
+                            </p>
+                        </div>
                     </div>
-                    <div class="col-md-5 push-md-2">
+                    <!-- <div class="col-md-5 push-md-2"> -->
+                    <div class="col-md-5">
                         <h3>[% l('Contracts for Difference (CFDs)') %]</h3>
                         <div class="separator primary-color"></div>
                         <p>[% l('Trade CFDs across stocks, indices, and other instruments for more trading opportunities.') %]</p>
                         <p>
-                            <a class="button" href="[% request.url_for('cfds') %]">
+                            <a class="button" href="[% request.url_for('cfd') %]">
                                 <span>[% l('Learn more') %]</span>
                             </a>
                         </p>
