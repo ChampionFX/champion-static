@@ -553,6 +553,12 @@
                                         <td>[% l('Yes') %]</td>
                                         <td>[% l('Yes') %]</td>
                                     </tr>
+                                    <tr>
+                                        <td>[% l('Maximum ticket size<sup>10</sup>') %]</td>
+                                        <td>[% l('20 lots') %]</td>
+                                        <td>[% l('50 lots') %]</td>
+                                        <td>[% l('100 lots') %]</td>
+                                    </tr>
 
                                     <tr>
                                         <td></td>
@@ -629,6 +635,13 @@
                             <h4>[% l('9. A swap-free option') %]</h4>
                             <div class="separator primary-color"></div>
                             <p>[% l('Is an account that incurs no interest or swap charges on overnight positions. This option is ideal for those with certain religious restrictions when it comes to paying interest.') %]</p>
+                        </div>
+                    </div>
+                    <div class="row lg-padding no-gutters">
+                        <div class="col-sm-4">
+                            <h4>[% l('10. Maximum ticket size') %]</h4>
+                            <div class="separator primary-color"></div>
+                            <p>[% l('Refers to the maximum volume of lots allowed per trade.') %]</p>
                         </div>
                     </div>
                 </div>
