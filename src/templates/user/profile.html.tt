@@ -24,7 +24,7 @@
             [% INCLUDE user/personal_details.html.tt %]
         </div>
 
-        <div id="assessment">
+        <div id="assessment" class="is-real">
             [% INCLUDE user/financial_assessment.html.tt %]
         </div>
     </div>
