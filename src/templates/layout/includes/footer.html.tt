@@ -93,9 +93,9 @@
                 </div>
             </div>
             <div class="row">
-                <p class="col-sm">
+                <div class="col-sm">
                     [% l('ChampionFX is not available to residents of Afghanistan, Bosnia and Herzegovina, Costa Rica, any European Union country, Guyana, Hong Kong, Iran, Iraq, Japan, Jersey, Malaysia, North Korea, Syria, Uganda, USA, Vanuatu, and Yemen.') %]
-                </p>
+                </div>
             </div>
         </div>
     </div>
