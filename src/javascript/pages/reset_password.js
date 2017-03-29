@@ -44,7 +44,7 @@ const ResetPassword = (function() {
     };
 
     const haveRealAccountHandler = function() {
-        container.find('#dob_row').toggleClass(hidden_class);
+        container.find('.dob_row').toggleClass(hidden_class);
     };
 
     const submit = (e) => {
