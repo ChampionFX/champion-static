@@ -21,6 +21,12 @@
                 z-index: 10;
             }
         }
+        ul li a {
+            padding: 10px 15px;
+            &.active {
+                border-bottom: none;
+            }
+        }
     }
 }
 
@@ -35,4 +41,13 @@
 
 .logo, .logo-dark {
     height: 45px;
+}
+
+body .has-tabs .ui-tabs-panel {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#indices-cfd-contract-specs table th {
+    max-width: 180px;
 }

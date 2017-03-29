@@ -300,6 +300,10 @@ h1.main-title {
     background-image: url('../images/forex.png');
 }
 
+.cfd-header {
+    background-image: url('../images/CFDs.png');
+}
+
 // Home page
 .fx-home-header {
     @include header-background(0, '../images/header_imgfx-2x.jpg');
@@ -779,6 +783,14 @@ ul.no-padding {
     margin-top: 0;
 }
 
+.no-margin-left {
+    margin-left: 0 !important;
+}
+
+.box .no-margin-left {
+    padding-left: 20px !important;
+}
+
 .has-tabs {
     * {
         outline: none;
@@ -806,8 +818,18 @@ img.float-right {
 }
 
 .center-align {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.margin-top-bottom {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.middle-align {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
 }
 
 .no-gutters {
