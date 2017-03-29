@@ -1,4 +1,5 @@
 const getLanguage = require('./language').getLanguage;
+const State       = require('./storage').State;
 
 /**
  * Router module for ChampionFX
@@ -100,6 +101,8 @@ const ChampionRouter = (function() {
     };
 
     const processUrl = (url, replace, no_scroll) => {
+        State.set('is_loaded_by_pjax', true);
+
         const cached_content = cacheGet(url);
         if (cached_content) {
             replaceContent(url, cached_content, replace, no_scroll);

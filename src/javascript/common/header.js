@@ -1,5 +1,6 @@
 const Client         = require('./client');
 const formatMoney    = require('./currency').formatMoney;
+const GTM            = require('./gtm');
 const ChampionSocket = require('./socket');
 const State          = require('./storage').State;
 const url_for        = require('./url').url_for;
@@ -155,6 +156,7 @@ const Header = (function () {
         Client.set('loginid', loginid);
         Client.set_cookie('loginid', loginid);
         Client.set_cookie('token',   token);
+        GTM.setLoginFlag();
         $('.login-id-list a').removeAttr('disabled');
         window.location.reload();
     };

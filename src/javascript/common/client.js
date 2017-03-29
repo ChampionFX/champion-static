@@ -1,9 +1,9 @@
+const ChampionSocket       = require('./socket');
 const CookieStorage        = require('./storage').CookieStorage;
 const LocalStore           = require('./storage').LocalStore;
 const State                = require('./storage').State;
 const url                  = require('./url');
 const template             = require('./utility').template;
-const ChampionSocket       = require('./socket');
 const Cookies              = require('../lib/js-cookie');
 
 const Client = (function () {
@@ -96,6 +96,9 @@ const Client = (function () {
             Client.set('residence', country_code);
             ChampionSocket.send({ landing_company: country_code });
         }
+        if (!/user\/metatrader\.html/i.test(window.location.pathname)) {
+            ChampionSocket.send({ mt5_login_list: 1 });
+        }
 
         $('#btn_logout').click(() => {
             request_logout();
@@ -162,6 +165,7 @@ const Client = (function () {
         set_cookie('loginid',      client_loginid);
         set_cookie('loginid_list', virtual_client ? `${client_loginid}:V:E` : `${client_loginid}:R:E+${Cookies.get('loginid_list')}`);
         // set local storage
+        localStorage.setItem('GTM_new_account', '1');
         set('loginid', client_loginid);
         window.location.href = url.default_redirect_url();
     };

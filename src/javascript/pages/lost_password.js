@@ -40,7 +40,7 @@ const LostPassword = (function() {
             };
             ChampionSocket.send(data).then((response) => {
                 if (response.error) {
-                    $('#error-lost-password').removeClass('invisible').text(response.error.message);
+                    $('#msg_form').removeClass('invisible').text(response.error.message);
                 } else {
                     window.location.href = url_for('reset-password');
                 }

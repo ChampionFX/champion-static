@@ -1,8 +1,9 @@
-const isEmptyObject        = require('./utility').isEmptyObject;
-const getLanguage          = require('./language').getLanguage;
 const Client               = require('./client');
-const url_for              = require('./url').url_for;
+const GTM                  = require('./gtm');
+const getLanguage          = require('./language').getLanguage;
 const default_redirect_url = require('./url').default_redirect_url;
+const url_for              = require('./url').url_for;
+const isEmptyObject        = require('./utility').isEmptyObject;
 const Cookies              = require('../lib/js-cookie');
 
 const LoggedIn = (function() {
@@ -25,6 +26,9 @@ const LoggedIn = (function() {
             Client.set_cookie('loginid_list', loginid_list);
         }
         Client.set_cookie('token', tokens[loginid]);
+
+        // set flags
+        GTM.setLoginFlag();
 
         // redirect url
         redirect_url = sessionStorage.getItem('redirect_url');
