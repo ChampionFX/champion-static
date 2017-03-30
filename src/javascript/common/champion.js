@@ -24,6 +24,7 @@ const CashierTopUpVirtual     = require('./../pages/cashier/top_up_virtual');
 const Authenticate            = require('./../pages/user/authenticate');
 const ChangePassword          = require('./../pages/user/change_password');
 const MetaTrader              = require('./../pages/user/metatrader/metatrader');
+const SelfExclusion           = require('./../pages/user/self_exclusion');
 const ChampionSettings        = require('./../pages/user/settings');
 const TNCApproval             = require('./../pages/user/tnc_approval');
 const CashierDepositWithdraw  = require('./../pages/cashier/deposit_withdraw');
@@ -96,6 +97,7 @@ const Champion = (function() {
             'lost-password'    : { module: LostPassword,        not_authenticated: true },
             'payment-methods'  : { module: CashierPaymentMethods },
             'reset-password'   : { module: ResetPassword,       not_authenticated: true },
+            'self-exclusion'   : { module: SelfExclusion,       is_authenticated: true, only_real: true },
             'tnc-approval'     : { module: TNCApproval,         is_authenticated: true, only_real: true },
             'top-up-virtual'   : { module: CashierTopUpVirtual, is_authenticated: true, only_virtual: true },
             'trading-times'    : { module: TradingTimes },

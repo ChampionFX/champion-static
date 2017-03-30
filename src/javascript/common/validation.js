@@ -1,4 +1,7 @@
-const Validation = (function() {
+const compareBigUnsignedInt = require('../common/utility').compareBigUnsignedInt;
+const template              = require('../common/utility').template;
+
+const Validation = (() => {
     'use strict';
 
     const forms = {};
@@ -15,41 +18,56 @@ const Validation = (function() {
         $field.length ? ($field.attr('type') === 'checkbox' ? 'checkbox' : $field.get(0).localName) : null
     );
 
-    const getFieldValue = $field => (getFieldType($field) === 'checkbox' ? ($field.is(':checked') ? '1' : '') : $field.val()) || '';
+    const getFieldValue = field => (field.type === 'checkbox' ? (field.$.is(':checked') ? '1' : '') : field.$.val()) || '';
 
     const initForm = (form_selector, fields) => {
         const $form = $(`${form_selector}:visible`);
-        if ($form.length && Array.isArray(fields) && fields.length) {
-            forms[form_selector] = { fields: fields, $form: $form };
-            fields.forEach((field) => {
-                field.$ = $form.find(field.selector);
-                if (!field.$.length) return;
+        if ($form.length) {
+            forms[form_selector] = { $form: $form };
+            if (Array.isArray(fields) && fields.length) {
+                forms[form_selector].fields = fields;
 
-                field.form = form_selector;
-                if (field.msg_element) {
-                    field.$error = $form.find(field.msg_element);
-                } else {
-                    const $parent = field.$.parent();
-                    if ($parent.find(`div.${error_class}`).length === 0) {
-                        $parent.append($('<div/>', { class: `${error_class} ${hidden_class}` }));
+                fields.forEach((field) => {
+                    field.$ = $form.find(field.selector);
+                    if (!field.$.length || !field.validations) return;
+
+                    field.type = getFieldType($(field.$[0])); // also handles multiple results
+                    field.form = form_selector;
+                    if (field.msg_element) {
+                        field.$error = $form.find(field.msg_element);
+                    } else {
+                        const $parent = field.$.parent();
+                        if ($parent.find(`div.${error_class}`).length === 0) {
+                            $parent.append($('<div/>', { class: `${error_class} ${hidden_class}` }));
+                        }
+                        field.$error = $parent.find(`.${error_class}`);
                     }
-                    field.$error = $parent.find(`.${error_class}`);
-                }
 
-                const event = events_map[getFieldType(field.$)];
-                if (event) {
-                    field.$.unbind(event).on(event, () => {
-                        checkField(field);
-                    });
-                }
-            });
+                    const event = events_map[field.type];
+                    if (event) {
+                        field.$.unbind(event).on(event, () => {
+                            checkField(field);
+                            if (field.re_check_field) {
+                                checkField(forms[form_selector].fields.find(fld => (
+                                    fld.selector === field.re_check_field
+                                )));
+                            }
+                        });
+                    }
+                });
+            }
         }
     };
 
     // ------------------------------
     // ----- Validation Methods -----
     // ------------------------------
-    const validRequired     = value => value.length;
+    const validRequired = (value, options, field) => {
+        if ((typeof value === 'string' ? value.trim() : value).length) return true;
+        // else
+        validators_map.req.message = field.type === 'checkbox' ? 'Please select the checkbox.' : 'This field is required.';
+        return false;
+    };
     const validEmail        = value => /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/.test(value);
     const validPassword     = value => /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+/.test(value);
     const validLetterSymbol = value => !/[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/.test(value);
@@ -57,6 +75,7 @@ const Validation = (function() {
     const validAddress      = value => !/[`~!#$%^&*)(_=+\[}{\]\\";:\?><|]+/.test(value);
     const validPostCode     = value => /^[a-zA-Z\d-\s]*$/.test(value);
     const validPhone        = value => /^\+?[0-9\s]*$/.test(value);
+    const validRegular      = (value, options) => options.regex.test(value);
     const validEmailToken   = value => value.trim().length === 8;
 
     const validCompare  = (value, options) => value === $(options.to).val();
@@ -70,6 +89,10 @@ const Validation = (function() {
     };
 
     const validNumber = (value, options) => {
+        if (options.allow_empty && value.length === 0) {
+            return true;
+        }
+
         let is_ok = true,
             message = '';
 
@@ -79,27 +102,33 @@ const Validation = (function() {
         } else if (options.type === 'float' && options.decimals &&
             !(new RegExp(`^\\d+(\\.\\d{${options.decimals.replace(/ /g, '')}})?$`).test(value))) {
             is_ok = false;
-            message = 'Only [_1] decimal points are allowed.'.replace('[_1]', [options.decimals]);
-        } else if (options.min && +value < +options.min) {
+            message = template('Only [_1] decimal points are allowed.', [options.decimals]);
+        } else if ('min' in options && 'max' in options && (+value < +options.min || isMoreThanMax(value, options))) {
             is_ok = false;
-            message = 'Should be more than [_1]'.replace('[_1]', options.min);
-        } else if (options.max && +value > +options.max) {
+            message = template('Should be between [_1] and [_2]', [options.min, options.max]);
+        } else if ('min' in options && +value < +options.min) {
             is_ok = false;
-            message = 'Should be less than [_1]'.replace('[_1]', options.max);
+            message = template('Should be more than [_1]', [options.min]);
+        } else if ('max' in options && isMoreThanMax(value, options)) {
+            is_ok = false;
+            message = template('Should be less than [_1]', [options.max]);
         }
 
         validators_map.number.message = message;
         return is_ok;
     };
 
+    const isMoreThanMax = (value, options) =>
+        (options.type === 'float' ? +value > +options.max : compareBigUnsignedInt(value, options.max) === 1);
+
     const validators_map = {
-        req          : { func: validRequired,     message: 'This field is required' },
+        req          : { func: validRequired,     message: '' },
         email        : { func: validEmail,        message: 'Invalid email address' },
         password     : { func: validPassword,     message: 'Password should have lower and uppercase letters with numbers.' },
         general      : { func: validGeneral,      message: 'Only letters, numbers, space, hyphen, period, and apostrophe are allowed.' },
         address      : { func: validAddress,      message: 'Only letters, numbers, space, hyphen, period, and apostrophe are allowed.' },
         letter_symbol: { func: validLetterSymbol, message: 'Only letters, space, hyphen, period, and apostrophe are allowed.' },
-        postcode     : { func: validPostCode,     message: 'Only letters, numbers, space and hyphen are allowed.' },
+        postcode     : { func: validPostCode,     message: 'Only letters, numbers, space, and hyphen are allowed.' },
         phone        : { func: validPhone,        message: 'Only numbers and spaces are allowed.' },
         email_token  : { func: validEmailToken,   message: 'Please submit a valid verification token.' },
         compare      : { func: validCompare,      message: 'The two passwords that you entered do not match.' },
@@ -107,6 +136,7 @@ const Validation = (function() {
         min          : { func: validMin,          message: 'Minimum of [_1] characters required.' },
         length       : { func: validLength,       message: 'You should enter [_1] characters.' },
         number       : { func: validNumber,       message: '' },
+        regular      : { func: validRegular,      message: '' },
     };
 
     const pass_length = type => ({ min: (/^mt$/.test(type) ? 8 : 6), max: 25 });
@@ -130,23 +160,23 @@ const Validation = (function() {
                 options = valid[1];
             }
 
-            if (type === 'password' && !validLength(getFieldValue(field.$), pass_length(options))) {
+            if (type === 'password' && !validLength(getFieldValue(field), pass_length(options))) {
                 field.is_ok = false;
                 type = 'length';
                 options = pass_length(options);
             } else {
-                const validator = validators_map[type].func;
-                field.is_ok = validator(getFieldValue(field.$), options, field.form);
+                const validator = (type === 'custom' ? options.func : validators_map[type].func);
+                field.is_ok = validator(getFieldValue(field), options, field);
             }
 
             if (!field.is_ok) {
                 message = options.message || validators_map[type].message;
                 if (type === 'length') {
-                    message = message.replace('[_1]', options.min === options.max ? options.min : `${options.min}-${options.max}`);
+                    message = template(message, [options.min === options.max ? options.min : `${options.min}-${options.max}`]);
                 } else if (type === 'min') {
-                    message = message.replace('[_1]', options.min);
+                    message = template(message, [options.min]);
                 } else if (type === 'not_equal') {
-                    message = message.replace('[_1]', options.name1).replace('[_2]', options.name2);
+                    message = template(message, [options.name1, options.name2]);
                 }
                 all_is_ok = false;
                 return true;
@@ -176,11 +206,12 @@ const Validation = (function() {
 
     const validate = (form_selector) => {
         const form = forms[form_selector];
+        if (!form.fields) return true;
         form.is_ok = true;
         form.fields.forEach((field) => {
             if (!checkField(field)) {
-                if (form.is_ok) { // first error
-                    $.scrollTo(field.$.parent('div'), 500, { offset: -10 });
+                if (form.is_ok && !field.no_scroll) { // first error
+                    $.scrollTo(field.$, 500, { offset: -10 });
                 }
                 form.is_ok = false;
             }
