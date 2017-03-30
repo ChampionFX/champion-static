@@ -28,13 +28,11 @@
                         </div>
                         <div class="col-xs-6 col-md-3">
                             [% INCLUDE link_group title=l('MT5') items=[
-                                { link => '#',  text => l("Forex"),  hidden=1 },
-                                { link => '#',  text => l("CFDs"),   hidden=1 },
-                                { link => '#',  text => l("Metals"), hidden=1 },
-                                { link => 'mt5', link_hash => '#contract-spec',  text => l("Contract Specifications") },
-                                { link => 'mt5', link_hash => '#margin-policy',  text => l("Trading Policies") },
-                                { link => 'mt5', link_hash => '#forex-accounts',  text => l("Types of accounts") },
-                                { link => 'trading-platform/metatrader-5', text => l("MT5 trading platforms") },
+                                { link => 'forex',  text => l("Forex") },
+                                { link => 'cfd',    text => l("CFDs") },
+                                { link => 'metals', text => l("Metals") },
+                                { link => 'forex', link_hash => '#forex-accounts', text => l("Types of accounts") },
+                                { link => 'trading-platform/metatrader-5',         text => l("MT5 trading platforms") },
                             ] %]
                         </div>
                         <div class="col-xs-6 col-md-3">

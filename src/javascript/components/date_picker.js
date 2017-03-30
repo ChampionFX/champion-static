@@ -68,8 +68,26 @@ DatePicker.prototype = {
             changeYear     : true,
         };
         $.extend(config, options);
-        if (options.minDate) {
-            config.minDate = options.minDate === 'today' ? today : options.minDate;
+
+        const setDate = (date) => {
+            let new_date;
+            if (typeof options[date] === 'number') {
+                new_date = new Date();
+                new_date.setDate(today.getDate() + Number(options[date]));
+            }
+            config[date] = new_date || options[date];
+        };
+
+        if (options.minDate !== undefined) {
+            if (options.minDate === 'today') {
+                config.minDate = today;
+            } else {
+                setDate('minDate');
+            }
+        }
+
+        if (options.maxDate !== undefined) {
+            setDate('maxDate');
         }
 
         const that = this;

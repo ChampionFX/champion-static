@@ -137,11 +137,9 @@
 
                     <div class="fx-divider"></div>
 
-                    <div class="row">
-                        <div class="col-xxs center-align">
-                            <div class="box fill-bg-color">
-                                <h4>[% l('Let’s use the US 100 index as an example:') %]</h4>
-                            </div>
+                    <div class="row flex-items-xs-center">
+                        <div class="box fill-bg-color">
+                            <h4>[% l('Let’s use the US 100 index as an example:') %]</h4>
                         </div>
                     </div>
 
