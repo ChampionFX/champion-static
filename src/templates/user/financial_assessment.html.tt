@@ -18,7 +18,7 @@
     [% END %]
 [% END %]
 
-<div class="container fx-section">
+<div>
     <h2>[% l('Financial assessments') %]</h2>
     <form class="formObject invisible" id="assessment_form" name="assessment_form">
         <p class="invisible" id="high_risk_classification">
