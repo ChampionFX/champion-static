@@ -1,6 +1,5 @@
 const MetaTraderConfig = require('./metatrader.config');
 const MetaTraderUI     = require('./metatrader.ui');
-const Client           = require('../../../common/client');
 const ChampionSocket   = require('../../../common/socket');
 const Validation       = require('../../../common/validation');
 
@@ -13,36 +12,28 @@ const MetaTrader = (function() {
 
     const load = () => {
         ChampionSocket.send({ mt5_login_list: 1 }).then((response) => {
-            responseLoginList(response, true);
+            responseLoginList(response);
         });
         MetaTraderUI.init(submit);
     };
 
-    const responseLoginList = (response, is_metatrader_page) => {
-        const mt5_logins = {};
+    const responseLoginList = (response) => {
         if (response.mt5_login_list && response.mt5_login_list.length > 0) {
             response.mt5_login_list.map((obj) => {
                 const acc_type = getAccountType(obj.group);
                 if (acc_type) { // ignore old accounts which are not linked to any group
-                    mt5_logins[acc_type === 'demo' ? 'demo' : `${types_info[acc_type].account_type}_${types_info[acc_type].mt5_account_type}`] = obj.login;
-                    if (is_metatrader_page) {
-                        types_info[acc_type].account_info = { login: obj.login };
-                        getAccountDetails(obj.login, acc_type);
-                    }
-                }
-            });
-
-            Client.set('mt5_logins', JSON.stringify(mt5_logins));
-        }
-
-        if (is_metatrader_page) {
-            // Update types with no account
-            Object.keys(types_info).forEach((acc_type) => {
-                if (!types_info[acc_type].account_info) {
-                    MetaTraderUI.updateAccount(acc_type);
+                    types_info[acc_type].account_info = { login: obj.login };
+                    getAccountDetails(obj.login, acc_type);
                 }
             });
         }
+
+        // Update types with no account
+        Object.keys(types_info).forEach((acc_type) => {
+            if (!types_info[acc_type].account_info) {
+                MetaTraderUI.updateAccount(acc_type);
+            }
+        });
     };
 
     const getAccountDetails = (login, acc_type) => {
@@ -116,8 +107,7 @@ const MetaTrader = (function() {
     };
 
     return {
-        load             : load,
-        responseLoginList: responseLoginList,
+        load: load,
     };
 })();
 

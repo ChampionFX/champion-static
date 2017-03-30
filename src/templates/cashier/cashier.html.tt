@@ -1,4 +1,5 @@
-<div class="fx-section container">
+<div class="fx-section">
+<div class="container">
     [% INCLUDE components/page_title.html.tt title=l('Cashier') %]
     <div class="fx-cashier">
         <div id="fx-virtual" class="row invisible">
@@ -28,11 +29,9 @@
                 <div class="fx-md fx-ecw"></div>
             </div>
             <div class="col-md-10">
-                <div class="row">
-                    <p>[% l('Manage the funds in your ChampionFX real account. You can deposit and withdraw funds via bank wire, credit card, or e-cash.') %]</p>
-                    <p>[% l('Not sure if your preferred payment methods is supported? Refer to our list of available <a href="[_1]">payment methods</a> to find out.', request.url_for('cashier/payment-methods')) %]</p>
-                </div>
-                <div class="row">
+                <p>[% l('Manage the funds in your ChampionFX real account. You can deposit and withdraw funds via bank wire, credit card, or e-cash.') %]</p>
+                <p>[% l('Not sure if your preferred payment methods is supported? Refer to our list of available <a href="[_1]">payment methods</a> to find out.', request.url_for('cashier/payment-methods')) %]</p>
+                <div>
                     <a class="button button_large invisible" href="[% request.url_for('/cashier/forward#deposit') %]" id="deposit-btn">
                         <span>[% l('Deposit') %]</span>
                     </a>
@@ -43,4 +42,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

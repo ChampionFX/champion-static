@@ -26,7 +26,7 @@ const Slider = (() => {
     const positionFooterAndDots = function() {
         const height = -$('.slider-footer').innerHeight();
         const dotsMargin = height - 40;
-        if (window.matchMedia('(min-width: 797px)').matches) {
+        if (window.matchMedia('(min-width: 767px)').matches) {
             /*eslint-disable */
             setTimeout(function () {
                 $('.slider-footer').css({

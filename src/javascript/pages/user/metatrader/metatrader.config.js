@@ -49,23 +49,12 @@ const MetaTraderConfig = (function() {
                 });
             },
             onSuccess: (response, acc_type) => {
-                // Update mt5_logins in localStorage
-                const new_login = response.mt5_new_account.login;
-                const mt5_logins = JSON.parse(Client.get('mt5_logins') || '{}');
-                mt5_logins[acc_type] = new_login;
-                Client.set('mt5_logins', JSON.stringify(mt5_logins));
-
-                // Push GTM
                 const gtm_data = {
-                    event           : 'mt5_new_account',
-                    url             : window.location.href,
-                    mt5_date_joined : Math.floor(Date.now() / 1000),
-                    mt5_account_type: types_info[acc_type].account_type,
-                    mt5_login_id    : new_login,
+                    event          : 'mt5_new_account',
+                    url            : window.location.href,
+                    mt5_date_joined: Math.floor(Date.now() / 1000),
                 };
-                if (response.echo_req.mt5_account_type) {
-                    gtm_data.mt5_sub_account = response.echo_req.mt5_account_type;
-                }
+                gtm_data[`mt5_${types_info[acc_type].mt5_account_type || 'demo'}_id`] = response.mt5_new_account.login;
                 if (acc_type === 'demo' && !Client.is_virtual()) {
                     gtm_data.visitorId = Client.get('loginid_array').find(login => !login.real).id;
                 }
