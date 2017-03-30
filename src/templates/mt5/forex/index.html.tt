@@ -40,7 +40,7 @@
                                     <div class="col-xss">
                                         <div class="fx-xxs fx-245-icon"></div>
                                     </div>
-                                    <div class="col-sm">
+                                    <div class="col-xs">
                                         <h3 class="no-margin-top">[% l('24/5 market action') %]</h3>
                                         <p>[% l('Trade 24 hours a day, five days a week and take advantage of opportunities whenever they happen.') %]</p>
                                     </div>
@@ -51,7 +51,7 @@
                                     <div class="col-xxs">
                                         <div class="fx-xxs fx-hili-icon"></div>
                                     </div>
-                                    <div class="col-sm">
+                                    <div class="col-xs">
                                         <h3 class="no-margin-top">[% l('High liquidity') %]</h3>
                                         <p>[% l('Buy and sell foreign currencies easily - even at large volumes - with minimal effect on price.') %]</p>
                                     </div>
@@ -62,7 +62,7 @@
                                     <div class="col-xss">
                                         <div class="fx-xxs fx-lever-icon"></div>
                                     </div>
-                                    <div class="col-sm">
+                                    <div class="col-xs">
                                         <h3 class="no-margin-top">[% l('Leverage') %]</h3>
                                         <p>[% l('Trade with leverage, which means the ability to control more money than the initial capital you started with.') %]</p>
                                     </div>
@@ -190,145 +190,147 @@
                 </div>
 
                 <div id="how-to-trade">
-                    <div class="lg-padding">
-                        <div class="row">
-                            <div class="col-sm">
-                                <h2>[% l('How to trade Forex') %]</h2>
-                                <p>[% l('A Forex trader has one objective in mind when trading: to exchange one currency for another in order to make a profit.') %]</p>
-                                <p>[% l('But if you’re new to Forex or financial trading of any kind, there\'s still a long way to go before you even purchase your first contract. This is why we\'ve come up with a basic, step-by-step tutorial to help you bridge that gap and make your first trade.') %]</p>
-                            </div>
-                            <div class="col-sm">
-                                <div class="row">
-                                    <div class="col-sm-2 hidden-xs-down">
-                                        <img class="float-right" src="[% request.url_for('images/mt5/steps.svg') %]">
-                                    </div>
-                                    <div class="col-sm-10">
-                                        <h3>[% l('Learn') %]</h3>
-                                        <p>[% l('to read currency pairs') %]</p>
-                                        <h3>[% l('Understand') %]</h3>
-                                        <p>[% l('when to buy (go long) and when to sell (go short)') %]</p>
-                                        <h3>[% l('Buy') %]</h3>
-                                        <p>[% l('your first currency pair') %]</p>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="fx-divider"></div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <h2>[% l('How to trade Forex') %]</h2>
+                            <p>[% l('A Forex trader has one objective in mind when trading: to exchange one currency for another in order to make a profit.') %]</p>
+                            <p>[% l('But if you’re new to Forex or financial trading of any kind, there\'s still a long way to go before you even purchase your first contract. This is why we\'ve come up with a basic, step-by-step tutorial to help you bridge that gap and make your first trade.') %]</p>
                         </div>
-                        <div class="lg-padding"></div>
-                        <div class="center-text">
-                            <h2>[% l('Step 1: Learn to read currency pairs') %]</h2>
-                            <p>[% l('Can’t make heads or tails of currency pairs? Here’s a simple way of looking at it:') %]</p>
-                        </div>
-                        <div class="lg-padding">
+                        <div class="col-sm">
                             <div class="row">
-                                <div class="col-sm">
-                                    <div class="txt-right lg-padding">
-                                        <h3>EUR</h3>
-                                        <h4>[% l('Base currency') %]</h4>
-                                        <p>[% l('Also known as transaction currency') %]</p>
-                                    </div>
+                                <div class="col-sm-2 hidden-xs-down">
+                                    <img class="float-right" src="[% request.url_for('images/mt5/steps.svg') %]">
                                 </div>
-                                <div class="separator-vertical primary-color"></div>
-                                <div class="col-sm">
-                                    <div class="lg-padding">
-                                        <h3>USD</h3>
-                                        <h4>[% l('Quote currency') %]</h4>
-                                        <p>[% l('Also known as counter currency') %]</p>
-                                    </div>
+                                <div class="col-sm-10">
+                                    <h3>[% l('Learn') %]</h3>
+                                    <p>[% l('to read currency pairs') %]</p>
+                                    <h3>[% l('Understand') %]</h3>
+                                    <p>[% l('when to buy (go long) and when to sell (go short)') %]</p>
+                                    <h3>[% l('Buy') %]</h3>
+                                    <p>[% l('your first currency pair') %]</p>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row lg-padding">
-                            <div class="col-sm">
-                                <div class="fill-bg-color box">
-                                    <h4>[% l('Tips:') %]</h4>
-                                </div>
-                                <ul class="bullet">
-                                    <li>[% l('The base currency is always equal to <strong>one unit</strong>') %].</li>
-                                    <li>[% l('The price of the currency pair indicates how much of the quote currency is required to buy one unit of base currency. This is more commonly known as the exchange rate.') %]</li>
-                                </ul>
-                            </div>
-                            <div class="col-sm">
-                                <div class="fill-bg-color box">
-                                    <h4>[% l('Example:') %]</h4>
-                                </div>
-                                <p>[% l('If you see EUR/USD has a bid price of 1.05229, you’ll sell USD 1.05229 for every EUR 1 that you buy.') %]</p>
-                                <p>[% l('If the ask price is 1.05382, you\'ll buy USD 1.05382 for every EUR 1 that you sell.') %]</p>
+                    </div>
+                    <div class="fx-divider"></div>
+                    <div class="center-text">
+                        <h2>[% l('Step 1: Learn to read currency pairs') %]</h2>
+                        <p>[% l('Can’t make heads or tails of currency pairs? Here’s a simple way of looking at it:') %]</p>
+                    </div>
+                    <div class="fx-divider"></div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="txt-right lg-padding">
+                                <h3>EUR</h3>
+                                <h4>[% l('Base currency') %]</h4>
+                                <p>[% l('Also known as transaction currency') %]</p>
                             </div>
                         </div>
-
-                        <h2 class="center-text">[% l('Step 2: Understand when to buy (go long) and when to sell (go short)') %]</h2>
-                        <div class="lg-padding">
-                            <p>[% l('You want to buy a certain currency pair if you think the base currency will go up. The reverse holds true: you want to sell that currency pair if you think the base currency will go down.') %]</p>
-                            <p>[% l('You’ve probably seen the terms ‘going long’ and ‘going short’ being used by a lot of Forex brokers and traders. Let’s compare the differences between the two terms:') %]</p>
-                        </div>
-
-                        <div class="lg-padding">
-                            <div class="row">
-                                <div class="col-sm">
-                                    <h4>[% l('Long') %]</h4>
-                                    <div class="separator primary-color"></div>
-                                    <ul class="bullet">
-                                        <li>[% l('You’re buying the base currency and selling the quote currency.') %]</li>
-                                        <li>[% l('You’re expecting the base currency to rise in value so you can sell it back for a profit.') %]</li>
-                                        <li>[% l('Go long = buy') %]</li>
-                                    </ul>
-                                </div>
-                                <div class="separator-vertical primary-color"></div>
-                                <div class="col-sm">
-                                    <h4>[% l('Short') %]</h4>
-                                    <div class="separator primary-color"></div>
-                                    <ul class="bullet">
-                                        <li>[% l('You’re selling the base currency and buying the quote currency.') %]</li>
-                                        <li>[% l('You’re expecting the base currency to fall in value so you can buy it back at a lower price (and make a profit).') %]</li>
-                                        <li>[% l('Go short = sell') %]</li>
-                                    </ul>
-                                </div>
+                        <div class="separator-vertical primary-color"></div>
+                        <div class="col-sm">
+                            <div class="lg-padding">
+                                <h3>USD</h3>
+                                <h4>[% l('Quote currency') %]</h4>
+                                <p>[% l('Also known as counter currency') %]</p>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="box fill-bg-color center-text">
-                            <h4>[% l("Here\’s an example: how does going long or going short apply to the GBP/USD?") %]</h4>
-                        </div>
-
-                        <div class="row lg-padding">
-                            <div class="col-sm">
-                                <p>[% l('After your analysis, you’ve come to the conclusion that the British economy will outperform its U.S. counterpart. Thus, you decide to go long and buy into the GBP/USD, expecting the GBP to rise in value.') %]</p>
+                    <div class="fx-divider"></div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="fill-bg-color box">
+                                <h4>[% l('Tips:') %]</h4>
                             </div>
-                            <div class="col-sm">
-                                <p>[% l('If you decided that the British economy will underperform instead, then you will go short on the GBP/USD.') %]</p>
-                            </div>
+                            <ul class="bullet">
+                                <li>[% l('The base currency is always equal to <strong>one unit</strong>') %].</li>
+                                <li>[% l('The price of the currency pair indicates how much of the quote currency is required to buy one unit of base currency. This is more commonly known as the exchange rate.') %]</li>
+                            </ul>
                         </div>
-
-                        <h2 class="center-text">[% l('Step 3: Buy your first currency pair') %]</h2>
-                        <p class="lg-padding">[% l('After you’ve decided which position you want to take – whether long or short – you are well on your way to buying your first currency pair.') %]</p>
-
-                        <div class="box fill-bg-color center-text">
-                            <h4>[% l('Here’s an example of a GBP/USD currency pair and its bid-ask price.') %]</h4>
-                        </div>
-
-                        <div class="center-text lg-padding">
-                            <img src="[% request.url_for('images/mt5/forex-2.png') %]" alt="">
-                        </div>
-
-                        <div class="row">
-                            <div class="col-sm">
-                                <p>[% l('To go long, you’ll click on ‘Buy’ to purchase GBP 1 for USD 1.22781.') %]</p>
+                        <div class="col-sm">
+                            <div class="fill-bg-color box">
+                                <h4>[% l('Example:') %]</h4>
                             </div>
-                            <div class="col-sm">
-                                <p>[% l('To go short, you’ll click on ‘Sell’ to sell GBP 1 and receive USD 1.22771 in return.') %]</p>
-                            </div>
+                            <p>[% l('If you see EUR/USD has a bid price of 1.05229, you’ll sell USD 1.05229 for every EUR 1 that you buy.') %]</p>
+                            <p>[% l('If the ask price is 1.05382, you\'ll buy USD 1.05382 for every EUR 1 that you sell.') %]</p>
+                        </div>
+                    </div>
+
+                    <h2 class="center-text">[% l('Step 2: Understand when to buy (go long) and when to sell (go short)') %]</h2>
+                    <div class="fx-divider"></div>
+                    <div>
+                        <p>[% l('You want to buy a certain currency pair if you think the base currency will go up. The reverse holds true: you want to sell that currency pair if you think the base currency will go down.') %]</p>
+                        <p>[% l('You’ve probably seen the terms ‘going long’ and ‘going short’ being used by a lot of Forex brokers and traders. Let’s compare the differences between the two terms:') %]</p>
+                    </div>
+
+                    <div class="fx-divider"></div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <h4>[% l('Long') %]</h4>
+                            <div class="separator primary-color"></div>
+                            <ul class="bullet">
+                                <li>[% l('You’re buying the base currency and selling the quote currency.') %]</li>
+                                <li>[% l('You’re expecting the base currency to rise in value so you can sell it back for a profit.') %]</li>
+                                <li>[% l('Go long = buy') %]</li>
+                            </ul>
+                        </div>
+                        <div class="separator-vertical primary-color"></div>
+                        <div class="col-sm">
+                            <h4>[% l('Short') %]</h4>
+                            <div class="separator primary-color"></div>
+                            <ul class="bullet">
+                                <li>[% l('You’re selling the base currency and buying the quote currency.') %]</li>
+                                <li>[% l('You’re expecting the base currency to fall in value so you can buy it back at a lower price (and make a profit).') %]</li>
+                                <li>[% l('Go short = sell') %]</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="box fill-bg-color center-text">
+                        <h4>[% l("Here\’s an example: how does going long or going short apply to the GBP/USD?") %]</h4>
+                    </div>
+
+                    <div class="fx-divider"></div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <p>[% l('After your analysis, you’ve come to the conclusion that the British economy will outperform its U.S. counterpart. Thus, you decide to go long and buy into the GBP/USD, expecting the GBP to rise in value.') %]</p>
+                        </div>
+                        <div class="col-sm">
+                            <p>[% l('If you decided that the British economy will underperform instead, then you will go short on the GBP/USD.') %]</p>
+                        </div>
+                    </div>
+
+                    <h2 class="center-text">[% l('Step 3: Buy your first currency pair') %]</h2>
+                    <p class="lg-padding">[% l('After you’ve decided which position you want to take – whether long or short – you are well on your way to buying your first currency pair.') %]</p>
+
+                    <div class="box fill-bg-color center-text">
+                        <h4>[% l('Here’s an example of a GBP/USD currency pair and its bid-ask price.') %]</h4>
+                    </div>
+
+                    <div class="center-text lg-padding">
+                        <img src="[% request.url_for('images/mt5/forex-2.png') %]" alt="">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm">
+                            <p>[% l('To go long, you’ll click on ‘Buy’ to purchase GBP 1 for USD 1.22781.') %]</p>
+                        </div>
+                        <div class="col-sm">
+                            <p>[% l('To go short, you’ll click on ‘Sell’ to sell GBP 1 and receive USD 1.22771 in return.') %]</p>
                         </div>
                     </div>
                 </div>
 
                 <div id="margin-policy">
-                    <div class="lg-padding">
+                    <div class="fx-divider"></div>
+                    <div>
                         <h2>[% l('Forex margin policy') %]</h2>
                         <p>[% l('We explain our margin policy to give you a better understanding of how Forex trading works.') %]</p>
                     </div>
 
-                    <div class="row lg-padding">
+                    <div class="fx-divider"></div>
+                    <div class="row">
                         <div class="col-sm">
                             <h3>[% l('What is margin?') %]</h3>
                             <p>[% l('Margin allows you to trade on leverage - giving you the same level of market exposure using much less capital.') %]</p>
@@ -376,7 +378,8 @@
                         </div>
                     </div>
 
-                    <p class="lg-padding">[% l('Once your account hits the forced liquidation level, your orders and positions are forcibly closed in the following order:') %]</p>
+                    <div class="fx-divider"></div>
+                    <p>[% l('Once your account hits the forced liquidation level, your orders and positions are forcibly closed in the following order:') %]</p>
                     <ul class="bullet">
                         <li>[% l('We analyse your pending orders.') %]</li>
                         <li>[% l('We delete an order with the largest margin reserved.') %]</li>
