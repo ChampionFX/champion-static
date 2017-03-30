@@ -53,7 +53,6 @@ const Champion = (function() {
             balance           : (response) => { Header.updateBalance(response); },
             logout            : (response) => { Client.do_logout(response); },
             get_settings      : (response) => { GTM.eventHandler(response.get_settings); },
-            mt5_login_list    : (response) => { MetaTrader.responseLoginList(response); },
             get_self_exclusion: (response) => { SessionDurationLimit.exclusionResponseHandler(response); },
         }, Client.is_logged_in());
         ChampionRouter.init(container, '#champion-content');

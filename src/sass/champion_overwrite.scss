@@ -52,6 +52,13 @@ body .has-tabs .ui-tabs-panel {
     max-width: 180px;
 }
 
+#fx-profile {
+    .ui-tabs-nav, .ui-tabs-panel {
+        width: auto;
+        float: none;
+    }
+}
+
 #ui-timepicker-div, #ui-datepicker-div {
     &, &:before, &:after {
         transition: none;

@@ -56,7 +56,7 @@ DatePicker.prototype = {
     config: function(options) {
         const today = new Date();
 
-        let config = {
+        const config = {
             dateFormat     : 'yy-mm-dd',
             monthNames     : this.localizations.monthNames,
             monthNamesShort: this.localizations.monthNamesShort,
@@ -68,9 +68,9 @@ DatePicker.prototype = {
             changeYear     : true,
         };
 
-        config = $.extend(config, options);
+        $.extend(config, options);
 
-        const set_date = (date) => {
+        const setDate = (date) => {
             let new_date;
             if (typeof options[date] === 'number') {
                 new_date = new Date();
@@ -83,12 +83,12 @@ DatePicker.prototype = {
             if (options.minDate === 'today') {
                 config.minDate = today;
             } else {
-                set_date('minDate');
+                setDate('minDate');
             }
         }
 
         if (options.maxDate !== undefined) {
-            set_date('maxDate');
+            setDate('maxDate');
         }
 
         const that = this;

@@ -99,9 +99,6 @@ const Client = (function () {
             Client.set('residence', country_code);
             ChampionSocket.send({ landing_company: country_code });
         }
-        if (!/user\/metatrader\.html/i.test(window.location.pathname)) {
-            ChampionSocket.send({ mt5_login_list: 1 });
-        }
 
         $('#btn_logout').click(() => {
             request_logout();

@@ -1,4 +1,5 @@
-<h2>[% l('Personal details') %]</h2>
+<div class="container fx-section">
+    <h2>[% l('Personal details') %]</h2>
 <form class="formObject" id="details_form" name="details_form">
 
     <h3 class="underline-title">[% l('Personal information') %]</h3>
@@ -38,5 +39,4 @@
     <p class="notice-msg is-real">*[% l('To update your personal information, please contact our <a href="[_1]">customer support</a> team.', request.url_for('contact')) %]</p>
 
 </form>
-
-
+</div>
