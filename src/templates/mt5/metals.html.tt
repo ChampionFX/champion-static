@@ -86,7 +86,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="fill-bg-color lg-padding">
+                <div class="fill-bg-color lg-padding invisible">
                     <div class="container">
                         <h2 class="center-text">[% l('Enhance your skills at ChampionFX Academy') %]</h2>
                         <div class="row">
