@@ -22,6 +22,8 @@
                 <span id="[% id %]" [% attributes %]></span>
                 [%- END %]
             </span>
+        [%- CASE 'custom' -%]
+            [% content %]
     [%- END %]
     [% IF hint %]<p class="hint">[% hint %]</p>[% END %]
 </div>

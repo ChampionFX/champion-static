@@ -67,6 +67,7 @@ DatePicker.prototype = {
             changeMonth    : true,
             changeYear     : true,
         };
+
         $.extend(config, options);
 
         const setDate = (date) => {
@@ -107,11 +108,7 @@ DatePicker.prototype = {
                 if (oldValue && oldValue === date) return false;
                 $(that.component_selector).trigger('change', [duration]);
             } else if (that.select_type === 'date') {
-                if (that.setValue === 'attr') {
-                    $(this).val('');
-                } else {
-                    $(this).val(date_text);
-                }
+                $(this).val(date_text);
                 if (oldValue && oldValue === date) return false;
                 $(that.component_selector).trigger('change', [date_text]);
             }
@@ -126,17 +123,13 @@ DatePicker.prototype = {
         const year  = date.getFullYear();
         const month = Utility.padLeft(date.getMonth() + 1, 2, '0');
         const day   = Utility.padLeft(date.getDate(), 2, '0');
-        return (`${year}-${month}-${day}`);
+        return ([year, month, day].join('-'));
     },
     checkWidth: function(config, component_selector, that) {
         const $selector = $(component_selector);
-        if ($(window).width() < 770 && that.noNative) {
-            that.hide($selector);
-            $selector.attr('type', 'number');
-        } else if ($(window).width() < 770 &&
+        if ($(window).width() < 770 &&
             Utility.checkInput('date', 'not-a-date') &&
-            $selector.attr('data-picker') !== 'native' &&
-            !that.noNative) {
+            $selector.attr('data-picker') !== 'native') {
             that.hide($selector);
             $selector.attr({ type: 'date', 'data-picker': 'native' })
                 .val($selector.attr('data-value'));
@@ -144,10 +137,10 @@ DatePicker.prototype = {
                 $selector.attr('data-readonly', 'readonly')
                     .removeAttr('readonly');
             }
-            if (config.minDate) {
+            if (config.minDate !== undefined) {
                 $selector.attr('min', that.getDate(config.minDate));
             }
-            if (config.maxDate) {
+            if (config.maxDate !== undefined) {
                 $selector.attr('max', that.getDate(config.maxDate));
             }
         } else if (

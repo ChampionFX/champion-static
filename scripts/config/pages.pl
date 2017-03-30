@@ -65,6 +65,7 @@ sub all_pages {
         ['user/profile',               'user/profile',                 'full_width', 'Profile'],
         ['user/security',              'user/security',                'full_width', 'Security'],
         ['user/settings',              'user/settings',                'full_width', 'Settings'],
+        ['user/self-exclusion',        'user/self_exclusion',          'full_width', 'Self Exclusion'],
         ['user/tnc-approval',          'user/tnc_approval',            'full_width', 'Terms and Conditions Approval'],
 
     );

@@ -157,6 +157,19 @@ function getPropertyValue(obj, keys) {
     return obj ? cloneObject(obj[keys[0]]) : undefined;
 }
 
+function compareBigUnsignedInt(a, b) {
+    a = numberToString(a);
+    b = numberToString(b);
+    const max_length = Math.max(a.length, b.length);
+    a = padLeft(a, max_length, '0');
+    b = padLeft(b, max_length, '0');
+    return a > b ? 1 : (a < b ? -1 : 0); // lexicographical comparison
+}
+
+function numberToString(n) {
+    return (typeof n === 'number' ? String(n) : n);
+}
+
 module.exports = {
     showLoadingImage  : showLoadingImage,
     isEmptyObject     : isEmptyObject,
@@ -171,4 +184,6 @@ module.exports = {
     dateValueChanged  : dateValueChanged,
     template          : template,
     getPropertyValue  : getPropertyValue,
+
+    compareBigUnsignedInt: compareBigUnsignedInt,
 };

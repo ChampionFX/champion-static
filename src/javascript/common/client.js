@@ -1,3 +1,4 @@
+const moment               = require('moment');
 const ChampionSocket       = require('./socket');
 const CookieStorage        = require('./storage').CookieStorage;
 const LocalStore           = require('./storage').LocalStore;
@@ -76,6 +77,7 @@ const Client = (function () {
             set_cookie('email', authorize.email);
             set('email', authorize.email);
         }
+        set('session_start', parseInt(moment().valueOf() / 1000));
         set('is_virtual', authorize.is_virtual);
         set('landing_company_name', authorize.landing_company_name);
         set('landing_company_fullname', authorize.landing_company_fullname);
@@ -91,6 +93,7 @@ const Client = (function () {
         ChampionSocket.send({ get_settings: 1 });
         ChampionSocket.send({ get_account_status: 1 });
         ChampionSocket.send({ get_financial_assessment: 1 });
+        if (!authorize.is_virtual) ChampionSocket.send({ get_self_exclusion: 1 });
         const country_code = response.authorize.country;
         if (country_code) {
             Client.set('residence', country_code);
