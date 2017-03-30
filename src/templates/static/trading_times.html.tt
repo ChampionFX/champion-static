@@ -8,6 +8,6 @@
         </div>
         [% INCLUDE static/common/loading.html.tt %]
         <p class="error-msg"></p>
-        <div id="fx-trading-times" class="has-tabs"></div>
+        <div id="fx-trading-times" class="has-tabs table-container"></div>
     </div>
 </div>
