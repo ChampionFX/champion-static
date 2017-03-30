@@ -132,18 +132,17 @@
             <div class="row align-items-center">
                 <div class="col-md hidden-xs-down">
                     <div class="row align-items-center">
-                        <div class="col-md-2 col-sm-3 col-xs-3">
-                            <div class="license-box license-box-icon">
-                            </div>
+                        <div class="col-sm-3 col-xs-3 flex-items-xs-right vertical-center">
+                            <div class="license-box license-box-icon"></div>
                         </div>
-                        <div class="col-md-10 col-sm-9 col-xs-9">
+                        <div class="col-sm-9 col-xs-9 no-gutters">
                             <div class="license-box">
                                 [% l('Join a licensed broker with a clear vision and an unwavering commitment to treating all its clients like champions.') %]
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md">
+                <div class="col-md vertical-center">
                     [% INCLUDE layout/includes/signup.html.tt %]
                 </div>
             </div>

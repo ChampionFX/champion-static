@@ -109,7 +109,8 @@
     background: url('../images/symbols/cfx_l.svg') center center no-repeat;
     text-align: center;
     display: flex;
-    height: 100%;
+    flex-grow: 1;
+    height: 100px;
     margin: 0;
     background-position: center center;
     max-width: 80px;
