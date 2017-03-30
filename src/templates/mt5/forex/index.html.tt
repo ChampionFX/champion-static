@@ -37,7 +37,7 @@
                         <div class="row">
                             <div class="col-sm">
                                 <div class="row">
-                                    <div class="col-xss">
+                                    <div>
                                         <div class="fx-xxs fx-245-icon"></div>
                                     </div>
                                     <div class="col-xs">
@@ -48,7 +48,7 @@
                             </div>
                             <div class="col-sm">
                                 <div class="row">
-                                    <div class="col-xxs">
+                                    <div>
                                         <div class="fx-xxs fx-hili-icon"></div>
                                     </div>
                                     <div class="col-xs">
@@ -59,7 +59,7 @@
                             </div>
                             <div class="col-sm">
                                 <div class="row">
-                                    <div class="col-xss">
+                                    <div>
                                         <div class="fx-xxs fx-lever-icon"></div>
                                     </div>
                                     <div class="col-xs">
@@ -431,16 +431,14 @@
 
                     <div class="fx-divider"></div>
 
-                    <div class="row">
-                        <div class="col-xxs center-align">
-                            <div class="box fill-bg-color">
-                                <h4>[% l('Maximum leverage') %]</h4>
-                                <ul class="bullet">
-                                    <li>[% l('Cent account: 1:1,000') %]</li>
-                                    <li>[% l('Standard account: 1:300') %]</li>
-                                    <li>[% l('STP account: 1:100') %]</li>
-                                </ul>
-                            </div>
+                    <div class="row flex-items-xs-center">
+                        <div class="box fill-bg-color">
+                            <h4>[% l('Maximum leverage') %]</h4>
+                            <ul class="bullet">
+                                <li>[% l('Cent account: 1:1,000') %]</li>
+                                <li>[% l('Standard account: 1:300') %]</li>
+                                <li>[% l('STP account: 1:100') %]</li>
+                            </ul>
                         </div>
                     </div>
 
