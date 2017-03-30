@@ -56,9 +56,8 @@
                 <ul class="row">
                     <li class="col-md-6 col-sm-6 slider-text center-text">
                         <div class="center-items">
-                            <h3 class="blue">[% l('Trade gold with a fixed spread.') %]</h3>
-                            <h3 class="blue">[% l('100% commission-free.') %]</h3>
-                            <p>[% l("Don't miss out on this golden opportunity. Our gold spread is fixed at 10 cents. And it's absolutely commission-free.") %]</p>
+                            <h3 class="blue">[% l('Super competitive gold spreads') %]</h3>
+                            <p>[% l("Trade on fixed or variable spreads. Plus, it's 100% commission free.") %]</p>
                             <a class="invisible" href="#">[% l('Learn more') %]
                                 <img src="[% request.url_for('images/symbols/next.svg') %]" alt="">
                             </a>
