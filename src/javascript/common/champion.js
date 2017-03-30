@@ -4,6 +4,7 @@ const Header                  = require('./header');
 const LoggedIn                = require('./logged_in');
 const Login                   = require('./login');
 const ChampionRouter          = require('./router');
+const SessionDurationLimit    = require('./session_duration_limit');
 const ChampionSocket          = require('./socket');
 const default_redirect_url    = require('./url').default_redirect_url;
 const url_for                 = require('./url').url_for;
@@ -48,11 +49,12 @@ const Champion = (function() {
         Client.init();
 
         ChampionSocket.init({
-            authorize     : (response) => { Client.response_authorize(response); },
-            balance       : (response) => { Header.updateBalance(response); },
-            logout        : (response) => { Client.do_logout(response); },
-            get_settings  : (response) => { GTM.eventHandler(response.get_settings); },
-            mt5_login_list: (response) => { MetaTrader.responseLoginList(response); },
+            authorize         : (response) => { Client.response_authorize(response); },
+            balance           : (response) => { Header.updateBalance(response); },
+            logout            : (response) => { Client.do_logout(response); },
+            get_settings      : (response) => { GTM.eventHandler(response.get_settings); },
+            mt5_login_list    : (response) => { MetaTrader.responseLoginList(response); },
+            get_self_exclusion: (response) => { SessionDurationLimit.exclusionResponseHandler(response); },
         }, Client.is_logged_in());
         ChampionRouter.init(container, '#champion-content');
         if (!Client.is_logged_in()) {

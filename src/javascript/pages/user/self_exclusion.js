@@ -32,28 +32,38 @@ const SelfExclusion = (() => {
         getData();
     };
 
-    const getData = () => {
-        ChampionSocket.send({ get_self_exclusion: 1 }).then((response) => {
-            if (response.error) {
-                if (response.error.code === 'ClientSelfExclusion') {
-                    ChampionSocket.send({ logout: 1 });
-                }
-                if (response.error.message) {
-                    $('#msg_error').html(response.error.message);
-                    $form.addClass(hidden_class);
-                }
-                return;
-            }
-
-            $('.barspinner').addClass(hidden_class);
-            self_exclusion_data = response.get_self_exclusion;
-            $.each(self_exclusion_data, function(key, value) {
-                fields[key] = value;
-                $form.find(`#${key}`).val(value);
+    const getData = (send_anyway) => {
+        if (send_anyway) {
+            ChampionSocket.send({ get_self_exclusion: 1 }, true).then((response) => {
+                handleResponse(response);
             });
-            $form.removeClass(hidden_class);
-            bindValidation();
+        } else {
+            ChampionSocket.wait('get_self_exclusion').then((response) => {
+                handleResponse(response);
+            });
+        }
+    };
+
+    const handleResponse = (response) => {
+        if (response.error) {
+            if (response.error.code === 'ClientSelfExclusion') {
+                ChampionSocket.send({ logout: 1 });
+            }
+            if (response.error.message) {
+                $('#msg_error').html(response.error.message);
+                $form.addClass(hidden_class);
+            }
+            return;
+        }
+
+        $('.barspinner').addClass(hidden_class);
+        self_exclusion_data = response.get_self_exclusion;
+        $.each(self_exclusion_data, function(key, value) {
+            fields[key] = value;
+            $form.find(`#${key}`).val(value);
         });
+        $form.removeClass(hidden_class);
+        bindValidation();
     };
 
     const bindValidation = () => {
@@ -185,7 +195,7 @@ const SelfExclusion = (() => {
         }
         showFormMessage('Your changes have been updated.', true);
         Client.set('session_start', moment().unix()); // used to handle session duration limit
-        getData();
+        getData(true);
     };
 
     const showFormMessage = function(msg, is_success) {
