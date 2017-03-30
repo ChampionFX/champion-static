@@ -6,7 +6,7 @@
     margin: 0;
     position: relative;
     vertical-align: middle;
-    width: 280px !important;
+    width: 350px !important;
     .select2-selection--single, .select2-selection--multiple {
         box-sizing: border-box;
         cursor: pointer;
@@ -218,7 +218,7 @@
     }
     .select2-selection--multiple {
         background-color: $white;
-        border: 1px solid $fillColor;
+        border: 1px solid $primaryBrandColor;
         border-radius: $BORDER_RADIUS;
         cursor: text;
         .select2-selection__rendered {
@@ -284,7 +284,7 @@
         padding: 6px;
     }
     &.select2-container--focus .select2-selection--multiple {
-        border: solid 1px $fillColor;
+        border: solid 1px $primaryBrandColor;
         outline: 0;
     }
     .select2-search--dropdown .select2-search__field {
