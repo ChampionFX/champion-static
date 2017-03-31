@@ -140,8 +140,8 @@ const SelfExclusion = (() => {
     };
 
     const validSessionDuration = value => (+value <= moment.duration(6, 'weeks').as('minutes'));
-    const validDate            = value => !value.length || moment(new Date(value), 'YYYY-MM-DD', true).isValid();
-    const validTime            = value => !value.length || moment(value,           'HH:mm',      true).isValid();
+    const validDate            = value => !value.length || (/^\d{4}-\d{2}-\d{2}$/.test(value) && moment(new Date(value), 'YYYY-MM-DD', true).isValid());
+    const validTime            = value => !value.length || moment(value, 'HH:mm', true).isValid();
 
     const toMoment   = value  => moment(new Date(value));
     const dateFormat = elm_id => ($(elm_id).val() ? toMoment($(elm_id).val()).format('YYYY-MM-DD') : '');
