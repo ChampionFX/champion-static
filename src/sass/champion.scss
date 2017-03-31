@@ -873,7 +873,6 @@ iframe {
         position: relative;
     }
     .number {
-        cursor: pointer;
         position: absolute;
         top: 0;
         left: 0;
@@ -884,8 +883,5 @@ iframe {
         color: $white;
         padding: 10px;
         font-size: 22px;
-        &:hover {
-            background-color: $darkPrimaryBrandColor;
-        }
     }
 }
