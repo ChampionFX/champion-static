@@ -58,3 +58,39 @@ body .has-tabs .ui-tabs-panel {
         float: none;
     }
 }
+
+#ui-timepicker-div, #ui-datepicker-div {
+    &, &:before, &:after {
+        transition: none;
+    }
+}
+
+.ui-datepicker, .ui-timepicker-table {
+    &.ui-widget-content {
+        border: 0;
+    }
+    &.ui-corner-all, .ui-corner-all {
+        border-radius: 0;
+    }
+}
+
+#ui-timepicker-div {
+    .ui-state-default, .ui-widget-content .ui-state-default {
+        width: 80%;
+    }
+}
+
+button .barspinner.white {
+    height: 13px;
+    margin: 3px auto;
+}
+
+.slick-slide {
+    ul.bullet {
+        padding: 1.25em 0 1.25em 1.25em;
+        margin: 0;
+    }
+    a:focus {
+        outline: none;
+    }
+}

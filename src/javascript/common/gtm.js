@@ -15,8 +15,7 @@ const GTM = (() => {
         const data_layer_info = {
             language : getLanguage(),
             pageTitle: pageTitle(),
-            pjax     : State.get('is_loaded_by_pjax'),
-            url      : document.URL,
+            pjax     : !!State.get('is_loaded_by_pjax'),
             event    : 'page_load',
         };
 
@@ -45,7 +44,7 @@ const GTM = (() => {
     };
 
     const pageTitle = () => {
-        const t = /^.+[:-]\s*(.+)$/.exec(document.title);
+        const t = /^(.+)\s*\|\s*.+$/.exec(document.title);
         return t && t[1] ? t[1] : document.title;
     };
 
@@ -67,7 +66,6 @@ const GTM = (() => {
             visitorId  : Client.get('loginid'),
             bom_country: get_settings.country,
             bom_email  : get_settings.email,
-            url        : window.location.href,
             bom_today  : Math.floor(Date.now() / 1000),
             event      : is_new_account ? 'new_account' : 'log_in',
         };

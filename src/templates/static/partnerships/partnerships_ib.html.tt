@@ -33,7 +33,7 @@
                             title_2=l('Localised support') desc_2=l('Use local payment agent solutions to generate income and increase client loyalty.') %]
 
                         [% INCLUDE rows title_1=l('Multilevel rebate tiers') desc_1=l('Enrol your clients in the IB programme and earn more through a tiered structure.')
-                            title_2=l('Spread bonus') desc_2=l('Receive up to 50% of the average spread on all your clients’ transactions.') %]
+                            title_2=l('High rebates') desc_2=l('Receive up to 50% of the average spread on all your clients’ transactions.') %]
 
                         [% INCLUDE rows title_1=l('Custom promotions') desc_1=l('Talk to us to create custom marketing promotions to increase your conversions.')
                             title_2=l('Hassle-free client signup') desc_2=l('Convert clients easily with our fast and hassle-free client signup process.') %]

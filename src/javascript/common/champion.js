@@ -4,6 +4,7 @@ const Header                  = require('./header');
 const LoggedIn                = require('./logged_in');
 const Login                   = require('./login');
 const ChampionRouter          = require('./router');
+const SessionDurationLimit    = require('./session_duration_limit');
 const ChampionSocket          = require('./socket');
 const default_redirect_url    = require('./url').default_redirect_url;
 const url_for                 = require('./url').url_for;
@@ -24,6 +25,7 @@ const CashierTopUpVirtual     = require('./../pages/cashier/top_up_virtual');
 const Authenticate            = require('./../pages/user/authenticate');
 const ChangePassword          = require('./../pages/user/change_password');
 const MetaTrader              = require('./../pages/user/metatrader/metatrader');
+const SelfExclusion           = require('./../pages/user/self_exclusion');
 const ChampionSettings        = require('./../pages/user/settings');
 const TNCApproval             = require('./../pages/user/tnc_approval');
 const CashierDepositWithdraw  = require('./../pages/cashier/deposit_withdraw');
@@ -47,10 +49,11 @@ const Champion = (function() {
         Client.init();
 
         ChampionSocket.init({
-            authorize   : (response) => { Client.response_authorize(response); },
-            balance     : (response) => { Header.updateBalance(response); },
-            logout      : (response) => { Client.do_logout(response); },
-            get_settings: (response) => { GTM.eventHandler(response.get_settings); },
+            authorize         : (response) => { Client.response_authorize(response); },
+            balance           : (response) => { Header.updateBalance(response); },
+            logout            : (response) => { Client.do_logout(response); },
+            get_settings      : (response) => { GTM.eventHandler(response.get_settings); },
+            get_self_exclusion: (response) => { SessionDurationLimit.exclusionResponseHandler(response); },
         }, Client.is_logged_in());
         ChampionRouter.init(container, '#champion-content');
         if (!Client.is_logged_in()) {
@@ -95,6 +98,7 @@ const Champion = (function() {
             'lost-password'    : { module: LostPassword,        not_authenticated: true },
             'payment-methods'  : { module: CashierPaymentMethods },
             'reset-password'   : { module: ResetPassword,       not_authenticated: true },
+            'self-exclusion'   : { module: SelfExclusion,       is_authenticated: true, only_real: true },
             'tnc-approval'     : { module: TNCApproval,         is_authenticated: true, only_real: true },
             'top-up-virtual'   : { module: CashierTopUpVirtual, is_authenticated: true, only_virtual: true },
             'trading-times'    : { module: TradingTimes },

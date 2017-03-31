@@ -19,6 +19,7 @@ const ChampionSocket = (function() {
         'get_settings',
         'residence_list',
         'website_status',
+        'get_self_exclusion',
     ];
     const default_calls = {};
 
