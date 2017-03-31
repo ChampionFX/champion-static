@@ -2,6 +2,7 @@ const Client         = require('../../../common/client');
 const formatMoney    = require('../../../common/currency').formatMoney;
 const GTM            = require('../../../common/gtm');
 const ChampionSocket = require('../../../common/socket');
+const State          = require('../../../common/storage').State;
 const url_for        = require('../../../common/url').url_for;
 const isEmptyObject  = require('../../../common/utility').isEmptyObject;
 
@@ -50,9 +51,9 @@ const MetaTraderConfig = (function() {
             },
             onSuccess: (response, acc_type) => {
                 const gtm_data = {
-                    event          : 'mt5_new_account',
-                    url            : window.location.href,
-                    mt5_date_joined: Math.floor(Date.now() / 1000),
+                    event      : 'mt5_new_account',
+                    bom_email  : Client.get('email'),
+                    bom_country: State.get(['response', 'get_settings', 'get_settings', 'country']),
                 };
                 gtm_data[`mt5_${types_info[acc_type].mt5_account_type || 'demo'}_id`] = response.mt5_new_account.login;
                 if (acc_type === 'demo' && !Client.is_virtual()) {

@@ -12,15 +12,13 @@
                     <div class="col-xs-12">
                         <select id="cs_telephone_number">
                             <option disabled="">Select Country</option>
-                            <option value="+61 (02) 8294 5448,<br>1800 093570 (Toll Free)">Australia</option>
                             <option value="+1 (450) 823 1002">Canada</option>
                             <option value="+49 0221 98259000">Germany</option>
                             <option value="0018030113641 (Toll Free)">Indonesia</option>
                             <option value="+353 (0) 76 888 7500,<br>1800931084 (Toll Free)">Ireland</option>
                             <option value="+48 58 881 00 02">Poland</option>
                             <option value="8 10 8002 8553011 (Toll Free)">Russia</option>
-                            <option value="+44 (0) 1666 800042,<br>0800 011 9847 (Toll Free)" selected>United Kingdom
-                            </option>
+                            <option value="+44 (0) 1666 800042,<br>0800 011 9847 (Toll Free)" selected>United Kingdom</option>
                         </select>
                         <div id="phone-result">+44 (0) 1666 800042,<br>0800 011 9847 (Toll Free)</div>
                     </div>
