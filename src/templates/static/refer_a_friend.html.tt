@@ -52,7 +52,7 @@
             <div class="col-sm center-text">
                 <h2>[% l('Claiming your rewards') %]</h2>
                 <p>[% l('We\'ve simplified this process to make it as easy as possible for you to claim your much-deserved rewards.') %]</p>
-                <p>[% l("All you need to do is to email us at <a href='mailto:referafriend@champion-fx.com'>referafriend@champion-fx.com</a> with the following info:") %]</p>
+                <p>[% l("All you need to do is to email us at <a href='mailto:[_1]'>[_1]</a> with the following info:", "referafriend@champion-fx.com") %]</p>
             </div>
         </div>
         <div class="row">
