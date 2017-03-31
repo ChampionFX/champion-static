@@ -867,3 +867,25 @@ iframe {
 .margin-bottom-3 {
     margin-bottom: 3em;
 }
+
+.fx-refer-a-friend {
+    .box {
+        position: relative;
+    }
+    .number {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 40px;
+        height: 40px;
+        background: $primaryBrandColor;
+        color: $white;
+        padding: 10px;
+        font-size: 22px;
+        &:hover {
+            background-color: $darkPrimaryBrandColor;
+        }
+    }
+}
