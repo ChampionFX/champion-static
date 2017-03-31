@@ -5,7 +5,7 @@
         <p>[% l('Sign up for a ChampionFX Cent account today and get a free welcome bonus worth USD 10 credited into your account.') %]</p>
 
         <div class="center-text">
-            <img class="col-lg-10" src="[% request.url_for('images/slider/banner3.jpg') %]" />
+            <img class="col-lg-12 no-gutters" src="[% request.url_for('images/slider/banner3_crop.png') %]" />
         </div>
 
         <div class="fx-divider"></div>
