@@ -29,17 +29,17 @@
                         </div>
                         <div class="col-md-3 fx-real" style="display: none">
                             <a href="[% request.url_for('user/limits') %]">
-                                <h3>[% l('Limits') %]</h3>
+                                <h3>[% l('Trading limits') %]</h3>
                             </a>
                             <div class="separator primary-color"></div>
-                            <p>[% l('View your trading and withdrawal limits.') %]</p>
+                            <p>[% l('View your trading and withdrawal limits for our Champion Trader platform.') %]</p>
                         </div>
                         <div class="col-md-3 offset-lg-1 fx-real" style="display: none">
                             <a href="[% request.url_for('user/self-exclusion') %]">
-                                <h3>[% l('Self Exclusion') %]</h3>
+                                <h3>[% l('Self exclusion') %]</h3>
                             </a>
                             <div class="separator primary-color"></div>
-                            <p>[% l('Facility that allows you to set limits on your account.') %]</p>
+                            <p>[% l('Set limits and minimise unrestrained trading for our Champion Trader platform.') %]</p>
                         </div>
                     </div>
                 </div>
