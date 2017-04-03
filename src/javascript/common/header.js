@@ -31,24 +31,31 @@ const Header = (function () {
     };
 
     const userMenu = function() {
+        const $all_accounts = $('#all-accounts');
+        $all_accounts.find('li.has-sub > a').off('click').on('click', function(e) {
+            e.stopPropagation();
+            $(this).siblings('ul').toggleClass(hidden_class);
+        });
+
         if (!Client.is_logged_in()) {
-            $('#main-login, #main-signup').removeClass(hidden_class);
+            $('#main-login, #header .logged-out').removeClass(hidden_class);
             return;
         }
+
         if (!Client.is_virtual()) {
             displayAccountStatus();
         }
-        $('#main-logout').removeClass(hidden_class);
-        $('#main-signup').addClass(hidden_class);
-        const all_accounts = $('#all-accounts');
+        $('#main-logout').removeClass('hidden-sm-up');
+        $('#header .logged-in').removeClass(hidden_class);
+        $all_accounts.find('.account > a').removeClass('menu-icon');
         const language = $('#select_language');
         $('.nav-menu').unbind('click').on('click', function(e) {
             e.stopPropagation();
             Utility.animateDisappear(language);
-            if (+all_accounts.css('opacity') === 1) {
-                Utility.animateDisappear(all_accounts);
+            if (+$all_accounts.css('opacity') === 1) {
+                Utility.animateDisappear($all_accounts);
             } else {
-                Utility.animateAppear(all_accounts);
+                Utility.animateAppear($all_accounts);
             }
         });
         let loginid_select = '';

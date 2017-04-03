@@ -14,9 +14,10 @@
                 </div>
             </div>
             <div class="col-md-2 push-md-7 col-sm-6 col-xs-6 vertical-center">
-                <div id="main-logout" class="invisible">
+                <div id="main-logout" class="hidden-sm-up">
                     <ul id="main-account" class="nav-menu main-nav">
-                        <li class="account">
+                        <li id="mobile_menu_icon" class="logged-out vertical-center invisible"><span></span></li>
+                        <li class="account logged-in invisible">
                             <a href="javascript:;">
                                 <div class="main-account">
                                     <div class="account-type"></div>
@@ -29,7 +30,7 @@
                     </ul>
                     <ul id="all-accounts" class="nav-menu main-nav">
                         <li class="account">
-                            <a href="javascript:;">
+                            <a href="javascript:;" class="menu-icon">
                                 <div class="main-account">
                                     <div class="account-type"></div>
                                     <div class="account-id"></div>
@@ -38,36 +39,44 @@
                                 <div class="nav-caret"></div>
                             </a>
                             <ul>
-                                <a class="link" href="[% request.url_for('user/settings') %]">
+                                <a class="link invisible logged-in" href="[% request.url_for('user/settings') %]">
                                     <li class="topMenuSettings">[% l('Settings') %]</li>
                                 </a>
-                                <div class="separator-line-thin-gray"></div>
-                                <a class="link" href="[% request.url_for('cashier') %]">
+                                <div class="separator-line-thin-gray invisible logged-in"></div>
+                                <a class="link invisible logged-in" href="[% request.url_for('cashier') %]">
                                     <li class="topMenuCashier">[% l('Cashier') %]</li>
                                 </a>
-                                <div class="separator-line-thin-gray"></div>
+                                <div class="separator-line-thin-gray invisible logged-in"></div>
                                 <a href="[% request.url_for('about-us') %]" class="hidden-sm-up">
                                     <li>[% l('About') %]</li>
                                 </a>
-                                <a href="[% request.url_for('forex') %]" class="hidden-sm-up">
-                                    <li>[% l('MT5') %]</li>
-                                </a>
+                                <li class="hidden-sm-up has-sub">
+                                    <a href="javascript:;">[% l('MT5') %]</a>
+                                    <ul class="invisible">
+                                        <li><a href="[% request.url_for('forex') %]">[% l('Forex') %]</a></li>
+                                        <li><a href="[% request.url_for('cfd') %]">[% l('CFDs') %]</a></li>
+                                        <li><a href="[% request.url_for('metals') %]">[% l('Metals') %]</a></li>
+                                    </ul>
+                                </li>
                                 <a href="[% request.url_for('binary-options') %]" class="hidden-sm-up">
                                     <li>[% l('Binary Options') %]</li>
+                                </a>
+                                <a href="[% request.url_for('trading-platform') %]" class="hidden-sm-up">
+                                    <li>[% l('Trading Platforms') %]</li>
                                 </a>
                                 <a href="[% request.url_for('partnerships') %]" class="hidden-sm-up">
                                     <li>[% l('Partnerships') %]</li>
                                 </a>
-                                <div class="separator-line-thin-gray hidden-sm-up"></div>
+                                <div class="separator-line-thin-gray hidden-sm-up invisible logged-in"></div>
                                 <div class="login-id-list"></div>
-                                <a href="javascript:;" id="btn_logout" class="logout">
+                                <a href="javascript:;" id="btn_logout" class="logout invisible logged-in">
                                     <li>[% l("Sign out") %]</li>
                                 </a>
                             </ul>
                         </li>
                     </ul>
                 </div>
-                <div id="main-signup" class="invisible">
+                <div id="main-signup" class="logged-out invisible hidden-xs-down">
                     <ul class="signup-button">
                         <li class="">
                             <a class="button-secondary" href="[% request.url_for('home') %]#signup"><span>[% l('Sign Up') %]</span></a>
