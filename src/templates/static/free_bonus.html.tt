@@ -78,7 +78,7 @@
         [% INCLUDE static/common/separator_line.html.tt %]
 
         <div class="center-text">
-            <h2>[% l('Register now to claim your free bonus') %]</h2>
+            <h2>[% l('Register now to claim your free bonus*') %]</h2>
             <h3>[% l('New to ChampionFX?') %]</h3>
             <p>[% l('Register now and get access to all our tools and platforms. Trade the world’s financial markets through one broker.') %]</p>
             <p>
@@ -86,6 +86,7 @@
                     <span>[% l('Create an account') %]</span>
                 </a>
             </p>
+            <p>*[% l('<a href=\'[_1]\' target="_blank">Terms and conditions</a> apply', request.url_for('/download/no_deposit_terms.pdf')) %]</p>
         </div>
     </div>
 </div>
