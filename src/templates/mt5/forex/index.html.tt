@@ -52,7 +52,7 @@
                                         <div class="fx-xxs fx-hili-icon"></div>
                                     </div>
                                     <div class="col-xs">
-                                        <h3 class="no-margin-top">[% l('High liquidity') %]</h3>
+                                        <h3 class="no-margin-top">[% l('Deep liquidity') %]</h3>
                                         <p>[% l('Buy and sell foreign currencies easily - even at large volumes - with minimal effect on price.') %]</p>
                                     </div>
                                 </div>
