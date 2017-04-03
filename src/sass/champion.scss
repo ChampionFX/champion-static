@@ -88,6 +88,33 @@ h1.main-title {
 
 .menu-container {
     margin: 0 15px;
+    #mobile_menu_icon span {
+        background: svg-url('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 12" width="32" height="32"><g fill="#{rgba($white, 1)}"><path d="M0 0h18v2h-18zM0 5h18v2h-18zM0 10h18v2h-18z"/></g></svg>') no-repeat;
+        width: 32px;
+        height: 32px;
+        display: inline-block;
+        margin-left: auto;
+        margin-right: 10px;
+    }
+    .menu-icon {
+        background: svg-url('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 12" width="32" height="32"><g fill="#{rgba($black, 1)}"><path d="M0 0h18v2h-18zM0 5h18v2h-18zM0 10h18v2h-18z"/></g></svg>') no-repeat center;
+        height: 75px;
+    }
+    #all-accounts li.has-sub {
+        &, ul, li {
+            margin: 0;
+        }
+        a {
+            line-height: 1.4em;
+            padding: 7px 0;
+        }
+        ul {
+            padding: 0;
+            a {
+                background: $borderColor;
+            }
+        }
+    }
 }
 
 @keyframes pulsing {
@@ -866,4 +893,22 @@ iframe {
 
 .margin-bottom-3 {
     margin-bottom: 3em;
+}
+
+.fx-refer-a-friend {
+    .box {
+        position: relative;
+    }
+    .number {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 40px;
+        height: 40px;
+        background: $primaryBrandColor;
+        color: $white;
+        padding: 10px;
+        font-size: 22px;
+    }
 }
