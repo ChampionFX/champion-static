@@ -21,7 +21,7 @@ sub all_pages {
         ['trading',                    'static/trading',               'full_width', 'Trading'],
         ['why-mt5',                    'static/why_mt5',               'full_width', 'Why MT5'],
         ['trading-times',              'static/trading_times',         'full_width', 'Trading Times'],
-
+        ['refer-a-friend',             'static/refer_a_friend',        'full_width', 'Refer A Friend'],
         ['free-bonus',                 'static/free_bonus',            'full_width', 'Free Bonus'],
 
         ['binary-options',             'static/binary_options/binary_options',    'full_width', 'Binary Options'],

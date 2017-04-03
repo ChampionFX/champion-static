@@ -1,0 +1,67 @@
+<div class="fx-section fx-refer-a-friend">
+    <div class="container">
+        [% INCLUDE components/page_title.html.tt title=l('Refer a friend today') %]
+
+        <p>[% l('Refer your friends to ChampionFX. Earn USD 25 for each new account.') %]*</p>
+        <div class="separator"></div>
+        <div class="center-text">
+            <img class="col-lg-12 no-gutters" src="[% request.url_for('images/lp1.png') %]" />
+        </div>
+        <div class="separator"></div>
+        <p>[% l('ChampionFX truly appreciates your loyalty. This is why we\'ve launched the \'Refer a friend\' programme to reward you for choosing ChampionFX as your broker of choice, in addition to any new clients that you introduce to us.') %]</p>
+        <p>[% l('Refer a friend to ChampionFX then inform us via email. Once your friend\'s account is activated and verified, we will deposit the reward into your account.') %]</p>
+
+        <div class="separator fill-bg-color"></div>
+
+        <div class="row">
+            <div class="col-sm center-text">
+                <h2>[% l('How it works') %]</h2>
+            </div>
+        </div>
+
+        <div class="row center-text">
+            <div class="col-md-4">
+                <div class="box bordered">
+                    <span class="number">1</span>
+                    <div class="fx-md fx-form"></div>
+                    <p>[% l('Fill out the form below to invite a friend') %]</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box bordered">
+                    <span class="number">2</span>
+                    <div class="fx-md fx-email"></div>
+                    <p>[% l('Inform us about the referral via email') %]</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box bordered">
+                    <span class="number">3</span>
+                    <div class="fx-md fx-earn"></div>
+                    <p>[% l('Earn USD 25 for each successful referral') %]*</p>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <p>*[% l('<a href=\'[_1]\' target="_blank">Terms</a> and conditions apply', request.url_for('/download/refer_a_friend_terms.pdf')) %]</p>
+            </div>
+        </div>
+
+        <div class="separator fill-bg-color"></div>
+
+        <div class="row">
+            <div class="col-sm center-text">
+                <h2>[% l('Claiming your rewards') %]</h2>
+                <p>[% l('We\'ve simplified this process to make it as easy as possible for you to claim your much-deserved rewards.') %]</p>
+                <p>[% l("All you need to do is to email us at <a href='mailto:[_1]'>[_1]</a> with the following info:", "referafriend@champion-fx.com") %]</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <ul class="bullet">
+                    <li>[% l('Your ChampionFX real account number and email address linked to your account') %]</li>
+                    <li>[% l('Your referred client\'s ChampionFX real acocunt number and email address linked to the account') %]</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
