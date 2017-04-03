@@ -45,7 +45,7 @@ const Header = (function () {
         if (!Client.is_virtual()) {
             displayAccountStatus();
         }
-        $('#main-logout').removeClass('hidden-sm-up');
+        $('#main-logout').removeAttr('class');
         $('#header .logged-in').removeClass(hidden_class);
         $all_accounts.find('.account > a').removeClass('menu-icon');
         const language = $('#select_language');
