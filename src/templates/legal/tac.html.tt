@@ -61,6 +61,11 @@ IF NOT selected_tab; selected_tab = 'legal-tab'; END;
                                             <a class="tm-a">[% l('Slippage Policy') %]</a>
                                         </span>
                                     </span>
+                                    <ul class="tm-ul-2">
+                                        <li id="slippage-policy-cfd" class="tm-li-2 active">
+                                            <span class="tm-a-2 a-active">[% l("Forex and CFD") %]</span>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <!-- <li id="margin-tab" class="tm-li">
                                     <span class="menu-wrap-a">
@@ -100,7 +105,7 @@ IF NOT selected_tab; selected_tab = 'legal-tab'; END;
                             <div id="margin-cfd-content" class="toggle-content invisible">
                                 [% INCLUDE legal/forex_cfd/margin_policy.html.tt %]
                             </div>
-                            <div id="slippage-policy-content" class="toggle-content invisible">
+                            <div id="slippage-policy-cfd-content" class="toggle-content invisible">
                                 [% INCLUDE legal/slippage_policy.html.tt %]
                             </div>
                         </div>
