@@ -1,6 +1,6 @@
 <h2>[% l("Terms and Conditions") %]</h2>
 <p>
-    <i>[% l("Version 1. Last modified 2017-01-06.") %]</i>
+    <i>[% l("Version 2. Last modified 2017-21-03.") %]</i>
 </p>
 <p>
     [% l("It is the responsibility of each Client to read and understand this legal notice and the terms and conditions pursuant to which an acquisition of financial contracts via this site is governed.") %]
@@ -34,9 +34,9 @@
 
 <h2>E. [% l("Account Management") %]</h2>
 <ol>
-    <li>[% l("Opening an Account") %]</li>
+    <li>[% l("Opening an account") %]</li>
     <ol>
-        <li>[% l("To open a Cent, Standard, and / or STP account, you must have an authenticated Champion FX Real Account. A Cent, Standard, and / or STP account cannot be opened in the absence of a Champion FX Real Account. If your Champion FX Real Account is not authenticated, access to create a Cent, Standard, and / or STP account shall not be granted until your Champion FX Real Account is authenticated.") %]</li>
+        <li>[% l("To open a Cent, Standard, and / or STP Account, you must have an authenticated Champion FX Real Account. A Cent, Standard, and / or STP Account cannot be opened in the absence of a Champion FX Real Account. Your Champion FX Real Account has to be authenticated within five days from your Real Account opening date to keep your Real Account active.") %]</li>
         <li>[% l("By opening a Champion FX Real Account, you represent, warrant and undertake that:") %]</li>
         <ol>
             <li>[% l("You are acting for your sole benefit, and not for, or on behalf of any other person;") %]</li>
@@ -77,10 +77,21 @@
             <li>[% l("Withdrawal of funds from your Cent, Standard, and / or STP Account must be made in the same currency maintained in your Champion FX Real Account.") %]</li>
         </ol>
     </ol>
-    <li>[% l("Accounts with debit balance (i.e., credit exposure to Champion-FX.com)") %]</li>
+    <li>[% l("Accounts with negative balances") %]</li>
     <ol>
+        <li>
+            [% l("The Company has a Stop Out policy which prevents you from losing more than you have deposited. However, in the event that your Open Positions are not closed when the Margin Level for your Real Account reaches the Stop Out Level, the Company, at its sole discretion, may waive your negative balance by crediting your account if your Account Balance goes into a negative balance. The negative balance is determined by aggregating all the client’s negative balances incurred over a 24-hour period across all accounts held by you. You acknowledge that the offer of the Negative Balance protection by the Company to you is at the Company’s sole discretion and we reserve the right to change the features and eligibility criteria of the Negative Balance protection at any time. The provisions of the Negative Balance protection do not apply:") %]
+            <ol>
+                <li>[% l("in the case of a Force Majeure Event;") %]</li>
+                <li>[% l("in abnormal market conditions or exceptional market movements/volatility;") %]</li>
+                <li>[% l("in the case of a client opening any Transaction in relation to Prohibited Trades;") %]</li>
+                <li>[% l("in the case of Professional Clients;") %]</li>
+                <li>[% l("where the negative balance is connected to or a result of functional limitations and/or malfunction of the MT5 Trading Platform; and") %]</li>
+                <li>[% l("in the case of a client breaching any of the terms of this Agreement which results in a negative balance.") %]</li>
+            </ol>
+        </li>
         <li>[% l("The Company does not offer any credit facilities or arrangement to its clients in normal trading circumstances. You acknowledge and agree that you will not be dealing with us on credit, regardless of the amount of your Account Balance and Transactions entered into with us.") %]</li>
-        <li>[% l("Accounts with debit balances are required to settle the full amount immediately by making a payment to us.") %]</li>
+        <li>[% l("If your account is not subject to the Negative Balance protection, you are required to settle the full amount immediately by making a payment to us.") %]</li>
         <li>[% l("If you fail to immediately make a full settlement of the sum due to us in accordance with this Agreement, we reserve the right to accrue interest on the sums due from you to us in respect of any Transaction that you fail to pay on the relevant due date. Interest will accrue on a daily basis from the relevant due date until the date on which payment is received in full at the bank's official base rate for short term funds determined by us, and will be payable on demand.") %]</li>
     </ol>
     <li>[% l("Inactive/Dormant Accounts") %]</li>
@@ -98,9 +109,23 @@
             <li>[% l("We use identity verification services and real-time fraud detection measures to help protect you from unauthorised access to your account. We also monitor account activity for signs of unusual activity that might indicate fraud and work with collection agencies and law enforcement agencies to address fraud issues.") %]</li>
         </ol>
     </ol>
-    <li>[% l("Closing an Account") %]</li>
+    <li>[% l("Closing an account") %]</li>
     <ol>
         <li>[% l("If you wish to withdraw funds from your Cent, Standard, and / or STP Account and close your Cent, Standard, and / or STP Account, you may notify us by contacting our helpdesk at <a href='mailto:support@champion-fx.com'>support@champion-fx.com</a>. Your Cent, Standard, and / or STP Account may be closed if you do not have any Open Positions and all amounts due to us have been settled.") %]</li>
+    </ol>
+    <li>[% l("Swap-free Account") %]</li>
+    <ol>
+        <li>[% l("Upon your request and consent, we may convert the Standard Account designated by you to a Swap-free Account. You acknowledge that we reserve the right to request justification, documents, and/or additional information in relation to your conversion request prior to the conversion. You also acknowledge that all open positions under the Standard Account designated by you to be converted to a Swap-Free Account must be closed prior to you accessing the Swap-free Account. We may, acting reasonably, accept or reject your conversion request at our sole discretion for any reason whatsoever without being obliged to provide any explanation or justification.") %]</li>
+        <li>[% l("Upon converting the Standard Account designated by you to a Swap-free Account, you acknowledge and agree that no interest adjustment (or swap rate adjustment) will be made to your Swap-free Account when rolling over your Open Positions. This means that we will not debit interest (interest charge to you) of any form in respect of your Swap-free Account; likewise, by requesting and consenting the conversion to a Swap-free Account, you acknowledge and agree that you are waiving your entitlement to receive interest in respect of your Swap-free Account. This means that we will not credit interest (interest income to you) of any form in respect of your Swap-free Account.") %]</li>
+        <li>[% l("We will take all reasonable steps to provide you with the features and facilities of a Swap-free Account. The interest-free arrangements in place in relation to your Swap-free Account does not warranty or represent (whether express or implied) that your Swap-free Account is Sharia-compliant. You agree and acknowledge that the execution, delivery and performance of your Swap-free Account is in accordance with the terms, characteristics and features as determined by us and may not conform with your corresponding Sharia principles and requirements.") %]</li>
+        <li>
+            [% l("The provision of Swap-free Accounts by us to you is made in good faith. By requesting and consenting to convert the Standard Account designated by you to a Swap-free Account, you represent and warrant to us that you will not take any unfair advantage of its terms or to enter into Transactions that take advantage of the differences between Swap-free Accounts and Standard Accounts. In the event that we detect any form of abuse, fraud, manipulation, or any other forms of deceitful activity in regards to your Swap-free Account, we may, at our absolute discretion:") %]
+            <ol>
+                <li>[% l("revoke the Swap-free status and convert your Swap-free Account to a Standard Account;") %]</li>
+                <li>[% l("treat all your Transactions closed under your Swap-free Account as void and nullify all profits generated or losses incurred in relation to your Swap-free Account; and") %]</li>
+                <li>[% l("adjust (either by debiting or crediting your account) any un-accrued interest charges (due from you to us) or income (due from us to you) in relation to your Swap-free Account.") %]</li>
+            </ol>
+        </li>
     </ol>
 </ol>
 
@@ -130,7 +155,7 @@
 <ol>
     <li>[% l("General Provisions") %]</li>
     <ol>
-        <li>[% l("Prior to placing an Order which results in opening a Transaction or increasing an existing Open Position, you acknowledge that it is your responsibility to ensure that your Account&rsquo;s Free Margin is sufficient to cover the Margin required in relation to the open Transaction (the \"Margin Requirement\"), and to continuously meet the Margin Requirement.") %]</li>
+        <li>[% l("Prior to placing an Order which results in opening a Transaction or increasing an existing Open Position, you acknowledge that it is your responsibility to ensure that your account&rsquo;s Free Margin is sufficient to cover the Margin required in relation to the open Transaction (the \"Margin Requirement\"), and to continuously meet the Margin Requirement.") %]</li>
         <li>[% l("Throughout the duration of the Transaction and for as long as the Transaction is open, you are required to maintain a sufficient Account Equity to cover any Margin Requirement. If your Account Equity is less than the Margin Requirement in relation to the open Transaction you wish to create, you have entered into a Margin Call and you are required to fund the shortfall immediately. You may not be able to place an Order to open a Transaction until the shortfall has been funded and there is sufficient Account Equity to cover the Total Margin.") %]</li>
         <li>[% l("You acknowledge that it is your responsibility to monitor your Account Balance and Margin Requirement and we are not under any obligation to keep you informed (i.e., to make a Margin Call).") %]</li>
     </ol>
@@ -361,6 +386,7 @@
     <li>[% l("Roll-over Credit/Debit &ndash; Accounts with Open Positions concerned by the Roll-over shall be credited or debited with an amount referred to as the Roll-over Credit/Debit which is determined by the Company at its sole discretion.") %]</li>
     <li>[% l("Stop Order/Stop Loss Order &ndash; An instruction to execute a Transaction to close an Open Position when the Price reaches your specified Price.") %]</li>
     <li>[% l("Stop Out Level &ndash; The Margin Level at, or below, which your Open Positions may be forcefully with or without your prior consent.") %]</li>
+    <li>[% l("Swap-free Account &ndash; Interest-free accounts whereby interest adjustments will not be made on overnight open positions.") %]</li>
     <li>[% l("Total Margin &ndash; The aggregate of all Margin Requirements in your Cent, Standard, and / or STP Account.") %]</li>
     <li>[% l("Transaction &ndash; A contract entered into by you pursuant to this Agreement.") %]</li>
 </ol>
