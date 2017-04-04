@@ -53,6 +53,9 @@ body .has-tabs .ui-tabs-panel {
 }
 
 #fx-profile {
+    &.ui-tabs-vertical {
+        width: auto;
+    }
     .ui-tabs-nav, .ui-tabs-panel {
         width: auto;
         float: none;
