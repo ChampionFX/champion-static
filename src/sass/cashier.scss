@@ -1,15 +1,19 @@
-/* stylelint-disable selector-list-comma-newline-after, selector-list-comma-space-after */
-
-#int_bank_wire, #local_bank_transfer, #western_union, #citadel, #visa,
-#mastercard, #cuo-credit-card, #moneybrokers, #neteller, #moneta,
-#webmoney, #qiwi, #icbc, #fastpay, #perfect_money, #yandex, #paysafecard, #okpay {
-    width: 72px;
-    height: 57px;
-    background-image: url('../images/payment_methods_sprite_1.png');
-    position: absolute;
+#payment_methods {
+    h3 {
+        margin: 20px 0 0;
+    }
+    .payment-logo {
+        width: 73px;
+        height: 57px;
+        background-image: url('../images/payment_methods_sprite.png');
+    }
+    div {
+        align-self: center;
+    }
+    td {
+        vertical-align: middle;
+    }
 }
-
-/* stylelint-enable selector-list-comma-newline-after, selector-list-comma-space-after */
 
 #int_bank_wire {
     background-position: -7px -9px;
@@ -35,7 +39,7 @@
     background-position: -421px -11px;
 }
 
-#cuo-credit-card {
+#cuo_credit_card {
     background-position: -108px -214px;
 }
 
@@ -81,4 +85,8 @@
 
 #okpay {
     background-position: -285px -426px;
+}
+
+#eco_payz {
+    background-position: -106px -499px;
 }

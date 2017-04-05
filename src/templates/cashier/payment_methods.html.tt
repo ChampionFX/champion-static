@@ -21,57 +21,45 @@
             </div>
         </div>
 
-        <div class="row">
-            <table class="table">
-                <tr>
-                    <th>Method</th>
-                    <th>Currencies</th>
-                    <th>Min-Max Deposit</th>
-                    <th>Min-Max Withdrawal</th>
-                    <th>Processing Time*</th>
-                </tr>
+        [% BLOCK row %]
+            <tr class="gr-row gr-padding-10 [% is_header ? 'table-header' : 'table-body' %]">
+                <td>[% IF id %]<div id="[% id %]" class="payment-logo"></div>[% ELSE %][% method %][% END %]</td>
+                <td>[% currencies %]</td>
+                <td>[% deposit.join('<br />') %]</td>
+                <td>[% withdrawal.join('<br />') %]</td>
+                <td>[% time.join('<br />') %][% is_header ? '*' : '' %]</td>
+            </tr>
+        [% END %]
+        [% BLOCK section %]
+            <h3>[% title %]</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        [% INCLUDE row is_header=1 method=l('Method') currencies=l('Currencies') deposit=l('Min-Max Deposit') withdrawal=l('Min-Max Withdrawal') time=l('Processing Time') %]
+                    </thead>
+                    <tbody>[% content %]</tbody>
+                </table>
+            </div>
+        [% END %]
 
-                <!-- Credit / Debit card section -->
-                <tr>
-                    <th class="fx-subheader" colspan="5">[% l('Credit / Debit card') %]</th>
-                </tr>
-                <tr>
-                    <td id="visa"></td>
-                    <td>USD GBP EUR AUD</td>
-                    <td>10 - 10,000</td>
-                    <td>10 - 10,000</td>
-                    <td>Deposit: Instant<br>Withdraw: 1 working day</td>
-                </tr>
-                <tr>
-                    <td id="mastercard"></td>
-                    <td>USD GBP EUR AUD</td>
-                    <td>10 - 10,000</td>
-                    <td>10 - 10,000</td>
-                    <td>Deposit: Instant<br>Withdraw: 1 working day</td>
-                </tr>
-                <tr>
-                    <td id="cuo-credit-card"></td>
-                    <td>USD</td>
-                    <td>10 - 1,000</td>
-                    <td></td>
-                    <td>Deposit: Instant<br>Withdraw: Not applicable</td>
-                </tr>
+        <div id="payment_methods">
+            [% WRAPPER section title=l('Credit / Debit card') %]
+                [% INCLUDE row id='visa'            currencies='USD GBP EUR AUD' deposit='10 - 10,000' withdrawal='10 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)] %]
+                [% INCLUDE row id='mastercard'      currencies='USD GBP EUR AUD' deposit='10 - 10,000' withdrawal='10 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)] %]
+                [% INCLUDE row id='cuo_credit_card' currencies='USD'             deposit='10 - 1,000'  withdrawal=''            time=[l('Deposit: Instant'), l('Withdraw: Not applicable')] %]
+            [% END %]
 
-                <!-- E-cash section -->
-                <tr>
-                    <th class="fx-subheader" colspan="5">[% l('E-cash') %]</th>
-                </tr>
-                <tr>
-                    <td id="moneybrokers"></td>
-                    <td>USD GBP EUR AUD</td>
-                    <td>5 - 10,000</td>
-                    <td>5 - 10,000</td>
-                    <td>Deposit: Instant<br>Withdraw: 1 working day</td>
-                </tr>
-            </table>
+            <div class="fx-divider"></div>
 
-            <p class="hint">*All your deposits and withdrawals are processed by ChampionFX within 24 hours. However, there may be additional processing time required by your bank or money transfer service.</p>
+            [% WRAPPER section title=l('E-cash') %]
+                [% INCLUDE row id='moneybrokers' currencies='USD GBP EUR AUD' deposit='5 - 10,000' withdrawal='5 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)] %]
+                [% INCLUDE row id='neteller'     currencies='USD GBP EUR AUD' deposit='5 - 10,000' withdrawal='5 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)] %]
+                [% INCLUDE row id='eco_payz'     currencies='USD GBP EUR AUD' deposit='5 - 10,000' withdrawal='5 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)] %]
+            [% END %]
         </div>
 
+        <div>
+            <p class="hint">*[% l('All your deposits and withdrawals are processed by ChampionFX within 24 hours. However, there may be additional processing time required by your bank or money transfer service.') %]</p>
+        </div>
     </div>
 </div>
