@@ -93,6 +93,7 @@ const Client = (function () {
         ChampionSocket.send({ get_settings: 1 });
         ChampionSocket.send({ get_account_status: 1 });
         ChampionSocket.send({ get_financial_assessment: 1 });
+        ChampionSocket.send({ mt5_login_list: 1 });
         if (!authorize.is_virtual) ChampionSocket.send({ get_self_exclusion: 1 });
         const country_code = response.authorize.country;
         if (country_code) {
@@ -243,6 +244,10 @@ const Client = (function () {
         return true;
     };
 
+    const getMT5AccountType = function(group) {
+        return group ? (/demo/.test(group) ? 'demo' : group.split('\\')[1] || '') : '';
+    };
+
     return {
         init                : init,
         redirect_if_login   : redirect_if_login,
@@ -259,6 +264,7 @@ const Client = (function () {
         is_virtual          : () => get('is_virtual'),
         has_real            : () => get('has_real'),
         do_logout           : do_logout,
+        getMT5AccountType   : getMT5AccountType,
     };
 })();
 

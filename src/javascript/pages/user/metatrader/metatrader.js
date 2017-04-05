@@ -1,5 +1,6 @@
 const MetaTraderConfig = require('./metatrader.config');
 const MetaTraderUI     = require('./metatrader.ui');
+const Client           = require('../../../common/client');
 const ChampionSocket   = require('../../../common/socket');
 const Validation       = require('../../../common/validation');
 
@@ -11,22 +12,20 @@ const MetaTrader = (function() {
     const fields       = MetaTraderConfig.fields;
 
     const load = () => {
-        ChampionSocket.send({ mt5_login_list: 1 }).then((response) => {
+        ChampionSocket.wait('mt5_login_list').then((response) => {
             responseLoginList(response);
         });
         MetaTraderUI.init(submit);
     };
 
     const responseLoginList = (response) => {
-        if (response.mt5_login_list && response.mt5_login_list.length > 0) {
-            response.mt5_login_list.map((obj) => {
-                const acc_type = getAccountType(obj.group);
-                if (acc_type) { // ignore old accounts which are not linked to any group
-                    types_info[acc_type].account_info = { login: obj.login };
-                    getAccountDetails(obj.login, acc_type);
-                }
-            });
-        }
+        (response.mt5_login_list || []).forEach((obj) => {
+            const acc_type = Client.getMT5AccountType(obj.group);
+            if (acc_type) { // ignore old accounts which are not linked to any group
+                types_info[acc_type].account_info = { login: obj.login };
+                getAccountDetails(obj.login, acc_type);
+            }
+        });
 
         // Update types with no account
         Object.keys(types_info).forEach((acc_type) => {
@@ -47,10 +46,6 @@ const MetaTrader = (function() {
                 MetaTraderUI.updateAccount(acc_type);
             }
         });
-    };
-
-    const getAccountType = function(group) {
-        return group ? (/demo/.test(group) ? 'demo' : group.split('\\')[1] || '') : '';
     };
 
     const makeRequestObject = (acc_type, action) => {
