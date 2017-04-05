@@ -1,15 +1,15 @@
-const moment      = require('moment');
-const Client      = require('./client');
-const getLanguage = require('./language').getLanguage;
-const Login       = require('./login');
-const getAppId    = require('./socket').getAppId;
-const State       = require('./storage').State;
-const Cookies     = require('../lib/js-cookie');
+const moment         = require('moment');
+const Client         = require('./client');
+const getLanguage    = require('./language').getLanguage;
+const Login          = require('./login');
+const ChampionSocket = require('./socket');
+const State          = require('./storage').State;
+const Cookies        = require('../lib/js-cookie');
 
 const GTM = (() => {
     'use strict';
 
-    const isGtmApplicable = () => (/^(2472|2586)$/.test(getAppId()));
+    const isGtmApplicable = () => (/^(2472|2586)$/.test(ChampionSocket.getAppId()));
 
     const gtmDataLayerInfo = (data) => {
         const data_layer_info = {
@@ -78,7 +78,20 @@ const GTM = (() => {
             data.bom_lastname  = get_settings.last_name;
             data.bom_phone     = get_settings.phone;
         }
-        pushDataLayer(data);
+
+        if (is_login) {
+            ChampionSocket.wait('mt5_login_list').then((response) => {
+                (response.mt5_login_list || []).forEach((obj) => {
+                    const acc_type = Client.getMT5AccountType(obj.group);
+                    if (acc_type) {
+                        data[`mt5_${acc_type.replace('champion_', '')}_id`] = obj.login;
+                    }
+                });
+                pushDataLayer(data);
+            });
+        } else {
+            pushDataLayer(data);
+        }
     };
 
     return {
