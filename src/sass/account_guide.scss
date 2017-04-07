@@ -1,0 +1,124 @@
+#account_guide {
+    position: relative;
+    #guide_content {
+        display: none;
+        border-bottom: 1px solid $primaryBrandColor;
+        color: $primaryBrandColor;
+        .group-title {
+            color: $contentInverseColor;
+            background: $darkPrimaryBrandColor;
+            line-height: 40px;
+            border-right: 1px solid $white;
+        }
+        .account-title, .account-desc {
+            border-right: 1px solid $primaryBrandColor;
+            &.disabled {
+                color: $secondaryContentColor;
+            }
+        }
+        .account-title {
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid $primaryBrandColor;
+        }
+        .account-desc {
+            padding: 10px 30px 20px;
+            font-size: 0.9em;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            .buttons-row {
+                margin-top: auto;
+                .login {
+                    white-space: nowrap;
+                    padding: 10px 0;
+                    display: inline-block;
+                }
+            }
+            .account-exists {
+                border: 3px solid $primaryBrandColor;
+                border-radius: 40px;
+                width: 80px;
+                height: 80px;
+                margin: 20px auto;
+                span {
+                    border: 3px solid $primaryBrandColor;
+                    border-top: none;
+                    border-right: none;
+                    margin: 25px auto;
+                    width: 35px;
+                    height: 15px;
+                    display: block;
+                    transform: rotate(-45deg);
+                }
+            }
+            #mt5_accounts span {
+                position: relative;
+                padding-left: 22px;
+                margin-right: 20px;
+                &:before {
+                    content: '';
+                    width: 16px;
+                    height: 7px;
+                    border: 1px solid $primaryBrandColor;
+                    border-top: none;
+                    border-right: none;
+                    transform: rotate(-45deg);
+                    position: absolute;
+                    left: 0;
+                    top: 4px;
+                }
+            }
+            .account-tooltip {
+                color: $primaryBrandColor;
+            }
+            .or {
+                display: inline-block;
+                padding: 0 15px;
+            }
+        }
+    }
+    #guide_button {
+        position: absolute;
+        z-index: 9;
+        left: 50%;
+        transform: translate(-50%);
+        bottom: -31px;
+        font-size: $FONT_SIZE_S;
+        cursor: pointer;
+        .closed {
+            color: $primaryBrandColor;
+            background-color: $contentInverseColor;
+            border: 1px solid $primaryBrandColor;
+            border-top: none;
+            border-radius: 0 0 10px 10px;
+            padding: 0 10px;
+            line-height: 30px;
+        }
+        .up {
+            display: none;
+            width: 10px;
+            height: 10px;
+            margin: 12px auto 0;
+            border: 2px solid $contentInverseColor;
+            border-right: 0;
+            border-bottom: 0;
+            transform: rotate(45deg);
+        }
+        &.open {
+            bottom: -15px;
+            width: 30px;
+            height: 30px;
+            border-radius: 15px;
+            background: $primaryBrandColor;
+            .closed {
+                display: none;
+            }
+            .up {
+                display: block;
+            }
+        }
+    }
+}

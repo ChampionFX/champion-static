@@ -1,3 +1,4 @@
+const AccountGuide   = require('./account_guide');
 const Client         = require('./client');
 const formatMoney    = require('./currency').formatMoney;
 const GTM            = require('./gtm');
@@ -28,6 +29,8 @@ const Header = (function () {
                 }
             });
         });
+
+        AccountGuide.init();
     };
 
     const userMenu = function() {
