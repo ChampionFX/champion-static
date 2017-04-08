@@ -50,12 +50,14 @@ const MetaTraderConfig = (function() {
                 });
             },
             onSuccess: (response, acc_type) => {
+                const type = types_info[acc_type].mt5_account_type || 'demo';
                 const gtm_data = {
-                    event      : 'mt5_new_account',
-                    bom_email  : Client.get('email'),
-                    bom_country: State.get(['response', 'get_settings', 'get_settings', 'country']),
+                    event          : 'mt5_new_account',
+                    bom_email      : Client.get('email'),
+                    bom_country    : State.get(['response', 'get_settings', 'get_settings', 'country']),
+                    mt5_last_signup: type,
                 };
-                gtm_data[`mt5_${types_info[acc_type].mt5_account_type || 'demo'}_id`] = response.mt5_new_account.login;
+                gtm_data[`mt5_${type}_id`] = response.mt5_new_account.login;
                 if (acc_type === 'demo' && !Client.is_virtual()) {
                     gtm_data.visitorId = Client.get('loginid_array').find(login => !login.real).id;
                 }
