@@ -40,6 +40,12 @@ const AccountGuide = (() => {
                 $guide_content.slideToggle(400, () => { $guide_button.toggleClass('open'); });
             });
             $account_guide.removeClass(hidden_class);
+
+            // check display flag
+            if (localStorage.getItem('show_guide') === '1') {
+                localStorage.removeItem('show_guide');
+                $('#guide_button:not(.open)').click();
+            }
         });
     };
 

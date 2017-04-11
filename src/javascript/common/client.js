@@ -167,6 +167,7 @@ const Client = (function () {
         set_cookie('loginid_list', virtual_client ? `${client_loginid}:V:E` : `${client_loginid}:R:E+${Cookies.get('loginid_list')}`);
         // set local storage
         localStorage.setItem('GTM_new_account', '1');
+        localStorage.setItem('show_guide', '1');
         set('loginid', client_loginid);
         window.location.href = url.default_redirect_url();
     };
