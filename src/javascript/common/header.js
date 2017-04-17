@@ -4,7 +4,6 @@ const GTM            = require('./gtm');
 const ChampionSocket = require('./socket');
 const State          = require('./storage').State;
 const url_for        = require('./url').url_for;
-const url_for_static = require('./url').url_for_static;
 const Utility        = require('./utility');
 const isEmptyObject  = require('./utility').isEmptyObject;
 const template       = require('./utility').template;
@@ -69,19 +68,19 @@ const Header = (function () {
             if (!login.disabled) {
                 const curr_id = login.id;
                 const type    = `${login.real ? 'Real' : 'Virtual'} Account`;
-                const img_src = login.real ? url_for_static('images/menu_icons/Real.svg') : url_for_static('images/menu_icons/Virtual.svg');
+                const icon    = login.real ? 'fx-real-icon' : 'fx-virtual-icon';
 
                 // default account
                 if (curr_id === Client.get('loginid')) {
                     $('.account-type').html(type);
                     $('.account-id').html(curr_id);
                     loginid_select += `<a class="selected-account"href="#" value="${curr_id}">
-                                        <li><img class="nav-menu-icon pull-left" src="${img_src}">${curr_id}</li>
+                                        <li><span class="nav-menu-icon pull-left ${icon}"></span>${curr_id}</li>
                                        </a>
                                        <div class="separator-line-thin-gray"></div>`;
                 } else {
                     loginid_select += `<a href="#" value="${curr_id}">
-                                        <li><img class="nav-menu-icon pull-left" src="${img_src}">${curr_id}</li>
+                                        <li><span class="nav-menu-icon pull-left ${icon}"></span>${curr_id}</li>
                                        </a>
                                        <div class="separator-line-thin-gray"></div>`;
                 }
