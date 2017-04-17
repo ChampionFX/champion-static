@@ -1,7 +1,13 @@
 <div id="header" class="dark-blue header">
     <div class="menu-container">
         <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-6 vertical-center">
+            <div class="col-lg-2 col-sm-4 col-xs-5 hidden-lg-up vertical-center">
+                <div class="nav-menu nav-toggle-dropdown">
+                    <a href="javascript:;" id="mobile_menu_icon" class="logged-out logged-in vertical-center hidden-lg-up invisible"><span></span></a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-4 col-xs-2 vertical-center">
                 <div class="logo-wrapper">
                     <a href="[% request.url_for('home') %]" class="logo-parent">
                         <div class="logo">
@@ -13,81 +19,8 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-2 push-md-7 col-sm-6 col-xs-6 vertical-center">
-                <div id="main-logout" class="hidden-lg-up">
-                    <ul id="main-account" class="nav-menu main-nav">
-                        <li id="mobile_menu_icon" class="logged-out vertical-center hidden-lg-up invisible"><span></span></li>
-                        <li class="account logged-in invisible">
-                            <a href="javascript:;">
-                                <div class="main-account">
-                                    <div class="account-type"></div>
-                                    <div class="account-id"></div>
-                                    <div class="topMenuBalance"></div>
-                                </div>
-                                <div class="nav-caret"></div>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul id="all-accounts" class="nav-menu main-nav">
-                        <li class="account">
-                            <a href="javascript:;" class="menu-icon">
-                                <div class="main-account">
-                                    <div class="account-type"></div>
-                                    <div class="account-id"></div>
-                                    <div class="topMenuBalance">&nbsp;</div>
-                                </div>
-                                <div class="nav-caret"></div>
-                            </a>
-                            <ul>
-                                <a class="link invisible logged-out" href="[% request.url_for('home') %]#signup">
-                                    <li>[% l('Sign Up') %]</li>
-                                </a>
-                                <a class="link invisible logged-in" href="[% request.url_for('user/settings') %]">
-                                    <li class="topMenuSettings">[% l('Settings') %]</li>
-                                </a>
-                                <div class="separator-line-thin-gray"></div>
-                                <a class="link invisible logged-in" href="[% request.url_for('cashier') %]">
-                                    <li class="topMenuCashier">[% l('Cashier') %]</li>
-                                </a>
-                                <div class="separator-line-thin-gray invisible logged-in"></div>
-                                <a href="[% request.url_for('about-us') %]" class="hidden-lg-up">
-                                    <li>[% l('About') %]</li>
-                                </a>
-                                <li class="hidden-lg-up has-sub">
-                                    <a href="javascript:;">[% l('MT5') %]</a>
-                                    <ul class="invisible">
-                                        <li><a href="[% request.url_for('forex') %]">[% l('Forex') %]</a></li>
-                                        <li><a href="[% request.url_for('cfd') %]">[% l('CFDs') %]</a></li>
-                                        <li><a href="[% request.url_for('metals') %]">[% l('Metals') %]</a></li>
-                                    </ul>
-                                </li>
-                                <a href="[% request.url_for('binary-options') %]" class="hidden-lg-up">
-                                    <li>[% l('Binary Options') %]</li>
-                                </a>
-                                <a href="[% request.url_for('trading-platform') %]" class="hidden-lg-up">
-                                    <li>[% l('Trading Platforms') %]</li>
-                                </a>
-                                <a href="[% request.url_for('partnerships') %]" class="hidden-lg-up">
-                                    <li>[% l('Partnerships') %]</li>
-                                </a>
-                                <div class="separator-line-thin-gray hidden-lg-up invisible logged-in"></div>
-                                <div class="login-id-list"></div>
-                                <a href="javascript:;" id="btn_logout" class="logout invisible logged-in">
-                                    <li>[% l("Sign out") %]</li>
-                                </a>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div id="main-signup" class="logged-out invisible hidden-lg-down">
-                    <ul class="signup-button">
-                        <li class="">
-                            <a class="button-secondary" href="[% request.url_for('home') %]#signup"><span>[% l('Sign Up') %]</span></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-7 pull-md-2 hidden-lg-down vertical-center">
+
+            <div class="col-lg-7 hidden-lg-down vertical-center">
                 <ul class="top-nav-menu">
                     <li>
                         <a href="[% request.url_for('about-us') %]" class="nav-dropdown-toggle">[% l('About') %]</a>
@@ -113,6 +46,94 @@
                         <a href="[% request.url_for('partnerships') %]" class="nav-dropdown-toggle">[% l('Partnerships') %]</a>
                     </li>
                 </ul>
+            </div>
+
+            <div class="col-lg-2 col-sm-4 col-xs-5 vertical-center">
+                <div class="right-align">
+                    <div class="logged-out invisible">
+                        <div id="main-signup">
+                            <ul class="signup-button">
+                                <li id="main-login"><a class="button" href="javascript:;"><span>[% l('Log In') %]</span></a></li>
+                                <li><a class="button-secondary" href="[% request.url_for('home') %]#signup"><span>[% l('Sign Up') %]</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="logged-in invisible">
+                        <a id="account-info" href="javascript:;" class="nav-menu nav-toggle-dropdown">
+                            <div class="">
+                                <!-- div class="account-type"></div -->
+                                <div class="account-id"></div>
+                                <div class="topMenuBalance"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- dropdown menu -->
+            <div class="col-lg-2 push-lg-10">
+                <div class="nav-menu">
+                    <ul class="nav-menu-dropdown">
+                        <div class="login-id-list"></div>
+                        <li class="invisible logged-in">
+                            <a href="[% request.url_for('cashier') %]">
+                                <img class="nav-menu-icon pull-left" src="[% request.url_for('images/menu_icons/Cashier.svg') %]" />
+                                [% l("Cashier") %]
+                            </a>
+                        </li>
+                        <li class="invisible logged-in">
+                            <a href="[% request.url_for('user/settings') %]">
+                                <img class="nav-menu-icon pull-left" src="[% request.url_for('images/menu_icons/Setting.svg') %]" />
+                                [% l("Settings") %]
+                            </a>
+                        </li>
+                        <li class="hidden-lg-up">
+                            <a href="[% request.url_for('about-us') %]">
+                                <img class="nav-menu-icon pull-left" src="[% request.url_for('images/menu_icons/About.svg') %]" />[% l("About") %]
+                            </a>
+                        </li>
+                        <li class="hidden-lg-up">
+                            <a id="more_mt5_btn" href="javascript:;" class="nav-dropdown-toggle">
+                                <img class="nav-menu-icon pull-left" src="[% request.url_for('images/menu_icons/MT5.svg') %]" />
+                                [% l("MT5") %]
+                                <img class="nav-menu-icon pull-right" src="[% request.url_for('images/menu_icons/MoreMenu.svg') %]" />
+                            </a>
+                            <ul class="invisible has-sub submenu">
+                                <li><a href="[% request.url_for('forex') %]">[% l('Forex') %]</a></li>
+                                <li><a href="[% request.url_for('cfd') %]">[% l('CFDs') %]</a></li>
+                                <li><a href="[% request.url_for('metals') %]">[% l('Metals') %]</a></li>
+                            </ul>
+                        </li>
+                        <li class="hidden-lg-up">
+                            <a id="more_btn" href="javascript:;" class="nav-dropdown-toggle">
+                                <span class="nav-menu-icon pull-left"></span>
+                                [% l("More") %]
+                                <img class="nav-menu-icon pull-right" src="[% request.url_for('images/menu_icons/MoreMenu.svg') %]" />
+                            </a>
+                            <ul class="invisible has-sub">
+                                <li><a href="[% request.url_for('binary-options') %]">
+                                    <img class="nav-menu-icon pull-left" src="[% request.url_for('images/menu_icons/Binary.svg') %]" />
+                                    [% l('Binary Options') %]
+                                </a></li>
+                                <li><a href="[% request.url_for('trading-platform') %]">
+                                    <img class="nav-menu-icon pull-left" src="[% request.url_for('images/menu_icons/Trading.svg') %]" />
+                                    [% l('Trading Platforms') %]
+                                </a></li>
+                                <li><a href="[% request.url_for('partnerships') %]">
+                                    <img class="nav-menu-icon pull-left" src="[% request.url_for('images/menu_icons/Partnership.svg') %]" />
+                                    [% l('Partnerships') %]
+                                </a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="separator-line-thin-gray"></div>
+                            <a id="btn_logout" class="logout invisible logged-in" href="javascript:;">
+                                <img class="nav-menu-icon pull-left" src="[% request.url_for('images/menu_icons/SignOut.svg') %]" />
+                                [% l("Sign out") %]
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

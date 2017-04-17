@@ -43,6 +43,12 @@
     .fx-panel, .fx-panel-item {
         height: auto;
     }
+    .logo-wrapper {
+        margin: 0 auto; // align logo center
+    }
+    .nav-menu-dropdown {
+        transform: translateX(-100%);
+    }
 }
 
 @media (max-width: 1199px) {

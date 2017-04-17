@@ -4,6 +4,7 @@ const GTM            = require('./gtm');
 const ChampionSocket = require('./socket');
 const State          = require('./storage').State;
 const url_for        = require('./url').url_for;
+const url_for_static = require('./url').url_for_static;
 const Utility        = require('./utility');
 const isEmptyObject  = require('./utility').isEmptyObject;
 const template       = require('./utility').template;
@@ -31,10 +32,25 @@ const Header = (function () {
     };
 
     const userMenu = function() {
-        const $all_accounts = $('#all-accounts');
-        $all_accounts.find('li.has-sub > a').off('click').on('click', function(e) {
+        $('.nav-dropdown-toggle').off('click').on('click', function(e) {
             e.stopPropagation();
-            $(this).siblings('ul').toggleClass(hidden_class);
+            $(this).next().toggleClass(hidden_class);
+        });
+
+        $('#main-logout').removeAttr('class');
+        $('#header .logged-in').removeClass(hidden_class);
+        const language = $('#select_language');
+        const $menu_dropdown = $('.nav-menu-dropdown');
+        $('.nav-menu').unbind('click').on('click', function(e) {
+            e.stopPropagation();
+            Utility.animateDisappear(language);
+            if (+$menu_dropdown.css('opacity') === 1) {
+                $menu_dropdown.addClass('slide-out').removeClass('slide-in');
+                Utility.animateDisappear($menu_dropdown);
+            } else {
+                Utility.animateAppear($menu_dropdown);
+                $menu_dropdown.addClass('slide-in').removeClass('slide-out');
+            }
         });
 
         if (!Client.is_logged_in()) {
@@ -45,34 +61,29 @@ const Header = (function () {
         if (!Client.is_virtual()) {
             displayAccountStatus();
         }
-        $('#main-logout').removeAttr('class');
-        $('#header .logged-in').removeClass(hidden_class);
-        $all_accounts.find('.account > a').removeClass('menu-icon');
-        const language = $('#select_language');
-        $('.nav-menu').unbind('click').on('click', function(e) {
-            e.stopPropagation();
-            Utility.animateDisappear(language);
-            if (+$all_accounts.css('opacity') === 1) {
-                Utility.animateDisappear($all_accounts);
-            } else {
-                Utility.animateAppear($all_accounts);
-            }
-        });
+
         let loginid_select = '';
         const loginid_array = Client.get('loginid_array');
         for (let i = 0; i < loginid_array.length; i++) {
             const login = loginid_array[i];
             if (!login.disabled) {
                 const curr_id = login.id;
-                const type = `${login.real ? 'Real' : 'Virtual'} Account`;
+                const type    = `${login.real ? 'Real' : 'Virtual'} Account`;
+                const img_src = login.real ? url_for_static('images/menu_icons/Real.svg') : url_for_static('images/menu_icons/Virtual.svg');
 
                 // default account
                 if (curr_id === Client.get('loginid')) {
                     $('.account-type').html(type);
                     $('.account-id').html(curr_id);
+                    loginid_select += `<a class="selected-account"href="#" value="${curr_id}">
+                                        <li><img class="nav-menu-icon pull-left" src="${img_src}">${curr_id}</li>
+                                       </a>
+                                       <div class="separator-line-thin-gray"></div>`;
                 } else {
-                    loginid_select += `<a href="#" value="${curr_id}"><li>${type}<div>${curr_id}</div>
-                        </li></a><div class="separator-line-thin-gray"></div>`;
+                    loginid_select += `<a href="#" value="${curr_id}">
+                                        <li><img class="nav-menu-icon pull-left" src="${img_src}">${curr_id}</li>
+                                       </a>
+                                       <div class="separator-line-thin-gray"></div>`;
                 }
             }
         }

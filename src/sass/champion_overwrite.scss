@@ -97,3 +97,9 @@ button .barspinner.white {
         outline: none;
     }
 }
+
+.button, .button-secondary {
+    span {
+        padding: 7px 20px !important;
+    }
+}

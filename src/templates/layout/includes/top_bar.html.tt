@@ -5,8 +5,17 @@
             <div class="col-sm-12 topbar-container flex-items-sm-middle">
                 <div class="topbar-contacts">
                     <ul>
-                        <li class="last"><a href="[% request.url_for('contact') %]">[% l('Contact Us') %]</a></li>
-                        <li id="main-login" class="FX__Header__cta invisible"><a class="button-secondary" href="javascript:;">[% l('Log In') %]</a></li>
+                        <li class="last">
+                            <a href="[% request.url_for('contact') %]">
+                                <span class="fx-topbar-icon fx-contact"></span>
+                            </a>
+                        </li>
+                        <li id="main-login" class="FX__Header__cta invisible">
+                            <a class="" href="javascript:;">
+                                <span class="fx-topbar-icon fx-log-in"></span>
+                                [% l('Log In') %]
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div class="upgrade-message pulser invisible">
