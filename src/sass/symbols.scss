@@ -1,5 +1,4 @@
-// symbols
-
+// ChampionFX symbols
 .fx-advisors {
     background: url('../images/symbols/advisors.svg');
 }
@@ -253,22 +252,82 @@
     height: 30px;
 }
 
-// ChampionFX topbar icons
-.fx-topbar-icon {
+// ChampionFX menu icons
+.fx-topbar {
     width: 16px;
     height: 16px;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
     display: inline-block;
     vertical-align: middle;
 }
 
-.fx-contact {
-    background: url('../images/menu_icons/Contact.svg') no-repeat;
-    background-size: contain;
+.fx-about-icon {
+    background: url('../images/menu_icons/About.svg');
 }
 
-.fx-log-in {
-    background: url('../images/menu_icons/LogIn.svg') no-repeat;
-    background-size: contain;
+.fx-arrow-icon {
+    background: url('../images/menu_icons/Arrow.svg');
+}
+
+.fx-binary-icon {
+    background: url('../images/menu_icons/Binary.svg');
+}
+
+.fx-cashier-icon {
+    background: url('../images/menu_icons/Cashier.svg');
+}
+
+.fx-contact-icon {
+    background: url('../images/menu_icons/Contact.svg');
+}
+
+.fx-gmt-icon {
+    background: url('../images/menu_icons/GMT.svg');
+}
+
+.fx-language-icon {
+    background: url('../images/menu_icons/Language.svg');
+}
+
+.fx-login-icon {
+    background: url('../images/menu_icons/Login.svg');
+}
+
+.fx-mainmenu-icon {
+    background: url('../images/menu_icons/MainMenu.svg');
+}
+
+.fx-moremenu-icon {
+    background: url('../images/menu_icons/MoreMenu.svg');
+}
+
+.fx-mt5-icon {
+    background: url('../images/menu_icons/MT5.svg');
+}
+
+.fx-partnership-icon {
+    background: url('../images/menu_icons/Partnership.svg');
+}
+
+.fx-real-icon {
+    background: url('../images/menu_icons/Real.svg');
+}
+
+.fx-virtual-icon {
+    background: url('../images/menu_icons/Virtual.svg');
+}
+
+.fx-setting-icon {
+    background: url('../images/menu_icons/Setting.svg');
+}
+
+.fx-signout-icon {
+    background: url('../images/menu_icons/SignOut.svg');
+}
+
+.fx-trading-icon {
+    background: url('../images/menu_icons/Trading.svg');
 }
 
 // ChampionFX language icons
@@ -278,7 +337,6 @@
 
 .fx-english-uk {
     background: url('../images/language_icons/EnglishUK.svg');
-    background-size: contain;
 }
 
 .fx-france {

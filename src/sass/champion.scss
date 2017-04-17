@@ -141,6 +141,9 @@ h1.main-title {
                 padding: 10px 0;
                 .nav-menu-icon {
                     display: inline-block;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;
                     width: 22px;
                     height: 22px;
                 }
@@ -180,10 +183,12 @@ h1.main-title {
 }
 
 .slide-in {
+    -webkit-animation: slide-in 0.5s forwards;
     animation: slide-in 0.5s forwards;
 }
 
 .slide-out {
+    -webkit-animation: slide-out 0.5s forwards;
     animation: slide-out 0.5s forwards;
 }
 
@@ -195,6 +200,22 @@ h1.main-title {
 }
 
 @keyframes slide-out {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transfrom: translateX(-100%);
+    }
+}
+
+@-webkit-keyframes slide-in {
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes slide-out {
     0% {
         transform: translateX(0%);
     }

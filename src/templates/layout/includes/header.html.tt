@@ -77,26 +77,27 @@
                         <div class="login-id-list"></div>
                         <li class="invisible logged-in">
                             <a href="[% request.url_for('cashier') %]">
-                                <img class="nav-menu-icon pull-left" src="[% request.url_for('images/menu_icons/Cashier.svg') %]" />
+                                <span class="nav-menu-icon pull-left fx-cashier-icon"></span>
                                 [% l("Cashier") %]
                             </a>
                         </li>
                         <li class="invisible logged-in">
                             <a href="[% request.url_for('user/settings') %]">
-                                <img class="nav-menu-icon pull-left" src="[% request.url_for('images/menu_icons/Setting.svg') %]" />
+                                <span class="nav-menu-icon pull-left fx-setting-icon"></span>
                                 [% l("Settings") %]
                             </a>
                         </li>
                         <li class="hidden-lg-up">
                             <a href="[% request.url_for('about-us') %]">
-                                <img class="nav-menu-icon pull-left" src="[% request.url_for('images/menu_icons/About.svg') %]" />[% l("About") %]
+                                <span class="nav-menu-icon pull-left fx-about-icon"></span>
+                                [% l("About") %]
                             </a>
                         </li>
                         <li class="hidden-lg-up">
                             <a id="more_mt5_btn" href="javascript:;" class="nav-dropdown-toggle">
-                                <img class="nav-menu-icon pull-left" src="[% request.url_for('images/menu_icons/MT5.svg') %]" />
+                                <span class="nav-menu-icon pull-left fx-mt5-icon"></span>
                                 [% l("MT5") %]
-                                <img class="nav-menu-icon pull-right" src="[% request.url_for('images/menu_icons/MoreMenu.svg') %]" />
+                                <span class="nav-menu-icon pull-right fx-moremenu-icon"></span>
                             </a>
                             <ul class="invisible has-sub submenu">
                                 <li><a href="[% request.url_for('forex') %]">[% l('Forex') %]</a></li>
@@ -108,19 +109,19 @@
                             <a id="more_btn" href="javascript:;" class="nav-dropdown-toggle">
                                 <span class="nav-menu-icon pull-left"></span>
                                 [% l("More") %]
-                                <img class="nav-menu-icon pull-right" src="[% request.url_for('images/menu_icons/MoreMenu.svg') %]" />
+                                <span class="nav-menu-icon pull-right fx-moremenu-icon"></span>
                             </a>
                             <ul class="invisible has-sub">
                                 <li><a href="[% request.url_for('binary-options') %]">
-                                    <img class="nav-menu-icon pull-left" src="[% request.url_for('images/menu_icons/Binary.svg') %]" />
+                                    <span class="nav-menu-icon pull-left fx-binary-icon"></span>
                                     [% l('Binary Options') %]
                                 </a></li>
                                 <li><a href="[% request.url_for('trading-platform') %]">
-                                    <img class="nav-menu-icon pull-left" src="[% request.url_for('images/menu_icons/Trading.svg') %]" />
+                                    <span class="nav-menu-icon pull-left fx-trading-icon"></span>
                                     [% l('Trading Platforms') %]
                                 </a></li>
                                 <li><a href="[% request.url_for('partnerships') %]">
-                                    <img class="nav-menu-icon pull-left" src="[% request.url_for('images/menu_icons/Partnership.svg') %]" />
+                                    <span class="nav-menu-icon pull-left fx-partnership-icon"></span>
                                     [% l('Partnerships') %]
                                 </a></li>
                             </ul>
@@ -128,7 +129,7 @@
                         <li>
                             <div class="separator-line-thin-gray"></div>
                             <a id="btn_logout" class="logout invisible logged-in" href="javascript:;">
-                                <img class="nav-menu-icon pull-left" src="[% request.url_for('images/menu_icons/SignOut.svg') %]" />
+                                <span class="nav-menu-icon pull-left fx-signout-icon"></span>
                                 [% l("Sign out") %]
                             </a>
                         </li>

@@ -7,12 +7,12 @@
                     <ul>
                         <li class="last">
                             <a href="[% request.url_for('contact') %]">
-                                <span class="fx-topbar-icon fx-contact"></span>
+                                <span class="fx-topbar fx-contact-icon"></span>
                             </a>
                         </li>
                         <li id="main-login" class="FX__Header__cta invisible">
                             <a class="" href="javascript:;">
-                                <span class="fx-topbar-icon fx-log-in"></span>
+                                <span class="fx-topbar fx-login-icon"></span>
                                 [% l('Log In') %]
                             </a>
                         </li>
