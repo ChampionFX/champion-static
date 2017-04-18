@@ -55,6 +55,9 @@
     .nav-menu-dropdown {
         transform: translateX(-100%);
     }
+    #account-info {
+        text-align: right !important;
+    }
 }
 
 @media (min-width: 1200px) {

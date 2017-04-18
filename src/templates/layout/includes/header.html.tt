@@ -59,13 +59,9 @@
                         </div>
                     </div>
                     <div class="logged-in invisible">
-                        <a id="account-info" href="javascript:;" class="nav-menu nav-toggle-dropdown hidden-lg-down">
-                                <div class="account-id"></div>
-                                <div class="topMenuBalance"></div>
-                        </a>
-                        <a id="mobile-account-info" href="javascript:;" class="hidden-lg-up">
-                                <div class="account-id"></div>
-                                <div class="topMenuBalance"></div>
+                        <a id="account-info" href="javascript:;" class="nav-menu nav-toggle-dropdown">
+                            <div class="account-id"></div>
+                            <div class="topMenuBalance"></div>
                         </a>
                     </div>
                 </div>
@@ -89,6 +85,7 @@
                             </a>
                         </li>
                         <li class="hidden-lg-up">
+                            <div class="separator-line-thin-gray"></div>
                             <a href="[% request.url_for('about-us') %]">
                                 <span class="nav-menu-icon pull-left fx-about-icon"></span>
                                 [% l("About") %]

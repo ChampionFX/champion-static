@@ -134,11 +134,12 @@ h1.main-title {
                 padding: 0;
                 margin: 0;
             }
-            a {
+            a, span {
                 display: block;
                 color: $black !important;
                 text-align: center;
                 padding: 10px 0;
+                font-weight: 600;
                 .nav-menu-icon {
                     display: inline-block;
                     background-repeat: no-repeat;
@@ -151,12 +152,17 @@ h1.main-title {
                     background-color: $borderColor;
                 }
             }
-            .submenu a {
-                text-align: left;
-                margin-left: 10px;
+            .has-sub {
+                background-color: $fillColor;
+            }
+            .submenu {
+                a {
+                    text-align: left;
+                    padding-left: 10px;
+                }
             }
         }
-        .selected-account {
+        .selected {
             background-color: $borderColor;
             color: $white;
         }
@@ -168,9 +174,6 @@ h1.main-title {
             float: left;
             margin-left: 15px;
         }
-    }
-    #mobile-account-info {
-        text-align: right;
     }
     #account-info {
         text-align: center;

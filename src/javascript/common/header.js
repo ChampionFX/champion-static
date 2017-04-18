@@ -33,6 +33,7 @@ const Header = (function () {
     const userMenu = function() {
         $('.nav-dropdown-toggle').off('click').on('click', function(e) {
             e.stopPropagation();
+            $(this).toggleClass('selected');
             $(this).next().toggleClass(hidden_class);
         });
 
@@ -45,7 +46,7 @@ const Header = (function () {
             Utility.slideOut($menu_dropdown);
             Utility.animateDisappear($menu_dropdown);
         });
-        $('.nav-menu').unbind('click').on('click', function(e) {
+        $('.nav-menu:not(.selected-account)').unbind('click').on('click', function(e) {
             e.stopPropagation();
             Utility.animateDisappear(language);
             if (+$menu_dropdown.css('opacity') === 1) {
@@ -81,15 +82,13 @@ const Header = (function () {
                 if (curr_id === Client.get('loginid')) {
                     $('.account-type').html(type);
                     $('.account-id').html(curr_id);
-                    loginid_select += `<a class="selected-account" href="javascript:;" value="${curr_id}">
+                    loginid_select += `<span class="selected" href="javascript:;" value="${curr_id}">
                                         <li><span class="nav-menu-icon pull-left ${icon}"></span>${curr_id}</li>
-                                       </a>
-                                       <div class="separator-line-thin-gray"></div>`;
+                                       </span>`;
                 } else {
                     loginid_select += `<a href="javascript:;" value="${curr_id}">
                                         <li><span class="nav-menu-icon pull-left ${icon}"></span>${curr_id}</li>
-                                       </a>
-                                       <div class="separator-line-thin-gray"></div>`;
+                                       </a>`;
                 }
             }
         }

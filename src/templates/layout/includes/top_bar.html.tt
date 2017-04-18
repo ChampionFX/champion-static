@@ -10,12 +10,6 @@
                                 <span class="fx-topbar fx-contact-icon"></span>
                             </a>
                         </li>
-                        <li id="main-login" class="FX__Header__cta invisible">
-                            <a class="" href="javascript:;">
-                                <span class="fx-topbar fx-login-icon"></span>
-                                [% l('Log In') %]
-                            </a>
-                        </li>
                     </ul>
                 </div>
                 <div class="upgrade-message pulser invisible">
