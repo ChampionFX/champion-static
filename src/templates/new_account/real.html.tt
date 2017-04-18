@@ -53,7 +53,8 @@
 
             <div class="center-text">
                 <div class="fx-divider"></div>
-                [% INCLUDE components/forms/form_row.html.tt      type='checkbox' id='chk_tnc' label=l('I have read and agree to the <a target="_blank" href="[_1]">terms and conditions</a> of the site.', request.url_for('/terms-and-conditions')) %]
+                [% INCLUDE components/forms/form_row.html.tt      type='checkbox' id='chk_not_pep' label=l('I acknowledge that I am not a politically exposed person ([_1]PEP[_2]).', '<span data-balloon-length="xlarge" data-balloon="' _ l("A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP's relatives and close associates.") _ '">', '</span>') %]
+                [% INCLUDE components/forms/form_row.html.tt      type='checkbox' id='chk_tnc'     label=l('I have read and agree to the <a target="_blank" href="[_1]">terms and conditions</a> of the site.', request.url_for('/terms-and-conditions')) %]
                 [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Create account') %]
             </div>
         </form>
