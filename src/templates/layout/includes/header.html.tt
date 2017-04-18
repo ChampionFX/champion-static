@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-2 col-sm-4 col-xs-5 hidden-lg-up vertical-center">
                 <div class="nav-menu nav-toggle-dropdown">
-                    <a href="javascript:;" id="mobile_menu_icon" class="logged-out logged-in vertical-center hidden-lg-up invisible"><span></span></a>
+                    <a href="javascript:;" id="mobile_menu_icon" class="vertical-center hidden-lg-up"><span></span></a>
                 </div>
             </div>
 
@@ -60,6 +60,13 @@
                     </div>
                     <div class="logged-in invisible">
                         <a id="account-info" href="javascript:;" class="nav-menu nav-toggle-dropdown">
+                            <div class="">
+                                <!-- div class="account-type"></div -->
+                                <div class="account-id"></div>
+                                <div class="topMenuBalance"></div>
+                            </div>
+                        </a>
+                        <a id="mobile-account-info" href="javascript:;">
                             <div class="">
                                 <!-- div class="account-type"></div -->
                                 <div class="account-id"></div>
