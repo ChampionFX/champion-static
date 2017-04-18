@@ -7,7 +7,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-3 col-sm-4 col-xs-2 vertical-center">
+            <div class="col-xl-3 col-lg-8 col-sm-4 col-xs-2 vertical-center">
                 <div class="logo-wrapper">
                     <a href="[% request.url_for('home') %]" class="logo-parent">
                         <div class="logo">
@@ -59,14 +59,14 @@
                         </div>
                     </div>
                     <div class="logged-in invisible">
-                        <a id="account-info" href="javascript:;" class="nav-menu nav-toggle-dropdown">
+                        <a id="account-info" href="javascript:;" class="nav-menu nav-toggle-dropdown hidden-lg-down">
                             <div class="">
                                 <!-- div class="account-type"></div -->
                                 <div class="account-id"></div>
                                 <div class="topMenuBalance"></div>
                             </div>
                         </a>
-                        <a id="mobile-account-info" href="javascript:;">
+                        <a id="mobile-account-info" href="javascript:;" class="hidden-lg-up">
                             <div class="">
                                 <!-- div class="account-type"></div -->
                                 <div class="account-id"></div>
@@ -78,7 +78,7 @@
             </div>
 
             <!-- dropdown menu -->
-            <div class="col-lg-2 push-lg-10">
+            <div class="col-xl-2 push-xl-10">
                 <div class="nav-menu">
                     <ul class="nav-menu-dropdown">
                         <div class="login-id-list"></div>

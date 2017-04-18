@@ -169,10 +169,11 @@ h1.main-title {
             margin-left: 15px;
         }
     }
-    #mobile-account-info, #account-info {
-        text-align: center;
+    #mobile-account-info {
+        text-align: right;
     }
     #account-info {
+        text-align: center;
         &:hover {
             color: $borderColor;
         }
