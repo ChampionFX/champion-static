@@ -60,18 +60,12 @@
                     </div>
                     <div class="logged-in invisible">
                         <a id="account-info" href="javascript:;" class="nav-menu nav-toggle-dropdown hidden-lg-down">
-                            <div class="">
-                                <!-- div class="account-type"></div -->
                                 <div class="account-id"></div>
                                 <div class="topMenuBalance"></div>
-                            </div>
                         </a>
                         <a id="mobile-account-info" href="javascript:;" class="hidden-lg-up">
-                            <div class="">
-                                <!-- div class="account-type"></div -->
                                 <div class="account-id"></div>
                                 <div class="topMenuBalance"></div>
-                            </div>
                         </a>
                     </div>
                 </div>

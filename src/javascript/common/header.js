@@ -36,31 +36,31 @@ const Header = (function () {
             $(this).next().toggleClass(hidden_class);
         });
 
-        $('#main-logout').removeAttr('class');
-        $('#header .logged-in').removeClass(hidden_class);
+        // $('#main-logout').removeAttr('class');
         const language = $('#select_language');
 
         const $menu_dropdown = $('.nav-menu-dropdown');
         $(document).unbind('click').on('click', function(e) {
             e.stopPropagation();
-            $menu_dropdown.addClass('slide-out').removeClass('slide-in');
+            Utility.slideOut($menu_dropdown);
             Utility.animateDisappear($menu_dropdown);
         });
         $('.nav-menu').unbind('click').on('click', function(e) {
             e.stopPropagation();
             Utility.animateDisappear(language);
             if (+$menu_dropdown.css('opacity') === 1) {
-                $menu_dropdown.addClass('slide-out').removeClass('slide-in');
+                Utility.slideOut($menu_dropdown);
                 Utility.animateDisappear($menu_dropdown);
             } else {
                 Utility.animateAppear($menu_dropdown);
-                $menu_dropdown.addClass('slide-in').removeClass('slide-out');
+                Utility.slideIn($menu_dropdown);
             }
         });
 
-        if (!Client.is_logged_in()) {
+        if (Client.is_logged_in()) {
+            $('#header .logged-in').removeClass(hidden_class);
+        } else {
             $('#main-login, #header .logged-out').removeClass(hidden_class);
-            $('.logged-in').addClass(hidden_class);
             return;
         }
 

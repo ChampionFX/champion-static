@@ -170,6 +170,14 @@ function numberToString(n) {
     return (typeof n === 'number' ? String(n) : n);
 }
 
+function slideIn(element) {
+    element.addClass('slide-in').removeClass('slide-out');
+}
+
+function slideOut(element) {
+    element.addClass('slide-out').removeClass('slide-in');
+}
+
 module.exports = {
     showLoadingImage  : showLoadingImage,
     isEmptyObject     : isEmptyObject,
@@ -184,6 +192,8 @@ module.exports = {
     dateValueChanged  : dateValueChanged,
     template          : template,
     getPropertyValue  : getPropertyValue,
+    slideIn           : slideIn,
+    slideOut          : slideOut,
 
     compareBigUnsignedInt: compareBigUnsignedInt,
 };
