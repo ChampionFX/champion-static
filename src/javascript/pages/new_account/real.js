@@ -33,6 +33,7 @@ const ChampionNewRealAccount = (function() {
         txt_phone          : '#txt_phone',
         ddl_secret_question: '#ddl_secret_question',
         txt_secret_answer  : '#txt_secret_answer',
+        chk_not_pep        : '#chk_not_pep',
         chk_tnc            : '#chk_tnc',
         btn_submit         : '#btn_submit',
     };
@@ -76,6 +77,7 @@ const ChampionNewRealAccount = (function() {
             { selector: fields.ddl_secret_question, validations: ['req'] },
             { selector: fields.txt_secret_answer,   validations: ['req', 'general', ['length', { min: 4, max: 50 }]] },
             { selector: fields.chk_tnc,             validations: ['req'] },
+            { selector: fields.chk_not_pep,         validations: ['req'] },
         ]);
     };
 
