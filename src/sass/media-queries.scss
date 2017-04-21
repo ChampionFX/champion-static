@@ -54,6 +54,9 @@
     }
     .nav-menu-dropdown {
         transform: translateX(-100%);
+        height: calc(100vh - 93px);
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch; /* mobile safari */
     }
     #account-info {
         text-align: right !important;

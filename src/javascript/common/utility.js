@@ -170,12 +170,38 @@ function numberToString(n) {
     return (typeof n === 'number' ? String(n) : n);
 }
 
+/* media queries */
+const media_query = window.matchMedia('(max-width: 1199px)');
+media_query.addListener(widthChange);
+widthChange(media_query);
+
+function widthChange(mq) {
+    if (mq.matches && $('.nav-menu-dropdown.slide-in').length) { // on active mobile menu
+        setPosition($('body'), 'fixed');
+    } else  {
+        setPosition($('body'), 'relative');
+    }
+}
+
 function slideIn(element) {
-    element.addClass('slide-in').removeClass('slide-out');
+    element.removeAttr('style')
+        .addClass('slide-in').removeClass('slide-out')
+        .animate({ opacity: 1 }, 100);
+
+    if (media_query.matches) setPosition($('body'), 'fixed');
 }
 
 function slideOut(element) {
     element.addClass('slide-out').removeClass('slide-in');
+    setPosition($('body'), 'relative');
+}
+
+function setPosition(element, type) {
+    element.css({ position: type });
+}
+
+function getMediaQuery() {
+    return media_query;
 }
 
 module.exports = {
@@ -194,6 +220,7 @@ module.exports = {
     getPropertyValue  : getPropertyValue,
     slideIn           : slideIn,
     slideOut          : slideOut,
+    getMediaQuery     : getMediaQuery,
 
     compareBigUnsignedInt: compareBigUnsignedInt,
 };

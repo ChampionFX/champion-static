@@ -51,9 +51,13 @@
             <div class="col-lg-2 col-sm-4 col-xs-5 vertical-center">
                 <div class="right-align">
                     <div class="logged-out invisible">
+                        <div id="main-login">
+                            <ul class="login-button">
+                                <li><a class="button" href="javascript:;"><span>[% l('Log In') %]</span></a></li>
+                            </ul>
+                        </div>
                         <div id="main-signup">
                             <ul class="signup-button">
-                                <li id="main-login"><a class="button" href="javascript:;"><span>[% l('Log In') %]</span></a></li>
                                 <li><a class="button-secondary" href="[% request.url_for('home') %]#signup"><span>[% l('Sign Up') %]</span></a></li>
                             </ul>
                         </div>
@@ -79,6 +83,7 @@
                             </a>
                         </li>
                         <li class="invisible logged-in">
+                            <div class="separator-line-thin-gray"></div>
                             <a href="[% request.url_for('user/settings') %]">
                                 <span class="nav-menu-icon pull-left fx-setting-icon"></span>
                                 [% l("Settings") %]
@@ -92,44 +97,62 @@
                             </a>
                         </li>
                         <li class="hidden-lg-up">
+                            <div class="separator-line-thin-gray"></div>
                             <a id="more_mt5_btn" href="javascript:;" class="nav-dropdown-toggle">
                                 <span class="nav-menu-icon pull-left fx-mt5-icon"></span>
                                 [% l("MT5") %]
                                 <span class="nav-menu-icon pull-right fx-moremenu-icon"></span>
                             </a>
-                            <ul class="invisible has-sub submenu">
-                                <li><a href="[% request.url_for('forex') %]">[% l('Forex') %]</a></li>
-                                <li><a href="[% request.url_for('cfd') %]">[% l('CFDs') %]</a></li>
-                                <li><a href="[% request.url_for('metals') %]">[% l('Metals') %]</a></li>
+                            <ul class="invisible submenu">
+                                <li>
+                                    <div class="separator-line-thin-gray"></div>
+                                    <a href="[% request.url_for('forex') %]">[% l('Forex') %]</a></li>
+                                <li>
+                                    <div class="separator-line-thin-gray"></div>
+                                    <a href="[% request.url_for('cfd') %]">[% l('CFDs') %]</a></li>
+                                <li>
+                                    <div class="separator-line-thin-gray"></div>
+                                    <a href="[% request.url_for('metals') %]">[% l('Metals') %]</a></li>
                             </ul>
                         </li>
                         <li class="hidden-lg-up">
-                            <a id="more_btn" href="javascript:;" class="nav-dropdown-toggle">
+                            <div class="separator-line-thin-gray"></div>
+                            <a id="more_btn" href="javascript:;" class="invisible logged-in nav-dropdown-toggle">
                                 <span class="nav-menu-icon pull-left"></span>
                                 [% l("More") %]
                                 <span class="nav-menu-icon pull-right fx-moremenu-icon"></span>
                             </a>
-                            <ul class="invisible has-sub">
-                                <li><a href="[% request.url_for('binary-options') %]">
-                                    <span class="nav-menu-icon pull-left fx-binary-icon"></span>
-                                    [% l('Binary Options') %]
-                                </a></li>
-                                <li><a href="[% request.url_for('trading-platform') %]">
-                                    <span class="nav-menu-icon pull-left fx-trading-icon"></span>
-                                    [% l('Trading Platforms') %]
-                                </a></li>
-                                <li><a href="[% request.url_for('partnerships') %]">
-                                    <span class="nav-menu-icon pull-left fx-partnership-icon"></span>
-                                    [% l('Partnerships') %]
-                                </a></li>
+                            <ul class="invisible logged-out">
+                                <li>
+                                    <div class="separator-line-thin-gray invisible logged-in"></div>
+                                    <a href="[% request.url_for('binary-options') %]">
+                                        <span class="nav-menu-icon pull-left fx-binary-icon"></span>
+                                        [% l('Binary Options') %]
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="separator-line-thin-gray"></div>
+                                    <a href="[% request.url_for('trading-platform') %]">
+                                        <span class="nav-menu-icon pull-left fx-trading-icon"></span>
+                                        [% l('Trading Platforms') %]
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="separator-line-thin-gray"></div>
+                                    <a href="[% request.url_for('partnerships') %]">
+                                        <span class="nav-menu-icon pull-left fx-partnership-icon"></span>
+                                        [% l('Partnerships') %]
+                                    </a>
+                                </li>
                             </ul>
                         </li>
-                        <li>
-                            <div class="separator-line-thin-gray"></div>
+                        <div class="separator-line-thin-gray"></div>
+                        <li class="invisible logged-in">
                             <a id="btn_logout" class="logout invisible logged-in" href="javascript:;">
                                 <span class="nav-menu-icon pull-left fx-signout-icon"></span>
                                 [% l("Sign out") %]
                             </a>
+                            <div class="separator-line-thin-gray hidden-lg-up"></div>
                         </li>
                     </ul>
                 </div>

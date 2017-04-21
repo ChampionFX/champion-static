@@ -11,7 +11,7 @@ const template       = require('./utility').template;
 const Header = (function () {
     'use strict';
 
-    const hidden_class = 'invisible';
+    const hidden_class  = 'invisible';
 
     const init = function() {
         ChampionSocket.wait('authorize').then(() => { userMenu(); });
@@ -33,33 +33,38 @@ const Header = (function () {
     const userMenu = function() {
         $('.nav-dropdown-toggle').off('click').on('click', function(e) {
             e.stopPropagation();
-            $(this).toggleClass('selected');
             $(this).next().toggleClass(hidden_class);
         });
 
-        // $('#main-logout').removeAttr('class');
         const language = $('#select_language');
-
         const $menu_dropdown = $('.nav-menu-dropdown');
+        const mq = Utility.getMediaQuery();
         $(document).unbind('click').on('click', function(e) {
             e.stopPropagation();
-            Utility.slideOut($menu_dropdown);
-            Utility.animateDisappear($menu_dropdown);
+            if (mq.matches) {
+                Utility.slideOut($menu_dropdown);
+            } else {
+                Utility.animateDisappear($menu_dropdown);
+            }
         });
         $('.nav-menu:not(.selected-account)').unbind('click').on('click', function(e) {
             e.stopPropagation();
             Utility.animateDisappear(language);
-            if (+$menu_dropdown.css('opacity') === 1) {
-                Utility.slideOut($menu_dropdown);
+            if (mq.matches) { // if mobile
+                if ($('.nav-menu-dropdown.slide-in').length) {
+                    Utility.slideOut($menu_dropdown);
+                } else {
+                    Utility.slideIn($menu_dropdown);
+                }
+            } else if (+$menu_dropdown.css('opacity') === 1) {
                 Utility.animateDisappear($menu_dropdown);
             } else {
                 Utility.animateAppear($menu_dropdown);
-                Utility.slideIn($menu_dropdown);
             }
         });
 
         if (Client.is_logged_in()) {
-            $('#header .logged-in').removeClass(hidden_class);
+            $('.logged-in').removeClass(hidden_class);
         } else {
             $('#main-login, #header .logged-out').removeClass(hidden_class);
             return;
@@ -84,11 +89,13 @@ const Header = (function () {
                     $('.account-id').html(curr_id);
                     loginid_select += `<span class="selected" href="javascript:;" value="${curr_id}">
                                         <li><span class="nav-menu-icon pull-left ${icon}"></span>${curr_id}</li>
-                                       </span>`;
+                                       </span>
+                                       <div class="separator-line-thin-gray"></div>`;
                 } else {
                     loginid_select += `<a href="javascript:;" value="${curr_id}">
                                         <li><span class="nav-menu-icon pull-left ${icon}"></span>${curr_id}</li>
-                                       </a>`;
+                                       </a>
+                                        <div class="separator-line-thin-gray"></div>`;
                 }
             }
         }

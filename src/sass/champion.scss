@@ -6,6 +6,7 @@ html {
         flex-direction: column;
         overflow-x: hidden;
         position: inherit;
+        width: 100%;
         #champion-container {
             flex: 1 1 auto;
         }
@@ -130,6 +131,8 @@ h1.main-title {
             background-color: $white;
             width: 200px;
             border: 1px solid $borderColor;
+            border-top: none;
+            box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.1);
             li {
                 padding: 0;
                 margin: 0;
@@ -151,9 +154,6 @@ h1.main-title {
                 &:hover {
                     background-color: $borderColor;
                 }
-            }
-            .has-sub {
-                background-color: $fillColor;
             }
             .submenu {
                 a {
@@ -194,8 +194,8 @@ h1.main-title {
 }
 
 .slide-out {
-    -webkit-animation: slide-out 0.5s forwards;
-    animation: slide-out 0.5s forwards;
+    -webkit-animation: slide-out 0.5s backwards;
+    animation: slide-out 0.5s backwards;
 }
 
 @keyframes slide-in {
@@ -295,9 +295,10 @@ h1.main-title {
     }
 }
 
-#main-signup {
+#main-signup, #main-login {
     margin-left: auto;
-    .signup-button {
+    padding: 3px 0;
+    .signup-button, .login-button {
         margin: auto;
         text-align: right;
         padding: 0;

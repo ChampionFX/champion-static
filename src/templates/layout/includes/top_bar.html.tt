@@ -3,6 +3,9 @@
     <div class="menu-container">
         <div class="row">
             <div class="col-sm-12 topbar-container flex-items-sm-middle">
+                <div class="upgrade-message pulser invisible">
+                    <a href="[% request.url_for('new-account/real') %]">Upgrade to a Real Account</a>
+                </div>
                 <div class="topbar-contacts">
                     <ul>
                         <li class="last">
@@ -11,9 +14,6 @@
                             </a>
                         </li>
                     </ul>
-                </div>
-                <div class="upgrade-message pulser invisible">
-                    <a href="[% request.url_for('new-account/real') %]">Upgrade to a Real Account</a>
                 </div>
                 <div class="invisible">
                     <div class="languages">
