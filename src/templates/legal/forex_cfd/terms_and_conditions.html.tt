@@ -1,6 +1,6 @@
 <h2>[% l("Terms and Conditions") %]</h2>
 <p>
-    <i>[% l("Version 2. Last modified 2017-21-03.") %]</i>
+    <i>[% l("Version 3. Last modified 2017-04-04.") %]</i>
 </p>
 <p>
     [% l("It is the responsibility of each Client to read and understand this legal notice and the terms and conditions pursuant to which an acquisition of financial contracts via this site is governed.") %]
@@ -82,7 +82,7 @@
         <li>
             [% l("The Company has a Stop Out policy which prevents you from losing more than you have deposited. However, in the event that your Open Positions are not closed when the Margin Level for your Real Account reaches the Stop Out Level, the Company, at its sole discretion, may waive your negative balance by crediting your account if your Account Balance goes into a negative balance. The negative balance is determined by aggregating all the client’s negative balances incurred over a 24-hour period across all accounts held by you. You acknowledge that the offer of the Negative Balance Protection by the Company to you is at the Company’s sole discretion and we reserve the right to change the features and eligibility criteria of the Negative Balance Protection at any time. The provisions of the Negative Balance Protection do not apply:") %]
             <ol>
-                <li>[% l("in the case of a Force Majeure Event;") %]</li>
+                <li>[% l("in the case of a force majeure event;") %]</li>
                 <li>[% l("in abnormal market conditions or exceptional market movements/volatility;") %]</li>
                 <li>[% l("in the case of a client opening any Transaction in relation to Prohibited Trades;") %]</li>
                 <li>[% l("in the case of Professional Clients;") %]</li>
@@ -134,20 +134,36 @@
     <li>[% l("Order Execution/Cancellation/Modification") %]</li>
     <ol>
         <li>[% l("You acknowledge that it is your responsibility to understand the features, characteristics, terms, and conditions of an Order and the implications of executing an Order before you place an Order with us.") %]</li>
-        <li>[% l("Subject to network latency, we endeavour to execute your Order within a reasonable time from the time you triggered the Order, at the Price nearest to your specified Price. We do not guarantee that a Transaction will be opened/closed following an Order being triggered by you at your specified Price.") %]</li>
+        <li>[% l("Subject to network latency, we endeavour to execute your Order within a reasonable time from the time you triggered the Order, at the Price nearest to your specified Price. We do not guarantee that a Transaction will be opened/closed following an Order being triggered by you at your specified Price, stop level, or limit order level.") %]</li>
         <li>[% l("We endeavour to open or close the Transaction to which your Order relates at the price reasonably available to us, acting in accordance with our duty of best execution. Best execution means that we must take all sufficient steps to obtain, when executing orders, the best possible result for you, taking into account the price, costs, speed, likelihood of execution and settlement, size, nature, or any other consideration relevant to the execution of the order.") %]</li>
         <li>[% l("Our Prices are determined by reference to the price of the underlying instrument which is quoted on external exchanges or dealing facilities that we select at our discretion. Our IT infrastructure and price aggregator system facilitates the reception of quotes from shortlisted prime brokers who act as liquidity providers for us and the delivery of the quotes, derived with reference against relevant benchmark and markets, to you. You acknowledge that our Prices may differ from the bid and offer prices made available by external exchanges or dealing facilities and we are not liable for any losses that you incur arising from such differences.") %]</li>
     </ol>
-    <li>[% l("Stop and Limit Orders") %]</li>
+    <li>[% l("Order Types") %]</li>
     <ol>
-        <li>[% l("We may, at our absolute discretion, accept a Stop Order or a Limit Order from you. We may enable other types of Orders for your execution at any point in time.") %]</li>
+        <li>[% l("We may, at our absolute discretion, accept an Order from you. Example of Orders offered currently:") %]</li>
+        <ol>
+            <li>[% l("Market Orders &ndash; Market orders are instructions to deal now in your specified volume at spot price. When you execute a market order, your market order transaction becomes and Open Position which is subject to market fluctuations that occur between the time your market order is received/executed and the time your market order is filled. This means that your market order will be filled at the first available price that may be different from the quoted bid/offer price when you clicked to execute your market order on the electronic trading platform. By placing a Market order with us, you acknowledge that you are placing an instruction to open/close a Transaction regardless of the bid/offer price.") %]</li>
+            <li>[% l("Pending Orders &ndash; Pending orders are instructions to deal when your pre-defined conditions, for example, bid/offer price, are fulfilled. Pending orders are filled at the first available price which may be the same as the quoted bid/offer price when you clicked to execute your market order on the electronic trading platform, or a few pips away due to slippage. You acknowledge that your pending order is triggered only if your pre-defined conditions attached to your pending order are fulfilled. This means that your pending order will not be filled if your pre-defined conditions attached to your pending orders are not fulfilled and you can skip a Transaction entirely. You can change your pre-defined conditions any time before your pending orders are filled.") %]</li>
+            <li>[% l("Stop Orders &ndash; Stop orders are instructions to deal by opening or closing a Transaction when our quote reaches a level that is less favourable to you when compared against the current market price. By placing a stop order, you acknowledge that you are specifying a stop level and your stop order will be triggered if our bid/offer price moves against your favour to a point that it at or beyond your specified stop level. There are two types of stop order, stop closing order and stop entry order. A stop closing order is used to automatically close and Open Position when the market price reaches your specified stop level to limit your downside risk (a loss to you). A stop entry order is used to automatically open a position when the market price reaches your specified stop level to increase the probability of a profit to you.") %]</li>
+            <li>[% l("Limit Orders &ndash; Limit orders operate on a rationale that is the opposite of stop orders. Limit orders are instructions to deal by opening or closing a Transaction when our quote reaches a level that is more favourable to you when compared against the current market price. By placing a limit order, you acknowledge that you are specifying a limit and your limit order will be triggered if our bid/offer price moves in your favour to a point that it at or beyond your specified limit. The limit order level is the maximum offer price at which you are willing to place an order to buy or the minimum at which you are willing to place an order to sell. ") %]</li>
+        </ol>
+        <li>[% l("Whilst we endeavour to explain how an Order operates through the content on Champion-FX.com, you acknowledge and agree that it is your responsibility to understand how an Order operates on the MT5 trading platform prior to placing any such Order with us.") %]</li>
         <li>[% l("You may specify your instruction of a Stop Order or a Limit Order may be applied for a limited duration or for an indefinite period (a \"good till cancelled\" or \"GTC\" Order).") %]</li>
-        <li>[% l("In the case of a Stop Order, you acknowledge that we will endeavour to open/close a Transaction at the Next Available Price.") %]</li>
-        <li>[% l("In the case of a Limit Order, you acknowledge that we will endeavour to open/close a Transaction at a level that is the same or better than the Limit you specified, subject to the availability of the Limit Price. You acknowledge that at the time of order execution, our bid/offer price may become less favourable to you.") %]</li>
+        <li>[% l("In the case of a Stop Order, you acknowledge that we will endeavour to open/close a Transaction at the First Available Price.") %]</li>
+        <li>[% l("In the case of a Limit Order, you acknowledge that we will endeavour to open/close a Transaction at a level that is the same or better than the limit order level you specified, subject to the availability of the Limit Price. You acknowledge that at the time of order execution, our bid/offer price may become less favourable to you.") %]</li>
         <li>[% l("You may not cancel or amend the level of your Stop and Limit Order prior to the closing of your Transaction once the level has been reached.") %]</li>
         <li>[% l("You acknowledge that a Stop or Limit Order placed on your Open Position, when executed, would be capable of closing or partly closing your Transaction. You also acknowledge that it is your responsibility to cancel the Stop or Limit Order that you placed on your Open Positions if you do not want the Stop or Limit Order to remain valid. If you close your original Transaction and fail to cancel the Stop or Limit Order, we shall be entitled, at our absolute discretion, to treat the Stop or Limit Order as an instruction to enter into a new Transaction for you if and when our quote reaches or goes beyond the level of the Stop or Limit Order.") %]</li>
         <li>[% l("You acknowledge that we reserve the right to establish a minimum and maximum transaction size which may be subject to alteration and that we will only execute Orders that fall within the range of the minimum and maximum transaction size.") %]</li>
-        <li>[% l("We may, at our absolute discretion, disregard your Order if an Event takes place resulting in it no longer being reasonable for us to act on your Order after indicating an acceptance of your Order.") %]</li>
+        <li>[% l("When Gapping occurs, we will seek to open or close the Transaction to which your Order relates, acting in accordance with our duty of best execution. You acknowledge that when gapping occurs in the underlying instrument on which your margin trading product is based, the time and level (the bid/offer price) at which your accepted order will be executed may have a regard to the volume of your Order, the liquidity and volatility of the market of the underlying instrument on which your margin trading product is based, the sequence of your Order, and possible network latency. We will endeavour to fill/partially fill your Order within a reasonable time at the First Available Price after the gap has been filled.") %]</li>
+        <li>[% l("You acknowledge that you will factor the following liquidity risks into any of your trading decision on Champion-FX.com during low liquidity levels of the market of the underlying instrument on which your margin trading product is based:") %]</li>
+        <ol>
+            <li>[% l("Difficulty to open or close a Transaction at the level (the bid/offer price) you requested;") %]</li>
+            <li>[% l("Delays in execution while a counterparty for your Transaction is identified;") %]</li>
+            <li>[% l("Differences in the quoted bid/offer price when you clicked to execute your order on the electronic trading platform and when your order is filled; and") %]</li>
+            <li>[% l("Wider bid-offer spread due to the decrease in the probability that the highest price any buyer is prepared to pay and the lowest price any seller is happy to accept will move closer together.") %]</li>
+        </ol>
+        <p>[% l("You acknowledge that during low liquidity levels, your orders may be filled at the first available price which may be the same as the quoted bid/offer price when you clicked to execute your market order on the electronic trading platform, or a few pips away due to slippage.") %]</p>
+        <li>[% l("We may, at our absolute discretion, disregard your Order if a force majeure event takes place resulting in it no longer being reasonable for us to act on your Order after indicating an acceptance of your Order.") %]</li>
     </ol>
 </ol>
 
@@ -256,7 +272,7 @@
 
 <h2>K. [% l("Electronic Trading Platform and Transactions") %]</h2>
 <ol>
-    <li>[% l("All intellectual property rights in the MT5 Trading Platform are owned by the Licensor and shall remain the exclusive property of the Licensor. Nothing in this Agreement intends to transfer any such rights or to vest any such rights in you.") %]</li>
+    <li>[% l("All intellectual property rights in the MT5 Trading Platform, including Expert Advisors are owned by the Licensor and shall remain the exclusive property of the Licensor. Nothing in this Agreement intends to transfer any such rights or to vest any such rights in you.") %]</li>
     <li>[% l("Your use of the MT5 Trading Platform, whether accessed through or downloaded from our website or a third-party website, is governed by the terms of use provided by the MT5 Trading Platform Licensor to you. In the event of any conflict between the content of this Agreement and the agreement between you and the MT5 Trading Platform Licensor, the terms of this Agreement shall prevail. It is your responsibility to ensure that the information technology that you use is compatible with the required information technology to support the MT5 Trading Platform.") %]</li>
     <li>[% l("You acknowledge, understand, represent and warrant that you are aware of the functional limitations of the MT5 Trading Platform (for example, Wine, which is not a fully stable application, as disclosed by the MT5 Trading Platform Licensor on their website). We have no obligation and bear no responsibility for transmissions (including, but not limited to, Orders) that are inaccurate or not received by us, due to the functional limitations of the MT5 Trading Platform.") %]</li>
     <li>[% l("We will act on any instructions given, or appearing to be given by you and received by us in relation to the margin trading services provided through the MT5 Trading Platform, as deemed instructed by you. However, it is not our obligation to act on any instructions deemed given by you, and we are not obligated to give you any reasons for declining to do so. Instructions received by us from you are deemed final and will not be revocable. It is your responsibility to ensure the genuineness and accuracy of the instructions given by you to us.") %]</li>
@@ -294,7 +310,7 @@
 
 <h2>N. [% l("Force Majeure Events") %]</h2>
 <ol>
-    <li>[% l("A force majeure event, if and when determined, means, (i) the Company, by reason of force majeure or act of state, is prevented from, or hindered or delayed, in delivering or receiving, or is impossible to deliver or receive, any quotation of the bid and offer price of a market in one or more of the instruments which we ordinarily deal in Transactions; (ii) an excessive movement in the market of the instrument or our reasonable anticipation of the potential occurrence of market disruption.") %]</li>
+    <li>[% l("A force majeure event, if and when determined, means, (i) the Company, by reason of force majeure or act of state, is prevented from, or hindered or delayed, in delivering or receiving, or is impossible to deliver or receive, any quotation of the bid and offer price of a market in one or more of the instruments which we ordinarily deal in Transactions; (ii) volatility or loss of liquidity, suspension, liquidation, or an excessive movement suspension in the market of the instrument or our reasonable anticipation of the potential occurrence of market disruption.") %]</li>
     <li>[% l("If we determine that a force majeure event exists, the Company shall promptly give notice thereof to the client. Subsequently, we may, at our absolute discretion, take one or more of the following steps:") %]</li>
     <ol>
         <li>[% l("Suspend the trading of the affected instrument;") %]</li>
@@ -303,8 +319,8 @@
         <li>[% l("Change the margin rate in relation to both Open Positions and new orders;") %]</li>
         <li>[% l("Change the Stop Out Level in relation to your account.") %]</li>
     </ol>
-    <li>[% l("The Company shall not be in breach of its obligation under this Agreement and shall not be held liable for any failure of, or delay in performing its obligations under this Agreement if such failure or delay is the result of the occurrence of a Force Majeure Event.") %]</li>
-    <li>[% l("Nothing in this Force Majeure Events section shall be taken as indicating that it constitutes an event of default.") %]</li>
+    <li>[% l("The Company shall not be in breach of its obligation under this Agreement and shall not be held liable for any failure of, or delay in performing its obligations under this Agreement if such failure or delay is the result of the occurrence of a force majeure event.") %]</li>
+    <li>[% l("Nothing in this force majeure events section shall be taken as indicating that it constitutes an event of default.") %]</li>
 </ol>
 
 <h2>O. [% l("Prohibited Trades") %]</h2>
@@ -372,17 +388,19 @@
     <li>[% l("Account Equity &ndash; Your Account Equity refers to the sum of your Account Balance and the net of unrealised profit and loss.") %]</li>
     <li>[% l("Account Free Margin &ndash; Your Account Equity minus your Total Margin.") %]</li>
     <li>[% l("Champion FX Real Account &ndash; Your real money account opened with Champion-FX.com which you use to trade binary options with Champion-FX.com.") %]</li>
-    <li>[% l("Event &ndash; Event examples include circumstances whereby the type of Transaction to which your Order is related to ceased to be offered, or a Corporate Event or the insolvency of a Company whose shares represent are related to the subject matter of the Order, and others.") %]</li>
-    <li>[% l("Limit/Limit Price &ndash; The price specified in your Limit Order.") %]</li>
-    <li>[% l("Limit Order &ndash; An instruction to open or close a transaction if and when a price quote becomes more favourable to you when compared against the current price.") %]</li>
+    <li>[% l("Gapping &ndash; An unfilled space or interval of a financial market with nil or little trading volume.") %]</li>
+    <li>[% l("Licensor &ndash; MetaQuotes Software Corporation, a separate legal entity that is not affiliated with Champion Group Ltd.") %]</li>
+    <li>[% l("Limit/Limit Order Level/Limit Price &ndash; The price specified in your Limit Order.") %]</li>
     <li>[% l("Margin &ndash; The amount set aside by us from your Account Balance in order to open and maintain a Transaction, to cover our exposure as a counterparty to your contract.") %]</li>
     <li>[% l("Margin Level &ndash; Ratio of Account Equity to Total Margin, expressed as a percentage.") %]</li>
-    <li>[% l("Next Available Price &ndash; Earliest price reasonably available and quoted by Champion-FX.com when our Price quotation reaches or goes beyond the level of your Stop Order.") %]</li>
+    <li>[% l("Negative Balance Protection &ndash; Accounts with negative balances that are subject to Negative Balance Protection will have their negative balance waived by crediting their account.") %]</li>
+    <li>[% l("First Available Price &ndash; Earliest price reasonably available and quoted by Champion-FX.com.") %]</li>
     <li>[% l("Open Position &ndash; The position in a market made by reference to an Underlying Instrument created by opening a Transaction as a result of placing an Order to the extent that such position has not been closed in whole or in part under this Agreement.") %]</li>
     <li>[% l("Order &ndash; An execution instruction given by you to us in relation to a Market Order, Stop Order, Limit Order, and etc.") %]</li>
     <li>[% l("Price/Prices &ndash; Bid and Offer Price/Prices.") %]</li>
     <li>[% l("Cent, Standard, and / or STP Account &ndash; Your real money account opened with Champion-FX.com's MT5 Trading Platform licensed from MetaQuotes Software Corporation.") %]</li>
     <li>[% l("Roll-over &ndash; In the event that the Company does not receive Orders from you to close an Open Position by the close of a business day, the Company will roll over the said Open Position to the following business day.") %]</li>
+    <li>[% l("Standard Account &ndash; Any typical account that is not a Swap-free Account.") %]</li>
     <li>[% l("Roll-over Credit/Debit &ndash; Accounts with Open Positions concerned by the Roll-over shall be credited or debited with an amount referred to as the Roll-over Credit/Debit which is determined by the Company at its sole discretion.") %]</li>
     <li>[% l("Stop Order/Stop Loss Order &ndash; An instruction to execute a Transaction to close an Open Position when the Price reaches your specified Price.") %]</li>
     <li>[% l("Stop Out Level &ndash; The Margin Level at, or below, which your Open Positions may be forcefully with or without your prior consent.") %]</li>
