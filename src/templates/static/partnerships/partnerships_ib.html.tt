@@ -38,7 +38,7 @@
                         [% INCLUDE rows title_1=l('Custom promotions') desc_1=l('Talk to us to create custom marketing promotions to increase your conversions.')
                             title_2=l('Hassle-free client signup') desc_2=l('Convert clients easily with our fast and hassle-free client signup process.') %]
 
-                        <div class="row lg-padding">
+                        <div class="row lg-padding invisible">
                             <div class="col-md">
                                 <p>
                                     <a class="button" href="https://record.champion-fx.com/_G_fnjH0I19ch4vhiqjDoTGNd7ZgqdRLk/1/">
