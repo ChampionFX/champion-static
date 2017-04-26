@@ -16,7 +16,7 @@
 
 <h2>B. [% l("Commencement and Cancellation") %]</h2>
 <ol>
-    <li>[% l("This Agreement will commence on the date you receive your Champion FX Real Account number, and, for any new versions thereafter, on the date the new versions are published on our website.") %]</li>
+    <li>[% l("This Agreement will commence on the date you receive your Champion FX Cent, Standard, and / or STP Account number, and, for any new versions thereafter, on the date the new versions are published on our website.") %]</li>
 </ol>
 
 <h2>C. [% l("Provision of Services") %]</h2>
@@ -155,7 +155,7 @@
         <li>[% l("You may not cancel or amend the level of your Stop and Limit Order prior to the closing of your Transaction once the level has been reached.") %]</li>
         <li>[% l("You acknowledge that a Stop or Limit Order placed on your Open Position, when executed, would be capable of closing or partly closing your Transaction. You also acknowledge that it is your responsibility to cancel the Stop or Limit Order that you placed on your Open Positions if you do not want the Stop or Limit Order to remain valid. If you close your original Transaction and fail to cancel the Stop or Limit Order, we shall be entitled, at our absolute discretion, to treat the Stop or Limit Order as an instruction to enter into a new Transaction for you if and when our quote reaches or goes beyond the level of the Stop or Limit Order.") %]</li>
         <li>[% l("You acknowledge that we reserve the right to establish a minimum and maximum transaction size which may be subject to alteration and that we will only execute Orders that fall within the range of the minimum and maximum transaction size.") %]</li>
-        <li>[% l("When Gapping occurs, we will seek to open or close the Transaction to which your Order relates, acting in accordance with our duty of best execution. You acknowledge that when gapping occurs in the underlying instrument on which your margin trading product is based, the time and level (the bid/offer price) at which your accepted order will be executed may have a regard to the volume of your Order, the liquidity and volatility of the market of the underlying instrument on which your margin trading product is based, the sequence of your Order, and possible network latency. We will endeavour to fill/partially fill your Order within a reasonable time at the First Available Price after the gap has been filled.") %]</li>
+        <li>[% l("When Gapping occurs, we will seek to open or close the Transaction to which your Order relates, acting in accordance with our duty of best execution. You acknowledge that when Gapping occurs in the underlying instrument on which your margin trading product is based, the time and level (the bid/offer price) at which your accepted order will be executed may have a regard to the volume of your Order, the liquidity and volatility of the market of the underlying instrument on which your margin trading product is based, the sequence of your Order, and possible network latency. We will endeavour to fill/partially fill your Order within a reasonable time at the First Available Price after the gap has been filled.") %]</li>
         <li>[% l("You acknowledge that you will factor the following liquidity risks into any of your trading decision on Champion-FX.com during low liquidity levels of the market of the underlying instrument on which your margin trading product is based:") %]</li>
         <ol>
             <li>[% l("Difficulty to open or close a Transaction at the level (the bid/offer price) you requested;") %]</li>
@@ -163,7 +163,7 @@
             <li>[% l("Differences in the quoted bid/offer price when you clicked to execute your order on the electronic trading platform and when your order is filled; and") %]</li>
             <li>[% l("Wider bid-offer spread due to the decrease in the probability that the highest price any buyer is prepared to pay and the lowest price any seller is happy to accept will move closer together.") %]</li>
         </ol>
-        <p>[% l("You acknowledge that during low liquidity levels, your orders may be filled at the first available price which may be the same as the quoted bid/offer price when you clicked to execute your market order on the electronic trading platform, or a few pips away due to slippage.") %]</p>
+        <p>[% l("You acknowledge that during low liquidity levels, your orders may be filled at the First Available Price which may be the same as the quoted bid/offer price when you clicked to execute your market order on the electronic trading platform, or a few pips away due to slippage.") %]</p>
         <li>[% l("We may, at our absolute discretion, disregard your Order if a force majeure event takes place resulting in it no longer being reasonable for us to act on your Order after indicating an acceptance of your Order.") %]</li>
     </ol>
 </ol>
@@ -181,13 +181,13 @@
         <li>[% l("The Margin Requirement is a percentage of the value of the Open Positions and will continue to fluctuate in accordance with the value of the Open Positions throughout the duration of the relevant contracts (the \"Contract Value\").") %]</li>
         <li>[% l("Margin Requirements can increase/decrease based on the aggregated size of your Open Position determined by the volume (number of lots), contract size (value per point in the original currency of the contract), market price, and margin rate.") %]</li>
         <li>[% l("We may modify Margin Requirements for any Open Positions or new Transactions entered into, at our sole discretion. Formulas for Margin Requirements published on the website are indicative only and may be changed by the Company at its discretion at any time, due to changing market conditions or other factors.") %]</li>
-        <li>[% l("Whilst we endeavour to close out your Open Positions if and when the Margin Level for your Real Account reaches or falls below the Stop Out Level, we do not guarantee that your Open Positions will be closed when the Margin Level for your Real Account reaches the Stop Out Level.") %]</li>
+        <li>[% l("Whilst we endeavour to close out your Open Positions if and when the Margin Level for your Cent, Standard, and / or STP Account reaches or falls below the Stop Out Level, we do not guarantee that your Open Positions will be closed when the Margin Level for your Cent, Standard, and / or STP Account reaches the Stop Out Level.") %]</li>
     </ol>
     <li>[% l("Stop Out Level") %]</li>
     <ol>
-        <li>[% l("If the Margin Level for your Real Account reaches or falls below the Stop Out Level, this will be classified as an Event of Default. In such circumstances, Open Positions are automatically closed in the following order: (i) the server analyses clients' Orders that are not under execution at the moment; (ii) the server deletes Orders with the largest Margin; (iii) if your Margin Level is still under the Stop Out Level, the next order is deleted (orders without margin requirements are not deleted); (iv) if your Margin Level is still under the Stop Out Level, the server closes a position with the largest loss; (v) Open Positions are closed until your Margin Level becomes higher than the Stop Out Level.") %]</li>
+        <li>[% l("If the Margin Level for your Cent, Standard, and / or STP Account reaches or falls below the Stop Out Level, this will be classified as an Event of Default. In such circumstances, Open Positions are automatically closed in the following order: (i) the server analyses clients' Orders that are not under execution at the moment; (ii) the server deletes Orders with the largest Margin; (iii) if your Margin Level is still under the Stop Out Level, the next order is deleted (orders without margin requirements are not deleted); (iv) if your Margin Level is still under the Stop Out Level, the server closes a position with the largest loss; (v) Open Positions are closed until your Margin Level becomes higher than the Stop Out Level.") %]</li>
         <li>[% l("The default Stop Out Level applicable to your Account is published on our website. However, the default Stop Out Level is subject to alteration at our absolute discretion. Any changes to the Stop Out Level will take effect immediately. We will endeavour to notify you of an alteration to the default Stop Out Level by publishing the revised default Stop Out Level on our website. It is your responsibility to check our website regularly and remain informed about the default Stop Out Level.") %]</li>
-        <li>[% l("The Stop Out Level applicable to your Real Account may differ from the default Stop Out Level published on our website.") %]</li>
+        <li>[% l("The Stop Out Level applicable to your Cent, Standard, and / or STP Account may differ from the default Stop Out Level published on our website.") %]</li>
     </ol>
     <li>[% l("Margin Payment") %]</li>
     <ol>
@@ -390,13 +390,13 @@
     <li>[% l("Account Free Margin &ndash; Your Account Equity minus your Total Margin.") %]</li>
     <li>[% l("Cent, Standard, and / or STP Account &ndash; Your real money account opened with Champion-FX.com which you use to trade FX and CFD with Champion-FX.com.") %]</li>
     <li>[% l("Champion FX Real Account &ndash; Your real money account opened with Champion-FX.com which you use to trade binary options with Champion-FX.com.") %]</li>
+    <li>[% l("First Available Price &ndash; Earliest price reasonably available and quoted by Champion-FX.com") %]</li>
     <li>[% l("Gapping &ndash; An unfilled space or interval of a financial market with nil or little trading volume.") %]</li>
     <li>[% l("Licensor &ndash; MetaQuotes Software Corporation, a separate legal entity that is not affiliated with Champion Group Ltd.") %]</li>
     <li>[% l("Limit/Limit Order Level/Limit Price &ndash; The price specified in your Limit Order.") %]</li>
     <li>[% l("Margin &ndash; The amount set aside by us from your Account Balance in order to open and maintain a Transaction, to cover our exposure as a counterparty to your contract.") %]</li>
     <li>[% l("Margin Level &ndash; Ratio of Account Equity to Total Margin, expressed as a percentage.") %]</li>
-    <li>[% l("Negative Balance Protection &ndash; Accounts with negative balances that are subject to Negative Balance Protection will have their negative balance waived by crediting their account in accordance with s. E(4).") %]</li>
-    <li>[% l("First Available Price &ndash; Earliest price reasonably available and quoted by Champion-FX.com.") %]</li>
+    <li>[% l("Negative Balance Protection &ndash; Accounts with negative balances that are subject to Negative Balance Protection will have their negative balance waived by crediting their account in accordance with clause E(4).") %]</li>
     <li>[% l("Open Position &ndash; The position in a market made by reference to an Underlying Instrument created by opening a Transaction as a result of placing an Order to the extent that such position has not been closed in whole or in part under this Agreement.") %]</li>
     <li>[% l("Order &ndash; An execution instruction given by you to us in relation to a Market Order, Stop Order, Limit Order, and etc.") %]</li>
     <li>[% l("Price/Prices &ndash; Bid and Offer Price/Prices.") %]</li>
