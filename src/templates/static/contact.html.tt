@@ -40,11 +40,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2 invisible">
+            <div class="col-md-2">
                 <div class="row">
                     <div class="col-md">
                         <h3 class="blue">[% l('Live chat') %]</h3>
-                        <div class="fx-sm fx-customer-service"></div>
+                        <div id="live_chat_icon" class="invisible"></div>
                     </div>
                 </div>
             </div>

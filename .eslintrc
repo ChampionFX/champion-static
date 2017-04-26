@@ -17,6 +17,7 @@
         'module':  false,
         'console': false,
         'global':  false,
+        'DESK':    false,
 
         'dataLayer': true,
 
