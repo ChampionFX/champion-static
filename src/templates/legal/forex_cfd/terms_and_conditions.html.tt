@@ -36,14 +36,15 @@
 <ol>
     <li>[% l("Opening an account") %]</li>
     <ol>
-        <li>[% l("To open a Cent, Standard, and / or STP Account, you must have an authenticated Champion FX Real Account. A Cent, Standard, and / or STP Account cannot be opened in the absence of a Champion FX Real Account. Your Champion FX Real Account has to be authenticated within five days from your Real Account opening date to keep your Real Account active.") %]</li>
+        <li>[% l("You may open one or more of the three types of accounts available on Champion-FX.com: Cent, Standard, and / or STP. The specification of Cent, Standard, and / or STP Account is explained in <a href=\"[_1]#forex-accounts\"><u>Types of Accounts</u></a>.", request.url_for('forex')) %]</li>
+        <li>[% l("To open a Cent, Standard, and / or STP Account, you must have an authenticated Champion FX Real Account. A Cent, Standard, and / or STP Account cannot be opened in the absence of a Champion FX Real Account. Your Champion FX Real Account has to be authenticated within five days from your Real Account opening date to keep your Cent, Standard and / or STP Account active.") %]</li>
         <li>[% l("By opening a Champion FX Real Account, you represent, warrant and undertake that:") %]</li>
         <ol>
             <li>[% l("You are acting for your sole benefit, and not for, or on behalf of any other person;") %]</li>
             <li>[% l("You have read this Legal Terms and Conditions page in full and understood that you will be buying and selling financial contracts subject to these terms and conditions;") %]</li>
             <li>[% l("You have read our privacy statement and hereby give us consent to process your personal information as outlined there;") %]</li>
             <li>[% l("You are over 18 years of age;") %]</li>
-            <li>[% l("You are not resident in a restricted country such as Afghanistan; Bosnia and Herzegovina; Costa Rica; any European Union country; Guyana; Syria; Uganda; Vanuatu; Yemen; USA; Japan; Hong Kong; Malaysia; Malta; Iran; North Korea; Jersey; Iraq; and any such other restricted country as the Company may decide from time to time at its sole discretion;") %]</li>
+            <li>[% l("You are not resident in a restricted country such as Afghanistan; Bosnia and Herzegovina; Costa Rica; any European Union country; Guyana; Syria; Uganda; Vanuatu; Yemen; USA; Japan; Hong Kong; Malaysia; Iran; North Korea; Jersey; Iraq; and any such other restricted country as the Company may decide from time to time at its sole discretion;") %]</li>
             <li>[% l("You have sufficient experience and knowledge in matters of financial trading to be capable of evaluating the merits and risks of acquiring financial contracts via this site and have done so without relying on any information contained in this site.") %]</li>
         </ol>
         <li>[% l("We reserve the right to refuse your request to open a Cent, Standard, and / or STP Account for any reason, and any Cent, Standard, and / or STP Account may be closed at our discretion at any time.") %]</li>
@@ -51,7 +52,7 @@
     <li>[% l("Assessment of Appropriateness") %]</li>
     <ol>
         <li>[% l("In the course of provision of services, we may, where applicable, conduct an appropriateness test, in accordance with our regulatory obligations, in order to determine whether, in our view and on the basis of the information provided by you, you have the necessary knowledge and experience in the investment field to understand the risks involved in the specific type of product or service offered or demanded.") %]</li>
-        <li>[% l("Where we consider, on the basis of the information provided by you, that you do not possess the knowledge and experience to appreciate the risks associated with an investment in the proposed instrument, we will issue a warning to you. Such a warning shall be displayed on the website.") %]</li>
+        <li>[% l("Where we consider, on the basis of the information provided by you, that you do not possess the knowledge and experience to appreciate the risks associated with an investment in the proposed instrument, we will issue a warning to you. Such a warning shall be displayed on your account.") %]</li>
         <li>[% l("In accordance with applicable regulatory requirements, where we do not manage to obtain sufficient information to assess the appropriateness of the product or service for you, we will similarly inform you that we are not in a position to assess appropriateness.") %]</li>
     </ol>
     <li>[% l("Fund Transfers") %]</li>
@@ -77,10 +78,10 @@
             <li>[% l("Withdrawal of funds from your Cent, Standard, and / or STP Account must be made in the same currency maintained in your Champion FX Real Account.") %]</li>
         </ol>
     </ol>
-    <li>[% l("Accounts with negative balances") %]</li>
+    <li>[% l("Negative Balance Protection") %]</li>
     <ol>
         <li>
-            [% l("The Company has a Stop Out policy which prevents you from losing more than you have deposited. However, in the event that your Open Positions are not closed when the Margin Level for your Real Account reaches the Stop Out Level, the Company, at its sole discretion, may waive your negative balance by crediting your account if your Account Balance goes into a negative balance. The negative balance is determined by aggregating all the client’s negative balances incurred over a 24-hour period across all accounts held by you. You acknowledge that the offer of the Negative Balance Protection by the Company to you is at the Company’s sole discretion and we reserve the right to change the features and eligibility criteria of the Negative Balance Protection at any time. The provisions of the Negative Balance Protection do not apply:") %]
+            [% l("The Company has a Stop Out policy which prevents you from losing more than you have deposited. However, in the event that your Open Positions are not closed when the Margin Level for your Cent, Standard, and / or STP Account reaches the Stop Out Level, the Company, at its sole discretion, may waive your negative balance by crediting your account if your Account Balance goes into a negative balance. The negative balance is determined by aggregating all the client’s negative balances incurred over a 24-hour period across all accounts held by you. You acknowledge that the offer of the Negative Balance Protection by the Company to you is at the Company’s sole discretion and we reserve the right to change the features and eligibility criteria of the Negative Balance Protection at any time. The provisions of the Negative Balance Protection do not apply:") %]
             <ol>
                 <li>[% l("in the case of a force majeure event;") %]</li>
                 <li>[% l("in abnormal market conditions or exceptional market movements/volatility;") %]</li>
@@ -115,13 +116,13 @@
     </ol>
     <li>[% l("Swap-free Account") %]</li>
     <ol>
-        <li>[% l("Upon your request and consent, we may convert the Standard Account designated by you to a Swap-free Account. You acknowledge that we reserve the right to request justifications, documents, and/or additional information in relation to your conversion request prior to the conversion. You also acknowledge that all open positions under the Standard Account designated by you to be converted to a Swap-Free Account must be closed prior to you accessing the Swap-free Account. We may, acting reasonably, accept or reject your conversion request at our sole discretion for any reason whatsoever without being obliged to provide any explanation or justifications.") %]</li>
-        <li>[% l("Upon converting the Standard Account designated by you to a Swap-free Account, you acknowledge and agree that no interest adjustment (or swap rate adjustment) will be made to your Swap-free Account when rolling over your Open Positions. This means that we will not debit interest (interest charge to you) of any form in respect of your Swap-free Account; likewise, by requesting and consenting the conversion to a Swap-free Account, you acknowledge and agree that you are waiving your entitlement to receive interest in respect of your Swap-free Account. This means that we will not credit interest (interest income to you) of any form in respect of your Swap-free Account.") %]</li>
+        <li>[% l("Upon your request and consent, we may convert your Cent, Standard, and / or STP Account designated by you to a Swap-free Account. You acknowledge that we reserve the right to request justifications, documents, and/or additional information in relation to your conversion request prior to the conversion. You also acknowledge that all open positions under the Cent, Standard, and / or STP Account designated by you to be converted to a Swap-Free Account must be closed prior to you accessing the Swap-free Account. We may, acting reasonably, accept or reject your conversion request at our sole discretion for any reason whatsoever without being obliged to provide any explanation or justifications.") %]</li>
+        <li>[% l("Upon converting the Cent, Standard, and / or STP Account designated by you to a Swap-free Account, you acknowledge and agree that no interest adjustment (or swap rate adjustment) will be made to your Swap-free Account when rolling over your Open Positions. This means that we will not debit interest (interest charge to you) of any form in respect of your Swap-free Account; likewise, by requesting and consenting the conversion to a Swap-free Account, you acknowledge and agree that you are waiving your entitlement to receive interest in respect of your Swap-free Account. This means that we will not credit interest (interest income to you) of any form in respect of your Swap-free Account.") %]</li>
         <li>[% l("We will take all reasonable steps to provide you with the features and facilities of a Swap-free Account. The interest-free arrangements in place in relation to your Swap-free Account does not warranty or represent (whether express or implied) that your Swap-free Account is Sharia-compliant. You agree and acknowledge that the execution, delivery and performance of your Swap-free Account is in accordance with the terms, characteristics and features as determined by us and may not conform with your corresponding Sharia principles and requirements.") %]</li>
         <li>
-            [% l("The provision of Swap-free Accounts by us to you is made in good faith. By requesting and consenting to convert the Standard Account designated by you to a Swap-free Account, you represent and warrant to us that you will not take any unfair advantage of its terms or to enter into Transactions that take advantage of the differences between Swap-free Accounts and Standard Accounts. In the event that we detect any form of abuse, fraud, manipulation, or any other forms of deceitful activity in regards to your Swap-free Account, we may, at our absolute discretion:") %]
+            [% l("The provision of Swap-free Accounts by us to you is made in good faith. By requesting and consenting to convert your Cent, Standard, and / or STP Account designated by you to a Swap-free Account, you represent and warrant to us that you will not take any unfair advantage of its terms or to enter into Transactions that take advantage of the differences between Swap-free Accounts and non-swap-free Accounts (which can be a Cent, Standard, and / or STP Account). In the event that we detect any form of abuse, fraud, manipulation, or any other forms of deceitful activity in regards to your Swap-free Account, we may, at our absolute discretion:") %]
             <ol>
-                <li>[% l("revoke the Swap-free status and convert your Swap-free Account to a Standard Account;") %]</li>
+                <li>[% l("revoke the Swap-free status and convert your Swap-free Account to a non-Swap-free Account;") %]</li>
                 <li>[% l("treat all your Transactions closed under your Swap-free Account as void and nullify all profits generated or losses incurred in relation to your Swap-free Account; and") %]</li>
                 <li>[% l("adjust (either by debiting or crediting your account) any un-accrued interest charges (due from you to us) or income (due from us to you) in relation to your Swap-free Account.") %]</li>
             </ol>
@@ -208,13 +209,13 @@
     <ol>
         <li>[% l("Money collected from Clients are not invested in any securities, futures, or other investments, on behalf of Clients.") %]</li>
         <li>[% l("The company holds customer funds in separate bank accounts to the operational accounts, and arrangements have been made to ensure that the assets in the customer accounts are distributed to customers in the event of the Company&rsquo;s insolvency.") %]</li>
-        <li>[% l("Your account should not be used as a banking facility and deposits should only be made with a view to using funds to place contracts. The Company is not a financial institution. Clients will not receive interest on deposits. Should you make repeated deposits and withdrawals without commensurate contracts being placed, we reserve the right to pass on to your accounts, without prior notice, any bank charges we have incurred before closing the account.") %]</li>
+        <li>[% l("Your account should not be used as a banking facility and deposits should only be made with a view to using funds to place contracts. The Company is not a depository institution. Clients will not receive interest on deposits. Should you make repeated deposits and withdrawals without commensurate contracts being placed, we reserve the right to pass on to your accounts, without prior notice, any bank charges we have incurred before closing the account.") %]</li>
     </ol>
     <li>[% l("Personal Data and Privacy") %]</li>
     <ol>
         <li>[% l("You acknowledge that we may use, store, or otherwise process personal information provided by you in connection with the provision of margin trading services described in this Agreement. You consent to the processing and transmittal of your personal information for the purposes of performing the contract and administering the relationship between you and us.") %]</li>
         <li>[% l("You consent to us recording any telephone conversation between you and us. All instructions received by telephone will be binding as if received in writing. Recorded telephone conversations between you and us shall be, and remain, our sole property. You will accept recorded telephone conversations between you and us as conclusive evidence of instructions or conversations so recorded and we may deliver copies of transcripts of such recordings to any court, regulatory, or governmental authority without seeking prior consent from you.") %]</li>
-        <li>[% l("We may or may not use your personal information to contact you at any reasonable time as part of our marketing activities. You authorise us to contact you by email or telephone to give you information about selected products and services offered by us. Your consent for us to use your personal information for this purpose applies to the period you have a Real Account with us and after you close your Real Account. Please advise us in writing if you do not wish your personal information to be used for such purposes.") %]</li>
+        <li>[% l("We may or may not use your personal information to contact you at any reasonable time as part of our marketing activities. You authorise us to contact you by email or telephone to give you information about selected products and services offered by us. Your consent for us to use your personal information for this purpose applies to the period you have a Cent, Standard, and / or STP Account with us and after you close your Cent, Standard, and / or STP Account. Please advise us in writing if you do not wish your personal information to be used for such purposes.") %]</li>
     </ol>
     <li>[% l("Confidentiality") %]</li>
     <ol>
@@ -310,7 +311,7 @@
 
 <h2>N. [% l("Force Majeure Events") %]</h2>
 <ol>
-    <li>[% l("A force majeure event, if and when determined, means, (i) the Company, by reason of force majeure or act of state, is prevented from, or hindered or delayed, in delivering or receiving, or is impossible to deliver or receive, any quotation of the bid and offer price of a market in one or more of the instruments which we ordinarily deal in Transactions; (ii) volatility or loss of liquidity, suspension, liquidation, or an excessive movement suspension in the market of the instrument or our reasonable anticipation of the potential occurrence of market disruption.") %]</li>
+    <li>[% l("A force majeure event, if and when determined, means, (i) the Company, by reason of force majeure or act of state, is prevented from, or hindered or delayed, in delivering or receiving, or it is impossible to deliver or receive, any quotation of the bid and offer price of a market in one or more of the instruments which we ordinarily deal in Transactions; (ii) volatility or loss of liquidity, suspension, liquidation, or an excessive movement suspension in the market of the instrument or our reasonable anticipation of the potential occurrence of market disruption.") %]</li>
     <li>[% l("If we determine that a force majeure event exists, the Company shall promptly give notice thereof to the client. Subsequently, we may, at our absolute discretion, take one or more of the following steps:") %]</li>
     <ol>
         <li>[% l("Suspend the trading of the affected instrument;") %]</li>
@@ -387,13 +388,14 @@
 
     <li>[% l("Account Equity &ndash; Your Account Equity refers to the sum of your Account Balance and the net of unrealised profit and loss.") %]</li>
     <li>[% l("Account Free Margin &ndash; Your Account Equity minus your Total Margin.") %]</li>
+    <li>[% l("Cent, Standard, and / or STP Account &ndash; Your real money account opened with Champion-FX.com which you use to trade FX and CFD with Champion-FX.com.") %]</li>
     <li>[% l("Champion FX Real Account &ndash; Your real money account opened with Champion-FX.com which you use to trade binary options with Champion-FX.com.") %]</li>
     <li>[% l("Gapping &ndash; An unfilled space or interval of a financial market with nil or little trading volume.") %]</li>
     <li>[% l("Licensor &ndash; MetaQuotes Software Corporation, a separate legal entity that is not affiliated with Champion Group Ltd.") %]</li>
     <li>[% l("Limit/Limit Order Level/Limit Price &ndash; The price specified in your Limit Order.") %]</li>
     <li>[% l("Margin &ndash; The amount set aside by us from your Account Balance in order to open and maintain a Transaction, to cover our exposure as a counterparty to your contract.") %]</li>
     <li>[% l("Margin Level &ndash; Ratio of Account Equity to Total Margin, expressed as a percentage.") %]</li>
-    <li>[% l("Negative Balance Protection &ndash; Accounts with negative balances that are subject to Negative Balance Protection will have their negative balance waived by crediting their account.") %]</li>
+    <li>[% l("Negative Balance Protection &ndash; Accounts with negative balances that are subject to Negative Balance Protection will have their negative balance waived by crediting their account in accordance with s. E(4).") %]</li>
     <li>[% l("First Available Price &ndash; Earliest price reasonably available and quoted by Champion-FX.com.") %]</li>
     <li>[% l("Open Position &ndash; The position in a market made by reference to an Underlying Instrument created by opening a Transaction as a result of placing an Order to the extent that such position has not been closed in whole or in part under this Agreement.") %]</li>
     <li>[% l("Order &ndash; An execution instruction given by you to us in relation to a Market Order, Stop Order, Limit Order, and etc.") %]</li>
@@ -402,7 +404,6 @@
     <li>[% l("Roll-over &ndash; In the event that the Company does not receive Orders from you to close an Open Position by the close of a business day, the Company will roll over the said Open Position to the following business day.") %]</li>
     <li>[% l("Standard Account &ndash; Any typical account that is not a Swap-free Account.") %]</li>
     <li>[% l("Roll-over Credit/Debit &ndash; Accounts with Open Positions concerned by the Roll-over shall be credited or debited with an amount referred to as the Roll-over Credit/Debit which is determined by the Company at its sole discretion.") %]</li>
-    <li>[% l("Stop Order/Stop Loss Order &ndash; An instruction to execute a Transaction to close an Open Position when the Price reaches your specified Price.") %]</li>
     <li>[% l("Stop Out Level &ndash; The Margin Level at, or below, which your Open Positions may be forcefully with or without your prior consent.") %]</li>
     <li>[% l("Swap-free Account &ndash; Interest-free accounts whereby interest adjustments will not be made on overnight open positions.") %]</li>
     <li>[% l("Total Margin &ndash; The aggregate of all Margin Requirements in your Cent, Standard, and / or STP Account.") %]</li>
