@@ -49,11 +49,6 @@ const Header = (function () {
             $('#mobile-menu > ul').height($(window).innerHeight());
         });
 
-        $('#header #main-login').unbind('click').on('click', function(e) {
-            e.stopPropagation();
-            $('#main-login').find('a').trigger('click');
-        });
-
         $('.nav-menu:not(.selected-account)').unbind('click').on('click', function(e) {
             e.stopPropagation();
             if ($('.nav-menu-dropdown.slide-in').length) {
