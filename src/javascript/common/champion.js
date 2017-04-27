@@ -57,7 +57,7 @@ const Champion = (function() {
         }, Client.is_logged_in());
         ChampionRouter.init(container, '#champion-content');
         if (!Client.is_logged_in()) {
-            $('#main-login').find('a').on('click', () => { Login.redirect_to_login(); });
+            $('.btn-login').on('click', () => { Login.redirect_to_login(); });
         } else {
             $('a.logo-parent').attr('href', default_redirect_url());
         }
