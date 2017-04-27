@@ -16,7 +16,7 @@
 
 <h2>B. [% l("Commencement and Cancellation") %]</h2>
 <ol>
-    <li>[% l("This Agreement will commence on the date you receive your Champion FX Cent, Standard, and / or STP Account number, and, for any new versions thereafter, on the date the new versions are published on our website.") %]</li>
+    <li>[% l("This Agreement will commence on the date you receive your Cent, Standard, and / or STP Account number, and, for any new versions thereafter, on the date the new versions are published on our website.") %]</li>
 </ol>
 
 <h2>C. [% l("Provision of Services") %]</h2>
@@ -116,7 +116,7 @@
     </ol>
     <li>[% l("Swap-free Account") %]</li>
     <ol>
-        <li>[% l("Upon your request and consent, we may convert your Cent, Standard, and / or STP Account designated by you to a Swap-free Account. You acknowledge that we reserve the right to request justifications, documents, and/or additional information in relation to your conversion request prior to the conversion. You also acknowledge that all open positions under the Cent, Standard, and / or STP Account designated by you to be converted to a Swap-Free Account must be closed prior to you accessing the Swap-free Account. We may, acting reasonably, accept or reject your conversion request at our sole discretion for any reason whatsoever without being obliged to provide any explanation or justifications.") %]</li>
+        <li>[% l("Upon your request and consent, we may convert your Cent, Standard, and / or STP Account designated by you to a Swap-free Account. You acknowledge that we reserve the right to request justifications, documents, and/or additional information in relation to your conversion request prior to the conversion. You also acknowledge that all open positions under the Cent, Standard, and / or STP Account designated by you to be converted to a Swap-free Account must be closed prior to you accessing the Swap-free Account. We may, acting reasonably, accept or reject your conversion request at our sole discretion for any reason whatsoever without being obliged to provide any explanation or justifications.") %]</li>
         <li>[% l("Upon converting the Cent, Standard, and / or STP Account designated by you to a Swap-free Account, you acknowledge and agree that no interest adjustment (or swap rate adjustment) will be made to your Swap-free Account when rolling over your Open Positions. This means that we will not debit interest (interest charge to you) of any form in respect of your Swap-free Account; likewise, by requesting and consenting the conversion to a Swap-free Account, you acknowledge and agree that you are waiving your entitlement to receive interest in respect of your Swap-free Account. This means that we will not credit interest (interest income to you) of any form in respect of your Swap-free Account.") %]</li>
         <li>[% l("We will take all reasonable steps to provide you with the features and facilities of a Swap-free Account. The interest-free arrangements in place in relation to your Swap-free Account does not warranty or represent (whether express or implied) that your Swap-free Account is Sharia-compliant. You agree and acknowledge that the execution, delivery and performance of your Swap-free Account is in accordance with the terms, characteristics and features as determined by us and may not conform with your corresponding Sharia principles and requirements.") %]</li>
         <li>
@@ -402,7 +402,6 @@
     <li>[% l("Price/Prices &ndash; Bid and Offer Price/Prices.") %]</li>
     <li>[% l("Cent, Standard, and / or STP Account &ndash; Your real money account opened with Champion-FX.com's MT5 Trading Platform licensed from MetaQuotes Software Corporation.") %]</li>
     <li>[% l("Roll-over &ndash; In the event that the Company does not receive Orders from you to close an Open Position by the close of a business day, the Company will roll over the said Open Position to the following business day.") %]</li>
-    <li>[% l("Standard Account &ndash; Any typical account that is not a Swap-free Account.") %]</li>
     <li>[% l("Roll-over Credit/Debit &ndash; Accounts with Open Positions concerned by the Roll-over shall be credited or debited with an amount referred to as the Roll-over Credit/Debit which is determined by the Company at its sole discretion.") %]</li>
     <li>[% l("Stop Out Level &ndash; The Margin Level at, or below, which your Open Positions may be forcefully with or without your prior consent.") %]</li>
     <li>[% l("Swap-free Account &ndash; Interest-free accounts whereby interest adjustments will not be made on overnight open positions.") %]</li>
