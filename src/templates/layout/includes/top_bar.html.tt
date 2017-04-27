@@ -1,5 +1,5 @@
 <div id="msg_notification" class="notice-msg center-text"></div>
-<div class="topbar primary-color-dark">
+<div id="topbar" class="primary-color-dark">
     <div class="menu-container">
         <div class="row">
             <div class="col-sm-12 topbar-container flex-items-sm-middle">
@@ -8,10 +8,16 @@
                 </div>
                 <div class="topbar-contacts">
                     <ul>
-                        <li class="last">
+                        <li class="last hidden-lg-up">
                             <a href="[% request.url_for('contact') %]">
                                 <span class="fx-topbar fx-contact-icon"></span>
                             </a>
+                        </li>
+                        <li class="last hidden-lg-down">
+                            <a href="[% request.url_for('contact') %]">[% l('Contact Us') %]</a>
+                        </li>
+                        <li class="FX__Header__cta invisible logged-out hidden-lg-down">
+                            <a class="btn-login button-secondary" href="javascript:;">[% l('Log In') %]</a>
                         </li>
                     </ul>
                 </div>

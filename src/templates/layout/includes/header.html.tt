@@ -1,10 +1,96 @@
 <div id="header" class="dark-blue header">
     <div class="menu-container">
         <div class="row">
+            <!-- Mobile menu toggle -->
             <div class="col-lg-2 col-sm-4 col-xs-5 hidden-lg-up vertical-center">
                 <div class="nav-menu nav-toggle-dropdown">
                     <a href="javascript:;" id="mobile_menu_icon" class="vertical-center hidden-lg-up"><span></span></a>
                 </div>
+            </div>
+
+            <!-- Mobile menu dropdown -->
+            <div id="mobile-menu" class="nav-menu">
+                <ul class="nav-menu-dropdown hidden-lg-up">
+                    <div class="login-id-list"></div>
+                    <li class="invisible logged-in">
+                        <a href="[% request.url_for('cashier') %]">
+                            <span class="nav-menu-icon pull-left fx-cashier-icon"></span>
+                            [% l("Cashier") %]
+                        </a>
+                    </li>
+                    <li class="invisible logged-in">
+                        <div class="separator-line-thin-gray"></div>
+                        <a href="[% request.url_for('user/settings') %]">
+                            <span class="nav-menu-icon pull-left fx-setting-icon"></span>
+                            [% l("Settings") %]
+                        </a>
+                    </li>
+                    <li class="hidden-lg-up">
+                        <div class="separator-line-thin-gray"></div>
+                        <a href="[% request.url_for('about-us') %]">
+                            <span class="nav-menu-icon pull-left fx-about-icon"></span>
+                            [% l("About") %]
+                        </a>
+                    </li>
+                    <li class="hidden-lg-up">
+                        <div class="separator-line-thin-gray"></div>
+                        <a id="more_mt5_btn" href="javascript:;" class="nav-dropdown-toggle">
+                            <span class="nav-menu-icon pull-left fx-mt5-icon"></span>
+                            [% l("MT5") %]
+                            <span class="nav-menu-icon pull-right fx-moremenu-icon"></span>
+                        </a>
+                        <ul class="invisible submenu">
+                            <li>
+                                <div class="separator-line-thin-gray"></div>
+                                <a href="[% request.url_for('forex') %]">[% l('Forex') %]</a></li>
+                            <li>
+                                <div class="separator-line-thin-gray"></div>
+                                <a href="[% request.url_for('cfd') %]">[% l('CFDs') %]</a></li>
+                            <li>
+                                <div class="separator-line-thin-gray"></div>
+                                <a href="[% request.url_for('metals') %]">[% l('Metals') %]</a></li>
+                        </ul>
+                    </li>
+                    <li class="hidden-lg-up">
+                        <div class="separator-line-thin-gray"></div>
+                        <a id="more_btn" href="javascript:;" class="invisible logged-in nav-dropdown-toggle">
+                            <span class="nav-menu-icon pull-left"></span>
+                            [% l("More") %]
+                            <span class="nav-menu-icon pull-right fx-moremenu-icon"></span>
+                        </a>
+                        <ul class="invisible logged-out">
+                            <li>
+                                <div class="separator-line-thin-gray invisible logged-in"></div>
+                                <a href="[% request.url_for('binary-options') %]">
+                                    <span class="nav-menu-icon pull-left fx-binary-icon"></span>
+                                    [% l('Binary Options') %]
+                                </a>
+                            </li>
+                            <li>
+                                <div class="separator-line-thin-gray"></div>
+                                <a href="[% request.url_for('trading-platform') %]">
+                                    <span class="nav-menu-icon pull-left fx-trading-icon"></span>
+                                    [% l('Trading Platforms') %]
+                                </a>
+                            </li>
+                            <li>
+                                <div class="separator-line-thin-gray"></div>
+                                <a href="[% request.url_for('partnerships') %]">
+                                    <span class="nav-menu-icon pull-left fx-partnership-icon"></span>
+                                    [% l('Partnerships') %]
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <div class="separator-line-thin-gray"></div>
+                    <li class="invisible logged-in">
+                        <a class="btn-logout logout invisible logged-in" href="javascript:;">
+                            <span class="nav-menu-icon pull-left fx-signout-icon"></span>
+                            [% l("Sign out") %]
+                        </a>
+                        <div class="separator-line-thin-gray hidden-lg-up"></div>
+                    </li>
+                </ul>
             </div>
 
             <div class="col-xl-3 col-lg-8 col-sm-4 col-xs-2 vertical-center">
@@ -51,9 +137,9 @@
             <div class="col-lg-2 col-sm-4 col-xs-5 vertical-center">
                 <div class="right-align">
                     <div class="logged-out invisible">
-                        <div id="main-login">
+                        <div id="main-login" class="hidden-lg-up">
                             <ul class="login-button">
-                                <li><a class="button" href="javascript:;"><span>[% l('Log In') %]</span></a></li>
+                                <li><a class="btn-login button" href="javascript:;"><span>[% l('Log In') %]</span></a></li>
                             </ul>
                         </div>
                         <div id="main-signup">
@@ -62,99 +148,77 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="logged-in invisible">
+                    <!-- Desktop menu -->
+                    <div class="logged-in invisible hidden-lg-up">
                         <a id="account-info" href="javascript:;" class="nav-menu nav-toggle-dropdown">
                             <div class="account-id"></div>
                             <div class="topMenuBalance"></div>
                         </a>
                     </div>
-                </div>
-            </div>
-
-            <!-- dropdown menu -->
-            <div class="col-xl-2 push-xl-10">
-                <div class="nav-menu">
-                    <ul class="nav-menu-dropdown">
-                        <div class="login-id-list"></div>
-                        <li class="invisible logged-in">
-                            <a href="[% request.url_for('cashier') %]">
-                                <span class="nav-menu-icon pull-left fx-cashier-icon"></span>
-                                [% l("Cashier") %]
-                            </a>
-                        </li>
-                        <li class="invisible logged-in">
-                            <div class="separator-line-thin-gray"></div>
-                            <a href="[% request.url_for('user/settings') %]">
-                                <span class="nav-menu-icon pull-left fx-setting-icon"></span>
-                                [% l("Settings") %]
-                            </a>
-                        </li>
-                        <li class="hidden-lg-up">
-                            <div class="separator-line-thin-gray"></div>
-                            <a href="[% request.url_for('about-us') %]">
-                                <span class="nav-menu-icon pull-left fx-about-icon"></span>
-                                [% l("About") %]
-                            </a>
-                        </li>
-                        <li class="hidden-lg-up">
-                            <div class="separator-line-thin-gray"></div>
-                            <a id="more_mt5_btn" href="javascript:;" class="nav-dropdown-toggle">
-                                <span class="nav-menu-icon pull-left fx-mt5-icon"></span>
-                                [% l("MT5") %]
-                                <span class="nav-menu-icon pull-right fx-moremenu-icon"></span>
-                            </a>
-                            <ul class="invisible submenu">
-                                <li>
+                    <div id="main-logout" class="invisible logged-in hidden-lg-down">
+                        <ul id="main-account" class="nav-menu main-nav hidden-lg-down">
+                            <li class="account logged-in invisible">
+                                <a href="javascript:;">
+                                    <div class="main-account">
+                                        <div class="account-type"></div>
+                                        <div class="account-id"></div>
+                                        <div class="topMenuBalance"></div>
+                                    </div>
+                                    <div class="nav-caret"></div>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul id="all-accounts" class="nav-menu main-nav hidden-lg-down">
+                            <li class="account">
+                                <a href="javascript:;" class="menu-icon">
+                                    <div class="main-account">
+                                        <div class="account-type"></div>
+                                        <div class="account-id"></div>
+                                        <div class="topMenuBalance">&nbsp;</div>
+                                    </div>
+                                    <div class="nav-caret"></div>
+                                </a>
+                                <ul>
+                                    <a class="link invisible logged-out" href="[% request.url_for('home') %]#signup">
+                                        <li>[% l('Sign Up') %]</li>
+                                    </a>
+                                    <a class="link invisible logged-in" href="[% request.url_for('user/settings') %]">
+                                        <li class="topMenuSettings">[% l('Settings') %]</li>
+                                    </a>
                                     <div class="separator-line-thin-gray"></div>
-                                    <a href="[% request.url_for('forex') %]">[% l('Forex') %]</a></li>
-                                <li>
-                                    <div class="separator-line-thin-gray"></div>
-                                    <a href="[% request.url_for('cfd') %]">[% l('CFDs') %]</a></li>
-                                <li>
-                                    <div class="separator-line-thin-gray"></div>
-                                    <a href="[% request.url_for('metals') %]">[% l('Metals') %]</a></li>
-                            </ul>
-                        </li>
-                        <li class="hidden-lg-up">
-                            <div class="separator-line-thin-gray"></div>
-                            <a id="more_btn" href="javascript:;" class="invisible logged-in nav-dropdown-toggle">
-                                <span class="nav-menu-icon pull-left"></span>
-                                [% l("More") %]
-                                <span class="nav-menu-icon pull-right fx-moremenu-icon"></span>
-                            </a>
-                            <ul class="invisible logged-out">
-                                <li>
+                                    <a class="link invisible logged-in" href="[% request.url_for('cashier') %]">
+                                        <li class="topMenuCashier">[% l('Cashier') %]</li>
+                                    </a>
                                     <div class="separator-line-thin-gray invisible logged-in"></div>
-                                    <a href="[% request.url_for('binary-options') %]">
-                                        <span class="nav-menu-icon pull-left fx-binary-icon"></span>
-                                        [% l('Binary Options') %]
+                                    <a href="[% request.url_for('about-us') %]" class="hidden-lg-up">
+                                        <li>[% l('About') %]</li>
                                     </a>
-                                </li>
-                                <li>
-                                    <div class="separator-line-thin-gray"></div>
-                                    <a href="[% request.url_for('trading-platform') %]">
-                                        <span class="nav-menu-icon pull-left fx-trading-icon"></span>
-                                        [% l('Trading Platforms') %]
+                                    <li class="hidden-lg-up has-sub">
+                                        <a href="javascript:;">[% l('MT5') %]</a>
+                                        <ul class="invisible">
+                                            <li><a href="[% request.url_for('forex') %]">[% l('Forex') %]</a></li>
+                                            <li><a href="[% request.url_for('cfd') %]">[% l('CFDs') %]</a></li>
+                                            <li><a href="[% request.url_for('metals') %]">[% l('Metals') %]</a></li>
+                                        </ul>
+                                    </li>
+                                    <a href="[% request.url_for('binary-options') %]" class="hidden-lg-up">
+                                        <li>[% l('Binary Options') %]</li>
                                     </a>
-                                </li>
-                                <li>
-                                    <div class="separator-line-thin-gray"></div>
-                                    <a href="[% request.url_for('partnerships') %]">
-                                        <span class="nav-menu-icon pull-left fx-partnership-icon"></span>
-                                        [% l('Partnerships') %]
+                                    <a href="[% request.url_for('trading-platform') %]" class="hidden-lg-up">
+                                        <li>[% l('Trading Platforms') %]</li>
                                     </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <div class="separator-line-thin-gray"></div>
-                        <li class="invisible logged-in">
-                            <a id="btn_logout" class="logout invisible logged-in" href="javascript:;">
-                                <span class="nav-menu-icon pull-left fx-signout-icon"></span>
-                                [% l("Sign out") %]
-                            </a>
-                            <div class="separator-line-thin-gray hidden-lg-up"></div>
-                        </li>
-                    </ul>
+                                    <a href="[% request.url_for('partnerships') %]" class="hidden-lg-up">
+                                        <li>[% l('Partnerships') %]</li>
+                                    </a>
+                                    <div class="separator-line-thin-gray hidden-lg-up invisible logged-in"></div>
+                                    <div class="login-id-list"></div>
+                                    <a href="javascript:;" class="btn-logout logout invisible logged-in">
+                                        <li>[% l("Sign out") %]</li>
+                                    </a>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

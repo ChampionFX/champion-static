@@ -5,6 +5,9 @@
     .signup-box input {
         margin: 15px 0;
     }
+    .nav-menu-dropdown {
+        width: 85vw !important;
+    }
 }
 
 @media (max-width: 767px) {
@@ -53,10 +56,8 @@
         margin: 0 auto; // align logo center
     }
     .nav-menu-dropdown {
-        transform: translateX(-100%);
-        height: calc(100vh - 93px);
-        overflow-y: scroll;
-        -webkit-overflow-scrolling: touch; /* mobile safari */
+        transform: translateX(-120%);
+        width: initial;
     }
     #account-info {
         text-align: right !important;
