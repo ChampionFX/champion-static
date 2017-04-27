@@ -5,6 +5,9 @@
     .signup-box input {
         margin: 15px 0;
     }
+    .nav-menu-dropdown {
+        width: 85vw !important;
+    }
 }
 
 @media (max-width: 767px) {
@@ -48,6 +51,16 @@
 @media (max-width: 1199px) {
     .hidden-lg-down {
         display: none !important;
+    }
+    .logo-wrapper {
+        margin: 0 auto; // align logo center
+    }
+    .nav-menu-dropdown {
+        transform: translateX(-120%);
+        width: initial;
+    }
+    #account-info {
+        text-align: right !important;
     }
 }
 
