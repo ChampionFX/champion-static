@@ -55,7 +55,7 @@ const ChampionRouter = (function() {
             params.container.trigger('champion:after', content);
         }
 
-        $(document).find('#header a').on('click', handleClick);
+        $(document).find('#header a, #topbar a').on('click', handleClick);
         $(document).on('click', 'a', handleClick);
         $(window).on('popstate', handlePopstate);
     };

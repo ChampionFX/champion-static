@@ -101,7 +101,7 @@ const Client = (function () {
             ChampionSocket.send({ landing_company: country_code });
         }
 
-        $('#btn_logout').click(() => {
+        $('.btn-logout').click(() => {
             request_logout();
         });
     };
