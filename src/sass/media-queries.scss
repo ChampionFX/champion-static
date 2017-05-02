@@ -62,6 +62,11 @@
     #account-info {
         text-align: right !important;
     }
+    #header .button, .button-secondary {
+        span {
+            padding: 7px 20px !important;
+        }
+    }
 }
 
 @media (min-width: 1200px) {
