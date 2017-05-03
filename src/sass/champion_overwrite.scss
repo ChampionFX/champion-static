@@ -28,6 +28,29 @@
             }
         }
     }
+    &.logged-in {
+        .logo-parent {
+            padding: 5px 0;
+            .logo, .logo > div {
+                width: 40px;
+                height: 40px;
+            }
+            .binary-logo-text > div {
+                margin-top: 5px;
+            }
+        }
+        .top-nav-menu {
+            float: none;
+            margin-left: 0;
+            li a {
+                padding: 5px 15px;
+                border-bottom: none;
+            }
+        }
+        &, #main-logout, #main-account {
+            height: 50px;
+        }
+    }
 }
 
 .main-nav > li > ul {

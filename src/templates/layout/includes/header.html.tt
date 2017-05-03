@@ -1,4 +1,4 @@
-<div id="header" class="dark-blue header">
+<div id="header" class="dark-blue header logged-in">
     <div class="menu-container">
         <div class="row">
             <!-- Mobile menu toggle -->
@@ -106,32 +106,35 @@
                 </div>
             </div>
 
+[% BLOCK main_menu %]
+    <ul class="[% class ? 'top-nav-menu invisible ' _ class : '' %]">
+    [% FOREACH item IN items %]
+        <li>
+            <a href="[% item.sub_items ? 'javascript:;' : request.url_for(item.link) %]" class="nav-dropdown-toggle">[% item.text %][% IF item.sub_items %]<span class="nav-caret"></span>[% END %]</a>
+            [% IF item.sub_items %]
+                [% INCLUDE main_menu items=item.sub_items %]
+            [% END %]
+        </li>
+    [% END %]
+    </ul>
+[% END %]
             <div class="col-lg-7 hidden-lg-down vertical-center">
-                <ul class="top-nav-menu">
-                    <li>
-                        <a href="[% request.url_for('about-us') %]" class="nav-dropdown-toggle">[% l('About') %]</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" class="nav-dropdown-toggle">
-                            [% l('MT5') %]
-                            <span class="nav-caret"></span>
-                        </a>
-                        <ul>
-                            <li><a href="[% request.url_for('forex') %]">[% l('Forex') %]</a></li>
-                            <li><a href="[% request.url_for('cfd') %]">[% l('CFDs') %]</a></li>
-                            <li><a href="[% request.url_for('metals') %]">[% l('Metals') %]</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="[% request.url_for('binary-options') %]" class="nav-dropdown-toggle">[% l('Binary Options') %]</a>
-                    </li>
-                    <li>
-                        <a href="[% request.url_for('trading-platform') %]" class="nav-dropdown-toggle">[% l('Trading Platforms') %]</a>
-                    </li>
-                    <li>
-                        <a href="[% request.url_for('partnerships') %]" class="nav-dropdown-toggle">[% l('Partnerships') %]</a>
-                    </li>
-                </ul>
+                [% INCLUDE main_menu class='logged-out' items=[
+                    { text=l('About') link='about-us' },
+                    { text=l('MT5') sub_items=[
+                        { text=l('Forex')  link='forex' },
+                        { text=l('CFDs')   link='cfd' },
+                        { text=l('Metals') link='metals' },
+                    ] },
+                    { text=l('Binary Options')    link='binary-options' },
+                    { text=l('Trading Platforms') link='trading-platform' },
+                    { text=l('Partnerships')      link='partnerships' },
+                ] %]
+                [% INCLUDE main_menu class='logged-in' items=[
+                    { text=l('Settings')     link='user/settings' },
+                    { text=l('Cashier')      link='cashier' },
+                    { text=l('Partnerships') link='partnerships' },
+                ] %]
             </div>
 
             <div class="col-lg-2 col-sm-4 col-xs-5 vertical-center">

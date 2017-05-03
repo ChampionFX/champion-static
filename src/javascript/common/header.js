@@ -85,7 +85,7 @@ const Header = (function () {
         });
 
         if (!Client.is_logged_in()) {
-            $('#topbar, #header').find('.logged-out').removeClass(hidden_class);
+            $('#topbar, #header').removeClass('logged-in').find('.logged-out').removeClass(hidden_class);
             return;
         }
 

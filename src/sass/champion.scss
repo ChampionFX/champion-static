@@ -770,6 +770,9 @@ fieldset {
         background: $contentInverseColor;
         color: $darkPrimaryBrandColor;
     }
+    &.logged-in {
+        display: none;
+    }
 }
 
 .languages {
