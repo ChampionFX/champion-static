@@ -115,8 +115,6 @@ sub set_static_hash { $static_hash = shift; }
 sub css_files {
     my @css;
 
-    push @css, root_url() . "css/flex.min.css?$static_hash";
-
     # if (is_dev()) {
     #     if (grep { $_ eq uc $LANG } rtl_languages()) {
     #         push @css, root_url() . "css/style_rtl.css?$static_hash";

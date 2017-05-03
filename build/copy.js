@@ -13,7 +13,6 @@ module.exports = {
             },
             { expand: true, cwd: 'src/images/', src: ['**'], dest: global.dist + '/images/', },
             { expand: true, cwd: 'src/download/', src: ['**'], dest: global.dist + '/download/' },
-            { expand: true, cwd: 'src/css/external/', src: ['*.css'], dest: global.dist + '/css/' },
         ]
     }
 };
