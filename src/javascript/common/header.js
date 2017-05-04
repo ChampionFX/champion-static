@@ -58,7 +58,7 @@ const Header = (function () {
             }
         });
 
-        $(document).unbind('click').on('click', function(e) {
+        $(document).off('click.mobileMenu').on('click.mobileMenu', function(e) {
             e.stopPropagation();
             if ($('.nav-menu-dropdown.slide-in').length) {
                 Utility.slideOut($menu_dropdown);
@@ -102,7 +102,7 @@ const Header = (function () {
             }
         });
 
-        $(document).unbind('click').on('click', function(e) {
+        $(document).off('click.desktopMenu').on('click.desktopMenu', function(e) {
             e.stopPropagation();
             Utility.animateDisappear($all_accounts);
         });
