@@ -130,6 +130,10 @@ const Header = (function () {
                                         </span>
                                        <div class="separator-line-thin-gray"></div></div>`;
                 } else {
+                    if (State.get('current_page') === 'metatrader' && login.real && Client.is_virtual()) {
+                        switchLoginId(curr_id);
+                        return;
+                    }
                     loginid_select += `<a href="javascript:;" value="${curr_id}">
                                         <li>
                                             <span class="hidden-lg-up nav-menu-icon pull-left ${icon}"></span>
