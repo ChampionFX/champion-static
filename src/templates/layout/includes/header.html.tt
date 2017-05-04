@@ -130,8 +130,9 @@
                     { text=l('Partnerships')      link='partnerships' },
                 ] %]
                 [% INCLUDE main_menu class='logged-in' items=[
-                    { text=l('Settings')     link='user/settings' },
-                    { text=l('Cashier')      link='cashier' },
+                    { text=l('Settings')          link='user/settings' },
+                    { text=l('Cashier')           link='cashier' },
+                    { text=l('MetaTrader')        link='user/metatrader' },
                     { text=l('Trading Platforms') link='trading-platform' },
                 ] %]
             </div>
