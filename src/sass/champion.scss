@@ -182,11 +182,8 @@ h1.main-title {
     }
 }
 
-#account-info {
-    text-align: center;
-    &:hover {
-        color: $borderColor;
-    }
+#account-info:hover {
+    color: $borderColor;
 }
 
 .right-align {

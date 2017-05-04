@@ -114,18 +114,16 @@ const Header = (function () {
         }
 
         let loginid_select = '';
-        const loginid_array = Client.get('loginid_array');
-        for (let i = 0; i < loginid_array.length; i++) {
-            const login = loginid_array[i];
+        Client.get('loginid_array').forEach((login) => {
             if (!login.disabled) {
                 const curr_id = login.id;
-                const type    = `${login.real ? 'Real' : 'Virtual'} Account`;
+                const type    = `(${login.real ? 'Real' : 'Virtual'} Account)`;
                 const icon    = login.real ? 'fx-real-icon' : 'fx-virtual-icon';
 
                 // default account
                 if (curr_id === Client.get('loginid')) {
-                    $('.account-type').html(type);
-                    $('.account-id').html(curr_id);
+                    $('.main-account .account-type').html(type);
+                    $('.main-account .account-id').html(curr_id);
                     loginid_select += `<div class="hidden-lg-up">
                                         <span class="selected" href="javascript:;" value="${curr_id}">
                                         <li><span class="nav-menu-icon pull-left ${icon}"></span>${curr_id}</li>
@@ -135,14 +133,14 @@ const Header = (function () {
                     loginid_select += `<a href="javascript:;" value="${curr_id}">
                                         <li>
                                             <span class="hidden-lg-up nav-menu-icon pull-left ${icon}"></span>
-                                            <div class="hidden-lg-down">${type}</div>
                                             <div>${curr_id}</div>
+                                            <div class="hidden-lg-down account-type">${type}</div>
                                         </li>
                                        </a>
                                         <div class="separator-line-thin-gray"></div>`;
                 }
             }
-        }
+        });
         $('.login-id-list').html(loginid_select);
         $('.login-id-list a').off('click').on('click', function(e) {
             e.preventDefault();
@@ -247,7 +245,7 @@ const Header = (function () {
             return;
         }
         const view = formatMoney(balance, currency);
-        $('.topMenuBalance').text(view).css('visibility', 'visible');
+        $('.account-balance').text(view).css('visibility', 'visible');
     };
 
     return {

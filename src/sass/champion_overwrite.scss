@@ -29,6 +29,7 @@
         }
     }
     &.logged-in {
+        border: none;
         .logo-parent {
             padding: 5px 0;
             .logo, .logo > div {
@@ -49,6 +50,50 @@
         }
         &, #main-logout, #main-account {
             height: 50px;
+        }
+        #main-logout, .main-nav {
+            width: auto;
+            white-space: nowrap;
+        }
+        .account-balance {
+            font-size: $FONT_SIZE_S;
+        }
+        .account-type {
+            font-size: $FONT_SIZE_XS;
+        }
+        .main-nav li {
+            text-align: left;
+            a {
+                padding: 0 15px;
+            }
+            .nav-caret {
+                position: absolute;
+                top: 20px;
+                right: 10px;
+            }
+        }
+        #all-accounts {
+            &, li ul {
+                background: $primaryBrandColor;
+                border: none;
+            }
+            a {
+                color: $white;
+            }
+            > li a {
+                margin: 1px 1px 0 0;
+            }
+            ul {
+                margin-left: 0;
+                li:hover {
+                    opacity: 0.7;
+                    background: none;
+                }
+                .separator-line-thin-gray {
+                    opacity: 0.5;
+                    margin: 0 15px;
+                }
+            }
         }
     }
 }

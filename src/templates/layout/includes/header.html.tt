@@ -127,13 +127,12 @@
                         { text=l('Metals') link='metals' },
                     ] },
                     { text=l('Binary Options')    link='binary-options' },
-                    { text=l('Trading Platforms') link='trading-platform' },
                     { text=l('Partnerships')      link='partnerships' },
                 ] %]
                 [% INCLUDE main_menu class='logged-in' items=[
                     { text=l('Settings')     link='user/settings' },
                     { text=l('Cashier')      link='cashier' },
-                    { text=l('Partnerships') link='partnerships' },
+                    { text=l('Trading Platforms') link='trading-platform' },
                 ] %]
             </div>
 
@@ -153,19 +152,20 @@
                     </div>
                     <!-- Desktop menu -->
                     <div class="logged-in invisible hidden-lg-up">
-                        <a id="account-info" href="javascript:;" class="nav-menu nav-toggle-dropdown">
+                        <a id="account-info" href="javascript:;" class="main-account nav-menu nav-toggle-dropdown">
                             <div class="account-id"></div>
-                            <div class="topMenuBalance"></div>
+                            <span class="account-balance"></span>
+                            <span class="account-type"></span>
                         </a>
                     </div>
-                    <div id="main-logout" class="invisible logged-in hidden-lg-down">
+                    <div id="main-logout" class="logged-in invisible hidden-lg-down">
                         <ul id="main-account" class="nav-menu main-nav hidden-lg-down">
-                            <li class="account logged-in invisible">
+                            <li class="account">
                                 <a href="javascript:;">
                                     <div class="main-account">
-                                        <div class="account-type"></div>
                                         <div class="account-id"></div>
-                                        <div class="topMenuBalance"></div>
+                                        <span class="account-balance"></span>
+                                        <span class="account-type"></span>
                                     </div>
                                     <div class="nav-caret"></div>
                                 </a>
@@ -175,47 +175,19 @@
                             <li class="account">
                                 <a href="javascript:;" class="menu-icon">
                                     <div class="main-account">
-                                        <div class="account-type"></div>
                                         <div class="account-id"></div>
-                                        <div class="topMenuBalance">&nbsp;</div>
+                                        <span class="account-balance">&nbsp;</span>
+                                        <span class="account-type"></span>
                                     </div>
                                     <div class="nav-caret"></div>
                                 </a>
                                 <ul>
-                                    <a class="link invisible logged-out" href="[% request.url_for('home') %]#signup">
-                                        <li>[% l('Sign Up') %]</li>
-                                    </a>
-                                    <a class="link invisible logged-in" href="[% request.url_for('user/settings') %]">
-                                        <li class="topMenuSettings">[% l('Settings') %]</li>
+                                    <div class="login-id-list"></div>
+                                    <a href="[% request.url_for('user/metatrader') %]">
+                                        <li>[% l("MetaTrader") %]</li>
                                     </a>
                                     <div class="separator-line-thin-gray"></div>
-                                    <a class="link invisible logged-in" href="[% request.url_for('cashier') %]">
-                                        <li class="topMenuCashier">[% l('Cashier') %]</li>
-                                    </a>
-                                    <div class="separator-line-thin-gray invisible logged-in"></div>
-                                    <a href="[% request.url_for('about-us') %]" class="hidden-lg-up">
-                                        <li>[% l('About') %]</li>
-                                    </a>
-                                    <li class="hidden-lg-up has-sub">
-                                        <a href="javascript:;">[% l('MT5') %]</a>
-                                        <ul class="invisible">
-                                            <li><a href="[% request.url_for('forex') %]">[% l('Forex') %]</a></li>
-                                            <li><a href="[% request.url_for('cfd') %]">[% l('CFDs') %]</a></li>
-                                            <li><a href="[% request.url_for('metals') %]">[% l('Metals') %]</a></li>
-                                        </ul>
-                                    </li>
-                                    <a href="[% request.url_for('binary-options') %]" class="hidden-lg-up">
-                                        <li>[% l('Binary Options') %]</li>
-                                    </a>
-                                    <a href="[% request.url_for('trading-platform') %]" class="hidden-lg-up">
-                                        <li>[% l('Trading Platforms') %]</li>
-                                    </a>
-                                    <a href="[% request.url_for('partnerships') %]" class="hidden-lg-up">
-                                        <li>[% l('Partnerships') %]</li>
-                                    </a>
-                                    <div class="separator-line-thin-gray hidden-lg-up invisible logged-in"></div>
-                                    <div class="login-id-list"></div>
-                                    <a href="javascript:;" class="btn-logout logout invisible logged-in">
+                                    <a href="javascript:;" class="btn-logout logout">
                                         <li>[% l("Sign out") %]</li>
                                     </a>
                                 </ul>
