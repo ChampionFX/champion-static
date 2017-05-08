@@ -1,4 +1,4 @@
-<div id="header" class="dark-blue header logged-in">
+<div id="header" class="dark-blue header">
     <div class="menu-container">
         <div class="row">
             <!-- Mobile menu toggle -->
@@ -109,8 +109,8 @@
 [% BLOCK main_menu %]
     <ul class="[% class ? 'top-nav-menu invisible ' _ class : '' %]">
     [% FOREACH item IN items %]
-        <li>
-            <a href="[% item.sub_items ? 'javascript:;' : request.url_for(item.link) %]" class="nav-dropdown-toggle">[% item.text %][% IF item.sub_items %]<span class="nav-caret"></span>[% END %]</a>
+        <li[% IF item.class %] class="[% item.class %]"[% END %]>
+            <a href="[% item.sub_items ? 'javascript:;' : request.url_for(item.link) %]"[% IF item.target %] target="[% item.target %]"[% END %] class="nav-dropdown-toggle">[% item.text %][% IF item.sub_items %]<span class="nav-caret"></span>[% END %]</a>
             [% IF item.sub_items %]
                 [% INCLUDE main_menu items=item.sub_items %]
             [% END %]
@@ -130,10 +130,11 @@
                     { text=l('Partnerships')      link='partnerships' },
                 ] %]
                 [% INCLUDE main_menu class='logged-in' items=[
-                    { text=l('Settings')          link='user/settings' },
-                    { text=l('Cashier')           link='cashier' },
-                    { text=l('MetaTrader')        link='user/metatrader' },
+                    { text=l('Settings')          link='user/settings'   class='mt-hide' },
+                    { text=l('Cashier')           link='cashier'         class='mt-hide' },
+                    { text=l('MetaTrader 5')      link='user/metatrader' class='mt-hide' },
                     { text=l('Trading Platforms') link='trading-platform' },
+                    { text=l('Academy')           link='https://academy.champion-fx.com/' target='_blank' },
                 ] %]
             </div>
 
@@ -185,7 +186,7 @@
                                 <ul>
                                     <div class="login-id-list"></div>
                                     <a href="[% request.url_for('user/metatrader') %]">
-                                        <li>[% l("MetaTrader") %]</li>
+                                        <li>[% l("MetaTrader 5") %]</li>
                                     </a>
                                     <div class="separator-line-thin-gray"></div>
                                     <a href="javascript:;" class="btn-logout logout">

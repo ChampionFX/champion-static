@@ -767,9 +767,6 @@ fieldset {
         background: $contentInverseColor;
         color: $darkPrimaryBrandColor;
     }
-    &.logged-in {
-        display: none;
-    }
 }
 
 .languages {
@@ -1040,4 +1037,6 @@ iframe {
 
 .required {
     padding: 0 5px;
+    font-size: inherit !important;
+    font-style: inherit !important;
 }

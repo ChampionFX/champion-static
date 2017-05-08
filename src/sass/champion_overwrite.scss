@@ -28,7 +28,17 @@
             }
         }
     }
-    &.logged-in {
+}
+
+#top_group.logged-in {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+    #topbar {
+        display: none;
+    }
+    #header {
         border: none;
         .logo-parent {
             padding: 5px 0;
@@ -53,6 +63,7 @@
         }
         #main-logout, .main-nav {
             width: auto;
+            min-width: 160px;
             white-space: nowrap;
         }
         .account-balance {
@@ -95,6 +106,9 @@
                 }
             }
         }
+    }
+    ~ #champion-container {
+        margin-top: 50px;
     }
 }
 

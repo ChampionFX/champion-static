@@ -1,82 +1,126 @@
 #mt_account_management {
-    #accounts_list .acc-box {
-        margin-bottom: 10px;
-        > div {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            border-bottom: 2px solid transparent;
-            &:hover, &.active {
-                border-bottom-color: $primaryBrandColor;
+    padding: 30px;
+    .mt-container {
+        padding: 0 30px;
+    }
+    .mt-panel {
+        background: $white;
+        padding: 10px 0 20px;
+        .top {
+            height: 80px;
+            margin-bottom: 20px;
+        }
+        &:nth-child(2) {
+            border-left: 30px solid $fillColor;
+        }
+    }
+    #account_selector {
+        position: relative;
+        margin: 5px;
+        cursor: pointer;
+        #mt5_account, #accounts_list {
+            border: 1px solid $primaryBrandColor;
+        }
+        #mt5_account {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 20px;
+            box-sizing: border-box;
+            margin: 0;
+            overflow: hidden;
+            background: $primaryBrandColor;
+            color: $white;
+            border-radius: $BORDER_RADIUS;
+            &.open {
+                border-radius: $BORDER_RADIUS $BORDER_RADIUS 0 0;
             }
-            .no-account {
-                margin-bottom: 20px;
-                .info {
-                    padding: 10px;
-                    padding-left: 0;
-                    font-size: 0.9rem;
-                    height: 120px;
-                    a:before {
-                        content: ' ';
-                        display: block;
-                        margin-top: 5px;
+            &:after {
+                content: '';
+                display: block;
+                float: right;
+                margin-top: 17px;
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-top: 5px solid $white;
+            }
+        }
+        #accounts_list {
+            width: 100%;
+            padding: 10px 0;
+            border-radius: 0 0 $BORDER_RADIUS $BORDER_RADIUS;
+            border-top: 0;
+            display: none;
+            position: absolute;
+            background: $white;
+            z-index: 1;
+            .acc-name {
+                line-height: 30px;
+                padding: 0 20px;
+                &:hover {
+                    color: $primaryBrandColor;
+                    background: $fillColor;
+                }
+                &.disabled {
+                    color: $secondaryContentColor;
+                    .mt-new img {
+                        filter: grayscale(100%);
+                        opacity: 0.2;
                     }
                 }
-            }
-            .loading {
-                margin: 75px 0;
-            }
-            .acc-info {
-                padding-top: 10px;
-                div {
-                    font-size: 0.9rem;
-                    line-height: 1.6em;
-                    &:nth-child(even) {
-                        word-break: break-all;
-                    }
+                .mt-balance {
+                    float: right;
+                    font-size: $FONT_SIZE_S;
                 }
-            }
-            .acc-actions {
-                margin-top: auto;
-                padding: 10px 0;
-                font-size: 0.8rem;
-                a {
-                    display: inline-block;
-                    width: 64px;
-                    text-align: center;
-                    margin: 0 3px;
+                .mt-new {
+                    float: right;
                     img {
-                        height: 32px;
-                        margin-bottom: 7px;
+                        width: 14px;
                     }
                 }
+            }
+            .separator {
+                margin: 10px 0;
+            }
+        }
+    }
+    #account_detail {
+        .acc-info {
+            font-size: $FONT_SIZE_S;
+            line-height: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .acc-actions a {
+            margin: 5px;
+            display: block;
+            padding: 20px 30px;
+            background: $fillColor;
+            &:hover, &.selected {
+                border-right: 5px solid $primaryBrandColor;
+            }
+            img {
+                height: 24px;
+            }
+        }
+        #account_desc {
+            font-size: $FONT_SIZE_S;
+            a.more {
+                display: block;
+                margin-top: 20px;
             }
         }
     }
     .fst-container {
-        width: 100%;
-        padding-right: 10px;
-        margin-top: 50px;
         #fst_action {
             position: relative;
-            legend {
-                background: $primaryBrandColor;
-                color: $white;
-                padding: 5px 10px;
-                margin-left: 15px;
+            h4 {
+                padding-top: 6px;
             }
-            .close {
-                cursor: pointer;
-                position: absolute;
-                top: 0;
-                right: 0;
-                z-index: 1;
-                width: 32px;
-                height: 32px;
-                background: $primaryBrandColor svg-url('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="14" height="14"><path fill="#{rgba($white, 1)}" d="M50,5,45,0,25,20,5,0,0,5,20,25,0,45l5,5L25,30,45,50l5-5L30,25Z"/></svg>') no-repeat center;
-                &:hover {
-                    background-color: $darkPrimaryBrandColor;
-                }
+            .separator {
+                margin-bottom: 20px;
+            }
+            #main_msg {
+                margin-bottom: 20px;
             }
             button .barspinner.white {
                 height: 13px;
@@ -86,5 +130,44 @@
     }
     .txt-left {
         text-align: left;
+    }
+}
+
+@media (max-width: 767px) {
+    #mt_account_management {
+        padding: 10px;
+        .mt-container {
+            padding: 0 10px;
+        }
+        .mt-panel {
+            padding: 10px 0 0;
+            &:nth-child(2) {
+                border-left: none;
+            }
+        }
+        .acc-actions {
+            display: table;
+            border-spacing: 5px;
+            > a {
+                display: table-cell !important;
+                &.invisible {
+                    display: none !important;
+                }
+                width: 1%;
+                text-align: center;
+                padding: 10px !important;
+                &:hover, &.selected {
+                    border-right: 0 !important;
+                    border-bottom: 5px solid $primaryBrandColor;
+                }
+                img {
+                    height: 36px;
+                    margin-bottom: 5px;
+                }
+                span {
+                    display: block;
+                }
+            }
+        }
     }
 }

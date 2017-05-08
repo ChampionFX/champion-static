@@ -85,9 +85,11 @@ const Header = (function () {
         });
 
         if (!Client.is_logged_in()) {
-            $('#topbar, #header').removeClass('logged-in').find('.logged-out').removeClass(hidden_class);
+            $('#top_group').removeClass('logged-in').find('.logged-out').removeClass(hidden_class);
             return;
         }
+        $(window).off('resize.updateBody').on('resize.updateBody', updateBody);
+        updateBody();
 
         $('#header .logged-in').removeClass(hidden_class);
         $all_accounts.find('.account > a').removeClass('menu-icon');
@@ -106,6 +108,10 @@ const Header = (function () {
             e.stopPropagation();
             Utility.animateDisappear($all_accounts);
         });
+    };
+
+    const updateBody = () => {
+        $('#champion-container').css('margin-top', $('#top_group').height());
     };
 
     const userMenu = function() {
@@ -156,7 +162,7 @@ const Header = (function () {
     const displayNotification = (message) => {
         const $msg_notification = $('#msg_notification');
         $msg_notification.html(message);
-        if ($msg_notification.is(':hidden')) $msg_notification.slideDown(500);
+        if ($msg_notification.is(':hidden')) $msg_notification.slideDown(500, updateBody);
     };
 
     const hideNotification = () => {
