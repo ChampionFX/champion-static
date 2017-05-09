@@ -85,10 +85,6 @@ const Client = (function () {
         set('balance', authorize.balance);
         client_object.values_set = true;
 
-        if (authorize.is_virtual && !get('has_real')) {
-            $('.upgrade-message').removeClass('invisible');
-        }
-
         ChampionSocket.send({ balance: 1, subscribe: 1 });
         ChampionSocket.send({ get_settings: 1 });
         ChampionSocket.send({ get_account_status: 1 });

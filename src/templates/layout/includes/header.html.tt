@@ -185,6 +185,10 @@
                                 </a>
                                 <ul>
                                     <div class="login-id-list"></div>
+                                    <a href="[% request.url_for('new-account/real') %]" class="upgrade invisible">
+                                        <li>[% l("Upgrade to<br />Real Account") %]</li>
+                                    </a>
+                                    <div class="separator-line-thin-gray upgrade invisible"></div>
                                     <a href="[% request.url_for('user/metatrader') %]" class="mt-hide">
                                         <li>[% l("MetaTrader 5") %]</li>
                                     </a>

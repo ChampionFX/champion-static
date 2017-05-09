@@ -156,6 +156,9 @@ const Header = (function () {
         $('.login-id-list').html(loginid_select);
         $('#mobile-menu .mt-show').remove();
         setMetaTrader(is_mt_page);
+        if (!Client.has_real()) {
+            $('#all-accounts .upgrade').removeClass(hidden_class);
+        }
         $('.login-id-list a').off('click').on('click', function(e) {
             e.preventDefault();
             $(this).attr('disabled', 'disabled');
