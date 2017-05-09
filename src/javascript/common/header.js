@@ -1,6 +1,7 @@
 const Client         = require('./client');
 const formatMoney    = require('./currency').formatMoney;
 const GTM            = require('./gtm');
+const ChampionRouter = require('./router');
 const ChampionSocket = require('./socket');
 const State          = require('./storage').State;
 const url_for        = require('./url').url_for;
@@ -120,14 +121,16 @@ const Header = (function () {
         }
 
         let loginid_select = '';
+        const is_mt_page = State.get('current_page') === 'metatrader';
         Client.get('loginid_array').forEach((login) => {
             if (!login.disabled) {
                 const curr_id = login.id;
                 const type    = `(${login.real ? 'Real' : 'Virtual'} Account)`;
                 const icon    = login.real ? 'fx-real-icon' : 'fx-virtual-icon';
+                const is_current = curr_id === Client.get('loginid');
 
                 // default account
-                if (curr_id === Client.get('loginid')) {
+                if (is_current) {
                     $('.main-account .account-type').html(type);
                     $('.main-account .account-id').html(curr_id);
                     loginid_select += `<div class="hidden-lg-up">
@@ -135,28 +138,37 @@ const Header = (function () {
                                         <li><span class="nav-menu-icon pull-left ${icon}"></span>${curr_id}</li>
                                         </span>
                                        <div class="separator-line-thin-gray"></div></div>`;
-                } else {
-                    if (State.get('current_page') === 'metatrader' && login.real && Client.is_virtual()) {
-                        switchLoginId(curr_id);
-                        return;
-                    }
-                    loginid_select += `<a href="javascript:;" value="${curr_id}">
+                } else if (is_mt_page && login.real && Client.is_virtual()) {
+                    switchLoginId(curr_id);
+                    return;
+                }
+                const item_class = is_current ? 'mt-show' : '';
+                loginid_select += `<a href="javascript:;" value="${curr_id}" class="${item_class}">
                                         <li>
                                             <span class="hidden-lg-up nav-menu-icon pull-left ${icon}"></span>
                                             <div>${curr_id}</div>
                                             <div class="hidden-lg-down account-type">${type}</div>
                                         </li>
-                                       </a>
-                                        <div class="separator-line-thin-gray"></div>`;
-                }
+                                   </a>
+                                   <div class="separator-line-thin-gray ${item_class}"></div>`;
             }
         });
         $('.login-id-list').html(loginid_select);
+        $('#mobile-menu .mt-show').remove();
+        setMetaTrader(is_mt_page);
         $('.login-id-list a').off('click').on('click', function(e) {
             e.preventDefault();
             $(this).attr('disabled', 'disabled');
             switchLoginId($(this).attr('value'));
+            if (State.get('current_page') === 'metatrader') {
+                ChampionRouter.forward(url_for('user/settings'));
+            }
         });
+    };
+
+    const setMetaTrader = (is_mt_page) => {
+        $('#header .mt-hide')[is_mt_page ? 'addClass' : 'removeClass'](hidden_class);
+        $('#header .mt-show')[is_mt_page ? 'removeClass' : 'addClass'](hidden_class);
     };
 
     const displayNotification = (message) => {
@@ -223,7 +235,7 @@ const Header = (function () {
     };
 
     const switchLoginId = (loginid) => {
-        if (!loginid || loginid.length === 0) {
+        if (!loginid || loginid.length === 0 || loginid === Client.get('loginid')) {
             return;
         }
         const token = Client.get_token(loginid);

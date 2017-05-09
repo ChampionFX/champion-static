@@ -153,11 +153,15 @@
                         </div>
                     </div>
                     <!-- Desktop menu -->
+[% BLOCK account_info %]
+    <div class="account-id mt-hide"></div>
+    <span class="account-balance mt-hide"></span>
+    <span class="account-type mt-hide"></span>
+    <div class="mt-show invisible">[% l("MetaTrader 5") %]</div>
+[% END %]
                     <div class="logged-in invisible hidden-lg-up">
                         <a id="account-info" href="javascript:;" class="main-account nav-menu nav-toggle-dropdown">
-                            <div class="account-id"></div>
-                            <span class="account-balance"></span>
-                            <span class="account-type"></span>
+                            [% PROCESS account_info %]
                         </a>
                     </div>
                     <div id="main-logout" class="logged-in invisible hidden-lg-down">
@@ -165,9 +169,7 @@
                             <li class="account">
                                 <a href="javascript:;">
                                     <div class="main-account">
-                                        <div class="account-id"></div>
-                                        <span class="account-balance"></span>
-                                        <span class="account-type"></span>
+                                        [% PROCESS account_info %]
                                     </div>
                                     <div class="nav-caret"></div>
                                 </a>
@@ -177,18 +179,16 @@
                             <li class="account">
                                 <a href="javascript:;" class="menu-icon">
                                     <div class="main-account">
-                                        <div class="account-id"></div>
-                                        <span class="account-balance">&nbsp;</span>
-                                        <span class="account-type"></span>
+                                        [% PROCESS account_info %]
                                     </div>
                                     <div class="nav-caret"></div>
                                 </a>
                                 <ul>
                                     <div class="login-id-list"></div>
-                                    <a href="[% request.url_for('user/metatrader') %]">
+                                    <a href="[% request.url_for('user/metatrader') %]" class="mt-hide">
                                         <li>[% l("MetaTrader 5") %]</li>
                                     </a>
-                                    <div class="separator-line-thin-gray"></div>
+                                    <div class="separator-line-thin-gray mt-hide"></div>
                                     <a href="javascript:;" class="btn-logout logout">
                                         <li>[% l("Sign out") %]</li>
                                     </a>

@@ -25,7 +25,6 @@ const MetaTraderUI = (function() {
     const validations  = MetaTraderConfig.validations;
 
     const init = (submit_func) => {
-        $('#header .mt-hide').addClass(hidden_class);
         submit = submit_func;
         $container   = $('#mt_account_management');
         $mt5_account = $container.find('#mt5_account');
@@ -232,7 +231,6 @@ const MetaTraderUI = (function() {
         displayMainMessage: displayMainMessage,
         disableButton     : disableButton,
         enableButton      : enableButton,
-        unload            : () => { $('#header .mt-hide').removeClass(hidden_class); },
     };
 })();
 

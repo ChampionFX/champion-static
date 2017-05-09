@@ -115,8 +115,7 @@ const MetaTrader = (function() {
     };
 
     return {
-        load  : load,
-        unload: () => { MetaTraderUI.unload(); },
+        load: load,
     };
 })();
 
