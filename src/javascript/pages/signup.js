@@ -65,7 +65,7 @@ const ChampionSignup = (function() {
                 type        : 'account_opening',
             }).then((response) => {
                 if (response.verify_email) {
-                    ChampionRouter.forward(url_for('new-account/virtual'));
+                    ChampionRouter.forward(url_for('new-account'));
                 } else if (response.error) {
                     $(`${form_selector}:visible #signup_error`).text(response.error.message).removeClass(hidden_class);
                 }

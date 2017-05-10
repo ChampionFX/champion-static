@@ -49,8 +49,7 @@ sub all_pages {
         ['cashier/payment-methods',    'cashier/payment_methods',      'full_width', 'Payment Methods'],
         ['cashier/top-up-virtual',     'cashier/top_up_virtual',       'full_width', 'Give Me More Money!'],
 
-        ['new-account/real',           'new_account/real',             'full_width', 'Create new real account'],
-        ['new-account/virtual',        'new_account/virtual',          'full_width', 'Create new virtual account'],
+        ['new-account',                'user/new_account',             'full_width', 'Create new account'],
 
         ['trading-platform',                 'static/trading_platform/trading_platform', 'full_width', 'Trading Platforms'],
         ['trading-platform/metatrader-5',    'static/trading_platform/metatrader_5',     'full_width', 'MetaTrader5'],

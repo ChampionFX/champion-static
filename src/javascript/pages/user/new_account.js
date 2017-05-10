@@ -9,7 +9,7 @@ const Validation           = require('../../common/validation');
 const DatePicker           = require('../../components/date_picker').DatePicker;
 const Cookies              = require('../../lib/js-cookie');
 
-const ChampionNewRealAccount = (function() {
+const NewAccount = (function() {
     'use strict';
 
     const form_selector = '#frm_new_account_real';
@@ -251,4 +251,4 @@ const ChampionNewRealAccount = (function() {
     };
 })();
 
-module.exports = ChampionNewRealAccount;
+module.exports = NewAccount;

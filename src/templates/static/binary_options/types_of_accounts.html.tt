@@ -39,7 +39,7 @@
                             </div>
                             <div class="fx-divider-xl"></div>
                             <p>
-                                <a class="button real-signup" href="[% request.url_for('new-account/real') %]">
+                                <a class="button real-signup" href="[% request.url_for('new-account') %]">
                                     <span>[% l('Upgrade') %]</span>
                                 </a>
                             </p>
