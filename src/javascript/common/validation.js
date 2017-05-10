@@ -45,7 +45,7 @@ const Validation = (() => {
 
                     const event = events_map[field.type];
                     if (event) {
-                        field.$.unbind(event).on(event, () => {
+                        field.$.off(`${event}.validation`).on(`${event}.validation`, () => {
                             checkField(field);
                             if (field.re_check_field) {
                                 checkField(forms[form_selector].fields.find(fld => (

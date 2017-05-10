@@ -11,6 +11,8 @@
             <div class="row">
                 <div class="col-md-4">
                     [% INCLUDE form_title title=l('Details') %]
+                    [% INCLUDE components/forms/form_row.html.tt id='txt_verification_code' type='text' label=l('Verification token')
+                        attributes='maxlength="8" autocomplete="off"' hint=l('Please check your email for the token') row_class='hide-upgrade invisible' %]
                     [% WRAPPER components/forms/form_row.html.tt type='select' id='ddl_title' label=l("Title") %]
                         <option value="Mr">[% l('Mr') %]</option>
                         <option value="Mrs">[% l('Mrs') %]</option>
@@ -20,8 +22,10 @@
                     [% INCLUDE components/forms/form_row.html.tt type='text'  id='txt_fname'      label=l('First name')           attributes='maxlength="30"' %]
                     [% INCLUDE components/forms/form_row.html.tt type='text'  id='txt_lname'      label=l('Family name')          attributes='maxlength="30"' %]
                     [% INCLUDE components/forms/form_row.html.tt type='text'  id='txt_birth_date' label=l('Date of birth')        attributes='size="12" readonly="readonly"' %]
+                    [% INCLUDE components/forms/form_row.html.tt id='ddl_residence' type='select' label=l('Country of residence')
+                        attributes='class="invisible"' loading=1 loading_id='ddl_residence_loading' row_class='hide-upgrade invisible' %]
                     [% INCLUDE components/forms/form_row.html.tt type='label' id='lbl_residence'  label=l('Country of residence')
-                        class="invisible" loading=1 loading_id='residence_loading' %]
+                        class="invisible" loading=1 loading_id='lbl_residence_loading' row_class='show-upgrade invisible' %]
                 </div>
 
                 <div class="col-md-4">
@@ -37,6 +41,9 @@
 
                 <div class="col-md-4">
                     [% INCLUDE form_title title=l('Security') %]
+                    [% INCLUDE components/forms/form_row.html.tt id='txt_password' type='password' label=l('Choose password')
+                        hint=l('Minimum of six lower and uppercase letters with numbers') row_class='hide-upgrade invisible' %]
+                    [% INCLUDE components/forms/form_row.html.tt id='txt_re_password' type='password' label=l('Verify password') row_class='hide-upgrade invisible' %]
                     [% WRAPPER components/forms/form_row.html.tt type='select' id='ddl_secret_question' label=l("Secret question") %]
                         <option value="Favourite dish">[% l('Favourite dish') %]</option>
                         <option value="Mother's maiden name">[% l("Mother's maiden name") %]</option>

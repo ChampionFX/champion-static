@@ -88,7 +88,7 @@ const Champion = (function() {
             cfd                : { module: MT5 },
             metals             : { module: MT5 },
             profile            : { module: ChampionProfile,     is_authenticated: true },
-            real               : { module: ChampionNewReal,     is_authenticated: true, only_virtual: true },
+            real               : { module: ChampionNewReal },
             settings           : { module: ChampionSettings,    is_authenticated: true },
             security           : { module: ChampionSecurity,    is_authenticated: true },
             virtual            : { module: ChampionNewVirtual,  not_authenticated: true },
