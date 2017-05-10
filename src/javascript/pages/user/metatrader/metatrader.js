@@ -2,6 +2,7 @@ const MetaTraderConfig = require('./metatrader.config');
 const MetaTraderUI     = require('./metatrader.ui');
 const Client           = require('../../../common/client');
 const ChampionSocket   = require('../../../common/socket');
+const State            = require('../../../common/storage').State;
 const Validation       = require('../../../common/validation');
 
 const MetaTrader = (function() {
@@ -12,6 +13,7 @@ const MetaTrader = (function() {
     const fields       = MetaTraderConfig.fields;
 
     const load = () => {
+        State.set('is_mt_pages', 1);
         ChampionSocket.wait('mt5_login_list').then((response) => {
             responseLoginList(response);
         });

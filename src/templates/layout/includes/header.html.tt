@@ -133,7 +133,8 @@
                     { text=l('Settings')          link='user/settings'   class='mt-hide' },
                     { text=l('Cashier')           link='cashier'         class='mt-hide' },
                     { text=l('MetaTrader 5')      link='user/metatrader' class='mt-hide' },
-                    { text=l('Trading Platforms') link='trading-platform' },
+                    { text=l('Trading Platforms') link='trading-platform/champion-trader' class='mt-hide' },
+                    { text=l('Trading Platforms') link='trading-platform/metatrader-5'    class='mt-show' },
                     { text=l('Academy')           link='https://academy.champion-fx.com/' target='_blank' },
                 ] %]
             </div>

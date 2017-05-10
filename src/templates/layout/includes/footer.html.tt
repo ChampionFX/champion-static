@@ -1,12 +1,14 @@
 [% BLOCK link_group %]
     [% IF not hidden %]
-    <h4>[% title %]</h4>
-    <div class="separator-line-thin-gray"></div>
-    <ul>
-        [% FOREACH item IN items %]
-            <li[% IF item.hidden %] class="invisible"[% END %]><a href="[% request.url_for(item.link) %][% item.link_hash %]">[% item.text %]</a></li>
-        [% END %]
-    </ul>
+    <div[% IF class %] class="[% class %]"[% END %]>
+        <h4>[% title %]</h4>
+        <div class="separator-line-thin-gray"></div>
+        <ul>
+            [% FOREACH item IN items %]
+                <li[% IF item.hidden %] class="invisible"[% END %]><a href="[% request.url_for(item.link) %][% item.link_hash %]">[% item.text %]</a></li>
+            [% END %]
+        </ul>
+    </div>
     [% END %]
 [% END %]
 <footer id="footer" class="fx-footer primary-color content-inverse-color">
@@ -21,13 +23,15 @@
                                 { link => 'contact',   text => l("Contact Us") },
                                 { link => 'licensing', text => l("License") },
                             ] %]
+                        </div>
+                        <div class="col-xs-6 col-md-3">
                             [% INCLUDE link_group title=l('Partnerships') items=[
                                 { link => 'partnerships-ib',          text => l("Introducing Broker (IB)") },
                                 { link => 'partnerships-affiliate',   text => l("Affiliate") },
                                 { link => 'partnerships-contributor', text => l("Content Contributor") },
                             ] %]
                         </div>
-                        <div class="col-xs-6 col-md-3">
+                        <div class="col-xs-6 col-md-3 mt-show">
                             [% INCLUDE link_group title=l('MT5') items=[
                                 { link => 'forex',  text => l("Forex") },
                                 { link => 'cfd',    text => l("CFDs") },
@@ -36,7 +40,7 @@
                                 { link => 'trading-platform/metatrader-5',         text => l("MT5 trading platforms") },
                             ] %]
                         </div>
-                        <div class="col-xs-6 col-md-3">
+                        <div class="col-xs-6 col-md-3 mt-hide">
                             [% INCLUDE link_group title=l('Binary options') items=[
                                 { link => 'range-of-markets',  text => l("Range of markets") },
                                 { link => 'types-of-accounts', text => l("Types of accounts") },
@@ -55,7 +59,7 @@
                                 { link => 'terms-and-conditions', text => l("Terms and Conditions") },
                                 { link => '', text => l("&nbsp;") },
                             ] %]
-                            [% INCLUDE link_group title=l('Resources') items=[
+                            [% INCLUDE link_group title=l('Resources') class="mt-hide" items=[
                                 { link => 'trading-times',           text => l("Trading Times") },
                                 { link => 'cashier/payment-methods', text => l("Payment Methods") },
                             ] %]
