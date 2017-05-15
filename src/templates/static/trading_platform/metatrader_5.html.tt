@@ -90,7 +90,7 @@
                     </div>
                 </div>
                 <p>
-                    <a class="button" href="[% request.url_for('mt5-vs-mt4.html') %]">
+                    <a class="button button-secondary" href="[% request.url_for('mt5-vs-mt4.html') %]">
                         <span>MetaTrader 5 vs MetaTrader 4</span>
                     </a>
                 </p>
