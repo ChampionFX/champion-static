@@ -1,3 +1,4 @@
+const AccountGuide   = require('./account_guide');
 const Client         = require('./client');
 const formatMoney    = require('./currency').formatMoney;
 const GTM            = require('./gtm');
@@ -30,6 +31,8 @@ const Header = (function () {
             });
             media_query.addListener(widthChange);
         });
+
+        AccountGuide.init();
     };
 
     const widthChange = (mq) => {

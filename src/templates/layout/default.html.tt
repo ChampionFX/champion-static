@@ -5,6 +5,7 @@
 <body>
     [% INCLUDE layout/includes/top_bar.html.tt %]
     [% INCLUDE layout/includes/header.html.tt %]
+    [% INCLUDE layout/includes/account_guide.html.tt %]
     [% INCLUDE layout/includes/gtm.html.tt %]
 
     <main class="page-content" aria-label="Content" id="champion-container">

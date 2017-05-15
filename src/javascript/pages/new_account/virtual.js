@@ -1,8 +1,7 @@
-const ChampionSocket       = require('../../common/socket');
-const Client               = require('../../common/client');
-const Utility              = require('../../common/utility');
-const default_redirect_url = require('../../common/url').default_redirect_url;
-const Validation           = require('../../common/validation');
+const ChampionSocket = require('../../common/socket');
+const Client         = require('../../common/client');
+const Utility        = require('../../common/utility');
+const Validation     = require('../../common/validation');
 
 const ChampionNewVirtualAccount = (function() {
     'use strict';
@@ -72,7 +71,6 @@ const ChampionNewVirtualAccount = (function() {
                 } else {
                     const acc_info = response.new_account_virtual;
                     Client.process_new_account(acc_info.email, acc_info.client_id, acc_info.oauth_token, true);
-                    window.location.href = default_redirect_url();
                 }
             });
         }

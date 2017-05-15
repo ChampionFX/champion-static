@@ -1,0 +1,67 @@
+<div id="account_guide" class="hidden-xs-down invisible">
+    <div id="guide_content" class="center-text">
+        <div class="row">
+            <div class="col-sm-6 no-gutters group-title">[% l('Binary options') %]</div>
+            <div class="col-sm-6 no-gutters group-title">[% l('MT5') %]</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 account-title virtual">[% l('ChampionFX virtual account') %]</div>
+            <div class="col-sm-3 account-title logged-in real">[% l('ChampionFX real account') %]</div>
+            <div class="col-sm-3 account-title logged-in mt5_demo">[% l('MT5 demo account') %]</div>
+            <div class="col-sm-3 account-title logged-in has-real mt5_real">[% l('MT5 real account') %]</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 no-gutters">
+                <div class="account-desc virtual">
+                    <p>[% l('Practice binary options trading in our Champion Trader platform with virtual funds.') %]</p>
+                    <div class="buttons-row">
+                        [% INCLUDE btn_signup url='home' hash='signup' %]
+                        <span class="or">[% l('or') %]</span>
+                        <a href="javascript:;" class="login"><span>[% l('Log in') %]</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 no-gutters">
+                <div class="account-desc logged-in real">
+                    <p>[% l('Trade binary options in our Champion Trader platform with real money.') %]</p>
+                    [% INCLUDE buttons_row url='new-account/real' text=l('Requires a ChampionFX virtual account.') %]
+                </div>
+            </div>
+            <div class="col-sm-3 no-gutters">
+                <div class="account-desc logged-in mt5_demo">
+                    <p>[% l('Practice Forex, metals, and CFD trading in MT5 with this risk-free demo account.') %]</p>
+                    [% INCLUDE buttons_row url='user/metatrader' hash='create_demo' text=l('Requires a ChampionFX virtual account.') %]
+                </div>
+            </div>
+            <div class="col-sm-3 no-gutters">
+                <div class="account-desc logged-in has-real mt5_real">
+                    <p>[% l('Trade Forex, metals, and CFDs in MT5 with real money. Available in Cent, Standard, and STP.') %]</p>
+                    <p id="mt5_accounts" class="invisible">
+                        <span>[% l('Cent') %]</span>
+                        <span>[% l('Standard') %]</span>
+                        <span>[% l('STP') %]</span>
+                    </p>
+                    [% INCLUDE buttons_row url='user/metatrader' hash='create_cent' text=l('Requires a ChampionFX real account.') %]
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="guide_button">
+        <div class="closed">[% l('Account Type') %]</div>
+        <div class="up"></div>
+    </div>
+    <div id="account_exists" class="invisible">
+        <div class="account-exists"><span></span></div>
+        <div>[% l('Account successfully created') %]</div>
+    </div>
+</div>
+
+[% BLOCK btn_signup %]
+    <a href="[% request.url_for(url) %][% hash ? '#' _ hash : '' %]" class="button"><span>[% l('Sign up') %]</span></a>
+[% END %]
+[% BLOCK buttons_row %]
+    <div class="buttons-row">
+        [% INCLUDE btn_signup url=url hash=hash %]
+        <span class="account-tooltip hidden-sm-down invisible" data-balloon="[% text %]" data-balloon-length="medium">?</span>
+    </div>
+[% END %]
