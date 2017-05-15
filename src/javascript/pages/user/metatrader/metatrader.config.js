@@ -23,8 +23,11 @@ const MetaTraderConfig = (function() {
     const actions_info = {
         new_account: {
             title      : 'Sign Up',
-            success_msg: response => 'Congratulations! Your [_1] Account has been created.'.replace('[_1]',
-                types_info[response.mt5_new_account.account_type === 'financial' ? `champion_${response.mt5_new_account.mt5_account_type}` : response.mt5_new_account.account_type].title),
+            success_msg: response => 'Congratulations! Your [_1] Account has been created.'.replace('[_1]', types_info[
+                Object.keys(types_info).find(t => (
+                    types_info[t].account_type     === response.mt5_new_account.account_type &&
+                    types_info[t].mt5_account_type === response.mt5_new_account.mt5_account_type
+                ))].title),
             login        : response => response.mt5_new_account.login,
             prerequisites: acc_type => (
                 new Promise((resolve) => {

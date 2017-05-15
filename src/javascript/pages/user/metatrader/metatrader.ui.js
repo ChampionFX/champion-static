@@ -136,14 +136,19 @@ const MetaTraderUI = (function() {
 
         setAccountType(acc_type);
 
-        const default_action = types_info[acc_type].account_info ? (types_info[acc_type].is_demo ? 'password_change' : 'deposit') : 'new_account';
         if ($action.hasClass(hidden_class)) {
-            loadAction(default_action);
+            loadAction(defaultAction(acc_type));
         }
     };
 
-    const loadAction = (action) => {
-        $detail.find(`.acc-actions [class*=act_${action}]`).click();
+    const defaultAction = acc_type => (
+        types_info[acc_type].account_info ?
+            (types_info[acc_type].is_demo ? 'password_change' : 'deposit') :
+            'new_account'
+    );
+
+    const loadAction = (action, acc_type) => {
+        $detail.find(`.acc-actions [class*=act_${action || defaultAction(acc_type)}]`).click();
     };
 
     const populateForm = (e) => {
