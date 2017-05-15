@@ -89,6 +89,11 @@
                         </div>
                     </div>
                 </div>
+                <p>
+                    <a class="button" href="[% request.url_for('mt5-vs-mt4.html') %]">
+                        <span>MetaTrader 5 vs MetaTrader 4</span>
+                    </a>
+                </p>
                 <div class="fx-divider"></div>
                 [% INCLUDE static/common/separator_line.html.tt %]
                 <h2>[% l('Available on desktop, web, and mobile') %]</h2>
