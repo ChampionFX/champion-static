@@ -163,7 +163,7 @@ const MetaTraderUI = (function() {
         actions_info[action].prerequisites(acc_type).then((error_msg) => {
             if (error_msg) { // does not meet one of prerequisites
                 displayMainMessage(error_msg);
-                $action.find('#frm_action').empty();
+                $action.find('#frm_action').empty().end().removeClass(hidden_class);
                 return;
             }
 
