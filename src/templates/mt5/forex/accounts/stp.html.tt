@@ -5,7 +5,7 @@
                 <div class="lg-padding no-gutters">
                     <h1>[% l('STP account') %]</h1>
                     <p>[% l('The STP account provides you with the tightest spreads and connects you directly to the market, and provides you with different prices from a variety of liquidity providers such as banks and brokerages. STP stands for ‘Straight Through Processing’ –– meaning your orders are sent directly to our liquidity providers.') %]</p>
-                    <a class="button" href="[% request.url_for('user/metatrader') %]#create_champion_stp"><span>[% l('Create account') %]</span></a>
+                    <a class="button" href="[% request.url_for('user/metatrader') %]#real_champion_stp"><span>[% l('Create account') %]</span></a>
                     <div class="fx-divider"></div>
                     <table class="col-md-8 push-md-2">
                         <tbody>
