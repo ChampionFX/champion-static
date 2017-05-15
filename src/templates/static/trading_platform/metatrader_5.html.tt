@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm">
-                [% INCLUDE components/page_title.html.tt title=l('MetaTrader 5') %]
+                [% INCLUDE components/page_title.html.tt title=l('MetaTrader 5 Trading Platforms') %]
                 <p>[% l('Step into a whole new world of trading with ChampionFX –– Your dedicated MT5 broker.') %]</p>
                 <p>[% l('We know that our traders require quick access to their trading accounts anywhere in the world, and at any time of the day. So, we offer the most efficient and powerful range of trading platforms. Browse our range of platforms and services, and start trading on your chosen device.') %]</p>
                 <p>[% l('Successful trading in the financial markets begins with a comfortable and multi-functional trading platform. MetaTrader 5 is the best choice for the modern trader. Now you can trade anytime and anywhere, with the global markets at your fingertips.') %]</p>
