@@ -171,3 +171,23 @@
         }
     }
 }
+
+@media (max-width: 991px) {
+    #mt_account_management .mt-container {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 1199px) {
+    #mt_account_management {
+        .mt-container {
+            padding: 0 20px;
+        }
+        #accounts_list {
+            font-size: $FONT_SIZE_S;
+            .mt-balance {
+                font-size: $FONT_SIZE_XS !important;
+            }
+        }
+    }
+}

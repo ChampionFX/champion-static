@@ -31,6 +31,9 @@
 }
 
 @media (min-width: 768px) {
+    .container, .fx-container {
+        width: 100%;
+    }
     .hidden-sm-up {
         display: none !important;
     }
@@ -45,6 +48,12 @@
     }
     .fx-panel, .fx-panel-item {
         height: auto;
+    }
+}
+
+@media (min-width: 991px) {
+    .container, .fx-container {
+        width: 100%;
     }
 }
 
