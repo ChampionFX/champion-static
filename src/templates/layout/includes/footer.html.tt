@@ -55,8 +55,12 @@
                                 { link => '#', text => l("Learning centre") },
                                 { link => '#', text => l("FAQ") },
                             ] %]
-                            [% INCLUDE link_group title=l('Legal') items=[
+                            [% INCLUDE link_group title=l('Legal') class="mt-hide" items=[
                                 { link => 'terms-and-conditions', text => l("Terms and Conditions") },
+                                { link => '', text => l("&nbsp;") },
+                            ] %]
+                            [% INCLUDE link_group title=l('Legal') class="mt-show" items=[
+                                { link => 'terms-and-conditions#legal-cfd', text => l("Terms and Conditions") },
                                 { link => '', text => l("&nbsp;") },
                             ] %]
                             [% INCLUDE link_group title=l('Resources') class="mt-hide" items=[

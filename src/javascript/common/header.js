@@ -125,7 +125,7 @@ const Header = (function () {
         Client.get('loginid_array').forEach((login) => {
             if (!login.disabled) {
                 const curr_id = login.id;
-                const type    = `(${login.real ? 'Real' : 'Virtual'} Account)`;
+                const type    = `(Binary ${login.real ? 'Real' : 'Virtual'} Account)`;
                 const icon    = login.real ? 'fx-real-icon' : 'fx-virtual-icon';
                 const is_current = curr_id === Client.get('loginid');
 

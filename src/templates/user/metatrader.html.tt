@@ -146,5 +146,5 @@
     </div>
 </div>
 [% BLOCK cashier_link %]
-    <p>[% l('Need to transfer money to your ChampionFX Wallet or withdraw from ChampionFX Wallet to your own account? <a href="[_1]">Go to Cashier</a>', request.url_for('cashier')) %]</p>
+    <p class="notice-msg">[% l('Need to transfer money to your ChampionFX Wallet or withdraw from ChampionFX Wallet to your own account? <a href="[_1]">Go to Cashier</a>', request.url_for('cashier')) %]</p>
 [% END %]
