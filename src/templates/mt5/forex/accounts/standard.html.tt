@@ -5,7 +5,7 @@
                 <div class="lg-padding no-gutters">
                     <h1>[% l('Standard account') %]</h1>
                     <p>[% l('The Standard account is suitable for a wide range of traders, both new and experienced. It gives you mid-range leverage and variable spreads that give you a great deal of flexibility for whatever position you wish to take in the market.') %]</p>
-                    <a class="button" href="[% request.url_for('user/metatrader') %]#create_champion_standard"><span>[% l('Create account') %]</span></a>
+                    <a class="button" href="[% request.url_for('user/metatrader') %]#real_champion_standard"><span>[% l('Create account') %]</span></a>
                     <div class="fx-divider"></div>
                     <table class="col-md-8 push-md-2">
                         <tbody>

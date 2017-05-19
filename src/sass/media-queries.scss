@@ -31,6 +31,9 @@
 }
 
 @media (min-width: 768px) {
+    .container, .fx-container {
+        width: 100%;
+    }
     .hidden-sm-up {
         display: none !important;
     }
@@ -48,6 +51,12 @@
     }
 }
 
+@media (min-width: 991px) {
+    .container, .fx-container {
+        width: 100%;
+    }
+}
+
 @media (max-width: 1199px) {
     .hidden-lg-down {
         display: none !important;
@@ -60,7 +69,13 @@
         width: initial;
     }
     #account-info {
-        text-align: right !important;
+        float: right;
+        white-space: nowrap;
+    }
+    #header .button, .button-secondary {
+        span {
+            padding: 7px 20px !important;
+        }
     }
 }
 

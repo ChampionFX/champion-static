@@ -1,6 +1,7 @@
 const Client         = require('./client');
 const formatMoney    = require('./currency').formatMoney;
 const GTM            = require('./gtm');
+const ChampionRouter = require('./router');
 const ChampionSocket = require('./socket');
 const State          = require('./storage').State;
 const url_for        = require('./url').url_for;
@@ -58,7 +59,7 @@ const Header = (function () {
             }
         });
 
-        $(document).unbind('click').on('click', function(e) {
+        $(document).off('click.mobileMenu').on('click.mobileMenu', function(e) {
             e.stopPropagation();
             if ($('.nav-menu-dropdown.slide-in').length) {
                 Utility.slideOut($menu_dropdown);
@@ -85,9 +86,11 @@ const Header = (function () {
         });
 
         if (!Client.is_logged_in()) {
-            $('#topbar, #header').find('.logged-out').removeClass(hidden_class);
+            $('#top_group').removeClass('logged-in').find('.logged-out').removeClass(hidden_class);
             return;
         }
+        $(window).off('resize.updateBody').on('resize.updateBody', updateBody);
+        updateBody();
 
         $('#header .logged-in').removeClass(hidden_class);
         $all_accounts.find('.account > a').removeClass('menu-icon');
@@ -102,10 +105,14 @@ const Header = (function () {
             }
         });
 
-        $(document).unbind('click').on('click', function(e) {
+        $(document).off('click.desktopMenu').on('click.desktopMenu', function(e) {
             e.stopPropagation();
             Utility.animateDisappear($all_accounts);
         });
+    };
+
+    const updateBody = () => {
+        $('#champion-container').css('margin-top', $('#top_group').height());
     };
 
     const userMenu = function() {
@@ -114,47 +121,64 @@ const Header = (function () {
         }
 
         let loginid_select = '';
-        const loginid_array = Client.get('loginid_array');
-        for (let i = 0; i < loginid_array.length; i++) {
-            const login = loginid_array[i];
+        const is_mt_pages = State.get('is_mt_pages');
+        Client.get('loginid_array').forEach((login) => {
             if (!login.disabled) {
                 const curr_id = login.id;
-                const type    = `${login.real ? 'Real' : 'Virtual'} Account`;
+                const type    = `(Binary ${login.real ? 'Real' : 'Virtual'} Account)`;
                 const icon    = login.real ? 'fx-real-icon' : 'fx-virtual-icon';
+                const is_current = curr_id === Client.get('loginid');
 
                 // default account
-                if (curr_id === Client.get('loginid')) {
-                    $('.account-type').html(type);
-                    $('.account-id').html(curr_id);
+                if (is_current) {
+                    $('.main-account .account-type').html(type);
+                    $('.main-account .account-id').html(curr_id);
                     loginid_select += `<div class="hidden-lg-up">
                                         <span class="selected" href="javascript:;" value="${curr_id}">
                                         <li><span class="nav-menu-icon pull-left ${icon}"></span>${curr_id}</li>
                                         </span>
                                        <div class="separator-line-thin-gray"></div></div>`;
-                } else {
-                    loginid_select += `<a href="javascript:;" value="${curr_id}">
+                } else if (is_mt_pages && login.real && Client.is_virtual()) {
+                    switchLoginId(curr_id);
+                    return;
+                }
+                const item_class = is_current ? 'mt-show' : '';
+                loginid_select += `<a href="javascript:;" value="${curr_id}" class="${item_class}">
                                         <li>
                                             <span class="hidden-lg-up nav-menu-icon pull-left ${icon}"></span>
-                                            <div class="hidden-lg-down">${type}</div>
                                             <div>${curr_id}</div>
+                                            <div class="hidden-lg-down account-type">${type}</div>
                                         </li>
-                                       </a>
-                                        <div class="separator-line-thin-gray"></div>`;
-                }
+                                   </a>
+                                   <div class="separator-line-thin-gray ${item_class}"></div>`;
             }
-        }
+        });
         $('.login-id-list').html(loginid_select);
+        $('#mobile-menu .mt-show').remove();
+        setMetaTrader(is_mt_pages);
+        if (!Client.has_real()) {
+            $('#all-accounts .upgrade').removeClass(hidden_class);
+        }
         $('.login-id-list a').off('click').on('click', function(e) {
             e.preventDefault();
             $(this).attr('disabled', 'disabled');
             switchLoginId($(this).attr('value'));
+            if (State.get('is_mt_pages')) {
+                State.remove('is_mt_pages');
+                ChampionRouter.forward(url_for('user/settings'));
+            }
         });
+    };
+
+    const setMetaTrader = (is_mt_pages) => {
+        $('#header, #footer').find('.mt-hide')[is_mt_pages ? 'addClass' : 'removeClass'](hidden_class);
+        $('#header, #footer').find('.mt-show')[is_mt_pages ? 'removeClass' : 'addClass'](hidden_class);
     };
 
     const displayNotification = (message) => {
         const $msg_notification = $('#msg_notification');
         $msg_notification.html(message);
-        if ($msg_notification.is(':hidden')) $msg_notification.slideDown(500);
+        if ($msg_notification.is(':hidden')) $msg_notification.slideDown(500, updateBody);
     };
 
     const hideNotification = () => {
@@ -215,7 +239,7 @@ const Header = (function () {
     };
 
     const switchLoginId = (loginid) => {
-        if (!loginid || loginid.length === 0) {
+        if (!loginid || loginid.length === 0 || loginid === Client.get('loginid')) {
             return;
         }
         const token = Client.get_token(loginid);
@@ -247,7 +271,7 @@ const Header = (function () {
             return;
         }
         const view = formatMoney(balance, currency);
-        $('.topMenuBalance').text(view).css('visibility', 'visible');
+        $('.account-balance').text(view).css('visibility', 'visible');
     };
 
     return {
