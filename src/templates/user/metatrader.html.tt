@@ -128,7 +128,7 @@
 
                 [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Withdraw') %]
 
-                <p class="notice-msg">[% l('ant to withdraw funds from your ChampionFX Binary Real Account? <a href="[_1]">Go to the Cashier</a>', request.url_for('cashier')) %]</p>
+                <p class="notice-msg">[% l('Want to withdraw funds from your ChampionFX Binary Real Account? <a href="[_1]">Go to the Cashier</a>', request.url_for('cashier')) %]</p>
             </form>
 
             <div id="messages">
