@@ -54,8 +54,12 @@
             float: none;
             margin-left: 0;
             li a {
-                padding: 5px 15px;
+                padding: 0 15px;
+                line-height: 50px;
                 border-bottom: none;
+                &.active {
+                    background: $darkPrimaryBrandColor;
+                }
             }
         }
         &, #main-logout, #main-account {
