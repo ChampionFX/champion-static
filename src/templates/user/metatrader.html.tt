@@ -62,11 +62,11 @@
 
             <div class="account-desc">
                 <p class="demo_champion_cent real_champion_cent">
-                    [% l('The MetaTrader 5 Cent account offers the highest leverage, as well as low margin call and stop out level.') %]
+                    [% l('The MetaTrader 5 Cent account offers the highest leverage - ideal for new traders who want to start trading with a smaller capital.') %]
                     <a class="more" href="[% request.url_for('forex/accounts/cent') %]" target="_blank">[% l('Read more') %]</a>
                 </p>
                 <p class="demo_champion_standard real_champion_standard">
-                    [% l('The MetaTrader 5 Standard account is suitable for a wide range of traders, both new and experienced.') %]
+                    [% l('The MetaTrader 5 Standard account comes with mid-range leverage and variable spreads suitable for a wide range of traders.') %]
                     <a class="more" href="[% request.url_for('forex/accounts/standard') %]" target="_blank">[% l('Read more') %]</a>
                 </p>
                 <p class="demo_champion_stp real_champion_stp">
@@ -93,7 +93,7 @@
                 [% INCLUDE components/forms/form_row.html.tt type='password' id='txt_re_main_pass'  label=l('Verify main password') %]
                 [% INCLUDE components/forms/form_row.html.tt type='password' id='txt_investor_pass' label=l('Investor password (read-only access)') %]
                 [% INCLUDE components/forms/form_row.html.tt type='checkbox' id='chk_tnc'
-                    label=l('I have read and agree to the <a target="_blank" href="[_1]">terms and conditions</a> of the site.', request.url_for('/terms-and-conditions')) %]
+                    label=l('I have read and agree to the <a target="_blank" href="[_1]">terms and conditions</a> of the site.', request.url_for('/terms-and-conditions#legal-cfd')) %]
 
                 [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Create account') %]
             </form>
@@ -116,7 +116,7 @@
 
                 [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Deposit') %]
 
-                [% INCLUDE cashier_link %]
+                <p class="notice-msg">[% l('Want to fund your ChampionFX Binary Real Account? <a href="[_1]">Go to the Cashier</a>', request.url_for('cashier')) %]</p>
             </form>
 
             <form id="frm_withdrawal">
@@ -128,7 +128,7 @@
 
                 [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Withdraw') %]
 
-                [% INCLUDE cashier_link %]
+                <p class="notice-msg">[% l('Want to withdraw funds from your ChampionFX Binary Real Account? <a href="[_1]">Go to the Cashier</a>', request.url_for('cashier')) %]</p>
             </form>
 
             <div id="messages">
@@ -145,6 +145,3 @@
         </div>
     </div>
 </div>
-[% BLOCK cashier_link %]
-    <p class="notice-msg">[% l('Need to transfer money to your ChampionFX Wallet or withdraw from ChampionFX Wallet to your own account? <a href="[_1]">Go to Cashier</a>', request.url_for('cashier')) %]</p>
-[% END %]

@@ -22,7 +22,7 @@ const MetaTraderConfig = (function() {
 
     const actions_info = {
         new_account: {
-            title      : 'Sign Up',
+            title      : 'Sign up',
             success_msg: response => 'Congratulations! Your [_1] Account has been created.'.replace('[_1]', types_info[
                 Object.keys(types_info).find(t => (
                     types_info[t].account_type     === response.mt5_new_account.account_type &&
@@ -70,7 +70,7 @@ const MetaTraderConfig = (function() {
             },
         },
         password_change: {
-            title        : 'Change Password',
+            title        : 'Change password',
             success_msg  : response => 'The main password of account number [_1] has been changed.'.replace('[_1]', response.echo_req.login),
             prerequisites: () => new Promise(resolve => resolve('')),
             formValues   : ($form, acc_type, action) => {
