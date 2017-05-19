@@ -6,6 +6,7 @@ const Login                   = require('./login');
 const ChampionRouter          = require('./router');
 const SessionDurationLimit    = require('./session_duration_limit');
 const ChampionSocket          = require('./socket');
+const State                   = require('./storage').State;
 const default_redirect_url    = require('./url').default_redirect_url;
 const url_for                 = require('./url').url_for;
 const Utility                 = require('./utility');
@@ -74,6 +75,7 @@ const Champion = (function() {
 
     const afterContentChange = (e, content) => {
         const page = content.getAttribute('data-page');
+        State.set('current_page', page);
         const pages_map = {
             authenticate       : { module: Authenticate,           is_authenticated: true, only_real: true },
             cashier            : { module: Cashier },

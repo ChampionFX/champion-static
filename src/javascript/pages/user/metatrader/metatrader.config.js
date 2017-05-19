@@ -10,19 +10,24 @@ const MetaTraderConfig = (function() {
     'use strict';
 
     const types_info = {
-        demo             : { account_type: 'demo',      mt5_account_type: '',         title: 'Demo',          max_leverage: 1000, is_demo: true },
-        champion_cent    : { account_type: 'financial', mt5_account_type: 'cent',     title: 'Real Cent',     max_leverage: 1000 },
-        champion_standard: { account_type: 'financial', mt5_account_type: 'standard', title: 'Real Standard', max_leverage: 300 },
-        champion_stp     : { account_type: 'financial', mt5_account_type: 'stp',      title: 'Real STP',      max_leverage: 100 },
+        demo_champion_cent    : { account_type: 'demo',      mt5_account_type: 'cent',     title: 'Demo Cent',     order: 1, max_leverage: 1000, is_demo: true },
+        demo_champion_standard: { account_type: 'demo',      mt5_account_type: 'standard', title: 'Demo Standard', order: 3, max_leverage: 300,  is_demo: true },
+        demo_champion_stp     : { account_type: 'demo',      mt5_account_type: 'stp',      title: 'Demo STP',      order: 5, max_leverage: 100,  is_demo: true },
+        real_champion_cent    : { account_type: 'financial', mt5_account_type: 'cent',     title: 'Real Cent',     order: 2, max_leverage: 1000 },
+        real_champion_standard: { account_type: 'financial', mt5_account_type: 'standard', title: 'Real Standard', order: 4, max_leverage: 300 },
+        real_champion_stp     : { account_type: 'financial', mt5_account_type: 'stp',      title: 'Real STP',      order: 6, max_leverage: 100 },
     };
 
     const needsRealMessage = () => $(`#msg_${Client.has_real() ? 'switch' : 'upgrade'}`).html();
 
     const actions_info = {
         new_account: {
-            title      : 'Create Account',
-            success_msg: response => 'Congratulations! Your [_1] Account has been created.'.replace('[_1]',
-                types_info[response.mt5_new_account.account_type === 'financial' ? `champion_${response.mt5_new_account.mt5_account_type}` : response.mt5_new_account.account_type].title),
+            title      : 'Sign Up',
+            success_msg: response => 'Congratulations! Your [_1] Account has been created.'.replace('[_1]', types_info[
+                Object.keys(types_info).find(t => (
+                    types_info[t].account_type     === response.mt5_new_account.account_type &&
+                    types_info[t].mt5_account_type === response.mt5_new_account.mt5_account_type
+                ))].title),
             login        : response => response.mt5_new_account.login,
             prerequisites: acc_type => (
                 new Promise((resolve) => {
@@ -50,7 +55,7 @@ const MetaTraderConfig = (function() {
                 });
             },
             onSuccess: (response, acc_type) => {
-                const type = types_info[acc_type].mt5_account_type || 'demo';
+                const type = `${types_info[acc_type].account_type}_${types_info[acc_type].mt5_account_type}`;
                 const gtm_data = {
                     event          : 'mt5_new_account',
                     bom_email      : Client.get('email'),

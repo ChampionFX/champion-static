@@ -3,8 +3,10 @@
 <html lang="[% language %]">
     [% INCLUDE layout/includes/head.html.tt %]
 <body>
-    [% INCLUDE layout/includes/top_bar.html.tt %]
-    [% INCLUDE layout/includes/header.html.tt %]
+    <div id="top_group" class="logged-in">
+        [% INCLUDE layout/includes/top_bar.html.tt %]
+        [% INCLUDE layout/includes/header.html.tt %]
+    </div>
     [% INCLUDE layout/includes/gtm.html.tt %]
 
     <main class="page-content" aria-label="Content" id="champion-container">

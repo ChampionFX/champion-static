@@ -182,11 +182,8 @@ h1.main-title {
     }
 }
 
-#account-info {
-    text-align: center;
-    &:hover {
-        color: $borderColor;
-    }
+#account-info:hover {
+    color: $borderColor;
 }
 
 .right-align {
@@ -765,11 +762,6 @@ fieldset {
     .menu-container {
         line-height: 30px;
     }
-    .upgrade-message a {
-        padding: 0 10px;
-        background: $contentInverseColor;
-        color: $darkPrimaryBrandColor;
-    }
 }
 
 .languages {
@@ -1036,4 +1028,10 @@ iframe {
         padding: 10px;
         font-size: 22px;
     }
+}
+
+.required {
+    padding: 0 5px;
+    font-size: inherit !important;
+    font-style: inherit !important;
 }
