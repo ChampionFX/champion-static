@@ -42,7 +42,6 @@
                         </div>
                         <div class="col-xs-6 col-md-3 mt-hide">
                             [% INCLUDE link_group title=l('Binary options') items=[
-                                { link => 'range-of-markets',  text => l("Range of markets") },
                                 { link => 'types-of-accounts', text => l("Types of accounts") },
                                 { link => 'trading-platform/champion-trader', text => l("Binary options trading platforms") },
                             ] %]
