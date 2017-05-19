@@ -1,4 +1,5 @@
 const MetaTraderConfig  = require('./metatrader.config');
+const Client            = require('../../../common/client');
 const formatMoney       = require('../../../common/currency').formatMoney;
 const showLoadingImage  = require('../../../common/utility').showLoadingImage;
 const Validation        = require('../../../common/validation');
@@ -7,14 +8,17 @@ const MetaTraderUI = (function() {
     'use strict';
 
     let $container,
+        $list_cont,
+        $mt5_account,
         $list,
+        $detail,
         $action,
         $templates,
         $form,
         $main_msg,
         submit;
 
-    const hidden_class  = 'invisible';
+    const hidden_class = 'invisible';
 
     const types_info   = MetaTraderConfig.types_info;
     const actions_info = MetaTraderConfig.actions_info;
@@ -22,88 +26,154 @@ const MetaTraderUI = (function() {
 
     const init = (submit_func) => {
         submit = submit_func;
-        $container = $('#mt_account_management');
-        $list      = $container.find('#accounts_list');
-        $action    = $container.find('#fst_action');
-        $templates = $container.find('#templates');
-        $main_msg  = $container.find('#main_msg');
-        $container.find('#mt_loading').remove();
+        $container   = $('#mt_account_management');
+        $mt5_account = $container.find('#mt5_account');
+        $list_cont   = $container.find('#accounts_list');
+        $list        = $list_cont.find('> div');
+        $detail      = $container.find('#account_detail');
+        $action      = $container.find('#fst_action');
+        $templates   = $container.find('#templates');
+        $main_msg    = $container.find('#main_msg');
+        $detail.find('[class*="act_"]').click(populateForm);
 
         populateAccountList();
     };
 
     const populateAccountList = () => {
-        const $acc_box = $templates.find('> .acc-box');
-        Object.keys(types_info).forEach(function(acc_type) {
-            if ($list.find(`#${acc_type}`).length === 0) {
-                const $acc_item = $acc_box.clone();
-
-                // set values
-                $acc_item.attr('id', acc_type);
-                $acc_item.find('.title').text(types_info[acc_type].title);
-
-                // exceptions for demo account
-                if (types_info[acc_type].is_demo) {
-                    $acc_item.find('.act_deposit, .act_withdrawal').remove();
+        const $acc_name = $templates.find('> .acc-name');
+        const no_real   = Client.is_virtual() && !Client.has_real();
+        $('#top_msg')[no_real ? 'removeClass' : 'addClass'](hidden_class);
+        Object.keys(types_info)
+            .sort((a, b) => types_info[a].order > types_info[b].order)
+            .forEach((acc_type, idx) => {
+                if ($list.find(`#${acc_type}`).length === 0) {
+                    const $acc_item = $acc_name.clone();
+                    $acc_item.attr('value', acc_type);
+                    if (no_real && /real/.test(acc_type)) {
+                        $acc_item.addClass('disabled');
+                    }
+                    $list.append($acc_item);
+                    if (idx % 2 === 1 && idx < Object.keys(types_info).length - 1) {
+                        $list.append($('<div/>', { class: 'separator fill-bg-color' }));
+                    }
                 }
-                $list.append($acc_item);
+            });
+
+        const hideList = () => {
+            $list_cont.slideUp('fast', () => { $mt5_account.removeClass('open'); });
+        };
+
+        // account switch events
+        $mt5_account.off('click').on('click', (e) => {
+            e.stopPropagation();
+            if ($list_cont.is(':hidden')) {
+                $mt5_account.addClass('open');
+                $list_cont.slideDown('fast');
+            } else {
+                hideList();
             }
         });
-        $list.find('[class*="act_"]').click(populateForm);
-        $action.find('.close').click(() => { closeForm(true); });
+        $list.off('click').on('click', '.acc-name', function() {
+            if (!$(this).hasClass('disabled')) {
+                setAccountType($(this).attr('value'), true);
+            }
+        });
+        $(document).off('click.mt5_account_list').on('click.mt5_account_list', () => {
+            hideList();
+        });
     };
 
-    const displayLoadingAccount = (acc_type) => {
-        const $acc_item = $list.find(`#${acc_type}`);
-        $acc_item.find('> div > div:not(.title, .separator)').addClass(hidden_class);
-        $acc_item.find('.loading').removeClass(hidden_class);
+    const setAccountType = (acc_type, should_set_account) => {
+        if ($mt5_account.attr('value') !== acc_type) {
+            Client.set('mt5_account', acc_type);
+            $mt5_account.attr('value', acc_type).html(types_info[acc_type].title).removeClass('empty');
+            $action.addClass(hidden_class);
+            if (should_set_account) {
+                setCurrentAccount(acc_type);
+            }
+        }
     };
 
     const updateAccount = (acc_type) => {
-        const $acc_item = $list.find(`#${acc_type}`);
-        $acc_item.find('.loading').addClass(hidden_class);
+        updateListItem(acc_type);
+        setCurrentAccount(acc_type);
+    };
+
+    const updateListItem = (acc_type) => {
+        const $acc_item = $list.find(`[value=${acc_type}]`);
+        $acc_item.find('.mt-type').text(`${types_info[acc_type].title}`);
+        if (types_info[acc_type].account_info) {
+            $acc_item.find('.mt-login').text(types_info[acc_type].account_info.login);
+            $acc_item.find('.mt-balance').text(formatMoney(+types_info[acc_type].account_info.balance, 'USD'));
+            $acc_item.find('.mt-new').addClass(hidden_class);
+        } else {
+            $acc_item.find('.mt-new').removeClass(hidden_class);
+        }
+    };
+
+    const setCurrentAccount = (acc_type) => {
+        if (acc_type !== Client.get('mt5_account')) return;
+
+        $detail.find('#account_desc').html($templates.find(`.account-desc .${acc_type}`).clone());
+
         if (types_info[acc_type].account_info) {
             // Update account info
-            $acc_item.find('.acc-info div[data]').map(function () {
+            $detail.find('.acc-info div[data]').map(function () {
                 const key  = $(this).attr('data');
                 const info = types_info[acc_type].account_info[key];
                 $(this).text(
                     key === 'balance' ? formatMoney(+info, 'USD') :
                     key === 'leverage' ? `1:${info}` : info);
             });
-            $acc_item.find('.has-account').removeClass(hidden_class);
+            $detail.find('.act_deposit, .act_withdrawal')[types_info[acc_type].is_demo ? 'addClass' : 'removeClass'](hidden_class);
+            $detail.find('.has-account').removeClass(hidden_class);
+            $detail.find('#account_desc .more').addClass(hidden_class);
         } else {
-            $acc_item.find('.no-account').removeClass(hidden_class)
-                .find('.info').html($templates.find(`#${acc_type}`));
+            $detail.find('.acc-info, .acc-actions').addClass(hidden_class);
+        }
+        $('#mt_loading').remove();
+        $container.removeClass(hidden_class);
 
-            // Display account creation form if url has a hash like: #create_champion_cent
-            const hash = window.location.hash;
-            if (hash && hash === `#create_${acc_type}`) {
-                $acc_item.find('.act_new_account').click();
-                // remove hash from url
-                const url = window.location.href.split('#')[0];
-                window.history.replaceState({ url: url }, null, url);
-            }
+        setAccountType(acc_type);
+
+        if ($action.hasClass(hidden_class)) {
+            loadAction(defaultAction(acc_type));
         }
     };
 
+    const defaultAction = acc_type => (
+        types_info[acc_type].account_info ?
+            (types_info[acc_type].is_demo ? 'password_change' : 'deposit') :
+            'new_account'
+    );
+
+    const loadAction = (action, acc_type) => {
+        $detail.find(`.acc-actions [class*=act_${action || defaultAction(acc_type)}]`).click();
+    };
+
     const populateForm = (e) => {
-        closeForm();
         let $target = $(e.target);
-        if ($target.prop('tagName').toLowerCase() === 'img') {
+        if ($target.prop('tagName').toLowerCase() !== 'a') {
             $target = $target.parents('a');
         }
-        const acc_type = $target.parents('.acc-box').attr('id');
-        const action = $target.attr('class').match(/act_(.*)/)[1];
 
-        // set active
-        $list.find(`.acc-box[id!="${acc_type}"] > div`).removeClass('active');
-        $list.find(`#${acc_type} > div`).addClass('active');
+        const acc_type = Client.get('mt5_account');
+        const action = $target.attr('class').split(' ').find(c => /^act_/.test(c)).replace('act_', '');
+
+        // set active, update title
+        $detail.find('[class*="act_"]').removeClass('selected');
+        $target.addClass('selected');
+        $action.find('h4').text(actions_info[action].title);
 
         actions_info[action].prerequisites(acc_type).then((error_msg) => {
             if (error_msg) { // does not meet one of prerequisites
                 displayMainMessage(error_msg);
+                $action.find('#frm_action').empty().end().removeClass(hidden_class);
                 return;
+            }
+
+            if (!$action.find(`#frm_${action}`).length) {
+                $main_msg.addClass(hidden_class);
             }
 
             // clone form, event listener
@@ -112,29 +182,12 @@ const MetaTraderUI = (function() {
             if (formValues) formValues($form, acc_type, action);
             $form.find('#btn_submit').attr({ acc_type: acc_type, action: action }).on('click dblclick', submit);
 
-            // update title, append form
-            $action.find('h4').text(`${types_info[acc_type].title}: ${actions_info[action].title}`).end()
-                .find('#frm_action')
-                .html($form)
-                .end()
+            // append form
+            $action.find('#frm_action').html($form).removeClass(hidden_class).end()
                 .removeClass(hidden_class);
-            $.scrollTo($action, 500, { offset: -7 });
+            // $.scrollTo($action, 500, { offset: -7 });
             Validation.init(`#frm_${action}`, validations[action]);
         });
-    };
-
-    const closeForm = (should_scroll) => {
-        if ($form && $form.length) {
-            $form.find('#btn_submit').off('click dblclick', submit);
-            $form.empty();
-            $form = undefined;
-            $action.addClass(hidden_class);
-            $list.find('.acc-box > div').removeClass('active');
-            if (should_scroll) {
-                $.scrollTo($list, 500, { offset: -10 });
-            }
-        }
-        $main_msg.empty().addClass(hidden_class);
     };
 
     const postValidate = (acc_type, action) => {
@@ -152,7 +205,7 @@ const MetaTraderUI = (function() {
 
     const displayMainMessage = (message) => {
         $main_msg.html(message).removeClass(hidden_class);
-        $.scrollTo($main_msg, 500, { offset: -10 });
+        $.scrollTo($action, 500, { offset: -80 });
     };
 
     const disableButton = () => {
@@ -173,17 +226,16 @@ const MetaTraderUI = (function() {
     };
 
     return {
-        init                 : init,
-        $form                : () => $form,
-        displayLoadingAccount: displayLoadingAccount,
-        updateAccount        : updateAccount,
-        closeForm            : closeForm,
-        postValidate         : postValidate,
-        hideFormMessage      : hideFormMessage,
-        displayFormMessage   : displayFormMessage,
-        displayMainMessage   : displayMainMessage,
-        disableButton        : disableButton,
-        enableButton         : enableButton,
+        init              : init,
+        $form             : () => $form,
+        loadAction        : loadAction,
+        updateAccount     : updateAccount,
+        postValidate      : postValidate,
+        hideFormMessage   : hideFormMessage,
+        displayFormMessage: displayFormMessage,
+        displayMainMessage: displayMainMessage,
+        disableButton     : disableButton,
+        enableButton      : enableButton,
     };
 })();
 

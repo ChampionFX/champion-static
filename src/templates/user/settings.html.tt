@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-sm">
                 [% INCLUDE components/page_title.html.tt title=l('ChampionFX account settings') %]
-                <p>[% l('Trade Forex, CFDs, and binary options with our industry-leading trading platforms.') %]</p>
+                <p>[% l('Trade binary options with our industry-leading trading platforms.') %]</p>
 
                 <div class="fx-divider"></div>
 
@@ -18,7 +18,7 @@
                             <p>[% l('Manage your personal details and financial assessment information.') %]</p>
                         </div>
 
-                        <div class="col-md-3 offset-lg-1">
+                        <div class="col-md-3 offset-lg-1 invisible">
                             <a href="[% request.url_for('user/metatrader') %]">
                                 <h3>[% l('MetaTrader 5') %]</h3>
                             </a>
@@ -34,7 +34,7 @@
                             <p>[% l('Manage your Champion Trader account for binary options trading.') %]</p>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-3 offset-lg-1">
                             <a href="[% request.url_for('user/security') %]">
                                 <h3>[% l('Security') %]</h3>
                             </a>
@@ -42,7 +42,7 @@
                             <p>[% l('Change your account and cashier passwords. View your login history.') %]</p>
                         </div>
 
-                        <div class="col-md-3 offset-lg-1 fx-real" style="display: none">
+                        <div class="col-md-3 fx-real" style="display: none">
                             <a href="[% request.url_for('cashier') %]">
                                 <h3>[% l('Cashier') %]</h3>
                             </a>

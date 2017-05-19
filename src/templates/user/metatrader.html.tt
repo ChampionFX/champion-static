@@ -1,71 +1,78 @@
-<div class="fx-section">
-    <div id="mt_account_management" class="container">
-        [% INCLUDE components/page_title.html.tt title=l('MetaTrader account management') %]
-
-        <div id="mt_loading">[% INCLUDE static/common/loading.html.tt %]</div>
-
-        <div id="accounts_list" class="row"></div>
-
-        <div class="row">
-            <div class="fst-container col-xs-12">
-                <div id="main_msg" class="notice-msg center-text invisible"></div>
+<div class="container">
+    <div id="mt_loading">[% INCLUDE static/common/loading.html.tt %]</div>
+    <div id="mt_account_management" class="row fill-bg-color invisible">
+        <div id="mt_left_panel" class="mt-panel col-lg-3 col-md-4 no-gutters">
+            <div class="top hidden-sm-down">
+                <div style="width: 80px; height: 80px; margin: 0 auto; background: #f2f2f2; border: 1px solid #004385; border-radius: 40px;"></div> <!-- TODO: replace with image -->
+            </div>
+            <div id="account_selector">
+                <h4 id="mt5_account"></h4>
+                <div id="accounts_list">
+                    <div></div>
+                </div>
+            </div>
+            <div id="account_detail">
+                <div class="acc-info mt-container has-account row invisible">
+                    <div class="col-xs-5">[% l('Login ID:') %]</div><div data="login" class="col-xs-7"></div>
+                    <div class="col-xs-5">[% l('Name:') %]</div><div data="name" class="col-xs-7"></div>
+                    <div class="col-xs-5">[% l('Balance:') %]</div><div data="balance" class="col-xs-7"></div>
+                    <div class="col-xs-5 invisible">[% l('Leverage:') %]</div><div data="leverage" class="col-xs-7 invisible"></div>
+                </div>
+                <div class="acc-actions has-account invisible">
+                    <span class="invisible"><a href="javascript:;" class="act_new_account"></a></span>
+                    <a href="javascript:;" class="act_deposit">
+                        <img src="[% request.url_for('images/metatrader/deposit.svg') %]" alt="" />
+                        <span>[% l('Deposit') %]</span>
+                    </a>
+                    <a href="javascript:;" class="act_withdrawal">
+                        <img src="[% request.url_for('images/metatrader/withdraw.svg') %]" alt="" />
+                        <span>[% l('Withdraw') %]</span>
+                    </a>
+                    <a href="javascript:;" class="act_password_change">
+                        <img src="[% request.url_for('images/metatrader/password.svg') %]" alt="" />
+                        <span>[% l('Password') %]</span>
+                    </a>
+                </div>
+                <div id="account_desc" class="mt-container"></div>
+            </div>
+        </div>
+        <div id="mt_right_panel" class="mt-panel col-lg-9 col-md-8 no-gutters">
+            <div class="top mt-container hidden-sm-down">
+                <div id="top_msg" class="notice-msg center-text invisible">[% l('Please <a href="[_1]">upgrade</a> to be able to create real MetaTrader 5 accounts.', request.url_for('new-account')) %]</div>
+            </div>
+            <div class="fst-container mt-container">
                 <div id="fst_action" class="invisible">
                     <h4></h4>
                     <div class="separator primary-color"></div>
-                    <span class="close"></span>
-                    <div class="fx-divider"></div>
-                    <form id="frm_action"></form>
+                    <div id="main_msg" class="notice-msg center-text invisible"></div>
+                    <form id="frm_action" class="invisible"></form>
                 </div>
             </div>
         </div>
 
         <div id="templates" class="invisible">
-            <div class="acc-box col-xs-12 col-sm-6 col-md-6 col-lg-3">
-                <div>
-                    <h4 class="title"></h4>
-                    <div class="separator primary-color"></div>
-                    <div class="loading">[% INCLUDE static/common/loading.html.tt %]</div>
-                    <div class="no-account invisible">
-                        <div class="info"></div>
-                        <span class="button"><span class="act_new_account">[% l('Sign up') %]</span></span>
-                    </div>
-                    <div class="acc-info has-account row invisible">
-                        <div class="col-xs-4">[% l('Login ID:') %]</div><div data="login" class="col-xs-8"></div>
-                        <div class="col-xs-4">[% l('Name:') %]</div><div data="name" class="col-xs-7"></div>
-                        <div class="col-xs-4">[% l('Balance:') %]</div><div data="balance" class="col-xs-8"></div>
-                        <div class="col-xs-4 invisible">[% l('Leverage:') %]</div><div data="leverage" class="col-xs-8 invisible"></div>
-                    </div>
-                    <div class="acc-actions has-account invisible">
-                        <a href="javascript:;" class="act_deposit">
-                            <img src="[% request.url_for('images/metatrader/deposit.svg') %]" alt="" />
-                            [% l('Deposit') %]
-                        </a>
-                        <a href="javascript:;" class="act_withdrawal">
-                            <img src="[% request.url_for('images/metatrader/withdraw.svg') %]" alt="" />
-                            [% l('Withdraw') %]
-                        </a>
-                        <a href="javascript:;" class="act_password_change">
-                            <img src="[% request.url_for('images/metatrader/password.svg') %]" alt="" />
-                            [% l('Password') %]
-                        </a>
-                    </div>
+            <div class="acc-name">
+                <div class="mt-new invisible">
+                    <img src="[% request.url_for('images/metatrader/signup.svg') %]" />
                 </div>
+                <div class="mt-balance">&nbsp;</div>
+                <div class="mt-type"></div>
+                <div class="mt-login invisible"></div>
             </div>
 
-            <div id="no_account_info">
-                <div id="demo">[% l('Open a free Demo account.') %]</div>
-                <div id="champion_cent">
-                    [% l('The Cent account offers the highest leverage, as well as low margin call and stop out level.') %]
-                    <a href="[% request.url_for('forex/accounts/cent') %]" target="_blank">[% l('Read more') %]</a>
-                </div>
-                <div id="champion_standard">
-                    [% l('The Standard account is suitable for a wide range of traders, both new and experienced.') %]
-                    <a href="[% request.url_for('forex/accounts/standard') %]" target="_blank">[% l('Read more') %]</a>
-                </div>
-                <div id="champion_stp">
-                    [% l('The STP account provides you with the tightest spreads and connects you directly to the market.') %]
-                    <a href="[% request.url_for('forex/accounts/stp') %]" target="_blank">[% l('Read more') %]</a>
-                </div>
+            <div class="account-desc">
+                <p class="demo_champion_cent real_champion_cent">
+                    [% l('The MetaTrader 5 Cent account offers the highest leverage, as well as low margin call and stop out level.') %]
+                    <a class="more" href="[% request.url_for('forex/accounts/cent') %]" target="_blank">[% l('Read more') %]</a>
+                </p>
+                <p class="demo_champion_standard real_champion_standard">
+                    [% l('The MetaTrader 5 Standard account is suitable for a wide range of traders, both new and experienced.') %]
+                    <a class="more" href="[% request.url_for('forex/accounts/standard') %]" target="_blank">[% l('Read more') %]</a>
+                </p>
+                <p class="demo_champion_stp real_champion_stp">
+                    [% l('The MetaTrader 5 STP account provides you with the tightest spreads and connects you directly to the market.') %]
+                    <a class="more" href="[% request.url_for('forex/accounts/stp') %]" target="_blank">[% l('Read more') %]</a>
+                </p>
             </div>
 
             <form id="frm_new_account">
@@ -81,17 +88,18 @@
                     <option value="500">1:500</option>
                     <option value="1000">1:1000</option>
                 [% END %]
-                [% INCLUDE components/forms/form_row.html.tt type='password' id='txt_main_pass' label=l('Main password (trading access)')
+                [% INCLUDE components/forms/form_row.html.tt type='password' id='txt_main_pass'     label=l('Main password (trading access)')
                     hint=l('Minimum eight characters. Must contain numbers, and mix of upper and lower case letters.') %]
-                [% INCLUDE components/forms/form_row.html.tt type='password' id='txt_re_main_pass' label=l('Verify main password') %]
+                [% INCLUDE components/forms/form_row.html.tt type='password' id='txt_re_main_pass'  label=l('Verify main password') %]
                 [% INCLUDE components/forms/form_row.html.tt type='password' id='txt_investor_pass' label=l('Investor password (read-only access)') %]
-                [% INCLUDE components/forms/form_row.html.tt type='checkbox' id='chk_tnc' label=l('I have read and agree to the <a target="_blank" href="[_1]">terms and conditions</a> of the site.', request.url_for('/terms-and-conditions')) %]
+                [% INCLUDE components/forms/form_row.html.tt type='checkbox' id='chk_tnc'
+                    label=l('I have read and agree to the <a target="_blank" href="[_1]">terms and conditions</a> of the site.', request.url_for('/terms-and-conditions')) %]
 
                 [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Create account') %]
             </form>
 
             <form id="frm_password_change">
-                [% INCLUDE components/forms/form_row.html.tt type='label'    id='lbl_login'           label=l('Login ID') %]
+                [% INCLUDE components/forms/form_row.html.tt type='label'    id='lbl_login'           label=l('Login ID') row_class='invisible' %]
                 [% INCLUDE components/forms/form_row.html.tt type='password' id='txt_old_password'    label=l('Current password') %]
                 [% INCLUDE components/forms/form_row.html.tt type='password' id='txt_new_password'    label=l('New password')
                     hint=l('Minimum eight characters. Must contain numbers, and mix of upper and lower case letters.') %]
@@ -101,31 +109,35 @@
             </form>
 
             <form id="frm_deposit">
-                <p>[% l('Transfer funds from Champion-FX.com account into your MT5 account:') %]</p>
+                <p>[% l('Transfer funds from ChampionFX Binary Account into your MetaTrader 5 account:') %]</p>
                 [% INCLUDE components/forms/form_row.html.tt type='label' id='lbl_from'   label=l('Transfer from') %]
                 [% INCLUDE components/forms/form_row.html.tt type='label' id='lbl_to'     label=l('Deposit into') %]
                 [% INCLUDE components/forms/form_row.html.tt type='text'  id='txt_amount' label=l('Amount')_' (&#36;)' attributes='maxlength="10"' %]
 
                 [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Deposit') %]
+
+                [% INCLUDE cashier_link %]
             </form>
 
             <form id="frm_withdrawal">
-                <p>[% l('Transfer funds from your MT5 account into your Champion-FX.com account:') %]</p>
+                <p>[% l('Transfer funds from your MetaTrader 5 account into your ChampionFX Binary Account:') %]</p>
                 [% INCLUDE components/forms/form_row.html.tt type='label'    id='lbl_from'      label=l('Withdraw from') %]
                 [% INCLUDE components/forms/form_row.html.tt type='label'    id='lbl_to'        label=l('Transfer into') %]
-                [% INCLUDE components/forms/form_row.html.tt type='password' id='txt_main_pass' label=l('MT5 main password') %]
+                [% INCLUDE components/forms/form_row.html.tt type='password' id='txt_main_pass' label=l('MetaTrader 5 main password') %]
                 [% INCLUDE components/forms/form_row.html.tt type='text'     id='txt_amount'    label=l('Amount')_' (&#36;)' attributes='maxlength="10"' %]
 
                 [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Withdraw') %]
+
+                [% INCLUDE cashier_link %]
             </form>
 
             <div id="messages">
-                <div id="msg_switch">[% l('To perform this action, please switch to your [_1] Real Account.', website_name) %]</div>
+                <div id="msg_switch">[% l('To perform this action, please switch to your [_1] Real ChampionFX Binary Account.', website_name) %]</div>
                 <div id="msg_upgrade">[% l('To perform this action, please <a href="[_1]">upgrade to a [_2] Real Account</a>.', request.url_for('new-account'), website_name) %]</div>
-                <div id="msg_assessment">[% l('To create an MT5 Financial Account please complete the <a href="[_1]">Financial Assessment</a>.', request.url_for('user/profile') _ '#assessment') %]</div>
+                <div id="msg_assessment">[% l('To create an MetaTrader 5 Financial Account please complete the <a href="[_1]">Financial Assessment</a>.', request.url_for('user/profile') _ '#assessment') %]</div>
                 <div id="msg_authenticate">
                     <div class="txt-left">
-                        <p>[% l('To withdraw from MT5 Financial Account please Authenticate your [_1] account.', website_name) %]</p>
+                        <p>[% l('To withdraw from MetaTrader 5 Financial Account please Authenticate your [_1] account.', website_name) %]</p>
                         [% INCLUDE user/common/authenticate_message.html.tt %]
                     </div>
                 </div>
@@ -133,3 +145,6 @@
         </div>
     </div>
 </div>
+[% BLOCK cashier_link %]
+    <p class="notice-msg">[% l('Need to transfer money to your ChampionFX Wallet or withdraw from ChampionFX Wallet to your own account? <a href="[_1]">Go to Cashier</a>', request.url_for('cashier')) %]</p>
+[% END %]

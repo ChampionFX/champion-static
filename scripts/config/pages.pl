@@ -16,7 +16,6 @@ sub all_pages {
         ['lost-password',              'static/lost_password',         'full_width', 'Password Reset'],
         ['mission',                    'static/mission',               'full_width', 'Mission'],
 #       ['other-markets',              'static/other_markets',         'full_width', 'Other Markets'],
-        ['range-of-markets',           'static/range_of_markets',      'full_width', 'Range of Markets'],
         ['reset-password',             'static/reset_password',        'full_width', 'Password Reset'],
         ['trading',                    'static/trading',               'full_width', 'Trading'],
         ['why-mt5',                    'static/why_mt5',               'full_width', 'Why MT5'],

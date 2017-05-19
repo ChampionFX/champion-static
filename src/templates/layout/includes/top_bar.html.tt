@@ -1,11 +1,8 @@
 <div id="msg_notification" class="notice-msg center-text"></div>
-<div id="topbar" class="primary-color-dark">
+<div id="topbar" class="primary-color-dark logged-in">
     <div class="menu-container">
         <div class="row">
             <div class="col-sm-12 topbar-container flex-items-sm-middle">
-                <div class="upgrade-message pulser invisible">
-                    <a href="[% request.url_for('new-account') %]">Upgrade to a Real Account</a>
-                </div>
                 <div class="topbar-contacts">
                     <ul>
                         <li class="last hidden-lg-up">

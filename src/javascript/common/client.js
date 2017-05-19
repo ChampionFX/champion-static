@@ -85,10 +85,6 @@ const Client = (function () {
         set('balance', authorize.balance);
         client_object.values_set = true;
 
-        if (authorize.is_virtual && !get('has_real')) {
-            $('.upgrade-message').removeClass('invisible');
-        }
-
         ChampionSocket.send({ balance: 1, subscribe: 1 });
         ChampionSocket.send({ get_settings: 1 });
         ChampionSocket.send({ get_account_status: 1 });
@@ -246,8 +242,9 @@ const Client = (function () {
         return true;
     };
 
-    const getMT5AccountType = function(group) {
-        return group ? (/demo/.test(group) ? 'demo' : group.split('\\')[1] || '') : '';
+    const getMT5AccountType = (group) => {
+        if (group === 'demo\\champion_virtual') group = 'demo\\champion_cent'; // TODO: remove this line (used for backward compatibility)
+        return group ? group.replace('\\', '_') : '';
     };
 
     return {
