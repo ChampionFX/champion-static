@@ -43,7 +43,7 @@ function url_for_static(path) {
 }
 
 function default_redirect_url() {
-    return url_for('user/settings');
+    return url_for('user/metatrader');
 }
 
 function get_params() {
