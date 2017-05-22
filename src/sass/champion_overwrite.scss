@@ -189,3 +189,8 @@ button .barspinner.white {
         outline: none;
     }
 }
+
+ul.checked.small > li {
+    background-size: 16px;
+    padding-left: 24px;
+}
