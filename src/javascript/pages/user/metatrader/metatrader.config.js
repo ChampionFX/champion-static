@@ -2,7 +2,6 @@ const Client         = require('../../../common/client');
 const formatMoney    = require('../../../common/currency').formatMoney;
 const GTM            = require('../../../common/gtm');
 const ChampionSocket = require('../../../common/socket');
-const State          = require('../../../common/storage').State;
 const url_for        = require('../../../common/url').url_for;
 const isEmptyObject  = require('../../../common/utility').isEmptyObject;
 

@@ -11,15 +11,9 @@ const ClientType = (function() {
             if (Client.has_real()) {
                 $('.real-signup').hide();
             }
-            showContent('.logged-in');
         } else {
             $('#login-link').find('a').on('click', () => { Login.redirect_to_login(); });
-            showContent('.logged-out');
         }
-    };
-
-    const showContent = (selector) => {
-        $('#champion-content').find(selector).removeClass('invisible');
     };
 
     const unload = () => {
