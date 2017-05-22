@@ -40,6 +40,9 @@ const Header = (function () {
             desktopMenu();
         }
         userMenu();
+        if (!Client.is_logged_in()) {
+            $('#top_group').removeClass('logged-in').find('.logged-out').removeClass(hidden_class);
+        }
     };
 
     const mobileMenu = function() {
@@ -85,10 +88,8 @@ const Header = (function () {
             $(this).siblings('ul').toggleClass(hidden_class);
         });
 
-        if (!Client.is_logged_in()) {
-            $('#top_group').removeClass('logged-in').find('.logged-out').removeClass(hidden_class);
-            return;
-        }
+        if (!Client.is_logged_in()) return;
+
         $(window).off('resize.updateBody').on('resize.updateBody', updateBody);
         updateBody();
 
