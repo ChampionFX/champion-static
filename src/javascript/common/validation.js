@@ -40,7 +40,7 @@ const Validation = (() => {
                         if ($parent.find(`div.${error_class}`).length === 0) {
                             $parent.append($('<div/>', { class: `${error_class} ${hidden_class}` }));
                         }
-                        field.$error = $parent.find(`.${error_class}`);
+                        field.$error = $parent.find(`div.${error_class}`);
                         // Add indicator to required fields
                         if (field.validations.indexOf('req') >= 0) {
                             const $label = $parent.find('label');
