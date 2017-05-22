@@ -7,7 +7,6 @@ const Utility              = require('../../common/utility');
 const default_redirect_url = require('../../common/url').default_redirect_url;
 const Validation           = require('../../common/validation');
 const DatePicker           = require('../../components/date_picker').DatePicker;
-const Cookies              = require('../../lib/js-cookie');
 
 const NewAccount = (function() {
     'use strict';
@@ -200,7 +199,10 @@ const NewAccount = (function() {
                     } else {
                         const acc_info = response.new_account_virtual;
                         Client.process_new_account(acc_info.email, acc_info.client_id, acc_info.oauth_token, true);
-                        createRealAccount();
+                        ChampionSocket.send({ authorize: acc_info.oauth_token }, true).then(() => {
+                            Client.init();
+                            createRealAccount();
+                        });
                     }
                 });
             }
@@ -233,14 +235,12 @@ const NewAccount = (function() {
             if (response.error) {
                 $('#msg_form').removeClass(hidden_class).text(response.error.message);
                 $btn_submit.removeAttr('disabled');
-                if (!isUpgrade()) { // authorize the created virtual account
-                    ChampionSocket.send({ authorize: Cookies.get('token') }, true);
+                if (!isUpgrade()) {
                     toggleForm(true);
                 }
             } else {
                 const acc_info = response.new_account_real;
                 Client.process_new_account(Client.get('email'), acc_info.client_id, acc_info.oauth_token);
-                window.location.href = default_redirect_url();
             }
         });
     };
