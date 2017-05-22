@@ -112,7 +112,8 @@
                         <div class="separator primary-color"></div>
                         <p>[% l('Trade from any browser in Windows, MacOS, or Linux operating systems.') %]</p>
                         <p>
-                            <a class="button" href="https://trade.mql5.com/trade?servers=ChampionGroup-Server&trade_server=ChampionGroup-Server&demo_server=ChampionGroup-Server&startup_mode=open_demo&lang=en" target="_blank"><span>Launch Platform</span></a>
+                            <a class="button invisible logged-out" href="https://trade.mql5.com/trade?servers=ChampionGroup-Server&trade_server=ChampionGroup-Server&demo_server=ChampionGroup-Server&startup_mode=open_demo&lang=en" target="_blank"><span>Launch Platform</span></a>
+                            <a class="button invisible logged-in" href="https://trade.mql5.com/trade?servers=ChampionGroup-Server&trade_server=ChampionGroup-Server&demo_server=ChampionGroup-Server&lang=en" target="_blank"><span>Launch Platform</span></a>
                         </p>
                     </div>
                     <div class="col-sm-4">
