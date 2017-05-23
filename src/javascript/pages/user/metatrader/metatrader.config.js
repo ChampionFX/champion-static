@@ -2,7 +2,6 @@ const Client         = require('../../../common/client');
 const formatMoney    = require('../../../common/currency').formatMoney;
 const GTM            = require('../../../common/gtm');
 const ChampionSocket = require('../../../common/socket');
-const State          = require('../../../common/storage').State;
 const url_for        = require('../../../common/url').url_for;
 const isEmptyObject  = require('../../../common/utility').isEmptyObject;
 
@@ -22,7 +21,7 @@ const MetaTraderConfig = (function() {
 
     const actions_info = {
         new_account: {
-            title      : 'Sign Up',
+            title      : 'Sign up',
             success_msg: response => 'Congratulations! Your [_1] Account has been created.'.replace('[_1]', types_info[
                 Object.keys(types_info).find(t => (
                     types_info[t].account_type     === response.mt5_new_account.account_type &&
@@ -54,23 +53,12 @@ const MetaTraderConfig = (function() {
                     }
                 });
             },
-            onSuccess: (response, acc_type) => {
-                const type = `${types_info[acc_type].account_type}_${types_info[acc_type].mt5_account_type}`;
-                const gtm_data = {
-                    event          : 'mt5_new_account',
-                    bom_email      : Client.get('email'),
-                    bom_country    : State.get(['response', 'get_settings', 'get_settings', 'country']),
-                    mt5_last_signup: type,
-                };
-                gtm_data[`mt5_${type}_id`] = response.mt5_new_account.login;
-                if (acc_type === 'demo' && !Client.is_virtual()) {
-                    gtm_data.visitorId = Client.get('loginid_array').find(login => !login.real).id;
-                }
-                GTM.pushDataLayer(gtm_data);
+            onSuccess: (response) => {
+                GTM.mt5NewAccount(response);
             },
         },
         password_change: {
-            title        : 'Change Password',
+            title        : 'Change password',
             success_msg  : response => 'The main password of account number [_1] has been changed.'.replace('[_1]', response.echo_req.login),
             prerequisites: () => new Promise(resolve => resolve('')),
             formValues   : ($form, acc_type, action) => {

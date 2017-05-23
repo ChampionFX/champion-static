@@ -82,9 +82,10 @@ const GTM = (() => {
         if (is_login) {
             ChampionSocket.wait('mt5_login_list').then((response) => {
                 (response.mt5_login_list || []).forEach((obj) => {
-                    const acc_type = Client.getMT5AccountType(obj.group);
+                    const acc_type = (Client.getMT5AccountType(obj.group) || '')
+                        .replace('champion_', '').replace('real', 'financial'); // i.e. financial_cent, demo_cent
                     if (acc_type) {
-                        data[`mt5_${acc_type.replace('champion_', '')}_id`] = obj.login;
+                        data[`mt5_${acc_type}_id`] = obj.login;
                     }
                 });
                 pushDataLayer(data);
@@ -94,9 +95,25 @@ const GTM = (() => {
         }
     };
 
+    const mt5NewAccount = (response) => {
+        const acc_type = `${response.mt5_new_account.account_type}_${response.mt5_new_account.mt5_account_type}`;
+        const gtm_data = {
+            event          : 'mt5_new_account',
+            bom_email      : Client.get('email'),
+            bom_country    : State.get(['response', 'get_settings', 'get_settings', 'country']),
+            mt5_last_signup: acc_type, // i.e. financial_cent, demo_cent
+        };
+        gtm_data[`mt5_${acc_type}_id`] = response.mt5_new_account.login;
+        if (/demo/.test(acc_type) && !Client.is_virtual()) {
+            gtm_data.visitorId = Client.get('loginid_array').find(login => !login.real).id;
+        }
+        GTM.pushDataLayer(gtm_data);
+    };
+
     return {
         pushDataLayer: pushDataLayer,
         eventHandler : eventHandler,
+        mt5NewAccount: mt5NewAccount,
         setLoginFlag : () => { if (isGtmApplicable()) localStorage.setItem('GTM_login', '1'); },
     };
 })();

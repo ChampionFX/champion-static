@@ -10,31 +10,32 @@ const State                   = require('./storage').State;
 const default_redirect_url    = require('./url').default_redirect_url;
 const url_for                 = require('./url').url_for;
 const Utility                 = require('./utility');
+const Cashier                 = require('./../pages/cashier/cashier');
+const CashierPassword         = require('./../pages/cashier/cashier_password');
+const CashierDepositWithdraw  = require('./../pages/cashier/deposit_withdraw');
+const CashierPaymentMethods   = require('./../pages/cashier/payment_methods');
+const CashierTopUpVirtual     = require('./../pages/cashier/top_up_virtual');
 const ClientType              = require('./../pages/client_type');
 const ChampionContact         = require('./../pages/contact');
 const ChampionEndpoint        = require('./../pages/endpoint');
-const MT5                     = require('./../pages/mt5');
-const ChampionSignup          = require('./../pages/signup');
+const Home                    = require('./../pages/home');
 const LostPassword            = require('./../pages/lost_password');
+const MT5                     = require('./../pages/mt5');
 const ResetPassword           = require('./../pages/reset_password');
-const Cashier                 = require('./../pages/cashier/cashier');
-const CashierPassword         = require('./../pages/cashier/cashier_password');
-const CashierPaymentMethods   = require('./../pages/cashier/payment_methods');
-const CashierTopUpVirtual     = require('./../pages/cashier/top_up_virtual');
+const ChampionSignup          = require('./../pages/signup');
+const TradingPlatform         = require('./../pages/trading_platform');
+const TradingTimes            = require('./../pages/trading_times');
 const Authenticate            = require('./../pages/user/authenticate');
 const ChangePassword          = require('./../pages/user/change_password');
+const Limits                  = require('./../pages/user/limits');
+const LoginHistory            = require('./../pages/user/login_history');
 const MetaTrader              = require('./../pages/user/metatrader/metatrader');
 const NewAccount              = require('./../pages/user/new_account');
+const ChampionProfile         = require('./../pages/user/profile');
+const ChampionSecurity        = require('./../pages/user/security');
 const SelfExclusion           = require('./../pages/user/self_exclusion');
 const ChampionSettings        = require('./../pages/user/settings');
 const TNCApproval             = require('./../pages/user/tnc_approval');
-const CashierDepositWithdraw  = require('./../pages/cashier/deposit_withdraw');
-const Home                    = require('./../pages/home');
-const ChampionProfile         = require('./../pages/user/profile');
-const ChampionSecurity        = require('./../pages/user/security');
-const LoginHistory            = require('./../pages/user/login_history');
-const TradingTimes            = require('./../pages/trading_times');
-const Limits                  = require('./../pages/user/limits');
 
 const Champion = (function() {
     'use strict';
@@ -104,7 +105,7 @@ const Champion = (function() {
             'trading-times'    : { module: TradingTimes },
             'types-of-accounts': { module: ClientType },
             'trading-platform' : { module: ClientType },
-            'metatrader-5'     : { module: ClientType },
+            'metatrader-5'     : { module: TradingPlatform },
             'champion-trader'  : { module: ClientType },
         };
         if (page in pages_map) {
