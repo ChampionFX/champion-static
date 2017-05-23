@@ -127,6 +127,7 @@
                         { text=l('Metals') link='metals' },
                     ] },
                     { text=l('Binary Options')    link='binary-options' },
+                    { text=l('Trading platforms') link='trading-platform' },
                     { text=l('Partnerships')      link='partnerships' },
                 ] %]
                 [% INCLUDE main_menu class='logged-in' items=[

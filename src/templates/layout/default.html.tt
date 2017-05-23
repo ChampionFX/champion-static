@@ -3,6 +3,7 @@
 <html lang="[% language %]">
     [% INCLUDE layout/includes/head.html.tt %]
 <body>
+    <!--email_off-->
     <div id="top_group" class="logged-in">
         [% INCLUDE layout/includes/top_bar.html.tt %]
         [% INCLUDE layout/includes/header.html.tt %]
@@ -15,15 +16,18 @@
         </div>
     </main>
     [% INCLUDE layout/includes/footer.html.tt %]
+    <!--/email_off-->
 </body>
 </html>
 
 [% ELSE %] [%# is_pjax_request %]
 
+    <!--email_off-->
     <div id="page_info" style="display:none;">
         <title>[% browser_title %]</title>
     </div>
     <div class="wrapper" id="champion-content">
         [% content %]
     </div>
+    <!--/email_off-->
 [% END %]
