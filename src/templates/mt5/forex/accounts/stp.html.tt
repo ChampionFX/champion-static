@@ -46,10 +46,6 @@
                                 <td>[% l('Hedged margin') %]</td>
                                 <td>[% l('100%') %]</td>
                             </tr>
-                            <tr>
-                                <td>[% l('Swap-free option') %]</td>
-                                <td>[% l('Yes') %]</td>
-                            </tr>
                         </tbody>
                     </table>
                     <p class="lg-padding invisible">[% l("Got questions? Read our <a href='[_1]'>FAQ</a> or <a href='[_2]'>contact us</a>.", '#', request.url_for('contact')) %]</p>
