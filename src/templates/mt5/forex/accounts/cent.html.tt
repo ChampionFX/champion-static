@@ -44,11 +44,7 @@
                             </tr>
                             <tr>
                                 <td>[% l('Hedged margin') %]</td>
-                                <td>[% l('No') %]</td>
-                            </tr>
-                            <tr>
-                                <td>[% l('Swap-free option') %]</td>
-                                <td>[% l('Yes') %]</td>
+                                <td>[% l('100%') %]</td>
                             </tr>
                         </tbody>
                     </table>
