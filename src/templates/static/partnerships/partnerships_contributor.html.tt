@@ -41,7 +41,7 @@
                         <p>[% l('Extend your reach through free marketing campaigns.') %]</p>
                     </div>
                     <div class="col-md">
-                        <h4>[% l('Affiliate commission') %]</h4>
+                        <h4>[% l('Earn commission') %]</h4>
                         <div class="separator primary-color col-xs-8"></div>
                         <p>[% l('Convert viewers and readers into ChampionFX clients.') %]</p>
                     </div>
@@ -58,7 +58,7 @@
 
                 <div class="row">
                     <div class="col-lg-8 push-lg-2">
-                        <p class="notice-msg lg-padding">[% l('<strong>Note:</strong> Your affiliate commission is only generated through ChampionFX clients who trade binary options using our Champion Trader platform.') %]</p>
+                        <p class="notice-msg lg-padding">[% l('<strong>Note:</strong> Your commission is generated through clients who trade using both Champion Trader and MT5 platforms.') %]</p>
                     </div>
                 </div>
             </div>
