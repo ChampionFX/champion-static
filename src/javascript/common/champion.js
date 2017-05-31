@@ -21,9 +21,9 @@ const ChampionEndpoint        = require('./../pages/endpoint');
 const Home                    = require('./../pages/home');
 const LostPassword            = require('./../pages/lost_password');
 const MT5                     = require('./../pages/mt5');
+const MT5WebPlatform          = require('./../pages/mt5_web_platform');
 const ResetPassword           = require('./../pages/reset_password');
 const ChampionSignup          = require('./../pages/signup');
-const TradingPlatform         = require('./../pages/trading_platform');
 const TradingTimes            = require('./../pages/trading_times');
 const Authenticate            = require('./../pages/user/authenticate');
 const ChangePassword          = require('./../pages/user/change_password');
@@ -96,6 +96,7 @@ const Champion = (function() {
             'change-password'  : { module: ChangePassword,      is_authenticated: true },
             'login-history'    : { module: LoginHistory,        is_authenticated: true },
             'lost-password'    : { module: LostPassword,        not_authenticated: true },
+            'mt5-web-platform' : { module: MT5WebPlatform },
             'new-account'      : { module: NewAccount },
             'payment-methods'  : { module: CashierPaymentMethods },
             'reset-password'   : { module: ResetPassword,       not_authenticated: true },
@@ -105,7 +106,7 @@ const Champion = (function() {
             'trading-times'    : { module: TradingTimes },
             'types-of-accounts': { module: ClientType },
             'trading-platform' : { module: ClientType },
-            'metatrader-5'     : { module: TradingPlatform },
+            'metatrader-5'     : { module: ClientType },
             'champion-trader'  : { module: ClientType },
         };
         if (page in pages_map) {
