@@ -2,7 +2,7 @@
     <div class="fx-panel center-text container">
         <h1 class="content-inverse-color">[% l('Binary Options') %]</h1>
         <p class="content-inverse-color">[% l('ChampionFX knows our traders love options. That’s why we’ve provided them with access to a different kind of trading: binary options.') %]</p>
-        <div class="offset-lg-4 offset-md-2">
+        <div class="offset-lg-3 offset-md-2">
             [% INCLUDE layout/includes/signup.html.tt %]
         </div>
     </div>
