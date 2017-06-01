@@ -4,7 +4,7 @@
             <div class="col-sm">
                 <div class="row">
                     <div class="col-sm-6">
-                        [% INCLUDE components/page_title.html.tt title=l('How to trade binary options') %]
+                        <h1>[% l('How to trade binary options') %]</h3>
                         <p>[% l('Trading binary options is relatively easy, and you can purchase a trade in only three simple steps.') %]</p>
                     </div>
                     <div class="col-sm-6">
