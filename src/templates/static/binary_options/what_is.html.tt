@@ -1,33 +1,33 @@
 <div class="fx-section">
     <div class="container">
         <div class="row">
-            <div class="col-sm center-text">
-                [% INCLUDE components/page_title.html.tt title=l('What is binary options trading?') %]
+            <div class="col-sm">
+                <h1 class="center-text">[% l('What is binary options trading?') %]</h1>
                 <p>[% l('Understand the simple idea behind binary options, how they work, and their advantages over other financial instruments. A binary option is a type of financial option with a fixed payout. The payout is determined at the start before you purchase the trade. If your prediction is correct, you receive the fixed (and stated) payout. If not, you will lose your initial stake and nothing more. It is called a \'binary\' option because there can only be two outcomes: you either win or lose.') %]</p>
                 <p>[% l('Whatever market you trade in, always remember that you\'re not purchasing the asset itself, but a contract (or \'option\') that determines how the asset performs over a period of time. This limits your risk and makes it easy for anyone to start trading.') %]</p>
                 <div class="fx-divider"></div>
                 <div class="center-text">
                     <div class="row">
                         <div class="col-sm">
-                            <h2>[% l('Benefits of binary options trading with ChampionFX') %]</h2>
+                            <h1>[% l('Benefits of binary options trading with ChampionFX') %]</h1>
                         </div>
                     </div>
                     <div class="fx-divider"></div>
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="box bordered">
+                            <div class="box">
                                 <h4>[% l('Easy to trade') %]</h4>
                                 <p>[% l('Predict the market condition from two possible outcomes.') %]</p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="box bordered">
+                            <div class="box">
                                 <h4>[% l('Controlled risk') %]</h4>
                                 <p>[% l('Know from the start exactly what you stand to win or lose.') %]</p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="box bordered">
+                            <div class="box">
                                 <h4>[% l('No surprises') %]</h4>
                                 <p>[% l('Never worry about slippages, margin calls, or stops.') %]</p>
                             </div>
@@ -36,19 +36,19 @@
                     <div class="fx-divider"></div>
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="box bordered">
+                            <div class="box">
                                 <h4>[% l('Low stakes') %]</h4>
                                 <p>[% l('Deposit as little as USD 5 to start trading.') %]</p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="box bordered">
+                            <div class="box">
                                 <h4>[% l('Competitive payouts') %]</h4>
                                 <p>[% l('Enjoy payouts of up to USD 50,000 with a winning trade.') %]</p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="box bordered">
+                            <div class="box">
                                 <h4>[% l('Sharp prices') %]</h4>
                                 <p>[% l('Benefit from similar rates of return as interbank traders.') %]</p>
                             </div>
@@ -57,19 +57,19 @@
                     <div class="fx-divider"></div>
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="box bordered">
+                            <div class="box">
                                 <h4>[% l('Wide product range') %]</h4>
                                 <p>[% l('Trade over 100 types of assets across four markets.') %]</p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="box bordered">
+                            <div class="box">
                                 <h4>[% l('Simple and intuitive') %]</h4>
                                 <p>[% l('Enjoy a trading platform that’s easy to navigate and use.') %]</p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="box bordered">
+                            <div class="box">
                                 <h4>[% l('Trade the world’s markets') %]</h4>
                                 <p>[% l('Diversify your investment portfolio through one platform.') %]</p>
                             </div>
