@@ -36,7 +36,7 @@
 
 [% BLOCK step_sections %]
     <div class="row">
-        <div class="col-sm-3 center-align flex-sm-middle">
+        <div class="col-sm-3 center-text flex-sm-middle">
             <img src="[% request.url_for('images/binary_options/p' _ n _ '.svg') %]" class="image-medium" alt="" />
         </div>
         <div class="col-sm-9 flex-sm-middle">

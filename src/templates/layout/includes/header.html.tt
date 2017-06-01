@@ -61,10 +61,19 @@
                         <ul class="invisible logged-out">
                             <li>
                                 <div class="separator-line-thin-gray invisible logged-in"></div>
-                                <a href="[% request.url_for('binary-options') %]">
+                                <a href="javascript:;" class="nav-dropdown-toggle">
                                     <span class="nav-menu-icon pull-left fx-binary-icon"></span>
                                     [% l('Binary Options') %]
+                                    <span class="nav-menu-icon pull-right fx-moremenu-icon"></span>
                                 </a>
+                                <ul class="invisible submenu">
+                                    <li>
+                                        <div class="separator-line-thin-gray"></div>
+                                        <a href="[% request.url_for('binary-options') %]">[% l('About binary options') %]</a></li>
+                                    <li>
+                                        <div class="separator-line-thin-gray"></div>
+                                        <a href="[% request.url_for('types-of-accounts') %]">[% l('Account types') %]</a></li>
+                                </ul>
                             </li>
                             <li>
                                 <div class="separator-line-thin-gray"></div>
