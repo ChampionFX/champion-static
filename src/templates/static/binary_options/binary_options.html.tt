@@ -1,9 +1,12 @@
+<div class="primary-color-dark mt5-header">
+    <div class="fx-panel center-text container">
+        <h1 class="content-inverse-color">[% l('Binary Options') %]</h1>
+        <p class="content-inverse-color">[% l('ChampionFX knows our traders love options. That’s why we’ve provided them with access to a different kind of trading: binary options.') %]</p>
+	<a class="button-secondary" href="[% request.url_for('home') %]#signup"><span>[% l('Sign Up') %]</span></a>
+    </div>
+</div>
 <div class="fx-section">
     <div class="container">
-        [% INCLUDE components/page_title.html.tt title=l('Binary Options') %]
-        <p>[% l('ChampionFX knows our traders love options. That’s why we’ve provided them with access to a different kind of trading: binary options.') %]</p>
-        <div class="fx-divider-xl"></div>
-
         <div class="row">
             <div class="col-sm" id="content">
                 <div class="has-tabs invisible">
