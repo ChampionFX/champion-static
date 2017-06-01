@@ -126,7 +126,10 @@
                         { text=l('CFDs')   link='cfd' },
                         { text=l('Metals') link='metals' },
                     ] },
-                    { text=l('Binary Options')    link='binary-options' },
+                    { text=l('Binary Options') sub_items=[
+                            { text=l('About') link='binary-options' },
+                            { text=l('Account types') link='types-of-accounts' },
+                        ] },
                     { text=l('Trading platforms') link='trading-platform' },
                     { text=l('Partnerships')      link='partnerships' },
                 ] %]
