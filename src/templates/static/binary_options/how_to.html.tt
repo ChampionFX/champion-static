@@ -2,8 +2,15 @@
     <div class="container">
         <div class="row">
             <div class="col-sm">
-                [% INCLUDE components/page_title.html.tt title=l('How to trade binary options') %]
-                <p>[% l('Trading binary options is relatively easy, and you can purchase a trade in only three simple steps.') %]</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        [% INCLUDE components/page_title.html.tt title=l('How to trade binary options') %]
+                        <p>[% l('Trading binary options is relatively easy, and you can purchase a trade in only three simple steps.') %]</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <img src="[% request.url_for('images/binary_options/steps-place-holder.png') %]" class="responsive" alt="" />
+                    </div>
+                </div>
                 <div class="fx-divider"></div>
                 <div class="row">
                     <div class="col-md-3">
