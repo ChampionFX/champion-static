@@ -401,9 +401,11 @@ h1.main-title {
 }
 
 .fx-panel {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px 0;
     min-height: 320px;
+    h1 {
+        padding: 10px;
+    }
     p {
         padding: 0 20px;
     }
@@ -447,6 +449,7 @@ h1.main-title {
 
 .binary-options-header {
     background-image: url('../images/binary_options/binary_options_banner.png');
+    background-size: cover;
 }
 
 .mt5-header {
@@ -732,6 +735,11 @@ fieldset {
     left: 0;
     right: 0;
     top: 100%;
+}
+
+.fx-divider-sm {
+    height: 5px;
+    margin: 10px 0;
 }
 
 .fx-divider {
