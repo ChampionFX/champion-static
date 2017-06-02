@@ -14,7 +14,17 @@
                                 <h4>[% l('MetaTrader 5 desktop app') %]</h4>
                                 <div class="separator primary-color"></div>
                                 <p>[% l('Trade with a powerful interface known as the global industry standard.') %]</p>
-
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <a href=""><img src="[% request.url_for('images/buttons/Mac.svg') %]" /></a>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <a href=""><img src="[% request.url_for('images/buttons/Windows.svg') %]" /></a>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <a href=""><img src="[% request.url_for('images/buttons/Linux.svg') %]" /></a>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-sm-4">
                                 <h4>[% l('MetaTrader 5 web platform') %]</h4>
@@ -28,6 +38,14 @@
                                 <h4>[% l('MetaTrader 5 mobile app') %]</h4>
                                 <div class="separator primary-color"></div>
                                 <p>[% l('Trade from your iOS or android devices with native mobile apps.') %]</p>
+                                <div class="row">
+                                    <div class="col-sm-4 push-sm-2">
+                                        <a href=""><img src="[% request.url_for('images/buttons/Apple_Store.svg') %]" /></a>
+                                    </div>
+                                    <div class="col-sm-4 push-sm-2">
+                                        <a href=""><img src="[% request.url_for('images/buttons/Google_Play.svg') %]" /></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <p>[% l('Enjoy the rich user experience and unique flexibility of the world\'s most versalite binary options trading platform.') %]</p>
