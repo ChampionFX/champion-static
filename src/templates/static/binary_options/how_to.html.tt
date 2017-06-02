@@ -9,7 +9,7 @@
                     </div>
                     <div class="col-sm">
                         <div class="row steps">
-                            <div class="col-sm-2 hidden-xs-down">
+                            <div class="col-sm-2 hidden-xs-down hidden-sm-down">
                                 <img class="float-right" src="[% request.url_for('images/mt5/steps.svg') %]">
                             </div>
                             <div class="col-sm-10">
