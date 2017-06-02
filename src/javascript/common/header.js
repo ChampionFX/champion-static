@@ -138,7 +138,7 @@ const Header = (function () {
                                         <span class="selected" href="javascript:;" value="${curr_id}">
                                         <li><span class="nav-menu-icon pull-left ${icon}"></span>${curr_id}</li>
                                         </span>
-                                       <div class="separator-line-thin-gray"></div></div>`;
+                                       </div>`;
                 } else if (is_mt_pages && login.real && Client.is_virtual()) {
                     switchLoginId(curr_id);
                     return;
@@ -150,8 +150,7 @@ const Header = (function () {
                                             <div>${curr_id}</div>
                                             <div class="hidden-lg-down account-type">${type}</div>
                                         </li>
-                                   </a>
-                                   <div class="separator-line-thin-gray ${item_class}"></div>`;
+                                   </a>`;
             }
         });
         $('.login-id-list').html(loginid_select);

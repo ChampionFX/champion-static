@@ -141,8 +141,12 @@ h1.main-title {
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch; /* mobile safari */
         li {
+            border-top: 1px solid $borderColor;
             padding: 0;
             margin: 0;
+        }
+        a li, #more_btn.invisible ~ ul li:first-child {
+            border-top: none;
         }
         a, span {
             display: block;
@@ -175,6 +179,7 @@ h1.main-title {
     .pull-right {
         float: right;
         margin-right: 15px;
+        margin-left: -37px;
     }
     .pull-left {
         float: left;
