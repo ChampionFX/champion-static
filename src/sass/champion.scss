@@ -737,11 +737,6 @@ fieldset {
     top: 100%;
 }
 
-.fx-divider-sm {
-    height: 5px;
-    margin: 10px 0;
-}
-
 .fx-divider {
     height: 5px;
     margin: 20px 0;
@@ -1051,4 +1046,11 @@ iframe {
     padding: 0 5px;
     font-size: inherit !important;
     font-style: inherit !important;
+}
+
+.steps {
+    p {
+        margin: 0.5em 0 2em;
+        padding: 0;
+    }
 }

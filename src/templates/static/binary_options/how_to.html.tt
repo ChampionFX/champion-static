@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm">
                         <h1>[% l('How to trade binary options') %]</h1>
                         <p>[% l('Trading binary options is relatively easy, and you can purchase a trade in only three simple steps.') %]</p>
                     </div>
@@ -15,10 +15,8 @@
                             <div class="col-sm-10">
                                 <h3>[% l('Define your position') %]</h3>
                                 <p>[% l('Consider the market, duration, barrier, and payout.') %]</p>
-                                <div class="fx-divider-sm"></div>
                                 <h3>[% l('Get your price') %]</h3>
                                 <p>[% l('Receive instant prices based on your position.') %]</p>
-                                <div class="fx-divider-sm"></div>
                                 <h3>[% l('Make your trade') %]</h3>
                                 <p>[% l('Choose to buy, or redefine your position.') %]</p>
                             </div>
@@ -46,7 +44,7 @@
     <div class="fx-divider"></div>
     [% IF not last %]
     <div class="row">
-        <div class="col-sm-6 push-sm-5 flex-sm-middle hidden-xs-down">
+        <div class="center-align flex-sm-middle hidden-xs-down">
             <img src="[% request.url_for('images/binary_options/arrow_down.svg') %]" height="50" alt="" />
         </div>
     </div>
