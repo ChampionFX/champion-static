@@ -117,12 +117,31 @@ const Header = (function () {
     };
 
     const userMenu = function() {
+        if (!Client.is_logged_in()) return;
         if (!Client.is_virtual()) {
             displayAccountStatus();
         }
 
-        let loginid_select = '';
+        const selectedTemplate = (text, value, icon) => (
+            `<div class="hidden-lg-up">
+                 <span class="selected" value="${value}">
+                     <li><span class="nav-menu-icon pull-left ${icon}"></span>${text}</li>
+                 </span>
+                 <div class="separator-line-thin-gray hidden-lg-down"></div>
+             </div>`
+        );
+        const switchTemplate = (text, value, icon, type, item_class) => (
+            `<a href="javascript:;" value="${value}" class="${item_class}">
+                 <li>
+                     <span class="hidden-lg-up nav-menu-icon pull-left ${icon}"></span>
+                     <div>${text}</div>
+                     <div class="hidden-lg-down account-type">${type}</div>
+                 </li>
+                 <div class="separator-line-thin-gray hidden-lg-down"></div>
+            </a>`
+        );
         const is_mt_pages = State.get('is_mt_pages');
+        let loginid_select = is_mt_pages ? selectedTemplate('MetaTrader 5', '', 'fx-mt5-icon') : '';
         Client.get('loginid_array').forEach((login) => {
             if (!login.disabled) {
                 const curr_id = login.id;
@@ -131,30 +150,19 @@ const Header = (function () {
                 const is_current = curr_id === Client.get('loginid');
 
                 // default account
-                if (is_current) {
+                if (is_current && !is_mt_pages) {
                     $('.main-account .account-type').html(type);
                     $('.main-account .account-id').html(curr_id);
-                    loginid_select += `<div class="hidden-lg-up">
-                                        <span class="selected" href="javascript:;" value="${curr_id}">
-                                        <li><span class="nav-menu-icon pull-left ${icon}"></span>${curr_id}</li>
-                                        </span>
-                                       </div>`;
+                    loginid_select += selectedTemplate(curr_id, curr_id, icon);
                 } else if (is_mt_pages && login.real && Client.is_virtual()) {
                     switchLoginId(curr_id);
                     return;
                 }
-                const item_class = is_current ? 'mt-show' : '';
-                loginid_select += `<a href="javascript:;" value="${curr_id}" class="${item_class}">
-                                        <li>
-                                            <span class="hidden-lg-up nav-menu-icon pull-left ${icon}"></span>
-                                            <div>${curr_id}</div>
-                                            <div class="hidden-lg-down account-type">${type}</div>
-                                        </li>
-                                   </a>`;
+                loginid_select += switchTemplate(curr_id, curr_id, icon, type, is_current ? 'mt-show' : '');
             }
         });
+
         $('.login-id-list').html(loginid_select);
-        $('#mobile-menu .mt-show').remove();
         setMetaTrader(is_mt_pages);
         if (!Client.has_real()) {
             $('#all-accounts .upgrade').removeClass(hidden_class);

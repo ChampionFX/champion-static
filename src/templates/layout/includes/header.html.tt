@@ -10,7 +10,7 @@
 
 [% BLOCK mobile_menu %]
     [% FOREACH item IN items %]
-        <li[% IF item.is_logged_in %] class="invisible logged-in"[% END %]>
+        <li class="[% item.is_logged_in ? 'invisible logged-in' : '' %] [% item.class %]">
             <a href="[% item.link ? request.url_for(item.link) : 'javascript:;' %]"[% IF item.link_id %] id="[% item.link_id %]"[% END %] class="[% item.link_class _ (item.sub_items ? ' nav-dropdown-toggle' : '') %]">
                 [% IF item.icon %]<span class="nav-menu-icon pull-left fx-[% item.icon %]-icon"></span>[% END %]
                 [% item.text %]
@@ -29,7 +29,7 @@
                 <ul class="nav-menu-dropdown hidden-lg-up">
                     <div class="login-id-list"></div>
                     [% INCLUDE mobile_menu items=[
-                        { text=l('MetaTrader 5') link='user/metatrader' icon='mt5'     is_logged_in=1 },
+                        { text=l('MetaTrader 5') link='user/metatrader' icon='mt5'     is_logged_in=1 class='mt-hide' },
                         { text=l('Cashier')      link='cashier'         icon='cashier' is_logged_in=1 },
                         { text=l('Settings')     link='user/settings'   icon='setting' is_logged_in=1 },
                         { text=l('About')        link='about-us'        icon='about' },
@@ -145,12 +145,12 @@
                                     <div class="login-id-list"></div>
                                     <a href="[% request.url_for('new-account/real') %]" class="upgrade invisible">
                                         <li>[% l("Upgrade to<br />Real Account") %]</li>
+                                        <div class="separator-line-thin-gray"></div>
                                     </a>
-                                    <div class="separator-line-thin-gray upgrade invisible"></div>
                                     <a href="[% request.url_for('user/metatrader') %]" class="mt-hide">
                                         <li>[% l("MetaTrader 5") %]</li>
+                                        <div class="separator-line-thin-gray"></div>
                                     </a>
-                                    <div class="separator-line-thin-gray mt-hide"></div>
                                     <a href="javascript:;" class="btn-logout logout">
                                         <li>[% l("Sign out") %]</li>
                                     </a>

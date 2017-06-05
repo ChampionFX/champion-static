@@ -141,12 +141,11 @@ h1.main-title {
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch; /* mobile safari */
         li {
-            border-top: 1px solid $borderColor;
             padding: 0;
             margin: 0;
         }
-        a li, #more_btn.invisible ~ ul li:first-child {
-            border-top: none;
+        a {
+            border-top: 1px solid $borderColor;
         }
         a, span {
             display: block;
