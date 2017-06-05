@@ -72,7 +72,7 @@
                                         <a href="[% request.url_for('binary-options') %]">[% l('About binary options') %]</a></li>
                                     <li>
                                         <div class="separator-line-thin-gray"></div>
-                                        <a href="[% request.url_for('types-of-accounts') %]">[% l('Account types') %]</a></li>
+                                        <a href="[% request.url_for('types-of-accounts') %]">[% l('Types of accounts') %]</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -137,7 +137,7 @@
                     ] },
                     { text=l('Binary Options') sub_items=[
                             { text=l('About binary options') link='binary-options' },
-                            { text=l('Account types') link='types-of-accounts' },
+                            { text=l('Types of accounts') link='types-of-accounts' },
                         ] },
                     { text=l('Trading platforms') link='trading-platform' },
                     { text=l('Partnerships')      link='partnerships' },
