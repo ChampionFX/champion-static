@@ -15,13 +15,13 @@
                                 <div class="separator primary-color"></div>
                                 <p>[% l('Trade with a powerful interface known as the global industry standard.') %]</p>
                                 <div class="row">
-                                    <div class="col-sm-4">
+                                    <div class="col-xs-4">
                                         <a href="https://s3.amazonaws.com/championfx/ChampionFX.dmg" target="_blank"><img src="[% request.url_for('images/buttons/Mac.svg') %]" /></a>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-xs-4">
                                         <a href="[% request.url_for('/download/championgroup_mt5_setup.exe') %]" target="_blank"><img src="[% request.url_for('images/buttons/Windows.svg') %]" /></a>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-xs-4">
                                         <a href="https://www.metatrader5.com/en/terminal/help/start_advanced/install_linux" target="_blank"><img src="[% request.url_for('images/buttons/Linux.svg') %]" /></a>
                                     </div>
                                 </div>
@@ -39,10 +39,10 @@
                                 <div class="separator primary-color"></div>
                                 <p>[% l('Trade from your iOS or android devices with native mobile apps.') %]</p>
                                 <div class="row">
-                                    <div class="col-sm-4 push-sm-2">
+                                    <div class="col-xs-4 push-xs-2">
                                         <a href="https://download.mql5.com/cdn/mobile/mt5/ios?server=ChampionGroup-Server" target="_blank"><img src="[% request.url_for('images/buttons/Apple_Store.svg') %]" /></a>
                                     </div>
-                                    <div class="col-sm-4 push-sm-2">
+                                    <div class="col-xs-4 push-xs-2">
                                         <a href="https://download.mql5.com/cdn/mobile/mt5/android?server=ChampionGroup-Server" target="_blank"><img src="[% request.url_for('images/buttons/Google_Play.svg') %]" /></a>
                                     </div>
                                 </div>
@@ -64,8 +64,8 @@
                         <p>[% l('Monitor all your favourite assets and markets at the same time, as well as charts, the asset index, trading times, and historical data.') %]</p>
                         <p>
                             <a class="button" href="[% request.url_for('trading-platform/champion-trader') %]">
-                            <span>[% l('Go to Champion Trader') %]</span>
-                        </a>
+                                <span>[% l('Go to Champion Trader') %]</span>
+                            </a>
                             <a class="button-secondary" href="[% request.url_for('trading-platform/champion-trader') %]">
                                 <span>[% l('Learn more') %]</span>
                             </a>
