@@ -38,11 +38,12 @@
                                 { text=l('CFDs')   link='cfd' },
                                 { text=l('Metals') link='metals' },
                             ] },
-                        { text=l('More') link_id='more_btn' link_class='invisible logged-in' icon=' ' sub_class='logged-out' sub_items=[
-                                { text=l('Binary Options')    link='binary-options'   icon='binary' },
-                                { text=l('Trading Platforms') link='trading-platform' icon='trading' },
-                                { text=l('Partnerships')      link='partnerships'     icon='partnership' },
+                        { text=l('Binary Options') link_id='more_options_btn' icon='binary' sub_class='submenu' sub_items=[
+                                { text=l('About binary options') link='binary-options' },
+                                { text=l('Types of accounts')    link='types-of-accounts' },
                             ] },
+                        { text=l('Trading Platforms') link='trading-platform' icon='trading' },
+                        { text=l('Partnerships')      link='partnerships'     icon='partnership' },
                         { text=l('Sign out') link='user/settings' icon='signout' is_logged_in=1 link_class='btn-logout logout invisible logged-in' },
                     ] %]
                     <div class="separator-line-thin-gray"></div>
@@ -82,7 +83,10 @@
                         { text=l('CFDs')   link='cfd' },
                         { text=l('Metals') link='metals' },
                     ] },
-                    { text=l('Binary Options')    link='binary-options' },
+                    { text=l('Binary Options') sub_items=[
+                            { text=l('About binary options') link='binary-options' },
+                            { text=l('Types of accounts')    link='types-of-accounts' },
+                        ] },
                     { text=l('Trading platforms') link='trading-platform' },
                     { text=l('Partnerships')      link='partnerships' },
                 ] %]

@@ -405,9 +405,11 @@ h1.main-title {
 }
 
 .fx-panel {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px 0;
     min-height: 320px;
+    h1 {
+        padding: 10px;
+    }
     p {
         padding: 0 20px;
     }
@@ -447,6 +449,11 @@ h1.main-title {
 
 .fx-section-sm {
     padding: 25px 0;
+}
+
+.binary-options-header {
+    background-image: url('../images/binary_options/binary_options_banner.png');
+    background-size: cover;
 }
 
 .mt5-header {
@@ -737,6 +744,11 @@ fieldset {
 .fx-divider {
     height: 5px;
     margin: 20px 0;
+}
+
+.fx-divider-l {
+    height: 5px;
+    margin: 30px 0;
 }
 
 .fx-divider-xl {
@@ -1038,4 +1050,9 @@ iframe {
     padding: 0 5px;
     font-size: inherit !important;
     font-style: inherit !important;
+}
+
+.steps p {
+    margin: 0.5em 0 2em;
+    padding: 0;
 }
