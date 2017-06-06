@@ -1,3 +1,13 @@
+<div class="primary-color-dark binary-options-header">
+    <div class="fx-panel center-text container">
+        <h1 class="content-inverse-color">[% l('Binary Options') %]</h1>
+        <p class="content-inverse-color">[% l('ChampionFX knows our traders love options. That’s why we’ve provided them with access to a different kind of trading: binary options.') %]</p>
+        <div class="offset-lg-3 offset-md-2">
+            [% INCLUDE layout/includes/signup.html.tt %]
+        </div>
+    </div>
+</div>
+
 <div class="fx-section">
     <div class="container">
         <div class="row">
@@ -7,8 +17,8 @@
                 <div class="fx-divider"></div>
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="box bordered" style="height: 100%">
-                            <h4>[% l('Virtual account') %]</h4>
+                        <div class="box">
+                            <h4>[% l('Virtual Account') %]</h4>
                             <div class="row">
                                 <div class="col-sm pull-xs-1">
                                     <ul class="bullet">
@@ -20,14 +30,14 @@
                             </div>
                             <p>
                                 <a class="button virtual-signup" href="[% request.url_for('home') %]#signup">
-                                    <span>[% l('Create account') %]</span>
+                                    <span>[% l('Sign up') %]</span>
                                 </a>
                             </p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="box bordered">
-                            <h4>[% l('Real account') %]</h4>
+                        <div class="box">
+                            <h4>[% l('Real Account') %]</h4>
                             <div class="row">
                                 <div class="col-sm pull-xs-1">
                                     <ul class="bullet">
@@ -37,10 +47,10 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="fx-divider-xl"></div>
+                            <div class="fx-divider-l"></div>
                             <p>
                                 <a class="button real-signup" href="[% request.url_for('new-account') %]">
-                                    <span>[% l('Upgrade') %]</span>
+                                    <span>[% l('Sign up') %]</span>
                                 </a>
                             </p>
                         </div>

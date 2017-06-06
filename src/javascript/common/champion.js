@@ -22,6 +22,7 @@ const Home                    = require('./../pages/home');
 const LostPassword            = require('./../pages/lost_password');
 const MT5                     = require('./../pages/mt5');
 const MT5WebPlatform          = require('./../pages/mt5_web_platform');
+const BinaryOptions           = require('./../pages/binary_options');
 const ResetPassword           = require('./../pages/reset_password');
 const ChampionSignup          = require('./../pages/signup');
 const TradingTimes            = require('./../pages/trading_times');
@@ -96,6 +97,7 @@ const Champion = (function() {
             'change-password'  : { module: ChangePassword,      is_authenticated: true },
             'login-history'    : { module: LoginHistory,        is_authenticated: true },
             'lost-password'    : { module: LostPassword,        not_authenticated: true },
+            'binary-options'   : { module: BinaryOptions },
             'mt5-web-platform' : { module: MT5WebPlatform },
             'new-account'      : { module: NewAccount },
             'payment-methods'  : { module: CashierPaymentMethods },
