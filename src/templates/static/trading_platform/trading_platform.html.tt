@@ -23,13 +23,17 @@
                         <div class="separator primary-color"></div>
                         <p>[% l('Trade with a powerful interface known as the global industry standard.') %]</p>
                         <div class="row">
-                            <div class="col-lg-4 col-md-6 col-xs-8 center-align margin-top-bottom">
-                                <a href="https://s3.amazonaws.com/championfx/ChampionFX.dmg" target="_blank"><img src="[% request.url_for('images/buttons/Mac.svg') %]" /></a>
+                            <div class="button-badge col-lg-4 col-md-6 col-xs-8 center-align margin-top-bottom">
+                                <a href="https://s3.amazonaws.com/championfx/ChampionFX.dmg" target="_blank">
+                                    <img src="[% request.url_for('images/buttons/Mac.svg') %]" />
+                                </a>
                             </div>
-                            <div class="col-lg-4 col-md-6 col-xs-8 center-align margin-top-bottom">
-                                <a href="[% request.url_for('/download/championgroup_mt5_setup.exe') %]" target="_blank"><img src="[% request.url_for('images/buttons/Windows.svg') %]" /></a>
+                            <div class="button-badge col-lg-4 col-md-6 col-xs-8 center-align margin-top-bottom">
+                                <a href="[% request.url_for('/download/championgroup_mt5_setup.exe') %]" target="_blank">
+                                    <img src="[% request.url_for('images/buttons/Windows.svg') %]" />
+                                </a>
                             </div>
-                            <div class="col-lg-4 col-md-6 col-xs-8 center-align margin-top-bottom">
+                            <div class="button-badge col-lg-4 col-md-6 col-xs-8 center-align margin-top-bottom">
                                 <a href="https://www.metatrader5.com/en/terminal/help/start_advanced/install_linux" target="_blank"><img src="[% request.url_for('images/buttons/Linux.svg') %]" /></a>
                             </div>
                         </div>
@@ -47,11 +51,15 @@
                         <div class="separator primary-color"></div>
                         <p>[% l('Trade from your iOS or android devices with native mobile apps.') %]</p>
                         <div class="row">
-                            <div class="col-lg-4 push-lg-1 col-md-6 col-xs-8 center-align margin-top-bottom">
-                                <a href="https://download.mql5.com/cdn/mobile/mt5/ios?server=ChampionGroup-Server" target="_blank"><img src="[% request.url_for('images/buttons/Apple_Store.svg') %]" /></a>
+                            <div class="button-badge col-lg-4 push-lg-1 col-md-6 col-xs-8 center-align margin-top-bottom">
+                                <a href="https://download.mql5.com/cdn/mobile/mt5/ios?server=ChampionGroup-Server" target="_blank">
+                                    <img src="[% request.url_for('images/buttons/Apple_Store.svg') %]" />
+                                </a>
                             </div>
-                            <div class="col-lg-4 pull-lg-1 col-md-6 col-xs-8 center-align margin-top-bottom">
-                                <a href="https://download.mql5.com/cdn/mobile/mt5/android?server=ChampionGroup-Server" target="_blank"><img src="[% request.url_for('images/buttons/Google_Play.svg') %]" /></a>
+                            <div class="button-badge col-lg-4 pull-lg-1 col-md-6 col-xs-8 center-align margin-top-bottom">
+                                <a href="https://download.mql5.com/cdn/mobile/mt5/android?server=ChampionGroup-Server" target="_blank">
+                                    <img src="[% request.url_for('images/buttons/Google_Play.svg') %]" />
+                                </a>
                             </div>
                         </div>
                     </div>

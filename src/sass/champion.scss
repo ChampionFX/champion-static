@@ -833,7 +833,7 @@ select[disabled=disabled] {
 
 // Settings page
 a:hover {
-    text-decoration: none !important;
+    text-decoration: none;
 }
 
 // financial assessment popup
@@ -933,8 +933,13 @@ ul.no-padding {
     width: 350px;
 }
 
-.underline-link {
+a.underline-link {
+    color: $darkPrimaryBrandColor;
     text-decoration: underline;
+    &:hover {
+        color: $primaryBrandColor;
+        text-decoration: underline;
+    }
 }
 
 .icon-ok {
