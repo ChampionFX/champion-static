@@ -144,6 +144,9 @@ h1.main-title {
             padding: 0;
             margin: 0;
         }
+        a {
+            border-top: 1px solid $borderColor;
+        }
         a, span {
             display: block;
             color: $black !important;
@@ -175,6 +178,7 @@ h1.main-title {
     .pull-right {
         float: right;
         margin-right: 15px;
+        margin-left: -37px;
     }
     .pull-left {
         float: left;
