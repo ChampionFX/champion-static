@@ -452,6 +452,10 @@ h1.main-title {
     background-size: cover;
 }
 
+.trading-platform-header {
+    background-image: url('../images/trading_platforms_banner.png');
+}
+
 .mt5-header {
     background-image: url('../images/forex.png');
 }
@@ -923,6 +927,10 @@ ul.no-padding {
     border-bottom: 2px solid $primaryBrandColor;
     padding-bottom: 10px;
     width: 350px;
+}
+
+.underline-link {
+    text-decoration: underline;
 }
 
 .icon-ok {
