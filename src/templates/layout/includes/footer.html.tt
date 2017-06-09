@@ -42,6 +42,7 @@
                         </div>
                         <div class="col-xs-6 col-md-3 mt-hide">
                             [% INCLUDE link_group title=l('Binary options') items=[
+                                { link => 'binary-options', text => l("About binary options") },
                                 { link => 'types-of-accounts', text => l("Types of accounts") },
                                 { link => 'trading-platform/champion-trader', text => l("Binary options trading platforms") },
                             ] %]
