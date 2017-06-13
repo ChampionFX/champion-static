@@ -456,6 +456,10 @@ h1.main-title {
     background-size: cover;
 }
 
+.trading-platform-header {
+    background-image: url('../images/trading_platforms_banner.png');
+}
+
 .mt5-header {
     background-image: url('../images/forex.png');
 }
@@ -829,7 +833,7 @@ select[disabled=disabled] {
 
 // Settings page
 a:hover {
-    text-decoration: none !important;
+    text-decoration: none;
 }
 
 // financial assessment popup
@@ -927,6 +931,14 @@ ul.no-padding {
     border-bottom: 2px solid $primaryBrandColor;
     padding-bottom: 10px;
     width: 350px;
+}
+
+a.underline-link {
+    color: $darkPrimaryBrandColor;
+    text-decoration: underline;
+    &:hover {
+        color: $primaryBrandColor;
+    }
 }
 
 .icon-ok {
