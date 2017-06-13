@@ -112,7 +112,6 @@
                 }
                 .separator-line-thin-gray {
                     opacity: 0.5;
-                    margin: 0 15px;
                 }
             }
         }
@@ -193,4 +192,13 @@ button .barspinner.white {
 ul.checked.small > li {
     background-size: 16px;
     padding-left: 24px;
+}
+
+.separator {
+    height: 1px !important;
+}
+
+.box {
+    background-color: $fillColor;
+    margin-bottom: 2px;
 }
