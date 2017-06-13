@@ -8,6 +8,12 @@ const CashierPaymentMethods = (function() {
 
     const load = () => {
         ChampionSocket.wait('authorize').then(() => {
+            $('.has-tabs').tabs().removeClass('invisible');
+            $('#accordion').accordion({
+                heightStyle : 'content',
+                collapsible : true,
+                active      : false
+            });
             const container = $('.fx-payment-methods');
             if (!Client.is_logged_in()) {
                 container.find('#btn-open-account').removeClass(hidden_class);
