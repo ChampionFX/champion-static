@@ -54,7 +54,7 @@ ul.scroll_tabs_container {
 }
 
 .scroll_tabs_container .scroll_tab_left_button:before {
-    content: '\25B6';
+    content: '\25C0';
     line-height: 100px;
     padding-left: 5px;
 }
@@ -70,6 +70,46 @@ ul.scroll_tabs_container {
     background-color: $white;
 }
 
-.scroll_tab_active {
+.tab_selected {
     background-color: $fillColor;
+    border-bottom: none;
+}
+
+.tab-content-wrapper {
+    display: inline-flex;
+    overflow: hidden;
+    div {
+        width: 100%;
+        display: inline-table;
+        background-color: $fillColor;
+        margin: 0 10px;
+        padding: 5px;
+    }
+}
+
+@-moz-keyframes foo {
+    from {
+        transform: translateX(-200px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+
+@-ms-keyframes foo {
+    from {
+        transform: translateX(-200px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+
+@-webkit-keyframes foo {
+    from {
+        transform: translateX(-200px);
+    }
+    to {
+        transform: translateX(0px);
+    }
 }

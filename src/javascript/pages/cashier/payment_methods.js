@@ -11,30 +11,27 @@ const CashierPaymentMethods = (function() {
 
     const load = () => {
         ChampionSocket.wait('authorize').then(() => {
-            $('.tab-content').addClass('in')
             $('#accordion').accordion({
                 heightStyle : 'content',
                 collapsible : true,
                 active      : false
             });
-            $('.hasTabs').scrollTabs({
+            $('.scrollable-tab').scrollTabs({
                 scroll_distance: 350,
                 scroll_duration: 350,
                 left_arrow_size: 40,
                 right_arrow_size: 40,
                 click_callback: function(e){
                     var val = $(this).find('a').attr('rel');
-                    $(this).parent().parent().find('.scroll_tab_active').removeClass('scroll_tab_active');
-                    $(this).addClass('scroll_tab_active');
-                    console.log($(this).parent().parent());
                     if (val) {
-                        console.log(val);
-                        $('.tab-content').find('.tab-content-wrapper > div').addClass('invisible');
-                        $(val).removeClass('invisible').addClass('slide-in');
+                        //$('.tab-content').find('.tab-content-wrapper > div').addClass('invisible');
+                        //$(val).removeClass('invisible');
+                        $('.tab-content-wrapper').animate({scrollLeft: $('.tab-content-wrapper').scrollLeft() + $(val).position().left}, 500);
+                        //scrollLeft($(val).position().left)
                     }
                 }
             });
-            // $('.slick-tab-content').slick();
+            // $('.tab-content-wrapper').slick();
             // $('.has-tabs').tabs().removeClass('invisible');
 
             const container = $('.fx-payment-methods');

@@ -127,14 +127,14 @@
 }
 
 .scrollable-tabs {
-    height: 120px;
+    height: 119px;
     width: 100%;
     overflow: hidden;
     ul {
         display: inline-flex;
         width: 100%;
         height: 100%;
-        overflow-x: scroll;
+        overflow-x: auto;
         overflow-y: hidden;
         li.ui-tabs-active {
             border-bottom: none !important;
@@ -146,37 +146,3 @@
         display: none;
     }
 }
-
-.tab-content {
-    background-color: $fillColor !important;
-    .ui-tabs-panel {
-        -webkit-animation: slide 0.5s forwards;
-        -webkit-animation-delay: 2s;
-        animation: slide 0.5s forwards !important;
-        animation-delay: 2s;
-    }
-}
-
-.slide-in {
-    animation: slide 0.5s forwards !important;
-    animation-delay: 2s;
-}
-
-@-webkit-keyframes slide {
-    from {
-        left: -100px;
-    }
-    to {
-        left: 0px;
-    }
-}
-
-@keyframes slide {
-    from {
-        left: -100px;
-    }
-    to {
-        left: 0px;
-    }
-}
-
