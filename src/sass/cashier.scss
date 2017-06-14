@@ -90,3 +90,93 @@
 #eco_payz {
     background-position: -106px -499px;
 }
+
+.fx-tab {
+    width: 140px;
+    height: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.ecopayz {
+    background-image: url('../images/payment_methods/EcoPayz.svg');
+}
+
+.mastercard {
+    background-image: url('../images/payment_methods/MasterCard.svg');
+}
+
+.netellar {
+    background-image: url('../images/payment_methods/Neteller.svg');
+}
+
+.skrill {
+    background-image: url('../images/payment_methods/Skrill.svg');
+}
+
+.unionpay {
+    background-image: url('../images/payment_methods/UnionPay.svg');
+}
+
+.visa {
+    background-image: url('../images/payment_methods/Visa.svg');
+}
+
+.scrollable-tabs {
+    height: 120px;
+    width: 100%;
+    overflow: hidden;
+    ul {
+        display: inline-flex;
+        width: 100%;
+        height: 100%;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        li.ui-tabs-active {
+            border-bottom: none !important;
+            background-color: $fillColor !important;
+        }
+
+    }
+    ul.-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.tab-content {
+    background-color: $fillColor !important;
+    .ui-tabs-panel {
+        -webkit-animation: slide 0.5s forwards;
+        -webkit-animation-delay: 2s;
+        animation: slide 0.5s forwards !important;
+        animation-delay: 2s;
+    }
+}
+
+.slide-in {
+    animation: slide 0.5s forwards !important;
+    animation-delay: 2s;
+}
+
+@-webkit-keyframes slide {
+    from {
+        left: -100px;
+    }
+    to {
+        left: 0px;
+    }
+}
+
+@keyframes slide {
+    from {
+        left: -100px;
+    }
+    to {
+        left: 0px;
+    }
+}
+

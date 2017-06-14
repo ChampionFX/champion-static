@@ -10,18 +10,23 @@
         <div class="col-sm">
             <div class="fx-section">
                 <div class="has-tabs">
-                    <ul id="payment_methods_tabs">
-                        <li><a href="#visa">Visa</a></li>
-                        <li><a href="#mastercard">Mastercard</a></li>
-                        <li><a href="#skrill">Skrill</a></li>
-                        <li><a href="#netellar">Netellar</a></li>
-                        <li><a href="#paysafecard">PaySafeCard</a></li>
-                        <li><a href="#bankwire">BankWire</a></li>
-                        <li><a href="#ecopayz">ecoPayz</a></li>
-                    </ul>
+                    <div class="scrollable-tabs">
+                        <ul class="hasTabs">
+                            <li><a rel="#visa"><div class="fx-tab visa"></div></a></li>
+                            <li><a rel="#mastercard"><div class="fx-tab mastercard"></div></a></li>
+                            <li><a rel="#skrill"><div class="fx-tab skrill"></div></a></li>
+                            <li><a rel="#neteller"><div class="fx-tab netellar"></div></a></li>
+                            <li><a rel="#paysafecard"><div class="fx-tab unionpay"></div></a></li>
+                            <li><a rel="#ecopayz"><div class="fx-tab ecopayz"></div></a></li>
+                            <li><a rel="#ecopayz"><div class="fx-tab ecopayz"></div></a></li>
+                            <li><a rel="#ecopayz"><div class="fx-tab ecopayz"></div></a></li>
+                            <li><a rel="#ecopayz"><div class="fx-tab ecopayz"></div></a></li>
+                        </ul>
+
+                    </div>
                     [% BLOCK tab_content %]
-                        <div class="row">
-                            <div class="col-sm-6">
+                        <div class="row slick-tab-content">
+                            <div class="col-md-6">
                                 <span>[% l('Currencies') %]</span>
                                 <h4>[% currencies %]</h4>
                                 <span>[% l('Min-Max Deposit:') %]</span>
@@ -31,42 +36,43 @@
                                 <span>[% l('Processing Time*') %]</span>
                                 <h4>[% time.join('<br />') %]</h4>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-md-6">
                                 <span>[% l('How to fund your account:') %]</span>
                             </div>
                         </div>
                     [% END %]
-                    <div class="tab-content">
+                    <div class="tab-content container">
                         <div class="tab-content-wrapper menu-has-sub-item">
-                            <div id="visa">
+                            <div id="visa" class="invisible">
+                                [% INCLUDE tab_content
+                                    currencies='USD' deposit='10 - 10,000' withdrawal='10 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
+                                %]
+                            </div>
+                            <div id="mastercard" class="invisible">
+                                [% INCLUDE tab_content
+                                    currencies='USD GBP' deposit='10 - 10,000' withdrawal='10 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
+                                %]
+                            </div>
+                            <div id="skrill" class="invisible">
+                                [% INCLUDE tab_content
+                                    currencies='USD GBP EUR' deposit='10 - 10,000' withdrawal='10 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
+                                %]
+                            </div>
+                            <div id="neteller" class="invisible">
                                 [% INCLUDE tab_content
                                     currencies='USD GBP EUR AUD' deposit='10 - 10,000' withdrawal='10 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
                                 %]
                             </div>
-                            <div id="mastercard">
+                            <div id="paysafecard" class="invisible">
                                 [% INCLUDE tab_content
-                                    currencies='USD GBP EUR AUD' deposit='10 - 10,000' withdrawal='10 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
-                                %]</div>
-                            <div id="skrill">
+                                    currencies='AUD' deposit='10 - 10,000' withdrawal='10 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
+                                %]
+                            </div>
+                            <div id="ecopayz" class="invisible">
                                 [% INCLUDE tab_content
-                                    currencies='USD GBP EUR AUD' deposit='10 - 10,000' withdrawal='10 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
-                                %]</div>
-                            <div id="netellar">
-                                [% INCLUDE tab_content
-                                    currencies='USD GBP EUR AUD' deposit='10 - 10,000' withdrawal='10 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
-                                %]</div>
-                            <div id="paysafecard">
-                                [% INCLUDE tab_content
-                                    currencies='USD GBP EUR AUD' deposit='10 - 10,000' withdrawal='10 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
-                                %]</div>
-                            <div id="bankwire">
-                                [% INCLUDE tab_content
-                                    currencies='USD GBP EUR AUD' deposit='10 - 10,000' withdrawal='10 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
-                                %]</div>
-                            <div id="ecopayz">
-                                [% INCLUDE tab_content
-                                    currencies='USD GBP EUR AUD' deposit='10 - 10,000' withdrawal='10 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
-                                %]</div>
+                                    currencies='USD AUD' deposit='10 - 10,000' withdrawal='10 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
+                                %]
+                            </div>
                         </div>
                     </div>
                 </div>
