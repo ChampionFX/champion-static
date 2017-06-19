@@ -43,9 +43,8 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    height: 40px;
-    width: 40px;
-    margin: 30px auto;
+    height: 40%;
+    margin: 20px auto;
     &-right {
         background-image: url('../images/payment_methods/arrow_right.svg');
     }
@@ -65,6 +64,7 @@
     }
 }
 
+// Payment methods scrollable tabs/contents
 #payment_methods {
     overflow: hidden;
     padding: 15px;
@@ -72,21 +72,29 @@
         padding: 0;
     }
     .horizontal-tab {
-        height: 100px;
-        &:nth-child(2) {
-            overflow: hidden;
-        }
+        height: 65px;
+        border: 1px solid $fillColor;
         .horizontal-tab-buttons {
+            overflow: hidden;
             padding: 0px;
         }
+        transition: width 0.5s;
     }
     .horizontal-tab.row {
         margin: 0;
     }
-    .scroll-right-button, .scroll-left-button {
-        border: 1px solid $fillColor;
+    .scroll {
+        border-top: none;
         cursor: pointer;
         padding: 0;
+        &-right-button {
+            cursor: pointer;
+            border-left: 1px solid $fillColor;
+        }
+        &-left-button {
+            cursor: pointer;
+            border-right: 1px solid $fillColor;
+        }
     }
     ul {
         display: flex;
@@ -97,19 +105,16 @@
         padding: 0;
         li {
             cursor: pointer;
-            border-top: 1px solid $fillColor;
             border-left: 1px solid $fillColor;
             margin: 0;
             padding: 0;
         }
-        li:last-child {
-            border-right: 1px solid $fillColor;
-        }
-        li.tab-selected {
+        .tab-selected {
             background-color: $fillColor;
+            transition: 0.3s ease-in-out;
         }
         .scrollable-tab-icon {
-            height: 70px;
+            height: 35px;
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
@@ -152,6 +157,82 @@
     }
 }
 
+// Payment methods table
+#payment_methods_table {
+    h3 {
+        margin: 20px 0 0;
+    }
+    .payment-logo {
+        height: 30px;
+        width: 55px;
+        margin: 0 auto;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+    div {
+        align-self: center;
+    }
+    thead {
+        td {
+            text-align: center;
+        }
+    }
+    tbody {
+        td {
+            vertical-align: middle;
+            padding: 0px 10px;
+            text-align: center;
+        }
+    }
+}
+
+// Payment methods accordian
+#payment_methods_accordian {
+    h3.fx-accordian-header {
+        background-image: none;
+        position: relative;
+        padding: 10px 40px;
+        border: 1px solid $fillColor;
+        border-bottom: none;
+        margin-bottom: 1px;
+        color: $primaryBrandColor;
+        font-weight: bold;
+        .ui-icon {
+            width: 8px;
+            height: 12px;
+            display: block;
+            visibility: visible;
+            background-size: contain;
+            position: absolute;
+            top: 60%;
+            left: 16px;
+        }
+        .ui-arrow-up {
+            background-image: url('../images/payment_methods/arrow_right.svg');
+            transform: rotateZ(270deg);
+            transition: 0.3s;
+        }
+        .ui-arrow-down {
+            background-image: url('../images/payment_methods/arrow_right.svg');
+            transform: rotateZ(90deg);
+            transition: 0.3s;
+        }
+
+    }
+    h3.ui-accordion-header-active {
+        margin-bottom: 0px;
+        background-color: $fillColor;
+        color: $darkPrimaryBrandColor;
+    }
+    .ui-widget-content {
+        background-color: $fillColor;
+        border-color: $fillColor;
+        color: $black;
+        padding: 10px 40px;
+    }
+}
+
 @media (max-width: 767px) {
     #payment_methods {
         .horizontal-tab {
@@ -159,25 +240,27 @@
             border: 1px solid $fillColor;
         }
         .scroll-left-button, .scroll-right-button {
-            border: none;
-        }
-        .scroll-left-button {
-            border-bottom: 1px solid $fillColor;
-        }
-        .scroll-right-button {
-            border-top: 1px solid $fillColor;
+            &.scroll-left-button {
+                border-right: none;
+                border-bottom: 1px solid $fillColor;
+            }
+            &.scroll-right-button {
+                border-left: none;
+                border-top: 1px solid $fillColor;
+            }
         }
         ul {
             display: flex;
             flex-direction: column;
             li {
                 min-height: 60px;
-                box-sizing: border-box;
+                border-bottom: 1px solid $fillColor;
                 border-left: none;
             }
             .scrollable-tab-icon {
-                height: 40px;
-                margin: 10px;
+                height: 47px;
+                width: 78px;
+                margin: 5px auto;
             }
         }
         .tab-content {
@@ -186,7 +269,7 @@
         .tab-content-wrapper {
             display: flex;
             flex-direction: column;
-            max-height: 410px;
+            max-height: 420px;
             div {
                 height: 100%;
                 width: 0;
@@ -206,78 +289,24 @@
     p.hint {
         font-size: 12px !important;
     }
-}
-
-// Payment methods table
-#payment_methods_table {
-    h3 {
-        margin: 20px 0 0;
-    }
-    .payment-logo {
-        height: 40px;
-        margin: auto 15px;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-    }
-    div {
-        align-self: center;
-    }
-    thead {
-        td {
-            padding: 20px 10px;
-            text-align: center;
+    #payment_methods_accordian {
+        h3.fx-accordian-header {
+            font-size: 14px;
+        }
+        .ui-widget-content {
+            font-size: 12px;
         }
     }
-    tbody {
-        td {
-            vertical-align: middle;
-            padding: 0px 10px;
-            text-align: center;
+    #payment_methods_table {
+        thead {
+            td {
+                font-size: 14px;
+            }
         }
-    }
-}
-
-// Custom styling on payment methods accordian
-#payment_methods_accordian {
-    h3.fx-accordian-header {
-        background-image: none;
-        position: relative;
-        padding: 10px 40px;
-        border: 1px solid $white;
-        border-bottom: none;
-        color: $primaryBrandColor;
-        font-weight: bold;
-        .ui-icon {
-            width: 8px;
-            height: 16px;
-            display: block;
-            visibility: visible;
-            background-size: contain;
-            position: absolute;
-            top: 50%;
-            left: 1em;
+        tbody {
+            td {
+                font-size: 12px;
+            }
         }
-        .ui-arrow-up {
-            background-image: url('../images/payment_methods/arrow_right.svg');
-            transform: rotateZ(270deg);
-            transition: 0.3s;
-        }
-        .ui-arrow-down {
-            background-image: url('../images/payment_methods/arrow_right.svg');
-            transform: rotateZ(90deg);
-            transition: 0.3s;
-        }
-
-    }
-    .ui-accordion-header-active {
-        background-color: $fillColor;
-        border-color: $fillColor;
-        color: $darkPrimaryBrandColor;
-    }
-    .ui-widget-content {
-        background-color: $fillColor;
-        border-color: $fillColor;
-        color: $black;
     }
 }

@@ -1,7 +1,7 @@
 <div class="primary-color-dark binary-options-header">
     <div class="fx-panel center-text container">
         <h1 class="content-inverse-color">[% l('Available Payment Methods') %]</h1>
-        <p class="content-inverse-color">[% l('*ChampionFX using USD as our based currency, every other currency will be automatically converterd to USD') %]</p>
+        <p class="content-inverse-color">[% l('*ChampionFX using USD as our based currency, every other currency will be automatically converterd to USD.') %]</p>
     </div>
 </div>
 
@@ -19,8 +19,8 @@
                                 <ul class="scrollable-tabs">
                                     <li class="tab-selected col-sm-12 col-md-2"><a rel="#visa"><div class="scrollable-tab-icon visa"></div></a></li>
                                     <li class="col-sm-12 col-md-2"><a rel="#mastercard"><div class="scrollable-tab-icon mastercard"></div></a></li>
-                                    <li class="col-sm-12 col-md-2"><a rel="#skrill"><div class="scrollable-tab-icon skrill"></div></a></li>
                                     <li class="col-sm-12 col-md-2"><a rel="#neteller"><div class="scrollable-tab-icon neteller"></div></a></li>
+                                    <li class="col-sm-12 col-md-2"><a rel="#skrill"><div class="scrollable-tab-icon skrill"></div></a></li>
                                     <li class="col-sm-12 col-md-2"><a rel="#paysafe"><div class="scrollable-tab-icon paysafe"></div></a></li>
                                     <li class="col-sm-12 col-md-2"><a rel="#ecopayz"><div class="scrollable-tab-icon ecopayz"></div></a></li>
                                     <li class="col-sm-12 col-md-2"><a rel="#bankwire"><div class="scrollable-tab-icon bankwire"></div></a></li>
@@ -57,39 +57,48 @@
                         [% END %]
                         <div class="tab-content-wrapper col-sm menu-has-sub-item">
                             [% INCLUDE tab_content
-                                id='visa' currencies='USD' deposit='10 - 10,000' withdrawal='10 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
+                                id='visa' currencies='USD GBP EUR AUD' deposit='10 - 10,000' withdrawal='10 - 10,000'
+                                time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
                                 steps=[l('Log into your ChampionFX account'), l('Cashier > Deposit'), l('Select Visa from the list of available payment methods')]
                             %]
                             [% INCLUDE tab_content
-                                id='mastercard' currencies='USD GBP' deposit='10 - 10,000' withdrawal='10 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
+                                id='mastercard' currencies='USD GBP EUR AUD' deposit='10 - 10,000' withdrawal='10 - 10,000'
+                                time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
                                 steps=[l('Log into your ChampionFX account'), l('Cashier > Deposit'), l('Select Mastercard from the list of available payment methods')]
                             %]
                             [% INCLUDE tab_content
-                                id='skrill' currencies='USD GBP EUR' deposit='10 - 10,000' withdrawal='10 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
-                                steps=[l('Log into your ChampionFX account'), l('Cashier > Deposit'), l('Select Skrill from the list of available payment methods')]
-                            %]
-                            [% INCLUDE tab_content
-                                id='neteller' currencies='USD GBP EUR AUD' deposit='10 - 10,000' withdrawal='10 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
+                                id='neteller' currencies='USD GBP EUR AUD' deposit='10 - 10,000' withdrawal='10 - 10,000'
+                                time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
                                 steps=[l('Log into your ChampionFX account'), l('Cashier > Deposit'), l('Select Neteller from the list of available payment methods')]
                             %]
                             [% INCLUDE tab_content
-                                id='paysafe' currencies='Paysafe' deposit='10 - 10,000' withdrawal='10 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
+                                id='skrill' currencies='USD GBP EUR AUD' deposit='10 - 10,000' withdrawal='10 - 10,000'
+                                time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
+                                steps=[l('Log into your ChampionFX account'), l('Cashier > Deposit'), l('Select Skrill from the list of available payment methods')]
+                            %]
+                            [% INCLUDE tab_content
+                                id='paysafe' currencies='USD GBP EUR AUD' deposit='10 - 10,000' withdrawal='10 - 10,000'
+                                time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
                                 steps=[l('Log into your ChampionFX account'), l('Cashier > Deposit'), l('Select Visa from the list of available payment methods')]
                             %]
                             [% INCLUDE tab_content
-                                id='ecopayz' currencies='USD AUD' deposit='10 - 10,000' withdrawal='10 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
+                                id='ecopayz' currencies='USD GBP EUR AUD' deposit='10 - 10,000' withdrawal='10 - 10,000'
+                                time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
                                 steps=[l('Log into your ChampionFX account'), l('Cashier > Deposit'), l('Select Ecopayz from the list of available payment methods')]
                             %]
                             [% INCLUDE tab_content
-                                id='bankwire' currencies='Bankwire' deposit='100 - 100,000' withdrawal='100 - 100,000' time=[l('Deposit: [_1] working day', 1), l('Withdraw: [_1]-[_2] working day', 3, 5)]
+                                id='bankwire' currencies='USD GBP EUR AUD' deposit='100 - 100,000' withdrawal='100 - 100,000'
+                                time=[l('Deposit: [_1] working day', 1), l('Withdraw: [_1]-[_2] working day', 3, 5)]
                                 steps=[l('Log into your ChampionFX account'), l('Cashier > Deposit'), l('Select Bankwire from the list of available payment methods')]
                             %]
                             [% INCLUDE tab_content
-                                id='bitcoin' currencies='Bitcoin' deposit='10 - 10,000' withdrawal='10 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
+                                id='bitcoin' currencies='Bitcoin' deposit='10 - 10,000' withdrawal='10 - 10,000'
+                                time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
                                 steps=[l('Log into your ChampionFX account'), l('Cashier > Deposit'), l('Select Bitcoin from the list of available payment methods')]
                             %]
                             [% INCLUDE tab_content
-                                id='ethereum' currencies='Ethereum' deposit='10 - 10,000' withdrawal='10 - 10,000' time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
+                                id='ethereum' currencies='Ethereum' deposit='10 - 10,000' withdrawal='10 - 10,000'
+                                time=[l('Deposit: Instant'), l('Withdraw: [_1] working day', 1)]
                                 steps=[l('Log into your ChampionFX account'), l('Cashier > Deposit'), l('Select Ethereum from the list of available payment methods')]
                             %]
                         </div>
@@ -115,7 +124,7 @@
                     <div class="table-container">
                         <table>
                             <thead>
-                                [% INCLUDE row is_header=1 method=l('Method') currencies=l('Currencies') deposit=l('Min-Max Deposit') withdrawal=l('Min-Max Withdrawal') deposit_time=l('Deposit Process:') withdrawal_time=l('Withdrawal Process:') %]
+                                [% INCLUDE row is_header=1 method=l('Method') currencies=l('Currencies') deposit=l('Min-Max Deposit') withdrawal=l('Min-Max Withdrawal') deposit_time=l('Deposit Process') withdrawal_time=l('Withdrawal Process') %]
                             </thead>
                             <tbody>[% content %]</tbody>
                         </table>
@@ -127,9 +136,9 @@
                             deposit_time=l('Instant') withdrawal_time=l('[_1] working day', 1) %]
                         [% INCLUDE row id='mastercard' currencies='USD GBP EUR AUD' deposit='10 - 10,000' withdrawal='10 - 10,000'
                             deposit_time=l('Instant') withdrawal_time=l('[_1] working day', 1) %]
-                        [% INCLUDE row id='skrill' currencies='USD GBP EUR AUD' deposit='5 - 10,000' withdrawal='5 - 10,000'
-                            deposit_time=l('Instant') withdrawal_time=l('[_1] working day', 1) %]
                         [% INCLUDE row id='neteller' currencies='USD GBP EUR AUD' deposit='5 - 10,000' withdrawal='5 - 10,000'
+                            deposit_time=l('Instant') withdrawal_time=l('[_1] working day', 1) %]
+                        [% INCLUDE row id='skrill' currencies='USD GBP EUR AUD' deposit='5 - 10,000' withdrawal='5 - 10,000'
                             deposit_time=l('Instant') withdrawal_time=l('[_1] working day', 1) %]
                         [% INCLUDE row id='ecopayz' currencies='USD GBP EUR AUD' deposit='5 - 10,000' withdrawal='5 - 10,000'
                             deposit_time=l('Instant') withdrawal_time=l('[_1] working day', 1) %]
