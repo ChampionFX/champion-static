@@ -60,7 +60,7 @@ const CashierPaymentMethods = (function() {
                 if (mobile) {
                     $('.scrollable-tabs').animate({ scrollTop: 30 + $('.scrollable-tabs').scrollTop() + $(`.scrollable-tabs :nth-child(${n})`).position().top }, 500);
                 } else {
-                    $('.scrollable-tabs').animate({ scrollLeft: 30 + $('.scrollable-tabs').scrollLeft() + $(`.scrollable-tabs :nth-child(${n})`).position().left }, 500);
+                    $('.scrollable-tabs').animate({ scrollLeft: $('.scrollable-tabs').scrollLeft() + $(`.scrollable-tabs :nth-child(${n})`).position().left }, 500);
                 }
             }
             swipeToScrollHandler();
@@ -79,7 +79,7 @@ const CashierPaymentMethods = (function() {
                 if (mobile) {
                     $('.scrollable-tabs').animate({ scrollTop: -15 + $('.scrollable-tabs').scrollTop() + $(`.scrollable-tabs :nth-child(${n})`).position().top }, 500);
                 } else {
-                    $('.scrollable-tabs').animate({ scrollLeft: -15 + $('.scrollable-tabs').scrollLeft() + $(`.scrollable-tabs :nth-child(${n})`).position().left }, 500);
+                    $('.scrollable-tabs').animate({ scrollLeft: $('.scrollable-tabs').scrollLeft() + $(`.scrollable-tabs :nth-child(${n})`).position().left }, 500);
                 }
             }
         });

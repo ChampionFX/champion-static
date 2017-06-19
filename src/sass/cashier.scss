@@ -40,12 +40,19 @@
 }
 
 .arrow {
-    background-image: url('../images/payment_methods/right_arrow.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     height: 40px;
     width: 40px;
+    margin-left: -5px;
+    margin-top: 30px;
+    &-right {
+        background-image: url('../images/payment_methods/arrow_right.svg');
+    }
+    &-left {
+        background-image: url('../images/payment_methods/arrow_left.svg');
+    }
 }
 
 #payment_methods {
@@ -59,8 +66,8 @@
         &:nth-child(2) {
             overflow: hidden;
         }
-        div {
-            padding: 0;
+        .horizontal-tab-buttons {
+            padding: 0px;
         }
     }
     .horizontal-tab.row {
@@ -69,9 +76,6 @@
     .scroll-right-button, .scroll-left-button {
         border: 1px solid $fillColor;
         cursor: pointer;
-    }
-    .scroll-left-button {
-        transform: rotate(180deg);
     }
     ul {
         display: flex;
@@ -244,12 +248,12 @@
             left: 1em;
         }
         .ui-arrow-up {
-            background-image: url('../images/payment_methods/right_arrow.svg');
+            background-image: url('../images/payment_methods/arrow_right.svg');
             transform: rotateZ(270deg);
             transition: 0.3s;
         }
         .ui-arrow-down {
-            background-image: url('../images/payment_methods/right_arrow.svg');
+            background-image: url('../images/payment_methods/arrow_right.svg');
             transform: rotateZ(90deg);
             transition: 0.3s;
         }
