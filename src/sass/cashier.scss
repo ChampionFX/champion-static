@@ -39,6 +39,15 @@
     background-image: url('../images/payment_methods/visa.svg');
 }
 
+.arrow {
+    background-image: url('../images/payment_methods/right_arrow.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 40px;
+    width: 40px;
+}
+
 #payment_methods {
     overflow: hidden;
     padding: 15px;
@@ -59,13 +68,10 @@
     }
     .scroll-right-button, .scroll-left-button {
         border: 1px solid $fillColor;
-        padding: 35px !important;
-        content: url('../images/payment_methods/right_arrow.svg');
         cursor: pointer;
     }
     .scroll-left-button {
         transform: rotate(180deg);
-        border-left: none;
     }
     ul {
         display: flex;
@@ -224,6 +230,7 @@
         position: relative;
         padding: 10px 40px;
         border: 1px solid $white;
+        border-bottom: none;
         color: $primaryBrandColor;
         font-weight: bold;
         .ui-icon {

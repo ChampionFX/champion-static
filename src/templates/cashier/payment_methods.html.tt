@@ -12,7 +12,9 @@
                 <div id="payment_methods" class="row">
                     <div class="col-xs-4 col-sm-3 col-md-12">
                         <div class="row horizontal-tab">
-                            <div id="left_btn" class="scroll-left-button col-md-1 invisible"></div>
+                            <div class="scroll-left-button col-md-1 invisible">
+                                <div class="arrow"></div>
+                            </div>
                             <div class="col-md-11">
                                 <ul class="scrollable-tabs">
                                     <li class="tab-selected col-sm-12 col-md-2"><a rel="#visa"><div class="scrollable-tab-icon visa"></div></a></li>
@@ -26,7 +28,9 @@
                                     <li class="col-sm-12 col-md-2"><a rel="#ethereum"><div class="scrollable-tab-icon ethereum"></div></a></li>
                                 </ul>
                             </div>
-                            <div id="right-btn" class="scroll-right-button col-md-1"></div>
+                            <div class="scroll-right-button col-md-1">
+                                <div class="arrow"></div>
+                            </div>
                         </div>
                     </div>
 

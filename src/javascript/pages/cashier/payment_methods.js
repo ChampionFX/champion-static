@@ -87,7 +87,7 @@ const CashierPaymentMethods = (function() {
 
     const swipeToScrollHandler = () => {
         const height = Math.ceil($('.scrollable-tabs').height());
-        const width = Math.floor($('.scrollable-tabs').width());
+        const width = Math.ceil($('.scrollable-tabs').width());
         $('.scrollable-tabs').scroll(function() {
             if (mobile) {
                 if ($('.scrollable-tabs :nth-child(1)').position().top === 0) {
@@ -95,7 +95,9 @@ const CashierPaymentMethods = (function() {
                 } else if ($(this).get(0).scrollHeight - $(this).scrollTop() === height) {
                     hideButton($('.scroll-right-button'));
                 }
-            } else if ($('.scrollable-tabs :nth-child(1)').position().left === 0) {
+                return;
+            }
+            if ($('.scrollable-tabs :nth-child(1)').position().left === 0) {
                 hideButton($('.scroll-left-button'));
             } else if ($(this).get(0).scrollWidth - $(this).scrollLeft() === width) {
                 hideButton($('.scroll-right-button'));
