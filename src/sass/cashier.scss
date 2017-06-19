@@ -119,6 +119,9 @@
     ul.scrollable-tabs {
         width: 100%;
         max-height: 370px;
+        &.in-the-middle {
+            max-height: 335px;
+        }
     }
     .tab-content-wrapper {
         display: inline-flex;

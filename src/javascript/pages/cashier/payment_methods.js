@@ -94,6 +94,10 @@ const CashierPaymentMethods = (function() {
                     hideButton($('.scroll-left-button'));
                 } else if ($(this).get(0).scrollHeight - $(this).scrollTop() === height) {
                     hideButton($('.scroll-right-button'));
+                } else {
+                    $('.scroll-left-button').removeClass(hidden_class);
+                    $('.scroll-right-button').removeClass(hidden_class);
+                    $('.scrollable-tabs').addClass('in-the-middle');
                 }
                 return;
             }
@@ -109,6 +113,7 @@ const CashierPaymentMethods = (function() {
         element.siblings('div.col-md-10').removeClass('col-md-10').addClass('col-md-11');
         element.siblings().removeClass(hidden_class);
         element.addClass(hidden_class);
+        $('.scrollable-tabs').removeClass('in-the-middle');
     };
 
     return {
