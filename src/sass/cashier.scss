@@ -43,7 +43,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    height: 40%;
+    height: 25px;
     margin: 20px auto;
     &-right {
         background-image: url('../images/payment_methods/arrow_right.svg');
@@ -71,21 +71,20 @@
     > div {
         padding: 0;
     }
-    .horizontal-tab {
+    .tab-container {
         height: 65px;
         border: 1px solid $fillColor;
-        .horizontal-tab-buttons {
+        &-buttons {
             overflow: hidden;
             padding: 0px;
+            transition: all 0.3s linear;
         }
-        transition: width 0.5s;
     }
-    .horizontal-tab.row {
+    .tab-container.row {
         margin: 0;
     }
     .scroll {
         border-top: none;
-        cursor: pointer;
         padding: 0;
         &-right-button {
             cursor: pointer;
@@ -94,6 +93,7 @@
         &-left-button {
             cursor: pointer;
             border-right: 1px solid $fillColor;
+            display: none;
         }
     }
     ul {
@@ -235,7 +235,7 @@
 
 @media (max-width: 767px) {
     #payment_methods {
-        .horizontal-tab {
+        .tab-container {
             height: 100%;
             border: 1px solid $fillColor;
         }

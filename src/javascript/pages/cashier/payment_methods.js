@@ -3,14 +3,21 @@ const ChampionSocket = require('./../../common/socket');
 const CashierPaymentMethods = (function() {
     'use strict';
 
-    const hidden_class = 'invisible';
     const VIEWPORT_TABS = 6;
-
-    let isVertical = $(window).innerWidth() < 767;
-    let currentFirstTab = 1;
+    let $container;
+    let $previousButton;
+    let $nextButton;
+    let isVertical;
+    let currentFirstTab;
 
     const load = () => {
         ChampionSocket.wait('authorize').then(() => {
+            $container = $('.scrollable-tabs');
+            $previousButton = $('.scroll-left-button');
+            $nextButton = $('.scroll-right-button');
+            isVertical = $(window).innerWidth() < 767;
+            currentFirstTab = 1;
+
             const icons = {
                 header      : 'ui-arrow-down',
                 activeHeader: 'ui-arrow-up',
@@ -26,23 +33,25 @@ const CashierPaymentMethods = (function() {
                 isVertical = $(window).innerWidth() < 767;
             });
 
-            $('#payment_methods').removeClass(hidden_class);
             scrollTabContents();
-            $('.scroll-right-button').unbind('click').click(scrollHandler(true));
-            $('.scroll-left-button').unbind('click').click(scrollHandler(false));
-            $('.scrollable-tabs').scrollEnd(toggleNextAndPrevious, 50);
+            $nextButton.unbind('click').click(scrollHandler(true));
+            $previousButton.unbind('click').click(scrollHandler(false));
+            $container.scrollEnd(toggleNextAndPrevious, 50);
         });
     };
 
     const scrollTabContents = () => {
         const $tab_content = $('.tab-content-wrapper');
-        $('.scrollable-tabs li').click(function(e) {
+        $container.find('li').click(function(e) {
             e.preventDefault();
             const val = $(this).find('a').attr('rel');
+            if (!val) {
+                return;
+            }
             $(this).parent().find('.tab-selected').removeClass('tab-selected');
             $(this).addClass('tab-selected');
-            if (val && isVertical) {
-                $tab_content.animate({ scrollTop: $tab_content.scrollTop() + $(val).position().top }, 350);
+            if (isVertical) {
+                $tab_content.animate({ scrollTop: $tab_content.scrollTop() + $(val).position().top }, 500);
             } else {
                 $tab_content.animate({ scrollLeft: $tab_content.scrollLeft() + $(val).position().left }, 500);
             }
@@ -53,40 +62,34 @@ const CashierPaymentMethods = (function() {
         e.preventDefault();
         currentFirstTab = updateCurrentFirstTab(isNextButton);
         if (isThereChildrenToScroll()) {
-            scroll(isVertical);
+            scroll();
         }
     };
 
-    function toggleNextAndPrevious () {
-        const $container = $('.scrollable-tabs');
+    function toggleNextAndPrevious (e) {
         const $firstTab = $container.find(':nth-child(1)');
         const tabSize = isVertical ? $firstTab.height() : $firstTab.width();
-        const $this = $(this);
+        const $this = $(e.target);
         const MIN_DIFF = 5;
         const containerSize = Math.ceil(isVertical ? $container.height() : $container.width());
         const firstTabPosition = isVertical ? $firstTab.position().top : $firstTab.position().left;
         currentFirstTab = Math.ceil(Math.abs(firstTabPosition / tabSize));
-        const viewportSize = $this.get(0).scrollHeight - $this.scrollTop();
+        const lastTabPosition = isVertical ?
+            $this.get(0).scrollHeight - $this.scrollTop() :
+            $this.get(0).scrollWidth - $this.scrollLeft();
 
         if (firstTabPosition === 0) {
-            hideButton($('.scroll-left-button'));
-        } else if (Math.abs(viewportSize - containerSize) < MIN_DIFF) {
-            hideButton($('.scroll-right-button'));
+            hideButton($previousButton);
+        } else if (Math.abs(lastTabPosition - containerSize) < MIN_DIFF) {
+            hideButton($nextButton);
         } else {
             showBothButtons();
             makeScrollTabsSmall(isVertical);
         }
     }
 
-    const hideButton = (element) => {
-        element.siblings('div.col-md-10').removeClass('col-md-10').addClass('col-md-11');
-        element.siblings().removeClass(hidden_class);
-        element.addClass(hidden_class);
-        $('.scrollable-tabs').removeClass('in-the-middle');
-    };
-
     const updateCurrentFirstTab = (isDirectionForward) => {
-        const tabsCount = $('.scrollable-tabs').children().length;
+        const tabsCount = $container.children().length;
         const end = currentFirstTab + (VIEWPORT_TABS - 1);
         const tabsRemainingInTheEnd = tabsCount - end;
         const tabsRemainingInTheBeginning = currentFirstTab - 1;
@@ -104,30 +107,36 @@ const CashierPaymentMethods = (function() {
     };
 
     const isThereChildrenToScroll = () => {
-        const num_of_tabs = $('.scrollable-tabs').children().length;
+        const num_of_tabs = $container.children().length;
         return currentFirstTab < num_of_tabs && currentFirstTab > 0;
     };
 
     const scroll = () => {
+        const scrollTo = $container.find(`:nth-child(${currentFirstTab})`);
+        const scrollPosition = isVertical ? 'scrollTop' : 'scrollLeft';
+        const scrollSize =  $container[scrollPosition]() + scrollTo.position()[isVertical ? 'top' : 'left'];
         if (isThereChildrenToScroll()) {
-            if (isVertical) {
-                $('.scrollable-tabs').animate({ scrollTop: $('.scrollable-tabs').scrollTop() + $(`.scrollable-tabs :nth-child(${currentFirstTab})`).position().top }, 500);
-            } else {
-                $('.scrollable-tabs').animate({ scrollLeft: $('.scrollable-tabs').scrollLeft() + $(`.scrollable-tabs :nth-child(${currentFirstTab})`).position().left }, 500);
-            }
+            $container.animate({ [scrollPosition]: scrollSize  }, 500);
         }
     };
 
+    const hideButton = (element) => {
+        element.siblings('div.col-md-10').removeClass('col-md-10').addClass('col-md-11');
+        element.siblings('div.col-md-1').show(250);
+        element.hide(250);
+        $container.removeClass('in-the-middle');
+    };
+
     const showBothButtons = () => {
-        $('.scroll-left-button').removeClass(hidden_class);
-        $('.scroll-right-button').removeClass(hidden_class);
+        $previousButton.show(250);
+        $nextButton.show(250);
     };
 
     const makeScrollTabsSmall = () => {
         if (isVertical) {
-            $('.scrollable-tabs').addClass('in-the-middle');
+            $container.addClass('in-the-middle');
         } else {
-            $('.scrollable-tabs').parent().removeClass('col-md-11').addClass('col-md-10');
+            $container.parent().removeClass('col-md-11').addClass('col-md-10');
         }
     };
 
