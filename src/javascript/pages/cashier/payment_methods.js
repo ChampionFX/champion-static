@@ -3,11 +3,11 @@ const ChampionSocket = require('./../../common/socket');
 const CashierPaymentMethods = (function() {
     'use strict';
 
-    const SCROLL_STEP = 5,
-        hidden_class = 'invisible';
+    const hidden_class = 'invisible';
+    const VIEWPORT_TABS = 6;
 
-    let isVertical = $(window).innerWidth() < 767,
-        scrolledTabs = 1; // scrolledTabs = tab number
+    let isVertical = $(window).innerWidth() < 767;
+    let currentFirstTab = 1;
 
     const load = () => {
         ChampionSocket.wait('authorize').then(() => {
@@ -51,7 +51,7 @@ const CashierPaymentMethods = (function() {
 
     const scrollHandler = isNextButton => (e) => {
         e.preventDefault();
-        scrolledTabs = incrementScrolledTabs(isNextButton);
+        currentFirstTab = updateCurrentFirstTab(isNextButton);
         if (isThereChildrenToScroll()) {
             scroll(isVertical);
         }
@@ -60,15 +60,17 @@ const CashierPaymentMethods = (function() {
     function toggleNextAndPrevious () {
         const $container = $('.scrollable-tabs');
         const $firstTab = $container.find(':nth-child(1)');
+        const tabSize = isVertical ? $firstTab.height() : $firstTab.width();
         const $this = $(this);
         const MIN_DIFF = 5;
         const containerSize = Math.ceil(isVertical ? $container.height() : $container.width());
         const firstTabPosition = isVertical ? $firstTab.position().top : $firstTab.position().left;
+        currentFirstTab = Math.ceil(Math.abs(firstTabPosition / tabSize));
         const viewportSize = $this.get(0).scrollHeight - $this.scrollTop();
 
         if (firstTabPosition === 0) {
             hideButton($('.scroll-left-button'));
-        } else if (viewportSize - containerSize < MIN_DIFF) {
+        } else if (Math.abs(viewportSize - containerSize) < MIN_DIFF) {
             hideButton($('.scroll-right-button'));
         } else {
             showBothButtons();
@@ -83,27 +85,35 @@ const CashierPaymentMethods = (function() {
         $('.scrollable-tabs').removeClass('in-the-middle');
     };
 
-    const incrementScrolledTabs = (isDirectionForward = true) => {
-        const num_of_tabs = $('.scrollable-tabs').children().length;
-
-        if (num_of_tabs > 5) {
-            return isDirectionForward ? scrolledTabs + SCROLL_STEP : scrolledTabs - SCROLL_STEP;
+    const updateCurrentFirstTab = (isDirectionForward) => {
+        const tabsCount = $('.scrollable-tabs').children().length;
+        const end = currentFirstTab + (VIEWPORT_TABS - 1);
+        const tabsRemainingInTheEnd = tabsCount - end;
+        const tabsRemainingInTheBeginning = currentFirstTab - 1;
+        const JUMP = VIEWPORT_TABS - 1;
+        if (isDirectionForward) {
+            if (tabsRemainingInTheEnd > JUMP) {
+                return currentFirstTab + JUMP;
+            }
+            return currentFirstTab + tabsRemainingInTheEnd;
         }
-
-        return isDirectionForward ? scrolledTabs + num_of_tabs : scrolledTabs - num_of_tabs;
+        if (tabsRemainingInTheBeginning > JUMP) {
+            return currentFirstTab - JUMP;
+        }
+        return currentFirstTab - tabsRemainingInTheBeginning;
     };
 
     const isThereChildrenToScroll = () => {
         const num_of_tabs = $('.scrollable-tabs').children().length;
-        return scrolledTabs < num_of_tabs && scrolledTabs > 0;
+        return currentFirstTab < num_of_tabs && currentFirstTab > 0;
     };
 
     const scroll = () => {
         if (isThereChildrenToScroll()) {
             if (isVertical) {
-                $('.scrollable-tabs').animate({ scrollTop: $('.scrollable-tabs').scrollTop() + $(`.scrollable-tabs :nth-child(${scrolledTabs})`).position().top }, 500);
+                $('.scrollable-tabs').animate({ scrollTop: $('.scrollable-tabs').scrollTop() + $(`.scrollable-tabs :nth-child(${currentFirstTab})`).position().top }, 500);
             } else {
-                $('.scrollable-tabs').animate({ scrollLeft: $('.scrollable-tabs').scrollLeft() + $(`.scrollable-tabs :nth-child(${scrolledTabs})`).position().left }, 500);
+                $('.scrollable-tabs').animate({ scrollLeft: $('.scrollable-tabs').scrollLeft() + $(`.scrollable-tabs :nth-child(${currentFirstTab})`).position().left }, 500);
             }
         }
     };
