@@ -58,27 +58,21 @@ const CashierPaymentMethods = (function() {
     };
 
     function toggleNextAndPrevious () {
-        if (isVertical) {
-            const height = Math.ceil($('.scrollable-tabs').height());
+        const $container = $('.scrollable-tabs');
+        const $firstTab = $container.find(':nth-child(1)');
+        const $this = $(this);
+        const MIN_DIFF = 5;
+        const containerSize = Math.ceil(isVertical ? $container.height() : $container.width());
+        const firstTabPosition = isVertical ? $firstTab.position().top : $firstTab.position().left;
+        const viewportSize = $this.get(0).scrollHeight - $this.scrollTop();
 
-            if ($('.scrollable-tabs :nth-child(1)').position().top === 0) {
-                hideButton($('.scroll-left-button'));
-            } else if ($(this).get(0).scrollHeight - $(this).scrollTop() === height) {
-                hideButton($('.scroll-right-button'));
-            } else {
-                showBothButtons();
-                makeScrollTabsSmall(true);
-            }
+        if (firstTabPosition === 0) {
+            hideButton($('.scroll-left-button'));
+        } else if (viewportSize - containerSize < MIN_DIFF) {
+            hideButton($('.scroll-right-button'));
         } else {
-            const width = Math.ceil($('.scrollable-tabs').width());
-            if ($('.scrollable-tabs :nth-child(1)').position().left === 0) {
-                hideButton($('.scroll-left-button'));
-            } else if (Math.abs($(this).get(0).scrollWidth - $(this).scrollLeft() - width) < 5) {
-                hideButton($('.scroll-right-button'));
-            } else {
-                showBothButtons();
-                makeScrollTabsSmall(false);
-            }
+            showBothButtons();
+            makeScrollTabsSmall(isVertical);
         }
     }
 
