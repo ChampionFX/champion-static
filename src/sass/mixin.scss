@@ -3,6 +3,7 @@
 @mixin shadow-transition {
     box-shadow: $z-depth-1;
     transition: box-shadow 0.25s;
+
     &:hover {
         box-shadow: $z-depth-1-half;
         transition: box-shadow 0.25s;

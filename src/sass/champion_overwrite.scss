@@ -1,14 +1,17 @@
 #header {
     border: 0 !important;
+
     .top-nav-menu {
         float: right;
         margin-left: auto;
+
         li {
             a {
                 height: auto;
                 padding: 25px 15px;
                 border-bottom: 4px solid transparent;
                 color: $contentInverseColor !important;
+
                 &.active {
                     border-bottom-color: $borderColor;
                 }
@@ -23,6 +26,7 @@
         }
         ul li a {
             padding: 10px 15px;
+
             &.active {
                 border-bottom: none;
             }
@@ -35,13 +39,16 @@
     top: 0;
     width: 100%;
     z-index: 99;
+
     #topbar {
         display: none;
     }
     #header {
         border: none;
+
         .logo-parent {
             padding: 5px 0;
+
             .logo, .logo > div {
                 width: 40px;
                 height: 40px;
@@ -53,10 +60,12 @@
         .top-nav-menu {
             float: none;
             margin-left: 0;
+
             li a {
                 padding: 0 15px;
                 line-height: 50px;
                 border-bottom: none;
+
                 &.active {
                     background: $darkPrimaryBrandColor;
                 }
@@ -79,6 +88,7 @@
         }
         .main-nav li {
             text-align: left;
+
             a {
                 padding: 0 15px;
             }
@@ -97,6 +107,7 @@
         }
         #all-accounts {
             padding-top: 0;
+
             &, li ul {
                 background: $primaryBrandColor;
                 border: none;
@@ -106,6 +117,7 @@
             }
             ul {
                 margin-left: 0;
+
                 li:hover {
                     opacity: 0.7;
                     background: none;
