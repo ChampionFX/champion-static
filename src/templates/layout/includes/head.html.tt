@@ -13,11 +13,11 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
     <title>[%= browser_title =%]</title>
-    <meta name="description" content="[% l('ChampionFX Static') %]" />
+    <meta name="description" content="[% l('Access the world markets through one powerful all in one platform. The best choice for the modern trader where the client is king.') %]" />
 
     <meta property="og:title" content="[%= website_name =%]" />
     <meta property="og:type"  content="website" />
-    <meta property="og:image" content="https://style.champion-fx.com/images/logo/cfx_logo.png" />
+    <meta property="og:image" content="[% request.url_for('images/cfx-animated-links.gif') %]" />
 
     <link rel="icon" type="image/png" sizes="16x16" href="[% request.url_for('images/favicons/CFX_favicon16.png') %]" />
     <link rel="icon" type="image/png" sizes="32x32" href="[% request.url_for('images/favicons/CFX_favicon32.png') %]" />
