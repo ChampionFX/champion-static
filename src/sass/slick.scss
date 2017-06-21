@@ -19,6 +19,7 @@
     display: block;
     margin: 0;
     padding: 0;
+
     &:focus {
         outline: none;
     }
@@ -41,6 +42,7 @@
     left: 0;
     top: 0;
     display: block;
+
     &:after, &:before {
         content: '';
         display: table;
@@ -57,6 +59,7 @@
     float: left;
     height: 100%;
     min-height: 1px;
+
     [dir='rtl'] & {
         float: right;
     }
@@ -68,6 +71,7 @@
         display: none;
     }
     display: none;
+
     &.dragging img {
         pointer-events: none;
     }
