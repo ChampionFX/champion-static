@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="31px" viewBox="0 0 42 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>poland</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M29.4252632,18.6928537 L0.51625731,18.6928537 C0.231169591,18.6928537 0,18.4725733 0,18.2009145 L0,0.4919392 C0,0.220280432 0.231169591,0 0.51625731,0 L29.4253216,0 C29.7104094,0 29.9415789,0.220280432 29.9415789,0.4919392 L29.9415789,18.2009145 C29.9415205,18.4725733 29.7103509,18.6928537 29.4252632,18.6928537 Z" id="path-1"></path>
+        <filter x="-28.4%" y="-45.5%" width="163.5%" height="201.6%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="1" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.3 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Contact-Us" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-930.000000, -681.000000)" id="Customer-Service" fill-rule="nonzero">
+            <g transform="translate(135.000000, 498.000000)">
+                <g id="Country" transform="translate(600.000000, 90.000000)">
+                    <g id="poland" transform="translate(200.000000, 98.000000)">
+                        <g id="Shape">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        </g>
+                        <path d="M0,9.36177906 L29.9415205,9.36177906 L29.9415205,18.2162946 C29.9415205,18.4879534 29.7103509,18.7082338 29.4252632,18.7082338 L0.51625731,18.7082338 C0.231169591,18.7082338 0,18.4879534 0,18.2162946 L0,9.36177906 Z" id="Shape" fill="#E70011"></path>
+                        <path d="M29.9415205,9.36177906 L0,9.36177906 L0,0.507263541 C0,0.235604773 0.231169591,0.0153243407 0.51625731,0.0153243407 L29.4253216,0.0153243407 C29.7104094,0.0153243407 29.9415789,0.235604773 29.9415789,0.507263541 L29.9415205,9.36177906 L29.9415205,9.36177906 Z" id="Shape" fill="#FFFFFF"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
