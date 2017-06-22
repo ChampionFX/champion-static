@@ -39,6 +39,10 @@
     background-image: url('../images/payment_methods/visa.svg');
 }
 
+.payment-methods-header {
+    background-image: url('../images/payment_methods/payment_methods_banner.png');
+}
+
 .arrow {
     background-repeat: no-repeat;
     background-position: center;
@@ -52,7 +56,7 @@
         background-image: url('../images/payment_methods/arrow_left.svg');
     }
     @media (max-width: 767px) {
-        height: 35px;
+        height: 40px;
         width: 20px;
         margin: auto;
         &-up {
@@ -64,68 +68,72 @@
     }
 }
 
-// Payment methods scrollable tabs/contents
+// Payment methods scrollable tabs
 #payment_methods {
     overflow: hidden;
-    padding: 15px;
+    margin-top: 50px;
+    margin-bottom: 30px;
     > div {
         padding: 0;
     }
-    .tab-container {
+    .tabs-container {
         height: 65px;
         border: 1px solid $fillColor;
-        &-buttons {
+        &.row {
+            margin: 0;
+        }
+        .previous-button, .next-button {
+            border-top: none;
+            padding: 0px;
+            cursor: pointer;
+            &.previous-button {
+                border-right: 1px solid $fillColor;
+                &.hide {
+                    max-width: 0px;
+                    padding: 0px;
+                    border-right: none;
+                    transition: 0.5s;
+                }
+            }
+            &.next-button {
+                border-left: 1px solid $fillColor;
+                &.hide {
+                    max-width: 0px;
+                    padding: 0px;
+                    border-left: none;
+                    transition: 0.5s;
+                }
+            }
+            transition: max-width 0.5s;
+        }
+        .tab-buttons {
             overflow: hidden;
             padding: 0px;
-            transition: all 0.3s linear;
-        }
-    }
-    .tab-container.row {
-        margin: 0;
-    }
-    .scroll {
-        border-top: none;
-        padding: 0;
-        &-right-button {
-            cursor: pointer;
-            border-left: 1px solid $fillColor;
-        }
-        &-left-button {
-            cursor: pointer;
-            border-right: 1px solid $fillColor;
-            display: none;
-        }
-    }
-    ul {
-        display: flex;
-        flex-direction: row;
-        list-style: none;
-        overflow: auto;
-        margin: 0;
-        padding: 0;
-        li {
-            cursor: pointer;
-            border-left: 1px solid $fillColor;
-            margin: 0;
-            padding: 0;
-        }
-        .tab-selected {
-            background-color: $fillColor;
-            transition: 0.3s ease-in-out;
-        }
-        .scrollable-tab-icon {
-            height: 35px;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            margin: 15px;
-        }
-    }
-    ul.scrollable-tabs {
-        width: 100%;
-        max-height: 370px;
-        &.in-the-middle {
-            max-height: 335px;
+            ul {
+                display: flex;
+                flex-direction: row;
+                list-style: none;
+                overflow: auto;
+                margin: 0px;
+                padding: 0px;
+                li {
+                    cursor: pointer;
+                    border-left: 1px solid $fillColor;
+                    margin: 0px;
+                    padding: 0px;
+                    &.tab-selected {
+                        background-color: $fillColor;
+                        transition: 0.3s;
+                    }
+                    .tab-icon {
+                        height: 35px;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: contain;
+                        margin: 15px;
+                    }
+                }
+            }
         }
     }
     .tab-content-wrapper {
@@ -142,23 +150,28 @@
                 margin: 0;
             }
             h4 {
-                margin-top: 0.5rem;
-                margin-bottom: 1rem;
+                margin-top: 5px;
+                margin-bottom: 30px;
                 font-weight: bold;
             }
             ol {
                 margin: 0;
-                padding: 20px;
+                padding: 0 20px;
+                li {
+                    margin-top: 5px;
+                }
             }
         }
     }
     p.hint {
         font-size: 16px;
+        padding: 0px 30px;
     }
 }
 
 // Payment methods table
 #payment_methods_table {
+    padding-bottom: 20px;
     h3 {
         margin: 20px 0 0;
     }
@@ -175,92 +188,114 @@
     }
     thead {
         td {
-            text-align: center;
+            padding: 10px;
         }
     }
-    tbody {
-        td {
-            vertical-align: middle;
-            padding: 0px 10px;
-            text-align: center;
-        }
+    td {
+        vertical-align: middle;
+        padding: 4px 10px;
+        text-align: center;
+        font-size: 14px;
+        min-width: 120px;
     }
 }
 
-// Payment methods accordian
 #payment_methods_accordian {
-    h3.fx-accordian-header {
-        background-image: none;
-        position: relative;
-        padding: 10px 40px;
-        border: 1px solid $fillColor;
-        border-bottom: none;
-        margin-bottom: 1px;
-        color: $primaryBrandColor;
-        font-weight: bold;
-        .ui-icon {
-            width: 8px;
-            height: 12px;
-            display: block;
-            visibility: visible;
-            background-size: contain;
-            position: absolute;
-            top: 60%;
-            left: 16px;
-        }
-        .ui-arrow-up {
-            background-image: url('../images/payment_methods/arrow_right.svg');
-            transform: rotateZ(270deg);
-            transition: 0.3s;
-        }
-        .ui-arrow-down {
-            background-image: url('../images/payment_methods/arrow_right.svg');
-            transform: rotateZ(90deg);
-            transition: 0.3s;
-        }
-
-    }
-    h3.ui-accordion-header-active {
-        margin-bottom: 0px;
-        background-color: $fillColor;
-        color: $darkPrimaryBrandColor;
-    }
-    .ui-widget-content {
-        background-color: $fillColor;
-        border-color: $fillColor;
-        color: $black;
-        padding: 10px 40px;
+    padding-bottom: 20px;
+    h3, div.ui-widget-content {
+        padding: 10px 22px;
     }
 }
+// Payment methods accordian
+//#payment_methods_accordian {
+//    h3.fx-accordian-header {
+//        background-image: none;
+//        position: relative;
+//        padding: 10px 40px;
+//        border: 1px solid $fillColor;
+//        border-bottom: none;
+//        margin-bottom: 1px;
+//        color: $primaryBrandColor;
+//        font-weight: bold;
+//        .ui-icon {
+//            width: 8px;
+//            height: 12px;
+//            display: block;
+//            visibility: visible;
+//            background-size: contain;
+//            position: absolute;
+//            top: 60%;
+//            left: 16px;
+//        }
+//        .ui-arrow-up {
+//            background-image: url('../images/payment_methods/arrow_right.svg');
+//            transform: rotateZ(270deg);
+//            transition: 0.3s;
+//        }
+//        .ui-arrow-down {
+//            background-image: url('../images/payment_methods/arrow_right.svg');
+//            transform: rotateZ(90deg);
+//            transition: 0.3s;
+//        }
+//
+//    }
+//    h3.ui-accordion-header-active {
+//        margin-bottom: 0px;
+//        background-color: $fillColor;
+//        color: $darkPrimaryBrandColor;
+//    }
+//    .ui-widget-content {
+//        background-color: $fillColor;
+//        border-color: $fillColor;
+//        color: $black;
+//        padding: 10px 40px;
+//    }
+//}
 
 @media (max-width: 767px) {
     #payment_methods {
-        .tab-container {
+        padding-top: 20px;
+        .tabs-container {
             height: 100%;
             border: 1px solid $fillColor;
-        }
-        .scroll-left-button, .scroll-right-button {
-            &.scroll-left-button {
-                border-right: none;
-                border-bottom: 1px solid $fillColor;
+            > .previous-button, .next-button {
+                max-height: 100%;
+                opacity: 1;
+                &.previous-button {
+                    border-bottom: 1px solid $fillColor;
+                    border-right: none;
+                }
+                &.next-button {
+                    border-top: 1px solid $fillColor;
+                    border-left: none;
+                }
+                &.hide {
+                    max-height: 0;
+                    opacity: 0;
+                }
+                transition: max-height 0.5s !important;
             }
-            &.scroll-right-button {
-                border-left: none;
-                border-top: 1px solid $fillColor;
-            }
-        }
-        ul {
-            display: flex;
-            flex-direction: column;
-            li {
-                min-height: 60px;
-                border-bottom: 1px solid $fillColor;
-                border-left: none;
-            }
-            .scrollable-tab-icon {
-                height: 47px;
-                width: 78px;
-                margin: 5px auto;
+            .tab-buttons {
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    &.scrollable-tabs {
+                        max-height: 370px;
+                        &.in-the-middle {
+                            max-height: 330px;
+                        }
+                    }
+                    li {
+                        min-height: 60px;
+                        border-bottom: 1px solid $fillColor;
+                        border-left: none;
+                    }
+                    > .tab-icon {
+                        height: 47px;
+                        width: 78px;
+                        margin: 5px auto;
+                    }
+                }
             }
         }
         .tab-content {
@@ -269,7 +304,7 @@
         .tab-content-wrapper {
             display: flex;
             flex-direction: column;
-            max-height: 420px;
+            max-height: 410px;
             div {
                 height: 100%;
                 width: 0;
@@ -279,21 +314,12 @@
                 }
                 h4 {
                     font-size: 14px;
-                }
-                ol {
-                    padding: 5px 20px;
+                    margin-bottom: 15px;
                 }
             }
         }
-    }
-    p.hint {
-        font-size: 12px !important;
-    }
-    #payment_methods_accordian {
-        h3.fx-accordian-header {
-            font-size: 14px;
-        }
-        .ui-widget-content {
+        > p.hint {
+            padding: 5px;
             font-size: 12px;
         }
     }
@@ -307,6 +333,15 @@
             td {
                 font-size: 12px;
             }
+        }
+    }
+    #payment_methods_accordian {
+        padding-bottom: 20px;
+        h3 {
+            font-size: 14px;
+        }
+        .div.ui-widget-content {
+            font-size: 12px;
         }
     }
 }

@@ -13,8 +13,8 @@ const CashierPaymentMethods = (function() {
     const load = () => {
         ChampionSocket.wait('authorize').then(() => {
             $container = $('.scrollable-tabs');
-            $previousButton = $('.scroll-left-button');
-            $nextButton = $('.scroll-right-button');
+            $previousButton = $('.previous-button');
+            $nextButton = $('.next-button');
             isVertical = $(window).innerWidth() < 767;
             currentFirstTab = 1;
 
@@ -122,14 +122,14 @@ const CashierPaymentMethods = (function() {
 
     const hideButton = (element) => {
         element.siblings('div.col-md-10').removeClass('col-md-10').addClass('col-md-11');
-        element.siblings('div.col-md-1').show(250);
-        element.hide(250);
+        element.siblings('div.col-md-1').removeClass('hide');
+        element.addClass('hide');
         $container.removeClass('in-the-middle');
     };
 
     const showBothButtons = () => {
-        $previousButton.show(250);
-        $nextButton.show(250);
+        $previousButton.removeClass('hide');
+        $nextButton.removeClass('hide');
     };
 
     const makeScrollTabsSmall = () => {
