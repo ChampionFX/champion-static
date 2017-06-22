@@ -9,6 +9,7 @@
     height: 500px;
     margin: 0;
     width: 100%;
+
     div {
         width: 100%;
     }
@@ -16,10 +17,12 @@
         padding: 0;
         margin: 0;
         height: 100%;
+
         li {
             width: 100%;
             margin: 0;
             height: 100%;
+
             h2 {
                 line-height: 1.9rem;
             }
@@ -39,11 +42,13 @@
     position: relative;
     float: right;
     margin: 0;
+
     li {
         display: inline-block;
         padding: 0 5px;
         line-height: 0;
         margin: 0;
+
         button {
             padding: 0;
             width: 10px;
@@ -64,6 +69,7 @@
     padding: 10px;
     color: $white;
     background: rgba(0, 0, 0, 0.65);
+
     .row {
         margin: 0 auto;
         width: 100%;
@@ -73,6 +79,7 @@
 .slider-text {
     padding: 30px;
     display: table;
+
     .center-items {
         display: table-cell;
         vertical-align: middle;
@@ -80,6 +87,7 @@
     .container {
         &, .row {
             height: 100%;
+
             h3, p, .row {
                 padding: 10px;
             }
@@ -95,9 +103,11 @@
 .large-slider-text {
     display: block;
     height: 100%;
+
     .container {
         &, .row {
             height: 100%;
+
             h3, p, .row {
                 padding: 0;
             }
@@ -121,6 +131,7 @@
     background-size: cover;
     height: 500px;
     width: 100%;
+
     .row {
         margin: 0 auto;
     }

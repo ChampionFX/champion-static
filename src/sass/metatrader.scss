@@ -1,11 +1,13 @@
 #mt_account_management {
     padding: 30px;
+
     .mt-container {
         padding: 0 30px;
     }
     .mt-panel {
         background: $white;
         padding: 10px 0 20px;
+
         .top {
             height: 80px;
             margin-bottom: 20px;
@@ -18,6 +20,7 @@
         position: relative;
         margin: 5px;
         cursor: pointer;
+
         #mt5_account, #accounts_list {
             border: 1px solid $primaryBrandColor;
         }
@@ -31,6 +34,7 @@
             background: $primaryBrandColor;
             color: $white;
             border-radius: $BORDER_RADIUS;
+
             &.open {
                 border-radius: $BORDER_RADIUS $BORDER_RADIUS 0 0;
             }
@@ -53,15 +57,18 @@
             position: absolute;
             background: $white;
             z-index: 1;
+
             .acc-name {
                 line-height: 30px;
                 padding: 0 20px;
+
                 &:hover {
                     color: $primaryBrandColor;
                     background: $fillColor;
                 }
                 &.disabled {
                     color: $secondaryContentColor;
+
                     .mt-new img {
                         filter: grayscale(100%);
                         opacity: 0.2;
@@ -73,6 +80,7 @@
                 }
                 .mt-new {
                     float: right;
+
                     img {
                         width: 14px;
                     }
@@ -95,6 +103,7 @@
             display: block;
             padding: 20px 30px;
             background: $fillColor;
+
             &:hover, &.selected {
                 border-right: 5px solid $primaryBrandColor;
             }
@@ -104,6 +113,7 @@
         }
         #account_desc {
             font-size: $FONT_SIZE_S;
+
             a.more {
                 display: block;
                 margin-top: 20px;
@@ -113,6 +123,7 @@
     .fst-container {
         #fst_action {
             position: relative;
+
             h4 {
                 padding-top: 6px;
             }
@@ -136,11 +147,13 @@
 @media (max-width: 767px) {
     #mt_account_management {
         padding: 10px;
+
         .mt-container {
             padding: 0 10px;
         }
         .mt-panel {
             padding: 10px 0 0;
+
             &:nth-child(2) {
                 border-left: none;
             }
@@ -148,14 +161,17 @@
         .acc-actions {
             display: table;
             border-spacing: 5px;
+
             > a {
                 display: table-cell !important;
+
                 &.invisible {
                     display: none !important;
                 }
                 width: 1%;
                 text-align: center;
                 padding: 10px !important;
+
                 &:hover, &.selected {
                     border-right: 0 !important;
                     border-bottom: 5px solid $primaryBrandColor;
@@ -185,6 +201,7 @@
         }
         #accounts_list {
             font-size: $FONT_SIZE_S;
+
             .mt-balance {
                 font-size: $FONT_SIZE_XS !important;
             }
