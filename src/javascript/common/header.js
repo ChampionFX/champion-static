@@ -254,7 +254,7 @@ const Header = (function () {
         }
         const token = Client.get_token(loginid);
         if (!token || token.length === 0) {
-            Client.send_logout_request(true);
+            ChampionSocket.send({ logout: 1 });
             return;
         }
 
