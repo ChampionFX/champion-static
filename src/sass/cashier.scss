@@ -73,6 +73,8 @@
     overflow: hidden;
     margin-top: 50px;
     margin-bottom: 30px;
+    margin-right: 0px;
+    margin-left: 0px;
     > div {
         padding: 0;
     }
@@ -136,29 +138,32 @@
             }
         }
     }
-    .tab-content-wrapper {
-        display: inline-flex;
-        overflow: hidden;
-        padding: 0;
-        div {
-            width: 100%;
-            display: inline-table;
-            background-color: $fillColor;
-            padding: 15px;
-            margin: 0;
-            p {
+    .tab-content {
+        max-height: 415px;
+        .tab-content-wrapper {
+            display: inline-flex;
+            overflow: hidden;
+            padding: 0;
+            div {
+                width: 100%;
+                display: inline-table;
+                background-color: $fillColor;
+                padding: 15px;
                 margin: 0;
-            }
-            h4 {
-                margin-top: 5px;
-                margin-bottom: 30px;
-                font-weight: bold;
-            }
-            ol {
-                margin: 0;
-                padding: 0 20px;
-                li {
+                p {
+                    margin: 0;
+                }
+                h4 {
                     margin-top: 5px;
+                    margin-bottom: 30px;
+                    font-weight: bold;
+                }
+                ol {
+                    margin: 0;
+                    padding: 0 20px;
+                    li {
+                        margin-top: 5px;
+                    }
                 }
             }
         }
@@ -202,9 +207,6 @@
 
 #payment_methods_accordian {
     padding-bottom: 20px;
-    h3, div.ui-widget-content {
-        padding: 10px 22px;
-    }
 }
 // Payment methods accordian
 //#payment_methods_accordian {
@@ -254,7 +256,6 @@
 
 @media (max-width: 767px) {
     #payment_methods {
-        padding-top: 20px;
         .tabs-container {
             height: 100%;
             border: 1px solid $fillColor;
@@ -300,21 +301,21 @@
         }
         .tab-content {
             overflow: hidden;
-        }
-        .tab-content-wrapper {
-            display: flex;
-            flex-direction: column;
-            max-height: 410px;
-            div {
-                height: 100%;
-                width: 0;
-                padding: 5px;
-                p, ol li {
-                    font-size: 12px;
-                }
-                h4 {
-                    font-size: 14px;
-                    margin-bottom: 15px;
+            .tab-content-wrapper {
+                display: flex;
+                flex-direction: row;
+                max-height: 100%;
+                div {
+                    height: 100%;
+                    width: 0;
+                    padding: 5px;
+                    p, ol li {
+                        font-size: 12px;
+                    }
+                    h4 {
+                        font-size: 14px;
+                        margin-bottom: 15px;
+                    }
                 }
             }
         }
@@ -333,15 +334,6 @@
             td {
                 font-size: 12px;
             }
-        }
-    }
-    #payment_methods_accordian {
-        padding-bottom: 20px;
-        h3 {
-            font-size: 14px;
-        }
-        .div.ui-widget-content {
-            font-size: 12px;
         }
     }
 }
