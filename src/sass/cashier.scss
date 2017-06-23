@@ -91,20 +91,18 @@
             &.previous-button {
                 border-right: 1px solid $fillColor;
                 &.hide {
-                    max-width: 0px;
-                    padding: 0px;
                     border-right: none;
-                    transition: 0.5s;
                 }
             }
             &.next-button {
                 border-left: 1px solid $fillColor;
                 &.hide {
-                    max-width: 0px;
-                    padding: 0px;
                     border-left: none;
-                    transition: 0.5s;
                 }
+            }
+            &.hide {
+                max-width: 0px;
+                padding: 0px;
             }
             transition: max-width 0.5s;
         }
@@ -139,7 +137,6 @@
         }
     }
     .tab-content {
-        max-height: 415px;
         .tab-content-wrapper {
             display: flex;
             flex-direction: row;
@@ -147,6 +144,7 @@
             padding: 0;
             div.row {
                 min-width: 100%;
+                min-height: 100%;
             }
             div {
                 background-color: $fillColor;
@@ -210,53 +208,11 @@
 #payment_methods_accordian {
     padding-bottom: 20px;
 }
-// Payment methods accordian
-//#payment_methods_accordian {
-//    h3.fx-accordian-header {
-//        background-image: none;
-//        position: relative;
-//        padding: 10px 40px;
-//        border: 1px solid $fillColor;
-//        border-bottom: none;
-//        margin-bottom: 1px;
-//        color: $primaryBrandColor;
-//        font-weight: bold;
-//        .ui-icon {
-//            width: 8px;
-//            height: 12px;
-//            display: block;
-//            visibility: visible;
-//            background-size: contain;
-//            position: absolute;
-//            top: 60%;
-//            left: 16px;
-//        }
-//        .ui-arrow-up {
-//            background-image: url('../images/payment_methods/arrow_right.svg');
-//            transform: rotateZ(270deg);
-//            transition: 0.3s;
-//        }
-//        .ui-arrow-down {
-//            background-image: url('../images/payment_methods/arrow_right.svg');
-//            transform: rotateZ(90deg);
-//            transition: 0.3s;
-//        }
-//
-//    }
-//    h3.ui-accordion-header-active {
-//        margin-bottom: 0px;
-//        background-color: $fillColor;
-//        color: $darkPrimaryBrandColor;
-//    }
-//    .ui-widget-content {
-//        background-color: $fillColor;
-//        border-color: $fillColor;
-//        color: $black;
-//        padding: 10px 40px;
-//    }
-//}
 
 @media (max-width: 767px) {
+    h1 {
+        font-size: 28px;
+    }
     #payment_methods {
         .tabs-container {
             height: 100%;
@@ -276,16 +232,16 @@
                     max-height: 0;
                     opacity: 0;
                 }
-                transition: max-height 0.5s !important;
+                transition: max-height 0.5s;
             }
             .tab-buttons {
                 ul {
                     display: flex;
                     flex-direction: column;
                     &.scrollable-tabs {
-                        max-height: 370px;
+                        max-height: 400px;
                         &.in-the-middle {
-                            max-height: 330px;
+                            max-height: 360px;
                         }
                     }
                     li {
@@ -302,14 +258,14 @@
             }
         }
         .tab-content {
-            overflow: hidden;
+            max-height: 450px;
             .tab-content-wrapper {
-                display: flex;
                 flex-direction: column;
-                min-height: 100%;
+                max-height: 100%;
+                div.row {
+                    min-height: 450px;
+                }
                 div {
-                    height: 100%;
-                    width: 100%;
                     padding: 5px;
                     p, ol li {
                         font-size: 12px;
@@ -336,6 +292,14 @@
             td {
                 font-size: 12px;
             }
+        }
+    }
+    #payment_methods_accordian {
+        h3 {
+            font-size: 14px;
+        }
+        div.ui-accordion-content-active {
+            font-size: 12px;
         }
     }
 }
