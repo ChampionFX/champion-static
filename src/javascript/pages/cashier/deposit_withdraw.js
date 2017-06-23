@@ -105,6 +105,7 @@ const CashierDepositWithdraw = (function() {
                                 $error_msg.html(res.error.message);
                             } else {
                                 deposit_withdraw();
+                                Client.setCurrency(res.echo_req.set_account_currency);
                             }
                         });
                         break;
