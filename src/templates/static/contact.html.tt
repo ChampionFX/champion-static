@@ -1,100 +1,127 @@
-<div class="fx-section">
-    <div class="container">
+<div class="primary-color-dark contact-us-header">
+    <div class="fx-panel center-text container">
+        <h1 class="content-inverse-color">[% l('Contact us') %]</h1>
         <div class="row">
-            <div class="col-md">
-                <h2 class="page-title">[% l('Contact Us') %]</h2>
+            <div class="col-xs-12 col-md-6">
+                <div class="fx-contact-callback"></div>
+                <h4 class="white">[% l('Request a call back') %]</h4>
+                <p class="white">[% l('Leave us an email and book your appointment, our agent will contact you within 24 hours.') %]</p>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-5">
-                <h3 class="blue">[% l('Telephone') %]</h3>
-                <div class="row contact-phone">
-                    <div class="col-xs-12">
-                        <select id="cs_telephone_number">
-                            <option disabled="">Select Country</option>
-                            <option value="+1 (450) 823 1002">Canada</option>
-                            <option value="+49 0221 98259000">Germany</option>
-                            <option value="0018030113641 (Toll Free)">Indonesia</option>
-                            <option value="+353 (0) 76 888 7500,<br>1800931084 (Toll Free)">Ireland</option>
-                            <option value="+48 58 881 00 02">Poland</option>
-                            <option value="8 10 8002 8553011 (Toll Free)">Russia</option>
-                            <option value="+44 (0) 1666 800042,<br>0800 011 9847 (Toll Free)" selected>United Kingdom</option>
-                        </select>
-                        <div id="phone-result">+44 (0) 1666 800042,<br>0800 011 9847 (Toll Free)</div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs phone-note">
-                        <p>[% l('All calls are recorded for training and monitoring purposes') %]</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-5">
-                <div class="row">
-                    <div class="col-md">
-                        <h3 class="blue">[% l('Skype') %]</h3>
-                        <p>[% l('Marketing') %]</p>
-                        <a href="mailto:marketing@champion-fx.com" rel="nofollow">marketing@champion-fx.com</a>
-                        <p>[% l('Customer support') %]</p>
-                        <a href="mailto:support@champion-fx.com" rel="nofollow">support@champion-fx.com</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2 invisible">
-                <div class="row">
-                    <div class="col-md">
-                        <h3 class="blue">[% l('Live chat') %]</h3>
-                        <div class="fx-sm fx-customer-service"></div>
-                    </div>
-                </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="fx-contact-hour"></div>
+                <h4 class="white">[% l('24/5 on weekdays, 8 hours on weekend') %]</h4>
+                <p class="white">[% l('We are supporting 24 hours on weekdays and supporting at 9 to 6 GMT+8 on weekends.') %]</p>
             </div>
         </div>
     </div>
 </div>
-<div class="fx-section" id="contacts-emails-container">
-    <div class="contacts-emails">
-        <div class="container">
-            <div class="row">
-                <div class="col-md">
-                    <div>
-                        <h5 class="section-title">
-                            [% l('Email') %]
-                        </h5>
+<div id="contact-us">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-6 contact-phones-title">
+                <div class="row">
+                    <div class="col-xs-5 col-md-6">
+                        <h2>[% l('Multi-lingual customer service') %]</h2>
+                        <p>[% l('All calls are recorded for training and monitoring purposes') %]</p>
+                    </div>
+                    <div class="col-xs-7 col-md-6">
+                        <img src="[% request.url_for('../images/contact_us/cs_image.svg') %]"/>
                     </div>
                 </div>
             </div>
-            <div class="row emails">
-                <div class="col-md">
-                    <p><strong><small>[% l('General enquiries') %]</small></strong></p>
-                    <p><small>support@champion-fx.com</small></p>
-                </div>
-                <div class="col-md">
-                    <p><strong><small>[% l('Partnership opportunities') %]</small></strong></p>
-                    <p><small>partners@champion-fx.com</small></p>
-                </div>
-                <div class="col-md">
-                    <p><strong><small>[% l('Introducing Broker (IB) programme') %]</small></strong></p>
-                    <p><small>ibsupport@champion-fx.com</small></p>
+            <div class="col-xs-12 col-md-6 contact-phones">
+                <div class="row">
+                    <div class="col-xs-6 col-md-4">
+                        <div class="vertical-center">
+                            <span class="fx-contact-flag fx-contact-canada"></span>
+                            <span class="">[% l('Canada') %]</span>
+                        </div>
+                        <p>+1 (450) 823 1002</p>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <div class="vertical-center">
+                            <span class="fx-contact-flag fx-contact-germany"></span>
+                            [% l('Germany') %]
+                        </div>
+                        <p>+49 0221 98259000</p>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <div class="vertical-center">
+                            <span class="fx-contact-flag fx-contact-indonesia"></span>
+                            [% l('Indonesia') %]
+                        </div>
+                        <p>0018030113641 (Toll Free)</p>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <div class="vertical-center">
+                            <span class="fx-contact-flag fx-contact-ireland"></span>
+                            [% l('Ireland') %]
+                        </div>
+                        <p>+353 (0) 76 888 7500,<br>1800931084 (Toll Free)</p>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <div class="vertical-center">
+                            <span class="fx-contact-flag fx-contact-poland"></span>
+                            [% l('Poland') %]
+                        </div>
+                        <p>+48 58 881 00 02</p>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <div class="vertical-center">
+                            <span class="fx-contact-flag fx-contact-russia"></span>
+                            [% l('Russia') %]
+                        </div>
+                        <p>8 10 8002 8553011 (Toll Free)</p>
+                    </div>
                 </div>
             </div>
-            <div class="row emails">
-                <div class="col-md">
-                    <p><strong><small>[% l('Affiliate  programme') %]</small></strong></p>
-                    <p><small>affiliates@champion-fx.com</small></p>
-                </div>
-                <div class="col-md">
-                    <p><strong><small>[% l('New accounts') %]</small></strong></p>
-                    <p><small>accounts@champion-fx.com</small></p>
-                </div>
-                <div class="col-md">
-                    <p><strong><small>[% l('Trading') %]</small></strong></p>
-                    <p><small>risk@champion-fx.com</small></p>
+        </div>
+
+
+        <div class="separator fill-bg-color"></div>
+
+        <div class="row column-reverse">
+            <div class="col-xs-12 col-md-6 contact-emails">
+                <div class="row">
+                    <div class="col-md-12 general-email">
+                        <span>[% l('General enquiries') %]</span>
+                        <h2><a class="underline-link" href="mailto:support@champion-fx.com" rel="nofollow">support@champion-fx.com</a></h2>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <p>[% l('Partnership opportunities') %]</p>
+                        <span><a href="mailto:partners@champion-fx.com" rel="nofollow">partners@champion-fx.com</a></span>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <p>[% l('Affiliate programme') %]</p>
+                        <span><a href="mailto:affiliates@champion-fx.com" rel="nofollow">affiliates@champion-fx.com</a></span>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <p>[% l('New accounts') %]</p>
+                        <span><a href="mailto:accounts@champion-fx.com" rel="nofollow">accounts@champion-fx.com</a></span>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <p>[% l('Trading') %]</p>
+                        <span><a href="mailto:risk@champion-fx.com" rel="nofollow">risk@champion-fx.com</a></span>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <p>[% l('Disputes and complaints') %]</p>
+                        <span><a href="mailto:compliance@champion-fx.com" rel="nofollow">compliace@champion-fx.com</a></span>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <p>[% l('Introducing Broker (IB) programme') %]</p>
+                        <span><a href="mailto:ibsupport@champion-fx.com" rel="nofollow">ibsupport@champion-fx.com</a></span>
+                    </div>
                 </div>
             </div>
-            <div class="row emails">
-                <div class="col-md">
-                    <p><strong><small>[% l('Disputes and complaints') %]</small></strong></p>
-                    <p><small>compliance@champion-fx.com</small></p>
+            <div class="col-xs-12 col-md-6 contact-emails-title">
+                <div class="row">
+                    <div class="col-xs-7 col-md-6">
+                        <img src="[% request.url_for('../images/contact_us/email_image.svg') %]"/>
+                    </div>
+                    <div class="col-xs-5 col-md-6">
+                        <h2>[% l('Email us') %]</h2>
+                        <p>[% l('Some text here') %]</p>
+                    </div>
                 </div>
             </div>
         </div>
