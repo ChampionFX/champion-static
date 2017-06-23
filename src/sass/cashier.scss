@@ -49,6 +49,7 @@
     background-size: contain;
     height: 25px;
     margin: 20px auto;
+
     &-right {
         background-image: url('../images/payment_methods/arrow_right.svg');
     }
@@ -59,6 +60,7 @@
         height: 40px;
         width: 20px;
         margin: auto;
+
         &-up {
             background-image: url('../images/payment_methods/arrow_up.svg');
         }
@@ -75,12 +77,14 @@
     margin-bottom: 30px;
     margin-right: 0px;
     margin-left: 0px;
-    > div {
+
+    div {
         padding: 0;
     }
     .tabs-container {
         height: 65px;
         border: 1px solid $fillColor;
+
         &.row {
             margin: 0;
         }
@@ -88,14 +92,17 @@
             border-top: none;
             padding: 0px;
             cursor: pointer;
+
             &.previous-button {
                 border-right: 1px solid $fillColor;
+
                 &.hide {
                     border-right: none;
                 }
             }
             &.next-button {
                 border-left: 1px solid $fillColor;
+
                 &.hide {
                     border-left: none;
                 }
@@ -109,6 +116,7 @@
         .tab-buttons {
             overflow: hidden;
             padding: 0px;
+
             ul {
                 display: flex;
                 flex-direction: row;
@@ -116,11 +124,13 @@
                 overflow: auto;
                 margin: 0px;
                 padding: 0px;
+
                 li {
                     cursor: pointer;
                     border-left: 1px solid $fillColor;
                     margin: 0px;
                     padding: 0px;
+
                     &.tab-selected {
                         background-color: $fillColor;
                         transition: 0.3s;
@@ -142,6 +152,7 @@
             flex-direction: row;
             overflow: hidden;
             padding: 0;
+
             div.row {
                 min-width: 100%;
                 min-height: 100%;
@@ -150,6 +161,7 @@
                 background-color: $fillColor;
                 padding: 15px;
                 margin: 0;
+
                 p {
                     margin: 0;
                 }
@@ -161,6 +173,7 @@
                 ol {
                     margin: 0;
                     padding: 0 20px;
+
                     li {
                         margin-top: 5px;
                     }
@@ -177,6 +190,7 @@
 // Payment methods table
 #payment_methods_table {
     padding-bottom: 20px;
+
     h3 {
         margin: 20px 0 0;
     }
@@ -217,9 +231,11 @@
         .tabs-container {
             height: 100%;
             border: 1px solid $fillColor;
+
             > .previous-button, .next-button {
                 max-height: 100%;
                 opacity: 1;
+
                 &.previous-button {
                     border-bottom: 1px solid $fillColor;
                     border-right: none;
@@ -238,8 +254,10 @@
                 ul {
                     display: flex;
                     flex-direction: column;
+
                     &.scrollable-tabs {
                         max-height: 400px;
+
                         &.in-the-middle {
                             max-height: 360px;
                         }
@@ -259,14 +277,17 @@
         }
         .tab-content {
             max-height: 450px;
+
             .tab-content-wrapper {
                 flex-direction: column;
                 max-height: 100%;
+
                 div.row {
                     min-height: 450px;
                 }
                 div {
                     padding: 5px;
+
                     p, ol li {
                         font-size: 12px;
                     }
