@@ -37,6 +37,7 @@
                                 { text=l('Forex')  link='forex' },
                                 { text=l('CFDs')   link='cfd' },
                                 { text=l('Metals') link='metals' },
+                                { text=l('Economic calendar') link='economic-calendar' },
                             ] },
                         { text=l('Binary Options') link_id='more_options_btn' icon='binary' sub_class='submenu' sub_items=[
                                 { text=l('About binary options') link='binary-options' },
@@ -82,6 +83,7 @@
                         { text=l('Forex')  link='forex' },
                         { text=l('CFDs')   link='cfd' },
                         { text=l('Metals') link='metals' },
+                        { text=l('Economic calendar') link='economic-calendar' },
                     ] },
                     { text=l('Binary Options') sub_items=[
                             { text=l('About binary options') link='binary-options' },
