@@ -56,9 +56,6 @@
     <div class="fx-panel center-text container">
         <h1 class="content-inverse-color">[% l('Available payment methods') %]</h1>
         <p class="content-inverse-color">[% l('*Champion-FX uses USD as our base currency. Every other currency will be automatically converterd into USD.') %]</p>
-        <div class="offset-lg-3 offset-md-2">
-            [% INCLUDE layout/includes/signup.html.tt %]
-        </div>
     </div>
 </div>
 
