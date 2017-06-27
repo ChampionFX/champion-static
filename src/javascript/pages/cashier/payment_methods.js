@@ -18,15 +18,10 @@ const CashierPaymentMethods = (function() {
             isVertical = $(window).innerWidth() < 767;
             currentFirstTab = 1;
 
-            const icons = {
-                header      : 'ui-arrow-down',
-                activeHeader: 'ui-arrow-up',
-            };
             $('#payment_methods_accordian').accordion({
                 heightStyle: 'content',
                 collapsible: true,
                 active     : false,
-                icons      : icons,
             });
 
             $(window).on('orientationchange resize', () => {

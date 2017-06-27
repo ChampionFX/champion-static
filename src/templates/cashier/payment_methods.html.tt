@@ -4,49 +4,49 @@
             deposit   ={ min_max=l('10 - 10,000' ) process_time=l('Instant') }
             withdrawal={ min_max=l('10 - 10,000' ) process_time=l('[_1] working day', 1) }
             steps     =[ { text=l('Log into your ChampionFX account') },
-                         { text=l('Cashier > Deposit'), link=l('Go to') },
+                         { text=l('Cashier > Deposit') },
                          { text=l('Select Visa from the list of available payment methods') } ]
         },{
             id=l('mastercard') currencies=[l('USD'), l('GBP'), l('EUR'), l('AUD')]
             deposit   ={ min_max=l('10 - 10,000' ) process_time=l('Instant') }
             withdrawal={ min_max=l('10 - 10,000' ) process_time=l('[_1] working day', 1) }
             steps     =[ { text=l('Log into your ChampionFX account') },
-                         { text=l('Cashier > Deposit'), link=l('Go to') },
+                         { text=l('Cashier > Deposit') },
                          { text=l('Select Mastercard from the list of available payment methods') } ]
         },{
             id=l('neteller') currencies=[l('USD'), l('GBP'), l('EUR'), l('AUD')]
             deposit   ={ min_max=l('5 - 10,000' ) process_time=l('Instant') }
             withdrawal={ min_max=l('5 - 10,000' ) process_time=l('[_1] working day', 1) }
             steps     =[ { text=l('Log into your ChampionFX account') },
-                         { text=l('Cashier > Deposit'), link=l('Go to') },
+                         { text=l('Cashier > Deposit') },
                          { text=l('Select Neteller from the list of available payment methods') } ]
         },{
             id=l('skrill') currencies=[l('USD'), l('GBP'), l('EUR'), l('AUD')]
             deposit   ={ min_max=l('5 - 10,000' ) process_time=l('Instant') }
             withdrawal={ min_max=l('5 - 10,000' ) process_time=l('[_1] working day', 1) }
             steps     =[ { text=l('Log into your ChampionFX account') },
-                         { text=l('Cashier > Deposit'), link=l('Go to') },
+                         { text=l('Cashier > Deposit') },
                          { text=l('Select Skrill from the list of available payment methods') } ]
         },{
             id=l('paysafe') currencies=[l('USD'), l('GBP'), l('EUR'), l('AUD')]
             deposit   ={ min_max=l('5 - 750' ) process_time=l('Instant') }
             withdrawal={ min_max=l('5 - 750' ) process_time=l('[_1] working day', 1) }
             steps     =[ { text=l('Log into your ChampionFX account') },
-                         { text=l('Cashier > Deposit'), link=l('Go to') },
+                         { text=l('Cashier > Deposit') },
                          { text=l('Select PaySafeCard from the list of available payment methods') } ]
         },{
             id=l('ecopayz') currencies=[l('USD'), l('GBP'), l('EUR'), l('AUD')]
             deposit   ={ min_max=l('5 - 10,000' ) process_time=l('Instant') }
             withdrawal={ min_max=l('5 - 10,000' ) process_time=l('[_1] working day', 1) }
             steps     =[ { text=l('Log into your ChampionFX account') },
-                         { text=l('Cashier > Deposit'), link=l('Go to') },
+                         { text=l('Cashier > Deposit') },
                          { text=l('Select EcoPayz from the list of available payment methods') } ]
         },{
             id=l('bankwire') currencies=[l('USD'), l('GBP'), l('EUR'), l('AUD')]
             deposit   ={ min_max=l('100 - 100,000' ) process_time=l('[_1] working day', 1) }
             withdrawal={ min_max=l('100 - 100,000' ) process_time=l('[_1]-[_2] working days', 3, 5) }
             steps     =[ { text=l('Log into your ChampionFX account') },
-                         { text=l('Cashier > Deposit'), link=l('Go to') },
+                         { text=l('Cashier > Deposit') },
                          { text=l('Select Bankwire from the list of available payment methods') } ]
         }
     ]
@@ -170,50 +170,33 @@
 
             <div class="fx-section">
                 <h1 class="center-text">[% l('How deposits and withdrawals works') %]</h1>
-                [% BLOCK accordian %]
-                    <h3>[% title %]</h3>
-                    <div>[% content %]</div>
-                [% END %]
                 <div id="payment_methods_accordian">
-                    [% INCLUDE accordian
-                        title=l('How do I deposit funds into my ChampionFX account?')
-                        content=l('You can deposit funds into your ChampionFX account through our Cashier service by using credit/debit card or e-currency.') %]
-                    [% INCLUDE accordian
-                        title=l('What currencies do you support for deposits?')
-                        content=l('We accept deposits in the following currencies: US Dollar, Great Britain Pound, Euro, and Australian Dollar.') %]
-                    [% INCLUDE accordian
-                        title=l('Can I transfer funds between my accounts?')
-                        content=l('Yes, to fund your MT5 account(s), you must fund your ChampionFX real account first. Then, you will transfer funds from your ChampionFX real account into your MT5 account(s).') %]
-                    [% INCLUDE accordian
-                        title=l('Can I deposit funds using a credit or debit card?')
-                        content=l('Absolutely. We accept deposits using the following cards: Visa, MasterCard, and China UnionPay.') %]
-                    [% INCLUDE accordian
-                        title=l('Do you charge a fee for each deposit and withdrawal?')
-                        content=l('All deposit and withdrawal transactions are free of fees or commissions.') %]
-                    [% INCLUDE accordian
-                        title=l('Is there a minimum deposit amount?')
-                        content=l('Minimum deposits for our Champion Trader platform range from USD 5 to USD 10, depending on the payment method you use.
-
-There are no minimum deposit requirements for our MT5 platform.') %]
-                    [% INCLUDE accordian
-                        title=l('Do my deposit and withdrawal methods have to be similar?')
-                        content=l('Yes, if you’ve deposited funds into your ChampionFX account using a certain payment source, you will need to withdraw your funds using the same payment source.') %]
-                    [% INCLUDE accordian
-                        title=l('How long does it take for deposited funds to appear in my account?')
-                        content=l('Deposits are processed by ChampionFX within 24 hours. However, your bank or payment service provider may require additional processing time.') %]
-                    [% INCLUDE accordian
-                        title=l('How do I withdraw funds from my ChampionFX account?')
-                        content=l('You can withdraw funds from your ChampionFX account through our Cashier service by using the same payment method used to deposit funds into your account.') %]
-                    [% INCLUDE accordian
-                        title=l('How long does it take for ChampionFX to process my withdrawal request?')
-                        content=l('Withdrawals are processed by ChampionFX within 24 hours. However, your bank or payment service provider may require additional processing time.') %]
-                    [% INCLUDE accordian
-                        title=l('Can I see a history of all my deposits and withdrawals?')
-                        content=l('Yes, just log into ChampionFX and then select ‘Statement’ from the drop-down menu in the top right-hand corner of the window. You will be able to see all trades, deposits, and withdrawals that have taken place on your account.') %]
-                    [% INCLUDE accordian
-                        title=l('Do you allow third-party payments?')
-                        content=l('Unfortunately, no. Under the terms of our financial license, third-party payments are not allowed due to its high risk for abuse.') %]
+                    <h3>[% l('How do I deposit funds into my ChampionFX account?') %]</h3>
+                    <div>[% l('You can deposit funds into your ChampionFX account through our Cashier service by using credit/debit card or e-currency.') %]</div>
+                    <h3>[% l('What currencies do you support for deposits?') %]</h3>
+                    <div>[% l('We accept deposits in the following currencies: US Dollar, Great Britain Pound, Euro, and Australian Dollar.') %]</div>
+                    <h3>[% l('Can I transfer funds between my accounts?') %]</h3>
+                    <div>[% l('Yes, to fund your MT5 account(s), you must fund your ChampionFX real account first. Then, you will transfer funds from your ChampionFX real account into your MT5 account(s).') %]</div>
+                    <h3>[% l('Can I deposit funds using a credit or debit card?') %]</h3>
+                    <div>[% l('Absolutely. We accept deposits using the following cards: Visa, MasterCard, and China UnionPay.') %]</div>
+                    <h3>[% l('Do you charge a fee for each deposit and withdrawal?') %]</h3>
+                    <div>[% l('All deposit and withdrawal transactions are free of fees or commissions.') %]</div>
+                    <h3>[% l('Is there a minimum deposit amount?')%]</h3>
+                    <div>[% l('Minimum deposits for our Champion Trader platform range from USD 5 to USD 10, depending on the payment method you use. There are no minimum deposit requirements for our MT5 platform.') %] </div>
+                    <h3>[% l('Do my deposit and withdrawal methods have to be similar?') %]</h3>
+                    <div>[% l('Yes, if you’ve deposited funds into your ChampionFX account using a certain payment source, you will need to withdraw your funds using the same payment source.') %]</div>
+                    <h3>[% l('How long does it take for deposited funds to appear in my account?')%] </h3>
+                    <div>[% l('Deposits are processed by ChampionFX within 24 hours. However, your bank or payment service provider may require additional processing time.') %]</div>
+                    <h3>[% l('How do I withdraw funds from my ChampionFX account?')%] </h3>
+                    <div>[% l('You can withdraw funds from your ChampionFX account through our Cashier service by using the same payment method used to deposit funds into your account.')  %]</div>
+                    <h3>[% l('How long does it take for ChampionFX to process my withdrawal request?') %]</h3>
+                    <div>[% l('Withdrawals are processed by ChampionFX within 24 hours. However, your bank or payment service provider may require additional processing time.') %]</div>
+                    <h3>[% l('Can I see a history of all my deposits and withdrawals?') %]</h3>
+                    <div>[% l('Yes, just log into ChampionFX and then select ‘Statement’ from the drop-down menu in the top right-hand corner of the window. You will be able to see all trades, deposits, and withdrawals that have taken place on your account.') %]</div>
+                    <h3>[% l('Do you allow third-party payments?') %] </h3>
+                    <div>[% l('Unfortunately, no. Under the terms of our financial license, third-party payments are not allowed due to its high risk for abuse.') %]</div>
                 </div>
+
                 <div class="col-md-12 center-text">
                     <a class="button-secondary" href="[% request.url_for('cashier') %]">
                         <span>[% l('Go to cashier') %]</span>
