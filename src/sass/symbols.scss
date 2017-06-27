@@ -332,7 +332,7 @@
 
 // ChampionFX contact us icons
 .fx-contact-flag {
-    width: 45px;
+    width: 40px;
     height: 30px;
     background-repeat: no-repeat;
     display: inline-block;
@@ -341,16 +341,15 @@
 .fx-contact-callback, .fx-contact-hour {
     width: 40px;
     height: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    background-repeat: no-repeat;
-    background-position: center;
+    margin: 0 auto;
 
     &.fx-contact-callback {
-        background: url('../images/contact_us/call_back.svg');
+        background: url('../images/contact_us/call_back.svg') no-repeat center;
+        background-size: cover;
     }
     &.fx-contact-hour {
-        background: url('../images/contact_us/hour.svg');
+        background: url('../images/contact_us/hour.svg') no-repeat center;
+        background-size: cover;
     }
 }
 

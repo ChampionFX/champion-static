@@ -2,125 +2,129 @@
     <div class="fx-panel center-text container">
         <h1 class="content-inverse-color">[% l('Contact us') %]</h1>
         <div class="row">
-            <div class="col-xs-12 col-md-6">
-                <div class="fx-contact-callback"></div>
-                <h4 class="white">[% l('Request a call back') %]</h4>
+            <div class="col-xs-12 offset-md-1 col-md-5">
+                <div class="row flex-display">
+                    <span class="fx-contact-callback"></span>
+                    <h4 class="white">[% l('Request a call back') %]</h4>
+                </div>
                 <p class="white">[% l('Leave us an email and book your appointment, our agent will contact you within 24 hours.') %]</p>
             </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="fx-contact-hour"></div>
-                <h4 class="white">[% l('24/5 on weekdays, 8 hours on weekend') %]</h4>
-                <p class="white">[% l('We are supporting 24 hours on weekdays and supporting at 9 to 6 GMT+8 on weekends.') %]</p>
+            <div class="col-xs-12 col-md-5">
+                <div class="row flex-display">
+                     <span class="fx-contact-hour"></span>
+                    <h4 class="col-xs-7 col-md-12 white">[% l('24/5 on weekdays, 8 hours on weekend') %]</h4>
+                </div>
+                <p class="white">[% l('We are supporting 24 hours on weekdays and supporting at 9 to 5 GMT+8 on weekends.') %]</p>
             </div>
         </div>
     </div>
 </div>
+
 <div id="contact-us">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-6 contact-phones-title">
                 <div class="row">
-                    <div class="col-xs-5 col-md-6">
+                    <div class="col-xs-5 col-md-7">
                         <h2>[% l('Multi-lingual customer service') %]</h2>
                         <p>[% l('All calls are recorded for training and monitoring purposes') %]</p>
                     </div>
-                    <div class="col-xs-7 col-md-6">
+                    <div class="col-xs-7 col-md-5 content-center">
                         <img src="[% request.url_for('../images/contact_us/cs_image.svg') %]"/>
                     </div>
                 </div>
             </div>
             <div class="col-xs-12 col-md-6 contact-phones">
                 <div class="row">
-                    <div class="col-xs-6 col-md-4">
+                    <div class="col-xs-6 col-md-6 col-lg-4">
                         <div class="vertical-center">
                             <span class="fx-contact-flag fx-contact-canada"></span>
-                            <span class="">[% l('Canada') %]</span>
+                            <h5>[% l('Canada') %]</h5>
                         </div>
-                        <p>+1 (450) 823 1002</p>
+                        <span>+1 (450) 823 1002</span>
                     </div>
-                    <div class="col-xs-6 col-md-4">
+                    <div class="col-xs-6 col-md-6 col-lg-4">
                         <div class="vertical-center">
                             <span class="fx-contact-flag fx-contact-germany"></span>
-                            [% l('Germany') %]
+                            <h5>[% l('Germany') %]</h5>
                         </div>
-                        <p>+49 0221 98259000</p>
+                        <span>+49 0221 9825 9000</span>
                     </div>
-                    <div class="col-xs-6 col-md-4">
+                    <div class="col-xs-6 col-md-6 col-lg-4">
                         <div class="vertical-center">
                             <span class="fx-contact-flag fx-contact-indonesia"></span>
-                            [% l('Indonesia') %]
+                            <h5>[% l('Indonesia') %]</h5>
                         </div>
-                        <p>0018030113641 (Toll Free)</p>
+                        <span>001 8030 113641 (Toll Free)</span>
                     </div>
-                    <div class="col-xs-6 col-md-4">
+                    <div class="col-xs-6 col-md-6 col-lg-4">
                         <div class="vertical-center">
                             <span class="fx-contact-flag fx-contact-ireland"></span>
-                            [% l('Ireland') %]
+                            <h5>[% l('Ireland') %]</h5>
                         </div>
-                        <p>+353 (0) 76 888 7500,<br>1800931084 (Toll Free)</p>
+                        <span>+353 (0) 76 888 7500,<br>1 800 931084 (Toll Free)</span>
                     </div>
-                    <div class="col-xs-6 col-md-4">
+                    <div class="col-xs-6 col-md-6 col-lg-4">
                         <div class="vertical-center">
                             <span class="fx-contact-flag fx-contact-poland"></span>
-                            [% l('Poland') %]
+                            <h5>[% l('Poland') %]</h5>
                         </div>
-                        <p>+48 58 881 00 02</p>
+                        <span>+48 58 881 00 02</span>
                     </div>
-                    <div class="col-xs-6 col-md-4">
+                    <div class="col-xs-6 col-md-6 col-lg-4">
                         <div class="vertical-center">
                             <span class="fx-contact-flag fx-contact-russia"></span>
-                            [% l('Russia') %]
+                            <h5>[% l('Russia') %]</h5>
                         </div>
-                        <p>8 10 8002 8553011 (Toll Free)</p>
+                        <span>8 10 8002 8553011 (Toll Free)</span>
                     </div>
                 </div>
             </div>
         </div>
-
 
         <div class="separator fill-bg-color"></div>
 
         <div class="row column-reverse">
             <div class="col-xs-12 col-md-6 contact-emails">
                 <div class="row">
-                    <div class="col-md-12 general-email">
-                        <span>[% l('General enquiries') %]</span>
-                        <h2><a class="underline-link" href="mailto:support@champion-fx.com" rel="nofollow">support@champion-fx.com</a></h2>
+                    <div class="col-md-12 contact-email-lg">
+                        <h4>[% l('General enquiries') %]</h4>
+                        <a class="email-large underline-link" href="mailto:support@champion-fx.com" rel="nofollow">support@champion-fx.com</a>
                     </div>
-                    <div class="col-xs-6 col-md-4">
-                        <p>[% l('Partnership opportunities') %]</p>
-                        <span><a href="mailto:partners@champion-fx.com" rel="nofollow">partners@champion-fx.com</a></span>
+                    <div class="col-xs-12 col-md-6">
+                        <h5>[% l('Partnership opportunities') %]</h5>
+                        <a class="underline-link" href="mailto:partners@champion-fx.com" rel="nofollow">partners@champion-fx.com</a>
                     </div>
-                    <div class="col-xs-6 col-md-4">
-                        <p>[% l('Affiliate programme') %]</p>
-                        <span><a href="mailto:affiliates@champion-fx.com" rel="nofollow">affiliates@champion-fx.com</a></span>
+                    <div class="col-xs-12 col-md-6">
+                        <h5>[% l('Affiliate programme') %]</h5>
+                        <a class="underline-link" href="mailto:affiliates@champion-fx.com" rel="nofollow">affiliates@champion-fx.com</a>
                     </div>
-                    <div class="col-xs-6 col-md-4">
-                        <p>[% l('New accounts') %]</p>
-                        <span><a href="mailto:accounts@champion-fx.com" rel="nofollow">accounts@champion-fx.com</a></span>
+                    <div class="col-xs-12 col-md-6">
+                        <h5>[% l('New accounts') %]</h5>
+                        <a class="underline-link" href="mailto:accounts@champion-fx.com" rel="nofollow">accounts@champion-fx.com</a>
                     </div>
-                    <div class="col-xs-6 col-md-4">
-                        <p>[% l('Trading') %]</p>
-                        <span><a href="mailto:risk@champion-fx.com" rel="nofollow">risk@champion-fx.com</a></span>
+                    <div class="col-xs-12 col-md-6">
+                        <h5>[% l('Trading') %]</h5>
+                        <a class="underline-link" href="mailto:risk@champion-fx.com" rel="nofollow">risk@champion-fx.com</a>
                     </div>
-                    <div class="col-xs-6 col-md-4">
-                        <p>[% l('Disputes and complaints') %]</p>
-                        <span><a href="mailto:compliance@champion-fx.com" rel="nofollow">compliace@champion-fx.com</a></span>
+                    <div class="col-xs-12 col-md-6">
+                        <h5>[% l('Disputes and complaints') %]</h5>
+                        <a class="underline-link" href="mailto:compliance@champion-fx.com" rel="nofollow">compliance@champion-fx.com</a>
                     </div>
-                    <div class="col-xs-6 col-md-4">
-                        <p>[% l('Introducing Broker (IB) programme') %]</p>
-                        <span><a href="mailto:ibsupport@champion-fx.com" rel="nofollow">ibsupport@champion-fx.com</a></span>
+                    <div class="col-xs-12 col-md-6">
+                        <h5>[% l('Introducing Broker (IB) programme') %]</h5>
+                        <a class="underline-link" href="mailto:ibsupport@champion-fx.com" rel="nofollow">ibsupport@champion-fx.com</a>
                     </div>
                 </div>
             </div>
             <div class="col-xs-12 col-md-6 contact-emails-title">
                 <div class="row">
-                    <div class="col-xs-7 col-md-6">
+                    <div class="col-xs-7 col-md-5 content-center">
                         <img src="[% request.url_for('../images/contact_us/email_image.svg') %]"/>
                     </div>
-                    <div class="col-xs-5 col-md-6">
+                    <div class="col-xs-5 col-md-7">
                         <h2>[% l('Email us') %]</h2>
-                        <p>[% l('Some text here') %]</p>
+                        <p>[% l('Ad himenaeos id vestibulum penatibus mus commodo') %]</p>
                     </div>
                 </div>
             </div>
