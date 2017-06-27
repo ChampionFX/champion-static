@@ -30,7 +30,7 @@
                         <p>[% l('All calls are recorded for training and monitoring purposes') %]</p>
                     </div>
                     <div class="col-xs-7 col-md-5 content-center">
-                        <img src="[% request.url_for('../images/contact_us/cs_image.svg') %]"/>
+                        <img src="[% request.url_for('images/contact_us/cs_image.svg') %]"/>
                     </div>
                 </div>
             </div>
@@ -120,7 +120,7 @@
             <div class="col-xs-12 col-md-6 contact-emails-title">
                 <div class="row">
                     <div class="col-xs-7 col-md-5 content-center">
-                        <img src="[% request.url_for('../images/contact_us/email_image.svg') %]"/>
+                        <img src="[% request.url_for('images/contact_us/email_image.svg') %]"/>
                     </div>
                     <div class="col-xs-5 col-md-7">
                         <h2>[% l('Email us') %]</h2>
