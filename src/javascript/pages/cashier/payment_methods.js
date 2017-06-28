@@ -1,4 +1,5 @@
 const ChampionSocket = require('./../../common/socket');
+const Client         = require('../../common/client');
 
 const CashierPaymentMethods = (function() {
     'use strict';
@@ -17,6 +18,13 @@ const CashierPaymentMethods = (function() {
             $nextButton = $('.next-button');
             isVertical = $(window).innerWidth() < 767;
             currentFirstTab = 1;
+
+            const container = $('#payment_methods');
+            if (!Client.is_logged_in()) {
+                container.find('#btn-signup').removeClass('invisible');
+            } else {
+                container.find('#btn-cashier').removeClass('invisible');
+            }
 
             $('#payment_methods_accordian').accordion({
                 heightStyle: 'content',

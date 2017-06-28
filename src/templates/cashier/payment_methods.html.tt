@@ -125,6 +125,14 @@
                 </div>
 
                 <p class="hint">*[% l('All your deposits and withdrawals are processed by ChampionFX within 24 hours. However, there may be additional processing time required by your bank or money transfer service.') %]</p>
+
+                <div class="col-md-12 center-text">
+                    <a id="btn-signup" class="button invisible" href="[% request.url_for('home') %]#signup"><span>[% l('Sign up') %]</span>
+                    </a>
+                    <a id="btn-cashier" class="button-secondary invisible" href="[% request.url_for('cashier') %]">
+                        <span>[% l('Go to cashier') %]</span>
+                    </a>
+                </div>
             </div>
 
             <div class="fx-section">
@@ -158,11 +166,6 @@
                         [% END %]
                     [% END %]
                 </div>
-                <div class="col-md-12 center-text">
-                    <a class="button-secondary" href="[% request.url_for('cashier') %]">
-                        <span>[% l('Go to cashier') %]</span>
-                    </a>
-                </div>
             </div>
 
             <div class="fx-section">
@@ -192,12 +195,6 @@
                     <div>[% l('Yes, just log into ChampionFX and then select ‘Statement’ from the drop-down menu in the top right-hand corner of the window. You will be able to see all trades, deposits, and withdrawals that have taken place on your account.') %]</div>
                     <h3>[% l('Do you allow third-party payments?') %] </h3>
                     <div>[% l('Unfortunately, no. Under the terms of our financial license, third-party payments are not allowed due to its high risk for abuse.') %]</div>
-                </div>
-
-                <div class="col-md-12 center-text">
-                    <a class="button-secondary" href="[% request.url_for('cashier') %]">
-                        <span>[% l('Go to cashier') %]</span>
-                    </a>
                 </div>
             </div>
         </div>
