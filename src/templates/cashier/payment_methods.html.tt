@@ -4,49 +4,49 @@
             deposit   ={ min_max=l('10 - 10,000' ) process_time=l('Instant') }
             withdrawal={ min_max=l('10 - 10,000' ) process_time=l('[_1] working day', 1) }
             steps     =[ { text=l('Log into your ChampionFX account') },
-                         { text=l('Cashier > Deposit') },
+                         { text=l('Cashier > Deposit') has_link='true' },
                          { text=l('Select Visa from the list of available payment methods') } ]
         },{
             id=l('mastercard') currencies=[l('USD'), l('GBP'), l('EUR'), l('AUD')]
             deposit   ={ min_max=l('10 - 10,000' ) process_time=l('Instant') }
             withdrawal={ min_max=l('10 - 10,000' ) process_time=l('[_1] working day', 1) }
             steps     =[ { text=l('Log into your ChampionFX account') },
-                         { text=l('Cashier > Deposit') },
+                         { text=l('Cashier > Deposit') has_link='true' },
                          { text=l('Select Mastercard from the list of available payment methods') } ]
         },{
             id=l('neteller') currencies=[l('USD'), l('GBP'), l('EUR'), l('AUD')]
             deposit   ={ min_max=l('5 - 10,000' ) process_time=l('Instant') }
             withdrawal={ min_max=l('5 - 10,000' ) process_time=l('[_1] working day', 1) }
             steps     =[ { text=l('Log into your ChampionFX account') },
-                         { text=l('Cashier > Deposit') },
+                         { text=l('Cashier > Deposit') has_link='true' },
                          { text=l('Select Neteller from the list of available payment methods') } ]
         },{
             id=l('skrill') currencies=[l('USD'), l('GBP'), l('EUR'), l('AUD')]
             deposit   ={ min_max=l('5 - 10,000' ) process_time=l('Instant') }
             withdrawal={ min_max=l('5 - 10,000' ) process_time=l('[_1] working day', 1) }
             steps     =[ { text=l('Log into your ChampionFX account') },
-                         { text=l('Cashier > Deposit') },
+                         { text=l('Cashier > Deposit') has_link='true' },
                          { text=l('Select Skrill from the list of available payment methods') } ]
         },{
             id=l('paysafe') currencies=[l('USD'), l('GBP'), l('EUR'), l('AUD')]
             deposit   ={ min_max=l('5 - 750' ) process_time=l('Instant') }
             withdrawal={ min_max=l('5 - 750' ) process_time=l('[_1] working day', 1) }
             steps     =[ { text=l('Log into your ChampionFX account') },
-                         { text=l('Cashier > Deposit') },
+                         { text=l('Cashier > Deposit') has_link='true' },
                          { text=l('Select PaySafeCard from the list of available payment methods') } ]
         },{
             id=l('ecopayz') currencies=[l('USD'), l('GBP'), l('EUR'), l('AUD')]
             deposit   ={ min_max=l('5 - 10,000' ) process_time=l('Instant') }
             withdrawal={ min_max=l('5 - 10,000' ) process_time=l('[_1] working day', 1) }
             steps     =[ { text=l('Log into your ChampionFX account') },
-                         { text=l('Cashier > Deposit') },
+                         { text=l('Cashier > Deposit') has_link='true' },
                          { text=l('Select EcoPayz from the list of available payment methods') } ]
         },{
             id=l('bankwire') currencies=[l('USD'), l('GBP'), l('EUR'), l('AUD')]
             deposit   ={ min_max=l('100 - 100,000' ) process_time=l('[_1] working day', 1) }
             withdrawal={ min_max=l('100 - 100,000' ) process_time=l('[_1]-[_2] working days', 3, 5) }
             steps     =[ { text=l('Log into your ChampionFX account') },
-                         { text=l('Cashier > Deposit') },
+                         { text=l('Cashier > Deposit') has_link='true' },
                          { text=l('Select Bankwire from the list of available payment methods') } ]
         }
     ]
@@ -107,7 +107,7 @@
                                 <p>[% l('How to fund your account:') %]</p>
                                 <ol>
                                     [% FOREACH step IN method.steps %]
-                                        <li>[% IF step.link %]
+                                        <li>[% IF step.has_link %]
                                             <a class="underline-link" href="[% request.url_for('forward.html#deposit') %]">[% l('Go to') %]</a>
                                             [% END %]
                                             [% step.text.join('<li />') %]
