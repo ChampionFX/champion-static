@@ -636,10 +636,25 @@ h1.main-title {
             font-size: 14px;
             margin: 10px 0;
         }
+        .contact-address, .contact-email-lg {
+            h4 {
+                color: $black;
+                font-size: 16px;
+                font-weight: bold;
+                margin-top: 0;
+                margin-bottom: 5px;
+            }
+        }
         &.contact-phones {
             div.row {
                 > div {
                     margin: 15px 0;
+                }
+            }
+            .contact-address {
+                span {
+                    font-size: 22px;
+                    white-space: normal;
                 }
             }
             h5 {
@@ -663,13 +678,6 @@ h1.main-title {
             text-align: right;
 
             .contact-email-lg {
-                h4 {
-                    color: $black;
-                    font-size: 16px;
-                    font-weight: bold;
-                    margin-top: 0;
-                    margin-bottom: 5px;
-                }
                 a {
                     font-size: 22px;
                 }
@@ -736,12 +744,22 @@ h1.main-title {
             }
         }
         .contact-phones, .contact-emails {
+            .contact-email-lg, .contact-address {
+                h4 {
+                    font-size: 14px;
+                }
+            }
             &.contact-phones {
                 h5 {
                     font-size: 14px;
                 }
                 span {
                     font-size: 12px;
+                }
+                .contact-address {
+                    span {
+                        font-size: 18px;
+                    }
                 }
             }
             &.contact-emails {
@@ -754,9 +772,6 @@ h1.main-title {
                     font-size: 14px;
                 }
                 .contact-email-lg {
-                    h4 {
-                        font-size: 14px;
-                    }
                     a {
                         font-size: 18px;
                     }

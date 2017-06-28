@@ -36,6 +36,10 @@
             </div>
             <div class="col-xs-12 col-md-6 contact-phones">
                 <div class="row">
+                    <div class="col-xs-12 col-md-12 col-lg-12 contact-address">
+                        <h4>[% l('Registered address') %]</h4>
+                        <span>Govant Building, Port Vila, P.O. Box 1276, Vanuatu, Republic of Vanuatu.</span>
+                    </div>
                     <div class="col-xs-6 col-md-6 col-lg-4">
                         <div class="vertical-center">
                             <span class="fx-contact-flag fx-contact-canada"></span>
@@ -45,10 +49,10 @@
                     </div>
                     <div class="col-xs-6 col-md-6 col-lg-4">
                         <div class="vertical-center">
-                            <span class="fx-contact-flag fx-contact-germany"></span>
-                            <h5>[% l('Germany') %]</h5>
+                            <span class="fx-contact-flag fx-contact-poland"></span>
+                            <h5>[% l('Poland') %]</h5>
                         </div>
-                        <span>+49 0221 9825 9000</span>
+                        <span>+48 58 881 00 02</span>
                     </div>
                     <div class="col-xs-6 col-md-6 col-lg-4">
                         <div class="vertical-center">
@@ -63,13 +67,6 @@
                             <h5>[% l('Ireland') %]</h5>
                         </div>
                         <span>+353 (0) 76 888 7500,<br>1 800 931084 (Toll Free)</span>
-                    </div>
-                    <div class="col-xs-6 col-md-6 col-lg-4">
-                        <div class="vertical-center">
-                            <span class="fx-contact-flag fx-contact-poland"></span>
-                            <h5>[% l('Poland') %]</h5>
-                        </div>
-                        <span>+48 58 881 00 02</span>
                     </div>
                     <div class="col-xs-6 col-md-6 col-lg-4">
                         <div class="vertical-center">
@@ -124,7 +121,7 @@
                     </div>
                     <div class="col-xs-5 col-md-7">
                         <h2>[% l('Email us') %]</h2>
-                        <p>[% l('Ad himenaeos id vestibulum penatibus mus commodo') %]</p>
+                        <!-- p>[% l('Ad himenaeos id vestibulum penatibus mus commodo') %]</p -->
                     </div>
                 </div>
             </div>
