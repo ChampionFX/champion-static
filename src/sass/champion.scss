@@ -603,7 +603,7 @@ h1.main-title {
 #contact-us {
     padding: 60px 0;
 
-    .contact-phones-title, .contact-emails-title {
+    .section-heading {
         div.row {
             display: flex;
             align-items: flex-end;
@@ -615,88 +615,70 @@ h1.main-title {
             display: flex;
             justify-content: center;
         }
+        .content-align-right {
+            text-align: right;
+        }
+        .content-align-left {
+            text-align: left;
+        }
         img {
             width: 130%;
             height: 100%;
             padding: 15px;
         }
-        &.contact-phones-title {
-            h2, p {
-                text-align: right;
-            }
-        }
     }
     .contact-phones, .contact-emails {
         display: flex;
         align-items: center;
-        font-size: 16px;
         padding: 15px;
 
-        p {
+        h4 {
+            color: $black;
             font-size: 14px;
-            margin: 10px 0;
-        }
-        .contact-address, .contact-email-lg {
-            h4 {
-                color: $black;
-                font-size: 16px;
-                font-weight: bold;
-                margin-top: 0;
-                margin-bottom: 5px;
-            }
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 5px;
         }
         &.contact-phones {
-            div.row {
-                > div {
-                    margin: 15px 0;
-                }
+            .vertical-center {
+                margin-top: 15px;
             }
-            .contact-address {
-                span {
-                    font-size: 22px;
-                    white-space: normal;
-                }
-            }
-            h5 {
-                font-size: 16px;
+            p {
+                font-size: 14px;
                 font-weight: bold;
-                margin: 0.5em;
-                @media (max-width: 1100px) {
-                    font-size: 14px;
-                }
+                margin: 5px;
             }
             span {
-                font-size: 14px;
-                white-space: nowrap;
+                font-size: 12px;
+            }
+            span.text-lg {
+                font-size: $FONT_SIZE_N;
                 @media (max-width: 1100px) {
-                    white-space: normal;
-                    font-size: 12px;
+                    font-size: 16px;
                 }
             }
         }
         &.contact-emails {
             text-align: right;
-
-            .contact-email-lg {
-                a {
-                    font-size: 22px;
-                }
+            @media (max-width: 767px) {
+                text-align: left;
             }
-            h5 {
-                font-size: 14px;
+
+            p {
+                font-size: 12px;
                 font-weight: bold;
-                margin-bottom: 0.5em;
-                @media (max-width: 1100px) {
-                    font-size: 12px;
-                }
+                margin-bottom: 5px;
+                margin-top: 15px;
             }
             a {
-                font-size: 16px;
+                font-size: 14px;
                 white-space: nowrap;
                 @media (max-width: 1100px) {
-                    font-size: 14px;
                     white-space: normal;
                 }
+            }
+            a.text-lg {
+                font-size: $FONT_SIZE_N;
             }
         }
     }
@@ -710,9 +692,9 @@ h1.main-title {
             flex-direction: column-reverse;
         }
         .separator {
-            margin: 0 0 30px;
+            margin: 25px 0 30px;
         }
-        .contact-emails-title, .contact-phones-title {
+        .section-heading {
             h2 {
                 font-size: 22px;
             }
@@ -722,59 +704,18 @@ h1.main-title {
             img {
                 width: 100%;
             }
-            &.contact-phones-title {
-                .row {
-                    div {
-                        padding-right: 0;
-                    }
-                }
+            .content-align-right > div {
+                padding-right: 0;
+
                 img {
                     padding-left: 0;
                 }
             }
-            &.contact-emails-title {
-                .row {
-                    div {
-                        padding-left: 0;
-                    }
-                }
+            .content-align-left > div {
+                padding-left: 0;
+
                 img {
                     padding-right: 0;
-                }
-            }
-        }
-        .contact-phones, .contact-emails {
-            .contact-email-lg, .contact-address {
-                h4 {
-                    font-size: 14px;
-                }
-            }
-            &.contact-phones {
-                h5 {
-                    font-size: 14px;
-                }
-                span {
-                    font-size: 12px;
-                }
-                .contact-address {
-                    span {
-                        font-size: 18px;
-                    }
-                }
-            }
-            &.contact-emails {
-                text-align: left;
-
-                h5 {
-                    font-size: 12px;
-                }
-                a {
-                    font-size: 14px;
-                }
-                .contact-email-lg {
-                    a {
-                        font-size: 18px;
-                    }
                 }
             }
         }
