@@ -7,11 +7,13 @@
     position: relative;
     vertical-align: middle;
     width: 350px !important;
+
     .select2-selection--single, .select2-selection--multiple {
         box-sizing: border-box;
         cursor: pointer;
         display: block;
         user-select: none;
+
         .select2-selection__rendered {
             padding-left: 8px;
             overflow: hidden;
@@ -21,6 +23,7 @@
     }
     .select2-selection--single {
         height: 28px;
+
         .select2-selection__rendered {
             display: block;
             padding-right: 20px;
@@ -31,6 +34,7 @@
     }
     .select2-selection--multiple {
         min-height: 32px;
+
         .select2-selection__rendered {
             display: inline-block;
         }
@@ -38,6 +42,7 @@
     .select2-search--inline {
         float: left;
         margin: 0;
+
         .select2-search__field {
             box-sizing: border-box;
             border: none;
@@ -74,6 +79,7 @@
     padding: 1px 5px;
     margin: 0;
     user-select: none;
+
     &[aria-selected] {
         cursor: pointer;
     }
@@ -98,6 +104,7 @@
 .select2-search--dropdown {
     display: block;
     padding: 4px;
+
     .select2-search__field {
         padding: 4px;
         width: 100%;
@@ -142,6 +149,7 @@
         background-color: $white;
         border: 1px solid $fillColor;
         border-radius: $BORDER_RADIUS;
+
         .select2-selection__rendered {
             color: $black;
             line-height: 28px;
@@ -160,6 +168,7 @@
             top: 1px;
             right: 1px;
             width: 20px;
+
             b {
                 border-color: $secondaryContentColor transparent transparent transparent;
                 border-style: solid;
@@ -178,6 +187,7 @@
         .select2-selection--single {
             background-color: $borderColor;
             cursor: default;
+
             .select2-selection__clear {
                 display: none;
             }
@@ -221,12 +231,14 @@
         border: 1px solid $primaryBrandColor;
         border-radius: $BORDER_RADIUS;
         cursor: text;
+
         .select2-selection__rendered {
             box-sizing: border-box;
             list-style: none;
             margin: 0;
             padding: 0 5px;
             width: 100%;
+
             li {
                 list-style: none;
                 font-size: 17px;
@@ -260,6 +272,7 @@
             display: inline-block;
             font-weight: bold;
             margin-right: 2px;
+
             &:hover {
                 color: $black;
             }
@@ -302,21 +315,26 @@
     }
     .select2-results__option .select2-results__option {
         padding-left: 1em;
+
         .select2-results__group {
             padding-left: 0;
         }
         .select2-results__option {
             margin-left: -1em;
             padding-left: 2em;
+
             .select2-results__option {
                 margin-left: -2em;
                 padding-left: 3em;
+
                 .select2-results__option {
                     margin-left: -3em;
                     padding-left: 4em;
+
                     .select2-results__option {
                         margin-left: -4em;
                         padding-left: 5em;
+
                         .select2-results__option {
                             margin-left: -5em;
                             padding-left: 6em;
@@ -367,6 +385,7 @@
         background-repeat: repeat-x;
         /* stylelint-disable-next-line function-name-case */
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFFFF', endColorstr='#FFEEEEEE', GradientType=0);
+
         &:focus {
             border: 1px solid $primaryBrandColor;
         }
@@ -398,6 +417,7 @@
             background-repeat: repeat-x;
             /* stylelint-disable-next-line function-name-case */
             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFEEEEEE', endColorstr='#FFCCCCCC', GradientType=0);
+
             b {
                 border-color: $secondaryContentColor transparent transparent transparent;
                 border-style: solid;
@@ -415,9 +435,11 @@
     &.select2-container--open {
         .select2-selection--single {
             border: 1px solid $primaryBrandColor;
+
             .select2-selection__arrow {
                 background: transparent;
                 border: none;
+
                 b {
                     border-color: transparent transparent $secondaryContentColor transparent;
                     border-width: 0 4px 5px;
@@ -469,6 +491,7 @@
         border-radius: $BORDER_RADIUS;
         cursor: text;
         outline: 0;
+
         &:focus {
             border: 1px solid $primaryBrandColor;
         }
@@ -496,6 +519,7 @@
             display: inline-block;
             font-weight: bold;
             margin-right: 2px;
+
             &:hover {
                 color: $black;
             }

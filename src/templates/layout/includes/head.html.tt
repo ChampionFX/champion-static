@@ -13,7 +13,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
     <title>[%= browser_title =%]</title>
-    <meta name="description" content="[% l('ChampionFX Static') %]" />
+    <meta name="description" content="[% l('Access the world markets through one powerful all in one platform. The best choice for the modern trader where the client is king.') %]" />
 
     <meta property="og:title" content="[%= website_name =%]" />
     <meta property="og:type"  content="website" />
