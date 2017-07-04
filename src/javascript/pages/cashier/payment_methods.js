@@ -125,14 +125,14 @@ const CashierPaymentMethods = (function() {
 
     const hideButton = (element) => {
         element.siblings('div.col-md-10').removeClass('col-md-10').addClass('col-md-11');
-        element.siblings('div.col-md-1').removeClass('hide');
-        element.addClass('hide');
+        element.siblings('div.hide').removeClass('hide').addClass('col-md-1');
+        element.addClass('hide').removeClass('col-md-1');
         $container.removeClass('in-the-middle');
     };
 
     const showBothButtons = () => {
-        $previousButton.removeClass('hide');
-        $nextButton.removeClass('hide');
+        $previousButton.removeClass('hide').addClass('col-md-1');
+        $nextButton.removeClass('hide').addClass('col-md-1');
     };
 
     const makeScrollTabsSmall = () => {

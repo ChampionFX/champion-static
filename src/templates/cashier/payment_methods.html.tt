@@ -65,7 +65,7 @@
             <div id="payment_methods" class="row">
                 <div class="col-xs-4 col-sm-3 col-md-12">
                     <div class="row tabs-container">
-                        <div class="previous-button col-md-1 hide">
+                        <div class="previous-button hide">
                             <div class="arrow arrow-left arrow-up"></div>
                         </div>
                         <div class="col-md-11 tab-buttons">

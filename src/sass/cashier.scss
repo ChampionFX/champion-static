@@ -113,10 +113,11 @@
                 }
             }
             &.hide {
-                max-width: 0px;
-                padding: 0px;
+                max-height: 0;
+                max-width: 0;
+                padding: 0;
             }
-            transition: max-width 0.5s;
+            transition: max-width 0.3s;
         }
         .tab-buttons {
             overflow: hidden;
@@ -251,7 +252,7 @@
                     max-height: 0;
                     opacity: 0;
                 }
-                transition: max-height 0.5s;
+                transition: max-height 0.3s;
             }
             .tab-buttons {
                 ul {
