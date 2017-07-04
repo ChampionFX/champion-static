@@ -46,6 +46,12 @@ const MetaTraderConfig = (function() {
                 $form.find(fields[action].lbl_account_type.id).text(types_info[acc_type].title);
                 // Email
                 $form.find(fields[action].lbl_email.id).text(fields[action].additional_fields(acc_type).email);
+                // Max leverage
+                $form.find(`${fields[action].ddl_leverage.id} option`).each(function() {
+                    if (+$(this).val() > types_info[acc_type].max_leverage) {
+                        $(this).remove();
+                    }
+                });
             },
             onSuccess: (response) => {
                 GTM.mt5NewAccount(response);
@@ -132,6 +138,7 @@ const MetaTraderConfig = (function() {
             lbl_account_type : { id: '#lbl_account_type' },
             lbl_email        : { id: '#lbl_email' },
             txt_name         : { id: '#txt_name',          request_field: 'name' },
+            ddl_leverage     : { id: '#ddl_leverage',      request_field: 'leverage' },
             txt_main_pass    : { id: '#txt_main_pass',     request_field: 'mainPassword' },
             txt_re_main_pass : { id: '#txt_re_main_pass' },
             txt_investor_pass: { id: '#txt_investor_pass', request_field: 'investPassword' },
@@ -144,7 +151,6 @@ const MetaTraderConfig = (function() {
                     },
                     types_info[acc_type].mt5_account_type ? {
                         mt5_account_type: types_info[acc_type].mt5_account_type,
-                        leverage        : types_info[acc_type].max_leverage,
                     } : {})),
         },
         password_change: {
@@ -186,6 +192,7 @@ const MetaTraderConfig = (function() {
             { selector: fields.new_account.txt_main_pass.id,     validations: ['req', ['password', 'mt']] },
             { selector: fields.new_account.txt_re_main_pass.id,  validations: ['req', ['compare', { to: fields.new_account.txt_main_pass.id }]] },
             { selector: fields.new_account.txt_investor_pass.id, validations: ['req', ['password', 'mt'], ['not_equal', { to: fields.new_account.txt_main_pass.id, name1: 'Main password', name2: 'Investor password' }]] },
+            { selector: fields.new_account.ddl_leverage.id,      validations: ['req'] },
             { selector: fields.new_account.chk_tnc.id,           validations: ['req'] },
         ],
         password_change: [
