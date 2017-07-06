@@ -23,6 +23,9 @@
                             <li>[% l('Robust and secure platform') %]</li>
                             <li>[% l('Accessible from any web browser in 12 languages') %]</li>
                         </ul>
+                        <a class="button" href="https://webtrader.champion-fx.com" target="_blank">
+                            <span>[% l('Go to Champion Trader') %]</span>
+                        </a>
                     </div>
                 </div>
                 [% INCLUDE static/common/separator_line.html.tt %]
