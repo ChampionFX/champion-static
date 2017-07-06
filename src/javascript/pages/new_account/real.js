@@ -36,6 +36,7 @@ const ChampionNewRealAccount = (function() {
         chk_not_pep        : '#chk_not_pep',
         chk_tnc            : '#chk_tnc',
         btn_submit         : '#btn_submit',
+        ddl_opening_reason : '#ddl_opening_reason',
     };
 
     const load = () => {
@@ -78,6 +79,7 @@ const ChampionNewRealAccount = (function() {
             { selector: fields.txt_secret_answer,   validations: ['req', 'general', ['length', { min: 4, max: 50 }]] },
             { selector: fields.chk_tnc,             validations: ['req'] },
             { selector: fields.chk_not_pep,         validations: ['req'] },
+            { selector: fields.ddl_opening_reason,  validations: ['req'] },
         ]);
     };
 
@@ -131,20 +133,21 @@ const ChampionNewRealAccount = (function() {
         btn_submit.attr('disabled', 'disabled');
         if (Validation.validate(form_selector)) {
             const data = {
-                new_account_real: 1,
-                salutation      : $(fields.ddl_title).val(),
-                first_name      : $(fields.txt_fname).val(),
-                last_name       : $(fields.txt_lname).val(),
-                date_of_birth   : $(fields.txt_birth_date).val(),
-                residence       : client_residence,
-                address_line_1  : $(fields.txt_address1).val(),
-                address_line_2  : $(fields.txt_address2).val(),
-                address_city    : $(fields.txt_city).val(),
-                address_state   : $(fields.ddl_state).val() || $(fields.txt_state).val(),
-                address_postcode: $(fields.txt_postcode).val(),
-                phone           : $(fields.txt_phone).val(),
-                secret_question : $(fields.ddl_secret_question).val(),
-                secret_answer   : $(fields.txt_secret_answer).val(),
+                new_account_real      : 1,
+                salutation            : $(fields.ddl_title).val(),
+                first_name            : $(fields.txt_fname).val(),
+                last_name             : $(fields.txt_lname).val(),
+                date_of_birth         : $(fields.txt_birth_date).val(),
+                residence             : client_residence,
+                address_line_1        : $(fields.txt_address1).val(),
+                address_line_2        : $(fields.txt_address2).val(),
+                address_city          : $(fields.txt_city).val(),
+                address_state         : $(fields.ddl_state).val() || $(fields.txt_state).val(),
+                address_postcode      : $(fields.txt_postcode).val(),
+                phone                 : $(fields.txt_phone).val(),
+                secret_question       : $(fields.ddl_secret_question).val(),
+                secret_answer         : $(fields.txt_secret_answer).val(),
+                account_opening_reason: $(fields.ddl_opening_reason).val(),
             };
             if (Client.get('affiliate_token')) {
                 data.affiliate_token = Client.get('affiliate_token');
