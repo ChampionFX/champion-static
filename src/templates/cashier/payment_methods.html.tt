@@ -44,7 +44,7 @@
         },{
             id=l('bankwire') currencies=[l('USD'), l('GBP'), l('EUR'), l('AUD')]
             deposit   ={ min_max=l('100 - 100,000' ) process_time=l('[_1] working day', 1) }
-            withdrawal={ min_max=l('100 - 100,000' ) process_time=l('[_1]-[_2] working days', 3, 5) }
+            withdrawal={ min_max=l('100 - 1,000,000' ) process_time=l('[_1]-[_2] working days', 3, 5) }
             steps     =[ { text=l('Log into your ChampionFX account') },
                          { text=l('Cashier > Deposit') has_link='true' },
                          { text=l('Select Bankwire from the list of available payment methods') } ]
