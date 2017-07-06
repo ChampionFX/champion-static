@@ -5,26 +5,21 @@ const CashierPaymentMethods = (function() {
     'use strict';
 
     const VIEWPORT_TABS = 6;
-    let $container;
-    let $previousButton;
+    let $scrollTabsContainer;
+    let $prevButton;
     let $nextButton;
     let isVertical;
     let currentFirstTab;
 
     const load = () => {
         ChampionSocket.wait('authorize').then(() => {
-            $container = $('.scrollable-tabs');
-            $previousButton = $('.previous-button');
+            $scrollTabsContainer  = $('.scrollable-tabs');
+            $prevButton = $('.previous-button');
             $nextButton = $('.next-button');
             isVertical = $(window).innerWidth() < 767;
             currentFirstTab = 1;
 
-            const container = $('#payment_methods');
-            if (!Client.is_logged_in()) {
-                container.find('#btn-signup').removeClass('invisible');
-            } else {
-                container.find('#btn-cashier').removeClass('invisible');
-            }
+            $('#payment_methods').find(Client.is_logged_in() ? '#btn-cashier' : '#btn-signup').removeClass('invisible');
 
             $('#payment_methods_accordian').accordion({
                 heightStyle: 'content',
@@ -38,14 +33,14 @@ const CashierPaymentMethods = (function() {
 
             scrollTabContents();
             $nextButton.unbind('click').click(scrollHandler(true));
-            $previousButton.unbind('click').click(scrollHandler(false));
-            $container.scrollEnd(toggleNextAndPrevious, 50);
+            $prevButton.unbind('click').click(scrollHandler(false));
+            $scrollTabsContainer.scrollEnd(toggleNextAndPrevious, 50);
         });
     };
 
     const scrollTabContents = () => {
         const $tab_content = $('.tab-content-wrapper');
-        $container.find('li').click(function(e) {
+        $scrollTabsContainer.find('li').click(function(e) {
             e.preventDefault();
             const val = $(this).find('a').attr('rel');
             if (!val) {
@@ -70,11 +65,11 @@ const CashierPaymentMethods = (function() {
     };
 
     function toggleNextAndPrevious (e) {
-        const $firstTab = $container.find(':nth-child(1)');
+        const $firstTab = $scrollTabsContainer.find(':nth-child(1)');
         const tabSize = isVertical ? $firstTab.height() : $firstTab.width();
         const $this = $(e.target);
         const MIN_DIFF = 5;
-        const containerSize = Math.ceil(isVertical ? $container.height() : $container.width());
+        const containerSize = Math.ceil(isVertical ? $scrollTabsContainer.height() : $scrollTabsContainer.width());
         const firstTabPosition = isVertical ? $firstTab.position().top : $firstTab.position().left;
         currentFirstTab = Math.ceil(Math.abs(firstTabPosition / tabSize));
         const lastTabPosition = isVertical ?
@@ -82,7 +77,7 @@ const CashierPaymentMethods = (function() {
             $this.get(0).scrollWidth - $this.scrollLeft();
 
         if (firstTabPosition === 0) {
-            hideButton($previousButton);
+            hideButton($prevButton);
         } else if (Math.abs(lastTabPosition - containerSize) < MIN_DIFF) {
             hideButton($nextButton);
         } else {
@@ -92,7 +87,7 @@ const CashierPaymentMethods = (function() {
     }
 
     const updateCurrentFirstTab = (isDirectionForward) => {
-        const tabsCount = $container.children().length;
+        const tabsCount = $scrollTabsContainer.children().length;
         const end = currentFirstTab + (VIEWPORT_TABS - 1);
         const tabsRemainingInTheEnd = tabsCount - end;
         const tabsRemainingInTheBeginning = currentFirstTab - 1;
@@ -110,16 +105,16 @@ const CashierPaymentMethods = (function() {
     };
 
     const isThereChildrenToScroll = () => {
-        const num_of_tabs = $container.children().length;
+        const num_of_tabs = $scrollTabsContainer.children().length;
         return currentFirstTab < num_of_tabs && currentFirstTab > 0;
     };
 
     const scroll = () => {
-        const scrollTo = $container.find(`:nth-child(${currentFirstTab})`);
+        const scrollTo = $scrollTabsContainer.find(`:nth-child(${currentFirstTab})`);
         const scrollPosition = isVertical ? 'scrollTop' : 'scrollLeft';
-        const scrollSize =  $container[scrollPosition]() + scrollTo.position()[isVertical ? 'top' : 'left'];
+        const scrollSize =  $scrollTabsContainer[scrollPosition]() + scrollTo.position()[isVertical ? 'top' : 'left'];
         if (isThereChildrenToScroll()) {
-            $container.animate({ [scrollPosition]: scrollSize  }, 500);
+            $scrollTabsContainer.animate({ [scrollPosition]: scrollSize  }, 500);
         }
     };
 
@@ -127,19 +122,19 @@ const CashierPaymentMethods = (function() {
         element.siblings('div.col-md-10').removeClass('col-md-10').addClass('col-md-11');
         element.siblings('div.hide').removeClass('hide').addClass('col-md-1');
         element.addClass('hide').removeClass('col-md-1');
-        $container.removeClass('in-the-middle');
+        $scrollTabsContainer.removeClass('in-the-middle');
     };
 
     const showBothButtons = () => {
-        $previousButton.removeClass('hide').addClass('col-md-1');
+        $prevButton.removeClass('hide').addClass('col-md-1');
         $nextButton.removeClass('hide').addClass('col-md-1');
     };
 
     const makeScrollTabsSmall = () => {
         if (isVertical) {
-            $container.addClass('in-the-middle');
+            $scrollTabsContainer.addClass('in-the-middle');
         } else {
-            $container.parent().removeClass('col-md-11').addClass('col-md-10');
+            $scrollTabsContainer.parent().removeClass('col-md-11').addClass('col-md-10');
         }
     };
 

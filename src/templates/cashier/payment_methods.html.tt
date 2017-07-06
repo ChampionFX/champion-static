@@ -1,50 +1,50 @@
 [% methods=
     [
-        {   id=l('visa') currencies=[l('USD'), l('GBP'), l('EUR'), l('AUD')]
-            deposit   ={ min_max=l('10 - 10,000' ) process_time=l('Instant') }
-            withdrawal={ min_max=l('10 - 10,000' ) process_time=l('[_1] working day', 1) }
+        {   id=l('visa') currencies=['USD', 'GBP', 'EUR', 'AUD']
+            deposit   ={ min_max='10 - 10,000' process_time=l('Instant') }
+            withdrawal={ min_max='10 - 10,000' process_time=l('[_1] working day', 1) }
             steps     =[ { text=l('Log into your ChampionFX account') },
                          { text=l('Cashier > Deposit') has_link='true' },
                          { text=l('Select Visa from the list of available payment methods') } ]
         },{
-            id=l('mastercard') currencies=[l('USD'), l('GBP'), l('EUR'), l('AUD')]
-            deposit   ={ min_max=l('10 - 10,000' ) process_time=l('Instant') }
-            withdrawal={ min_max=l('10 - 10,000' ) process_time=l('[_1] working day', 1) }
+            id=l('mastercard') currencies=['USD', 'GBP', 'EUR', 'AUD']
+            deposit   ={ min_max='10 - 10,000' process_time=l('Instant') }
+            withdrawal={ min_max='10 - 10,000' process_time=l('[_1] working day', 1) }
             steps     =[ { text=l('Log into your ChampionFX account') },
                          { text=l('Cashier > Deposit') has_link='true' },
                          { text=l('Select Mastercard from the list of available payment methods') } ]
         },{
-            id=l('neteller') currencies=[l('USD'), l('GBP'), l('EUR'), l('AUD')]
-            deposit   ={ min_max=l('5 - 10,000' ) process_time=l('Instant') }
-            withdrawal={ min_max=l('5 - 10,000' ) process_time=l('[_1] working day', 1) }
+            id=l('neteller') currencies=['USD', 'GBP', 'EUR', 'AUD']
+            deposit   ={ min_max='5 - 10,000' process_time=l('Instant') }
+            withdrawal={ min_max='5 - 10,000' process_time=l('[_1] working day', 1) }
             steps     =[ { text=l('Log into your ChampionFX account') },
                          { text=l('Cashier > Deposit') has_link='true' },
                          { text=l('Select Neteller from the list of available payment methods') } ]
         },{
-            id=l('skrill') currencies=[l('USD'), l('GBP'), l('EUR'), l('AUD')]
-            deposit   ={ min_max=l('5 - 10,000' ) process_time=l('Instant') }
-            withdrawal={ min_max=l('5 - 10,000' ) process_time=l('[_1] working day', 1) }
+            id=l('skrill') currencies=['USD', 'GBP', 'EUR', 'AUD']
+            deposit   ={ min_max='5 - 10,000' process_time=l('Instant') }
+            withdrawal={ min_max='5 - 10,000' process_time=l('[_1] working day', 1) }
             steps     =[ { text=l('Log into your ChampionFX account') },
                          { text=l('Cashier > Deposit') has_link='true' },
                          { text=l('Select Skrill from the list of available payment methods') } ]
         },{
-            id=l('paysafe') currencies=[l('USD'), l('GBP'), l('EUR'), l('AUD')]
+            id=l('paysafe') currencies=['USD', 'GBP', 'EUR', 'AUD']
             deposit   ={ min_max=l('5 - 750' ) process_time=l('Instant') }
             withdrawal={ min_max=l('5 - 750' ) process_time=l('[_1] working day', 1) }
             steps     =[ { text=l('Log into your ChampionFX account') },
                          { text=l('Cashier > Deposit') has_link='true' },
                          { text=l('Select PaySafeCard from the list of available payment methods') } ]
         },{
-            id=l('ecopayz') currencies=[l('USD'), l('GBP'), l('EUR'), l('AUD')]
-            deposit   ={ min_max=l('5 - 10,000' ) process_time=l('Instant') }
-            withdrawal={ min_max=l('5 - 10,000' ) process_time=l('[_1] working day', 1) }
+            id=l('ecopayz') currencies=['USD', 'GBP', 'EUR', 'AUD']
+            deposit   ={ min_max='5 - 10,000' process_time=l('Instant') }
+            withdrawal={ min_max='5 - 10,000' process_time=l('[_1] working day', 1) }
             steps     =[ { text=l('Log into your ChampionFX account') },
                          { text=l('Cashier > Deposit') has_link='true' },
                          { text=l('Select EcoPayz from the list of available payment methods') } ]
         },{
-            id=l('bankwire') currencies=[l('USD'), l('GBP'), l('EUR'), l('AUD')]
-            deposit   ={ min_max=l('100 - 100,000' ) process_time=l('[_1] working day', 1) }
-            withdrawal={ min_max=l('100 - 1,000,000' ) process_time=l('[_1]-[_2] working days', 3, 5) }
+            id=l('bankwire') currencies=['USD', 'GBP', 'EUR', 'AUD']
+            deposit   ={ min_max='100 - 100,000'    process_time=l('[_1] working day', 1) }
+            withdrawal={ min_max='100 - 1,000,000' process_time=l('[_1]-[_2] working days', 3, 5) }
             steps     =[ { text=l('Log into your ChampionFX account') },
                          { text=l('Cashier > Deposit') has_link='true' },
                          { text=l('Select Bankwire from the list of available payment methods') } ]
@@ -94,8 +94,8 @@
                                 <p>[% l('Currencies') %]</p>
                                 <h4>[% method.currencies.join(', ') %]</h4>
                                 <p>[% l('Processing time*') %]</p>
-                                <h4>[% l('Deposit: ') %][% method.deposit.process_time %]
-                                    <br/>[% l('Withdrawal: ') %][% method.withdrawal.process_time %]</h4>
+                                <h4>[% l('Deposit:') %] [% method.deposit.process_time %]
+                                    <br/>[% l('Withdrawal:') %] [% method.withdrawal.process_time %]</h4>
                             </div>
                             <div class="col-sm-12 col-md-3">
                                 <p>[% l('Min-max deposit:') %]</p>
