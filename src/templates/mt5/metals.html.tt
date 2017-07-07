@@ -8,7 +8,7 @@
 </tr>
 [% END %]
 
-<div class="primary-color-dark cfd-header">
+<div class="primary-color-dark metals-header">
     <div class="fx-panel center-text container">
         <h1 class="content-inverse-color">[% l('Metals') %]</h1>
         <p class="content-inverse-color">[% l('Trade precious metal pairs such as gold, silver, platinum, and palladium with leverage of up to 1:500 on our MetaTrader 5 platform.') %]</p>
