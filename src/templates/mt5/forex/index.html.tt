@@ -8,12 +8,9 @@
 [% END %]
 
 <div class="primary-color-dark mt5-header">
-    <div class="fx-panel center-text container">
+    <div class="fx-panel center-text center-vertical container">
         <h1 class="content-inverse-color">[% l('Forex') %]</h1>
         <p class="content-inverse-color">[% l('Make your mark in the world of Forex trading. We provide the power and flexibility to take you to a whole new level.') %]</p>
-        <div class="offset-lg-4 offset-md-2">
-            [% INCLUDE layout/includes/signup.html.tt %]
-        </div>
     </div>
 </div>
 <div class="container">

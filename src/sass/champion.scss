@@ -430,7 +430,8 @@ h1.main-title {
     min-height: 320px;
 
     h1 {
-        padding: 10px;
+        padding: 0;
+        margin: 0;
     }
     p {
         padding: 0 20px;
@@ -438,6 +439,12 @@ h1.main-title {
     ul {
         margin-left: 0;
     }
+}
+
+.center-vertical {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .fx-panel-title {
@@ -490,7 +497,11 @@ h1.main-title {
 }
 
 .cfd-header {
-    background-image: url('../images/CFDs.png');
+    background-image: url('../images/cfd_banner.png');
+}
+
+.metals-header {
+    background-image: url('../images/metals_banner.png');
 }
 
 .economic-calendar-header {
