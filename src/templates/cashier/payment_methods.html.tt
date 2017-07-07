@@ -108,9 +108,10 @@
                                 <ol>
                                     [% FOREACH step IN method.steps %]
                                         <li>[% IF step.has_link %]
-                                            <a class="underline-link" href="[% request.url_for('forward.html#deposit') %]">[% l('Go to') %]</a>
-                                            [% END %]
+                                            <a class="underline-link" href="[% request.url_for('forward.html#deposit') %]">[% step.text %]</a>
+                                            [% ELSE %]
                                             [% step.text.join('<li />') %]
+                                            [% END %]
                                         </li>
                                     [% END %]
 
