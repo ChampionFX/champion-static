@@ -1,4 +1,4 @@
-<div class="primary-color-dark cfd-header">
+<div class="primary-color-dark economic-calendar-header">
     <div class="fx-panel center-text container">
         <h1 class="content-inverse-color">[% l('Economic Calendar') %]</h1>
         <p class="content-inverse-color">[% l('Check out the latest economic events and indicators from all over the world. All data are collected and updated in real time.') %]</p>
