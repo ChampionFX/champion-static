@@ -493,6 +493,10 @@ h1.main-title {
     background-image: url('../images/CFDs.png');
 }
 
+.economic-calendar-header {
+    background-image: url('../images/mt5/economic_calendar_banner.png');
+}
+
 // Home page
 .fx-home-header {
     @include header-background(0, '../images/header_imgfx-2x.jpg');
