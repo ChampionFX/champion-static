@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="30px" viewBox="0 0 16 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>Path</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Payment-Methods" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Payment-Methods---Interactions---A" transform="translate(-1219.000000, -495.000000)" fill="#004385">
+            <g id="Types" transform="translate(170.000000, 460.000000)">
+                <g id="Title">
+                    <path d="M1050.28469,35.0085447 C1049.68655,35.0841607 1049.18783,35.6889833 1049.04218,36.5154046 C1048.89654,37.3418259 1049.13594,38.2084111 1049.63863,38.6744218 L1061.07691,49.6928819 L1049.63863,60.6905132 C1049.21949,61.091143 1048.9834,61.7791461 1049.01967,62.4942352 C1049.05594,63.2093243 1049.35903,63.8422984 1049.81428,64.1536891 C1050.26952,64.4650798 1050.8074,64.4073346 1051.22442,64.0022999 L1064.38065,51.3383609 C1064.76798,50.966337 1065,50.346007 1065,49.6824675 C1065,49.018928 1064.76798,48.398598 1064.38065,48.0265742 L1051.22442,35.3626351 C1050.95069,35.0902538 1050.61762,34.9647539 1050.28469,35.0085447 L1050.28469,35.0085447 Z" id="Path" transform="translate(1057.000000, 49.676184) scale(1, -1) translate(-1057.000000, -49.676184) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

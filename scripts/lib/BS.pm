@@ -115,6 +115,9 @@ sub set_static_hash { $static_hash = shift; }
 sub css_files {
     my @css;
 
+    # Binary-style
+    push @css, "https://style.champion-fx.com/binary.css?$static_hash";
+
     # if (is_dev()) {
     #     if (grep { $_ eq uc $LANG } rtl_languages()) {
     #         push @css, root_url() . "css/style_rtl.css?$static_hash";
@@ -127,9 +130,6 @@ sub css_files {
     } else {
         push @css, root_url() . "css/style.min.css?$static_hash";
     }
-
-    # Binary-style
-    push @css, "https://style.champion-fx.com/binary.css?$static_hash";
 
     return @css;
 }
