@@ -534,13 +534,13 @@
                                         <td>[% l('Margin call<sup>6</sup>') %]</td>
                                         <td>50%</td>
                                         <td>100%</td>
-                                        <td>200%</td>
+                                        <td>100%</td>
                                     </tr>
                                     <tr>
                                         <td>[% l('Stop out level<sup>7</sup>') %]</td>
                                         <td>20%</td>
                                         <td>50%</td>
-                                        <td>100%</td>
+                                        <td>50%</td>
                                     </tr>
                                     <tr>
                                         <td>[% l('Hedged margin<sup>8</sup>') %]</td>

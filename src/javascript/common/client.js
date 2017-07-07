@@ -81,7 +81,7 @@ const Client = (function () {
         set('is_virtual', authorize.is_virtual);
         set('landing_company_name', authorize.landing_company_name);
         set('landing_company_fullname', authorize.landing_company_fullname);
-        set('currency', authorize.currency);
+        setCurrency(authorize.currency);
         set('balance', authorize.balance);
         client_object.values_set = true;
 
@@ -125,7 +125,7 @@ const Client = (function () {
         if (client_loginid && tokens) {
             const tokensObj = JSON.parse(tokens);
             if (client_loginid in tokensObj && tokensObj[client_loginid]) {
-                token = tokensObj[client_loginid];
+                token = tokensObj[client_loginid].token;
             }
         }
         return token;
@@ -137,7 +137,7 @@ const Client = (function () {
         }
         const tokens = get('tokens');
         const tokensObj = tokens && tokens.length > 0 ? JSON.parse(tokens) : {};
-        tokensObj[client_loginid] = token;
+        tokensObj[client_loginid] = { token: token, currency: '' };
         set('tokens', JSON.stringify(tokensObj));
         return true;
     };
@@ -247,6 +247,17 @@ const Client = (function () {
         return group ? group.replace('\\', '_') : '';
     };
 
+    const setCurrency = (currency) => {
+        const tokens = get('tokens');
+        const tokens_obj = tokens && tokens.length > 0 ? JSON.parse(tokens) : {};
+        const loginid = tokens_obj[get('loginid')];
+        if (!loginid.currency) {
+            loginid.currency = currency;
+            set('tokens', JSON.stringify(tokens_obj));
+        }
+        set('currency', currency);
+    };
+
     return {
         init                : init,
         redirect_if_login   : redirect_if_login,
@@ -264,6 +275,7 @@ const Client = (function () {
         has_real            : () => get('has_real'),
         do_logout           : do_logout,
         getMT5AccountType   : getMT5AccountType,
+        setCurrency         : setCurrency,
     };
 })();
 

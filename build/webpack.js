@@ -8,6 +8,7 @@ module.exports = function (grunt) {
             new CircularDependencyPlugin({
                 failOnError: true,
             }),
+            new webpack.ContextReplacementPlugin(/moment[\/\\]locale/, /nothing/),
             // new UnusedFilesWebpackPlugin({
             //     pattern: 'src/javascript/**/*.*',
             //     globOptions: {
@@ -46,8 +47,7 @@ module.exports = function (grunt) {
             devtool: isProduction ? 'source-map' : 'cheap-source-map',
             watch  : !isProduction,
             entry  : {
-                'bundle.js'    : './src/javascript',
-                'bundle.min.js': './src/javascript',
+                [isProduction ? 'bundle.min.js' : 'bundle.js']: './src/javascript',
             },
             output: {
                 path    : global.dist + '/js/',

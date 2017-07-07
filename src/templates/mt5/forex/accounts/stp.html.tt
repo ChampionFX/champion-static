@@ -36,11 +36,11 @@
                             </tr>
                             <tr>
                                 <td>[% l('Margin call') %]</td>
-                                <td>[% l('200%') %]</td>
+                                <td>[% l('100%') %]</td>
                             </tr>
                             <tr>
                                 <td>[% l('Stop out level') %]</td>
-                                <td>[% l('100%') %]</td>
+                                <td>[% l('50%') %]</td>
                             </tr>
                             <tr>
                                 <td>[% l('Hedged margin') %]</td>
