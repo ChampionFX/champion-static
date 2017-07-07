@@ -16,7 +16,7 @@
 [% END %]
 
 <div class="primary-color-dark cfd-header">
-    <div class="fx-panel center-text container">
+    <div class="fx-panel center-text center-vertical container">
         <h1 class="content-inverse-color">[% l('Contracts for Difference (CFDs)') %]</h1>
         <p class="content-inverse-color">[% l('Trade Contracts for Difference (CFDs) on popular indices and more on our MetaTrader 5 platform.') %]</p>
     </div>

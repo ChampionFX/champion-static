@@ -1,5 +1,5 @@
 <div class="primary-color-dark trading-platform-header invisible">
-    <div class="fx-panel center-text container">
+    <div class="fx-panel center-text center-vertical container">
         <h1 class="content-inverse-color">[% l('New to ChampionFX?') %]</h1>
         <p class="content-inverse-color">[% l('Register now and trade just like a champion in any financial market. Get access to all the tools and platforms we offer, plus a commitment to put your needs at the heart of what we do.') %]</p>
     </div>
