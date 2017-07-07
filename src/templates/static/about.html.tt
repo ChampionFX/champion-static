@@ -28,7 +28,7 @@
                 <p>[% l('We provide our clients with access to top-tier liquidity and advanced trade execution with the No Dealing Desk (NDD) model.') %]</p>
             </div>
             <div class="col-sm-6 push-sm-1">
-                <iframe width="520" height="315" src="https://www.youtube.com/embed/uTxJcFymyRE" frameborder="0" allowfullscreen></iframe>
+                <iframe width="520" height="315" src="https://www.youtube.com/embed/at9u_9op2lQ" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
 
