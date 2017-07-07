@@ -2,9 +2,6 @@
     <div class="fx-panel center-text container">
         <h1 class="content-inverse-color">[% l('New to ChampionFX?') %]</h1>
         <p class="content-inverse-color">[% l('Register now and trade just like a champion in any financial market. Get access to all the tools and platforms we offer, plus a commitment to put your needs at the heart of what we do.') %]</p>
-        <div class="offset-lg-3 offset-md-2">
-            [% INCLUDE layout/includes/signup.html.tt %]
-        </div>
     </div>
 </div>
 

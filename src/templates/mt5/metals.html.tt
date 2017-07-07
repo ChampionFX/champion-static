@@ -12,9 +12,6 @@
     <div class="fx-panel center-text container">
         <h1 class="content-inverse-color">[% l('Metals') %]</h1>
         <p class="content-inverse-color">[% l('Trade precious metal pairs such as gold, silver, platinum, and palladium with leverage of up to 1:500 on our MetaTrader 5 platform.') %]</p>
-        <div class="offset-lg-4 offset-md-2">
-            [% INCLUDE layout/includes/signup.html.tt %]
-        </div>
     </div>
 </div>
 
