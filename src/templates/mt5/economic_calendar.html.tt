@@ -6,7 +6,7 @@
 </div>
 
 <div class="container">
-    <p>[% l('You can monitor macroeconomic indicators straight from the MetaTrader 5 platform using release time labels displayed on <a href="https://www.metatrader5.com/en/terminal/help/fundamental?utm_source=www.mql5.com&utm_campaign=en.main.page.mql5#chart" target="_blank">financial symbol charts</a>.') %]</p>
+    <p>[% l('You can monitor macroeconomic indicators straight from the MetaTrader 5 platform using release time labels displayed on <a href="https://www.metatrader5.com/en/terminal/help/fundamental#chart" target="_blank">financial symbol charts</a>.') %]</p>
     <p>[% l('With the Economic Calendar, you can see a breakdown of all the scheduled economic events due to take place on any given day.') %]</p>
     <p>[% l('Click on an individual event to be presented with further information and links to more in-depth data about it. The information provided by the Economic  Calendar will help you make more informed trading decisions.') %]</p>
 </div>
