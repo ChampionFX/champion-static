@@ -128,9 +128,9 @@ const Champion = (function() {
     const errorMessages = {
         login: module => (
             module === MetaTrader ?
-            Utility.template(`To register an MT5 account, please <a href="[_1]">log in</a> to your ChampionFX account<br />
-                Don't have a ChampionFX account? <a href="[_2]">Create one</a> now`, [Login.login_url(), url_for('/')]) :
-            Utility.template('Please <a href="[_1]">log in</a> to view this page.', [Login.login_url()])
+            Utility.template(`To register an MT5 account, please <a href="[_1]" class="login">log in</a> to your ChampionFX account<br />
+                Don't have a ChampionFX account? <a href="[_2]">Create one</a> now`, [`${'java'}${'script:;'}`, url_for('/')]) :
+            Utility.template('Please <a href="[_1]" class="login">log in</a> to view this page.', [`${'java'}${'script:;'}`])
         ),
         only_virtual: 'Sorry, this feature is available to virtual accounts only.',
         only_real   : 'This feature is not relevant to virtual-money accounts.',
@@ -166,6 +166,7 @@ const Champion = (function() {
         const $content = container.find('#champion-content .container');
         $content.html($content.find('h1').first())
             .append($('<p/>', { class: 'center-text notice-msg', html: message }));
+        $content.find('a.login').on('click', () => { Login.redirect_to_login(); });
     };
 
     return {
