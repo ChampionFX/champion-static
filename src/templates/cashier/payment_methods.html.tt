@@ -171,7 +171,7 @@
             </div>
 
             <div class="fx-section">
-                <h1 class="center-text">[% l('How deposits and withdrawals works') %]</h1>
+                <h1 class="center-text">[% l('How deposits and withdrawals work') %]</h1>
                 <div id="payment_methods_accordian">
                     <h3>[% l('How do I deposit funds into my ChampionFX account?') %]</h3>
                     <div>[% l('You can deposit funds into your ChampionFX account through our Cashier service by using credit/debit card or e-currency.') %]</div>
