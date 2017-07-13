@@ -1134,12 +1134,18 @@ iframe {
     }
     p {
         margin-top: 5px;
+        margin-bottom: 0;
     }
     .box, .box-bordered {
         margin: 20px 0;
+        padding: 20px;
 
         &.box-col {
-            min-height: 285px;
+            min-height: 290px;
+            @media (max-width: 997px) {
+                min-height: 235px;
+                margin-bottom: 0;
+            }
         }
         &.box-bordered {
             border: 2px solid $fillColor;
