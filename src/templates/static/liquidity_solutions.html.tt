@@ -83,7 +83,7 @@
                 <li>[% l('We can accomomodate our liquidity solutions to the requirements of offshore MT4/MT5 brokers') %]</li>
             </ul>
         </div>
-            <div class="col-md-10 push-md-2">
+            <div class="col-md-10 push-md-1">
                 <div class="box">
                     <span>[% l('Interested in our liquidity solutions? Contact us at <a href="mailto:partners@champion-fx.com">partners@champion-fx.com</a> for more info.') %]</span>
                 </div>
