@@ -25,8 +25,7 @@
             <div class="box box-col">
                 <span class="fx fx-liquidity-solution"></span>
                 <p class="bold-title">[% l('Top-tier liquidity') %]</p>
-                <p>[% l('Access market quotes and trade execution from top-tier liquidity providers, including banks and non-banks.
-') %]</p>
+                <p>[% l('Access market quotes and trade execution from top-tier liquidity providers, including banks and non-banks.') %]</p>
             </div>
         </div>
         <div class="col-xs-12 col-md-6 col-lg-3">
@@ -40,8 +39,7 @@
             <div class="box box-col">
                 <span class="fx fx-backoffice-support"></span>
                 <p class="bold-title">[% l('Back-office support') %]</p>
-                <p>[% l('Receive back-office support for post-trade risk management and real-time trade/position monitoring.
-') %]</p>
+                <p>[% l('Receive back-office support for post-trade risk management and real-time trade/position monitoring.') %]</p>
             </div>
         </div>
     </div>
