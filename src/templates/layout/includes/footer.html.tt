@@ -29,6 +29,7 @@
                                 { link => 'partnerships-ib',          text => l("Introducing Broker (IB)") },
                                 { link => 'partnerships-affiliate',   text => l("Affiliate") },
                                 { link => 'partnerships-contributor', text => l("Content Contributor") },
+                                { link => 'liquidity-solutions', text => l("Liquidity Solutions") }
                             ] %]
                         </div>
                         <div class="col-xs-6 col-md-3 mt-show">

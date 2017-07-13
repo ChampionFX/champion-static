@@ -1123,3 +1123,39 @@ iframe {
     margin: 0.5em 0 2em;
     padding: 0;
 }
+
+#fx-liquidity {
+    .separator {
+        margin: 40px 0;
+    }
+    .bold-title {
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+    p {
+        margin-top: 5px;
+    }
+    .box, .box-bordered {
+        margin: 20px 0;
+
+        &.box-col {
+            min-height: 285px;
+        }
+        &.box-bordered {
+            border: 2px solid $fillColor;
+            background: none;
+            position: relative;
+            min-height: 210px;
+
+            .box-title {
+                position: absolute;
+                top: -20px;
+                left: 10px;
+                background: $white;
+                font-weight: bold;
+                color: $primaryBrandColor;
+                padding: 0 5px;
+            }
+        }
+    }
+}
