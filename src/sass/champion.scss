@@ -1123,3 +1123,45 @@ iframe {
     margin: 0.5em 0 2em;
     padding: 0;
 }
+
+#fx-liquidity {
+    .separator {
+        margin: 40px 0;
+    }
+    .bold-title {
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+    p {
+        margin-top: 5px;
+        margin-bottom: 0;
+    }
+    .box, .box-bordered {
+        margin: 20px 0;
+        padding: 20px;
+
+        &.box-col {
+            min-height: 290px;
+            @media (max-width: 997px) {
+                min-height: 235px;
+                margin-bottom: 0;
+            }
+        }
+        &.box-bordered {
+            border: 2px solid $fillColor;
+            background: none;
+            position: relative;
+            min-height: 210px;
+
+            .box-title {
+                position: absolute;
+                top: -20px;
+                left: 10px;
+                background: $white;
+                font-weight: bold;
+                color: $primaryBrandColor;
+                padding: 0 5px;
+            }
+        }
+    }
+}
