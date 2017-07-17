@@ -39,7 +39,6 @@ const Header = (function () {
         } else {
             desktopMenu();
         }
-        setMetaTrader();
         userMenu();
         if (!Client.is_logged_in()) {
             $('#top_group').removeClass('logged-in').find('.logged-out').removeClass(hidden_class);
@@ -123,6 +122,8 @@ const Header = (function () {
         if (!Client.is_virtual()) {
             displayAccountStatus();
         }
+
+        setMetaTrader();
 
         const selectedTemplate = (text, value, icon) => (
             `<div class="hidden-lg-up">
