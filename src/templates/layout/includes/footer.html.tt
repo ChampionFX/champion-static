@@ -5,7 +5,7 @@
         <div class="separator-line-thin-gray"></div>
         <ul>
             [% FOREACH item IN items %]
-                <li[% IF item.hidden %] class="invisible"[% END %]><a href="[% request.url_for(item.link) %][% item.link_hash %]">[% item.text %]</a></li>
+                <li class="[% item.class || '' %][% IF item.hidden %] invisible[% END %]"><a href="[% request.url_for(item.link) %][% item.link_hash %]">[% item.text %]</a></li>
             [% END %]
         </ul>
     </div>
@@ -19,9 +19,12 @@
                     <div class="row">
                         <div class="col-xs-6 col-md-3">
                             [% INCLUDE link_group title='ChampionFX' items=[
-                                { link => 'about-us',  text => l("About") },
+                                { link => 'about-us',  text => l("About Us") },
                                 { link => 'contact',   text => l("Contact Us") },
                                 { link => 'licensing', text => l("License") },
+                                { link => 'terms-and-conditions',           text => l("Terms and Conditions"), class='mt-hide' },
+                                { link => 'terms-and-conditions#legal-cfd', text => l("Terms and Conditions"), class='mt-show invisible' },
+                                { link => 'cashier/payment-methods',        text => l("Payment Methods") },
                             ] %]
                         </div>
                         <div class="col-xs-6 col-md-3">
@@ -33,19 +36,20 @@
                             ] %]
                         </div>
                         <div class="col-xs-6 col-md-3 mt-show">
-                            [% INCLUDE link_group title=l('MT5') items=[
+                            [% INCLUDE link_group title=l('MetaTrader 5') items=[
                                 { link => 'forex',  text => l("Forex") },
                                 { link => 'cfd',    text => l("CFDs") },
                                 { link => 'metals', text => l("Metals") },
                                 { link => 'forex', link_hash => '#forex-accounts', text => l("Types of accounts") },
-                                { link => 'trading-platform/metatrader-5',         text => l("MT5 trading platforms") },
+                                { link => 'trading-platform/metatrader-5',         text => l("MetaTrader 5 trading platforms") },
                             ] %]
                         </div>
                         <div class="col-xs-6 col-md-3 mt-hide">
                             [% INCLUDE link_group title=l('Binary options') items=[
-                                { link => 'binary-options', text => l("About binary options") },
+                                { link => 'binary-options',    text => l("About binary options") },
                                 { link => 'types-of-accounts', text => l("Types of accounts") },
                                 { link => 'trading-platform/champion-trader', text => l("Binary options trading platforms") },
+                                { link => 'trading-times',     text => l("Trading Times") },
                             ] %]
                         </div>
                         <div class="col-xs-6 col-md-3">
@@ -55,18 +59,6 @@
                                 { link => '#', text => l("Ebooks") },
                                 { link => '#', text => l("Learning centre") },
                                 { link => '#', text => l("FAQ") },
-                            ] %]
-                            [% INCLUDE link_group title=l('Legal') class="mt-hide" items=[
-                                { link => 'terms-and-conditions', text => l("Terms and Conditions") },
-                                { link => '', text => l("&nbsp;") },
-                            ] %]
-                            [% INCLUDE link_group title=l('Legal') class="mt-show" items=[
-                                { link => 'terms-and-conditions#legal-cfd', text => l("Terms and Conditions") },
-                                { link => '', text => l("&nbsp;") },
-                            ] %]
-                            [% INCLUDE link_group title=l('Resources') class="mt-hide" items=[
-                                { link => 'trading-times',           text => l("Trading Times") },
-                                { link => 'cashier/payment-methods', text => l("Payment Methods") },
                             ] %]
                         </div>
                     </div>
