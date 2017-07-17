@@ -62,6 +62,7 @@
         "before": true,
 
         "dataLayer": true,
+        "DESK": true,
 
         // function from binary-style
         "tabListener": true
