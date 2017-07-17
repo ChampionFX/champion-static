@@ -329,3 +329,38 @@
 .fx-trading-icon {
     background: url('../images/menu_icons/trading.svg');
 }
+
+// Liquidity solutions
+.fx {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 10px;
+}
+
+.fx-backoffice-support:before {
+    content: url('../images/liquidity_solutions/backoffice_support.svg');
+}
+
+.fx-fix-api:before {
+    content: url('../images/liquidity_solutions/fix_api.svg');
+}
+
+.fx-full-transparency:before {
+    content: url('../images/liquidity_solutions/full_transparency.svg');
+}
+
+.fx-liquidity-solution:before {
+    content: url('../images/liquidity_solutions/liquidity_solution.svg');
+}
+
+.fx-mt5-gateaway:before {
+    content: url('../images/liquidity_solutions/mt5_gateway.svg');
+}
+
+.fx-multi-asset-execution:before {
+    content: url('../images/liquidity_solutions/multi_asset_execution.svg');
+}
+
+.fx-one-zero:before {
+    content: url('../images/liquidity_solutions/one_zero.svg');
+}
