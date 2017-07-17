@@ -19,7 +19,7 @@
                     <div class="row">
                         <div class="col-xs-6 col-md-3">
                             [% INCLUDE link_group title='ChampionFX' items=[
-                                { link => 'about-us',  text => l("About") },
+                                { link => 'about-us',  text => l("About Us") },
                                 { link => 'contact',   text => l("Contact Us") },
                                 { link => 'licensing', text => l("License") },
                                 { link => 'terms-and-conditions',           text => l("Terms and Conditions"), class='mt-hide' },
