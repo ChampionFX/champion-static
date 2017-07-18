@@ -47,11 +47,20 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-    $('#close-btn').click(function() {
+    $('#open-btn').click(function(e) {
+        $('.popup-overlay').css('visibility', 'visible');
+        $('.popup-overlay').css('opacity', 1);
+        e.preventDefault();
+    });
+
+    $('#close-btn').click(function(e) {
         const $iframe = $(document).find('iframe');
         const src = $iframe.attr('src');
         $iframe.attr('src', '/empty.html');
         $iframe.attr('src', src);
+        $('.popup-overlay').css('visibility', 'hidden');
+        $('.popup-overlay').css('opacity', 0);
+        e.preventDefault();
     });
 
     initializeSlider();

@@ -83,7 +83,7 @@
                 <div class="row">
                     <div class="col-md-12 btn-container">
                         <a class="btn btn--blue" href="">[% l('Read whitepaper') %]</a>
-                        <a class="btn btn--outline" href="#popup-video">[% l('Watch our video') %]</a>
+                        <a id="open-btn" class="btn btn--outline" href="">[% l('Watch our video') %]</a>
                     </div>
                 </div>
             </div>
@@ -460,7 +460,7 @@
 
     <div id="popup-video" class="popup-overlay">
         <div class="popup-box">
-            <a href="#close" id="close-btn" class="popup-box__btn">X</a>
+            <a href="" id="close-btn" class="popup-box__btn">X</a>
             <div class="popup-box__content">
                 <iframe width="520px" height="315px" src="https://www.youtube.com/embed/at9u_9op2lQ" frameborder="0" allowfullscreen></iframe>
             </div>
