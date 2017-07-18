@@ -38,6 +38,7 @@ const ChampionSecurity        = require('./../pages/user/security');
 const SelfExclusion           = require('./../pages/user/self_exclusion');
 const ChampionSettings        = require('./../pages/user/settings');
 const TNCApproval             = require('./../pages/user/tnc_approval');
+const ChampionICO             = require('./../pages/ico');
 
 const Champion = (function() {
     'use strict';
@@ -96,6 +97,7 @@ const Champion = (function() {
             settings           : { module: ChampionSettings,    is_authenticated: true },
             security           : { module: ChampionSecurity,    is_authenticated: true },
             virtual            : { module: ChampionNewVirtual,  not_authenticated: true },
+            ico                : { module: ChampionICO },
             'cashier-password' : { module: CashierPassword,     is_authenticated: true, only_real: true },
             'change-password'  : { module: ChangePassword,      is_authenticated: true },
             'login-history'    : { module: LoginHistory,        is_authenticated: true },

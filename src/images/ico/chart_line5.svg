@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="16px" viewBox="0 0 34 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
+    <title>Combined Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="ICO" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ChampionFX-ICO" transform="translate(-884.000000, -4314.000000)" fill-rule="nonzero" fill="#013365">
+            <g id="Contribute-to-the-growth-of-CHFX" transform="translate(-3.000000, 3962.000000)">
+                <g id="Pie-Chart" transform="translate(541.000000, 101.000000)">
+                    <path d="M366.556082,268.475823 L366.556082,243.335936 L355.665536,243.335936 C355.297971,243.335936 355,243.036877 355,242.667968 C355,242.29906 355.297971,242 355.665536,242 L367.221618,242 C367.589183,242 367.887154,242.29906 367.887154,242.667968 L367.887154,268.475944 C369.656588,268.791702 371,270.343154 371,272.208613 C371,274.302025 369.308207,276 367.221085,276 C365.135295,276 363.443502,274.302025 363.443502,272.208613 C363.443502,270.342917 364.787256,268.791307 366.556082,268.475823 Z" id="Combined-Shape" transform="translate(363.000000, 259.000000) scale(-1, 1) rotate(90.000000) translate(-363.000000, -259.000000) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
