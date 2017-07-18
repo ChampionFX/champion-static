@@ -40,6 +40,7 @@ sub all_pages {
         ['partnerships-affiliate',     'static/partnerships/partnerships_affiliate',   'full_width', 'Affiliate programme'],
         ['partnerships-contributor',   'static/partnerships/partnerships_contributor', 'full_width', 'Content Contributor programme'],
         ['partnerships-ib',            'static/partnerships/partnerships_ib',          'full_width', 'Introducing Broker'],
+        ['liquidity-solutions',        'static/liquidity_solutions',                   'full_width', 'Liquidity Solutions'],
 
         ['terms-and-conditions',       'legal/tac',                    'full_width', 'Terms and Conditions'],
 
