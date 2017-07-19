@@ -142,7 +142,7 @@ p {
     opacity: 1;
     transition: opacity 0.3s;
     @media (min-width: 1024px) {
-        min-width: 154px;
+        min-width: 15.4rem;
     }
 
     &--white {
@@ -156,7 +156,7 @@ p {
     &--outline {
         background: none;
         color: $primaryBrandColor;
-        border: 1px solid $primaryBrandColor;
+        border: 0.1rem solid $primaryBrandColor;
     }
     &--light {
         background: $lightBlue;
@@ -200,6 +200,10 @@ p {
         height: 100%;
     }
     &__btn {
+        &:before {
+            content: 'X';
+            font-size: 1.4rem;
+        }
         position: absolute;
         background: $white;
         top: -1rem;
@@ -219,7 +223,7 @@ p {
         position: absolute;
         height: 100%;
         left: -0.5rem;
-        border-left: 1px solid $borderColor;
+        border-left: 0.1rem solid $borderColor;
         margin: 0;
         @media (min-width: 1024px) {
             left: 50%;
@@ -319,7 +323,7 @@ p {
         display: block;
         width: 19rem;
         height: 19rem;
-        @media (min-width: 360px) {
+        @media (min-width: 361px) {
             width: 23rem;
             height: 23rem;
         }
@@ -340,29 +344,29 @@ p {
             font-size: 1.2rem;
 
             &:before {
-                margin: 0 5px;
+                margin: 0 0.5rem;
             }
         }
         &--1 {
-            flex-direction: row-reverse;
-            text-align: right;
-            bottom: 8rem;
-            left: -45%;
-            width: 20rem;
+            flex-direction: row;
+            text-align: left;
+            bottom: -35%;
+            left: 20%;
 
             &:before {
-                content: url('../images/ico/chart_line4.svg');
-                transform: rotateY(180deg);
+                content: url('../images/ico/chart_line2.svg');
+                transform: rotateX(180deg);
             }
-            @media (max-width: 520px) {
-                bottom: -35%;
-                left: 20%;
-                flex-direction: row;
-                text-align: left;
+            @media (min-width: 521px) {
+                flex-direction: row-reverse;
+                text-align: right;
+                bottom: 8rem;
+                left: -45%;
+                width: 20rem;
 
                 &:before {
-                    content: url('../images/ico/chart_line2.svg');
-                    transform: rotateX(180deg);
+                    content: url('../images/ico/chart_line4.svg');
+                    transform: rotateY(180deg);
                 }
             }
         }
@@ -593,13 +597,16 @@ hr {
     }
     input[type='submit'] {
         position: absolute;
+        top: 0;
         right: 0;
         border: none;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
-        width: 40%;
         margin: 0;
         cursor: pointer;
+        display: -webkit-box; /* Safari */
+        -webkit-box-pack: center;
+        -webkit-box-align: center;
     }
 }
 
@@ -609,7 +616,7 @@ hr {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100%;
+    height: 100vh;
     padding: 5.5rem 0;
 
     h1, h3, p {
@@ -702,19 +709,16 @@ hr {
     }
     .icon--technology-leadership {
         width: 3.2rem;
+        @media (min-width: 1024px) {
+            width: 3.8rem;
+        }
     }
     .icon--shared-resources {
         width: 6.5rem;
-    }
-    @media (min-width: 1024px) {
-        .icon--technology-leadership {
-            width: 3.8rem;
-        }
-        .icon--shared-resources {
+        @media (min-width: 1024px) {
             width: 7.6rem;
         }
     }
-
     .slider {
         p {
             margin: 0;
@@ -771,9 +775,9 @@ hr {
                 border-radius: 0 0 4rem 1.5rem;
             }
             &:nth-of-type(even) {
-                border-right: 2px solid $lightBlue;
-                border-top: 2px solid $lightBlue;
-                border-bottom: 2px solid $lightBlue;
+                border-right: 0.2rem solid $lightBlue;
+                border-top: 0.2rem solid $lightBlue;
+                border-bottom: 0.2rem solid $lightBlue;
                 border-radius: 2.5rem 1.5rem 1.5rem 0;
             }
             .icon {
@@ -879,10 +883,10 @@ hr {
     }
     .center-content {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
-        @media (max-width: 520px) {
-            justify-content: flex-start;
+        @media (min-width: 521px) {
+            justify-content: center;
         }
     }
 }
@@ -922,16 +926,22 @@ hr {
 
 #faq {
     .container {
-        padding: 12rem 0 6rem;
+        padding: 10rem 0 6rem;
+        @media (min-width: 1024px) {
+            padding-top: 12rem;
+        }
+    }
+    h2 {
+        margin-bottom: 2rem;
     }
     h4 {
-        margin: 4rem 0 1rem;
+        margin: 2rem 0 1rem;
+        @media (min-width: 1024px) {
+            margin-top: 4rem;
+        }
     }
     .faq-content {
-        margin-bottom: 40px;
-        @media (max-width: 575px) {
-            margin: 0 2rem;
-        }
+        margin: 0 2rem 2rem;
 
         .question:before, .answer:before {
             padding-right: 0.5rem;
@@ -963,7 +973,10 @@ hr {
         margin: auto;
     }
     hr {
-        margin: 3rem 0;
+        margin: 1rem 0 3rem;
+        @media (min-width: 1024px) {
+            margin: 4rem 0 6rem;
+        }
     }
 }
 

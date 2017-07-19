@@ -45,11 +45,9 @@
                                     <input type="hidden" name="meta_split_id" value="" />
                                     <input type="hidden" name="listname" value="awlist4746233" />
                                     <input type="hidden" name="redirect" value="" id="redirect_a653d0267ad6deef7fb14cfff01a1f26" />
-
                                     <input type="hidden" name="meta_adtracking" value="cfx_ico" />
                                     <input type="hidden" name="meta_message" value="1001" />
                                     <input type="hidden" name="meta_required" value="email" />
-
                                     <input type="hidden" name="meta_tooltip" value="" />
                                 </div>
                                 <div id="af-form-611475145" class="af-form"><div id="af-body-611475145" class="af-body col-xs-12 col-md-6 col-lg-5 center-align af-standards">
@@ -299,7 +297,7 @@
             <div class="row center-text">
                 <div class="col-md-8 push-md-2">
                     <h1>[% l('Frequently Asked Questions') %]</h1>
-                    <p>[% l('Frequently asked questions about ICO, tokens, cryptocurrencies and more. If you are curious about anything not covered below, feel free to <a class="underline-link" href=[_1]>contact us</a> to get an answer.', request.url_for('contact')) %]</p>
+                    <p>[% l('Frequently asked questions about ICO, tokens, cryptocurrencies and more. If you are curious about anything not covered below, feel free to <a class="text--underline" href=[_1]>contact us</a> to get an answer.', request.url_for('contact')) %]</p>
                 </div>
             </div>
             <div class="row">
@@ -371,11 +369,11 @@
                     <div class="faq-content">
                         <p class="question">[% l('How can I learn more about ICOs and cryptocurrencies?') %]</p>
                         <div class="answer">
-                            <p>[% l('To learn more about Bitcoin, we recommend that you <a class="underline-link" href="[_1]" target="_blank">open a Bitcoin wallet with Blockchain</a> and <a class="underline-link" href="[_2]" target="_blank">purchase bitcoins using a local exchange</a> in your country.', 'https://blockchain.info/wallet/#/', 'https://www.bitcoin.com/buy-bitcoin') %]</p>
-                            <p>[% l('To learn more about Ethereum, we recommend that you <a class="underline-link" href="[_1]" target="_blank">install the Metamask plugin for Chrome</a>, which will allow you to convert your Bitcoin into Ether.', 'https://metamask.io/') %]</p>
-                            <p>[% l('To learn how to trade cryptocurrency assets, we recommend that you open an account with US-based cryptocurrency exchange, <a class="underline-link" href="[_1]" target="_blank">POLONIEX.</a>', 'https://poloniex.com/') %]</p>
-                            <p>[% l('We also recommend the following free ebooks: <a class="underline-link" href="[_1]" target="_blank">The Ultimate Guide to Bitcoin</a> and <a class="underline-link" href="[_2]" target="_blank">Idiots Guide to Bitcoin</a>.', 'http://ptgmedia.pearsoncmg.com/images/9780789753243/samplepages/9780789753243.pdf', 'http://idiotsguidetobitcoin.com/images/Idiots_Guide_to_Bitcoin_v1.0.pdf') %]</p>
-                            <p>[% l('And here is a free 40 minute online tutorial on bitcoin and getting your wallet set up: <a class="underline-link" href="[_1]" target="_blank">How to Profit in The New Cryptocurrency Economy</a>.', 'https://skillincubator.com/course-pages/bitcoin-basics-how-to-profit-in-the-new-cryptocurrency-economy/') %]</p>
+                            <p>[% l('To learn more about Bitcoin, we recommend that you <a class="text--underline" href="[_1]" target="_blank">open a Bitcoin wallet with Blockchain</a> and <a class="text--underline" href="[_2]" target="_blank">purchase bitcoins using a local exchange</a> in your country.', 'https://blockchain.info/wallet/#/', 'https://www.bitcoin.com/buy-bitcoin') %]</p>
+                            <p>[% l('To learn more about Ethereum, we recommend that you <a class="text--underline" href="[_1]" target="_blank">install the Metamask plugin for Chrome</a>, which will allow you to convert your Bitcoin into Ether.', 'https://metamask.io/') %]</p>
+                            <p>[% l('To learn how to trade cryptocurrency assets, we recommend that you open an account with US-based cryptocurrency exchange, <a class="text--underline" href="[_1]" target="_blank">POLONIEX.</a>', 'https://poloniex.com/') %]</p>
+                            <p>[% l('We also recommend the following free ebooks: <a class="text--underline" href="[_1]" target="_blank">The Ultimate Guide to Bitcoin</a> and <a class="text--underline" href="[_2]" target="_blank">Idiots Guide to Bitcoin</a>.', 'http://ptgmedia.pearsoncmg.com/images/9780789753243/samplepages/9780789753243.pdf', 'http://idiotsguidetobitcoin.com/images/Idiots_Guide_to_Bitcoin_v1.0.pdf') %]</p>
+                            <p>[% l('And here is a free 40 minute online tutorial on bitcoin and getting your wallet set up: <a class="text--underline" href="[_1]" target="_blank">How to Profit in The New Cryptocurrency Economy</a>.', 'https://skillincubator.com/course-pages/bitcoin-basics-how-to-profit-in-the-new-cryptocurrency-economy/') %]</p>
                         </div>
                     </div>
                     <div class="faq-content">
@@ -405,33 +403,31 @@
                 <div class="col-md-12">
                     <div class="form-container">
                         <h2>[% l('Want to join the ICO?') %]</h2>
-                    <p>[% l('Subscribe to our mailing list for exclusive updates on the ICO, including the official launch date.') %]</p>
-                    <!-- AWeber Web Form Generator 3.0.1 -->
-                    <form method="post" class="af-form-wrapper" accept-charset="UTF-8" action="https://www.aweber.com/scripts/addlead.pl"  >
-                        <div style="display: none;">
-                            <input type="hidden" name="meta_web_form_id" value="611475145" />
-                            <input type="hidden" name="meta_split_id" value="" />
-                            <input type="hidden" name="listname" value="awlist4746233" />
-                            <input type="hidden" name="redirect" value="" id="redirect_a653d0267ad6deef7fb14cfff01a1f26" />
-
-                            <input type="hidden" name="meta_adtracking" value="cfx_ico" />
-                            <input type="hidden" name="meta_message" value="1001" />
-                            <input type="hidden" name="meta_required" value="email" />
-
-                            <input type="hidden" name="meta_tooltip" value="" />
-                        </div>
-                        <div id="af-form-611475145" class="af-form"><div id="af-body-611475145" class="af-body col-xs-12 col-md-6 col-lg-5 center-align af-standards">
-                            <div class="af-element vertical-center">
-                                <input class="text" id="awf_field-91956680" type="text" placeholder="Enter your email" name="email" value="" tabindex="500" onfocus=" if (this.value == '') { this.value = ''; }" onblur="if (this.value == '') { this.value='';} " />
-                                <input name="submit" class="submit btn btn--blue" type="submit" value="Submit" tabindex="501" />
+                        <p>[% l('Subscribe to our mailing list for exclusive updates on the ICO, including the official launch date.') %]</p>
+                        <!-- AWeber Web Form Generator 3.0.1 -->
+                        <form method="post" class="af-form-wrapper" accept-charset="UTF-8" action="https://www.aweber.com/scripts/addlead.pl"  >
+                            <div style="display: none;">
+                                <input type="hidden" name="meta_web_form_id" value="611475145" />
+                                <input type="hidden" name="meta_split_id" value="" />
+                                <input type="hidden" name="listname" value="awlist4746233" />
+                                <input type="hidden" name="redirect" value="" id="redirect_a653d0267ad6deef7fb14cfff01a1f26" />
+                                <input type="hidden" name="meta_adtracking" value="cfx_ico" />
+                                <input type="hidden" name="meta_message" value="1001" />
+                                <input type="hidden" name="meta_required" value="email" />
+                                <input type="hidden" name="meta_tooltip" value="" />
                             </div>
-                        </div>
-                        </div>
-                        <div style="display: none;"><img src="https://forms.aweber.com/form/displays.htm?id=bIyMLOysjCys" alt="" /></div>
-                    </form>
-                    <script type="text/javascript">document.getElementById('redirect_a653d0267ad6deef7fb14cfff01a1f26').value = document.location + '#done'</script>
-                    <!-- /AWeber Web Form Generator 3.0.1 -->
-                    <p class="notice-msg col-md-8 push-md-2 invisible">[% l("Thank you for your interest in the [_1] ICO. Please check your email for a confirmation link.", broker_name) %]</p>
+                            <div id="af-form-611475145" class="af-form"><div id="af-body-611475145" class="af-body col-xs-12 col-md-6 col-lg-5 center-align af-standards">
+                                <div class="af-element vertical-center">
+                                    <input class="text" id="awf_field-91956680" type="text" placeholder="Enter your email" name="email" value="" tabindex="500" onfocus=" if (this.value == '') { this.value = ''; }" onblur="if (this.value == '') { this.value='';} " />
+                                    <input name="submit" class="submit btn btn--blue" type="submit" value="Submit" tabindex="501" />
+                                </div>
+                            </div>
+                            </div>
+                            <div style="display: none;"><img src="https://forms.aweber.com/form/displays.htm?id=bIyMLOysjCys" alt="" /></div>
+                        </form>
+                        <script type="text/javascript">document.getElementById('redirect_a653d0267ad6deef7fb14cfff01a1f26').value = document.location + '#done'</script>
+                        <!-- /AWeber Web Form Generator 3.0.1 -->
+                        <p class="notice-msg col-md-8 push-md-2 invisible">[% l("Thank you for your interest in the [_1] ICO. Please check your email for a confirmation link.", broker_name) %]</p>
                     </div>
                 </div>
             </div>
@@ -460,7 +456,7 @@
 
     <div id="popup-video" class="popup-overlay">
         <div class="popup-box">
-            <a href="" id="close-btn" class="popup-box__btn">X</a>
+            <a href="" id="close-btn" class="popup-box__btn"></a>
             <div class="popup-box__content">
                 <iframe width="520px" height="315px" src="https://www.youtube.com/embed/at9u_9op2lQ" frameborder="0" allowfullscreen></iframe>
             </div>
