@@ -330,6 +330,65 @@
     background: url('../images/menu_icons/trading.svg');
 }
 
+// ChampionFX contact us icons
+.fx-contact-flag {
+    width: 40px;
+    height: 30px;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.fx-contact-callback, .fx-contact-hour {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+
+    &.fx-contact-callback {
+        background: url('../images/contact_us/call_back.svg') no-repeat center;
+        background-size: cover;
+    }
+    &.fx-contact-hour {
+        background: url('../images/contact_us/hour.svg') no-repeat center;
+        background-size: cover;
+    }
+}
+
+.fx-contact-hour {
+    background: url('../images/contact_us/hour.svg');
+}
+
+.fx-contact-cs {
+    background: url('../images/contact_us/cs_image.svg');
+}
+
+.fx-contact-email {
+    background: url('../images/contact_us/email_image.svg');
+}
+
+.fx-contact-canada {
+    background: url('../images/contact_us/canada.svg');
+}
+
+.fx-contact-germany {
+    background: url('../images/contact_us/germany.svg');
+}
+
+.fx-contact-indonesia {
+    background: url('../images/contact_us/indonesia.svg');
+}
+
+.fx-contact-ireland {
+    background: url('../images/contact_us/ireland.svg');
+}
+
+.fx-contact-poland {
+    background: url('../images/contact_us/poland.svg');
+}
+
+.fx-contact-russia {
+    background: url('../images/contact_us/russia.svg');
+}
+
 // Liquidity solutions
 .fx {
     display: flex;
