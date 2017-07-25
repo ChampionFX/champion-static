@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="[% language %]">
+[% INCLUDE layout/includes/head.html.tt %]
+<body>
+    <nav class="navbar-fixed-top">
+        <div class="container">
+            <span class="navbar__toggle" id="toggle-menu" href="button"></span>
+            <a class="navbar__brand page-scroll" href="#pre-announcement"></a>
+            <div class="navbar__nav">
+                <a class="page-scroll" href="#cfx-intro">[% l('About us') %]</a>
+                <a class="page-scroll" href="#milestones">[% l('Milestones') %]</a>
+                <a class="page-scroll" href="#how-ico-works">[% l('How it works') %]</a>
+                <a class="page-scroll" href="#cfx-chart">[% l('Contribute') %]</a>
+            </div>
+            <a class="btn btn--white btn--hide page-scroll" id="subscribe-btn" href="#coming-soon">[% l('Subscribe') %]</a>
+        </div>
+    </nav>
+
+    <div class="barspinner dark">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+
+    <div id="home" style="display: none">
+        <section id="pre-announcement">
+            <div class="container">
+                <div class="row center-text">
+                    <div class="col-md-12">
+                        <span class="icon icon--cfx-logo"></span>
+                        <h1>[% l('Pre-ICO announcement') %]</h1>
+                    </div>
+                    <div id="coming-soon" class="col-md-12">
+                        <h3>[% l('Participate in our upcoming token crowdsale and earn exclusive tokenholder rights.') %]</h3>
+                        <span class="icon icon--hourglass"></span>
+                        <p class="text--uppercase text--small">[% l('Coming soon') %]</p>
+                        <div class="form-container">
+                            <p>[% l('Subscribe to our mailing list for exclusive updates on the ICO, including the official launch date.') %]</p>
+                            <!-- AWeber Web Form Generator 3.0.1 -->
+                            <form method="post" class="af-form-wrapper" accept-charset="UTF-8" action="https://www.aweber.com/scripts/addlead.pl"  >
+                                <div style="display: none;">
+                                    <input type="hidden" name="meta_web_form_id" value="611475145" />
+                                    <input type="hidden" name="meta_split_id" value="" />
+                                    <input type="hidden" name="listname" value="awlist4746233" />
+                                    <input type="hidden" name="redirect" value="" id="redirect_a653d0267ad6deef7fb14cfff01a1f26" />
+                                    <input type="hidden" name="meta_adtracking" value="cfx_ico" />
+                                    <input type="hidden" name="meta_message" value="1001" />
+                                    <input type="hidden" name="meta_required" value="email" />
+                                    <input type="hidden" name="meta_tooltip" value="" />
+                                </div>
+                                <div id="af-form-611475145" class="af-form"><div id="af-body-611475145" class="af-body col-xs-12 col-md-6 col-lg-5 center-align af-standards">
+                                    <div class="af-element vertical-center">
+                                        <input class="text" id="awf_field-91956680" type="text" placeholder="Enter your email" name="email" value="" tabindex="500" onfocus=" if (this.value == '') { this.value = ''; }" onblur="if (this.value == '') { this.value='';} " />
+                                        <input name="submit" class="submit btn btn--light" type="submit" value="Submit" tabindex="501" />
+                                    </div>
+                                </div>
+                                </div>
+                                <div style="display: none;"><img src="https://forms.aweber.com/form/displays.htm?id=bIyMLOysjCys" alt="" /></div>
+                            </form>
+                            <script type="text/javascript">document.getElementById('redirect_a653d0267ad6deef7fb14cfff01a1f26').value = document.location + '#done'</script>
+                            <!-- /AWeber Web Form Generator 3.0.1 -->
+                            <p class="notice-msg col-md-8 push-md-2 invisible">[% l("Thank you for your interest in the [_1] ICO. Please check your email for a confirmation link.", broker_name) %]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cfx-intro" class="fill-bg-color">
+            <div class="container center-text">
+                <div class="row">
+                    <div class="col-md-8 push-md-2">
+                        <span class="icon icon--cfx-logo-dark"></span>
+                        <h2>[% l('Introducing ChampionFX') %]</h2>
+                        <p>[% l('ChampionFX was launched in 2017 with a clear vision to provide Forex and CFD traders with the world’s best customer experience, superior customised trading conditions, state-of-the-art trading tools, and access to many markets.') %]</p>
+                        <p>[% l('Our mission is to make trading accessible to everyone by offering smart, custom, and localised trading solutions to individual markets around the world.') %]</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 btn-container">
+                        <a class="btn btn--blue" href="">[% l('Read whitepaper') %]</a>
+                        <a id="open-btn" class="btn btn--outline" href="">[% l('Watch our video') %]</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-cfx">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>[% l('Why choose ChampionFX') %]</h2>
+                        <p>[% l('We are ChampionFX &mdash; a global multi-asset Forex and CFD broker determined to disrupt and dominate the online financial trading industry. Get access to the world’s financial markets, including leveraged cryptocurrencies, through one broker, one platform, and one account.') %]</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 top-left">
+                        <span class="icon icon--xs icon--licensed"></span>
+                        <div class="content">
+                            <h5>[% l('Licensed, regulated, and trusted') %]</h5>
+                            <p>[% l('ChampionFX is licensed and regulated by the Vanuatu Financial Services Commission (VFSC).') %]</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 top-left">
+                        <span class="icon icon--xs icon--king"></span>
+                        <div class="content">
+                            <h5>[% l('Client is always king') %]</h5>
+                            <p>[% l('Customer service is not just a department, it’s the entire company. We always place our clients’ needs at the heart of every decision we make.') %]</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 top-left">
+                        <span class="icon icon--xs icon--hassle-free"></span>
+                        <div class="content">
+                            <h5>[% l('Highly accessible') %]</h5>
+                            <p>[% l('Tight spreads, no MT5 minimum deposit requirements, and commission-free trading caters to new and experienced traders alike. Plus, opening an account is easy, fast, and hassle-free.') %]</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 top-left">
+                        <span class="icon icon--xs icon--multi-asset"></span>
+                        <div class="content">
+                            <h5>[% l('Multi-asset broker') %]</h5>
+                            <p>[% l('Trade Forex, CFDs, metals, stocks, and cryptocurrencies through one broker with a powerful, world-class trading platform.') %]</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 top-left">
+                        <span class="icon icon--xs icon--dedicated-mt5"></span>
+                        <div class="content">
+                            <h5>[% l('Dedicated MT5 broker') %]</h5>
+                            <p>[% l('We believe in giving our clients the best trading platform possible. MT5 is a powerful, all-in-one platform for trading Forex and other financial markets –– the best choice for the modern trader.') %]</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 top-left">
+                        <span class="icon icon--xs icon--award"></span>
+                        <div class="content">
+                            <h5>[% l('Award-winning platforms') %]</h5>
+                            <p>[% l('Success in financial trading starts with a comfortable, powerful, all-in-one platform. Trade on desktop, web, and mobile with MT5.') %]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="behind-cfx">
+            <div class="container center-text">
+                <h2>[% l('Who is behind ChampionFX') %]</h2>
+                <p>[% l('ChampionFX is a startup venture backed by the pioneer in online binary options trading &mdash; Binary.com. This support has many advantages, including:') %]</p>
+                <div class="row slider">
+                    <div class="col-xs-12 col-md-4">
+                        <span class="icon icon--sm icon--business-background"></span>
+                        <p class="text--bold">[% l('Business background') %]</p>
+                        <p>[% l('Binary.com was launched in 2000 and possesses the experience, knowledge, and resources to help us shape our mission strategy.') %]</p>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <span class="icon icon--sm icon--technology-leadership"></span>
+                        <p class="text--bold">[% l('Technology leadership') %]</p>
+                        <p>[% l('We can leverage on Binary.com’s proprietary technology and extensive technical expertise to guide our product strategy.') %]</p>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <span class="icon icon--sm icon--shared-resources"></span>
+                        <p class="text--bold">[% l('Shared resources') %]</p>
+                        <p>[% l('We can utilise Binary.com’s in-house resources, including its IT, quantitative analysis, and marketing teams to grow ChampionFX.') %]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="milestones" class="fill-bg-color">
+            <div class="container center-text">
+                <h2>[% l('Milestones') %]</h2>
+                <div class="row">
+                    <div class="col-md-8 col-lg-12 center-align">
+                        <div class="timeline row">
+                            <hr class="timeline__vertical-line">
+                            <div class="col-md-12">
+                                <div class="timeline__box">
+                                    <p class="timeline__box__title">[% l('Q2 2017') %]</p>
+                                    <ul>
+                                        <li>[% l('ChampionFX rolls out a full suite of MT5 trading platforms') %]</li>
+                                        <li>[% l('Official launch of ChampionFX Academy') %]</li>
+                                        <li>[% l('ChampionFX Academy adds two key contributors: Vince Stanzione and Dave Evans') %]</li>
+                                    </ul>
+                                </div>
+                                <div class="timeline__box">
+                                    <p class="timeline__box__title">[% l('Q3 2017') %]</p>
+                                    <ul>
+                                        <li>[% l('ChampionFX adds Bitcoin, Ethereum and Litecoin trading') %]</li>
+                                        <li>[% l('ChampionFX launches MAM Pro for MetaTrader 5') %]</li>
+                                        <li>[% l('ChampionFX introduces the MQL5 Wizard') %]</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-ico-works">
+            <div class="container center-text">
+                <h2>[% l('ChampionFX ICO: How it works') %]</h2>
+                <div class="row steps">
+                    <div class="col-md-12">
+                        <div class="step">
+                            <div class="step__number">1</div>
+                            <span class="icon icon--sm icon--purchase"></span>
+                            <div class="step__content">
+                                <p class="step__content--title">[% l('Purchase our tokens') %]</p>
+                                <p>[% l('ChampionFX will issue a number of tokens during the ICO.') %]</p>
+                            </div>
+                        </div>
+                        <div class="step step--reverse">
+                            <div class="step__number">2</div>
+                            <span class="icon icon--sm icon--earn"></span>
+                            <div class="step__content">
+                                <p class="step__content--title">[% l('Earn exclusive tokenholder rights') %]</p>
+                                <p>[% l('Each token provides you with two exclusive tokenholder rights.') %]</p>
+                            </div>
+                            <div class="step__content--more">
+                                <ul>
+                                    <li>
+                                        <p class="step__content--title">2.1 [% l('Receive dividend payments') %]</p>
+                                        <p>[% l('As a tokenholder, you have the right to receive payments equivalent to shareholder dividends.') %]</p>
+                                    </li>
+                                    <li>
+                                        <p class="step__content--title">2.2 [% l('Convert your tokens into shares') %]</p>
+                                        <p>[% l('As a tokenholder, you also have the right to convert your tokens into Ordinary Shares.') %]</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>[% l('Token dividends') %]</h2>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="icon icon--sm icon--dividends"></span>
+                        <p class="text--bold">[% l('How often do you issue dividends?') %]</p>
+                        <p>[% l('Once a year, depending on the profitability of Champion Group Ltd and only at the sole discretion of its board.') %]</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="icon icon--sm icon--tokenholders"></span>
+                        <p class="text--bold">[% l('How do you inform tokenholders?') %]</p>
+                        <p>[% l('Distribution of dividends will be announced on the ChampionFX website.') %]</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="icon icon--sm icon--money"></span>
+                        <p class="text--bold">[% l('How much dividend will I receive?') %]</p>
+                        <p>[% l('Tokens entitle you to an equivalent amount of dividends as Champion Group Ltd Ordinary Shares.') %]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="read-faq">
+            <div class="container center-text">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>[% l('Need more information on the ICO?') %]</p>
+                        <a href="#faq" class="btn btn--white" id="faq-btn">[% l('Read our FAQ') %]</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cfx-chart">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-4">
+                        <h2>[% l('Contribute to the growth of ChampionFX') %]</h2>
+                        <p>[% l('As a tokenholder, you will share the rewards of our success. The funds raised through the ICO will enable ChampionFX to aggressively expand in its key target markets and lead the cryptocurrency trading movement worldwide.') %]</p>
+                        <p>[% l('ChampionFX will direct the funds raised in the ICO towards these four key areas:') %]</p>
+                    </div>
+                    <div class="col-lg-7 col-md-8 center-content">
+                        <div class="chart">
+                            <div class="chart__content">
+                                <span class="chart__content--1">[% l('Online and offline marketing campaigns') %]</span>
+                                <span class="chart__content--2">[% l('Additional sales, marketing and multilingual customer support staff') %]</span>
+                                <span class="chart__content--3">[% l('Regional satellite offices') %]</span>
+                                <span class="chart__content--4">[% l('New license applications') %]</span>
+                                <span class="chart__content--5">[% l('Other') %]</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FAQ page -->
+    <section id="faq" class="invisible">
+        <div class="container">
+            <div class="row center-text">
+                <div class="col-md-8 push-md-2">
+                    <h1>[% l('Frequently Asked Questions') %]</h1>
+                    <p>[% l('Frequently asked questions about ICO, tokens, cryptocurrencies and more. If you are curious about anything not covered below, feel free to <a class="text--underline" href=[_1]>contact us</a> to get an answer.', request.url_for('contact')) %]</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 push-md-1">
+                    <h4>[% l('About ICO') %]</h4>
+                </div>
+                <div class="col-md-8 push-md-2">
+                    <div class="faq-content">
+                        <p class="question">[% l('What is an ICO?') %]</p>
+                        <div class="answer">
+                            <p>[% l('An ‘Initial Coin Offering’ (or ‘ICO’ for short) is a fundraising method that’s relatively similar to an Initial Public Offering (IPO). In an ICO, cryptocurrency such as ‘coloured coins’ or ‘Ethereum tokens’ are issued instead of shares.') %]</p>
+                        </div>
+                    </div>
+                    <div class="faq-content">
+                        <p class="question">[% l('Why is ChampionFX performing an ICO?') %]</p>
+                        <div class="answer">
+                            <p>[% l('ChampionFX is a new multi-asset broker launched in 2017. We believe that this ICO gives us a great opportunity to reach more people, in line with our mission to make financial trading more accessible to everyone. The funds raised from the ICO will also enable us to invest in the infrastructure and resources needed to penetrate and capture our target markets.') %]</p>
+                        </div>
+                    </div>
+                    <div class="faq-content">
+                        <p class="question">[% l('How will the ICO work?') %]</p>
+                        <div class="answer">
+                            <p>[% l('ChampionFX will offer a number of blockchain tokens to investors. These tokens may be issued in various forms on different blockchains, such as ‘coloured coins’ on the Bitcoin blockchain, and ‘ERC20’ tokens on the Ethereum blockchain.') %]</p>
+                            <p>[% l('Regardless of the type of token, each token will provide you with two rights:') %]</p>
+                            <ol>
+                                <li>[% l('The right to receive payments equivalent to dividends paid on Champion Group Ltd. Ordinary') %]</li>
+                                <li>[% l('The right to convert tokens into Ordinary Shares') %]</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 push-md-1">
+                    <h4>[% l('How to purchase ChampionFX token') %]</h4>
+                </div>
+                <div class="col-md-8 push-md-2">
+                    <div class="faq-content">
+                        <p class="question">[% l('How will the tokens be offered?') %]</p>
+                        <div class="answer">
+                            <p>[% l('The tokens will be offered over a period of one month. The exact date of the ICO is yet to be determined, but we are aiming for the fourth quarter of 2017. The ICO price and auction method will be announced in due course.') %]</p>
+                        </div>
+                    </div>
+                    <div class="faq-content">
+                        <p class="question">[% l('Who can purchase the tokens?') %]</p>
+                        <div class="answer">
+                            <p>[% l('Tokens will only be offered to ChampionFX clients who have a Real Money account, and who have completed our account authentication process.') %]</p>
+                        </div>
+                    </div>
+                    <div class="faq-content">
+                        <p class="question">[% l('Is the ICO available in all jurisdictions?') %]</p>
+                        <div class="answer">
+                            <p>[% l('The ICO will be restricted in a number of jurisdictions to qualified or professional investors, in accordance with the rules and regulations of such jurisdictions.') %]</p>
+                        </div>
+                    </div>
+                    <div class="faq-content">
+                        <p class="question">[% l('How can I purchase your tokens?') %]</p>
+                        <div class="answer">
+                            <p>[% l('You’ll be able to purchase our tokens using the funds in your ChampionFX account. We will soon be introducing native BTC (Bitcoin) and ETH (Ethereum) account facilities to enable your participation in the ICO.') %]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 push-md-1">
+                    <h4>[% l('Learn more about ICO') %]</h4>
+                </div>
+                <div class="col-md-8 push-md-2">
+                    <div class="faq-content">
+                        <p class="question">[% l('How can I learn more about ICOs and cryptocurrencies?') %]</p>
+                        <div class="answer">
+                            <p>[% l('To learn more about Bitcoin, we recommend that you <a class="text--underline" href="[_1]" target="_blank">open a Bitcoin wallet with Blockchain</a> and <a class="text--underline" href="[_2]" target="_blank">purchase bitcoins using a local exchange</a> in your country.', 'https://blockchain.info/wallet/#/', 'https://www.bitcoin.com/buy-bitcoin') %]</p>
+                            <p>[% l('To learn more about Ethereum, we recommend that you <a class="text--underline" href="[_1]" target="_blank">install the Metamask plugin for Chrome</a>, which will allow you to convert your Bitcoin into Ether.', 'https://metamask.io/') %]</p>
+                            <p>[% l('To learn how to trade cryptocurrency assets, we recommend that you open an account with US-based cryptocurrency exchange, <a class="text--underline" href="[_1]" target="_blank">POLONIEX.</a>', 'https://poloniex.com/') %]</p>
+                            <p>[% l('We also recommend the following free ebooks: <a class="text--underline" href="[_1]" target="_blank">The Ultimate Guide to Bitcoin</a> and <a class="text--underline" href="[_2]" target="_blank">Idiots Guide to Bitcoin</a>.', 'http://ptgmedia.pearsoncmg.com/images/9780789753243/samplepages/9780789753243.pdf', 'http://idiotsguidetobitcoin.com/images/Idiots_Guide_to_Bitcoin_v1.0.pdf') %]</p>
+                            <p>[% l('And here is a free 40 minute online tutorial on bitcoin and getting your wallet set up: <a class="text--underline" href="[_1]" target="_blank">How to Profit in The New Cryptocurrency Economy</a>.', 'https://skillincubator.com/course-pages/bitcoin-basics-how-to-profit-in-the-new-cryptocurrency-economy/') %]</p>
+                        </div>
+                    </div>
+                    <div class="faq-content">
+                        <p class="question">[% l('How do I stay informed on the ChampionFX ICO?') %]</p>
+                        <div class="answer">
+                            <p>[% l('Please subscribe to our mailing list using the form below for occasional announcements relating to the ICO.') %]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row center-text">
+                <div class="col-md-8 push-md-2">
+                    <h2>[% l('Not finding what you’re looking for?') %]</h2>
+                    <p>[% l('Give us a call or shoot us an email to get to the bottom of it.') %]</p>
+                    <a class="btn btn--outline" href=[% request.url_for('contact') %]>[% l('Contact us') %]</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="join-cfx-ico" class="fill-bg-color center-text">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-container">
+                        <h2>[% l('Want to join the ICO?') %]</h2>
+                        <p>[% l('Subscribe to our mailing list for exclusive updates on the ICO, including the official launch date.') %]</p>
+                        <!-- AWeber Web Form Generator 3.0.1 -->
+                        <form method="post" class="af-form-wrapper" accept-charset="UTF-8" action="https://www.aweber.com/scripts/addlead.pl"  >
+                            <div style="display: none;">
+                                <input type="hidden" name="meta_web_form_id" value="611475145" />
+                                <input type="hidden" name="meta_split_id" value="" />
+                                <input type="hidden" name="listname" value="awlist4746233" />
+                                <input type="hidden" name="redirect" value="" id="redirect_a653d0267ad6deef7fb14cfff01a1f26" />
+                                <input type="hidden" name="meta_adtracking" value="cfx_ico" />
+                                <input type="hidden" name="meta_message" value="1001" />
+                                <input type="hidden" name="meta_required" value="email" />
+                                <input type="hidden" name="meta_tooltip" value="" />
+                            </div>
+                            <div id="af-form-611475145" class="af-form"><div id="af-body-611475145" class="af-body col-xs-12 col-md-6 col-lg-5 center-align af-standards">
+                                <div class="af-element vertical-center">
+                                    <input class="text" id="awf_field-91956680" type="text" placeholder="Enter your email" name="email" value="" tabindex="500" onfocus=" if (this.value == '') { this.value = ''; }" onblur="if (this.value == '') { this.value='';} " />
+                                    <input name="submit" class="submit btn btn--blue" type="submit" value="Submit" tabindex="501" />
+                                </div>
+                            </div>
+                            </div>
+                            <div style="display: none;"><img src="https://forms.aweber.com/form/displays.htm?id=bIyMLOysjCys" alt="" /></div>
+                        </form>
+                        <script type="text/javascript">document.getElementById('redirect_a653d0267ad6deef7fb14cfff01a1f26').value = document.location + '#done'</script>
+                        <!-- /AWeber Web Form Generator 3.0.1 -->
+                        <p class="notice-msg col-md-8 push-md-2 invisible">[% l("Thank you for your interest in the [_1] ICO. Please check your email for a confirmation link.", broker_name) %]</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 social">
+                    <p>[% l('Follow us') %]</p>
+                    <a href="https://www.facebook.com/championFX/" target="_blank"><span class="icon icon--xs icon--facebook"></span></a>
+                    <a href="https://twitter.com/champion_fx" target="_blank"><span class="icon icon--xs icon--twitter"></span></a>
+                    <a href="https://www.youtube.com/channel/UCBqTu-uQkmaIh5wgBswo2TA" target="_blank"><span class="icon icon--xs icon--youtube"></span></a>
+                    <!-- a href=""><span class="icon icon--slack"></span></a>
+                    <a href=""> <span class="icon icon--reddit"></span></a>
+                    <a href=""><span class="icon icon--bitcointalk"></span></a -->
+                </div>
+                <div class="col-sm address">
+                    <span>Email: <a href="mailto:support@champion-fx.com" class="text--underline" >support@champion-fx.com</a> | [% l('Registered office') %]: Govant Building, Port Vila, P.O. Box 1276, Vanuatu, Republic of Vanuatu.</span>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>[% l('THIS WEBSITE AND THE PROPOSED ICO DOES NOT CONSTITUTE AN OFFER OF, OR AN INVITATION TO PURCHASE, THE AFOREMENTIONED TOKENS IN ANY JURISDICTION IN WHICH SUCH OFFER OR SALE WOULD BE UNLAWFUL. THE TOKENS WILL BE OFFERED SOLELY TO REGISTERED CLIENTS OF CHAMPIONFX. NEITHER THE UNITED STATES SECURITIES AND EXCHANGE COMMISSION NOR ANY STATE, PROVINCIAL OR TERRITORIAL SECURITIES COMMISSION NOR ANY OTHER REGULATORY AUTHORITY OF ANY COUNTRY OR JURISDICTION HAS APPROVED OR DISAPPROVED OF THE PROPOSED OFFER OF TOKENS. IN REGARDS TO EEA JURISDICTIONS, IT IS INTENDED THAT THE TOKEN OFFERING WILL BE MADE PURSUANT TO AN EXEMPTION UNDER THE EUROPEAN UNION\'S DIRECTIVE 2003/71/EC (AS AMENDED, INCLUDING BY DIRECTIVE 2010/73/EU), NOTABLY THE EXEMPTION RELATING TO QUALIFIED INVESTORS, THE OFFER OF TOKENS IS SIMILARLY EXPECTED TO BE RESTRICTED TO QUALIFIED OR PROFESSIONAL INVESTORS IN A NUMBER OF OTHER JURISDICTIONS; FURTHER DETAILS OF SUCH RESTRICTIONS WILL BE DETAILED IN THE OFFER INFORMATION MEMORANDUM.') %]</p>
+        <p>[% l('INVESTMENT IN THE PROPOSED TOKENS IS EXPECTED TO INVOLVE A HIGH DEGREE OF RISK, THERE WILL BE NO ASSURANCE THAT TOKENHOLDERS WILL BE ABLE TO RECEIVE A RETURN OF THEIR CAPITAL OR ANY RETURNS ON THEIR INVESTMENT. PROSPECTIVE INVESTORS IN THE TOKENS SHOULD CAREFULLY CONSIDER THE RISK FACTORS THAT WILL BE DETAILED IN THE INFORMATION MEMORANDUM.') %]</p>
+    </footer>
+
+    <div id="popup-video" class="popup-overlay">
+        <div class="popup-box">
+            <a href="" id="close-btn" class="popup-box__btn"></a>
+            <div class="popup-box__content">
+                <iframe width="520px" height="315px" src="https://www.youtube.com/embed/at9u_9op2lQ" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <a href="#home" class="page-scroll scroll-btn scroll-btn--hide"></a>
+</body>
+</html>

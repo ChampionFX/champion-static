@@ -71,6 +71,8 @@ sub all_pages {
         ['user/self-exclusion',        'user/self_exclusion',          'full_width', 'Self Exclusion'],
         ['user/tnc-approval',          'user/tnc_approval',            'full_width', 'Terms and Conditions Approval'],
         ['economic-calendar',          'mt5/economic_calendar',        'full_width', 'Economic Calendar'],
+        ['ico',                        'static/ico',                    undef,       'Initial Coin Offering'],
+
     );
 }
 
