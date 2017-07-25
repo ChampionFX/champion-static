@@ -152,6 +152,7 @@ const PersonalDetails = (() => {
             { selector: '#place_of_birth', validations: '' },
             { selector: '#tax_residence',  validations: '' },
             { selector: '#tax_identification_number', validations: ['postcode', ['length', { min: 0, max: 20 }]] },
+            { selector: '#account_opening_reason',  validations: ['req'] },
         ]
     );
 
