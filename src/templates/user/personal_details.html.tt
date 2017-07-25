@@ -13,16 +13,15 @@
     [% INCLUDE components/forms/form_row.html.tt label=l("Country of residence") %]
     [% INCLUDE components/forms/form_row.html.tt id='country' type='label' %]
 
+    [% INCLUDE components/forms/form_row.html.tt label=l("Email address") %]
+    [% INCLUDE components/forms/form_row.html.tt id='email' type='label' %]
+
     [% WRAPPER components/forms/form_row.html.tt type='select' id='account_opening_reason' label=l("Account opening reason") %]
         <option value="Speculative">[% l('Speculative') %]</option>
         <option value="Income Earning">[% l("Income Earning") %]</option>
         <option value="Asset Saving">[% l('Asset Saving') %]</option>
         <option value="Hedging">[% l('Hedging') %]</option>
     [% END %]
-
-    [% INCLUDE components/forms/form_row.html.tt label=l("Email address") %]
-    [% INCLUDE components/forms/form_row.html.tt id='email' type='label' %]
-
 
     <h3 class="is-real underline-title">[% l('Tax information') %]</h3>
     [% INCLUDE components/forms/form_row.html.tt id='tax_residence' row_class='is-real' label=l("Tax residence") type='select' attributes='class="invisible" multiple="multiple"' %]
