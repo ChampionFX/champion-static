@@ -42,7 +42,7 @@
     <p id="error-update-details" class="error-msg"></p>
     [% INCLUDE components/forms/submit_button.html.tt type='submit' row_class='is-real' text=l('Update') id='submit' %]
 
-    <p class="notice-msg is-real">*[% l('To change your name, date of birth, country of residence, or email, please contact our <a href="[_1]">customer support</a> team.', request.url_for('contact')) %]</p>
+    <p class="hint-msg is-real">[% l('To change your name, date of birth, country of residence, or email, please contact our <a href="[_1]">customer support</a> team.', request.url_for('contact')) %]</p>
 
 </form>
 </div>

@@ -215,11 +215,13 @@ ul.checked.small > li {
     margin-bottom: 2px;
 }
 
-.notice-msg {
+.hint-msg {
     background: none;
     color: $darkGray;
     font-style: italic;
     margin: 0;
+    padding: 10px 0;
+    font-size: 12px;
 
     a {
         text-decoration: underline;
