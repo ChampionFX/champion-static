@@ -56,10 +56,7 @@ const FinancialAssessment = (() => {
         });
         arr_validation = [];
         $(form_selector).find('select').map(function() {
-            const id = $(this).attr('id');
-            if (!/(employment_status|source_of_wealth)/.test(id)) {
-                arr_validation.push({ selector: `#${id}`, validations: ['req'] });
-            }
+            arr_validation.push({ selector: `#${$(this).attr('id')}`, validations: ['req'] });
         });
         Validation.init(form_selector, arr_validation);
     };
