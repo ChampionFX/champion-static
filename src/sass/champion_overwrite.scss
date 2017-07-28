@@ -214,3 +214,16 @@ ul.checked.small > li {
     background-color: $fillColor;
     margin-bottom: 2px;
 }
+
+.hint-msg {
+    background: none;
+    color: $darkGray;
+    font-style: italic;
+    margin: 0;
+    padding: 10px 0;
+    font-size: 12px;
+
+    a {
+        text-decoration: underline;
+    }
+}
