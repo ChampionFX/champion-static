@@ -25,7 +25,7 @@
                     [% WRAPPER components/forms/form_row.html.tt type='select' id='ddl_opening_reason' label=l("Account opening reason") %]
                         <option value="Speculative">[% l('Speculative') %]</option>
                         <option value="Income Earning">[% l("Income Earning") %]</option>
-                        <option value="Asset Saving">[% l('Asset Saving') %]</option>
+                        <option value="Assets Saving">[% l('Assets Saving') %]</option>
                         <option value="Hedging">[% l('Hedging') %]</option>
                     [% END %]
                 </div>
@@ -59,7 +59,7 @@
 
             <div class="center-text">
                 <div class="fx-divider"></div>
-                [% INCLUDE components/forms/form_row.html.tt      type='checkbox' id='chk_not_pep' label=l('I acknowledge that I am not a politically exposed person ([_1]PEP[_2]).', '<span data-balloon-length="xlarge" data-balloon="' _ l("A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP's relatives and close associates.") _ '">', '</span>') %]
+                [% INCLUDE components/forms/form_row.html.tt      type='checkbox' id='chk_not_pep' label=l('I acknowledge that I am not a politically exposed person ([_1]PEP[_2]).', '<span data-balloon-length="xlarge" data-balloon="' _ l("A Politically Exposed Person (PEP) is an individual who is or has been entrusted with a prominent public function including his/her immediate family members or persons known to be close associates of such persons, but does not include middle ranking or more junior officials. Such individuals include Heads of State, Ministers, Parliamentary Secretaries, Members of Parliament, Judges, Ambassadors, Senior Government Officials, High Ranking Officers in the Armed Forces, Audit Committees of the boards of central banks, and Directors of state-owned corporations. The “immediate family members” of the above examples will also be considered as PEP, and these include their spouses/partners, parents, and children. Additionally, “persons known to be close associates” of PEPs include their business partners, will also be considered as such. As a general rule, a person considered to be a PEP and who has ceased to be entrusted with a prominent public function for a period of at least twelve months no longer qualifies as a PEP.") _ '">', '</span>') %]
                 [% INCLUDE components/forms/form_row.html.tt      type='checkbox' id='chk_tnc'     label=l('I have read and agree to the <a target="_blank" href="[_1]">terms and conditions</a> of the site.', request.url_for('/terms-and-conditions')) %]
                 [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Create account') %]
             </div>
