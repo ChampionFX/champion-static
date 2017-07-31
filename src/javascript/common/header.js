@@ -206,7 +206,7 @@ const Header = (function () {
                 if (get_account_status.risk_classification === 'high') {
                     return isEmptyObject(State.get(['response', 'get_financial_assessment', 'get_financial_assessment']));
                 }
-                return false;
+                return get_account_status.status.some(obj => obj === 'financial_assessment_not_complete');
             };
 
             const messages = {
