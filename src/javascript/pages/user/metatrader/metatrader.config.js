@@ -35,8 +35,8 @@ const MetaTraderConfig = (function() {
                     } else if (Client.is_virtual()) {
                         resolve(needsRealMessage());
                     } else {
-                        ChampionSocket.send({ get_financial_assessment: 1 }).then((response_financial) => {
-                            resolve(isEmptyObject(response_financial.get_financial_assessment) ? $('#msg_assessment').html() : '');
+                        ChampionSocket.send({ get_account_status: 1 }).then((response) => {
+                            resolve(/financial_assessment_not_complete/.test(response.get_account_status.status) ? $('#msg_assessment').html() : '');
                         });
                     }
                 })

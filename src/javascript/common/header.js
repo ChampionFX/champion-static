@@ -203,10 +203,11 @@ const Header = (function () {
                 status;
 
             const riskAssessment = () => {
+                const fa_not_complete = /financial_assessment_not_complete/.test(get_account_status.status);
                 if (get_account_status.risk_classification === 'high') {
-                    return isEmptyObject(State.get(['response', 'get_financial_assessment', 'get_financial_assessment']));
+                    return isEmptyObject(State.get(['response', 'get_financial_assessment', 'get_financial_assessment'])) || fa_not_complete;
                 }
-                return get_account_status.status.some(obj => obj === 'financial_assessment_not_complete');
+                return fa_not_complete;
             };
 
             const messages = {
