@@ -15,7 +15,8 @@ const FinancialAssessment = (() => {
         arr_validation = [],
         $btn_submit,
         $msg_form,
-        $msg_success;
+        $msg_success,
+        is_first_time;
 
     const load = () => {
         showLoadingImage($('<div/>', { id: 'loading', class: 'center-text' }).insertAfter('#heading'));
@@ -40,6 +41,8 @@ const FinancialAssessment = (() => {
         }
         hideLoadingImg();
         financial_assessment = $.extend({}, response.get_financial_assessment);
+
+        is_first_time = isEmptyObject(financial_assessment);
 
         if (isEmptyObject(financial_assessment)) {
             ChampionSocket.wait('get_account_status').then((data) => {
@@ -107,7 +110,8 @@ const FinancialAssessment = (() => {
 
     const showFormMessage = (msg, isSuccess) => {
         $msg_form.removeClass(hidden_class).css('display', '').html('');
-        if (isSuccess) {
+        if (isSuccess && is_first_time) {
+            is_first_time = false;
             $msg_success.removeClass(hidden_class);
             ChampionSocket.send({ get_account_status: 1 }).then((response_status) => {
                 if ($.inArray('authenticated', response_status.get_account_status.status) === -1) {
@@ -115,7 +119,12 @@ const FinancialAssessment = (() => {
                 }
             });
         } else {
-            $msg_form.html(msg).delay(5000).fadeOut(1000);
+            $msg_success.addClass(hidden_class);
+            $msg_form
+                .attr('class', isSuccess ? 'success-msg' : 'error-msg').css('display', 'block')
+                .html(msg)
+                .delay(5000)
+                .fadeOut(1000);
         }
     };
 
