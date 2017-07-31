@@ -3,7 +3,6 @@ const formatMoney    = require('../../../common/currency').formatMoney;
 const GTM            = require('../../../common/gtm');
 const ChampionSocket = require('../../../common/socket');
 const url_for        = require('../../../common/url').url_for;
-const isEmptyObject  = require('../../../common/utility').isEmptyObject;
 
 const MetaTraderConfig = (function() {
     'use strict';
