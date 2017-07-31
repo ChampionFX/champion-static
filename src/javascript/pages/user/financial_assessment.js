@@ -119,6 +119,7 @@ const FinancialAssessment = (() => {
                 }
             });
         } else {
+            $msg_success.addClass(hidden_class);
             $msg_form
                 .attr('class', isSuccess ? 'success-msg' : 'error-msg').css('display', 'block')
                 .html(msg)
