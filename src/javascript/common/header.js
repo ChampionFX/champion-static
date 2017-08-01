@@ -221,7 +221,7 @@ const Header = (function () {
             };
 
             const validations = {
-                authenticate: () => !/authenticated/.test(status) || !/age_verification/.test(status),
+                authenticate: () => /prompt_client_to_authenticate/.test(status),
                 risk        : () => riskAssessment(),
                 tnc         : () => Client.should_accept_tnc(),
                 unwelcome   : () => /(unwelcome|(cashier|withdrawal)_locked)/.test(status),
