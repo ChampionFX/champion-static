@@ -30,8 +30,8 @@ const FinancialAssessment = (() => {
         $msg_form    = $(form_selector).find('#msg_form');
         $msg_success = $(form_selector).find('#msg_success');
 
-        ChampionSocket.wait('get_financial_assessment').then((response) => {
-            handleForm(response);
+        ChampionSocket.send({ get_financial_assessment: 1 }, true).then((response) => {
+            handleForm(response.get_financial_assessment);
         });
     };
 
@@ -40,7 +40,7 @@ const FinancialAssessment = (() => {
             response = State.get(['response', 'get_financial_assessment']);
         }
         hideLoadingImg();
-        financial_assessment = $.extend({}, response.get_financial_assessment);
+        financial_assessment = $.extend({}, response);
 
         is_first_time = isEmptyObject(financial_assessment);
 
@@ -52,14 +52,6 @@ const FinancialAssessment = (() => {
             });
         }
 
-        if (!hasProp(financial_assessment, 'account_turnover')) {
-            financial_assessment.account_turnover = '';
-        } else if (!hasProp(financial_assessment, 'employment_status')) {
-            financial_assessment.employment_status = '';
-        } else if (!hasProp(financial_assessment, 'source_of_wealth')) {
-            financial_assessment.source_of_wealth = '';
-        }
-
         Object.keys(financial_assessment).forEach((key) => {
             const val = financial_assessment[key];
             $(`#${key}`).val(val);
@@ -67,7 +59,11 @@ const FinancialAssessment = (() => {
 
         arr_validation = [];
         $(form_selector).find('select').map(function() {
-            arr_validation.push({ selector: `#${$(this).attr('id')}`, validations: ['req'] });
+            const id = $(this).attr('id');
+            arr_validation.push({ selector: `#${id}`, validations: ['req'] });
+            if (financial_assessment[id] === undefined) {  // handle fields not previously set by client
+                financial_assessment[id] = '';
+            }
         });
         Validation.init(form_selector, arr_validation);
     };
@@ -136,8 +132,6 @@ const FinancialAssessment = (() => {
                 .fadeOut(1000);
         }
     };
-
-    const hasProp = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop));
 
     const unload = () => {
         $(form_selector).off('submit');
