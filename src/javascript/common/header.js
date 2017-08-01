@@ -6,7 +6,6 @@ const ChampionSocket = require('./socket');
 const State          = require('./storage').State;
 const url_for        = require('./url').url_for;
 const Utility        = require('./utility');
-const isEmptyObject  = require('./utility').isEmptyObject;
 const template       = require('./utility').template;
 
 const Header = (function () {
@@ -200,14 +199,11 @@ const Header = (function () {
     const displayAccountStatus = () => {
         ChampionSocket.wait('authorize').then(() => {
             let get_account_status,
-                status;
+                status,
+                has_mt_account = false;
 
-            const riskAssessment = () => {
-                if (get_account_status.risk_classification === 'high') {
-                    return isEmptyObject(State.get(['response', 'get_financial_assessment', 'get_financial_assessment']));
-                }
-                return false;
-            };
+            const riskAssessment = () => (get_account_status.risk_classification === 'high' || has_mt_account) &&
+            /financial_assessment_not_complete/.test(status);
 
             const messages = {
                 authenticate: () => template('Please [_1]authenticate your account[_2] to lift your withdrawal and trading limits.',
@@ -237,14 +233,19 @@ const Header = (function () {
             ChampionSocket.wait('website_status', 'get_account_status', 'get_settings', 'get_financial_assessment').then(() => {
                 get_account_status = State.get(['response', 'get_account_status', 'get_account_status']) || {};
                 status = get_account_status.status;
-                const notified = check_statuses.some((object) => {
-                    if (object.validation()) {
-                        displayNotification(object.message());
-                        return true;
+                ChampionSocket.wait('mt5_login_list').then((response) => {
+                    if (response.mt5_login_list.length) {
+                        has_mt_account = true;
                     }
-                    return false;
+                    const notified = check_statuses.some((object) => {
+                        if (object.validation()) {
+                            displayNotification(object.message());
+                            return true;
+                        }
+                        return false;
+                    });
+                    if (!notified) hideNotification();
                 });
-                if (!notified) hideNotification();
             });
         });
     };
