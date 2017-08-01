@@ -52,11 +52,19 @@ const FinancialAssessment = (() => {
             });
         }
 
+        if (!hasProp(financial_assessment, 'account_turnover')) {
+            financial_assessment.account_turnover = '';
+        } else if (!hasProp(financial_assessment, 'employment_status')) {
+            financial_assessment.employment_status = '';
+        } else if (!hasProp(financial_assessment, 'source_of_wealth')) {
+            financial_assessment.source_of_wealth = '';
+        }
 
         Object.keys(financial_assessment).forEach((key) => {
             const val = financial_assessment[key];
             $(`#${key}`).val(val);
         });
+
         arr_validation = [];
         $(form_selector).find('select').map(function() {
             arr_validation.push({ selector: `#${$(this).attr('id')}`, validations: ['req'] });
@@ -127,6 +135,8 @@ const FinancialAssessment = (() => {
                 .fadeOut(1000);
         }
     };
+
+    const hasProp = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop));
 
     const unload = () => {
         $(form_selector).off('submit');

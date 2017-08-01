@@ -237,15 +237,15 @@ const Header = (function () {
                     if (response.mt5_login_list.length) {
                         has_mt_account = true;
                     }
+                    const notified = check_statuses.some((object) => {
+                        if (object.validation()) {
+                            displayNotification(object.message());
+                            return true;
+                        }
+                        return false;
+                    });
+                    if (!notified) hideNotification();
                 });
-                const notified = check_statuses.some((object) => {
-                    if (object.validation()) {
-                        displayNotification(object.message());
-                        return true;
-                    }
-                    return false;
-                });
-                if (!notified) hideNotification();
             });
         });
     };
