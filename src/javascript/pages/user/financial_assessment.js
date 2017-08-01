@@ -101,7 +101,8 @@ const FinancialAssessment = (() => {
                     showFormMessage('Sorry, an error occurred while processing your request.', false);
                 } else {
                     showFormMessage('Your changes have been updated successfully.', true);
-                    ChampionSocket.send({ get_financial_assessment: 1 }, true).then(() => {
+                    // need to remove financial_assessment_not_complete from status if any
+                    ChampionSocket.send({ get_account_status: 1 }, true).then(() => {
                         Header.displayAccountStatus();
                     });
                 }
