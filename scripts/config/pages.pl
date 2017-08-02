@@ -62,6 +62,7 @@ sub all_pages {
         # ['user/details',               'user/personal_details',        'full_width', 'Personal Details'],
         ['user/authenticate',          'user/authenticate',            'full_width', 'Authenticate', 'ja'],
         ['user/change-password',       'user/change_password',         'full-width', 'Change Password'],
+        ['user/choose-platform',       'user/choose_platform',         'full_width', 'Choose your platform'],
         ['user/limits',                'user/limits',                  'full_width', 'Account Limits'],
         ['user/login-history',         'user/login_history',           'full_width', 'Login History'],
         ['user/metatrader',            'user/metatrader',              'full-width', 'MetaTrader account management'],

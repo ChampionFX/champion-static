@@ -1298,3 +1298,12 @@ iframe {
         }
     }
 }
+
+#choose_platform {
+    .bordered-light {
+        padding: 10px 30px 30px;
+        border: 3px solid $fillColor;
+        border-radius: $BORDER_RADIUS;
+        height: 100%;
+    }
+}
