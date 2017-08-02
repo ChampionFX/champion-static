@@ -1,0 +1,41 @@
+<div id="choose_platform" class="fx-section center-text">
+    <div class="container center-text">
+        <div class="row">
+            <div class="col-sm flex-md-middle">
+                <h1>[% l('Welcome to ChampionFX') %]</h1>
+                <h3>[% l('Please choose your platform:') %]</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md lg-padding">
+                <div class="bordered-light">
+                    <h3>[% l('MetaTrader 5') %]</h3>
+                    <p>[% l('Trade in the financial markets with a multi-asset trading platform: MetaTrader 5.') %]</p>
+                    <div>
+                        <img class="responsive" src="[% request.url_for('images/mt5/mt5.png') %]" />
+                    </div>
+                    <div class="lg-padding">
+                        <a class="button" href="[% request.url_for('user/metatrader') %]">
+                            <span>[% l('MetaTrader 5 account management') %]</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md lg-padding">
+                <div class="bordered-light">
+                    <h3>[% l('Binary Options') %]</h3>
+                    <p>[% l('Start trading with Champion Trader - the world\'s most versatile binary options trading platform.') %]</p>
+                    <div>
+                        <img class="responsive" src="[% request.url_for('images/binary_options/binary_options.png') %]" />
+                    </div>
+                    <div class="lg-padding">
+                        <a class="button" href="https://webtrader.champion-fx.com" target="_blank">
+                            <span>[% l('Start trading binary options') %]</span>
+                        </a>
+                    </div>
+                    <a class="button" href="[% request.url_for('user/settings') %]">[% l('Binary options settings') %]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
