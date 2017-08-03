@@ -20,7 +20,7 @@ const Slider = (() => {
 
     const destroy = function () {
         $('#slider-dots').empty();
-        $('#slider').slick('unslick');
+        $('#slider.slick-initialized').slick('unslick');
     };
 
     const positionFooterAndDots = function() {
