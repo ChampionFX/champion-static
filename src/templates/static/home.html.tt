@@ -31,7 +31,31 @@
         </div>
     </div>
 </div>
-<div class="fx-section fill-bg-color">
+<div id="home-academy" class="fx-section fill-bg-color">
+    <div class="container center-text">
+        <h2>[% l('ChampionFX Academy') %]</h2>
+        <p>[% l('Improve your trading skills with our free educational & training resources') %]</p>
+        <div class="row">
+            <div class="fx-3-dots-line"></div>
+            <div class="col-md-2 offset-md-3 pull-md-1">
+                <div class="fx-trading-books"></div>
+                <p>[% l('Free trading ebooks') %]</p>
+            </div>
+            <div class="col-md-2">
+                <div class="fx-market-report"></div>
+                <p>[% l('Free daily market reports') %]</p>
+            </div>
+            <div class="col-md-2 push-md-1">
+                <div class="fx-tutorial-videos"></div>
+                <p>[% l('Free tutorial videos') %]</p>
+            </div>
+        </div>
+        <a class="button-secondary button_large" href="https://academy.champion-fx.com/" target="_blank">
+            <span>[% l('Start learning') %]</span>
+        </a>
+    </div>
+</div>
+<div class="fx-section">
     <div class="container">
         <div class="row">
             <div class="col-sm center-text">

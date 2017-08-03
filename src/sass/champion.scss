@@ -1307,3 +1307,25 @@ iframe {
         height: 100%;
     }
 }
+
+#home-academy {
+    .row {
+        margin: 30px 0 20px;
+        position: relative;
+
+        [class*=fx-] {
+            margin-bottom: 20px;
+        }
+        .fx-3-dots-line {
+            position: absolute;
+            margin: auto;
+            top: 15px;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            @media (max-width: 800px) {
+                display: none;
+            }
+        }
+    }
+}
