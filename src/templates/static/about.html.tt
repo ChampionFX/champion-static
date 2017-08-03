@@ -108,7 +108,7 @@
             <div class="col-sm-6">
                 <div class="box bordered">
                     <div class="center-text">
-                        <img src="[% request.url_for('images/about/regulation_VSFC.png') %]" class="responsive fx-sm" />
+                        <img src="[% request.url_for('images/about/regulation_VSFC.png') %]" class="responsive" />
                         <h3>VSFC <br><small class="font-s">Vanuatu Financial Services Commission</small></h3>
                     </div>
                     <p class="font-n">[% l('ChampionFX is fully regulated by the Vanuatu Financial Services Commission (VFSC) bearing license number 14772. Its registered office is located at Govant Building, Port Vila, P.O. Box 1276, Vanuatu, Republic of Vanuatu.') %]</p>
@@ -117,7 +117,7 @@
             <div class="col-sm-6">
                 <div class="box bordered">
                     <div class="center-text">
-                        <img src="[% request.url_for('images/about/registered_FIU.png') %]" class="responsive fx-sm" />
+                        <img src="[% request.url_for('images/about/registered_FIU.png') %]" class="responsive" />
                         <h3><span class="text-uppercase">Financial Intelligence Unit</span> <br><small class="font-s">Government of Vanuatu</small></h3>
                     </div>
                     <p class="font-n">[% l('ChampionFX is also registered with the Financial Intelligence Unit (FIU) of Vanuatu for compliance with VFSC Anti-Money Laundering rules. ') %]</p>
