@@ -3,6 +3,7 @@ const GTM                     = require('./gtm');
 const Header                  = require('./header');
 const LoggedIn                = require('./logged_in');
 const Login                   = require('./login');
+const Redirect                = require('./redirect');
 const ChampionRouter          = require('./router');
 const SessionDurationLimit    = require('./session_duration_limit');
 const ChampionSocket          = require('./socket');
@@ -93,6 +94,7 @@ const Champion = (function() {
             metals             : { module: MT5 },
             profile            : { module: ChampionProfile,     is_authenticated: true },
             real               : { module: ChampionNewReal,     is_authenticated: true, only_virtual: true },
+            redirect           : { module: Redirect },
             settings           : { module: ChampionSettings,    is_authenticated: true },
             security           : { module: ChampionSecurity,    is_authenticated: true },
             virtual            : { module: ChampionNewVirtual,  not_authenticated: true },
