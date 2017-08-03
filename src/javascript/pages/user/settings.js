@@ -1,4 +1,5 @@
 const Client = require('./../../common/client');
+const State  = require('./../../common/storage').State;
 
 const ChampionSettings = (function() {
     'use strict';
@@ -6,6 +7,7 @@ const ChampionSettings = (function() {
     let settingsContainer;
 
     const load = () => {
+        State.remove('is_mt_pages');
         settingsContainer = $('.fx-settings');
 
         if (!Client.is_virtual()) {
