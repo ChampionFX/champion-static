@@ -472,7 +472,7 @@ h1.main-title {
 
 // Page Sections
 .fx-section {
-    padding: 20px 0 40px;
+    padding: 40px;
 
     .fx-features-title {
         margin-bottom: 50px;
@@ -582,16 +582,9 @@ h1.main-title {
 }
 
 // About us
-.fx-about-header {
-    background: url('../images/about-background.png') no-repeat center center;
+.about-us-header {
+    background: url('../images/about/banner_championfx.png') no-repeat center center;
     background-size: cover;
-    height: 400px;
-    padding: 0 20px;
-}
-
-.fx-about-image {
-    width: 100%;
-    height: auto;
 }
 
 // Contact us

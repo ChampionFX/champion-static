@@ -1,0 +1,109 @@
+<div class="primary-color-dark about-us-header">
+    <div class="fx-panel center-text center-vertical container">
+        <h1 class="content-inverse-color">[% l('ChampionFX milestones') %]</h1>
+        <p class="content-inverse-color">
+            [% l('Customer service is not just a department, it is the entire company.') %]
+            <br> [% l('Trade with ChampionFX &mdash; where the client is king. Your dedicated MT5 broker.') %]
+        </p>
+    </div>
+</div>
+
+<div class="fx-section">
+    <div class="container">
+        <h2 class="center-text">[% l('Milestones') %]</h2>
+
+        <div class="fx-divider"></div>
+
+        <div class="row">
+            <div class="col-md-12 center-text">
+                <span class="text-bordered">Q3 2017</span>
+            </div>
+            <div class="col-md-6 offset-md-4 col-xs-10 offset-xs-2">
+                <div class="timeline timeline--single-col">
+                    <hr class="timeline__vertical-line">
+                    <div class="timeline__box">
+                        <div class="timeline__box__icon">
+                            <span class="fx-ethereum"></span>
+                            <span class="fx-litecoin"></span>
+                        </div>
+                        <ul>
+                            <li class="timeline__box__date">[% l('July 2017') %]</li>
+                            <li class="timeline__box__title">[% l('ChampionFX adds to its exisiting cryptocurrency') %]</li>
+                            <li>[% l('product range by launching Ethereum and Litecoin trading') %]</li>
+                        </ul>
+                    </div>
+                    <div class="timeline__box">
+                        <span class="timeline__box__icon fx-bitcoin"></span>
+                        <ul>
+                            <li class="timeline__box__date">[% l('July 2017') %]</li>
+                            <li class="timeline__box__title">[% l('ChampionFX launches margin Bitcoin trading') %]</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fx-divider"></div>
+
+        <div class="row">
+            <div class="col-md-12 center-text">
+                <span class="text-bordered">Q2 2017</span>
+            </div>
+            <div class="col-md-6 offset-md-4 col-xs-10 offset-xs-2">
+                <div class="timeline timeline--single-col">
+                    <hr class="timeline__vertical-line">
+                    <div class="timeline__box">
+                        <span class="timeline__box__icon fx-partnership-rounded"></span>
+                        <ul>
+                            <li class="timeline__box__date">[% l('May 2017') %]</li>
+                            <li class="timeline__box__title">[% l('ChampionFX launches flexible partnership programmes') %]</li>
+                            <li>[% l('for Introducing Brokers (IBs) and affiliates') %]</li>
+                        </ul>
+                    </div>
+                    <div class="timeline__box">
+                        <span class="timeline__box__icon fx-financial"></span>
+                        <ul>
+                            <li class="timeline__box__date">[% l('May 2017') %]</li>
+                            <li class="timeline__box__title">[% l('ChampionFX adds two key influences in the financial trading community') %]</li>
+                            <li>[% l('to its roster of contributors in the ChampionFX Academy: Vince Stanzione and Dave Evans') %]</li>
+                        </ul>
+                    </div>
+                    <div class="timeline__box">
+                        <span class="timeline__box__icon fx-academy"></span>
+                        <ul>
+                            <li class="timeline__box__date">[% l('May 2017') %]</li>
+                            <li class="timeline__box__title">[% l('Official launch of ChampionFX Academy') %]</li>
+                            <li>[% l('that provides free educational content for new and experienced traders to enchance their trading knowledge') %]</li>
+                        </ul>
+                    </div>
+                    <div class="timeline__box">
+                        <span class="timeline__box__icon fx-recruitment"></span>
+                        <ul>
+                            <li class="timeline__box__date">[% l('May 2017') %]</li>
+                            <li class="timeline__box__title">[% l('ChampionFX starts extensive recruitment drive') %]</li>
+                        </ul>
+                    </div>
+                    <div class="timeline__box">
+                        <span class="timeline__box__icon fx-accounts"></span>
+                        <ul>
+                            <li class="timeline__box__date">[% l('April 2017') %]</li>
+                            <li class="timeline__box__title">[% l('ChampionFX launches multiple account types for MT5') %]</li>
+                            <li>[% l('All account types come with no minimum deposit requirements and no commission per trade') %]</li>
+                        </ul>
+                    </div>
+                    <div class="timeline__box">
+                        <div class="timeline__box__icon">
+                            <span class="fx-phone"></span>
+                            <span class="fx-laptop"></span>
+                        </div>
+                        <ul>
+                            <li class="timeline__box__date">[% l('April 2017') %]</li>
+                            <li class="timeline__box__title">[% l('ChampionFX rolls out a full suite of MT5 trading platforms') %]</li>
+                            <li>[% l('for desktop, web, and mobile') %]</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

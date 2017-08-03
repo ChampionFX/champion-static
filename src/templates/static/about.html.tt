@@ -1,4 +1,4 @@
-<div class="primary-color-dark economic-calendar-header">
+<div class="primary-color-dark about-us-header">
     <div class="fx-panel center-text center-vertical container">
         <h1 class="content-inverse-color">[% l('About ChampionFX') %]</h1>
         <p class="content-inverse-color">
@@ -8,7 +8,7 @@
     </div>
 </div>
 
-<div class="fx-section-sm">
+<div class="fx-section">
     <div class="container">
         <div class="row">
             <div class="col-sm-8 offset-sm-2">
@@ -21,7 +21,7 @@
 
         <div class="row">
             <div class="col-sm-4">
-                <h3 class="text-align-right">[% l('We’re committed to delivering the necessary trading tools and resources.') %]</h3>
+                <h3 class="text-align-right">[% l('We’re committed to delivering the necessary trading tools and resources') %]</h3>
             </div>
             <div class="col-sm-8">
                 <p>[% l('that enable traders to further develop their trading skills, and ultimately become champion traders.') %]</p>
@@ -36,32 +36,30 @@
                 <h2>[% l('Milestones') %]</h2>
             </div>
 
-            <div class="col-sm-8 offset-sm-2 col-lg-12 center-align">
-                <div class="timeline row">
+            <div class="col-xs-10 col-sm-8 offset-sm-2 col-lg-12 center-align">
+                <div class="timeline">
                     <hr class="timeline__vertical-line">
-                    <div class="col-md-12">
-                        <div class="timeline__box">
-                            <p class="timeline__box__title">[% l('Q2 2017') %]</p>
-                            <ul>
-                                <li>[% l('ChampionFX rolls out a full suite of MT5 trading platforms') %]</li>
-                                <li>[% l('Official launch of ChampionFX Academy') %]</li>
-                                <li>[% l('ChampionFX Academy adds two key contributors: Vince Stanzione and Dave Evans') %]</li>
-                            </ul>
-                        </div>
-                        <div class="timeline__box">
-                            <p class="timeline__box__title">[% l('Q3 2017') %]</p>
-                            <ul>
-                                <li>[% l('ChampionFX adds Bitcoin, Ethereum and Litecoin trading') %]</li>
-                                <li>[% l('ChampionFX launches MAM Pro for MetaTrader 5') %]</li>
-                                <li>[% l('ChampionFX introduces the MQL5 Wizard') %]</li>
-                            </ul>
-                        </div>
+                    <div class="timeline__box">
+                        <ul>
+                            <li class="timeline__box__title">[% l('Q2 2017') %]</li>
+                            <li>[% l('ChampionFX rolls out a full suite of MT5 trading platforms') %]</li>
+                            <li>[% l('Official launch of ChampionFX Academy') %]</li>
+                            <li>[% l('ChampionFX Academy adds two key contributors: Vince Stanzione and Dave Evans') %]</li>
+                        </ul>
+                    </div>
+                    <div class="timeline__box">
+                        <ul>
+                            <li class="timeline__box__title">[% l('Q3 2017') %]</li>
+                            <li>[% l('ChampionFX adds Bitcoin, Ethereum and Litecoin trading') %]</li>
+                            <li>[% l('ChampionFX launches MAM Pro for MetaTrader 5') %]</li>
+                            <li>[% l('ChampionFX introduces the MQL5 Wizard') %]</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-12 center-text">
-                <a class="button-secondary button_large" href="#">
+                <a class="button-secondary button_large" href="[% request.url_for('milestones') %]">
                     <span>[% l('See more') %]</span>
                 </a>
             </div>
@@ -72,7 +70,9 @@
         <div class="row">
             <div class="col-sm-12">
                 <h2>[% l('We provide our services worldwide') %]*</h2>
+                <div class="fx-divider"></div>
             </div>
+
             <div class="col-sm-8 offset-sm-2">
                 <img class="responsive" src="[% request.url_for('images/about/championfx_map.svg') %]" />
                 <p class="font-xs center-text hint">*[% l('Except Afghanistan, Bosnia and Herzegovina, Costa Rica, Europe Union, Hong Kong, Iran, Iraq, Israel, Jersey, Lao PDR, Malaysia, Malta, North Korea, Syria, Uganda, United Kingdom, USA, Vanuatu or Yemen.') %]</p>
@@ -107,15 +107,19 @@
             </div>
             <div class="col-sm-6">
                 <div class="box bordered">
-                    <img src="[% request.url_for('images/about/regulation_VSFC.png') %]" class="responsive" />
-                    <h3 class="center-text">VSFC <br><small class="font-s">Vanuatu Financial Services Commission</small></h3>
+                    <div class="center-text">
+                        <img src="[% request.url_for('images/about/regulation_VSFC.png') %]" class="responsive fx-sm" />
+                        <h3>VSFC <br><small class="font-s">Vanuatu Financial Services Commission</small></h3>
+                    </div>
                     <p class="font-n">[% l('ChampionFX is fully regulated by the Vanuatu Financial Services Commission (VFSC) bearing license number 14772. Its registered office is located at Govant Building, Port Vila, P.O. Box 1276, Vanuatu, Republic of Vanuatu.') %]</p>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="box bordered">
-                    <img src="[% request.url_for('images/about/registered_FIU.png') %]" class="responsive" />
-                    <h3 class="center-text"><span class="text-uppercase">Financial Intelligence Unit</span> <br><small class="font-s">Government of Vanuatu</small></h3>
+                    <div class="center-text">
+                        <img src="[% request.url_for('images/about/registered_FIU.png') %]" class="responsive fx-sm" />
+                        <h3><span class="text-uppercase">Financial Intelligence Unit</span> <br><small class="font-s">Government of Vanuatu</small></h3>
+                    </div>
                     <p class="font-n">[% l('ChampionFX is also registered with the Financial Intelligence Unit (FIU) of Vanuatu for compliance with VFSC Anti-Money Laundering rules. ') %]</p>
                 </div>
             </div>

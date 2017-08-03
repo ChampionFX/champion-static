@@ -22,6 +22,7 @@ sub all_pages {
         ['trading-times',              'static/trading_times',         'full_width', 'Trading Times'],
         ['refer-a-friend',             'static/refer_a_friend',        'full_width', 'Refer A Friend'],
         ['free-bonus',                 'static/free_bonus',            'full_width', 'Free Bonus'],
+        ['milestones',                 'static/milestones',            'full_width', 'Milestones'],
 
         ['binary-options',             'static/binary_options/binary_options',    'full_width', 'Binary Options'],
         ['what-is-binary-options',     'static/binary_options/what_is',           'full_width', 'What is binary options trading'],

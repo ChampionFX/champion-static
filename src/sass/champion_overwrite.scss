@@ -1,3 +1,7 @@
+html {
+    font-size: 62.5%;
+}
+
 #header {
     border: 0 !important;
 
@@ -235,6 +239,11 @@ ul.checked.small > li {
     text-align: right;
 }
 
+.text-bordered {
+    border: 1px solid $fillColor;
+    padding: 5px;
+}
+
 .timeline {
     position: relative;
     margin: 3rem 0;
@@ -242,7 +251,7 @@ ul.checked.small > li {
     &__vertical-line {
         position: absolute;
         height: 100%;
-        left: -0.5rem;
+        left: -2rem;
         border-left: 0.1rem solid $borderColor;
         margin: 0;
         @media (min-width: 1024px) {
@@ -285,7 +294,7 @@ ul.checked.small > li {
         }
         ul {
             padding: 0;
-            margin-bottom: 0;
+            margin: 0;
 
             li {
                 font-size: 14px; // @include fluid-type(12px, 14px);
@@ -329,6 +338,51 @@ ul.checked.small > li {
             &:nth-of-type(even) {
                 margin-right: 0;
                 margin-left: 52%;
+            }
+        }
+    }
+    &--single-col {
+        .timeline__vertical-line {
+            left: 0.5rem;
+        }
+        .timeline__box {
+            background: none;
+            max-width: 100%;
+            margin-right: 0;
+            margin-left: 0;
+            text-align: left;
+            padding: 1rem 2rem;
+            align-items: center;
+            display: flex;
+
+            &:before {
+                border: 0;
+            }
+            &:after { // bullet
+                left: 0;
+                top: initial;
+            }
+            &__date {
+                font-size: 12px;
+                font-style: italic;
+                color: $softBlue;
+            }
+            &__title {
+                font-size: 18px;
+                margin-bottom: 0;
+            }
+            &__icon {
+                display: block;
+                position: absolute;
+                right: 1rem;
+                margin-right: 100%;
+                @media (min-width: 575px) {
+                    display: flex;
+                }
+
+                span {
+                    margin: 0 0.5rem;
+                }
             }
         }
     }
