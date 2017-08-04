@@ -1,3 +1,4 @@
+const get_params            = require('../common/url').get_params;
 const compareBigUnsignedInt = require('../common/utility').compareBigUnsignedInt;
 const template              = require('../common/utility').template;
 
@@ -20,8 +21,17 @@ const Validation = (() => {
 
     const getFieldValue = field => (field.type === 'checkbox' ? (field.$.is(':checked') ? '1' : '') : field.$.val()) || '';
 
-    const initForm = (form_selector, fields) => {
+    const initForm = (form_selector, fields, needs_token) => {
         const $form = $(`${form_selector}:visible`);
+
+        if (needs_token) {
+            const token = get_params().token || '';
+            if (!validEmailToken(token)) {
+                $form.replaceWith($('<div/>', { class: error_class, text: 'Verification code is wrong. Please use the link sent to your email.' }));
+                return;
+            }
+        }
+
         if ($form.length) {
             forms[form_selector] = { $form: $form };
             if (Array.isArray(fields) && fields.length) {
