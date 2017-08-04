@@ -11,8 +11,10 @@
 <div class="fx-section">
     <div class="container">
         <div class="row">
-            <div class="col-sm-8 offset-sm-2">
-                <iframe width="520" height="315" src="https://www.youtube.com/embed/at9u_9op2lQ" frameborder="0" allowfullscreen></iframe>
+            <div class="col-sm-8 offset-sm-2 margin-bottom-3">
+                <div class="yt-container">
+                    <iframe class="yt-iframe" src="https://www.youtube.com/embed/at9u_9op2lQ" frameborder="0" allowfullscreen></iframe>
+                </div>
             </div>
             <div class="col-sm-12 center-text">
                 <h3>[% l('The ChampionFX brand was founded and launched in 2017 with a clear vision to provide traders with the world’s best customer experience, superior customised trading conditions, state-of-the-art trading tools, and access to many markets.') %]</h3>
@@ -105,8 +107,8 @@
             <div class="col-sm-12 center-text">
                 <h2>[% l('License') %]</h2>
             </div>
-            <div class="col-sm-6">
-                <div class="box bordered">
+            <div class="col-xs-12 push-md-1 col-md-5 col-bordered">
+                <div class="box">
                     <div class="center-text">
                         <img src="[% request.url_for('images/about/regulation_VSFC.png') %]" class="responsive" />
                         <h3>VSFC <br><small class="font-s">Vanuatu Financial Services Commission</small></h3>
@@ -114,8 +116,8 @@
                     <p class="font-n">[% l('ChampionFX is fully regulated by the Vanuatu Financial Services Commission (VFSC) bearing license number 14772. Its registered office is located at Govant Building, Port Vila, P.O. Box 1276, Vanuatu, Republic of Vanuatu.') %]</p>
                 </div>
             </div>
-            <div class="col-sm-6">
-                <div class="box bordered">
+            <div class="col-xs-12 push-md-1 col-md-5 col-bordered">
+                <div class="box">
                     <div class="center-text">
                         <img src="[% request.url_for('images/about/registered_FIU.png') %]" class="responsive" />
                         <h3><span class="text-uppercase">Financial Intelligence Unit</span> <br><small class="font-s">Government of Vanuatu</small></h3>
