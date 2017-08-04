@@ -1,10 +1,11 @@
-const Client         = require('../common/client');
-const Validation     = require('../common/validation');
-const ChampionSocket = require('../common/socket');
-const Login          = require('../common/login');
-const DatePicker     = require('../components/date_picker').DatePicker;
-const Utility        = require('../common/utility');
 const moment         = require('moment');
+const Client         = require('../common/client');
+const Login          = require('../common/login');
+const ChampionSocket = require('../common/socket');
+const get_params     = require('../common/url').get_params;
+const Utility        = require('../common/utility');
+const Validation     = require('../common/validation');
+const DatePicker     = require('../components/date_picker').DatePicker;
 
 const ResetPassword = (function() {
     'use strict';
@@ -12,39 +13,37 @@ const ResetPassword = (function() {
     const form_selector = '#frm_reset_password';
     const hidden_class  = 'invisible';
 
-    let container,
-        btn_submit,
-        real_acc;
+    let $container,
+        $btn_submit,
+        $real_acc;
 
     const fields = {
-        txt_verification_code: '#txt_verification_code',
-        txt_password         : '#txt_password',
-        txt_re_password      : '#txt_re_password',
-        chk_has_real         : '#chk_has_real',
-        txt_birth_date       : '#txt_birth_date',
-        btn_submit           : '#btn_submit',
+        txt_password   : '#txt_password',
+        txt_re_password: '#txt_re_password',
+        chk_has_real   : '#chk_has_real',
+        txt_birth_date : '#txt_birth_date',
+        btn_submit     : '#btn_submit',
     };
 
     const load = () => {
         if (Client.redirect_if_login()) return;
-        container  = $(form_selector);
-        btn_submit = container.find(fields.btn_submit);
-        real_acc   = container.find(fields.chk_has_real);
+        $container  = $(form_selector);
+        $btn_submit = $container.find(fields.btn_submit);
+        $real_acc   = $container.find(fields.chk_has_real);
 
-        real_acc.on('click', haveRealAccountHandler);
-        btn_submit.on('click', submit);
+        $real_acc.on('click', haveRealAccountHandler);
+        $btn_submit.on('click', submit);
         attachDatePicker();
 
         Validation.init(form_selector, [
-            { selector: fields.txt_verification_code, validations: ['req', 'email_token'] },
-            { selector: fields.txt_password,          validations: ['req', 'password'] },
-            { selector: fields.txt_re_password,       validations: ['req', ['compare', { to: fields.txt_password }]] },
-            { selector: fields.txt_birth_date,        validations: ['req'] },
-        ]);
+            { selector: fields.txt_password,    validations: ['req', 'password'] },
+            { selector: fields.txt_re_password, validations: ['req', ['compare', { to: fields.txt_password }]] },
+            { selector: fields.txt_birth_date,  validations: ['req'] },
+        ], true);
     };
 
     const haveRealAccountHandler = function() {
-        container.find('.dob_row').toggleClass(hidden_class);
+        $container.find('.dob_row').toggleClass(hidden_class);
     };
 
     const submit = (e) => {
@@ -52,14 +51,14 @@ const ResetPassword = (function() {
         if (Validation.validate(form_selector)) {
             const data = {
                 reset_password   : 1,
-                verification_code: $(fields.txt_verification_code).val(),
+                verification_code: get_params().token,
                 new_password     : $(fields.txt_password).val(),
             };
-            if (real_acc.is(':checked')) {
+            if ($real_acc.is(':checked')) {
                 data.date_of_birth = $(fields.txt_birth_date).val();
             }
             ChampionSocket.send(data).then((response) => {
-                btn_submit.prop('disabled', true);
+                $btn_submit.prop('disabled', true);
                 $(form_selector).addClass(hidden_class);
                 if (response.error) {
                     $('p.notice-msg').addClass(hidden_class);
@@ -104,9 +103,9 @@ const ResetPassword = (function() {
     };
 
     const unload = () => {
-        if (btn_submit) {
-            real_acc.off('click', haveRealAccountHandler);
-            btn_submit.off('click', submit);
+        if ($btn_submit) {
+            $real_acc.off('click', haveRealAccountHandler);
+            $btn_submit.off('click', submit);
         }
     };
 
