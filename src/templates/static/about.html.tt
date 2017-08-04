@@ -16,16 +16,16 @@
                     <iframe class="yt-iframe" src="https://www.youtube.com/embed/at9u_9op2lQ" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
-            <div class="col-sm-12 center-text">
-                <h3>[% l('The ChampionFX brand was founded and launched in 2017 with a clear vision to provide traders with the world’s best customer experience, superior customised trading conditions, state-of-the-art trading tools, and access to many markets.') %]</h3>
+            <div class="col-sm-12 center-text font-resize">
+                <h3 class="text-justified">[% l('The ChampionFX brand was founded and launched in 2017 with a clear vision to provide traders with the world’s best customer experience, superior customised trading conditions, state-of-the-art trading tools, and access to many markets.') %]</h3>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-sm-4">
+        <div class="row font-resize">
+            <div class="col-xs-5 col-sm-4">
                 <h3 class="text-align-right">[% l('We’re committed to delivering the necessary trading tools and resources') %]</h3>
             </div>
-            <div class="col-sm-8">
+            <div class="col-xs-7 col-sm-8 no-gutters">
                 <p>[% l('that enable traders to further develop their trading skills, and ultimately become champion traders.') %]</p>
                 <p>[% l('Our client-centric approach puts our clients’ needs at the centre of our operations. We provide our clients with access to top-tier liquidity and advanced trade execution with the No Dealing Desk (NDD) model.') %]</p>
             </div>
@@ -110,7 +110,7 @@
             <div class="col-xs-12 push-md-1 col-md-5 col-bordered">
                 <div class="box">
                     <div class="center-text">
-                        <img src="[% request.url_for('images/about/regulation_VSFC.png') %]" class="responsive" />
+                        <img src="[% request.url_for('images/about/regulation_VSFC.png') %]" class="img-md" />
                         <h3>VSFC <br><small class="font-s">Vanuatu Financial Services Commission</small></h3>
                     </div>
                     <p class="font-n">[% l('ChampionFX is fully regulated by the Vanuatu Financial Services Commission (VFSC) bearing license number 14772. Its registered office is located at Govant Building, Port Vila, P.O. Box 1276, Vanuatu, Republic of Vanuatu.') %]</p>
@@ -119,7 +119,7 @@
             <div class="col-xs-12 push-md-1 col-md-5 col-bordered">
                 <div class="box">
                     <div class="center-text">
-                        <img src="[% request.url_for('images/about/registered_FIU.png') %]" class="responsive" />
+                        <img src="[% request.url_for('images/about/registered_FIU.png') %]" class="img-md" />
                         <h3><span class="text-uppercase">Financial Intelligence Unit</span> <br><small class="font-s">Government of Vanuatu</small></h3>
                     </div>
                     <p class="font-n">[% l('ChampionFX is also registered with the Financial Intelligence Unit (FIU) of Vanuatu for compliance with VFSC Anti-Money Laundering rules. ') %]</p>
