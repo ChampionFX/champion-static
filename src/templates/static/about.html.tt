@@ -40,7 +40,7 @@
 
             <div class="col-xs-10 col-sm-8 offset-sm-2 col-lg-12 center-align">
                 <div class="timeline">
-                    <hr class="timeline__vertical-line">
+                    <span class="timeline__vertical-line"></span>
                     <div class="timeline__box">
                         <ul>
                             <li class="timeline__box__title">[% l('Q2 2017') %]</li>

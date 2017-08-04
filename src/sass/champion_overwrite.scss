@@ -249,8 +249,8 @@ ul.checked.small > li {
     position: relative;
     margin: 3rem 0;
 
-    &__vertical-line {
-        position: absolute;
+    &__vertical-line {      // do not use self closing elements i.e. <hr /> with this class
+        position: absolute; // browsers doesn't support pseudo elements on self-closing elements
         height: 100%;
         left: -2rem;
         border-left: 0.1rem solid $borderColor;
@@ -347,21 +347,21 @@ ul.checked.small > li {
             left: 0.5rem;
         }
         .timeline__box {
+            display: flex;
+            align-items: center;
+            align-self: center;
             background: none;
             max-width: 100%;
             margin-right: 0;
             margin-left: 0;
             text-align: left;
             padding: 1rem 2rem;
-            align-items: center;
-            display: flex;
 
             &:before {
                 border: 0;
             }
             &:after { // bullet
                 left: 0;
-                top: initial;
             }
             &__date {
                 font-size: 12px;
@@ -373,8 +373,9 @@ ul.checked.small > li {
                 margin-bottom: 0;
             }
             &__icon {
-                display: block;
                 position: absolute;
+                display: block;
+                top: 18px;
                 right: 1rem;
                 margin-right: 100%;
                 @media (min-width: 575px) {

@@ -20,7 +20,7 @@
             </div>
             <div class="col-md-6 offset-md-4 col-xs-10 offset-xs-2">
                 <div class="timeline timeline--single-col">
-                    <hr class="timeline__vertical-line">
+                    <span class="timeline__vertical-line"></span>
                     <div class="timeline__box">
                         <div class="timeline__box__icon">
                             <span class="fx-ethereum"></span>
@@ -51,7 +51,7 @@
             </div>
             <div class="col-md-6 offset-md-4 col-xs-10 offset-xs-2">
                 <div class="timeline timeline--single-col">
-                    <hr class="timeline__vertical-line">
+                    <span class="timeline__vertical-line"></span>
                     <div class="timeline__box">
                         <span class="timeline__box__icon fx-partnership-rounded"></span>
                         <ul>
