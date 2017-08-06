@@ -115,6 +115,7 @@ h1.main-title {
         a {
             line-height: 1.4em;
             padding: 7px 0;
+            font-size: 1.6rem;
         }
         ul {
             padding: 0;
@@ -160,6 +161,7 @@ h1.main-title {
             text-align: center;
             padding: 10px 0;
             font-weight: 600;
+            font-size: 1.6rem;
 
             .nav-menu-icon {
                 display: inline-block;
@@ -472,7 +474,7 @@ h1.main-title {
 
 // Page Sections
 .fx-section {
-    padding: 20px 0 40px;
+    padding: 40px 10px;
 
     .fx-features-title {
         margin-bottom: 50px;
@@ -582,16 +584,9 @@ h1.main-title {
 }
 
 // About us
-.fx-about-header {
-    background: url('../images/about-background.png') no-repeat center center;
+.about-us-header {
+    background: url('../images/about/banner_championfx.png') no-repeat center center;
     background-size: cover;
-    height: 400px;
-    padding: 0 20px;
-}
-
-.fx-about-image {
-    width: 100%;
-    height: auto;
 }
 
 // Contact us
@@ -1294,6 +1289,37 @@ iframe {
                 font-weight: bold;
                 color: $primaryBrandColor;
                 padding: 0 5px;
+            }
+        }
+    }
+}
+
+#choose_platform {
+    .bordered-light {
+        padding: 10px 30px 30px;
+        border: 3px solid $fillColor;
+        border-radius: $BORDER_RADIUS;
+        height: 100%;
+    }
+}
+
+#home-academy {
+    .row {
+        margin: 30px 0 20px;
+        position: relative;
+
+        [class*=fx-] {
+            margin-bottom: 20px;
+        }
+        .fx-3-dots-line {
+            position: absolute;
+            margin: auto;
+            top: 15px;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            @media (max-width: 800px) {
+                display: none;
             }
         }
     }
