@@ -239,6 +239,8 @@ const Validation = (() => {
     return {
         init    : initForm,
         validate: validate,
+
+        validEmailToken: validEmailToken,
     };
 })();
 
