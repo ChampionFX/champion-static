@@ -63,7 +63,7 @@ const ChampionSignup = (function() {
                 type        : 'account_opening',
             }).then((response) => {
                 if (response.verify_email) {
-                    $('#signup-box').text('Thank you for signing up! Please check your email to complete the registration process.');
+                    $('.signup-box').text('Thank you for signing up! Please check your email to complete the registration process.');
                 } else if (response.error) {
                     $(`${form_selector}:visible #signup_error`).text(response.error.message).removeClass(hidden_class);
                 }
