@@ -9,7 +9,7 @@ const Redirect = (function() {
             signup                : { path: 'new-account/virtual' },
             reset_password        : { path: 'reset-password' },
             payment_withdraw      : { path: 'cashier/forward', hash: '#withdraw' },
-            payment_agent_withdraw: null,
+            payment_agent_withdraw: null, // to be updated once the functionality is available in ChampionFX
         };
 
         const params = Url.get_params();
