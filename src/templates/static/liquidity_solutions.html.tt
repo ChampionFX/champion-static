@@ -15,28 +15,28 @@
             <h2>[% l('Key features') %]</h2>
         </div>
         <div class="col-xs-12 col-md-6 col-lg-3">
-            <div class="box box-col">
+            <div class="box box-col fill-bg-color">
                 <span class="fx fx-multi-asset-execution"></span>
                 <p class="bold-title">[% l('Multi-asset execution') %]</p>
                 <p>[% l('Over 50 FX pairs, plus spot metals, CFD indices, commodities, and cryptocurrencies.') %]</p>
             </div>
         </div>
         <div class="col-xs-12 col-md-6 col-lg-3">
-            <div class="box box-col">
+            <div class="box box-col fill-bg-color">
                 <span class="fx fx-liquidity-solution"></span>
                 <p class="bold-title">[% l('Top-tier liquidity') %]</p>
                 <p>[% l('Access market quotes and trade execution from top-tier liquidity providers, including banks and non-banks.') %]</p>
             </div>
         </div>
         <div class="col-xs-12 col-md-6 col-lg-3">
-            <div class="box box-col">
+            <div class="box box-col fill-bg-color">
                 <span class="fx fx-full-transparency"></span>
                 <p class="bold-title">[% l('Full transparency') %]</p>
                 <p>[% l('Subscribe to ChampionFX liquidity and see the exact liquidity venues we are streaming from via the ‘Bank’ column in your MT5 platform.') %]</p>
             </div>
         </div>
         <div class="col-xs-12 col-md-6 col-lg-3">
-            <div class="box box-col">
+            <div class="box box-col fill-bg-color">
                 <span class="fx fx-backoffice-support"></span>
                 <p class="bold-title">[% l('Back-office support') %]</p>
                 <p>[% l('Receive back-office support for post-trade risk management and real-time trade/position monitoring.') %]</p>
@@ -84,7 +84,7 @@
             </ul>
         </div>
             <div class="col-md-10 push-md-1">
-                <div class="box center-text">
+                <div class="box fill-bg-color center-text">
                     <span>[% l('Interested in our liquidity solutions? Contact us at <a href="mailto:partners@champion-fx.com">partners@champion-fx.com</a> for more info.') %]</span>
                 </div>
             </div>

@@ -262,74 +262,6 @@
     vertical-align: middle;
 }
 
-.fx-about-icon {
-    background: url('../images/menu_icons/about.svg');
-}
-
-.fx-arrow-icon {
-    background: url('../images/menu_icons/arrow.svg');
-}
-
-.fx-binary-icon {
-    background: url('../images/menu_icons/binary.svg');
-}
-
-.fx-cashier-icon {
-    background: url('../images/menu_icons/cashier.svg');
-}
-
-.fx-contact-icon {
-    background: url('../images/menu_icons/contact.svg');
-}
-
-.fx-gmt-icon {
-    background: url('../images/menu_icons/gmt.svg');
-}
-
-.fx-language-icon {
-    background: url('../images/menu_icons/language.svg');
-}
-
-.fx-login-icon {
-    background: url('../images/menu_icons/log_in.svg');
-}
-
-.fx-mainmenu-icon {
-    background: url('../images/menu_icons/main_menu.svg');
-}
-
-.fx-moremenu-icon {
-    background: url('../images/menu_icons/more_menu.svg');
-}
-
-.fx-mt5-icon {
-    background: url('../images/menu_icons/mt5.svg');
-}
-
-.fx-partnership-icon {
-    background: url('../images/menu_icons/partnership.svg');
-}
-
-.fx-real-icon {
-    background: url('../images/menu_icons/real.svg');
-}
-
-.fx-virtual-icon {
-    background: url('../images/menu_icons/virtual.svg');
-}
-
-.fx-setting-icon {
-    background: url('../images/menu_icons/settings.svg');
-}
-
-.fx-signout-icon {
-    background: url('../images/menu_icons/sign_out.svg');
-}
-
-.fx-trading-icon {
-    background: url('../images/menu_icons/trading.svg');
-}
-
 // ChampionFX contact us icons
 .fx-contact-flag {
     width: 40px;
@@ -390,11 +322,11 @@
 }
 
 // Liquidity solutions
-.fx {
-    display: flex;
-    justify-content: center;
-    margin: 0 0 10px;
-}
+//.fx {
+//    display: flex;
+//    justify-content: center;
+//    margin: 0 0 10px;
+//}
 
 .fx-backoffice-support:before {
     content: url('../images/liquidity_solutions/backoffice_support.svg');

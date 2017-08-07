@@ -40,6 +40,9 @@
     .table-container {
         overflow-x: auto;
     }
+    .navbar__brand {
+        display: none;
+    }
 }
 
 @media (min-width: 768px) {
@@ -48,6 +51,9 @@
     }
     .hidden-sm-up {
         display: none !important;
+    }
+    .navbar__toggle, .navbar__button-group {
+        width: 20rem;
     }
 }
 
@@ -88,6 +94,12 @@
         span {
             padding: 7px 20px !important;
         }
+    }
+    .navbar__brand.logged-in {
+        display: none;
+    }
+    .navbar__toggle.logged-in {
+        width: 100%;
     }
 }
 
