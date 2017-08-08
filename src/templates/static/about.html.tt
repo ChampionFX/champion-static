@@ -77,7 +77,7 @@
 
             <div class="col-sm-8 offset-sm-2">
                 <img class="responsive" src="[% request.url_for('images/about/championfx_map.svg') %]" />
-                <p class="font-xs center-text hint">*[% l('Except Afghanistan, Bosnia and Herzegovina, Costa Rica, Europe Union, Hong Kong, Iran, Iraq, Israel, Jersey, Lao PDR, Malaysia, Malta, North Korea, Syria, Uganda, United Kingdom, USA, Vanuatu or Yemen.') %]</p>
+                <p class="font-xs center-text hint">*[% l('Except Bosnia and Herzegovina, Costa Rica, Democratic People\'s Republic of Korea (DPRK), Ethiopia, Europe Union, Hong Kong, Iran, Iraq, Israel, Jersey, Malaysia, Malta, Syria, Uganda, United Kingdom, USA, Vanuatu or Yemen.') %]</p>
             </div>
 
             <div class="col-sm-12">
