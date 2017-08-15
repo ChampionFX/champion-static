@@ -40,8 +40,8 @@
                                 { link => 'forex',  text => l("Forex") },
                                 { link => 'cfd',    text => l("CFDs") },
                                 { link => 'metals', text => l("Metals") },
-                                { link => 'forex', link_hash => '#forex-accounts', text => l("Types of accounts") },
-                                { link => 'trading-platform/metatrader-5',         text => l("MetaTrader 5 trading platforms") },
+                                { link => 'trading-platform/mt5-types-of-accounts', text => l("Types of accounts") },
+                                { link => 'trading-platform/metatrader-5',          text => l("MetaTrader 5 trading platforms") },
                             ] %]
                         </div>
                         <div class="col-xs-6 col-md-3 mt-hide">

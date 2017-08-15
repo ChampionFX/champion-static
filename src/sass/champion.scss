@@ -492,7 +492,7 @@ h1.main-title {
     background-image: url('../images/trading_platforms_banner.png');
 }
 
-.mt5-header {
+.forex-header {
     background-image: url('../images/forex.png');
 }
 
@@ -506,6 +506,10 @@ h1.main-title {
 
 .economic-calendar-header {
     background-image: url('../images/mt5/economic_calendar_banner.png');
+}
+
+.mt5-header {
+    background-image: url('../images/metatrader/mt5_banner.png');
 }
 
 // Home page
@@ -1123,12 +1127,10 @@ a.underline-link {
 }
 
 .icon-ok {
-    color: $okColor;
     font-size: $FONT_SIZE_N;
 }
 
 .icon-remove {
-    color: $crossColor;
     font-size: $FONT_SIZE_N;
 }
 
@@ -1320,5 +1322,44 @@ iframe {
                 display: none;
             }
         }
+    }
+}
+
+.table-col-bordered {
+    th:nth-child(2) {
+        border-top: 4px solid $primaryBrandColor;
+        border-left: 4px solid $primaryBrandColor;
+        border-right: 4px solid $primaryBrandColor;
+        color: $primaryBrandColor;
+    }
+    td:nth-child(2) {
+        border-left: 4px solid $primaryBrandColor;
+        border-right: 4px solid $primaryBrandColor;
+        color: $primaryBrandColor;
+    }
+    tr:last-child {
+        td:nth-child(2) {
+            border-bottom: 4px solid $primaryBrandColor;
+        }
+    }
+}
+
+#mt5-accounts {
+    .box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 460px;
+        padding: 20px 15px;
+        border: 3px solid $fillColor;
+        @media (min-width: 767px) {
+            min-height: 545px;
+        }
+        @media (min-width: 961px) {
+            min-height: 460px;
+        }
+    }
+    p {
+        font-size: 12px;
     }
 }

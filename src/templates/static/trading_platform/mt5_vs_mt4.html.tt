@@ -2,26 +2,27 @@
     <div class="container">
         <div class="row">
             <div class="col-sm">
-                [% INCLUDE components/page_title.html.tt title=l('Comparing MT5 and MT4') %]
-                <div class="row">
-                    <div class="col-sm-5">
+                <div class="row flex-items-sm-bottom">
+                    <div class="col-sm-6">
+                        <h2>[% l('MT5: faster and more powerful. Groundbreaking flexibility.') %]</h2>
                         <p>[% l('ChampionFX believes in giving our clients the best trading platform available. This is why we choose MetaTrader 5. We focus all our efforts and resources to take full advantage of MetaTrader 5’s advanced features to give our clients a powerful trading experience that’s built to last.') %]</p>
-                        <h4>[% l('Faster and more powerful. Groundbreaking flexibility.') %]</h4>
                     </div>
-                    <div class="col-sm-6 push-sm-1">
+                    <div class="col-sm-6">
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/mXuR_SRP-XI" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="fx-divider-xl"></div>
         <div class="center-text">
-            <p>[% l('MetaTrader 5 is the most advanced trading platform available — the ideal platform for the modern trader. It contains everything you need to trade the financial markets.') %]</p>
+            <h4>[% l('MetaTrader 5 is the most advanced trading platform available &ndash; the ideal platform for the modern trader. It contains everything you need to trade the financial markets.') %]</h4>
         </div>
         <div class="fx-divider"></div>
         <div class="row">
-            <div class="col-sm">
-                <table>
+            <div class="col-sm-12">
+                <h2 class="center-text">[% l('Comparing MT5 and MT4') %]</h2>
+            </div>
+            <div class="col-sm table-container">
+                <table class="table-col-bordered">
                     <tr>
                         <th></th>
                         <th class="center-text">[% l('MetaTrader 5') %]</th>
@@ -164,10 +165,8 @@
                 </table>
             </div>
         </div>
-        <div class="fx-divider"></div>
         <div class="center-text invisible">
             <p>[% l("Got questions? Read our <a href='[_1]'>FAQ</a> or <a href='[_2]'>contact us</a>.", '#', request.url_for('contact')) %]</p>
         </div>
-        <div class="fx-divider"></div>
     </div>
 </div>
