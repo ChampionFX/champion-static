@@ -248,7 +248,7 @@ ul.checked.small > li {
         position: absolute; // browsers doesn't support pseudo elements on self-closing elements
         height: 100%;
         left: -1.3rem;
-        border-left: 0.1rem solid $borderColor;
+        border-left: 1px solid $borderColor;
         margin: 0;
         @media (min-width: 1024px) {
             left: 50%;
@@ -312,7 +312,7 @@ ul.checked.small > li {
                 top: 2.5rem;
                 background: $primaryBrandColor;
                 border-radius: 3.13rem;
-                left: -1.53rem;
+                left: -1.65rem;
             }
         }
         @media (min-width: 1024px) {
