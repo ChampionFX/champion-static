@@ -158,9 +158,8 @@ h1.main-title {
             display: block;
             color: $black !important;
             text-align: center;
-            padding: 15px 0;
-            font-weight: 500;
-            font-size: 16px;
+            padding: 10px 0;
+            font-weight: 600;
 
             .nav-menu-icon {
                 display: inline-block;
@@ -398,18 +397,12 @@ h1.main-title {
     }
     #footer-regulatory {
         padding: 25px 0 0;
-
-        div {
-            font-size: 10px;
-            text-align: justify;
-        }
+        font-size: 10px;
+        text-align: justify;
     }
     #footer-last {
         padding: 10px 0;
-
-        div {
-            font-size: $FONT_SIZE_S;
-        }
+        font-size: $FONT_SIZE_S;
     }
     #end_note {
         line-height: 25px;
