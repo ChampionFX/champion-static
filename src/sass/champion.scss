@@ -582,14 +582,12 @@ h1.main-title {
 
 // About us
 .about-us-header {
-    background: url('../images/about/banner_championfx.png') no-repeat center center;
-    background-size: cover;
+    background: url('../images/about/banner_championfx.png') top left / cover no-repeat;
 }
 
 // Contact us
 .contact-us-header {
-    background-image: url('../images/contact_us/contact_us_banner.png');
-    background-size: cover;
+    background-image: url('../images/contact_us/contact_us_banner.png') top left / cover no-repeat;
 
     h4 {
         margin-bottom: 0;
