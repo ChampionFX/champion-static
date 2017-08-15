@@ -484,28 +484,27 @@ h1.main-title {
 }
 
 .binary-options-header {
-    background-image: url('../images/binary_options/binary_options_banner.png');
-    background-size: cover;
+    background: url('../images/binary_options/binary_options_banner.png') top left / cover no-repeat;
 }
 
 .trading-platform-header {
-    background-image: url('../images/trading_platforms_banner.png');
+    background: url('../images/trading_platforms_banner.png') top left / cover no-repeat;
 }
 
 .mt5-header {
-    background-image: url('../images/forex.png');
+    background: url('../images/forex.png') top left / cover no-repeat;
 }
 
 .cfd-header {
-    background-image: url('../images/cfd_banner.png');
+    background: url('../images/cfd_banner.png') top left / cover no-repeat;
 }
 
 .metals-header {
-    background-image: url('../images/metals_banner.png');
+    background: url('../images/metals_banner.png') top left / cover no-repeat;
 }
 
 .economic-calendar-header {
-    background-image: url('../images/mt5/economic_calendar_banner.png');
+    background: url('../images/mt5/economic_calendar_banner.png') top left / cover no-repeat;
 }
 
 // Home page
