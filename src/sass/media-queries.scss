@@ -8,18 +8,6 @@
     .nav-menu-dropdown {
         width: 85vw !important;
     }
-    // temporary workaround until we adopt responsive typography
-    .font-resize {
-        h3 {
-            font-size: 16px;
-        }
-        p {
-            font-size: 14px;
-        }
-    }
-    .text-justified {
-        text-align: justify;
-    }
 }
 
 @media (max-width: 767px) {
