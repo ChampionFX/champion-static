@@ -484,32 +484,31 @@ h1.main-title {
 }
 
 .binary-options-header {
-    background-image: url('../images/binary_options/binary_options_banner.png');
-    background-size: cover;
+    background: url('../images/binary_options/binary_options_banner.png') top left / cover no-repeat;
 }
 
 .trading-platform-header {
-    background-image: url('../images/trading_platforms_banner.png');
+    background: url('../images/trading_platforms_banner.png') top left / cover no-repeat;
 }
 
 .forex-header {
-    background-image: url('../images/forex.png');
-}
-
-.cfd-header {
-    background-image: url('../images/cfd_banner.png');
-}
-
-.metals-header {
-    background-image: url('../images/metals_banner.png');
-}
-
-.economic-calendar-header {
-    background-image: url('../images/mt5/economic_calendar_banner.png');
+    background: url('../images/forex.png') top left / cover no-repeat;
 }
 
 .mt5-header {
-    background-image: url('../images/metatrader/mt5_banner.png');
+    background: url('../images/forex.png') top left / cover no-repeat;
+}
+
+.cfd-header {
+    background: url('../images/cfd_banner.png') top left / cover no-repeat;
+}
+
+.metals-header {
+    background: url('../images/metals_banner.png') top left / cover no-repeat;
+}
+
+.economic-calendar-header {
+    background: url('../images/mt5/economic_calendar_banner.png') top left / cover no-repeat;
 }
 
 // Home page
@@ -587,14 +586,12 @@ h1.main-title {
 
 // About us
 .about-us-header {
-    background: url('../images/about/banner_championfx.png') no-repeat center center;
-    background-size: cover;
+    background: url('../images/about/banner_championfx.png') top left / cover no-repeat;
 }
 
 // Contact us
 .contact-us-header {
-    background-image: url('../images/contact_us/contact_us_banner.png');
-    background-size: cover;
+    background-image: url('../images/contact_us/contact_us_banner.png') top left / cover no-repeat;
 
     h4 {
         margin-bottom: 0;
