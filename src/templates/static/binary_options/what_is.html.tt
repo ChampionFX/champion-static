@@ -15,19 +15,19 @@
                     <div class="fx-divider"></div>
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="box">
+                            <div class="box fill-bg-color">
                                 <h4>[% l('Easy to trade') %]</h4>
                                 <p>[% l('Predict the market condition from two possible outcomes.') %]</p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="box">
+                            <div class="box fill-bg-color">
                                 <h4>[% l('Controlled risk') %]</h4>
                                 <p>[% l('Know from the start exactly what you stand to win or lose.') %]</p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="box">
+                            <div class="box fill-bg-color">
                                 <h4>[% l('No surprises') %]</h4>
                                 <p>[% l('Never worry about slippages, margin calls, or stops.') %]</p>
                             </div>
@@ -36,19 +36,19 @@
                     <div class="fx-divider"></div>
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="box">
+                            <div class="box fill-bg-color">
                                 <h4>[% l('Low stakes') %]</h4>
                                 <p>[% l('Deposit as little as USD 5 to start trading.') %]</p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="box">
+                            <div class="box fill-bg-color">
                                 <h4>[% l('Competitive payouts') %]</h4>
                                 <p>[% l('Enjoy payouts of up to USD 50,000 with a winning trade.') %]</p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="box">
+                            <div class="box fill-bg-color">
                                 <h4>[% l('Sharp prices') %]</h4>
                                 <p>[% l('Benefit from similar rates of return as interbank traders.') %]</p>
                             </div>
@@ -57,19 +57,19 @@
                     <div class="fx-divider"></div>
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="box">
+                            <div class="box fill-bg-color">
                                 <h4>[% l('Wide product range') %]</h4>
                                 <p>[% l('Trade over 100 types of assets across four markets.') %]</p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="box">
+                            <div class="box fill-bg-color">
                                 <h4>[% l('Simple and intuitive') %]</h4>
                                 <p>[% l('Enjoy a trading platform that’s easy to navigate and use.') %]</p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="box">
+                            <div class="box fill-bg-color">
                                 <h4>[% l('Trade the world’s markets') %]</h4>
                                 <p>[% l('Diversify your investment portfolio through one platform.') %]</p>
                             </div>
