@@ -25,6 +25,7 @@
                     [% WRAPPER components/forms/form_row.html.tt type='select' id='ddl_opening_reason' label=l("Account opening reason") %]
                         <option value="Speculative">[% l('Speculative') %]</option>
                         <option value="Income Earning">[% l("Income Earning") %]</option>
+                        <option value="Assets Saving">[% l('Assets Saving') %]</option>
                         <option value="Hedging">[% l('Hedging') %]</option>
                     [% END %]
                 </div>

@@ -44,7 +44,7 @@
             <li>[% l("You have read this Legal Terms and Conditions page in full and understood that you will be buying and selling financial contracts subject to these terms and conditions;") %]</li>
             <li>[% l("You have read our privacy statement and hereby give us consent to process your personal information as outlined there;") %]</li>
             <li>[% l("You are over 18 years of age;") %]</li>
-            <li>[% l("You are not resident in a restricted country such as Bosnia and Herzegovina; Costa Rica; Democratic People's Republic of Korea (DPRK), Ethiopia, any European Union country; Guyana; Hong Kong; Iran; Iraq; Japan; Jersey; Malaysia; Syria; Uganda; the United Kingdom; USA; Vanuatu; Yemen; and any such other restricted country as the Company may decide from time to time at its sole discretion;") %]</li>
+            <li>[% l("You are not resident in a restricted country such as Afghanistan; Bosnia and Herzegovina; Costa Rica; any European Union country; Guyana; Syria; Uganda; Vanuatu; Yemen; USA; Japan; Hong Kong; Malaysia; Iran; North Korea; Jersey; Iraq; and any such other restricted country as the Company may decide from time to time at its sole discretion;") %]</li>
             <li>[% l("You have sufficient experience and knowledge in matters of financial trading to be capable of evaluating the merits and risks of acquiring financial contracts via this site and have done so without relying on any information contained in this site.") %]</li>
         </ol>
         <li>[% l("We reserve the right to refuse your request to open a Cent, Standard, and / or STP Account for any reason, and any Cent, Standard, and / or STP Account may be closed at our discretion at any time.") %]</li>
