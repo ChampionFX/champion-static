@@ -22,7 +22,7 @@
                 <h2 class="center-text">[% l('Comparing MT5 and MT4') %]</h2>
             </div>
             <div class="col-sm table-container">
-                <table class="table-col-bordered">
+                <table class="table-col-bordered table-fixed">
                     <tr>
                         <th></th>
                         <th class="center-text">[% l('MetaTrader 5') %]</th>
@@ -31,10 +31,10 @@
                     <tr>
                         <td>[% l('Partial Order Filling Policies') %]</td>
                         <td class="center-text">
-                            <span class="icon-ok">&#x2714;</span>
+                            <span class="icon-ok"></span>
                         </td>
                         <td class="center-text">
-                            <span class="icon-remove">&#x2716;</span>
+                            <span class="icon-remove"></span>
                         </td>
                     </tr>
                     <tr>
@@ -50,19 +50,19 @@
                     <tr>
                         <td>[% l('Depth of Market') %]</td>
                         <td class="center-text">
-                            <span class="icon-ok">&#x2714;</span>
+                            <span class="icon-ok"></span>
                         </td>
                         <td class="center-text">
-                            <span class="icon-remove">&#x2716;</span>
+                            <span class="icon-remove"></span>
                         </td>
                     </tr>
                     <tr>
                         <td>[% l('Time & Sales (Exchange data)') %]</td>
                         <td class="center-text">
-                            <span class="icon-ok">&#x2714;</span>
+                            <span class="icon-ok"></span>
                         </td>
                         <td class="center-text">
-                            <span class="icon-remove">&#x2716;</span>
+                            <span class="icon-remove"></span>
                         </td>
                     </tr>
                     <tr>
@@ -83,37 +83,37 @@
                     <tr>
                         <td>[% l('Economic Calendar') %]</td>
                         <td class="center-text">
-                            <span class="icon-ok">&#x2714;</span>
+                            <span class="icon-ok"></span>
                         </td>
                         <td class="center-text">
-                            <span class="icon-remove">&#x2716;</span>
+                            <span class="icon-remove"></span>
                         </td>
                     </tr>
                     <tr>
                         <td>[% l('Email System') %]</td>
                         <td class="center-text">
-                            <span class="icon-ok">&#x2714;</span>[% l(' (with attachments)') %]
+                            <span class="icon-ok"></span>[% l(' (with attachments)') %]
                         </td>
                         <td class="center-text">
-                            <span class="icon-ok">&#x2714;</span>[% l(' (no attachments)') %]
+                            <span class="icon-remove"></span>[% l(' (no attachments)') %]
                         </td>
                     </tr>
                     <tr>
                         <td>[% l('Transfer funds between accounts') %]</td>
                         <td class="center-text">
-                            <span class="icon-ok">&#x2714;</span>
+                            <span class="icon-ok"></span>
                         </td>
                         <td class="center-text">
-                            <span class="icon-remove">&#x2716;</span>
+                            <span class="icon-remove"></span>
                         </td>
                     </tr>
                     <tr>
                         <td>[% l('Embedded MQL5 community chat') %]</td>
                         <td class="center-text">
-                            <span class="icon-ok">&#x2714;</span>
+                            <span class="icon-ok"></span>
                         </td>
                         <td class="center-text">
-                            <span class="icon-remove">&#x2716;</span>
+                            <span class="icon-remove"></span>
                         </td>
                     </tr>
                     <tr>
@@ -124,28 +124,28 @@
                     <tr>
                         <td>[% l('Multilingual Unicode') %]</td>
                         <td class="center-text">
-                            <span class="icon-ok">&#x2714;</span>
+                            <span class="icon-ok"></span>
                         </td>
                         <td class="center-text">
-                            <span class="icon-remove">&#x2716;</span>
+                            <span class="icon-remove"></span>
                         </td>
                     </tr>
                     <tr>
                         <td>[% l('Netting') %]</td>
                         <td class="center-text">
-                            <span class="icon-ok">&#x2714;</span>
+                            <span class="icon-ok"></span>
                         </td>
                         <td class="center-text">
-                            <span class="icon-remove">&#x2716;</span>
+                            <span class="icon-remove"></span>
                         </td>
                     </tr>
                     <tr>
                         <td>[% l('Hedging') %]</td>
                         <td class="center-text">
-                            <span class="icon-ok">&#x2714;</span>
+                            <span class="icon-ok"></span>
                         </td>
                         <td class="center-text">
-                            <span class="icon-ok">&#x2714;</span>
+                            <span class="icon-ok"></span>
                         </td>
                     </tr>
                     <tr>
@@ -156,10 +156,10 @@
                     <tr>
                         <td>[% l('Exchange Trading') %]</td>
                         <td class="center-text">
-                            <span class="icon-ok">&#x2714;</span>
+                            <span class="icon-ok"></span>
                         </td>
                         <td class="center-text">
-                            <span class="icon-remove">&#x2716;</span>
+                            <span class="icon-remove"></span>
                         </td>
                     </tr>
                 </table>

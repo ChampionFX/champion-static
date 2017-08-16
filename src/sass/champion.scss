@@ -1126,12 +1126,12 @@ a.underline-link {
     }
 }
 
-.icon-ok {
-    font-size: $FONT_SIZE_N;
+.icon-ok:before {
+    content: url('../images/metatrader/checklist.svg');
 }
 
-.icon-remove {
-    font-size: $FONT_SIZE_N;
+.icon-remove:before {
+    content: url('../images/metatrader/cross.svg');
 }
 
 .no-margin-top {
@@ -1344,14 +1344,25 @@ iframe {
     }
 }
 
+.table-fixed {
+    table-layout: auto;
+    @media (min-width: 575px) {
+        table-layout: fixed;
+    }
+
+    td {
+        vertical-align: middle;
+    }
+}
+
 #mt5-accounts {
     .box {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        min-height: 460px;
         padding: 20px 15px;
         border: 3px solid $fillColor;
+        min-height: 460px;
         @media (min-width: 767px) {
             min-height: 545px;
         }
@@ -1361,5 +1372,18 @@ iframe {
     }
     p {
         font-size: 12px;
+    }
+}
+
+#why-mt5 {
+    .box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        min-height: 100px;
+        @media (min-width: 575px) {
+            min-height: 205px;
+        }
     }
 }
