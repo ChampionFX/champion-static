@@ -7,7 +7,7 @@
                     <ul>
                         <li class="last hidden-lg-up">
                             <a href="[% request.url_for('contact') %]">
-                                <span class="fx-topbar fx-contact-icon"></span>
+                                <span class="fx-topbar fx-contact"></span>
                             </a>
                         </li>
                         <li class="last hidden-lg-down">

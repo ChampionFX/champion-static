@@ -5,9 +5,6 @@
     .signup-box input {
         margin: 15px 0;
     }
-    .nav-menu-dropdown {
-        width: 85vw !important;
-    }
     // temporary workaround until we adopt responsive typography
     .font-resize {
         h3 {
@@ -52,9 +49,6 @@
     .hidden-sm-up {
         display: none !important;
     }
-    .navbar__toggle, .navbar__button-group {
-        width: 20rem;
-    }
 }
 
 @media (max-width: 991px) {
@@ -82,10 +76,6 @@
     .logo-wrapper {
         margin: 0 auto; // align logo center
     }
-    .nav-menu-dropdown {
-        transform: translateX(-120%);
-        width: initial;
-    }
     #account-info {
         float: right;
         white-space: nowrap;
@@ -94,12 +84,6 @@
         span {
             padding: 7px 20px !important;
         }
-    }
-    .navbar__brand.logged-in {
-        display: none;
-    }
-    .navbar__toggle.logged-in {
-        width: 100%;
     }
 }
 

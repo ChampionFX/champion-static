@@ -1,12 +1,9 @@
-html {
-    font-size: 62.5%;
-}
-
 .navbar__button-group {
-    margin-left: 3rem;
+    margin-left: 30px;
 
     .button, .button-secondary {
         white-space: nowrap;
+        font-size: 12px;
     }
 }
 
@@ -278,7 +275,7 @@ ul.checked.small > li {
 }
 
 p {
-    margin: 1rem 0;
+    margin: 10px 0;
 }
 
 .img-md {

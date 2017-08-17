@@ -79,8 +79,7 @@ h1.main-title {
             padding: 0 12px;
 
             a {
-                font-weight: 400;
-                padding: 5px 1px;
+                text-decoration: none;
             }
         }
     }
@@ -211,13 +210,14 @@ h1.main-title {
             font-size: 13px;
         }
         ul {
-            margin: 0 0 30px;
+            margin: 5px 0 10px;
             padding: 0;
 
             li {
-                margin-top: 0.3em;
+                margin: 0;
 
                 a {
+                    font-weight: 400;
                     font-size: 13px;
 
                     &:hover {

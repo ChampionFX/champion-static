@@ -35,15 +35,15 @@
             </a>
             <div class="navbar__nav has-accounts">
                 [% INCLUDE main_menu class='logged-out' items=[
-                    { text=l('About') link='about-us' icon='about'},
+                    { text=l('About us') link='about-us' icon='about'},
                     { text=l('MetaTrader 5') sub_items=[
                         { text=l('About MT5')          link='trading-platform/metatrader-5' },
                         { text=l('Types of accounts')  link='trading-platform/mt5-types-of-accounts' },
                         { text=l('Forex')  link='forex' },
                         { text=l('CFDs')   link='cfd' },
                         { text=l('Metals') link='metals' },
-                        { text=l('Economic calendar') link='economic-calendar' icon='mt5-o' },
-                    ] },
+                        { text=l('Economic calendar') link='economic-calendar' },
+                    ] icon='mt5-o' },
                     { text=l('Binary Options') sub_items=[
                             { text=l('About binary options') link='binary-options' },
                             { text=l('Types of accounts')    link='types-of-accounts' },

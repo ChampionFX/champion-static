@@ -254,12 +254,10 @@
 
 // ChampionFX menu icons
 .fx-topbar {
+    display: inline-block;
     width: 16px;
     height: 16px;
-    background-repeat: no-repeat !important;
-    background-size: contain !important;
-    display: inline-block;
-    vertical-align: middle;
+    margin-top: 4px;
 }
 
 // ChampionFX contact us icons
