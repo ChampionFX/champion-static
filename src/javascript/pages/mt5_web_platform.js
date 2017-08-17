@@ -25,8 +25,13 @@ const MT5WebPlatform = (() => {
         });
     };
 
+    const unload = () => {
+        $('#footer').removeClass('invisible');
+    };
+
     return {
-        load: load,
+        load  : load,
+        unload: unload,
     };
 })();
 
