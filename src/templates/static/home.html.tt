@@ -12,19 +12,25 @@
         <div class="row">
             <div class="col-md flex-md-middle">
                 <div class="fx-feature-box">
-                    <div class="fx-md fx-technical"></div>
+                    <div class="fx-circle">
+                        <div class="fx-sm fx-technical"></div>
+                    </div>
                     <p>[% l('Technical and<br>fundamental analysis') %]</p>
                 </div>
             </div>
             <div class="col-md flex-md-middle">
                 <div class="fx-feature-box">
-                    <div class="fx-md fx-algorithmic"></div>
+                    <div class="fx-circle">
+                        <div class="fx-sm fx-algorithmic"></div>
+                    </div>
                     <p>[% l('Algorithmic and<br>copy trading') %]</p>
                 </div>
             </div>
             <div class="col-md flex-md-middle">
                 <div class="fx-feature-box">
-                    <div class="fx-md fx-technical-indicator"></div>
+                    <div class="fx-circle">
+                        <div class="fx-sm fx-technical-indicator"></div>
+                    </div>
                     <p>[% l('Custom technical indicators<br>and trading robots') %]</p>
                 </div>
             </div>
