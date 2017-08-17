@@ -138,8 +138,8 @@
                       <div>[% l('Wide choice of platforms - desktop, web & mobile') %]</div>
                   </div>
                   <div class="fx-panel-item">
-                      <div class="fx-xxs fx-unbeatable"></div>
-                      <div>[% l('Unbeatable leverage up to 1,000:1') %]</div>
+                      <div class="fx-xxs fx-flexible-leverage"></div>
+                      <div>[% l('Flexible leverage up to 1:1,000') %]</div>
                   </div>
               </div>
             </div>
