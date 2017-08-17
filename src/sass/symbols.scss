@@ -143,8 +143,8 @@
     background: url('../images/symbols/worldwide.svg');
 }
 
-.fx-unbeatable {
-    background: url('../images/symbols/unbeatable.svg');
+.fx-flexible-leverage {
+    background: url('../images/symbols/flexible_leverage.svg');
 }
 
 .fx-245-icon {
@@ -510,4 +510,15 @@
 
 .fx-windows:before {
     content: url('../images/metatrader/windows.svg');
+}
+
+.fx-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    background-color: $fillColor;
 }
