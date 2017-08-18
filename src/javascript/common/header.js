@@ -35,8 +35,8 @@ const Header = (function () {
         if (!Client.is_logged_in()) {
             $('#top_group').removeClass('logged-in').find('.logged-out').removeClass(hidden_class);
             $('.trading-platform-header').removeClass(hidden_class);
-            $('.navbar__brand').removeClass('logged-in');
-            $('.navbar__toggle').removeClass('logged-in');
+            $('.navbar__brand, .navbar__toggle').removeClass('logged-in'); // show logo
+            $('#header').removeClass('navbar--fixed');
         }
     };
 
@@ -47,6 +47,7 @@ const Header = (function () {
         updateBody();
 
         $('#header .logged-in').removeClass(hidden_class);
+        $('#header').addClass('navbar--fixed');
     };
 
     const updateBody = () => {
@@ -91,7 +92,6 @@ const Header = (function () {
                 if (is_current && !is_mt_pages) {
                     $('.account-type').html(type);
                     $('.account-id').html(curr_id);
-                    loginid_select += selectedTemplate(curr_id, curr_id, icon);
                 } else if (is_mt_pages && login.real && Client.is_virtual()) {
                     switchLoginId(curr_id);
                     return;

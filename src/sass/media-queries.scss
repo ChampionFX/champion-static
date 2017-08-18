@@ -1,3 +1,13 @@
+@media (max-width: 520px) {
+    #header .button, .button-secondary {
+        span {
+            padding: 5px 20px !important;
+            margin: 2px 0;
+            width: 85px;
+        }
+    }
+}
+
 @media (max-width: 575px) {
     .hidden-xs-down {
         display: none !important;
@@ -16,6 +26,9 @@
     }
     .text-justified {
         text-align: justify;
+    }
+    .navbar__brand.logged-in {
+        display: none;
     }
 }
 
@@ -36,9 +49,6 @@
     }
     .table-container {
         overflow-x: auto;
-    }
-    .navbar__brand {
-        display: none;
     }
 }
 
@@ -80,16 +90,14 @@
         float: right;
         white-space: nowrap;
     }
-    #header .button, .button-secondary {
-        span {
-            padding: 7px 20px !important;
-        }
-    }
 }
 
 @media (min-width: 1200px) {
     .hidden-lg-up {
         display: none !important;
+    }
+    .navbar__button-group {
+        margin-left: 60px;
     }
 }
 
