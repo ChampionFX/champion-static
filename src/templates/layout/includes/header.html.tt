@@ -34,6 +34,21 @@
                 <span class="fx-logo__wordmark--light"></span>
             </a>
             <div class="navbar__nav has-accounts">
+
+                <ul class="navbar__nav__menu logged-in invisible">
+                    <li>
+                        <a class="navbar__nav__toggle account-info" href="javascript:;">
+                            [% PROCESS account_info %]
+                        </a>
+                        <ul class="navbar__nav__menu account-list">
+                            <div class="login-id-list"></div>
+                            <li><a href="[% request.url_for('new-account/real') %]" class="upgrade invisible">[% l("Upgrade to<br />Real Account") %]</a></li>
+                            <li class="mt-hide invisible"><a href="[% request.url_for('user/metatrader') %]"><span class="fx fx-mt5-o"></span>[% l("MetaTrader 5") %]</a></li>
+                            <li class="hidden-lg-down"><a href="javascript:;" class="btn-logout logout">[% l("Sign out") %]</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
                 [% INCLUDE main_menu class='logged-out' items=[
                     { text=l('About Us') link='about-us' icon='about'},
                     { text=l('MetaTrader 5') sub_items=[
@@ -60,19 +75,6 @@
                     { text=l('Academy')           link='https://academy.champion-fx.com/' target='_blank' icon='mt5-o' },
                     { text=l('Sign out') link='javascript:;' icon='signout' is_logged_in=1 class='btn-logout logout invisible hidden-lg-up logged-in' },
                 ] %]
-                <ul class="navbar__nav__menu logged-in invisible">
-                    <li>
-                        <a class="navbar__nav__toggle account-info" href="javascript:;">
-                            [% PROCESS account_info %]
-                        </a>
-                        <ul class="navbar__nav__menu account-list">
-                            <div class="login-id-list"></div>
-                            <li><a href="[% request.url_for('new-account/real') %]" class="upgrade invisible">[% l("Upgrade to<br />Real Account") %]</a></li>
-                            <li class="mt-hide invisible"><a href="[% request.url_for('user/metatrader') %]"><span class="fx fx-mt5-o"></span>[% l("MetaTrader 5") %]</a></li>
-                            <li class="hidden-lg-down"><a href="javascript:;" class="btn-logout logout">[% l("Sign out") %]</a></li>
-                        </ul>
-                    </li>
-                </ul>
             </div>
 
             <div class="navbar__button-group logged-out invisible">
