@@ -40,8 +40,8 @@
                                 { link => 'forex',  text => l("Forex") },
                                 { link => 'cfd',    text => l("CFDs") },
                                 { link => 'metals', text => l("Metals") },
-                                { link => 'forex', link_hash => '#forex-accounts', text => l("Types of accounts") },
-                                { link => 'trading-platform/metatrader-5',         text => l("MetaTrader 5 trading platforms") },
+                                { link => 'trading-platform/mt5-types-of-accounts', text => l("Types of accounts") },
+                                { link => 'trading-platform/metatrader-5',          text => l("MetaTrader 5 trading platforms") },
                             ] %]
                         </div>
                         <div class="col-xs-6 col-md-3 mt-hide">
@@ -94,7 +94,7 @@
             </div>
             <div class="row">
                 <div class="col-sm">
-                    [% l('ChampionFX is not available to residents of Afghanistan, Australia, Bosnia and Herzegovina, Costa Rica, any European Union country, Guyana, Hong Kong, Iran, Iraq, Japan, Jersey, Malaysia, North Korea, Syria, Uganda, USA, Vanuatu, and Yemen.') %]
+                    [% l('ChampionFX is not available to residents of Australia, Bosnia and Herzegovina, Costa Rica, Democratic People\'s Republic of Korea (DPRK), any European Union country, Ethiopia, Guyana, Hong Kong, Iran, Iraq, Japan, Jersey, Malaysia, Syria, Uganda, USA, Vanuatu, and Yemen.') %]
                 </div>
             </div>
         </div>

@@ -12,19 +12,25 @@
         <div class="row">
             <div class="col-md flex-md-middle">
                 <div class="fx-feature-box">
-                    <div class="fx-md fx-technical"></div>
+                    <div class="fx-circle">
+                        <div class="fx-sm fx-technical"></div>
+                    </div>
                     <p>[% l('Technical and<br>fundamental analysis') %]</p>
                 </div>
             </div>
             <div class="col-md flex-md-middle">
                 <div class="fx-feature-box">
-                    <div class="fx-md fx-algorithmic"></div>
+                    <div class="fx-circle">
+                        <div class="fx-sm fx-algorithmic"></div>
+                    </div>
                     <p>[% l('Algorithmic and<br>copy trading') %]</p>
                 </div>
             </div>
             <div class="col-md flex-md-middle">
                 <div class="fx-feature-box">
-                    <div class="fx-md fx-technical-indicator"></div>
+                    <div class="fx-circle">
+                        <div class="fx-sm fx-technical-indicator"></div>
+                    </div>
                     <p>[% l('Custom technical indicators<br>and trading robots') %]</p>
                 </div>
             </div>
@@ -138,8 +144,8 @@
                       <div>[% l('Wide choice of platforms - desktop, web & mobile') %]</div>
                   </div>
                   <div class="fx-panel-item">
-                      <div class="fx-xxs fx-unbeatable"></div>
-                      <div>[% l('Unbeatable leverage up to 1,000:1') %]</div>
+                      <div class="fx-xxs fx-flexible-leverage"></div>
+                      <div>[% l('Flexible leverage up to 1:1,000') %]</div>
                   </div>
               </div>
             </div>

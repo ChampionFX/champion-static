@@ -115,7 +115,6 @@ h1.main-title {
         a {
             line-height: 1.4em;
             padding: 7px 0;
-            font-size: 1.6rem;
         }
         ul {
             padding: 0;
@@ -161,7 +160,6 @@ h1.main-title {
             text-align: center;
             padding: 10px 0;
             font-weight: 600;
-            font-size: 1.6rem;
 
             .nav-menu-icon {
                 display: inline-block;
@@ -486,28 +484,31 @@ h1.main-title {
 }
 
 .binary-options-header {
-    background-image: url('../images/binary_options/binary_options_banner.png');
-    background-size: cover;
+    background: url('../images/binary_options/binary_options_banner.png') top left / cover no-repeat;
 }
 
 .trading-platform-header {
-    background-image: url('../images/trading_platforms_banner.png');
+    background: url('../images/trading_platforms_banner.png') top left / cover no-repeat;
+}
+
+.forex-header {
+    background: url('../images/forex.png') top left / cover no-repeat;
 }
 
 .mt5-header {
-    background-image: url('../images/forex.png');
+    background: url('../images/metatrader/mt5_banner.png') top left / cover no-repeat;
 }
 
 .cfd-header {
-    background-image: url('../images/cfd_banner.png');
+    background: url('../images/cfd_banner.png') top left / cover no-repeat;
 }
 
 .metals-header {
-    background-image: url('../images/metals_banner.png');
+    background: url('../images/metals_banner.png') top left / cover no-repeat;
 }
 
 .economic-calendar-header {
-    background-image: url('../images/mt5/economic_calendar_banner.png');
+    background: url('../images/mt5/economic_calendar_banner.png') top left / cover no-repeat;
 }
 
 // Home page
@@ -585,14 +586,12 @@ h1.main-title {
 
 // About us
 .about-us-header {
-    background: url('../images/about/banner_championfx.png') no-repeat center center;
-    background-size: cover;
+    background: url('../images/about/banner_championfx.png') top left / cover no-repeat;
 }
 
 // Contact us
 .contact-us-header {
-    background-image: url('../images/contact_us/contact_us_banner.png');
-    background-size: cover;
+    background-image: url('../images/contact_us/contact_us_banner.png') top left / cover no-repeat;
 
     h4 {
         margin-bottom: 0;
@@ -1124,14 +1123,12 @@ a.underline-link {
     }
 }
 
-.icon-ok {
-    color: $okColor;
-    font-size: $FONT_SIZE_N;
+.icon-ok:before {
+    content: url('../images/metatrader/checklist.svg');
 }
 
-.icon-remove {
-    color: $crossColor;
-    font-size: $FONT_SIZE_N;
+.icon-remove:before {
+    content: url('../images/metatrader/cross.svg');
 }
 
 .no-margin-top {
@@ -1323,4 +1320,71 @@ iframe {
             }
         }
     }
+}
+
+.table-col-bordered {
+    th:nth-child(2) {
+        border-top: 4px solid $primaryBrandColor;
+        border-left: 4px solid $primaryBrandColor;
+        border-right: 4px solid $primaryBrandColor;
+        color: $primaryBrandColor;
+    }
+    td:nth-child(2) {
+        border-left: 4px solid $primaryBrandColor;
+        border-right: 4px solid $primaryBrandColor;
+        color: $primaryBrandColor;
+    }
+    tr:last-child {
+        td:nth-child(2) {
+            border-bottom: 4px solid $primaryBrandColor;
+        }
+    }
+}
+
+.table-fixed {
+    table-layout: auto;
+    @media (min-width: 575px) {
+        table-layout: fixed;
+    }
+
+    td {
+        vertical-align: middle;
+    }
+}
+
+#mt5-accounts {
+    .box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px 15px;
+        border: 3px solid $fillColor;
+        min-height: 460px;
+        @media (min-width: 767px) {
+            min-height: 545px;
+        }
+        @media (min-width: 961px) {
+            min-height: 460px;
+        }
+    }
+    p {
+        font-size: 12px;
+    }
+}
+
+#why-mt5 {
+    .box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        min-height: 100px;
+        @media (min-width: 575px) {
+            min-height: 205px;
+        }
+    }
+}
+
+.box-bordered {
+    border: 2px solid $fillColor;
 }

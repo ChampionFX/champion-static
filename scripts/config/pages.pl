@@ -54,10 +54,11 @@ sub all_pages {
         ['new-account/real',           'new_account/real',             'full_width', 'Create new real account'],
         ['new-account/virtual',        'new_account/virtual',          'full_width', 'Create new virtual account'],
 
-        ['trading-platform',                 'static/trading_platform/trading_platform', 'full_width', 'Trading Platforms'],
-        ['trading-platform/metatrader-5',    'static/trading_platform/metatrader_5',     'full_width', 'MetaTrader5'],
-        ['trading-platform/champion-trader', 'static/trading_platform/champion_trader',  'full_width', 'Champion Trader'],
-        ['trading-platform/mt5-vs-mt4',      'static/trading_platform/mt5_vs_mt4',       'full_width', 'MetaTrader5 vs MetaTrader4'],
+        ['trading-platform',                        'static/trading_platform/trading_platform',        'full_width', 'Trading Platforms'],
+        ['trading-platform/metatrader-5',           'static/trading_platform/metatrader_5',            'full_width', 'MetaTrader5'],
+        ['trading-platform/champion-trader',        'static/trading_platform/champion_trader',         'full_width', 'Champion Trader'],
+        ['trading-platform/mt5-vs-mt4',             'static/trading_platform/mt5_vs_mt4',              'full_width', 'MetaTrader5 vs MetaTrader4'],
+        ['trading-platform/mt5-types-of-accounts',  'static/trading_platform/mt5_types_of_accounts',   'full_width', 'MetaTrader5 Types of Accounts'],
 
         ['user/authenticate',          'user/authenticate',            'full_width', 'Authenticate', 'ja'],
         ['user/change-password',       'user/change_password',         'full-width', 'Change Password'],

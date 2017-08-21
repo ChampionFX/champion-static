@@ -1,7 +1,3 @@
-html {
-    font-size: 62.5%;
-}
-
 #header {
     border: 0 !important;
 
@@ -15,7 +11,6 @@ html {
                 padding: 25px 15px;
                 border-bottom: 4px solid transparent;
                 color: $contentInverseColor !important;
-                font-size: 1.6rem;
 
                 &.active {
                     border-bottom-color: $borderColor;
@@ -247,13 +242,13 @@ ul.checked.small > li {
 
 .timeline {
     position: relative;
-    margin: 3rem 0;
+    margin: 1.88rem 0;
 
     &__vertical-line {      // do not use self closing elements i.e. <hr /> with this class
         position: absolute; // browsers doesn't support pseudo elements on self-closing elements
         height: 100%;
-        left: -2rem;
-        border-left: 0.1rem solid $borderColor;
+        left: -1.3rem;
+        border-left: 1px solid $borderColor;
         margin: 0;
         @media (min-width: 1024px) {
             left: 50%;
@@ -262,26 +257,25 @@ ul.checked.small > li {
         &:before, &:after {
             position: absolute;
             content: '';
-            margin-left: -0.5rem;
+            margin-left: -0.31rem;
             background: $lightBlue;
-            height: 1rem;
-            width: 1rem;
+            height: 0.63rem;
+            width: 0.63rem;
             border-radius: 10rem;
         }
         &:before {
-            top: -1rem;
+            top: -0.63rem;
         }
         &:after {
-            bottom: -1rem;
+            bottom: -0.63rem;
         }
     }
     &__box {
         position: relative;
         background-color: $fillColor;
-        border-radius: 0.5rem;
-        padding: 2rem;
-        margin: 1rem 0;
-        font-size: 1.4rem;
+        border-radius: 0.31rem;
+        padding: 1.25rem;
+        margin: 0.63rem 0;
         text-align: left;
         @media (min-width: 1024px) {
             max-width: 48%;
@@ -305,20 +299,20 @@ ul.checked.small > li {
             &:before, &:after {
                 position: absolute;
                 content: '';
-                width: 1rem;
-                height: 1rem;
+                width: 0.63rem;
+                height: 0.63rem;
             }
             &:before {  // arrow
-                border-top: 2.5rem solid transparent;
-                border-bottom: 2.5rem solid transparent;
-                border-right: 2.5rem solid $fillColor;
-                left: -1rem;
+                border-top: 1.53rem solid transparent;
+                border-bottom: 1.53rem solid transparent;
+                border-right: 1.53rem solid $fillColor;
+                left: -0.63rem;
             }
             &:after {   // bullet
-                top: 4rem;
+                top: 2.5rem;
                 background: $primaryBrandColor;
-                border-radius: 5rem;
-                left: -2.5rem;
+                border-radius: 3.13rem;
+                left: -1.65rem;
             }
         }
         @media (min-width: 1024px) {
@@ -326,14 +320,14 @@ ul.checked.small > li {
                 text-align: right;
 
                 &:before {
-                    border-right: 2.5rem solid transparent;
-                    border-left: 2.5rem solid $fillColor;
+                    border-right: 1.53rem solid transparent;
+                    border-left: 1.53rem solid $fillColor;
                     left: initial;
-                    right: -3.5rem;
+                    right: -2.2rem;
                 }
                 &:after {
                     left: initial;
-                    right: -2.7rem;
+                    right: -1.69rem;
                 }
             }
             &:nth-of-type(even) {
@@ -344,7 +338,7 @@ ul.checked.small > li {
     }
     &--single-col {
         .timeline__vertical-line {
-            left: 0.5rem;
+            left: 0.31rem;
         }
         .timeline__box {
             display: flex;
@@ -355,7 +349,7 @@ ul.checked.small > li {
             margin-right: 0;
             margin-left: 0;
             text-align: left;
-            padding: 1rem 2rem;
+            padding: 0.63rem 1.25rem;
 
             &:before {
                 border: 0;
@@ -376,14 +370,14 @@ ul.checked.small > li {
                 position: absolute;
                 display: block;
                 top: 18px;
-                right: 1rem;
+                right: 0.63rem;
                 margin-right: 100%;
                 @media (min-width: 575px) {
                     display: flex;
                 }
 
                 span {
-                    margin: 0 0.5rem;
+                    margin: 0 0.31rem;
                 }
             }
         }

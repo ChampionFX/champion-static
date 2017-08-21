@@ -143,8 +143,8 @@
     background: url('../images/symbols/worldwide.svg');
 }
 
-.fx-unbeatable {
-    background: url('../images/symbols/unbeatable.svg');
+.fx-flexible-leverage {
+    background: url('../images/symbols/flexible_leverage.svg');
 }
 
 .fx-245-icon {
@@ -480,4 +480,45 @@
 
 .fx-recruitment:before {
     content: url('../images/milestones/recruitment.svg');
+}
+
+// MT5 accounts
+.fx-cent-account:before {
+    content: url('../images/metatrader/cent.svg');
+}
+
+.fx-standard-account:before {
+    content: url('../images/metatrader/standard.svg');
+}
+
+.fx-stp-account:before {
+    content: url('../images/metatrader/stp.svg');
+}
+
+// MT5
+.fx-android:before {
+    content: url('../images/metatrader/android.svg');
+}
+
+.fx-apple:before {
+    content: url('../images/metatrader/apple.svg');
+}
+
+.fx-linux:before {
+    content: url('../images/metatrader/linux.svg');
+}
+
+.fx-windows:before {
+    content: url('../images/metatrader/windows.svg');
+}
+
+.fx-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    background-color: $fillColor;
 }
