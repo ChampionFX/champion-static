@@ -81,6 +81,10 @@ h1.main-title {
             a {
                 text-decoration: none;
                 font-weight: 400;
+
+                &:hover {
+                    text-decoration: underline;
+                }
             }
         }
     }
@@ -1234,4 +1238,24 @@ iframe {
 
 .box-bordered {
     border: 2px solid $fillColor;
+}
+
+#binary-options-accounts {
+    .box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 30px;
+        min-height: 340px;
+    }
+}
+
+#trading-platform {
+    .box {
+        padding: 20px;
+
+        p {
+            margin: 0;
+        }
+    }
 }

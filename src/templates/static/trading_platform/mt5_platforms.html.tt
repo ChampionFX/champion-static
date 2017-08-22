@@ -1,4 +1,4 @@
-<div class="row center-text">
+<div id="trading-platform" class="row center-text">
     <div class="col-sm">
         <h3>[% l('For desktop') %]</h3>
         <p>[% l('Download MT5 for your desktop or laptop to access the powerful tools and features enjoyed by millions of traders.') %]</p>
@@ -6,19 +6,19 @@
             <div class="col-sm-8 offset-sm-2 col-lg-4 offset-lg-0">
                 <div class="box box-bordered">
                     <span class="fx fx-apple"></span>
-                    <a class="underline-link" href="https://s3.amazonaws.com/championfx/ChampionFX.dmg" target="_blank"><span>MacOS</span></a>
+                    <a class="underline-link" href="https://s3.amazonaws.com/championfx/ChampionFX.dmg" target="_blank"><p>MacOS</p></a>
                 </div>
             </div>
             <div class="col-sm-8 offset-sm-2 col-lg-4 offset-lg-0">
                 <div class="box box-bordered">
                     <span class="fx fx-windows"></span>
-                    <a class="underline-link" href="[% request.url_for('/download/championgroup_mt5_setup.exe') %]" target="_blank"><span>Windows</span></a>
+                    <a class="underline-link" href="[% request.url_for('/download/championgroup_mt5_setup.exe') %]" target="_blank"><p>Windows</p></a>
                 </div>
             </div>
             <div class="col-sm-8 offset-sm-2 col-lg-4 offset-lg-0">
                 <div class="box box-bordered">
                     <span class="fx fx-linux"></span>
-                    <a class="underline-link" href="https://www.metatrader5.com/en/terminal/help/start_advanced/install_linux" target="_blank"><span>Linux</span></a>
+                    <a class="underline-link" href="https://www.metatrader5.com/en/terminal/help/start_advanced/install_linux" target="_blank"><p>Linux</p></a>
                 </div>
             </div>
         </div>
@@ -30,13 +30,13 @@
             <div class="col-sm-8 offset-sm-2 col-lg-4 offset-lg-2">
                 <div class="box box-bordered">
                     <span class="fx fx-apple"></span>
-                    <a class="underline-link" href="https://download.mql5.com/cdn/mobile/mt5/ios?server=ChampionGroup-Server" target="_blank"><span>iOS</span></a>
+                    <a class="underline-link" href="https://download.mql5.com/cdn/mobile/mt5/ios?server=ChampionGroup-Server" target="_blank"><p>iOS</p></a>
                 </div>
             </div>
             <div class="col-sm-8 offset-sm-2 col-lg-4 offset-lg-0">
                 <div class="box box-bordered">
                     <span class="fx fx-android"></span>
-                    <a class="underline-link" href="https://download.mql5.com/cdn/mobile/mt5/android?server=ChampionGroup-Server" target="_blank"><span>Android</span></a>
+                    <a class="underline-link" href="https://download.mql5.com/cdn/mobile/mt5/android?server=ChampionGroup-Server" target="_blank"><p>Android</p></a>
                 </div>
             </div>
         </div>

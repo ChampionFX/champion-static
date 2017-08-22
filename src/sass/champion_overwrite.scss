@@ -82,8 +82,7 @@ button .barspinner.white {
 }
 
 ul.checked.small > li {
-    background-size: 16px;
-    padding-left: 24px;
+    margin-left: 24px;
 }
 
 .separator {
@@ -295,4 +294,10 @@ p {
 
 .img-md {
     height: 80px;
+}
+
+#fx-settings-content, #fx-security-content {
+    a {
+        text-decoration: none;
+    }
 }
