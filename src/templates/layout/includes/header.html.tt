@@ -17,12 +17,12 @@
 [% END %]
 
 [% BLOCK account_info %]
+<div class="mt-show invisible">[% l("MetaTrader 5") %]</div>
 <div class="account-id mt-hide"></div>
 <div class="vertical-center">
     <span class="account-balance mt-hide"></span>
     <span class="account-type mt-hide"></span>
 </div>
-<div class="mt-show invisible">[% l("MetaTrader 5") %]</div>
 [% END %]
 
 <div id="header">
@@ -34,8 +34,7 @@
                 <span class="fx-logo__wordmark--light"></span>
             </a>
             <div class="navbar__nav has-accounts">
-
-                <ul class="navbar__nav__menu logged-in invisible">
+                <ul class="navbar__nav__menu account-dropdown logged-in invisible">
                     <li>
                         <a class="navbar__nav__toggle account-info" href="javascript:;">
                             [% PROCESS account_info %]
@@ -48,7 +47,6 @@
                         </ul>
                     </li>
                 </ul>
-
                 [% INCLUDE main_menu class='logged-out' items=[
                     { text=l('About Us') link='about-us' icon='about'},
                     { text=l('MetaTrader 5') sub_items=[
