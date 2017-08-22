@@ -43,9 +43,9 @@
     </div>
 </div>
 
-<div class="separator fill-bg-color"></div>
+<div class="fx-divider"></div>
 
-<div class="row flex-items-sm-bottom">
+<div class="row">
     <div class="col-sm">
         <img class="responsive" src="[% request.url_for('images/mt5/mt5.jpg') %]" />
     </div>

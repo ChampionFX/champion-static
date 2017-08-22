@@ -16,31 +16,29 @@
 
         [% INCLUDE static/trading_platform/mt5_platforms.html.tt %]
 
-        <div class="separator fill-bg-color"></div>
-
         <div class="row">
             <div class="col-sm-12 center-text">
+                <div class="separator fill-bg-color"></div>
                 <h2>[% l('Champion Trader') %]</h2>
-                <p>[% l('The world\'s most versatile binary options trading platform') %]</p>
+                <p>[% l('The Champion Trader is designed to be the most versatile binary options trading platform available. with a rich user experience that can be customised according to your personal preference.') %]</p>
             </div>
             <div class="col-sm-6">
-                <img class="responsive" src="[% request.url_for('images/champion_trader.png') %]" />
-            </div>
-            <div class="col-sm-6">
-                <p>[% l('Champion Trader is designed to be the most versatile binary options trading platform available, with a rich user experience that can be customised according to your personal preference.') %]</p>
-                <p>[% l('Monitor all your favourite assets and markets at the same time, as well as charts, the asset index, trading times, and historical data.') %]</p>
-                <div class="row center-text">
-                    <div class="col-xl-6 col-xs-12">
+                <p class="text-align-right">[% l('Monitor all your favourite assets and markets at the same time, as well as charts, the asset index, trading times, and historical data.') %]</p>
+                <div class="row">
+                    <!-- div class="col-xl-3 col-xs-12 offset-xl-3 margin-top-bottom">
+                        <a class="underline-link" href="[% request.url_for('trading-platform/champion-trader') %]">
+                            <span>[% l('Learn more') %]</span>
+                        </a>
+                    </div -->
+                    <div class="col-xl-12 text-align-right">
                         <a class="button" href="https://webtrader.champion-fx.com" target="_blank">
                             <span>[% l('Go to Champion Trader') %]</span>
                         </a>
                     </div>
-                    <div class="col-xl-3 col-xs-12 margin-top-bottom">
-                        <a class="underline-link" href="[% request.url_for('trading-platform/champion-trader') %]">
-                            <span>[% l('Learn more') %]</span>
-                        </a>
-                    </div>
                 </div>
+            </div>
+            <div class="col-sm-6">
+                <img class="responsive" src="[% request.url_for('images/champion_trader.png') %]" />
             </div>
         </div>
     </div>
