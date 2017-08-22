@@ -80,6 +80,11 @@
                                 <img src="[% request.url_for('images/symbols/yt.svg') %]" alt="">
                             </a>
                         </li>
+                        <li>
+                            <a href="https://t.me/championfx" target="_blank">
+                                <img src="[% request.url_for('images/symbols/telegram.svg') %]" alt="">
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
