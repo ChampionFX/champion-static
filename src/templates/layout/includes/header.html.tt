@@ -68,9 +68,23 @@
                     { text=l('Settings')          link='user/settings'   class='mt-hide' icon='setting' },
                     { text=l('Settings')          link='user/metatrader' class='mt-show' icon='setting' },
                     { text=l('Cashier')           link='cashier'         class='mt-hide' icon='dollar' },
-                    { text=l('Trading platforms') link='trading-platform/champion-trader' class='mt-hide' icon='trading' },
+                    { text=l('About Us') link='about-us' class='hidden-lg-up' icon='about'},
+                    { text=l('MetaTrader 5') sub_items=[
+                            { text=l('About MT5')          link='trading-platform/metatrader-5' },
+                            { text=l('Types of accounts')  link='trading-platform/mt5-types-of-accounts' },
+                            { text=l('Forex')  link='forex' },
+                            { text=l('CFDs')   link='cfd' },
+                            { text=l('Metals') link='metals' },
+                            { text=l('Economic calendar') link='economic-calendar' },
+                        ] class='hidden-lg-up' icon='mt5-o' },
+                    { text=l('Binary Options') sub_items=[
+                            { text=l('About binary options') link='binary-options' },
+                            { text=l('Types of accounts')    link='types-of-accounts' },
+                        ] class='hidden-lg-up' icon='binary' },
+                    { text=l('Trading platform')  link='trading-platform/champion-trader' class='mt-hide' icon='trading' },
                     { text=l('Trading platforms') link='trading-platform/metatrader-5'    class='mt-show' icon='trading' },
-                    { text=l('Academy')           link='https://academy.champion-fx.com/' target='_blank' icon='mt5-o' },
+                    { text=l('Academy')           link='https://academy.champion-fx.com/' class='hidden-lg-down' target='_blank' icon='mt5-o' },
+                    { text=l('Partnerships')      link='partnerships'   class='hidden-lg-up'  icon='partnership'},
                     { text=l('Sign out') link='javascript:;' icon='signout' is_logged_in=1 class='btn-logout logout invisible hidden-lg-up logged-in' },
                 ] %]
             </div>
