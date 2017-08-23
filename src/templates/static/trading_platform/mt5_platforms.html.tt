@@ -43,8 +43,6 @@
     </div>
 </div>
 
-<div class="fx-divider"></div>
-
 <div class="row">
     <div class="col-sm">
         <img class="responsive" src="[% request.url_for('images/mt5/mt5.jpg') %]" />

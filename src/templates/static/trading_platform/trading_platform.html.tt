@@ -5,8 +5,8 @@
     </div>
 </div>
 
-<div class="fx-section-sm">
-    <div class="container">
+<div class="container">
+    <div class="fx-section">
         <div class="row">
             <div class="col-sm center-text">
                 <h2>[% l('MetaTrader 5 Trading Platforms') %]</h2>
@@ -16,9 +16,10 @@
 
         [% INCLUDE static/trading_platform/mt5_platforms.html.tt %]
 
+        <div class="separator fill-bg-color"></div>
+
         <div class="row">
             <div class="col-sm-12 center-text">
-                <div class="separator fill-bg-color"></div>
                 <h2>[% l('Champion Trader') %]</h2>
                 <p>[% l('The Champion Trader is designed to be the most versatile binary options trading platform available. with a rich user experience that can be customised according to your personal preference.') %]</p>
             </div>

@@ -1,94 +1,94 @@
-<div class="fx-section" id="fx-liquidity">
-    <div class="container">
-    <div class="row">
-        <div class="col-sm">
-            <h1 class="main-title">[% l('Multi-asset liquidity solutions') %]</h1>
-            <p>[% l('ChampionFX provides MT4/MT5 brokers, institutional clients, and crypto exchanges with top-tier liquidity solutions on a wide range of assets.') %]</p>
-            <p>[% l('Access market quotes and trade execution on major currency pairs, spot metals, CFD indices, popular cryptocurrencies, and more.') %]</p>
-            <p>[% l('Our liquidity solutions are ideal for brokers who lack access to direct prime brokerage relationships with a top-tier bank due to the size of their balance sheet.') %]</p>
-            <p>[% l('Our commitment to integrity and reliability means that we always strive to give you access to the best pricing and liquidity possible') %]</p>
-        </div>
-    </div>
-    <div class="fx-divider"></div>
-    <div class="row center-text">
-        <div class="col-sm-12">
-            <h2>[% l('Key features') %]</h2>
-        </div>
-        <div class="col-xs-12 col-md-6 col-lg-3">
-            <div class="box box-col fill-bg-color">
-                <span class="fx fx-multi-asset-execution"></span>
-                <p class="bold-title">[% l('Multi-asset execution') %]</p>
-                <p>[% l('Over 50 FX pairs, plus spot metals, CFD indices, commodities, and cryptocurrencies.') %]</p>
+<div class="container" id="fx-liquidity">
+    <div class="fx-section">
+        <div class="row">
+            <div class="col-sm">
+                <h1 class="main-title">[% l('Multi-asset liquidity solutions') %]</h1>
+                <p>[% l('ChampionFX provides MT4/MT5 brokers, institutional clients, and crypto exchanges with top-tier liquidity solutions on a wide range of assets.') %]</p>
+                <p>[% l('Access market quotes and trade execution on major currency pairs, spot metals, CFD indices, popular cryptocurrencies, and more.') %]</p>
+                <p>[% l('Our liquidity solutions are ideal for brokers who lack access to direct prime brokerage relationships with a top-tier bank due to the size of their balance sheet.') %]</p>
+                <p>[% l('Our commitment to integrity and reliability means that we always strive to give you access to the best pricing and liquidity possible') %]</p>
             </div>
         </div>
-        <div class="col-xs-12 col-md-6 col-lg-3">
-            <div class="box box-col fill-bg-color">
-                <span class="fx fx-liquidity-solution"></span>
-                <p class="bold-title">[% l('Top-tier liquidity') %]</p>
-                <p>[% l('Access market quotes and trade execution from top-tier liquidity providers, including banks and non-banks.') %]</p>
+        <div class="row center-text box-grid box-grid-align-start">
+            <div class="col-sm-12">
+                <h2>[% l('Key features') %]</h2>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <div class="box fill-bg-color">
+                    <span class="fx fx-multi-asset-execution"></span>
+                    <p class="bold-title">[% l('Multi-asset execution') %]</p>
+                    <p>[% l('Over 50 FX pairs, plus spot metals, CFD indices, commodities, and cryptocurrencies.') %]</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <div class="box fill-bg-color">
+                    <span class="fx fx-liquidity-solution"></span>
+                    <p class="bold-title">[% l('Top-tier liquidity') %]</p>
+                    <p>[% l('Access market quotes and trade execution from top-tier liquidity providers, including banks and non-banks.') %]</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <div class="box fill-bg-color">
+                    <span class="fx fx-full-transparency"></span>
+                    <p class="bold-title">[% l('Full transparency') %]</p>
+                    <p>[% l('Subscribe to ChampionFX liquidity and see the exact liquidity venues we are streaming from via the ‘Bank’ column in your MT5 platform.') %]</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <div class="box fill-bg-color">
+                    <span class="fx fx-backoffice-support"></span>
+                    <p class="bold-title">[% l('Back-office support') %]</p>
+                    <p>[% l('Receive back-office support for post-trade risk management and real-time trade/position monitoring.') %]</p>
+                </div>
             </div>
         </div>
-        <div class="col-xs-12 col-md-6 col-lg-3">
-            <div class="box box-col fill-bg-color">
-                <span class="fx fx-full-transparency"></span>
-                <p class="bold-title">[% l('Full transparency') %]</p>
-                <p>[% l('Subscribe to ChampionFX liquidity and see the exact liquidity venues we are streaming from via the ‘Bank’ column in your MT5 platform.') %]</p>
-            </div>
-        </div>
-        <div class="col-xs-12 col-md-6 col-lg-3">
-            <div class="box box-col fill-bg-color">
-                <span class="fx fx-backoffice-support"></span>
-                <p class="bold-title">[% l('Back-office support') %]</p>
-                <p>[% l('Receive back-office support for post-trade risk management and real-time trade/position monitoring.') %]</p>
-            </div>
-        </div>
-    </div>
-    <div class="separator fill-bg-color"></div>
-    <div class="row center-text">
-        <div class="col-sm-12">
-            <h2>[% l('How it works') %]</h2>
-        </div>
-        <div class="col-md-8 push-md-2 col-lg-4 push-lg-0">
-            <div class="box box-bordered">
-                <span class="fx fx-one-zero"></span>
-                <p class="box-title">[% l('One Zero') %]</p>
-                <p>[% l('MT4 and MT5 brokers can connect directly to our liquidity on the One Zero bridge by using built-in plugins.') %]</p>
-            </div>
-        </div>
-        <div class="col-md-8 push-md-2 col-lg-4 push-lg-0">
-            <div class="box box-bordered">
-                <span class="fx fx-mt5-gateaway"></span>
-                <p class="box-title">[% l('MT5 Gateaway') %]</p>
-                <p>[% l('MT5 also provides native gateway connectivity to our liquidity that you can configure to meet your specific requirements.') %]</p>
-            </div>
-        </div>
-        <div class="col-md-8 push-md-2 col-lg-4 push-lg-0">
-            <div class="box box-bordered">
-                <span class="fx fx-fix-api"></span>
-                <p class="box-title">[% l('Fix API') %]</p>
-                <p>[% l('Everyone else can use the FIX API to connect to our One Zero bridge &mdash; subject to a conformance test.') %]</p>
-            </div>
-        </div>
-    </div>
 
-    <div class="separator fill-bg-color"></div>
+        <div class="separator fill-bg-color"></div>
 
-    <div class="row">
-        <div class="col-sm-12">
-            <h2>[% l('Highlights') %]</h2>
-            <ul class="bullet">
-                <li>[% l('Access to multi-asset liquidity and back-office functionality via margin accounts') %]</li>
-                <li>[% l('Super-tight spreads with zero commission and no minimum volume requirements') %]</li>
-                <li>[% l('Access to STP trading conditions') %]</li>
-                <li>[% l('We can accomomodate our liquidity solutions to the requirements of offshore MT4/MT5 brokers') %]</li>
-            </ul>
+        <div class="row center-text box-grid">
+            <div class="col-sm-12">
+                <h2>[% l('How it works') %]</h2>
+            </div>
+            <div class="col-md-8 push-md-2 col-lg-4 push-lg-0">
+                <div class="box box-bordered">
+                    <span class="fx fx-one-zero"></span>
+                    <p class="box-title">[% l('One Zero') %]</p>
+                    <p>[% l('MT4 and MT5 brokers can connect directly to our liquidity on the One Zero bridge by using built-in plugins.') %]</p>
+                </div>
+            </div>
+            <div class="col-md-8 push-md-2 col-lg-4 push-lg-0">
+                <div class="box box-bordered">
+                    <span class="fx fx-mt5-gateaway"></span>
+                    <p class="box-title">[% l('MT5 Gateaway') %]</p>
+                    <p>[% l('MT5 also provides native gateway connectivity to our liquidity that you can configure to meet your specific requirements.') %]</p>
+                </div>
+            </div>
+            <div class="col-md-8 push-md-2 col-lg-4 push-lg-0">
+                <div class="box box-bordered">
+                    <span class="fx fx-fix-api"></span>
+                    <p class="box-title">[% l('Fix API') %]</p>
+                    <p>[% l('Everyone else can use the FIX API to connect to our One Zero bridge &mdash; subject to a conformance test.') %]</p>
+                </div>
+            </div>
         </div>
+
+        <div class="separator fill-bg-color"></div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>[% l('Highlights') %]</h2>
+                <ul class="bullet">
+                    <li>[% l('Access to multi-asset liquidity and back-office functionality via margin accounts') %]</li>
+                    <li>[% l('Super-tight spreads with zero commission and no minimum volume requirements') %]</li>
+                    <li>[% l('Access to STP trading conditions') %]</li>
+                    <li>[% l('We can accomomodate our liquidity solutions to the requirements of offshore MT4/MT5 brokers') %]</li>
+                </ul>
+            </div>
             <div class="col-md-10 push-md-1">
                 <div class="box center-text fill-bg-color">
                     <span>[% l('Interested in our liquidity solutions? Contact us at <a href="mailto:partners@champion-fx.com">partners@champion-fx.com</a> for more info.') %]</span>
                 </div>
             </div>
-
+        </div>
     </div>
-</div>
 </div>
