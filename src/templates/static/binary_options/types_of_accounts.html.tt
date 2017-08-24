@@ -9,7 +9,7 @@
     <div class="fx-section">
         <div class="row">
             <div class="col-sm-12">
-                [% INCLUDE components/page_title.html.tt title=l('Binary options trading accounts') %]
+                <h2>[% l('Binary options trading accounts') %]</h2>
                 <p>[% l('Ready to start trading binary options? Every client starts with a risk-free virtual account before upgrading to a real account.') %]</p>
             </div>
         </div>
