@@ -1,4 +1,4 @@
-<div class="primary-color-dark mt5-header">
+<div class="primary-color-dark partnerships-header">
     <div class="fx-panel center-text center-vertical container">
         <h1 class="content-inverse-color">[% l('Partnerships') %]</h1>
         <p class="content-inverse-color">[% l('Explore our wide range of partnership programmes. Each programme opens a window of opportunity to one of the world\'s most significant financial markets, and each has been developed with the intention of perfectly matching the diverse needs of our potential partners.') %]</p>

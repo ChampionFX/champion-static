@@ -515,6 +515,10 @@ h1.main-title {
     background: url('../images/mt5/economic_calendar_banner.png') top left / cover no-repeat;
 }
 
+.partnerships-header {
+    background: url('../images/partnerships_banner.png') top left / cover no-repeat;
+}
+
 // Home page
 .fx-home-header {
     @include header-background(0, '../images/header_imgfx-2x.jpg');
