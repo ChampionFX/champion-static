@@ -30,9 +30,9 @@
                         <div class="col-xs-6 col-md-3">
                             [% INCLUDE link_group title=l('Partnerships') items=[
                                 { link => 'partnerships-ib',          text => l("Introducing Broker (IB)") },
-                                { link => 'partnerships-affiliate',   text => l("Affiliate") },
-                                { link => 'partnerships-contributor', text => l("Content Contributor") },
                                 { link => 'liquidity-solutions',      text => l("Liquidity Solutions") }
+                                { link => 'partnerships-affiliate',   text => l("Affiliate Programme") },
+                                { link => 'partnerships-contributor', text => l("Content Contributor") },
                             ] %]
                         </div>
                         <div class="col-xs-6 col-md-3 mt-show">
