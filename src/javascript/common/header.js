@@ -160,7 +160,7 @@ const Header = (function () {
                     switchLoginId(curr_id);
                     return;
                 }
-                loginid_select += switchTemplate(curr_id, curr_id, icon, type, is_current ? 'mt-show' : '');
+                loginid_select += switchTemplate(curr_id, curr_id, icon, type, is_current ? (is_mt_pages ? 'mt-show' : 'invisible') : '');
             }
         });
 
