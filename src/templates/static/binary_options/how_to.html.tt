@@ -1,36 +1,34 @@
-<div class="fx-section">
-    <div class="container">
+<div class="container">
+    <div class="fx-section">
         <div class="row">
             <div class="col-sm">
-                <div class="row">
-                    <div class="col-sm">
-                        <h1>[% l('How to trade binary options') %]</h1>
-                        <p>[% l('Trading binary options is relatively easy, and you can purchase a trade in only three simple steps.') %]</p>
+                <h1>[% l('How to trade binary options') %]</h1>
+                <p>[% l('Trading binary options is relatively easy, and you can purchase a trade in only three simple steps.') %]</p>
+            </div>
+            <div class="col-sm">
+                <div class="row steps">
+                    <div class="col-sm-2 hidden-xs-down hidden-sm-down">
+                        <img class="float-right" src="[% request.url_for('images/mt5/steps.svg') %]">
                     </div>
-                    <div class="col-sm">
-                        <div class="row steps">
-                            <div class="col-sm-2 hidden-xs-down hidden-sm-down">
-                                <img class="float-right" src="[% request.url_for('images/mt5/steps.svg') %]">
-                            </div>
-                            <div class="col-sm-10">
-                                <h3>[% l('Define your position') %]</h3>
-                                <p>[% l('Consider the market, duration, barrier, and payout.') %]</p>
-                                <h3>[% l('Get your price') %]</h3>
-                                <p>[% l('Receive instant prices based on your position.') %]</p>
-                                <h3>[% l('Make your trade') %]</h3>
-                                <p>[% l('Choose to buy, or redefine your position.') %]</p>
-                            </div>
-                        </div>
+                    <div class="col-sm-10">
+                        <h3>[% l('Define your position') %]</h3>
+                        <p>[% l('Consider the market, duration, barrier, and payout.') %]</p>
+                        <h3>[% l('Get your price') %]</h3>
+                        <p>[% l('Receive instant prices based on your position.') %]</p>
+                        <h3>[% l('Make your trade') %]</h3>
+                        <p>[% l('Choose to buy, or redefine your position.') %]</p>
                     </div>
                 </div>
-                <div class="fx-divider"></div>
-                <div class="center-text">
-                    <a name="step-1"></a>
-                    <h3 id="step-1">[% l('Step 1: Define your position') %]</h3>
-                    <img src="[% request.url_for('images/binary_options/define_position.svg') %]" class="image-small" alt="" />
-                    <p>[% l('First, you need to set the parameters of your trade. Here\'s what you need to consider.') %]</p>
-                </div>
-                <div class="fx-divider"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm center-text">
+                <a name="step-1"></a>
+                <h3 id="step-1">[% l('Step 1: Define your position') %]</h3>
+                <img src="[% request.url_for('images/binary_options/define_position.svg') %]" class="image-small" alt="" />
+                <p>[% l('First, you need to set the parameters of your trade. Here\'s what you need to consider.') %]</p>
+            </div>
+        </div>
 
 [% BLOCK step_sections %]
     <div class="row">
