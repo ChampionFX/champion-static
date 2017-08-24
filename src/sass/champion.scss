@@ -491,8 +491,12 @@ h1.main-title {
     background: url('../images/trading_platforms_banner.png') top left / cover no-repeat;
 }
 
-.mt5-header {
+.forex-header {
     background: url('../images/forex.png') top left / cover no-repeat;
+}
+
+.mt5-header {
+    background: url('../images/metatrader/mt5_banner.png') top left / cover no-repeat;
 }
 
 .cfd-header {
@@ -1119,14 +1123,12 @@ a.underline-link {
     }
 }
 
-.icon-ok {
-    color: $okColor;
-    font-size: $FONT_SIZE_N;
+.icon-ok:before {
+    content: url('../images/metatrader/checklist.svg');
 }
 
-.icon-remove {
-    color: $crossColor;
-    font-size: $FONT_SIZE_N;
+.icon-remove:before {
+    content: url('../images/metatrader/cross.svg');
 }
 
 .no-margin-top {
@@ -1318,4 +1320,71 @@ iframe {
             }
         }
     }
+}
+
+.table-col-bordered {
+    th:nth-child(2) {
+        border-top: 4px solid $primaryBrandColor;
+        border-left: 4px solid $primaryBrandColor;
+        border-right: 4px solid $primaryBrandColor;
+        color: $primaryBrandColor;
+    }
+    td:nth-child(2) {
+        border-left: 4px solid $primaryBrandColor;
+        border-right: 4px solid $primaryBrandColor;
+        color: $primaryBrandColor;
+    }
+    tr:last-child {
+        td:nth-child(2) {
+            border-bottom: 4px solid $primaryBrandColor;
+        }
+    }
+}
+
+.table-fixed {
+    table-layout: auto;
+    @media (min-width: 575px) {
+        table-layout: fixed;
+    }
+
+    td {
+        vertical-align: middle;
+    }
+}
+
+#mt5-accounts {
+    .box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px 15px;
+        border: 3px solid $fillColor;
+        min-height: 460px;
+        @media (min-width: 767px) {
+            min-height: 545px;
+        }
+        @media (min-width: 961px) {
+            min-height: 460px;
+        }
+    }
+    p {
+        font-size: 12px;
+    }
+}
+
+#why-mt5 {
+    .box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        min-height: 100px;
+        @media (min-width: 575px) {
+            min-height: 205px;
+        }
+    }
+}
+
+.box-bordered {
+    border: 2px solid $fillColor;
 }

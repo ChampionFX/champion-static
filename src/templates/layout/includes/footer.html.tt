@@ -40,8 +40,8 @@
                                 { link => 'forex',  text => l("Forex") },
                                 { link => 'cfd',    text => l("CFDs") },
                                 { link => 'metals', text => l("Metals") },
-                                { link => 'forex', link_hash => '#forex-accounts', text => l("Types of accounts") },
-                                { link => 'trading-platform/metatrader-5',         text => l("MetaTrader 5 trading platforms") },
+                                { link => 'trading-platform/mt5-types-of-accounts', text => l("Types of accounts") },
+                                { link => 'trading-platform/metatrader-5',          text => l("MetaTrader 5 trading platforms") },
                             ] %]
                         </div>
                         <div class="col-xs-6 col-md-3 mt-hide">
@@ -78,6 +78,11 @@
                         <li>
                             <a href="https://www.youtube.com/channel/UCBqTu-uQkmaIh5wgBswo2TA" target="_blank">
                                 <img src="[% request.url_for('images/symbols/yt.svg') %]" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://t.me/championfx" target="_blank">
+                                <img src="[% request.url_for('images/symbols/telegram.svg') %]" alt="">
                             </a>
                         </li>
                     </ul>

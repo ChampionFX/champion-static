@@ -1,17 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-23663 -15163 50 50">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <defs>
-    <style>
-      .cls-1 {
-        fill: #004385;
-      }
-
-      .cls-2 {
-        fill: #0080ff;
-      }
-    </style>
+    <style>.cls-1{fill:#004385;}</style>
   </defs>
-  <g id="Group_372" data-name="Group 372" transform="translate(-24208 -16803)">
-    <path id="Path_640" data-name="Path 640" class="cls-1" d="M0,38.889v5.556H16.667V38.889ZM0,5.556v5.556H27.778V5.556ZM27.778,50V44.444H50V38.889H27.778V33.333H22.222V50ZM11.111,16.667v5.556H0v5.556H11.111v5.556h5.556V16.667ZM50,27.778V22.222H22.222v5.556ZM33.333,16.667h5.556V11.111H50V5.556H38.889V0H33.333Z" transform="translate(545 1640)"/>
-    <path id="Path_641" data-name="Path 641" class="cls-2" d="M561.611,1656.76v16.629h-5.568v-5.646h-10.92v-5.693h10.92v-5.289Z"/>
-  </g>
+  <rect class="cls-1" y="24" width="10" height="4"/>
+  <rect class="cls-1" y="4" width="18" height="4"/>
+  <polygon class="cls-1" points="6 14 0 14 0 18 6 18 6 22 10 22 10 10 6 10 6 14"/>
+  <polygon class="cls-1" points="18 20 14 20 14 32 18 32 18 28 32 28 32 24 18 24 18 20"/>
+  <polygon class="cls-1" points="26 4 26 0 22 0 22 12 26 12 26 8 32 8 32 4 26 4"/>
+  <rect class="cls-1" x="14" y="14" width="18" height="4"/>
 </svg>

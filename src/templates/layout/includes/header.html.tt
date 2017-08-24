@@ -34,6 +34,8 @@
                         { text=l('Settings')     link='user/settings'   icon='setting' is_logged_in=1 },
                         { text=l('About Us')     link='about-us'        icon='about' },
                         { text=l('MetaTrader 5') link_id='more_mt5_btn' icon='mt5' sub_class='submenu' sub_items=[
+                                { text=l('About MT5')          link='trading-platform/metatrader-5' },
+                                { text=l('Types of accounts')  link='trading-platform/mt5-types-of-accounts' },
                                 { text=l('Forex')  link='forex' },
                                 { text=l('CFDs')   link='cfd' },
                                 { text=l('Metals') link='metals' },
@@ -80,6 +82,8 @@
                 [% INCLUDE main_menu class='logged-out' items=[
                     { text=l('About Us') link='about-us' },
                     { text=l('MetaTrader 5') sub_items=[
+                        { text=l('About MT5')          link='trading-platform/metatrader-5' },
+                        { text=l('Types of accounts')  link='trading-platform/mt5-types-of-accounts' },
                         { text=l('Forex')  link='forex' },
                         { text=l('CFDs')   link='cfd' },
                         { text=l('Metals') link='metals' },
