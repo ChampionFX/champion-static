@@ -420,20 +420,21 @@ p {
     *:only-child {
         margin: 0;
     }
+    * {
+        margin-top: 0;
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    > .box-item-end {
+        margin-top: auto;
+    }
     &-bordered {
         border: 2px solid $fillColor;
     }
-    &-item-end {
-        margin-top: auto;
-    }
-    &-item-start {
-        justify-content: flex-start;
-    }
-    * ~ p {
-        margin-top: 0;
-        margin-bottom: 10px;
-    }
-    .box-title {
+    &-title {
         position: absolute;
         top: -10px;
         left: 25px;
@@ -442,16 +443,13 @@ p {
         color: $primaryBrandColor;
         padding: 0 5px;
     }
-    .bold-title {
-        font-weight: bold;
-        margin-bottom: 0;
-    }
 }
 
 .box-grid {
     .box {
         height: 100%;
         min-height: 150px;
+        border-bottom: 2px solid $white;
     }
     .row ~ .row {
         margin-top: 30px;
