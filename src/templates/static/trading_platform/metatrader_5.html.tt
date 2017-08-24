@@ -1,16 +1,11 @@
 <div class="primary-color-dark mt5-header">
-    <div class="mt5-logged-out fx-panel center-text center-vertical container">
+    <div class="fx-panel center-text center-vertical container">
         <h1 class="content-inverse-color">[% l('MetaTrader 5') %]</h1>
         <p class="content-inverse-color">[% l('Register now and trade just like a champion in any financial market. Get access to all the tools and platforms we offer, plus a commitment to put your needs at the heart of what we do.') %]</p>
     </div>
-
-    <div class="mt5-logged-in invisible fx-panel center-text center-vertical container">
-        <h1 class="content-inverse-color">[% l('Start Trading with MetaTrader 5') %]</h1>
-        <p class="content-inverse-color">[% l('We know that our traders require quick access to their trading accounts anywhere in the world, and at any time of the day. So, we offer the most efficient and powerful range of trading platforms. Browse our range of platforms and services, and start trading on your chosen device.') %]</p>
-    </div>
 </div>
 
-<div class="mt5-logged-out container">
+<div class="container">
     <div class="row">
         <div class="col-sm" id="content">
             <div class="has-tabs invisible">
@@ -98,14 +93,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
-<div class="mt5-logged-in invisible">
-    <div class="container">
-        <div class=fx-section>
-            [% INCLUDE static/trading_platform/mt5_platforms.html.tt %]
         </div>
     </div>
 </div>

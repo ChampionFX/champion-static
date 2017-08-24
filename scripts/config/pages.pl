@@ -59,6 +59,7 @@ sub all_pages {
         ['trading-platform/champion-trader',        'static/trading_platform/champion_trader',         'full_width', 'Champion Trader'],
         ['trading-platform/mt5-vs-mt4',             'static/trading_platform/mt5_vs_mt4',              'full_width', 'MetaTrader5 vs MetaTrader4'],
         ['trading-platform/mt5-types-of-accounts',  'static/trading_platform/mt5_types_of_accounts',   'full_width', 'MetaTrader5 Types of Accounts'],
+        ['trading-platform/mt5-platforms',          'static/trading_platform/mt5_platforms',           'full_width', 'MetaTrader5'],
 
         # ['user/assessment',            'user/financial_assessment',    'full_width', 'Financial Assessment'],
         # ['user/details',               'user/personal_details',        'full_width', 'Personal Details'],
