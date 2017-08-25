@@ -76,11 +76,16 @@ h1.main-title {
         li {
             display: inline-block;
             margin: 0;
-            padding: 5px 12px;
+            padding: 0 5px;
 
             a {
                 font-weight: 400;
                 padding: 5px 1px;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
             }
         }
     }
@@ -365,11 +370,12 @@ h1.main-title {
             font-size: 13px;
         }
         ul {
-            margin: 0 0 30px;
+            margin: 10px 0 30px;
             padding: 0;
 
             li {
                 margin-top: 0.3em;
+                margin-bottom: 0;
 
                 a {
                     font-size: 13px;
@@ -1019,11 +1025,6 @@ select[disabled=disabled] {
     }
 }
 
-// Settings page
-a:hover {
-    text-decoration: none;
-}
-
 // financial assessment popup
 .lightbox {
     display: table;
@@ -1281,6 +1282,7 @@ iframe {
             left: 0;
             bottom: 0;
             right: 0;
+            width: 560px;
             @media (max-width: 800px) {
                 display: none;
             }
