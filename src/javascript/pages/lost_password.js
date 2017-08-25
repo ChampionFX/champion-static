@@ -1,7 +1,6 @@
 const Client         = require('../common/client');
 const Validation     = require('../common/validation');
 const ChampionSocket = require('../common/socket');
-const url_for        = require('../common/url').url_for;
 
 const LostPassword = (function() {
     'use strict';
@@ -42,7 +41,7 @@ const LostPassword = (function() {
                 if (response.error) {
                     $('#msg_form').removeClass('invisible').text(response.error.message);
                 } else {
-                    window.location.href = url_for('reset-password');
+                    $(form_selector).html($('<div/>', { class: 'notice-msg', text: 'Please check your email to complete the process.' }));
                 }
             });
         }
