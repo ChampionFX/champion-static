@@ -297,10 +297,11 @@ p {
 }
 
 #fx-settings-content, #fx-security-content {
-    a {
+    a, a:visited {
         text-decoration: none;
     }
 }
+
 .has-tabs .ui-tabs-panel {
     padding: 0;
     margin-top: 40px;
