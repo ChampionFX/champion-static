@@ -14,7 +14,6 @@
                 <div class="col-md-12 col-lg-6">
                     <p>[% l('ChampionFX understands the importance of building long-lasting partnerships. We use a fresh and unique approach to understand your needs and what makes you tick.') %]</p>
                     <p>[% l('We want to help you grow your business by providing you with all the necessary tools and resources that allow you to prosper and flourish. Because we believe that our opportunities improve when we help you win.') %]</p>
-                    <p>[% l('Explore our wide range of partnership programmes. Each programme opens a window of opportunity to one of the world\'s most significant financial markets, and each has been developed with the intention of perfectly matching the diverse needs of our potential partners.') %]</p>
                 </div>
                 <div class="col-md-12 col-lg-6">
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/EGXb0gktnEM" frameborder="0" allowfullscreen></iframe>
