@@ -1,20 +1,15 @@
 <div class="primary-color-dark mt5-header">
-    <div class="mt5-logged-out fx-panel center-text center-vertical container">
+    <div class="fx-panel center-text center-vertical container">
         <h1 class="content-inverse-color">[% l('MetaTrader 5') %]</h1>
-        <p class="content-inverse-color">[% l('Register now and trade just like a champion in any financial market. Get access to all the tools and platforms we offer, plus a commitment to put your needs at the heart of what we do.') %]</p>
-    </div>
-
-    <div class="mt5-logged-in invisible fx-panel center-text center-vertical container">
-        <h1 class="content-inverse-color">[% l('Start Trading with MetaTrader 5') %]</h1>
         <p class="content-inverse-color">[% l('Register now and trade just like a champion in any financial market. Get access to all the tools and platforms we offer, plus a commitment to put your needs at the heart of what we do.') %]</p>
     </div>
 </div>
 
-<div class="mt5-logged-out">
+<div class="container">
     <div class="row">
         <div class="col-sm" id="content">
             <div class="has-tabs invisible">
-                <ul class="row container center-align col-md-12 col-lg-6">
+                <ul class="row center-align col-md-12 col-lg-6">
                     <li class="col-sm"><a href="#why-mt5">[% l('Why MetaTrader 5') %]</a></li>
                     <li class="col-sm"><a href="#mt5-vs-mt4">[% l('MT5 vs MT4') %]</a></li>
                 </ul>
@@ -22,8 +17,8 @@
                 <div class="tab-content">
                     <div class="tab-content-wrapper menu-has-sub-item">
                         <div id="why-mt5">
-                            <div class="fx-section-sm">
-                                <div class="container">
+                            <div class="container">
+                                <div class="fx-section">
                                     <div class="row">
                                         <div class="col-sm center-text">
                                             <h2>[% l('MetaTrader 5 Platform') %]</h2>
@@ -32,82 +27,57 @@
                                             <p>[% l('Successful trading in the financial markets begins with a comfortable and multi-functional trading platform. MetaTrader 5 is the best choice for the modern trader. Now you can trade anytime and anywhere, with the global markets at your fingertips.') %]</p>
                                         </div>
                                     </div>
-                                    <div class="row center-text">
+                                    <div class="row box-grid center-text">
                                         <div class="col-sm">
                                             <h2>[% l('Why MetaTrader 5') %]</h2>
                                             <div class="row">
                                                 <div class="col-sm-4">
                                                     <div class="box fill-bg-color flex-sm-middle">
-                                                        <br>
                                                         <p>[% l('Market depth information') %]</p>
-                                                        <br>
-                                                        <br>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="box fill-bg-color flex-sm-middle">
-                                                        <br>
                                                         <p>[% l('Library of free, ready-to-use Expert Advisors') %]</p>
-                                                        <br>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="box fill-bg-color flex-sm-middle">
-                                                        <br>
                                                         <p>[% l('User-friendly interface') %]</p>
-                                                        <br>
-                                                        <br>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="fx-divider"></div>
                                             <div class="row">
                                                 <div class="col-sm-4">
                                                     <div class="box fill-bg-color flex-sm-middle">
-                                                        <br>
                                                         <p>[% l('One-click trading') %]</p>
-                                                        <br>
-                                                        <br>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="box fill-bg-color flex-sm-middle">
-                                                        <br>
                                                         <p>[% l('Trading signals and copy trading') %]</p>
-                                                        <br>
-                                                        <br>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="box fill-bg-color flex-sm-middle">
-                                                        <br>
                                                         <p>[% l('Fundamental analysis') %]</p>
-                                                        <br>
-                                                        <br>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="fx-divider"></div>
                                             <div class="row">
                                                 <div class="col-sm-4">
                                                     <div class="box fill-bg-color flex-sm-middle">
-                                                        <br>
                                                         <p>[% l('Over 75 analytical tools and 21 timeframes') %]</p>
-                                                        <br>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="box fill-bg-color flex-sm-middle">
-                                                        <br>
                                                         <p>[% l('High-speed back-testing tool to optimise trading strategies') %]</p>
-                                                        <br>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="box fill-bg-color flex-sm-middle">
-                                                        <br>
                                                         <p>[% l('Integrated development environment for Expert Advisors') %]</p>
-                                                        <br>
                                                     </div>
                                                 </div>
                                             </div>
@@ -123,14 +93,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
-<div class="mt5-logged-in invisible">
-    <div class="fx-section-sm">
-        <div class="container">
-            [% INCLUDE static/trading_platform/mt5_platforms.html.tt %]
         </div>
     </div>
 </div>

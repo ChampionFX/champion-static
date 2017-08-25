@@ -459,7 +459,7 @@ h1.main-title {
 }
 
 .fx-panel-item {
-    padding: 15px 10px 15px 15px;
+    padding: 15px;
     display: block;
     height: 150px;
 
@@ -472,10 +472,14 @@ h1.main-title {
 
 // Page Sections
 .fx-section {
-    padding: 40px 10px;
+    margin: 40px 0;
 
     .fx-features-title {
-        margin-bottom: 50px;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+    > .row {
+        margin: 40px 0;
     }
 }
 
@@ -509,6 +513,10 @@ h1.main-title {
 
 .economic-calendar-header {
     background: url('../images/mt5/economic_calendar_banner.png') top left / cover no-repeat;
+}
+
+.partnerships-header {
+    background: url('../images/partnerships_banner.png') top left / cover no-repeat;
 }
 
 // Home page
@@ -611,7 +619,7 @@ h1.main-title {
 }
 
 #contact-us {
-    padding: 60px 0;
+    margin: 40px 0;
 
     .row-reverse {
         flex-direction: row-reverse;
@@ -1249,48 +1257,6 @@ iframe {
     padding: 0;
 }
 
-#fx-liquidity {
-    .separator {
-        margin: 40px 0;
-    }
-    .bold-title {
-        font-weight: bold;
-        margin-bottom: 0;
-    }
-    p {
-        margin-top: 5px;
-        margin-bottom: 0;
-    }
-    .box, .box-bordered {
-        margin: 20px 0;
-        padding: 20px;
-
-        &.box-col {
-            min-height: 290px;
-            @media (max-width: 997px) {
-                min-height: 235px;
-                margin-bottom: 0;
-            }
-        }
-        &.box-bordered {
-            border: 2px solid $fillColor;
-            background: none;
-            position: relative;
-            min-height: 210px;
-
-            .box-title {
-                position: absolute;
-                top: -20px;
-                left: 10px;
-                background: $white;
-                font-weight: bold;
-                color: $primaryBrandColor;
-                padding: 0 5px;
-            }
-        }
-    }
-}
-
 #choose_platform {
     .bordered-light {
         padding: 10px 30px 30px;
@@ -1301,7 +1267,7 @@ iframe {
 }
 
 #home-academy {
-    .row {
+    .row ~ .row {
         margin: 30px 0 20px;
         position: relative;
 
@@ -1350,41 +1316,4 @@ iframe {
     td {
         vertical-align: middle;
     }
-}
-
-#mt5-accounts {
-    .box {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 20px 15px;
-        border: 3px solid $fillColor;
-        min-height: 460px;
-        @media (min-width: 767px) {
-            min-height: 545px;
-        }
-        @media (min-width: 961px) {
-            min-height: 460px;
-        }
-    }
-    p {
-        font-size: 12px;
-    }
-}
-
-#why-mt5 {
-    .box {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-        min-height: 100px;
-        @media (min-width: 575px) {
-            min-height: 205px;
-        }
-    }
-}
-
-.box-bordered {
-    border: 2px solid $fillColor;
 }
