@@ -18,102 +18,76 @@
 <div class="row">
     <div class="col-sm" id="content">
         <div class="has-tabs invisible">
-            <ul class="row container center-align">
-                <li class="col-sm"><a href="#what-is-metals">[% l('What is metals trading?') %]</a></li>
-                <li class="col-sm"><a href="#how-to-trade-metals">[% l('How to trade metals') %]</a></li>
-                <li class="col-sm"><a href="#metals-margin-policy">[% l('Metals margin policy') %]</a></li>
-                <li class="col-sm"><a href="#metals-contract-specs">[% l('Metals contract specifications') %]</a></li>
-            </ul>
+            <div class="container">
+                <ul class="row center-align">
+                    <li class="col-sm"><a href="#what-is-metals">[% l('What is metals trading?') %]</a></li>
+                    <li class="col-sm"><a href="#how-to-trade-metals">[% l('How to trade metals') %]</a></li>
+                    <li class="col-sm"><a href="#metals-margin-policy">[% l('Metals margin policy') %]</a></li>
+                    <li class="col-sm"><a href="#metals-contract-specs">[% l('Metals contract specifications') %]</a></li>
+                </ul>
+            </div>
 
             <div id="what-is-metals">
                 <div class="container">
-                    <h2>[% l('What is metals trading?') %]</h2>
-                    <p>[% l('Traded commodities come in four categories: agricultural, livestock and meat, energy, and metals.') %]</p>
-                    <p>[% l('Metals trading lets you speculate on the price movement of a particular metal asset, such as gold, in order to profit from the price difference when the asset value rises or falls.') %]</p>
-
-                    <div class="fx-divider"></div>
-
-                    <h3 class="center-text">[% l('There are two categories of metals that you can trade in: industrial metals and precious metals.') %]</h3>
-
-                    <div class="row">
-                        <div class="col-sm">
-                            <div class="box">
-                                <h4>[% l('Industrial Metals') %]</h4>
-                                <div class="separator primary-color"></div>
-                                <p>[% l('Also known as base metals – are abundant, but oxidise or corrode easily. Industrial metals feature heavily across a wide range of industrial and commercial applications, including electrical wiring, automobiles, and batteries.') %]</p>
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <div class="box">
-                                <h4>[% l('Precious Metals') %]</h4>
-                                <div class="separator primary-color"></div>
-                                <p>[% l('Precious metals are harder to come by and more valuable than industrial metals. Because precious metals are softer and less reactive, they are widely used in jewellery, medical devices, and electronics.') %]</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="fx-divider"></div>
-
-                    <p>[% l('With ChampionFX, you can trade all four available precious metals – gold, silver, platinum, and palladium – through one platform: MetaTrader 5.') %]</p>
-
-                    [% INCLUDE static/common/separator_line.html.tt %]
-
-                    <h2 class="center-text">[% l('Why trade precious metals with ChampionFX') %]</h2>
-                    <div class="row">
-                        <div class="col-sm">
-                            <div class="box">
-                                <h4>[% l('Competitive gold spreads') %]</h4>
-                                <div class="separator primary-color"></div>
-                                <p>[% l('Trade gold on competitive fixed and variable spreads.') %]</p>
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <div class="box">
-                                <h4>[% l('Commission-free') %]</h4>
-                                <div class="separator primary-color"></div>
-                                <p>[% l('Pay no commissions on all precious metal contracts.') %]</p>
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <div class="box">
-                                <h4>[% l('Comprehensive') %]</h4>
-                                <div class="separator primary-color"></div>
-                                <p>[% l('Trade all four precious metals on one platform.') %]</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="fill-bg-color lg-padding invisible">
-                    <div class="container">
-                        <h2 class="center-text">[% l('Enhance your skills at ChampionFX Academy') %]</h2>
+                    <div class="fx-section">
                         <div class="row">
-                            <div class="col-sm">
-                                <div class="box">
-                                    <h4>[% l('Ebooks') %]</h4>
-                                    <div class="separator primary-color"></div>
-                                    <p>[% l('Download free ebooks and guides to improve your trading skills.') %]</p>
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <div class="box">
-                                    <h4>[% l('Videos') %]</h4>
-                                    <div class="separator primary-color"></div>
-                                    <p>[% l('Learn about trading and keep up with the latest market trends with our free videos.') %]</p>
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <div class="box">
-                                    <h4>[% l('FAQ') %]</h4>
-                                    <div class="separator primary-color"></div>
-                                    <p>[% l('Get answers to all the questions you have about our accounts and platforms.') %]</p>
-                                </div>
+                            <div class="col-sm-12">
+                                <h2>[% l('What is metals trading?') %]</h2>
+                                <p>[% l('Traded commodities come in four categories: agricultural, livestock and meat, energy, and metals.') %]</p>
+                                <p>[% l('Metals trading lets you speculate on the price movement of a particular metal asset, such as gold, in order to profit from the price difference when the asset value rises or falls.') %]</p>
                             </div>
                         </div>
 
-                        <div class="center-text lg-padding invisible">
-                            <a class="button" href="#">
-                                <span class="button">[% l('Visit Academy') %]</span>
-                            </a>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h3 class="center-text">[% l('There are two categories of metals that you can trade in: industrial metals and precious metals.') %]</h3>
+                            </div>
+                            <div class="col-sm">
+                                <div class="box">
+                                    <h4>[% l('Industrial Metals') %]</h4>
+                                    <div class="separator primary-color"></div>
+                                    <p>[% l('Also known as base metals – are abundant, but oxidise or corrode easily. Industrial metals feature heavily across a wide range of industrial and commercial applications, including electrical wiring, automobiles, and batteries.') %]</p>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="box">
+                                    <h4>[% l('Precious Metals') %]</h4>
+                                    <div class="separator primary-color"></div>
+                                    <p>[% l('Precious metals are harder to come by and more valuable than industrial metals. Because precious metals are softer and less reactive, they are widely used in jewellery, medical devices, and electronics.') %]</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <p>[% l('With ChampionFX, you can trade all four available precious metals – gold, silver, platinum, and palladium – through one platform: MetaTrader 5.') %]</p>
+                            </div>
+                        </div>
+
+                        [% INCLUDE static/common/separator_line.html.tt %]
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h2 class="center-text">[% l('Why trade precious metals with ChampionFX') %]</h2>
+                            </div>
+                            <div class="col-sm">
+                                <div class="box">
+                                    <h4>[% l('Competitive gold spreads') %]</h4>
+                                    <div class="separator primary-color"></div>
+                                    <p>[% l('Trade gold on competitive fixed and variable spreads.') %]</p>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="box">
+                                    <h4>[% l('Commission-free') %]</h4>
+                                    <div class="separator primary-color"></div>
+                                    <p>[% l('Pay no commissions on all precious metal contracts.') %]</p>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="box">
+                                    <h4>[% l('Comprehensive') %]</h4>
+                                    <div class="separator primary-color"></div>
+                                    <p>[% l('Trade all four precious metals on one platform.') %]</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -121,300 +95,310 @@
 
             <div id="how-to-trade-metals">
                 <div class="container">
-                    <h2>[% l('How to trade metals') %]</h2>
-                    <p>[% l('Learn the basic concepts of trading metal assets on MT5.') %]</p>
-
-                    <div class="fx-divider"></div>
-
-                    <div class="row">
-                        <div class="col-sm middle-align">
-                            <div class="lg-padding no-gutters">
-                                <h3>[% l('When to buy and sell') %]</h3>
-                                <p>[% l('When you are trading metals, you can choose to open a buy position (if you think that the price of an asset will rise) or a sell position (if you think that the price of an asset will fall).') %]</p>
+                    <div class="fx-section">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h2>[% l('How to trade metals') %]</h2>
+                                <p>[% l('Learn the basic concepts of trading metal assets on MT5.') %]</p>
+                            </div>
+                            <div class="col-sm middle-align">
+                                <div class="lg-padding no-gutters">
+                                    <h3>[% l('When to buy and sell') %]</h3>
+                                    <p>[% l('When you are trading metals, you can choose to open a buy position (if you think that the price of an asset will rise) or a sell position (if you think that the price of an asset will fall).') %]</p>
+                                </div>
+                            </div>
+                            <div class="col-sm margin-top-bottom">
+                                <div class="box bordered">
+                                    <div class="center-text">
+                                        <img class="fx-md" src="[% request.url_for('images/mt5/high.svg') %]">
+                                    </div>
+                                    <div class="center-text lg-padding">
+                                        <button class="button">[% l('Buy') %]</button>
+                                    </div>
+                                    <div class="separator primary-color"></div>
+                                    <p>[% l('In this case, you predict that the price will rise. This is also known as ‘going long’.') %]</p>
+                                </div>
+                            </div>
+                            <div class="col-sm margin-top-bottom">
+                                <div class="box bordered">
+                                    <div class="center-text">
+                                        <img class="fx-md" src="[% request.url_for('images/mt5/low.svg') %]">
+                                    </div>
+                                    <div class="center-text lg-padding">
+                                        <button class="button">[% l('Sell') %]</button>
+                                    </div>
+                                    <div class="separator primary-color"></div>
+                                    <p>[% l('In this case, you predict that the price will fall. This is also known as ‘going short’.') %]</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-sm margin-top-bottom">
-                            <div class="box bordered">
-                                <div class="center-text">
-                                    <img class="fx-md" src="[% request.url_for('images/mt5/high.svg') %]">
+
+                        <div class="row flex-items-xs-center">
+                            <div class="box fill-bg-color">
+                                <h4>[% l('Let’s use the XAU/USD (Gold vs US dollar) symbol pair as an example.') %]</h4>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="col-xs-10 push-xs-1">
+                                    <p>[% l('If you decide to buy or ‘go long’ on the XAU/USD, you will profit if the price of the XAU/USD rises, and incur losses if the price falls.') %]</p>
+                                    <p>[% l('If you decide to sell or ‘go short’ on XAU/USD, you will profit if the price of the XAU/USD falls, and incur losses if the price rises.') %]</p>
                                 </div>
-                                <div class="center-text lg-padding">
-                                    <button class="button">[% l('Buy') %]</button>
-                                </div>
-                                <div class="separator primary-color"></div>
-                                <p>[% l('In this case, you predict that the price will rise. This is also known as ‘going long’.') %]</p>
                             </div>
                         </div>
-                        <div class="col-sm margin-top-bottom">
-                            <div class="box bordered">
-                                <div class="center-text">
-                                    <img class="fx-md" src="[% request.url_for('images/mt5/low.svg') %]">
-                                </div>
-                                <div class="center-text lg-padding">
-                                    <button class="button">[% l('Sell') %]</button>
-                                </div>
-                                <div class="separator primary-color"></div>
-                                <p>[% l('In this case, you predict that the price will fall. This is also known as ‘going short’.') %]</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="fx-divider"></div>
-
-                    <div class="row flex-items-xs-center">
-                        <div class="box fill-bg-color">
-                            <h4>[% l('Let’s use the XAU/USD (Gold vs US dollar) symbol pair as an example.') %]</h4>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-10 push-xs-1">
-                        <p>[% l('If you decide to buy or ‘go long’ on the XAU/USD, you will profit if the price of the XAU/USD rises, and incur losses if the price falls.') %]</p>
-                        <p>[% l('If you decide to sell or ‘go short’ on XAU/USD, you will profit if the price of the XAU/USD falls, and incur losses if the price rises.') %]</p>
                     </div>
                 </div>
 
-                <div class="fx-divider"></div>
-
-                <div class="fill-bg-color lg-padding">
-                    <div class="container">
-                        <h2 class="center-text">[% l('Factors that affect precious metal prices') %]</h2>
-                        <div class="lg-padding no-gutters">[% l('Knowing when to buy and sell precious metals largely depends on how well you know the factors that influence market prices. The most common influencing factors are:') %]</div>
-                        <div class="lg-padding no-gutters">
-                            <ul class="bullet">
-                                <li>[% l('Supply – Decline or increase in supply') %]</li>
-                                <li>[% l('Demand – Driven by industrial and commercial applications, including new technological products or fashion trends') %]</li>
-                                <li>[% l('Market volatility – Political, economic, or social instability may lead to more volatile financial markets that affect the prices of certain metals') %]</li>
-                            </ul>
+                <div class="fill-bg-color fx-section">
+                    <div class="container fx-section-padding">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h2 class="center-text">[% l('Factors that affect precious metal prices') %]</h2>
+                                <p>[% l('Knowing when to buy and sell precious metals largely depends on how well you know the factors that influence market prices. The most common influencing factors are:') %]</p>
+                                <div>
+                                    <ul class="bullet">
+                                        <li>[% l('Supply – Decline or increase in supply') %]</li>
+                                        <li>[% l('Demand – Driven by industrial and commercial applications, including new technological products or fashion trends') %]</li>
+                                        <li>[% l('Market volatility – Political, economic, or social instability may lead to more volatile financial markets that affect the prices of certain metals') %]</li>
+                                    </ul>
+                                </div>
+                                <p>[% l('Keeping up with market news and trends in a certain sector can help you tremendously, especially if you’re just starting out.') %]</p>
+                            </div>
                         </div>
-                        <div class="lg-padding no-gutters">[% l('Keeping up with market news and trends in a certain sector can help you tremendously, especially if you’re just starting out.') %]</div>
+
                     </div>
                 </div>
-
-                <div class="fx-divider"></div>
 
                 <div class="container">
-                    <h2 class="center-text">[% l('How to calculate your profits and losses') %]</h2>
-
-                    <div class="fx-divider"></div>
-
-                    <div class="row flex-items-xs-center">
-                        <div class="box fill-bg-color">
-                            <h4>[% l("Let's use the XAU/USD symbol pair again as an example.") %]</h4>
-                        </div>
-                    </div>
-
-                    <p>[% l('Due to market volatility and gold’s reputation as a safe-haven asset, you predict that the price of gold will rise.') %]</p>
-                    <p>[% l('You buy one lot of XAU/USD at a price of USD 1,255.06. Please note that one lot is equivalent to 100 units, based on our contract specifications. The price of gold does increase and you decide to sell when it reaches USD 1,255.80. Your profit or loss comes down to the price difference multiplied by the total lots you purchased.') %]</p>
-
-                    <div class="fx-divider"></div>
-
-                    <h3>[% l('Your profit or loss is calculated as follows:') %]</h3>
-
-                    <div class="fx-divider"></div>
-
-                    <div class="col-xs-9 center-align">
-                        <div class="row">
-                            <div class="center-text center-align margin-top-bottom">
-                                <div class="box fill-bg-color">
-                                    <h4>[% l('(Closing price – Opening price)') %]</h4>
-                                </div>
+                    <div class="fx-section">
+                        <div class="row flex-items-xs-center">
+                            <div class="col-sm-12">
+                                <h2 class="center-text">[% l('How to calculate your profits and losses') %]</h2>
                             </div>
-                            <div class="col-xs-3 col-md-1 middle-align center-text center-align margin-top-bottom">
-                                <div class="center-text">
-                                    <img class="fx-xxs" src="[% request.url_for('images/mt5/multiply_icon.svg') %]">
-                                </div>
+                            <div class="box fill-bg-color">
+                                <h4>[% l("Let's use the XAU/USD symbol pair again as an example.") %]</h4>
                             </div>
-                            <div class="center-text center-align margin-top-bottom">
-                                <div class="box fill-bg-color">
-                                    <h4>[% l('Lot units') %]</h4>
-                                </div>
-                            </div>
-                            <div class="col-xs-3 col-md-1 middle-align center-text center-align margin-top-bottom">
-                                <div class="center-text">
-                                    <img class="fx-xs" src="[% request.url_for('images/mt5/equal_icon.svg') %]">
-                                </div>
-                            </div>
-                            <div class="center-text center-align margin-top-bottom">
-                                <div class="box fill-bg-color">
-                                    <h4>[% l('Profit/Loss') %]</h4>
-                                </div>
+                            <div class="col-sm-12">
+                                <p>[% l('Due to market volatility and gold’s reputation as a safe-haven asset, you predict that the price of gold will rise.') %]</p>
+                                <p>[% l('You buy one lot of XAU/USD at a price of USD 1,255.06. Please note that one lot is equivalent to 100 units, based on our contract specifications. The price of gold does increase and you decide to sell when it reaches USD 1,255.80. Your profit or loss comes down to the price difference multiplied by the total lots you purchased.') %]</p>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="fx-divider"></div>
-
-                    <div class="row flex-items-xs-center">
-                        <div class="box fill-bg-color">
-                            <h4>[% l('(1,255.80 – 1,255.06) x 100 = USD 74') %]</h4>
+                        <div class="row flex-items-xs-center">
+                            <div class="col-xs-12">
+                                <h3>[% l('Your profit or loss is calculated as follows:') %]</h3>
+                            </div>
+                            <div class="col-xs-9 center-align">
+                                <div class="row">
+                                    <div class="center-text center-align margin-top-bottom">
+                                        <div class="box fill-bg-color">
+                                            <h4>[% l('(Closing price – Opening price)') %]</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3 col-md-1 middle-align center-text center-align margin-top-bottom">
+                                        <div class="center-text">
+                                            <img class="fx-xxs" src="[% request.url_for('images/mt5/multiply_icon.svg') %]">
+                                        </div>
+                                    </div>
+                                    <div class="center-text center-align margin-top-bottom">
+                                        <div class="box fill-bg-color">
+                                            <h4>[% l('Lot units') %]</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3 col-md-1 middle-align center-text center-align margin-top-bottom">
+                                        <div class="center-text">
+                                            <img class="fx-xs" src="[% request.url_for('images/mt5/equal_icon.svg') %]">
+                                        </div>
+                                    </div>
+                                    <div class="center-text center-align margin-top-bottom">
+                                        <div class="box fill-bg-color">
+                                            <h4>[% l('Profit/Loss') %]</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box fill-bg-color">
+                                <h4>[% l('(1,255.80 – 1,255.06) x 100 = USD 74') %]</h4>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="fx-divider"></div>
                 </div>
             </div>
 
             <div id="metals-margin-policy">
                 <div class="container">
-                    <h2>[% l('Metals margin policy') %]</h2>
-                    <p>[% l('We explain our margin policy to give you a better understanding of how metals trading works.') %]</p>
-                    <div class="lg-padding row no-gutters">
-                        <div class="col-sm">
-                            <h3>[% l('What is margin?') %]</h3>
-                            <p>[% l('Margin allows you to trade on leverage –– giving you the same level of market exposure using much less capital.') %]</p>
-                            <p>[% l('With leverage, you can purchase 100 units of the same asset at a fraction of the cost.') %]</p>
-                        </div>
-                        <div class="col-sm">
-                            <div class="box bordered">
-                                <h4>[% l('For example') %]</h4>
-                                <div class="separator primary-color"></div>
-                                <p>[% l('If you wanted to purchase 100 units of a particular asset, with USD as the base currency and at a price of 50 per unit through a traditional broker, it would cost you USD 5,000 for this transaction.') %]</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    [% INCLUDE static/common/separator_line.html.tt %]
-
-                    <h2 class="center-text">[% l('How is margin calculated?') %]</h2>
-
-                    <div class="fx-divider"></div>
-
-                    <div class="col-xs-9 center-align">
+                    <div class="fx-section">
                         <div class="row">
-                            <div class="center-text center-align margin-top-bottom">
-                                <div class="box fill-bg-color">
-                                    <h4>[% l('Required Margin') %]</h4>
-                                </div>
+                            <div class="col-sm-12">
+                                <h2>[% l('Metals margin policy') %]</h2>
+                                <p>[% l('We explain our margin policy to give you a better understanding of how metals trading works.') %]</p>
                             </div>
-                            <div class="col-xs-3 col-md-1 middle-align center-text center-align margin-top-bottom">
-                                <div class="center-text">
-                                    <img class="fx-xs" src="[% request.url_for('images/mt5/equal_icon.svg') %]">
-                                </div>
+                            <div class="col-sm">
+                                <h3>[% l('What is margin?') %]</h3>
+                                <p>[% l('Margin allows you to trade on leverage –– giving you the same level of market exposure using much less capital.') %]</p>
+                                <p>[% l('With leverage, you can purchase 100 units of the same asset at a fraction of the cost.') %]</p>
                             </div>
-                            <div class="center-text center-align margin-top-bottom">
-                                <div class="box fill-bg-color">
-                                    <h4>[% l('Trade Size (0z) / Leverage') %]</h4>
-                                </div>
-                            </div>
-                            <div class="col-xs-3 col-md-1 middle-align center-text center-align margin-top-bottom">
-                                <div class="center-text">
-                                    <img class="fx-xxs" src="[% request.url_for('images/mt5/multiply_icon.svg') %]">
-                                </div>
-                            </div>
-                            <div class="center-text center-align margin-top-bottom">
-                                <div class="box fill-bg-color">
-                                    <h4>[% l('Market Price') %]</h4>
+                            <div class="col-sm">
+                                <div class="box bordered">
+                                    <h4>[% l('For example') %]</h4>
+                                    <div class="separator primary-color"></div>
+                                    <p>[% l('If you wanted to purchase 100 units of a particular asset, with USD as the base currency and at a price of 50 per unit through a traditional broker, it would cost you USD 5,000 for this transaction.') %]</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="fx-divider"></div>
+                        [% INCLUDE static/common/separator_line.html.tt %]
 
-                    <div class="row">
-                        <div class="col-sm">
-                            <div class="box bordered">
-                                <h4>[% l('Example:') %]</h4>
-                                <div class="separator primary-color"></div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h2 class="center-text">[% l('How is margin calculated?') %]</h2>
+                            </div>
+
+                            <div class="col-xs-9 center-align">
+                                <div class="row">
+                                    <div class="center-text center-align margin-top-bottom">
+                                        <div class="box fill-bg-color">
+                                            <h4>[% l('Required Margin') %]</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3 col-md-1 middle-align center-text center-align margin-top-bottom">
+                                        <div class="center-text">
+                                            <img class="fx-xs" src="[% request.url_for('images/mt5/equal_icon.svg') %]">
+                                        </div>
+                                    </div>
+                                    <div class="center-text center-align margin-top-bottom">
+                                        <div class="box fill-bg-color">
+                                            <h4>[% l('Trade Size (0z) / Leverage') %]</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3 col-md-1 middle-align center-text center-align margin-top-bottom">
+                                        <div class="center-text">
+                                            <img class="fx-xxs" src="[% request.url_for('images/mt5/multiply_icon.svg') %]">
+                                        </div>
+                                    </div>
+                                    <div class="center-text center-align margin-top-bottom">
+                                        <div class="box fill-bg-color">
+                                            <h4>[% l('Market Price') %]</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="box bordered">
+                                    <h4>[% l('Example:') %]</h4>
+                                    <div class="separator primary-color"></div>
+                                    <ul class="bullet no-margin-left">
+                                        <li>[% l('Trading 1 lot (100 Oz) of GOLD using 1:300 leverage with an account denominated in USD.') %]</li>
+                                        <li>[% l('Trade size = 100 Oz') %]</li>
+                                        <li>[% l('Market price = 1250.15') %]</li>
+                                        <li>[% l('Required Margin: 100 / 300 x 1250.15 = $416.71') %]</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm middle-align">
+                                <p>[% l('Without margin the same size will cost you') %]</p>
+                                <div class="box fill-bg-color">
+                                    <h4>[% l('100 x 1250.15 = $125,015') %]</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        [% INCLUDE static/common/separator_line.html.tt %]
+
+                        <div class="row">
+                            <div class="col-sm-12 center-text">
+                                <h2>[% l('What’s a margin call and how do we apply it?') %]</h2>
+                                <p>[% l('When your account equity is unable to cover the margin requirement, your account will be placed under margin call. This state does not affect your ability to open new positions.') %]</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 center-text">
+                                <h2>[% l('What’s a stop out level and how do we apply it?') %]</h2>
+                                <p>[% l('If your account is placed under margin call for an extended period of time, it will reach the stop out level where it’s unable to sustain an open position. This will lead to your pending orders being deleted, and open positions being forcibly closed (also known as forced liquidation).') %]</p>
+                                <p>[% l('Once your account hits the forced liquidation level, your orders and positions are forcibly closed in the following order:') %]</p>
+                            </div>
+                            <div class="col-xs-12 col-md-10 center-align">
                                 <ul class="bullet no-margin-left">
-                                    <li>[% l('Trading 1 lot (100 Oz) of GOLD using 1:300 leverage with an account denominated in USD.') %]</li>
-                                    <li>[% l('Trade size = 100 Oz') %]</li>
-                                    <li>[% l('Market price = 1250.15') %]</li>
-                                    <li>[% l('Required Margin: 100 / 300 x 1250.15 = $416.71') %]</li>
+                                    <li>[% l('We analyse your pending orders.') %]</li>
+                                    <li>[% l('We delete an order with the largest margin reserved.') %]</li>
+                                    <li>[% l('If your margin level is still under the stop out level, your next order will be deleted. However, orders without margin requirements will not be deleted.') %]</li>
+                                    <li>[% l('If your margin level is still under the stop out level, we will close an open position with the largest loss.') %]</li>
+                                    <li>[% l('We will continue to close open positions until your margin level becomes higher than the stop out level.') %]</li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-sm middle-align">
-                            <p>[% l('Without margin the same size will cost you') %]</p>
-                            <div class="box fill-bg-color">
-                                <h4>[% l('100 x 1250.15 = $125,015') %]</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    [% INCLUDE static/common/separator_line.html.tt %]
-
-                    <div class="center-text">
-                        <h2>[% l('What’s a margin call and how do we apply it?') %]</h2>
-                        <p>[% l('When your account equity is unable to cover the margin requirement, your account will be placed under margin call. This state does not affect your ability to open new positions.') %]</p>
-
-                        <div class="fx-divider"></div>
-
-                        <h2>[% l('What’s a stop out level and how do we apply it?') %]</h2>
-                        <p>[% l('If your account is placed under margin call for an extended period of time, it will reach the stop out level where it’s unable to sustain an open position. This will lead to your pending orders being deleted, and open positions being forcibly closed (also known as forced liquidation).') %]</p>
-                        <p>[% l('Once your account hits the forced liquidation level, your orders and positions are forcibly closed in the following order:') %]</p>
-                    </div>
-
-                    <div class="col-xs-12 col-md-10 center-align">
-                        <ul class="bullet no-margin-left">
-                            <li>[% l('We analyse your pending orders.') %]</li>
-                            <li>[% l('We delete an order with the largest margin reserved.') %]</li>
-                            <li>[% l('If your margin level is still under the stop out level, your next order will be deleted. However, orders without margin requirements will not be deleted.') %]</li>
-                            <li>[% l('If your margin level is still under the stop out level, we will close an open position with the largest loss.') %]</li>
-                            <li>[% l('We will continue to close open positions until your margin level becomes higher than the stop out level.') %]</li>
-                        </ul>
                     </div>
                 </div>
             </div>
 
             <div id="metals-contract-specs">
                 <div class="container">
-                    <h2>[% l('Metals contract specifications') %]</h2>
+                    <div class="fx-section">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h2>[% l('Metals contract specifications') %]</h2>
 
-                    <div class="fx-divider"></div>
+                                <div class="table-container">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>[% l('Symbol') %]</th>
+                                                <th>[% l('Product description') %]</th>
+                                                <th>[% l('Lot size (Volume = 1.0)') %]</th>
+                                                <th>[% l('Minimum volume') %]</th>
+                                                <th>[% l('Minimum volume increment') %]</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            [% INCLUDE row string_1 = 'XAU/USD' string_2 = 'Gold vs US dollar'      string_3 = '100'  %]
+                                            [% INCLUDE row string_1 = 'XAG/USD' string_2 = 'Silver vs US dollar'    string_3 = '5000' %]
+                                            [% INCLUDE row string_1 = 'XPD/USD' string_2 = 'Palladium vs US dollar' string_3 = '100'  %]
+                                            [% INCLUDE row string_1 = 'XPT/USD' string_2 = 'Platinum vs US dollar'  string_3 = '100'  %]
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
 
-                    <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>[% l('Symbol') %]</th>
-                                    <th>[% l('Product description') %]</th>
-                                    <th>[% l('Lot size (Volume = 1.0)') %]</th>
-                                    <th>[% l('Minimum volume') %]</th>
-                                    <th>[% l('Minimum volume increment') %]</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                [% INCLUDE row string_1 = 'XAU/USD' string_2 = 'Gold vs US dollar'      string_3 = '100'  %]
-                                [% INCLUDE row string_1 = 'XAG/USD' string_2 = 'Silver vs US dollar'    string_3 = '5000' %]
-                                [% INCLUDE row string_1 = 'XPD/USD' string_2 = 'Palladium vs US dollar' string_3 = '100'  %]
-                                [% INCLUDE row string_1 = 'XPT/USD' string_2 = 'Platinum vs US dollar'  string_3 = '100'  %]
-                            </tbody>
-                        </table>
-                    </div>
+                        <div class="row flex-items-xs-center">
+                            <div class="box fill-bg-color">
+                                <h4>[% l('Maximum leverage') %]</h4>
+                                <ul class="bullet">
+                                    <li>[% l('Cent account: 1:1,000') %]</li>
+                                    <li>[% l('Standard account: 1:300') %]</li>
+                                    <li>[% l('STP account: 1:100') %]</li>
+                                </ul>
+                            </div>
+                        </div>
 
-                    <div class="fx-divider"></div>
+                        [% INCLUDE static/common/separator_line.html.tt %]
 
-                    <div class="row flex-items-xs-center">
-                        <div class="box fill-bg-color">
-                            <h4>[% l('Maximum leverage') %]</h4>
-                            <ul class="bullet">
-                                <li>[% l('Cent account: 1:1,000') %]</li>
-                                <li>[% l('Standard account: 1:300') %]</li>
-                                <li>[% l('STP account: 1:100') %]</li>
-                            </ul>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h2>[% l('How to read the table above') %]</h2>
+                                <p>[% l('Our metal pairs are typically traded in lots. One standard lot is equivalent to 100 units except silver where 1 lot equals 5.000 units. Each time you open a position on a symbol, you can start with a minimum transaction of 0.01 lots.') %]</p>
+                                <p>[% l('Leverage indicates how much capital you can control based on your initial deposit. For example, a 1:100 leverage will allow you to control up to USD 100,000 using only USD 1,000 of your own money as deposit.') %]</p>
+                                <p>[% l('To learn more, read our [_1]Margin Policy[_2] that further explains our 100% forced liquidation level for our metal pairs.', '<a href="' _ request.url_for('metals#metals-margin-policy') _'">', '</a>') %]</p>
+                            </div>
+                        </div>
+
+                        [% INCLUDE static/common/separator_line.html.tt %]
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h2>[% l('Important notes on our swap rates (overnight funding)') %]</h2>
+                                <p>[% l('If you keep any positions open overnight, an interest adjustment will be made to your trading account as indication of the cost required to keep your position open.') %]</p>
+                                <p>[% l('This interest adjustment (or swap rate) is based on interbank lending rates, on top of a 2% fee.') %]</p>
+                                <p>[% l('The interest adjustment is calculated in points, meaning we will convert the relevant interbank lending rates to points in the base currency.') %]</p>
+                                <p>[% l('Please take note that our swap rate also depends on the time and days you hold your positions open:') %]</p>
+                                <ul class="bullet">
+                                    <li>[% l('You will be subjected to swap rates if you keep a position open past 23:59:59 GMT.') %]</li>
+                                    <li>[% l('Positions that are still open on Wednesday at 23:59:59 GMT will be charged three times the swap rate to account for weekends – a standard practice for all brokers.') %]</li>
+                                    <li>[% l('Our swap rate may also be adjusted to take holidays into account.') %]</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-
-                    [% INCLUDE static/common/separator_line.html.tt %]
-
-                    <h2>[% l('How to read the table above') %]</h2>
-                    <p>[% l('Our metal pairs are typically traded in lots. One standard lot is equivalent to 100 units except silver where 1 lot equals 5.000 units. Each time you open a position on a symbol, you can start with a minimum transaction of 0.01 lots.') %]</p>
-                    <p>[% l('Leverage indicates how much capital you can control based on your initial deposit. For example, a 1:100 leverage will allow you to control up to USD 100,000 using only USD 1,000 of your own money as deposit.') %]</p>
-                    <p>[% l('To learn more, read our [_1]Margin Policy[_2] that further explains our 100% forced liquidation level for our metal pairs.', '<a href="' _ request.url_for('metals#metals-margin-policy') _'">', '</a>') %]</p>
-
-                    [% INCLUDE static/common/separator_line.html.tt %]
-
-                    <h2>[% l('Important notes on our swap rates (overnight funding)') %]</h2>
-                    <p>[% l('If you keep any positions open overnight, an interest adjustment will be made to your trading account as indication of the cost required to keep your position open.') %]</p>
-                    <p>[% l('This interest adjustment (or swap rate) is based on interbank lending rates, on top of a 2% fee.') %]</p>
-                    <p>[% l('The interest adjustment is calculated in points, meaning we will convert the relevant interbank lending rates to points in the base currency.') %]</p>
-                    <p>[% l('Please take note that our swap rate also depends on the time and days you hold your positions open:') %]</p>
-                    <ul class="bullet">
-                        <li>[% l('You will be subjected to swap rates if you keep a position open past 23:59:59 GMT.') %]</li>
-                        <li>[% l('Positions that are still open on Wednesday at 23:59:59 GMT will be charged three times the swap rate to account for weekends – a standard practice for all brokers.') %]</li>
-                        <li>[% l('Our swap rate may also be adjusted to take holidays into account.') %]</li>
-                    </ul>
                 </div>
             </div>
         </div>

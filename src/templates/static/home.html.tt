@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm flex-md-middle">
-                <h2>[% l('Gain access to our multi-asset trading platform and you can trade Forex, stocks, futures, and CFDs all through one platform.') %]</h2>
+                <h2 class="fx-features-title">[% l('Gain access to our multi-asset trading platform and you can trade Forex, stocks, futures, and CFDs all through one platform.') %]</h2>
                 <p>[% l('We provide you with all the necessary tools for financial trading, including:') %]</p>
             </div>
         </div>
@@ -38,9 +38,13 @@
     </div>
 </div>
 <div id="home-academy" class="fx-section fill-bg-color">
-    <div class="container center-text">
-        <h2>[% l('ChampionFX Academy') %]</h2>
-        <p>[% l('Improve your trading skills with our free educational & training resources.') %]</p>
+    <div class="container fx-section-padding center-text">
+        <div class="row">
+            <div class="col-md">
+                <h2 class="fx-features-title">[% l('ChampionFX Academy') %]</h2>
+                <p>[% l('Improve your trading skills with our free educational & training resources.') %]</p>
+            </div>
+        </div>
         <div class="row">
             <div class="fx-3-dots-line"></div>
             <div class="col-md-2 offset-md-3 pull-md-1">
@@ -68,7 +72,7 @@
                 <h2 class="fx-features-title">[% l('Why choose ChampionFX') %]</h2>
             </div>
         </div>
-        <div class="row fx-panel-container box bordered">
+        <div class="row fx-panel-container bordered">
           <div class="col-md">
               <div class="fx-panel">
                   <div class="fx-panel-item">

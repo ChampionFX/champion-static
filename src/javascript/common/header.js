@@ -74,15 +74,15 @@ const Header = (function () {
         setMetaTrader();
 
         const selectedTemplate = (text, value, icon) => (
-            `<div class="hidden-lg-up">
+            `<div class="hidden-lg-up invisible">
                  <a rel="#" class="selected" value="${value}">
                      <li><span class="fx ${icon}"></span>${text}</li>
                  </a>
              </div>`
         );
         const switchTemplate = (text, value, icon, type, item_class) => (
-            `<li>
-                <a href="javascript:;" value="${value}" class="${item_class}">
+            `<li class="${item_class}">
+                <a href="javascript:;" value="${value}">
                      <span class="hidden-lg-up fx ${icon}"></span>
                      <div class="account-id">${text}</div>
                      <div class="hidden-lg-down account-type">${type}</div>
@@ -107,7 +107,7 @@ const Header = (function () {
                     switchLoginId(curr_id);
                     return;
                 }
-                loginid_select += switchTemplate(curr_id, curr_id, icon, type, is_current ? 'mt-show' : '');
+                loginid_select += switchTemplate(curr_id, curr_id, icon, type, is_current ? (is_mt_pages ? 'mt-show' : 'invisible') : '');
             }
         });
 

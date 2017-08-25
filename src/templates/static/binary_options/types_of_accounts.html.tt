@@ -5,54 +5,45 @@
     </div>
 </div>
 
-<div id="binary-options-accounts" class="fx-section">
-    <div class="container">
+<div class="container">
+    <div class="fx-section">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>[% l('Binary options trading accounts') %]</h2>
+                <p>[% l('Ready to start trading binary options? Every client starts with a risk-free virtual account before upgrading to a real account.') %]</p>
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm">
-                [% INCLUDE components/page_title.html.tt title=l('Binary options trading accounts') %]
-                <p>[% l('Ready to start trading binary options? Every client starts with a risk-free virtual account before upgrading to a real account.') %]</p>
-                <div class="fx-divider"></div>
-                <div class="row">
+                <div class="row box-grid box-grid-align-start">
                     <div class="col-md-6">
                         <div class="box fill-bg-color">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <h3>[% l('Virtual Account') %]</h3>
-                                </div>
-                                <div class="col-sm pull-xs-1">
-                                    <ul class="bullet">
-                                        <li>[% l('Learn the ins and outs of binary options trading, risk-free') %]</li>
-                                        <li>[% l('Practice your trading strategy with USD 10,000 worth of virtual funds') %]</li>
-                                        <li>[% l('Replenish your virtual funds when your balance dips below USD 1,000') %]</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <p>
+                            <h4>[% l('Virtual Account') %]</h4>
+                            <ul class="bullet no-gutters">
+                                <li>[% l('Learn the ins and outs of binary options trading, risk-free') %]</li>
+                                <li>[% l('Practice your trading strategy with USD 10,000 worth of virtual funds') %]</li>
+                                <li>[% l('Replenish your virtual funds when your balance dips below USD 1,000') %]</li>
+                            </ul>
+                            <div class="box-item-end">
                                 <a class="button virtual-signup" href="[% request.url_for('home') %]#signup">
                                     <span>[% l('Sign up') %]</span>
                                 </a>
-                            </p>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="box fill-bg-color">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                <h3>[% l('Real Account') %]</h3>
-                                </div>
-                                <div class="col-sm pull-xs-1">
-                                    <ul class="bullet">
-                                        <li>[% l('Deposit as little as USD 5 to fund your account') %]</li>
-                                        <li>[% l('Start trading from as little as USD 5 per contract') %]</li>
-                                        <li>[% l('Win up to USD 50,000 with each correct prediction') %]</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <p>
+                            <h4>[% l('Real Account') %]</h4>
+                            <ul class="bullet no-gutters">
+                                <li>[% l('Deposit as little as USD 5 to fund your account') %]</li>
+                                <li>[% l('Start trading from as little as USD 5 per contract') %]</li>
+                                <li>[% l('Win up to USD 50,000 with each correct prediction') %]</li>
+                            </ul>
+                            <div class="box-item-end">
                                 <a class="button real-signup" href="[% request.url_for('new-account/real') %]">
                                     <span>[% l('Sign up') %]</span>
                                 </a>
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </div>

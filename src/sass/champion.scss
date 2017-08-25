@@ -76,15 +76,11 @@ h1.main-title {
         li {
             display: inline-block;
             margin: 0;
-            padding: 0 12px;
+            padding: 5px 12px;
 
             a {
-                text-decoration: none;
                 font-weight: 400;
-
-                &:hover {
-                    text-decoration: underline;
-                }
+                padding: 5px 1px;
             }
         }
     }
@@ -94,6 +90,160 @@ h1.main-title {
 .FX__Header__cta {
     text-align: right;
     margin-top: 20px;
+}
+
+// Desktop menu
+.menu-container {
+    margin: 0 15px;
+
+    #mobile_menu_icon span {
+        background: svg-url('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 12" width="32" height="32"><g fill="#{rgba($white, 1)}"><path d="M0 0h18v2h-18zM0 5h18v2h-18zM0 10h18v2h-18z"/></g></svg>') no-repeat left;
+        width: 32px;
+        height: 32px;
+        display: inline-block;
+        margin-right: 10px;
+    }
+    .menu-icon {
+        background: svg-url('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 12" width="32" height="32"><g fill="#{rgba($white, 1)}"><path d="M0 0h18v2h-18zM0 5h18v2h-18zM0 10h18v2h-18z"/></g></svg>') no-repeat left;
+        height: 75px;
+        margin-right: 10px !important;
+    }
+    #all-accounts li.has-sub {
+        &, ul, li {
+            margin: 0;
+        }
+        a {
+            line-height: 1.4em;
+            padding: 7px 0;
+        }
+        ul {
+            padding: 0;
+
+            a {
+                background: $borderColor;
+            }
+        }
+    }
+}
+
+// Mobile menu
+#mobile-menu.nav-menu {
+    ul, li ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    .nav-menu-dropdown {
+        top: 0;
+        left: 0;
+        position: absolute !important;
+        display: block;
+        opacity: 0;
+        z-index: 999;
+        height: 100%;
+        width: 300px;
+        background-color: $white;
+        border-right: 1px solid $borderColor;
+        box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.1);
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch; /* mobile safari */
+        li {
+            padding: 0;
+            margin: 0;
+        }
+        a {
+            border-top: 1px solid $borderColor;
+        }
+        a, span {
+            display: block;
+            color: $black !important;
+            text-align: center;
+            padding: 10px 0;
+            font-weight: 600;
+
+            .nav-menu-icon {
+                display: inline-block;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                width: 22px;
+                height: 22px;
+            }
+            &:hover {
+                background-color: $borderColor;
+            }
+        }
+        .submenu {
+            a {
+                text-align: left;
+                padding-left: 10px;
+            }
+        }
+    }
+    .selected {
+        background-color: $borderColor;
+    }
+    .pull-right {
+        float: right;
+        margin-right: 15px;
+        margin-left: -37px;
+    }
+    .pull-left {
+        float: left;
+        margin-left: 15px;
+    }
+}
+
+#account-info:hover {
+    color: $borderColor;
+}
+
+.right-align {
+    width: 100%;
+    float: right;
+    margin-right: 10px;
+}
+
+.slide-in {
+    -webkit-animation: slide-in 0.5s forwards;
+    animation: slide-in 0.5s forwards;
+}
+
+.slide-out {
+    -webkit-animation: slide-out 0.5s backwards;
+    animation: slide-out 0.5s backwards;
+}
+
+@keyframes slide-in {
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-out {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transfrom: translateX(-100%);
+    }
+}
+
+@-webkit-keyframes slide-in {
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes slide-out {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transfrom: translateX(-100%);
+    }
 }
 
 @keyframes pulsing {
@@ -215,14 +365,13 @@ h1.main-title {
             font-size: 13px;
         }
         ul {
-            margin: 5px 0 10px;
+            margin: 0 0 30px;
             padding: 0;
 
             li {
-                margin: 0;
+                margin-top: 0.3em;
 
                 a {
-                    font-weight: 400;
                     font-size: 13px;
 
                     &:hover {
@@ -310,7 +459,7 @@ h1.main-title {
 }
 
 .fx-panel-item {
-    padding: 15px 10px 15px 15px;
+    padding: 15px;
     display: block;
     height: 150px;
 
@@ -323,10 +472,14 @@ h1.main-title {
 
 // Page Sections
 .fx-section {
-    padding: 40px 10px;
+    margin: 40px 0;
 
     .fx-features-title {
-        margin-bottom: 50px;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+    > .row {
+        margin: 40px 0;
     }
 }
 
@@ -360,6 +513,10 @@ h1.main-title {
 
 .economic-calendar-header {
     background: url('../images/mt5/economic_calendar_banner.png') top left / cover no-repeat;
+}
+
+.partnerships-header {
+    background: url('../images/partnerships_banner.png') top left / cover no-repeat;
 }
 
 // Home page
@@ -462,7 +619,7 @@ h1.main-title {
 }
 
 #contact-us {
-    padding: 60px 0;
+    margin: 40px 0;
 
     .row-reverse {
         flex-direction: row-reverse;
@@ -1100,48 +1257,6 @@ iframe {
     padding: 0;
 }
 
-#fx-liquidity {
-    .separator {
-        margin: 40px 0;
-    }
-    .bold-title {
-        font-weight: bold;
-        margin-bottom: 0;
-    }
-    p {
-        margin-top: 5px;
-        margin-bottom: 0;
-    }
-    .box, .box-bordered {
-        margin: 20px 0;
-        padding: 20px;
-
-        &.box-col {
-            min-height: 290px;
-            @media (max-width: 997px) {
-                min-height: 235px;
-                margin-bottom: 0;
-            }
-        }
-        &.box-bordered {
-            border: 2px solid $fillColor;
-            background: none;
-            position: relative;
-            min-height: 210px;
-
-            .box-title {
-                position: absolute;
-                top: -20px;
-                left: 10px;
-                background: $white;
-                font-weight: bold;
-                color: $primaryBrandColor;
-                padding: 0 5px;
-            }
-        }
-    }
-}
-
 #choose_platform {
     .bordered-light {
         padding: 10px 30px 30px;
@@ -1152,7 +1267,7 @@ iframe {
 }
 
 #home-academy {
-    .row {
+    .row ~ .row {
         margin: 30px 0 20px;
         position: relative;
 
@@ -1200,62 +1315,5 @@ iframe {
 
     td {
         vertical-align: middle;
-    }
-}
-
-#mt5-accounts {
-    .box {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 20px 15px;
-        border: 3px solid $fillColor;
-        min-height: 460px;
-        @media (min-width: 767px) {
-            min-height: 545px;
-        }
-        @media (min-width: 961px) {
-            min-height: 460px;
-        }
-    }
-    p {
-        font-size: 12px;
-    }
-}
-
-#why-mt5 {
-    .box {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-        min-height: 100px;
-        @media (min-width: 575px) {
-            min-height: 205px;
-        }
-    }
-}
-
-.box-bordered {
-    border: 2px solid $fillColor;
-}
-
-#binary-options-accounts {
-    .box {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 30px;
-        min-height: 340px;
-    }
-}
-
-#trading-platform {
-    .box {
-        padding: 20px;
-
-        p {
-            margin: 0;
-        }
     }
 }
