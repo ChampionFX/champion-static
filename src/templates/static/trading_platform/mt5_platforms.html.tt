@@ -1,55 +1,66 @@
-<div class="row center-text">
-    <div class="col-sm">
-        <h3>[% l('For desktop') %]</h3>
-        <p>[% l('Download MT5 for your desktop or laptop to access the powerful tools and features enjoyed by millions of traders.') %]</p>
-        <div class="row">
-            <div class="col-sm-8 offset-sm-2 col-lg-4 offset-lg-0">
-                <div class="box box-bordered">
-                    <span class="fx fx-apple"></span>
-                    <a class="underline-link" href="https://s3.amazonaws.com/championfx/ChampionFX.dmg" target="_blank"><span>MacOS</span></a>
-                </div>
-            </div>
-            <div class="col-sm-8 offset-sm-2 col-lg-4 offset-lg-0">
-                <div class="box box-bordered">
-                    <span class="fx fx-windows"></span>
-                    <a class="underline-link" href="[% request.url_for('/download/championgroup_mt5_setup.exe') %]" target="_blank"><span>Windows</span></a>
-                </div>
-            </div>
-            <div class="col-sm-8 offset-sm-2 col-lg-4 offset-lg-0">
-                <div class="box box-bordered">
-                    <span class="fx fx-linux"></span>
-                    <a class="underline-link" href="https://www.metatrader5.com/en/terminal/help/start_advanced/install_linux" target="_blank"><span>Linux</span></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm">
-        <h3>[% l('For mobile') %]</h3>
-        <p>[% l('Access the markets anytime, anywhere using native apps for your iOS and android devices.') %]</p>
-        <div class="row">
-            <div class="col-sm-8 offset-sm-2 col-lg-4 offset-lg-2">
-                <div class="box box-bordered">
-                    <span class="fx fx-apple"></span>
-                    <a class="underline-link" href="https://download.mql5.com/cdn/mobile/mt5/ios?server=ChampionGroup-Server" target="_blank"><span>iOS</span></a>
-                </div>
-            </div>
-            <div class="col-sm-8 offset-sm-2 col-lg-4 offset-lg-0">
-                <div class="box box-bordered">
-                    <span class="fx fx-android"></span>
-                    <a class="underline-link" href="https://download.mql5.com/cdn/mobile/mt5/android?server=ChampionGroup-Server" target="_blank"><span>Android</span></a>
-                </div>
-            </div>
-        </div>
+<div class="primary-color-dark trading-platform-header">
+    <div class="fx-panel center-text center-vertical container">
+        <h1 class="content-inverse-color">[% l('Start Trading with MetaTrader 5') %]</h1>
+        <p class="content-inverse-color">[% l('We know that our traders require quick access to their trading accounts anywhere in the world, and at any time of the day. So, we offer the most efficient and powerful range of trading platforms. Browse our range of platforms and services, and start trading on your chosen device.') %]</p>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-sm">
-        <img class="responsive" src="[% request.url_for('images/mt5/mt5.jpg') %]" />
-    </div>
-    <div class="col-sm">
-        <h3>[% l('MetaTrader 5 web platform') %]</h3>
-        <p>[% l('Use the web platform from any Windows, MacOS, or Linux operating system &ndash; no download or installation required.') %]</p>
-        <a class="button" href="[% request.url_for('mt5-web-platform') %]"><span>[% l('Launch Platform') %]</span></a>
+<div class="container">
+    <div class=fx-section>
+        <div class="row center-text">
+            <div class="col-sm">
+                <h3>[% l('For desktop') %]</h3>
+                <p>[% l('Download MT5 for your desktop or laptop to access the powerful tools and features enjoyed by millions of traders.') %]</p>
+                <div class="row">
+                    <div class="col-sm-8 offset-sm-2 col-lg-4 offset-lg-0">
+                        <div class="box box-bordered">
+                            <span class="fx fx-apple"></span>
+                            <a class="underline-link" href="https://s3.amazonaws.com/championfx/ChampionFX.dmg" target="_blank"><span>MacOS</span></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-8 offset-sm-2 col-lg-4 offset-lg-0">
+                        <div class="box box-bordered">
+                            <span class="fx fx-windows"></span>
+                            <a class="underline-link" href="[% request.url_for('/download/championgroup_mt5_setup.exe') %]" target="_blank"><span>Windows</span></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-8 offset-sm-2 col-lg-4 offset-lg-0">
+                        <div class="box box-bordered">
+                            <span class="fx fx-linux"></span>
+                            <a class="underline-link" href="https://www.metatrader5.com/en/terminal/help/start_advanced/install_linux" target="_blank"><span>Linux</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <h3>[% l('For mobile') %]</h3>
+                <p>[% l('Access the markets anytime, anywhere using native apps for your iOS and android devices.') %]</p>
+                <div class="row">
+                    <div class="col-sm-8 offset-sm-2 col-lg-4 offset-lg-2">
+                        <div class="box box-bordered">
+                            <span class="fx fx-apple"></span>
+                            <a class="underline-link" href="https://download.mql5.com/cdn/mobile/mt5/ios?server=ChampionGroup-Server" target="_blank"><span>iOS</span></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-8 offset-sm-2 col-lg-4 offset-lg-0">
+                        <div class="box box-bordered">
+                            <span class="fx fx-android"></span>
+                            <a class="underline-link" href="https://download.mql5.com/cdn/mobile/mt5/android?server=ChampionGroup-Server" target="_blank"><span>Android</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <img class="responsive" src="[% request.url_for('images/mt5/mt5.jpg') %]" />
+            </div>
+            <div class="col-sm">
+                <h3>[% l('MetaTrader 5 web platform') %]</h3>
+                <p>[% l('Use the web platform from any Windows, MacOS, or Linux operating system &ndash; no download or installation required.') %]</p>
+                <a class="button" href="[% request.url_for('mt5-web-platform') %]"><span>[% l('Launch Platform') %]</span></a>
+            </div>
+        </div>
     </div>
 </div>
