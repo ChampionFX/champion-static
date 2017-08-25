@@ -15,14 +15,25 @@
 }
 
 #top_group.logged-in {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+
+    .notice-msg {
+        padding: 5px;
+    }
     #topbar {
         display: none;
     }
     .navbar__nav {
         top: 0;
+        @media (min-width: 1200px) {
+            height: 50px !important;
+        }
     }
     ~ #champion-container {
-        margin-top: 50px !important;
+        transition: margin-top 0.3s;
     }
 }
 

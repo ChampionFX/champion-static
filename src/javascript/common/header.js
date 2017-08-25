@@ -48,10 +48,21 @@ const Header = (function () {
 
         $('#header .logged-in').removeClass(hidden_class);
         $('#header').addClass('navbar--fixed');
+
+        // to be remove when we change notification ui
+        $(window).on('orientationchange resize', updateMobileMenuHeight);
+        updateMobileMenuHeight();
     };
 
     const updateBody = () => {
-        $('#champion-container').css('margin-top', $('#top_group').height());
+        const notificationBarHeight = $('#msg_notification').css('display') === 'block' ? $('#top_group').height() : 0;
+        const navbarHeight = 50;
+        $('#champion-container').css('margin-top', navbarHeight + notificationBarHeight);
+        updateMobileMenuHeight();
+    };
+
+    const updateMobileMenuHeight = () => {
+        $('.navbar__nav').height($(window).height() - $('#top_group').height());
     };
 
     const userMenu = function() {
