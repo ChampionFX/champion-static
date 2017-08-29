@@ -12,7 +12,7 @@
 
         <h2 class="center-text">[% l('Why trade with ChampionFX') %]</h2>
 
-        <div class="row fx-panel-container box bordered">
+        <div class="row fx-panel-container bordered">
             <div class="col-md">
                 <div class="fx-panel">
                     <div class="fx-panel-item">
@@ -36,7 +36,7 @@
             <div class="col-md">
                 <div class="fx-panel">
                     <div class="fx-panel-item">
-                        <div class="fx-xxs fx-unbeatable"></div>
+                        <div class="fx-xxs fx-flexible-leverage"></div>
                         <div>[% l('Unbeatable leverage up to 1,000:1') %]</div>
                     </div>
                     <div class="fx-panel-item">
