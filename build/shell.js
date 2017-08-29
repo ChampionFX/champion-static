@@ -1,4 +1,20 @@
 module.exports = function (grunt) {
+    var colors = {
+        error: '\\033[0;31m',
+        info : '\\033[0;32m',
+        warn : '\\033[1;33m',
+        reset: '\\033[0m',
+    };
+    var prompt = (message, type) => (`echo "${colors[type || 'info']}>>${colors.reset} ${message}"`);
+    var ghpagesCommand = () => (
+        [
+            `cd ${process.cwd()}/.grunt/grunt-gh-pages/gh-pages/all`,
+            prompt('Updating...'),
+            'git fetch origin gh-pages --quiet',
+            'git reset --hard origin/gh-pages --quiet'
+        ].join(' && ')
+    );
+
     return {
         compile_dev: {
             command: global.compileCommand('-f -d'),
@@ -23,7 +39,7 @@ module.exports = function (grunt) {
             options: {
                 callback: function (err, stdout, stderr, cb) {
                     if(!err) {
-                        if(grunt.option('cleanup')) {
+                        if(grunt.option('cleanup') || grunt.option('reset')) {
                             var origin = stdout.replace('\n', ''),
                                 CNAME;
                             if (origin === global.repo_info.origin) {
@@ -81,6 +97,22 @@ module.exports = function (grunt) {
                 },
                 stdout: false
             }
-        }
+        },
+        reset_ghpages: {
+            command: grunt.option('reset') ?
+                [
+                    ghpagesCommand(),
+                    prompt('Resetting to the first commit...'),
+                    'git reset $(git rev-list --max-parents=0 --abbrev-commit HEAD) --quiet',
+                    prompt('Pushing to origin...'),
+                    'git push origin gh-pages -f --quiet',
+                    prompt('Cleaning up...'),
+                    'git reset --hard origin/gh-pages --quiet'
+                ].join(' && ') :
+                prompt('Reset runs only when --reset is available.', 'warn'),
+            options: {
+                stdout: true
+            }
+        },
     }
 };
