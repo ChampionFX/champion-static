@@ -1,4 +1,5 @@
 const ChampionSocket   = require('./socket');
+const get_params       = require('./url').get_params;
 const isEmptyObject    = require('./utility').isEmptyObject;
 const showLoadingImage = require('./utility').showLoadingImage;
 const Validation       = require('./validation');
@@ -8,7 +9,7 @@ const FormManager = (() => {
 
     const forms = {};
 
-    const initForm = (form_selector, fields) => {
+    const initForm = (form_selector, fields, needs_token) => {
         const $form = $(`${form_selector}:visible`);
         const $btn = $form.find('button[type="submit"]');
         if ($form.length) {
@@ -17,6 +18,9 @@ const FormManager = (() => {
                 can_submit : true,
             };
             if (Array.isArray(fields) && fields.length) {
+                if (needs_token) {
+                    fields = fields.concat({ request_field: 'verification_code', value: get_params().token });
+                }
                 forms[form_selector].fields = fields;
 
                 fields.forEach((field) => {
@@ -31,7 +35,7 @@ const FormManager = (() => {
         }
         // handle firefox
         $btn.removeAttr('disabled');
-        Validation.init(form_selector, fields);
+        Validation.init(form_selector, fields, needs_token);
     };
 
     const getFormData = (form_selector) => {

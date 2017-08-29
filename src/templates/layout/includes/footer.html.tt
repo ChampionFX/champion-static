@@ -30,9 +30,9 @@
                         <div class="col-xs-6 col-md-3">
                             [% INCLUDE link_group title=l('Partnerships') items=[
                                 { link => 'partnerships-ib',          text => l("Introducing Broker (IB)") },
-                                { link => 'partnerships-affiliate',   text => l("Affiliate") },
-                                { link => 'partnerships-contributor', text => l("Content Contributor") },
                                 { link => 'liquidity-solutions',      text => l("Liquidity Solutions") }
+                                { link => 'partnerships-affiliate',   text => l("Affiliate Programme") },
+                                { link => 'partnerships-contributor', text => l("Content Contributor") },
                             ] %]
                         </div>
                         <div class="col-xs-6 col-md-3 mt-show">
@@ -41,7 +41,7 @@
                                 { link => 'cfd',    text => l("CFDs") },
                                 { link => 'metals', text => l("Metals") },
                                 { link => 'trading-platform/mt5-types-of-accounts', text => l("Types of accounts") },
-                                { link => 'trading-platform/metatrader-5',          text => l("MetaTrader 5 trading platforms") },
+                                { link => 'trading-platform/mt5-platforms',         text => l("MetaTrader 5 trading platforms") },
                             ] %]
                         </div>
                         <div class="col-xs-6 col-md-3 mt-hide">

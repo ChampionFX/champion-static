@@ -210,10 +210,6 @@ ul.checked.small > li {
     height: 1px !important;
 }
 
-.box {
-    margin-bottom: 2px;
-}
-
 .hint-msg {
     background: none;
     color: $darkGray;
@@ -233,6 +229,10 @@ ul.checked.small > li {
 
 .text-align-right {
     text-align: right;
+}
+
+.text-bold {
+    font-weight: bold;
 }
 
 .text-bordered {
@@ -384,17 +384,6 @@ ul.checked.small > li {
     }
 }
 
-.col-bordered {
-    margin-top: 20px;
-    margin-right: 20px;
-    border: 1px solid $primaryBrandColor;
-
-    .box {
-        height: 100%;
-        padding: 15px 0;
-    }
-}
-
 .yt-container {
     position: relative;
     width: 100%;
@@ -415,4 +404,62 @@ p {
 
 .img-md {
     height: 80px;
+}
+
+.has-tabs .ui-tabs-panel {
+    padding: 0;
+    margin-top: 40px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+
+    *:only-child {
+        margin: 0;
+    }
+    * {
+        margin-top: 0;
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    > .box-item-end {
+        margin-top: auto;
+    }
+    &-bordered {
+        border: 2px solid $fillColor;
+    }
+    &-title {
+        position: absolute;
+        top: -10px;
+        left: 25px;
+        background: $white;
+        font-weight: bold;
+        color: $primaryBrandColor;
+        padding: 0 5px;
+    }
+}
+
+.box-grid {
+    .box {
+        height: 100%;
+        min-height: 150px;
+    }
+    .row ~ .row {
+        margin-top: 30px;
+    }
+    &-align-start {
+        .box {
+            justify-content: flex-start;
+        }
+    }
+}
+
+.fx-section-padding {
+    padding: 40px 15px;
 }
