@@ -463,3 +463,100 @@ p {
 .fx-section-padding {
     padding: 40px 15px;
 }
+
+.notify {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+
+    .notify-bell:before {
+        content: url('../images/bell.svg');
+    }
+    .notify-bell-active:before {
+        content: url('../images/bell-active.svg');
+    }
+    .notify-bubble {
+        position: absolute;
+        background: $white;
+        border-radius: 5px;
+        min-width: 245px;
+        padding: 10px;
+        text-align: center;
+        z-index: 1;
+        top: 50px;
+        font-size: 14px;
+        box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        display: none;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-bottom-color: $white;
+            border-top: 0;
+            margin-left: -10px;
+            margin-top: -10px;
+        }
+    }
+    .toggle-notification {
+        position: relative;
+        margin-top: 15px;
+        cursor: pointer;
+    }
+}
+
+.notifications {
+    position: absolute;
+    right: -300px;
+    z-index: 999;
+    height: 100vh;
+    width: 300px;
+    top: 50px;
+    background-color: $fillColor;
+    transform: translateX(0);
+    transition: transform 0.3s;
+    overflow-y: auto;
+    box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.2);
+    @media (max-width: 575px) {
+        width: 100%;
+        right: -100%;
+    }
+
+    .notifications-header {
+        background-color: $white;
+        padding: 15px 10px;
+        color: $primaryBrandColor;
+        box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.2);
+        font-weight: 500;
+
+        .btn-close {
+            color: $primaryBrandColor;
+            float: right;
+            text-decoration: none;
+            cursor: pointer;
+
+            &:before {
+                content: url('../images/cross_blue.svg');
+            }
+        }
+    }
+    .notification {
+        background: $white;
+        margin: 10px;
+        box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1);
+
+        &-message {
+            padding: 15px 10px;
+            font-size: 14px;
+        }
+    }
+    &--show {
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+    }
+}

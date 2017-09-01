@@ -78,7 +78,7 @@
     [% END %]
     </ul>
 [% END %]
-            <div class="col-lg-7 hidden-lg-down vertical-center">
+            <div class="col-lg-6 hidden-lg-down vertical-center">
                 [% INCLUDE main_menu class='logged-out' items=[
                     { text=l('About Us') link='about-us' },
                     { text=l('MetaTrader 5') sub_items=[
@@ -106,7 +106,9 @@
                 ] %]
             </div>
 
-            <div class="col-lg-2 col-sm-4 col-xs-5 vertical-center">
+
+
+            <div class="col-lg-3 col-sm-4 col-xs-5 vertical-center">
                 <div class="right-align">
                     <div class="logged-out invisible">
                         <div id="main-login" class="hidden-lg-up">
@@ -132,6 +134,9 @@
                             [% PROCESS account_info %]
                         </a>
                     </div>
+
+                    <div class="notify logged-in invisible"></div>
+
                     <div id="main-logout" class="logged-in invisible hidden-lg-down">
                         <ul id="main-account" class="nav-menu main-nav hidden-lg-down">
                             <li class="account">
