@@ -70,7 +70,7 @@
         [% INCLUDE static/common/separator_line.html.tt %]
 
         <div class="row">
-            <div class="col-sm-12">
+            <!-- <div class="col-sm-12">
                 <h2>[% l('We provide our services worldwide') %]*</h2>
                 <div class="fx-divider"></div>
             </div>
@@ -78,7 +78,7 @@
             <div class="col-sm-8 offset-sm-2">
                 <img class="responsive" src="[% request.url_for('images/about/championfx_map.svg') %]" />
                 <p class="font-xs center-text hint">*[% l('Except Bosnia and Herzegovina, Costa Rica, Democratic People\'s Republic of Korea (DPRK), Ethiopia, Europe Union, Hong Kong, Iran, Iraq, Israel, Jersey, Malaysia, Malta, Syria, Uganda, United Kingdom, USA, Vanuatu or Yemen.') %]</p>
-            </div>
+            </div> -->
 
             <div class="col-sm-12">
                 <h2>[% l('Mission') %]</h2>
@@ -103,7 +103,7 @@
 
         [% INCLUDE static/common/separator_line.html.tt %]
 
-        <div class="row box-grid">
+        <div class="row box-grid box-grid-align-start">
             <div class="col-sm-12 center-text">
                 <h2>[% l('License') %]</h2>
             </div>
@@ -113,7 +113,7 @@
                         <img src="[% request.url_for('images/about/regulation_VSFC.png') %]" class="img-md" />
                         <h3>VSFC <br><small class="font-s">Vanuatu Financial Services Commission</small></h3>
                     </div>
-                    <p class="font-n">[% l('ChampionFX is fully regulated by the Vanuatu Financial Services Commission (VFSC) bearing license number 14772. Its registered office is located at Govant Building, Port Vila, P.O. Box 1276, Vanuatu, Republic of Vanuatu.') %]</p>
+                    <p class="font-n">[% l('ChampionFX is fully regulated by the Vanuatu Financial Services Commission (VFSC). Its registered office is located at Govant Building, Port Vila, P.O. Box 1276, Vanuatu, Republic of Vanuatu.') %]</p>
                 </div>
             </div>
             <div class="col-xs-12 push-md-1 col-md-5 col-bordered">
