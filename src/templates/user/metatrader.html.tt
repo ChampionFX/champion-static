@@ -76,7 +76,7 @@
                     description=l('Our MetaTrader 5 Cent account is ideal for new traders who want to start trading with a smaller capital.')
                     items=[
                         l('Offers the highest leverage – up to 1:1,000'),
-                        l('Fixed spreads'),
+                        l('Variable spreads'),
                         l('Instant execution'),
                         l('No commission'),
                     ] %]
@@ -84,7 +84,7 @@
                     description=l('Our MetaTrader 5 Standard account comes with mid-range leverage and variable spreads suitable for a wide range of traders.')
                     items=[
                         l('Leverage up to 1:300'),
-                        l('Variable spreads'),
+                        l('Tight spreads'),
                         l('Market execution'),
                         l('No commission'),
                     ] %]
@@ -92,7 +92,7 @@
                     description=l('Our MetaTrader 5 STP account provides you with the tightest spreads and connects you directly to the market.')
                     items=[
                         l('Leverage up to 1:100'),
-                        l('Variable spreads'),
+                        l('Our tightest spreads'),
                         l('Market execution'),
                         l('No commission'),
                     ] %]
