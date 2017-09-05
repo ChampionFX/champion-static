@@ -90,9 +90,9 @@
                         </tr>
                         <tr>
                             <td>[% l('Forex spread<sup>4</sup>') %]</td>
-                            <td>[% l('Fixed spreads') %]</td>
                             <td>[% l('Variable spreads') %]</td>
-                            <td>[% l('Variable spreads') %]</td>
+                            <td>[% l('Tight spreads') %]</td>
+                            <td>[% l('Our tightest spreads') %]</td>
                         </tr>
                         <tr>
                             <td>[% l('Commission<sup>5</sup>') %]</td>
@@ -149,7 +149,7 @@
 
                 <h4>[% l('4. Spread') %]</h4>
                 <div class="separator primary-color"></div>
-                <p>[% l('Is the difference between the buy price and sell price. When you enter into a trade, you are buying an asset that you will be selling at a later time or date for a profit or loss. The difference in price is called a spread. A fixed spread means that the spread will remain as it is no matter the market condition. A variable spread means that the spread may increase depending on market conditions, as it is subject to market volatility caused by news events.') %]</p>
+                <p>[% l('Is the difference between the buy price and sell price. When you enter into a trade, you are buying an asset that you will be selling at a later time or date for a profit or loss. The difference in price is called a spread. A variable spread means that the spread will remain as it is no matter the market condition. A variable spread means that the spread may increase depending on market conditions, as it is subject to market volatility caused by news events.') %]</p>
             </div>
             <div class="col-sm">
                 <h4>[% l('5. Commission') %]</h4>
