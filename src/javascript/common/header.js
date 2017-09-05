@@ -36,7 +36,7 @@ const Header = (function () {
             $('#top_group').removeClass('logged-in').find('.logged-out').removeClass(hidden_class);
             $('.trading-platform-header').removeClass(hidden_class);
             $('.navbar__brand, .navbar__toggle').removeClass('logged-in'); // show logo
-            $('#header').removeClass('navbar--fixed');
+            $('#header > .navbar').removeClass('navbar--fixed');
         }
     };
 
@@ -47,7 +47,7 @@ const Header = (function () {
         updateBody();
 
         $('#header .logged-in').removeClass(hidden_class);
-        $('#header').addClass('navbar--fixed');
+        $('#header > .navbar').addClass('navbar--fixed');
 
         // to be remove when we change notification ui
         $(window).on('orientationchange resize', updateMobileMenuHeight);

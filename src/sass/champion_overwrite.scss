@@ -11,9 +11,6 @@
 #top_group {
     .navbar__nav {
         top: -30px;
-        @media (min-width: 1200px) {
-            height: 50px !important;
-        }
     }
 }
 
@@ -31,6 +28,9 @@
     }
     .navbar__nav {
         top: 0;
+        @media (min-width: 1200px) {
+            height: 50px !important;
+        }
     }
     ~ #champion-container {
         transition: margin-top 0.3s;
