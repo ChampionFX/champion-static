@@ -1,6 +1,6 @@
 <div id="msg_notification" class="notice-msg center-text"></div>
 <div id="topbar" class="primary-color-dark logged-in">
-    <div class="menu-container">
+    <div class="container">
         <div class="row">
             <div class="col-sm-12 topbar-container flex-items-sm-middle">
                 <div class="topbar-contacts">

@@ -5,12 +5,23 @@
     .button, .button-secondary {
         white-space: nowrap;
         font-size: 12px;
+
+        span {
+            width: 97px;
+        }
     }
 }
 
 #top_group {
-    .navbar__nav {
-        top: -30px;
+    .navbar {
+        height: 76px;
+
+        .navbar__nav {
+            top: -30px;
+            @media (min-width: 1200px) {
+                height: 76px;
+            }
+        }
     }
 }
 
@@ -26,13 +37,18 @@
     #topbar {
         display: none;
     }
-    .navbar__nav {
-        top: 0;
-        @media (min-width: 1200px) {
-            height: 50px !important;
+    .navbar {
+        height: 50px;
+
+        .navbar__nav {
+            top: 0;
+            @media (min-width: 1200px) {
+                height: 50px;
+            }
         }
     }
     ~ #champion-container {
+        margin-top: 50px;
         transition: margin-top 0.3s;
     }
 }
