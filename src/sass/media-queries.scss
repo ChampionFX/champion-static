@@ -20,6 +20,9 @@
     .navbar__brand.logged-in {
         display: none;
     }
+    .navbar__button-group {
+        width: 100px;
+    }
 }
 
 @media (max-width: 767px) {
