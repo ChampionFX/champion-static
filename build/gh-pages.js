@@ -1,5 +1,5 @@
 module.exports = function (grunt) {
-    var is_cleanup   = !!grunt.option('cleanup'),
+    var is_cleanup   = !!grunt.option('cleanup') || !!grunt.option('reset'),
         cleanup_only = global.branch ? [global.branch_prefix + global.branch + '/**'] : (global.release_target ? ['**/*', '!beta/**', '!translations/**'] : ['**/*']),
         source       = global.branch ? [global.branch_prefix + global.branch + '/**'] : ['**/*', '!' + (global.branch_prefix || 'br_') + '*/**', '!translations/**', '!beta/**'];
 

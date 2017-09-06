@@ -27,22 +27,25 @@
                                             <p>[% l('Successful trading in the financial markets begins with a comfortable and multi-functional trading platform. MetaTrader 5 is the best choice for the modern trader. Now you can trade anytime and anywhere, with the global markets at your fingertips.') %]</p>
                                         </div>
                                     </div>
-                                    <div class="row box-grid center-text">
+                                    <div class="row box-grid box-grid-align-start center-text">
                                         <div class="col-sm">
                                             <h2>[% l('Why MetaTrader 5') %]</h2>
                                             <div class="row">
                                                 <div class="col-sm-4">
                                                     <div class="box fill-bg-color flex-sm-middle">
+                                                        <span class="fx-market-depth-info"></span>
                                                         <p>[% l('Market depth information') %]</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="box fill-bg-color flex-sm-middle">
+                                                        <span class="fx-expert-advisors"></span>
                                                         <p>[% l('Library of free, ready-to-use Expert Advisors') %]</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="box fill-bg-color flex-sm-middle">
+                                                        <span class="fx-friendly-ui"></span>
                                                         <p>[% l('User-friendly interface') %]</p>
                                                     </div>
                                                 </div>
@@ -50,16 +53,19 @@
                                             <div class="row">
                                                 <div class="col-sm-4">
                                                     <div class="box fill-bg-color flex-sm-middle">
+                                                        <span class="fx-one-click"></span>
                                                         <p>[% l('One-click trading') %]</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="box fill-bg-color flex-sm-middle">
+                                                        <span class="fx-copy-trading"></span>
                                                         <p>[% l('Trading signals and copy trading') %]</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="box fill-bg-color flex-sm-middle">
+                                                        <span class="fx-fundamental-analysis"></span>
                                                         <p>[% l('Fundamental analysis') %]</p>
                                                     </div>
                                                 </div>
@@ -67,16 +73,19 @@
                                             <div class="row">
                                                 <div class="col-sm-4">
                                                     <div class="box fill-bg-color flex-sm-middle">
+                                                        <span class="fx-tools-timeframes"></span>
                                                         <p>[% l('Over 75 analytical tools and 21 timeframes') %]</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="box fill-bg-color flex-sm-middle">
+                                                        <span class="fx-back-testing-tool"></span>
                                                         <p>[% l('High-speed back-testing tool to optimise trading strategies') %]</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="box fill-bg-color flex-sm-middle">
+                                                        <span class="fx-integrated-environment"></span>
                                                         <p>[% l('Integrated development environment for Expert Advisors') %]</p>
                                                     </div>
                                                 </div>

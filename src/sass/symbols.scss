@@ -522,3 +522,76 @@
     border-radius: 100%;
     background-color: $fillColor;
 }
+
+.fx-tools-timeframes:before {
+    content: url('../images/metatrader/analytical_tools_and_timeframes.svg');
+}
+
+.fx-fundamental-analysis:before {
+    content: url('../images/metatrader/fundamental_analysis.svg');
+}
+
+.fx-integrated-environment:before {
+    content: url('../images/metatrader/integrated_development_environment_for_expert_advisors.svg');
+}
+
+.fx-market-depth-info:before {
+    content: url('../images/metatrader/market_depth_information.svg');
+}
+
+.fx-one-click:before {
+    content: url('../images/metatrader/one_click_trading.svg');
+}
+
+.fx-expert-advisors:before {
+    content: url('../images/metatrader/ready_to_use_expert_advisors.svg');
+}
+
+.fx-copy-trading:before {
+    content: url('../images/metatrader/trading_signals_and_copy_trading.svg');
+}
+
+.fx-friendly-ui:before {
+    content: url('../images/metatrader/user_friendly_interface.svg');
+}
+
+.fx-back-testing-tool:before {
+    content: url('../images/metatrader/back_testing_tool.svg');
+}
+
+// Binary options
+.fx-payouts:before {
+    content: url('../images/binary_options/competitive_payouts.svg');
+}
+
+.fx-risk:before {
+    content: url('../images/binary_options/controlled_risk.svg');
+}
+
+.fx-easy-trade:before {
+    content: url('../images/binary_options/easy_to_trade.svg');
+}
+
+.fx-low-stakes:before {
+    content: url('../images/binary_options/low_stakes.svg');
+}
+
+.fx-no-surprises:before {
+    content: url('../images/binary_options/no_surprises.svg');
+}
+
+.fx-sharp-prices:before {
+    content: url('../images/binary_options/sharp_prices.svg');
+}
+
+.fx-simple:before {
+    content: url('../images/binary_options/simple_and_intuitive.svg');
+}
+
+.fx-world-square:before {
+    content: url('../images/binary_options/trade_the_worlds_markets.svg');
+}
+
+.fx-wide-products:before {
+    content: url('../images/binary_options/wide_product_range.svg');
+}
