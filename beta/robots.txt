@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /ja/
+Sitemap: https://www.champion-fx.com/sitemap.xml

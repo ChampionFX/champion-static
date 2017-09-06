@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <style>.cls-1{fill:#004385;}</style>
+  </defs>
+  <polygon class="cls-1" points="2 2 28 2 28 10 30 10 30 0 28 0 2 0 0 0 0 2 0 22 0 24 14 24 12 30 0 30 0 32 18 32 18 30 18 24 18 22 2 22 2 2"/>
+  <path class="cls-1" d="M30,12H20V32H32V12Zm0,14H22V14h8Z"/>
+</svg>

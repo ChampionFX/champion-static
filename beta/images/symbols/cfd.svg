@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-18615 -18079 38 38">
+  <defs>
+    <style>
+      .cls-1, .cls-4 {
+        fill: none;
+      }
+
+      .cls-1 {
+        stroke: #004385;
+        stroke-width: 1px;
+      }
+
+      .cls-2 {
+        fill: #004385;
+        font-size: 17px;
+        font-family: GothamBold, Gotham Bold;
+        letter-spacing: -0.1em;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="group-59" transform="translate(-19289 -19026)">
+    <g id="rectangle-19" class="cls-1" transform="translate(674 947)">
+      <rect class="cls-3" width="38" height="38"/>
+      <rect class="cls-4" x="0.5" y="0.5" width="37" height="37"/>
+    </g>
+    <text id="CFD" class="cls-2" transform="translate(676 972)"><tspan x="0" y="0">CFD</tspan></text>
+  </g>
+</svg>
