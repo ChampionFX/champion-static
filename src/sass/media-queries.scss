@@ -69,6 +69,18 @@
     }
 }
 
+// desktop breakpoint for header is 1024px
+@media (min-width: 1024px) {
+    #topbar, #header {
+        .hidden-lg-up {
+            display: none !important;
+        }
+        .hidden-lg-down {
+            display: inline-block !important;
+        }
+    }
+}
+
 @media (max-width: 1199px) {
     .hidden-lg-down {
         display: none !important;
