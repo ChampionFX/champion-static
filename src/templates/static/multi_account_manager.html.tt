@@ -92,12 +92,18 @@
                     <h4>[% l('Download MAM') %]</h4>
                     <p>[% l('Download the MAM application after setup is completed. Log in with your master account credentials.') %]</p>
                 </div>
+                <div class="fx-arrow-right hidden-md-down">
+                    <span class="fx-arrow-right-icon"></span>
+                </div>
             </div>
             <div class="col-md-8 push-md-2 col-lg-4 push-lg-0">
                 <div class="box">
                     <span class="fx fx-manage-subaccounts"></span>
                     <h4>[% l('Manage sub accounts') %]</h4>
                     <p>[% l('Monitor and manage your client list, set allocations and exclusions for individual sub accounts, and more.') %]</p>
+                </div>
+                <div class="fx-arrow-right hidden-md-down">
+                    <span class="fx-arrow-right-icon"></span>
                 </div>
             </div>
             <div class="col-sm-12">

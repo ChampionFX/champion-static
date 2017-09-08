@@ -474,8 +474,14 @@
     content: url('../images/multi_account_manager/fx_view_all.svg');
 }
 
+.fx-arrow-right {
+    position: absolute;
+    left: 0;
+    top: 25%;
+}
+
 .fx-arrow-right-icon {
-    background: url('../images/multi_account_manager/fx_arrow_right.svg');
+    content: url('../images/multi_account_manager/fx_arrow_right.svg');
 }
 
 // Home
