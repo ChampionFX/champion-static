@@ -42,7 +42,7 @@ sub all_pages {
         ['partnerships-contributor',   'static/partnerships/partnerships_contributor', 'full_width', 'Content Contributor programme'],
         ['partnerships-ib',            'static/partnerships/partnerships_ib',          'full_width', 'Introducing Broker'],
         ['liquidity-solutions',        'static/liquidity_solutions',                   'full_width', 'Liquidity Solutions'],
-        ['multi-account-manager',      'static/multi_account_manager',                   'full_width', 'Multiple Accounts Manager'],
+        ['multi-account-manager',      'static/multi_account_manager',                 'full_width', 'Multiple Accounts Manager'],
 
         ['terms-and-conditions',       'legal/tac',                    'full_width', 'Terms and Conditions'],
 
