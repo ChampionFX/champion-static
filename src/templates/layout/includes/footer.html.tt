@@ -31,6 +31,7 @@
                             [% INCLUDE link_group title=l('Partnerships') items=[
                                 { link => 'partnerships-ib',          text => l("Introducing Broker (IB)") },
                                 { link => 'liquidity-solutions',      text => l("Liquidity Solutions") }
+                                { link => 'multiple-accounts-manager',text => l("Multiple Accounts Manager") }
                                 { link => 'partnerships-affiliate',   text => l("Affiliate Programme") },
                                 { link => 'partnerships-contributor', text => l("Content Contributor") },
                             ] %]
