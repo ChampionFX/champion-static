@@ -116,7 +116,7 @@ const Champion = (function() {
             'metatrader-5'         : { module: MT5 },
             'champion-trader'      : { module: ClientType },
             'economic-calendar'    : { module: ClientType },
-            'mt5-types-of-accounts': { module: MT5 },
+            'mt5-types-of-accounts': {},
         };
         if (page in pages_map) {
             loadHandler(pages_map[page]);
