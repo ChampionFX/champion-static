@@ -108,7 +108,7 @@
             </div>
             <div class="col-sm-12">
                 <p class="center-text">
-                    <a class="button" href="#">
+                    <a class="button" href="https://s3.amazonaws.com/binary-mt5/championfx_mam.rar">
                         <span>[% l('Download now') %]</span>
                     </a>
                 </p>
