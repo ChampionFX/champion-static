@@ -115,7 +115,7 @@
             </div>
             <div class="col-md-10 push-md-1">
                 <div class="box center-text fill-bg-color">
-                    <span>[% l('Interested in our MAM tool for MetaTrader 5? Contact us at marketing@binary.com for more info.') %]</span>
+                    <span>[% l('Interested in our MAM tool for MetaTrader 5? Contact us at [_1] for more info.', '<a href="mailto:marketing@champion-fx.com">marketing@champion-fx.com</a>') %]</span>
                 </div>
             </div>
         </div>
