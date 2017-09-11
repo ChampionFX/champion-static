@@ -1,12 +1,12 @@
 const getLanguage = require('./language').getLanguage;
 
-function url_for(path, params) {
+function url_for(path, params, language) {
     if (!path) {
         path = '';
     } else if (path.length > 0 && path[0] === '/') {
         path = path.substr(1);
     }
-    const lang = getLanguage().toLowerCase();
+    const lang = (language || getLanguage()).toLowerCase();
     let url = '';
     if (typeof window !== 'undefined') {
         url  = window.location.href;
@@ -43,7 +43,7 @@ function url_for_static(path) {
 }
 
 function default_redirect_url() {
-    return url_for('user/metatrader');
+    return url_for('user/choose-platform');
 }
 
 function get_params() {

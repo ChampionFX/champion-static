@@ -16,43 +16,44 @@
 [% END %]
 
 <div class="primary-color-dark cfd-header">
-    <div class="fx-panel center-text container">
+    <div class="fx-panel center-text center-vertical container">
         <h1 class="content-inverse-color">[% l('Contracts for Difference (CFDs)') %]</h1>
         <p class="content-inverse-color">[% l('Trade Contracts for Difference (CFDs) on popular indices and more on our MetaTrader 5 platform.') %]</p>
-        <div class="offset-lg-4 offset-md-2">
-            [% INCLUDE layout/includes/signup.html.tt %]
-        </div>
     </div>
 </div>
 
 <div class="row">
     <div class="col-sm" id="content">
         <div class="has-tabs invisible">
-            <ul class="row container center-align">
-                <li class="col-sm"><a href="#what-is-cfd">[% l('What is CFD trading') %]</a></li>
-                <li class="col-sm"><a href="#how-to-trade-cfd">[% l('How to trade CFDs') %]</a></li>
-                <li class="col-sm"><a href="#indices-cfd">[% l('Indices CFD') %]</a></li>
-                <li class="col-sm"><a href="#indices-cfd-margin-policy">[% l('Indices CFD margin policy') %]</a></li>
-                <li class="col-sm"><a href="#indices-cfd-contract-specs">[% l('Indices CFD contract specifications') %]</a></li>
-            </ul>
+            <div class="container">
+                <ul class="row center-align">
+                    <li class="col-sm"><a href="#what-is-cfd">[% l('What is CFD trading') %]</a></li>
+                    <li class="col-sm"><a href="#how-to-trade-cfd">[% l('How to trade CFDs') %]</a></li>
+                    <li class="col-sm"><a href="#indices-cfd">[% l('Indices CFD') %]</a></li>
+                    <li class="col-sm"><a href="#indices-cfd-margin-policy">[% l('Indices CFD margin policy') %]</a></li>
+                    <li class="col-sm"><a href="#indices-cfd-contract-specs">[% l('Indices CFD contract specifications') %]</a></li>
+                </ul>
+            </div>
 
             <div id="what-is-cfd">
-                <div class="container lg-padding">
-                    <div class="row">
-                        <div class="col-sm">
-                            <p>[% l('A Contract for Difference (CFD) is a financial derivative that allows you to potentially profit by speculating on the rise or fall of an underlying asset, without actually owning that asset.') %]</p>
-                        </div>
-                        <div class="col-sm">
-                            <p>[% l('The movement of a CFD follows the movement of its underlying asset. This also determines your profit or loss – depending on the position that you have taken.') %]</p>
-                        </div>
-                        <div class="col-sm">
-                            <p>[% l('One important thing to note is the similarity of CFDs and binary options –– they are essentially contracts between you and a broker. You do not actually own the underlying asset. There’s also a wide range of underlying markets available for you to trade, depending on your broker.') %]</p>
+                <div class="fx-section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <p>[% l('A Contract for Difference (CFD) is a financial derivative that allows you to potentially profit by speculating on the rise or fall of an underlying asset, without actually owning that asset.') %]</p>
+                            </div>
+                            <div class="col-sm">
+                                <p>[% l('The movement of a CFD follows the movement of its underlying asset. This also determines your profit or loss – depending on the position that you have taken.') %]</p>
+                            </div>
+                            <div class="col-sm">
+                                <p>[% l('One important thing to note is the similarity of CFDs and binary options –– they are essentially contracts between you and a broker. You do not actually own the underlying asset. There’s also a wide range of underlying markets available for you to trade, depending on your broker.') %]</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="fill-bg-color lg-padding">
-                    <div class="container">
+                <div class="fill-bg-color fx-section">
+                    <div class="container fx-section-padding">
                         <h2 class="center-text">[% l('Advantages of CFD trading') %]</h2>
                         <div class="row lg-padding no-gutters">
                             <div class="col-sm">
@@ -89,81 +90,87 @@
                     </div>
                 </div>
 
-                <div class="container lg-padding">
-                    <h2>[% l('What you can trade with CFDs') %]</h2>
-                    <p>[% l('Contracts for difference (CFDs) allow you to speculate on a number of markets, including indices, shares, and commodities. At ChampionFX, we offer popular indices that you can trade with leverage of up to 1:500.') %]</p>
+                <div class="fx-section">
+                    <div class="container">
+                        <h2>[% l('What you can trade with CFDs') %]</h2>
+                        <p>[% l('Contracts for difference (CFDs) allow you to speculate on a number of markets, including indices, shares, and commodities. At ChampionFX, we offer popular indices that you can trade with leverage of up to 1:500.') %]</p>
+                    </div>
                 </div>
             </div>
 
             <div id="how-to-trade-cfd">
                 <div class="container">
-                    <h2>[% l('How to trade CFDs') %]</h2>
-                    <p>[% l('We explain a few things you need to know before you start trading CFDs.') %]</p>
-
-                    <div class="fx-divider"></div>
-
-                    <div class="row">
-                        <div class="col-sm middle-align">
-                            <div class="lg-padding no-gutters">
-                                <h3>[% l('When to buy and sell') %]</h3>
-                                <p>[% l('When you are trading CFDs, you can choose to open a buy position (if you think that the price will rise) or a sell position (if you think that the price will fall).') %]</p>
+                    <div class="fx-section">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h2>[% l('How to trade CFDs') %]</h2>
+                                <p>[% l('We explain a few things you need to know before you start trading CFDs.') %]</p>
                             </div>
                         </div>
-                        <div class="col-sm margin-top-bottom">
-                            <div class="box bordered">
-                                <div class="center-text">
-                                    <img class="fx-md" src="[% request.url_for('images/mt5/high.svg') %]">
+
+                        <div class="row">
+                            <div class="col-sm middle-align">
+                                <div class="lg-padding no-gutters">
+                                    <h3>[% l('When to buy and sell') %]</h3>
+                                    <p>[% l('When you are trading CFDs, you can choose to open a buy position (if you think that the price will rise) or a sell position (if you think that the price will fall).') %]</p>
                                 </div>
-                                <div class="center-text lg-padding">
-                                    <button class="button">[% l('Buy') %]</button>
+                            </div>
+                            <div class="col-sm margin-top-bottom">
+                                <div class="box bordered">
+                                    <div class="center-text">
+                                        <img class="fx-md" src="[% request.url_for('images/mt5/high.svg') %]">
+                                    </div>
+                                    <div class="center-text lg-padding">
+                                        <button class="button">[% l('Buy') %]</button>
+                                    </div>
+                                    <div class="separator primary-color"></div>
+                                    <p>[% l('In this case, you predict that the price will rise. This is also known as ‘going long’.') %]</p>
                                 </div>
-                                <div class="separator primary-color"></div>
-                                <p>[% l('In this case, you predict that the price will rise. This is also known as ‘going long’.') %]</p>
+                            </div>
+                            <div class="col-sm margin-top-bottom">
+                                <div class="box bordered">
+                                    <div class="center-text">
+                                        <img class="fx-md" src="[% request.url_for('images/mt5/low.svg') %]">
+                                    </div>
+                                    <div class="center-text lg-padding">
+                                        <button class="button">[% l('Sell') %]</button>
+                                    </div>
+                                    <div class="separator primary-color"></div>
+                                    <p>[% l('In this case, you predict that the price will fall. This is also known as ‘going short’.') %]</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-sm margin-top-bottom">
-                            <div class="box bordered">
-                                <div class="center-text">
-                                    <img class="fx-md" src="[% request.url_for('images/mt5/low.svg') %]">
-                                </div>
-                                <div class="center-text lg-padding">
-                                    <button class="button">[% l('Sell') %]</button>
-                                </div>
-                                <div class="separator primary-color"></div>
-                                <p>[% l('In this case, you predict that the price will fall. This is also known as ‘going short’.') %]</p>
+
+                        <div class="row flex-items-xs-center">
+                            <div class="box fill-bg-color">
+                                <h4>[% l('Let’s use the US 100 index as an example:') %]</h4>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <p>[% l('If you decide to buy or ‘go long’ on the US 100 index, your profit will continue to increase as long as the price of the US 100 index keeps rising. However, if the price falls, the losses you incur will also increase.') %]</p>
+                                <p>[% l('The opposite is true if you decide to sell or ‘go short’ on the US 100 index. This means that your profit will continue to increase as long as the price of the US 100 index keeps falling. However, if the price rises, the losses you incur will also increase.') %]</p>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="fx-divider"></div>
+                        [% INCLUDE static/common/separator_line.html.tt %]
 
-                    <div class="row flex-items-xs-center">
-                        <div class="box fill-bg-color">
-                            <h4>[% l('Let’s use the US 100 index as an example:') %]</h4>
-                        </div>
-                    </div>
-
-                    <p>[% l('If you decide to buy or ‘go long’ on the US 100 index, your profit will continue to increase as long as the price of the US 100 index keeps rising. However, if the price falls, the losses you incur will also increase.') %]</p>
-                    <p>[% l('The opposite is true if you decide to sell or ‘go short’ on the US 100 index. This means that your profit will continue to increase as long as the price of the US 100 index keeps falling. However, if the price rises, the losses you incur will also increase.') %]</p>
-
-                    [% INCLUDE static/common/separator_line.html.tt %]
-
-                    <div class="row">
-                        <div class="col-sm">
-                            <div class="box">
-                                <h4>[% l('How to calculate your profits and losses') %]</h4>
-                                <div class="separator primary-color"></div>
-                                <p>[% l('Let’s say a US 100 contract is worth USD 1 per point in the underlying asset. If you decide to ‘go long’ on the US 100, and the asset price rises by 10 points, that represents a USD 10 profit for you.') %]</p>
-                                <p>[% l('However, if the asset price falls by 10 points, that represents a USD 10 loss for you.') %]</p>
-                                <p>[% l('To learn more, please read our [_1]contract specifications[_2].', '<a href="' _ request.url_for('cfd#indices-cfd-contract-specs') _ '">', '</a>') %]</p>
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="box">
+                                    <h4>[% l('How to calculate your profits and losses') %]</h4>
+                                    <div class="separator primary-color"></div>
+                                    <p>[% l('Let’s say a US 100 contract is worth USD 1 per point in the underlying asset. If you decide to ‘go long’ on the US 100, and the asset price rises by 10 points, that represents a USD 10 profit for you.') %]</p>
+                                    <p>[% l('However, if the asset price falls by 10 points, that represents a USD 10 loss for you.') %]</p>
+                                    <p>[% l('To learn more, please read our [_1]contract specifications[_2].', '<a href="' _ request.url_for('cfd#indices-cfd-contract-specs') _ '">', '</a>') %]</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm">
-                            <div class="box">
-                                <h4>[% l('How to close a position') %]</h4>
-                                <div class="separator primary-color"></div>
-                                <p>[% l('When you decide to close an open contract, you only need to take the opposite position in order to close the contract.') %]</p>
-                                <p>[% l('For example, if you buy a US 100 contract and it’s not going as planned, you just need to sell it to cut your losses at the current market price.') %]</p>
+                            <div class="col-sm">
+                                <div class="box">
+                                    <h4>[% l('How to close a position') %]</h4>
+                                    <div class="separator primary-color"></div>
+                                    <p>[% l('When you decide to close an open contract, you only need to take the opposite position in order to close the contract.') %]</p>
+                                    <p>[% l('For example, if you buy a US 100 contract and it’s not going as planned, you just need to sell it to cut your losses at the current market price.') %]</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -172,117 +179,136 @@
 
             <div id="indices-cfd">
                 <div class="container">
-                    <h2>[% l('ChampionFX indices CFD') %]</h2>
-                    <p>[% l('Want to trade CFDs on our MetaTrader 5 platform? We’ve handpicked leading world indices that you can trade with leverage of up to 1:500.') %]</p>
-                </div>
-
-                <div class="fx-divider"></div>
-
-                <div class="fill-bg-color lg-padding">
-                    <div class="container center-text">
-                        <h2>[% l('What are indices?') %]</h2>
-                        <div class="lg-padding">[% l('An index (plural: indices) measures the performance of a selected group of assets. It is often used as a tool by investors to gauge the overall performance of a specific market.') %]</div>
-                        <div class="lg-padding">[% l('The most popular category of indices is stock market indices. For example, the Dow Jones Industrial Average (DJIA) index shows how 30 public companies based in the United States perform in the stock market.') %]</div>
-                        <div class="lg-padding">[% l('Since an index serves as an indicator of multiple assets, you cannot trade an index like how you would buy and sell stocks. Instead, you need to use a financial derivative product such as a Contract for Difference (CFD) to speculate and profit on the price movement of an index.') %]</div>
+                    <div class="fx-section">
+                        <div class="row">
+                            <div class="col-sm">
+                                <h2>[% l('ChampionFX indices CFD') %]</h2>
+                                <p>[% l('Want to trade CFDs on our MetaTrader 5 platform? We’ve handpicked leading world indices that you can trade with leverage of up to 1:500.') %]</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="fx-divider"></div>
+                <div class="fill-bg-color fx-section">
+                    <div class="container fx-section-padding center-text">
+                        <div class="row">
+                            <div class="col-sm">
+                                <h2>[% l('What are indices?') %]</h2>
+                                <div class="lg-padding">[% l('An index (plural: indices) measures the performance of a selected group of assets. It is often used as a tool by investors to gauge the overall performance of a specific market.') %]</div>
+                                <div class="lg-padding">[% l('The most popular category of indices is stock market indices. For example, the Dow Jones Industrial Average (DJIA) index shows how 30 public companies based in the United States perform in the stock market.') %]</div>
+                                <div class="lg-padding">[% l('Since an index serves as an indicator of multiple assets, you cannot trade an index like how you would buy and sell stocks. Instead, you need to use a financial derivative product such as a Contract for Difference (CFD) to speculate and profit on the price movement of an index.') %]</div class="lg-padding">
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="container">
-                    <h2>[% l('Why you should trade indices with ChampionFX') %]</h2>
-                    <div class="row">
-                        <div class="col-sm">
-                            <h4>[% l('Popular indices') %]</h4>
-                            <div class="separator primary-color"></div>
-                            <p>[% l('Trade popular indices such as the US 500, Germany 30, Japan 225, and Euro 50.') %]</p>
-                        </div>
-                        <div class="col-sm">
-                            <h4>[% l('Available anywhere') %]</h4>
-                            <div class="separator primary-color"></div>
-                            <p>[% l('Trade from wherever you are with our MT5 desktop, web, and mobile apps.') %]</p>
-                        </div>
-                        <div class="col-sm">
-                            <h4>[% l('Go long and short') %]</h4>
-                            <div class="separator primary-color"></div>
-                            <p>[% l('Trade long and short positions, depending on your preferred strategy.') %]</p>
+                    <div class="fx-section">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h2>[% l('Why you should trade indices with ChampionFX') %]</h2>
+                            </div>
+                            <div class="col-sm">
+                                <h4>[% l('Popular indices') %]</h4>
+                                <div class="separator primary-color"></div>
+                                <p>[% l('Trade popular indices such as the US 500, Germany 30, Japan 225, and Euro 50.') %]</p>
+                            </div>
+                            <div class="col-sm">
+                                <h4>[% l('Available anywhere') %]</h4>
+                                <div class="separator primary-color"></div>
+                                <p>[% l('Trade from wherever you are with our MT5 desktop, web, and mobile apps.') %]</p>
+                            </div>
+                            <div class="col-sm">
+                                <h4>[% l('Go long and short') %]</h4>
+                                <div class="separator primary-color"></div>
+                                <p>[% l('Trade long and short positions, depending on your preferred strategy.') %]</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <p class="center-text">
+                                    [% l('Got questions?[_1] Read our FAQ or[_2] [_3]contact us[_4].', '<span class="invisible">', '</span>', '<a href="' _ request.url_for('contact') _ '">', '</a>') %]
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <p class="center-text">
-                        [% l('Got questions?[_1] Read our FAQ or[_2] [_3]contact us[_4].', '<span class="invisible">', '</span>', '<a href="' _ request.url_for('contact') _ '">', '</a>') %]
-                    </p>
                 </div>
             </div>
 
             <div id="indices-cfd-margin-policy">
                 <div class="container">
-                    <h2>[% l('Indices CFD margin policy') %]</h2>
-                    <p>[% l('Learn more about our margin policy to gain a better understanding of how indices trading works.') %]</p>
-
-                    [% INCLUDE static/common/separator_line.html.tt %]
-
-                    <div class="row">
-                        <div class="col-sm">
-                            <h3>[% l('What is margin?') %]</h3>
-                            <p>[% l('Margin allows you to trade on leverage – giving you the same level of market exposure using much less capital.') %]</p>
-                            <p>[% l('With leverage, you can purchase 100 units of the same asset at a fraction of the cost.') %]</p>
-                        </div>
-                        <div class="col-sm">
-                            <div class="box bordered">
-                                <h4>[% l('For example') %]</h4>
-                                <div class="separator primary-color"></div>
-                                <p>[% l('If you wanted to purchase 100 units of a particular asset trading at USD 50 per unit through a traditional broker, it would cost you USD 5,000 for this transaction.') %]</p>
+                    <div class="fx-section">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h2>[% l('Indices CFD margin policy') %]</h2>
+                                <p>[% l('Learn more about our margin policy to gain a better understanding of how indices trading works.') %]</p>
                             </div>
                         </div>
-                    </div>
 
-                    [% INCLUDE static/common/separator_line.html.tt %]
+                        [% INCLUDE static/common/separator_line.html.tt %]
 
-                    <div class="row">
-                        <div class="col-sm">
-                            <h3>[% l('How is margin calculated?') %]</h3>
-                            <p>[% l('The margin for indices is calculated as follows:') %]</p>
-                            <div class="box fill-bg-color margin-top-bottom">
-                                <h4>[% l('Volume (trade size) x price x margin rate = Margin') %]</h4>
+                        <div class="row">
+                            <div class="col-sm">
+                                <h3>[% l('What is margin?') %]</h3>
+                                <p>[% l('Margin allows you to trade on leverage – giving you the same level of market exposure using much less capital.') %]</p>
+                                <p>[% l('With leverage, you can purchase 100 units of the same asset at a fraction of the cost.') %]</p>
                             </div>
-                        </div>
-                        <div class="col-sm">
-                            <div class="box bordered">
-                                <h4>[% l('For example') %]</h4>
-                                <div class="separator primary-color"></div>
-                                <p>[% l('If you buy 1 Volume of an underlying asset at a price of USD 20,000 and a margin rate of 0.01, the margin required to purchase that one lot will be calculated as follows:') %]</p>
-                                <div class="box fill-bg-color">
-                                    <h4>1 * 20000 * 0.01 = USD 200</h4>
+                            <div class="col-sm">
+                                <div class="box bordered">
+                                    <h4>[% l('For example') %]</h4>
+                                    <div class="separator primary-color"></div>
+                                    <p>[% l('If you wanted to purchase 100 units of a particular asset trading at USD 50 per unit through a traditional broker, it would cost you USD 5,000 for this transaction.') %]</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    [% INCLUDE static/common/separator_line.html.tt %]
+                        [% INCLUDE static/common/separator_line.html.tt %]
 
-                    <div class="center-text">
-                        <h3>[% l('What’s a margin call and how do we apply it?') %]</h3>
-                        <p>[% l('When your account equity is unable to cover the margin requirement, your account will be placed under margin call. This state does not affect your ability to open new positions.') %]</p>
+                        <div class="row">
+                            <div class="col-sm">
+                                <h3>[% l('How is margin calculated?') %]</h3>
+                                <p>[% l('The margin for indices is calculated as follows:') %]</p>
+                                <div class="box fill-bg-color margin-top-bottom">
+                                    <h4>[% l('Volume (trade size) x price x margin rate = Margin') %]</h4>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="box bordered">
+                                    <h4>[% l('For example') %]</h4>
+                                    <div class="separator primary-color"></div>
+                                    <p>[% l('If you buy 1 Volume of an underlying asset at a price of USD 20,000 and a margin rate of 0.01, the margin required to purchase that one lot will be calculated as follows:') %]</p>
+                                    <div class="box fill-bg-color">
+                                        <h4>1 * 20000 * 0.01 = USD 200</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        [% INCLUDE static/common/separator_line.html.tt %]
+                        <div class="row">
+                            <div class="col-sm-12 center-text">
+                                <h3>[% l('What’s a margin call and how do we apply it?') %]</h3>
+                                <p>[% l('When your account equity is unable to cover the margin requirement, your account will be placed under margin call. This state does not affect your ability to open new positions.') %]</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="fx-divider"></div>
-
-                <div class="fill-bg-color lg-padding">
-                    <div class="container">
-                        <div class="center-text">
-                            <h2>[% l('What’s a stop out level and how do we apply it?') %]</h2>
-                            <div class="lg-padding">[% l('If your account is placed under margin call for an extended period of time, it will reach the stop out level where it’s unable to sustain an open position. This will lead to your pending orders being deleted, and open positions being forcibly closed (also known as forced liquidation).') %]</div>
-                            <div class="lg-padding">[% l('Once your account hits the forced liquidation level, your orders and positions are forcibly closed according to the following sequence:') %]</div>
-                        </div>
-                        <div class="col-md-10 col-xs-12 center-align">
-                            <ul class="bullet no-margin-left">
-                                <li>[% l('We analyse your pending orders.') %]</li>
-                                <li>[% l('We delete an order with the largest margin reserved.') %]</li>
-                                <li>[% l('If your margin level is still under the stop out level, your next order will be deleted. However, orders without margin requirements will not be deleted.') %]</li>
-                                <li>[% l('If your margin level is still under the stop out level, we will close an open position with the largest loss.') %]</li>
-                                <li>[% l('We will continue to close open positions until your margin level becomes higher than the stop out level.') %]</li>
-                            </ul>
+                <div class="fill-bg-color">
+                    <div class="container fx-section-padding">
+                        <div class="row">
+                            <div class="col-sm-12 center-text">
+                                <h2>[% l('What’s a stop out level and how do we apply it?') %]</h2>
+                                <div class="lg-padding">[% l('If your account is placed under margin call for an extended period of time, it will reach the stop out level where it’s unable to sustain an open position. This will lead to your pending orders being deleted, and open positions being forcibly closed (also known as forced liquidation).') %]</div>
+                                <div class="lg-padding">[% l('Once your account hits the forced liquidation level, your orders and positions are forcibly closed according to the following sequence:') %]</div>
+                            </div>
+                            <div class="col-md-10 col-xs-12 center-align">
+                                <ul class="bullet no-margin-left">
+                                    <li>[% l('We analyse your pending orders.') %]</li>
+                                    <li>[% l('We delete an order with the largest margin reserved.') %]</li>
+                                    <li>[% l('If your margin level is still under the stop out level, your next order will be deleted. However, orders without margin requirements will not be deleted.') %]</li>
+                                    <li>[% l('If your margin level is still under the stop out level, we will close an open position with the largest loss.') %]</li>
+                                    <li>[% l('We will continue to close open positions until your margin level becomes higher than the stop out level.') %]</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -290,113 +316,119 @@
 
             <div id="indices-cfd-contract-specs">
                 <div class="container">
-                    <h2>[% l('Indices CFD contract specifications') %]</h2>
-
-                    <div class="fx-divider"></div>
-
-                    <div class="table-container">
-                        <table>
-                            <thead>
-                            <tr>
-                                <th>[% l('Symbol') %]</th>
-                                <th>[% l('Product description') %]</th>
-                                <th>[% l('Volume 1.0 (Trade size)') %]</th>
-                                <th>[% l('Minimum volume (Trade size)') %]</th>
-                                <th>[% l('Maximum volume (Trade size)') %]</th>
-                                <th>[% l('Margin') %]</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            [% INCLUDE row string_1 = 'AUS_200' string_2 = 'Australia 200'   string_3 = 'AUD' string_4 = '1'  string_5 = '10'  %]
-                            [% INCLUDE row string_1 = 'JP_225'  string_2 = 'Japan 225'       string_3 = 'JPY' string_4 = '10' string_5 = '100' %]
-                            [% INCLUDE row string_1 = 'IND_30'  string_2 = 'India 50'        string_3 = 'USD' string_4 = '1'  string_5 = '100' %]
-                            [% INCLUDE row string_1 = 'ESP_35'  string_2 = 'Spain 35'        string_3 = 'EUR' string_4 = '1'  string_5 = '100' %]
-                            [% INCLUDE row string_1 = 'EUR_50'  string_2 = 'Euro 50'         string_3 = 'EUR' string_4 = '1'  string_5 = '10'  %]
-                            [% INCLUDE row string_1 = 'FRA_40'  string_2 = 'France 40'       string_3 = 'EUR' string_4 = '1'  string_5 = '500' %]
-                            [% INCLUDE row string_1 = 'GBP_100' string_2 = 'UK 100'          string_3 = 'GBP' string_4 = '1'  string_5 = '500' %]
-                            [% INCLUDE row string_1 = 'NED_25'  string_2 = 'Netherlands 25'  string_3 = 'EUR' string_4 = '1'  string_5 = '100' %]
-                            [% INCLUDE row string_1 = 'ZAF_40'  string_2 = 'South Africa 40' string_3 = 'ZAR' string_4 = '1'  string_5 = '100' %]
-                            [% INCLUDE row string_1 = 'DAX_30'  string_2 = 'Germany 30'      string_3 = 'EUR' string_4 = '1'  string_5 = '100' %]
-                            [% INCLUDE row string_1 = 'CAN_60'  string_2 = 'Canada 60'       string_3 = 'CAD' string_4 = '1'  string_5 = '100' %]
-                            [% INCLUDE row string_1 = 'US_30'   string_2 = 'US 30'           string_3 = 'USD' string_4 = '1'  string_5 = '200' %]
-                            [% INCLUDE row string_1 = 'US_100'  string_2 = 'US 100'          string_3 = 'USD' string_4 = '1'  string_5 = '200' %]
-                            [% INCLUDE row string_1 = 'US_500'  string_2 = 'US 500'          string_3 = 'USD' string_4 = '1'  string_5 = '200' %]
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="fx-divider"></div>
-
-                    <h2>[% l('How to read the table above') %]</h2>
-                    <p>[% l('A Contract for Difference (CFD) is a financial derivative that allows you to profit by speculating on the rise or fall of an underlying asset. Your profit and loss is calculated through the difference in the buy and sell prices of the underlying asset.') %]</p>
-                    <div class="col-xs-9 center-align">
+                    <div class="fx-section">
                         <div class="row">
-                            <div class="center-text center-align margin-top-bottom">
-                                <div class="box fill-bg-color">
-                                    <h4>[% l('(Sell Price – Buy Price)') %]</h4>
-                                </div>
-                            </div>
-                            <div class="col-xs-3 col-md-1 middle-align center-text center-align margin-top-bottom">
-                                <div class="center-text">
-                                    <img class="fx-xxs" src="[% request.url_for('images/mt5/multiply_icon.svg') %]">
-                                </div>
-                            </div>
-                            <div class="center-text center-align margin-top-bottom">
-                                <div class="box fill-bg-color">
-                                    <h4>[% l('Volume') %]</h4>
-                                </div>
-                            </div>
-                            <div class="col-xs-3 col-md-1 middle-align center-text center-align margin-top-bottom">
-                                <div class="center-text">
-                                    <img class="fx-xxs" src="[% request.url_for('images/mt5/multiply_icon.svg') %]">
-                                </div>
-                            </div>
-                            <div class="center-text center-align margin-top-bottom">
-                                <div class="box fill-bg-color">
-                                    <h4>[% l('Price Per Point') %]</h4>
-                                </div>
-                            </div>
-                            <div class="col-xs-3 col-md-1 middle-align center-text center-align margin-top-bottom">
-                                <div class="center-text">
-                                    <img class="fx-xs" src="[% request.url_for('images/mt5/equal_icon.svg') %]">
-                                </div>
-                            </div>
-                            <div class="center-text center-align margin-top-bottom">
-                                <div class="box fill-bg-color">
-                                    <h4>[% l('Profit') %]</h4>
+                            <div class="col-sm-12">
+                                <h2>[% l('Indices CFD contract specifications') %]</h2>
+                                <div class="table-container">
+                                    <table>
+                                        <thead>
+                                        <tr>
+                                            <th>[% l('Symbol') %]</th>
+                                            <th>[% l('Product description') %]</th>
+                                            <th>[% l('Volume 1.0 (Trade size)') %]</th>
+                                            <th>[% l('Minimum volume (Trade size)') %]</th>
+                                            <th>[% l('Maximum volume (Trade size)') %]</th>
+                                            <th>[% l('Margin') %]</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        [% INCLUDE row string_1 = 'AUS_200' string_2 = 'Australia 200'   string_3 = 'AUD' string_4 = '1'  string_5 = '10'  %]
+                                        [% INCLUDE row string_1 = 'JP_225'  string_2 = 'Japan 225'       string_3 = 'JPY' string_4 = '10' string_5 = '100' %]
+                                        [% INCLUDE row string_1 = 'IND_30'  string_2 = 'India 50'        string_3 = 'USD' string_4 = '1'  string_5 = '100' %]
+                                        [% INCLUDE row string_1 = 'ESP_35'  string_2 = 'Spain 35'        string_3 = 'EUR' string_4 = '1'  string_5 = '100' %]
+                                        [% INCLUDE row string_1 = 'EUR_50'  string_2 = 'Euro 50'         string_3 = 'EUR' string_4 = '1'  string_5 = '10'  %]
+                                        [% INCLUDE row string_1 = 'FRA_40'  string_2 = 'France 40'       string_3 = 'EUR' string_4 = '1'  string_5 = '500' %]
+                                        [% INCLUDE row string_1 = 'GBP_100' string_2 = 'UK 100'          string_3 = 'GBP' string_4 = '1'  string_5 = '500' %]
+                                        [% INCLUDE row string_1 = 'NED_25'  string_2 = 'Netherlands 25'  string_3 = 'EUR' string_4 = '1'  string_5 = '100' %]
+                                        [% INCLUDE row string_1 = 'ZAF_40'  string_2 = 'South Africa 40' string_3 = 'ZAR' string_4 = '1'  string_5 = '100' %]
+                                        [% INCLUDE row string_1 = 'DAX_30'  string_2 = 'Germany 30'      string_3 = 'EUR' string_4 = '1'  string_5 = '100' %]
+                                        [% INCLUDE row string_1 = 'CAN_60'  string_2 = 'Canada 60'       string_3 = 'CAD' string_4 = '1'  string_5 = '100' %]
+                                        [% INCLUDE row string_1 = 'US_30'   string_2 = 'US 30'           string_3 = 'USD' string_4 = '1'  string_5 = '200' %]
+                                        [% INCLUDE row string_1 = 'US_100'  string_2 = 'US 100'          string_3 = 'USD' string_4 = '1'  string_5 = '200' %]
+                                        [% INCLUDE row string_1 = 'US_500'  string_2 = 'US 500'          string_3 = 'USD' string_4 = '1'  string_5 = '200' %]
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h2>[% l('How to read the table above') %]</h2>
+                                <p>[% l('A Contract for Difference (CFD) is a financial derivative that allows you to profit by speculating on the rise or fall of an underlying asset. Your profit and loss is calculated through the difference in the buy and sell prices of the underlying asset.') %]</p>
+                            </div>
+                            <div class="col-xs-9 center-align">
+                                <div class="row">
+                                    <div class="center-text center-align margin-top-bottom">
+                                        <div class="box fill-bg-color">
+                                            <h4>[% l('(Sell Price – Buy Price)') %]</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3 col-md-1 middle-align center-text center-align margin-top-bottom">
+                                        <div class="center-text">
+                                            <img class="fx-xxs" src="[% request.url_for('images/mt5/multiply_icon.svg') %]">
+                                        </div>
+                                    </div>
+                                    <div class="center-text center-align margin-top-bottom">
+                                        <div class="box fill-bg-color">
+                                            <h4>[% l('Volume') %]</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3 col-md-1 middle-align center-text center-align margin-top-bottom">
+                                        <div class="center-text">
+                                            <img class="fx-xxs" src="[% request.url_for('images/mt5/multiply_icon.svg') %]">
+                                        </div>
+                                    </div>
+                                    <div class="center-text center-align margin-top-bottom">
+                                        <div class="box fill-bg-color">
+                                            <h4>[% l('Price Per Point') %]</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3 col-md-1 middle-align center-text center-align margin-top-bottom">
+                                        <div class="center-text">
+                                            <img class="fx-xs" src="[% request.url_for('images/mt5/equal_icon.svg') %]">
+                                        </div>
+                                    </div>
+                                    <div class="center-text center-align margin-top-bottom">
+                                        <div class="box fill-bg-color">
+                                            <h4>[% l('Profit') %]</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-4 center-align">
+                                <div class="box bordered">
+                                    <h4>[% l('For example') %]</h4>
+                                    <div class="separator primary-color"></div>
+                                    <p>[% l('CFDs on the US 30 offer a USD 1 per point contract. If you buy a Volume 1.0 contract for the US 30 with a current ask price of USD 20,000 and later sell it at a bid price of USD 20,010, your net profit will be calculated as follows:') %]</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <p>[% l('Each time you open a position on an index symbol, you can start with a minimum volume transaction as indicated in the table above.') %]</p>
+                                <p>[% l('Margin indicates how much investment you can control based on your initial capital. For example, a 1% margin will allow you to control up to USD 100,000 using only USD 1,000 of your own money as deposit.') %]</p>
+                                <p>[% l('To learn more, read our [_1]Margin Policy[_2] that further explains our margin requirements.', '<a href="' _ request.url_for('cfd#indices-cfd-margin-policy') _ '">', '</a>') %]</p>
+                            </div>
+                        </div>
 
-                    <div class="fx-divider"></div>
+                        [% INCLUDE static/common/separator_line.html.tt %]
 
-                    <div class="col-xs-12 col-md-4 center-align">
-                        <div class="box bordered">
-                            <h4>[% l('For example') %]</h4>
-                            <div class="separator primary-color"></div>
-                            <p>[% l('CFDs on the US 30 offer a USD 1 per point contract. If you buy a Volume 1.0 contract for the US 30 with a current ask price of USD 20,000 and later sell it at a bid price of USD 20,010, your net profit will be calculated as follows:') %]</p>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h2>[% l('Important notes on our swap rates (overnight funding)') %]</h2>
+                                <p>[% l('If you keep any positions open overnight, an interest adjustment will be made to your trading account as indication of the cost required to keep your position open.') %]</p>
+                                <p>[% l('This interest adjustment (or swap rate) is based on market rates, on top of a 2% fee.') %]</p>
+                                <p>[% l('The interest adjustment is calculated in points, meaning we will convert the relevant market rates to points in the base instrument.') %]</p>
+                                <p>[% l('Please take note that our swap rate also depends on the time and days you hold your positions open:') %]</p>
+                                <ul class="bullet">
+                                    <li>[% l('You will be subjected to swap rates if you keep a position open past the market close.') %]</li>
+                                    <li>[% l('Positions that are still open on Friday at market close will be charged three times the swap rate to account for weekends, a standard practice for all brokers.') %]</li>
+                                    <li>[% l('Our swap rate may also be adjusted to take holidays into account.') %]</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="fx-divider"></div>
-
-                    <p>[% l('Each time you open a position on an index symbol, you can start with a minimum volume transaction as indicated in the table above.') %]</p>
-                    <p>[% l('Margin indicates how much investment you can control based on your initial capital. For example, a 1% margin will allow you to control up to USD 100,000 using only USD 1,000 of your own money as deposit.') %]</p>
-                    <p>[% l('To learn more, read our [_1]Margin Policy[_2] that further explains our margin requirements.', '<a href="' _ request.url_for('cfd#indices-cfd-margin-policy') _ '">', '</a>') %]</p>
-
-                    [% INCLUDE static/common/separator_line.html.tt %]
-
-                    <h2>[% l('Important notes on our swap rates (overnight funding)') %]</h2>
-                    <p>[% l('If you keep any positions open overnight, an interest adjustment will be made to your trading account as indication of the cost required to keep your position open.') %]</p>
-                    <p>[% l('This interest adjustment (or swap rate) is based on market rates, on top of a 2% fee.') %]</p>
-                    <p>[% l('The interest adjustment is calculated in points, meaning we will convert the relevant market rates to points in the base instrument.') %]</p>
-                    <p>[% l('Please take note that our swap rate also depends on the time and days you hold your positions open:') %]</p>
-                    <ul class="bullet">
-                        <li>[% l('You will be subjected to swap rates if you keep a position open past the market close.') %]</li>
-                        <li>[% l('Positions that are still open on Friday at market close will be charged three times the swap rate to account for weekends, a standard practice for all brokers.') %]</li>
-                        <li>[% l('Our swap rate may also be adjusted to take holidays into account.') %]</li>
-                    </ul>
                 </div>
             </div>
         </div>

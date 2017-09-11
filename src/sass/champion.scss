@@ -430,7 +430,8 @@ h1.main-title {
     min-height: 320px;
 
     h1 {
-        padding: 10px;
+        padding: 0;
+        margin: 0;
     }
     p {
         padding: 0 20px;
@@ -438,6 +439,12 @@ h1.main-title {
     ul {
         margin-left: 0;
     }
+}
+
+.center-vertical {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .fx-panel-title {
@@ -452,7 +459,7 @@ h1.main-title {
 }
 
 .fx-panel-item {
-    padding: 15px 10px 15px 15px;
+    padding: 15px;
     display: block;
     height: 150px;
 
@@ -465,10 +472,14 @@ h1.main-title {
 
 // Page Sections
 .fx-section {
-    padding: 20px 0 40px;
+    margin: 40px 0;
 
     .fx-features-title {
-        margin-bottom: 50px;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+    > .row {
+        margin: 40px 0;
     }
 }
 
@@ -477,20 +488,35 @@ h1.main-title {
 }
 
 .binary-options-header {
-    background-image: url('../images/binary_options/binary_options_banner.png');
-    background-size: cover;
+    background: url('../images/binary_options/binary_options_banner.png') top left / cover no-repeat;
 }
 
 .trading-platform-header {
-    background-image: url('../images/trading_platforms_banner.png');
+    background: url('../images/trading_platforms_banner.png') top left / cover no-repeat;
+}
+
+.forex-header {
+    background: url('../images/forex.png') top left / cover no-repeat;
 }
 
 .mt5-header {
-    background-image: url('../images/forex.png');
+    background: url('../images/metatrader/mt5_banner.png') top left / cover no-repeat;
 }
 
 .cfd-header {
-    background-image: url('../images/CFDs.png');
+    background: url('../images/cfd_banner.png') top left / cover no-repeat;
+}
+
+.metals-header {
+    background: url('../images/metals_banner.png') top left / cover no-repeat;
+}
+
+.economic-calendar-header {
+    background: url('../images/mt5/economic_calendar_banner.png') top left / cover no-repeat;
+}
+
+.partnerships-header {
+    background: url('../images/partnerships_banner.png') top left / cover no-repeat;
 }
 
 // Home page
@@ -567,52 +593,176 @@ h1.main-title {
 }
 
 // About us
-.fx-about-header {
-    background: url('../images/about-background.png') no-repeat center center;
-    background-size: cover;
-    height: 400px;
-    padding: 0 20px;
-}
-
-.fx-about-image {
-    width: 100%;
-    height: auto;
+.about-us-header {
+    background: url('../images/about/banner_championfx.png') top left / cover no-repeat;
 }
 
 // Contact us
-.contact-phone {
-    margin-top: 20px;
-    margin-bottom: 10px;
+.contact-us-header {
+    background-image: url('../images/contact_us/contact_us_banner.png') top left / cover no-repeat;
+
+    h4 {
+        margin-bottom: 0;
+        padding: 0;
+    }
+    p {
+        font-size: 14px;
+    }
+    .flex-display {
+        display: flex;
+        display: -webkit-flex; /* Safari */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 15px 0;
+    }
 }
 
-#phone-result {
-    text-align: left;
-    margin: 20px 0;
-}
+#contact-us {
+    margin: 40px 0;
 
-#contacts-emails-container {
-    padding: 0;
-    background: url('../images/c_img.png');
+    .row-reverse {
+        flex-direction: row-reverse;
+        -webkit-flex-direction: row-reverse; /* Safari 6.1+ */
+    }
+    .section-heading {
+        div.row {
+            display: flex;
+            align-items: flex-end;
+        }
+        p {
+            margin: 10px 0;
+        }
+        .small {
+            font-size: 12px;
+        }
+        .content-center {
+            display: flex;
+            justify-content: center;
+        }
+        .content-align-right {
+            text-align: right;
+        }
+        .content-align-left {
+            text-align: left;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .contact-phones, .contact-emails {
+        display: flex;
+        align-items: center;
+        padding: 15px;
 
-    .contacts-emails {
-        padding-bottom: 30px;
-        color: $white;
+        h4 {
+            color: $black;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        &.contact-phones {
+            .vertical-center {
+                margin-top: 15px;
+            }
+            p {
+                font-size: 14px;
+                font-weight: bold;
+                margin: 5px;
+            }
+            span {
+                font-size: 12px;
+            }
+            span.text-lg {
+                font-size: $FONT_SIZE_N;
+                @media (max-width: 1100px) {
+                    font-size: 16px;
+                }
+            }
+        }
+        &.contact-emails {
+            text-align: right;
+            @media (max-width: 767px) {
+                text-align: left;
+            }
 
-        .row {
-            padding: 25px 0 0;
-
-            &.emails {
-                padding: 25px 0;
-                border-bottom: 1px solid $borderColor;
+            p {
+                font-size: 12px;
+                font-weight: bold;
+                margin-bottom: 5px;
+                margin-top: 15px;
+            }
+            a {
+                font-size: 14px;
+                white-space: nowrap;
+                @media (max-width: 1100px) {
+                    white-space: normal;
+                }
+            }
+            a.text-lg {
+                font-size: $FONT_SIZE_N;
             }
         }
     }
 }
 
-.phone-note {
-    margin-right: 50px;
-    text-align: left;
-    padding-right: 40px;
+@media (max-width: 767px) {
+    #contact-us {
+        padding: 30px 0;
+
+        .separator {
+            margin: 25px 0 30px;
+        }
+        .section-heading {
+            h2 {
+                font-size: 22px;
+            }
+            p {
+                font-size: 12px;
+            }
+            .small {
+                font-size: 11px;
+            }
+            .content-align-right > div {
+                padding-right: 0;
+
+                img {
+                    padding-right: 15px;
+                }
+            }
+            .content-align-left > div {
+                padding-left: 0;
+
+                img {
+                    padding-left: 15px;
+                }
+            }
+        }
+    }
+    .contact-us-header {
+        h1 {
+            margin-bottom: 10px;
+        }
+        h4 {
+            font-size: 16px;
+        }
+        p {
+            font-size: 12px;
+        }
+        .flex-display {
+            flex-direction: row;
+
+            .fx-contact-callback, .fx-contact-hour {
+                width: 30px;
+                height: 30px;
+                margin: 0;
+                margin-right: 10px;
+                margin-top: 10px;
+            }
+        }
+    }
 }
 
 // Tables
@@ -738,7 +888,7 @@ fieldset {
 }
 
 .submit-row {
-    margin: 40px 0;
+    margin-top: 40px;
 }
 
 .champion-accounts {
@@ -972,22 +1122,21 @@ ul.no-padding {
 }
 
 a.underline-link {
-    color: $darkPrimaryBrandColor;
+    color: $primaryBrandColor;
     text-decoration: underline;
+    font-weight: normal;
 
     &:hover {
-        color: $primaryBrandColor;
+        color: $darkPrimaryBrandColor;
     }
 }
 
-.icon-ok {
-    color: $okColor;
-    font-size: $FONT_SIZE_N;
+.icon-ok:before {
+    content: url('../images/metatrader/checklist.svg');
 }
 
-.icon-remove {
-    color: $crossColor;
-    font-size: $FONT_SIZE_N;
+.icon-remove:before {
+    content: url('../images/metatrader/cross.svg');
 }
 
 .no-margin-top {
@@ -1099,7 +1248,6 @@ iframe {
 }
 
 .required {
-    padding: 0 5px;
     font-size: inherit !important;
     font-style: inherit !important;
 }
@@ -1107,4 +1255,65 @@ iframe {
 .steps p {
     margin: 0.5em 0 2em;
     padding: 0;
+}
+
+#choose_platform {
+    .bordered-light {
+        padding: 10px 30px 30px;
+        border: 3px solid $fillColor;
+        border-radius: $BORDER_RADIUS;
+        height: 100%;
+    }
+}
+
+#home-academy {
+    .row ~ .row {
+        margin: 30px 0 20px;
+        position: relative;
+
+        [class*=fx-] {
+            margin-bottom: 20px;
+        }
+        .fx-3-dots-line {
+            position: absolute;
+            margin: auto;
+            top: 15px;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            @media (max-width: 800px) {
+                display: none;
+            }
+        }
+    }
+}
+
+.table-col-bordered {
+    th:nth-child(2) {
+        border-top: 4px solid $primaryBrandColor;
+        border-left: 4px solid $primaryBrandColor;
+        border-right: 4px solid $primaryBrandColor;
+        color: $primaryBrandColor;
+    }
+    td:nth-child(2) {
+        border-left: 4px solid $primaryBrandColor;
+        border-right: 4px solid $primaryBrandColor;
+        color: $primaryBrandColor;
+    }
+    tr:last-child {
+        td:nth-child(2) {
+            border-bottom: 4px solid $primaryBrandColor;
+        }
+    }
+}
+
+.table-fixed {
+    table-layout: auto;
+    @media (min-width: 575px) {
+        table-layout: fixed;
+    }
+
+    td {
+        vertical-align: middle;
+    }
 }

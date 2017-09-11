@@ -6,7 +6,6 @@ const ChampionSocket = require('./socket');
 const State          = require('./storage').State;
 const url_for        = require('./url').url_for;
 const Utility        = require('./utility');
-const isEmptyObject  = require('./utility').isEmptyObject;
 const template       = require('./utility').template;
 
 const Header = (function () {
@@ -39,7 +38,6 @@ const Header = (function () {
         } else {
             desktopMenu();
         }
-        setMetaTrader();
         userMenu();
         if (!Client.is_logged_in()) {
             $('#top_group').removeClass('logged-in').find('.logged-out').removeClass(hidden_class);
@@ -124,6 +122,8 @@ const Header = (function () {
             displayAccountStatus();
         }
 
+        setMetaTrader();
+
         const selectedTemplate = (text, value, icon) => (
             `<div class="hidden-lg-up">
                  <span class="selected" value="${value}">
@@ -160,7 +160,7 @@ const Header = (function () {
                     switchLoginId(curr_id);
                     return;
                 }
-                loginid_select += switchTemplate(curr_id, curr_id, icon, type, is_current ? 'mt-show' : '');
+                loginid_select += switchTemplate(curr_id, curr_id, icon, type, is_current ? (is_mt_pages ? 'mt-show' : 'invisible') : '');
             }
         });
 
@@ -199,14 +199,11 @@ const Header = (function () {
     const displayAccountStatus = () => {
         ChampionSocket.wait('authorize').then(() => {
             let get_account_status,
-                status;
+                status,
+                has_mt_account = false;
 
-            const riskAssessment = () => {
-                if (get_account_status.risk_classification === 'high') {
-                    return isEmptyObject(State.get(['response', 'get_financial_assessment', 'get_financial_assessment']));
-                }
-                return false;
-            };
+            const riskAssessment = () => (get_account_status.risk_classification === 'high' || has_mt_account) &&
+            /financial_assessment_not_complete/.test(status);
 
             const messages = {
                 authenticate: () => template('Please [_1]authenticate your account[_2] to lift your withdrawal and trading limits.',
@@ -220,7 +217,7 @@ const Header = (function () {
             };
 
             const validations = {
-                authenticate: () => !/authenticated/.test(status) || !/age_verification/.test(status),
+                authenticate: () => get_account_status.prompt_client_to_authenticate,
                 risk        : () => riskAssessment(),
                 tnc         : () => Client.should_accept_tnc(),
                 unwelcome   : () => /(unwelcome|(cashier|withdrawal)_locked)/.test(status),
@@ -236,14 +233,19 @@ const Header = (function () {
             ChampionSocket.wait('website_status', 'get_account_status', 'get_settings', 'get_financial_assessment').then(() => {
                 get_account_status = State.get(['response', 'get_account_status', 'get_account_status']) || {};
                 status = get_account_status.status;
-                const notified = check_statuses.some((object) => {
-                    if (object.validation()) {
-                        displayNotification(object.message());
-                        return true;
+                ChampionSocket.wait('mt5_login_list').then((response) => {
+                    if (response.mt5_login_list.length) {
+                        has_mt_account = true;
                     }
-                    return false;
+                    const notified = check_statuses.some((object) => {
+                        if (object.validation()) {
+                            displayNotification(object.message());
+                            return true;
+                        }
+                        return false;
+                    });
+                    if (!notified) hideNotification();
                 });
-                if (!notified) hideNotification();
             });
         });
     };

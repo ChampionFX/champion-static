@@ -16,6 +16,14 @@
     [% INCLUDE components/forms/form_row.html.tt label=l("Email address") %]
     [% INCLUDE components/forms/form_row.html.tt id='email' type='label' %]
 
+    [% INCLUDE components/forms/form_row.html.tt id='lbl_account_opening_reason' row_class='is-real' type='label' label=l("Account opening reason") %]
+    <!-- if account_opening_reason is not set, display dropdown -->
+    [% WRAPPER components/forms/form_row.html.tt row_class='is-real invisible' type='select' id='account_opening_reason' label=l("Account opening reason") %]
+        <option value="">[% l('Please select') %]</option>
+        <option value="Speculative">[% l('Speculative') %]</option>
+        <option value="Income Earning">[% l("Income Earning") %]</option>
+        <option value="Hedging">[% l('Hedging') %]</option>
+    [% END %]
 
     <h3 class="is-real underline-title">[% l('Tax information') %]</h3>
     [% INCLUDE components/forms/form_row.html.tt id='tax_residence' row_class='is-real' label=l("Tax residence") type='select' attributes='class="invisible" multiple="multiple"' %]
@@ -36,7 +44,7 @@
     <p id="error-update-details" class="error-msg"></p>
     [% INCLUDE components/forms/submit_button.html.tt type='submit' row_class='is-real' text=l('Update') id='submit' %]
 
-    <p class="notice-msg is-real">*[% l('To update your personal information, please contact our <a href="[_1]">customer support</a> team.', request.url_for('contact')) %]</p>
+    <p class="hint-msg is-real">[% l('To change your name, date of birth, country of residence, or email, please contact our <a href="[_1]">customer support</a> team.', request.url_for('contact')) %]</p>
 
 </form>
 </div>

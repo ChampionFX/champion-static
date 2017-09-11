@@ -9,74 +9,7 @@
         </div>
 
         <div class="fx-divider"></div>
-
-        <h2 class="center-text">[% l('Why trade with ChampionFX') %]</h2>
-
-        <div class="row fx-panel-container box bordered">
-            <div class="col-md">
-                <div class="fx-panel">
-                    <div class="fx-panel-item">
-                        <div class="fx-xxs fx-king"></div>
-                        <div>[% l('The client is always king') %]</div>
-                    </div>
-                    <div class="fx-panel-item">
-                        <div class="fx-xxs fx-customer-service"></div>
-                        <div>[% l('Personalised customer service') %]</div>
-                    </div>
-                    <div class="fx-panel-item">
-                        <div class="fx-xxs fx-type-accounts"></div>
-                        <div>[% l('Wide range of markets') %]</div>
-                    </div>
-                    <div class="fx-panel-item">
-                        <div class="fx-xxs fx-rebate"></div>
-                        <div>[% l('Low latency & fast execution') %]</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="fx-panel">
-                    <div class="fx-panel-item">
-                        <div class="fx-xxs fx-unbeatable"></div>
-                        <div>[% l('Unbeatable leverage up to 1,000:1') %]</div>
-                    </div>
-                    <div class="fx-panel-item">
-                        <div class="fx-xxs fx-customised-trade"></div>
-                        <div>[% l('Tight spreads with no Commission') %]</div>
-                    </div>
-                    <div class="fx-panel-item">
-                        <div class="fx-xxs fx-no-deal"></div>
-                        <div>[% l('No Dealing Desk (NDD) execution') %]</div>
-                    </div>
-                    <div class="fx-panel-item">
-                        <div class="fx-xxs fx-test-platform"></div>
-                        <div>[% l('Test our trading conditions by trying our platform, risk-free') %]</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="fx-panel">
-                    <div class="fx-panel-item">
-                        <div class="fx-xxs fx-deposit-withdrawal"></div>
-                        <div>[% l('Lightning fast deposits & withdrawals ') %]</div>
-                    </div>
-                    <div class="fx-panel-item">
-                        <div class="fx-xxs fx-fast-execution"></div>
-                        <div>[% l('Access to the largest market of Expert Advisors') %]</div>
-                    </div>
-                    <div class="fx-panel-item">
-                        <div class="fx-xxs fx-licensed-broker"></div>
-                        <div>[% l('Licensed broker') %]</div>
-                    </div>
-                    <div class="fx-panel-item">
-                        <div class="fx-xxs fx-no-deposit"></div>
-                        <div>[% l('No deposits required') %]</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        [% INCLUDE static/common/separator_line.html.tt %]
-
+        
         <div class="center-text">
             <h2>[% l('Register now to claim your free bonus*') %]</h2>
             <h3>[% l('New to ChampionFX?') %]</h3>

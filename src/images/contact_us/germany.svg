@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="31px" viewBox="0 0 42 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>germany</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M29.4252632,18.6928537 L0.51625731,18.6928537 C0.231169591,18.6928537 0,18.4725733 0,18.2009145 L0,0.4919392 C0,0.220280432 0.231169591,0 0.51625731,0 L29.4253216,0 C29.7104094,0 29.9415789,0.220280432 29.9415789,0.4919392 L29.9415789,18.2009145 C29.9415205,18.4725733 29.7103509,18.6928537 29.4252632,18.6928537 Z" id="path-1"></path>
+        <filter x="-28.4%" y="-45.5%" width="163.5%" height="201.6%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="1" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.3 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Contact-Us" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-930.000000, -584.000000)" id="Customer-Service" fill-rule="nonzero">
+            <g transform="translate(135.000000, 498.000000)">
+                <g id="Country" transform="translate(600.000000, 90.000000)">
+                    <g id="germany" transform="translate(200.000000, 1.000000)">
+                        <g id="Shape">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        </g>
+                        <path d="M29.9415205,6.24636846 L0,6.24636846 L0,0.507319265 C0,0.235660498 0.231169591,0.0153800656 0.51625731,0.0153800656 L29.4253216,0.0153800656 C29.7104094,0.0153800656 29.9415789,0.235660498 29.9415789,0.507319265 L29.9415205,6.24636846 L29.9415205,6.24636846 Z" id="Shape" fill="#000000"></path>
+                        <path d="M29.4252632,18.7082338 L0.51625731,18.7082338 C0.231169591,18.7082338 0,18.4879534 0,18.2162946 L0,12.4773011 L29.9415205,12.4773011 L29.9415205,18.2162946 C29.9415205,18.4880091 29.7103509,18.7082338 29.4252632,18.7082338 Z" id="Shape" fill="#FFD400"></path>
+                        <rect id="Rectangle-path" fill="#E70011" x="0" y="6.24625701" width="29.9415205" height="6.23059832"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

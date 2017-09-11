@@ -15,13 +15,14 @@ sub all_pages {
         ['logged_inws',                'static/common/logged_in',      'full_width', 'Logging in...'],
         ['lost-password',              'static/lost_password',         'full_width', 'Password Reset'],
         ['mission',                    'static/mission',               'full_width', 'Mission'],
-#       ['other-markets',              'static/other_markets',         'full_width', 'Other Markets'],
         ['reset-password',             'static/reset_password',        'full_width', 'Password Reset'],
         ['trading',                    'static/trading',               'full_width', 'Trading'],
         ['why-mt5',                    'static/why_mt5',               'full_width', 'Why MT5'],
         ['trading-times',              'static/trading_times',         'full_width', 'Trading Times'],
+        ['redirect',                   'static/common/logged_in',      'full_width', 'Redirecting...'],
         ['refer-a-friend',             'static/refer_a_friend',        'full_width', 'Refer A Friend'],
         ['free-bonus',                 'static/free_bonus',            'full_width', 'Free Bonus'],
+        ['milestones',                 'static/milestones',            'full_width', 'Milestones'],
 
         ['binary-options',             'static/binary_options/binary_options',    'full_width', 'Binary Options'],
         ['what-is-binary-options',     'static/binary_options/what_is',           'full_width', 'What is binary options trading'],
@@ -40,6 +41,7 @@ sub all_pages {
         ['partnerships-affiliate',     'static/partnerships/partnerships_affiliate',   'full_width', 'Affiliate programme'],
         ['partnerships-contributor',   'static/partnerships/partnerships_contributor', 'full_width', 'Content Contributor programme'],
         ['partnerships-ib',            'static/partnerships/partnerships_ib',          'full_width', 'Introducing Broker'],
+        ['liquidity-solutions',        'static/liquidity_solutions',                   'full_width', 'Liquidity Solutions'],
 
         ['terms-and-conditions',       'legal/tac',                    'full_width', 'Terms and Conditions'],
 
@@ -51,15 +53,16 @@ sub all_pages {
 
         ['new-account',                'user/new_account',             'full_width', 'Create new account'],
 
-        ['trading-platform',                 'static/trading_platform/trading_platform', 'full_width', 'Trading Platforms'],
-        ['trading-platform/metatrader-5',    'static/trading_platform/metatrader_5',     'full_width', 'MetaTrader5'],
-        ['trading-platform/champion-trader', 'static/trading_platform/champion_trader',  'full_width', 'Champion Trader'],
-        ['trading-platform/mt5-vs-mt4',      'static/trading_platform/mt5_vs_mt4',       'full_width', 'MetaTrader5 vs MetaTrader4'],
+        ['trading-platform',                        'static/trading_platform/trading_platform',        'full_width', 'Trading Platforms'],
+        ['trading-platform/metatrader-5',           'static/trading_platform/metatrader_5',            'full_width', 'MetaTrader5'],
+        ['trading-platform/champion-trader',        'static/trading_platform/champion_trader',         'full_width', 'Champion Trader'],
+        ['trading-platform/mt5-vs-mt4',             'static/trading_platform/mt5_vs_mt4',              'full_width', 'MetaTrader5 vs MetaTrader4'],
+        ['trading-platform/mt5-types-of-accounts',  'static/trading_platform/mt5_types_of_accounts',   'full_width', 'MetaTrader5 Types of Accounts'],
+        ['trading-platform/mt5-platforms',          'static/trading_platform/mt5_platforms',           'full_width', 'MetaTrader5'],
 
-        # ['user/assessment',            'user/financial_assessment',    'full_width', 'Financial Assessment'],
-        # ['user/details',               'user/personal_details',        'full_width', 'Personal Details'],
         ['user/authenticate',          'user/authenticate',            'full_width', 'Authenticate', 'ja'],
         ['user/change-password',       'user/change_password',         'full-width', 'Change Password'],
+        ['user/choose-platform',       'user/choose_platform',         'full_width', 'Choose your platform'],
         ['user/limits',                'user/limits',                  'full_width', 'Account Limits'],
         ['user/login-history',         'user/login_history',           'full_width', 'Login History'],
         ['user/metatrader',            'user/metatrader',              'full-width', 'MetaTrader account management'],
@@ -68,7 +71,7 @@ sub all_pages {
         ['user/settings',              'user/settings',                'full_width', 'Settings'],
         ['user/self-exclusion',        'user/self_exclusion',          'full_width', 'Self Exclusion'],
         ['user/tnc-approval',          'user/tnc_approval',            'full_width', 'Terms and Conditions Approval'],
-
+        ['economic-calendar',          'mt5/economic_calendar',        'full_width', 'Economic Calendar'],
     );
 }
 

@@ -1,84 +1,130 @@
-<div class="fx-section-sm">
+<div class="primary-color-dark about-us-header">
+    <div class="fx-panel center-text center-vertical container">
+        <h1 class="content-inverse-color">[% l('About ChampionFX') %]</h1>
+        <p class="content-inverse-color">
+            [% l('Customer service is not just a department, it is the entire company.') %]
+            <br> [% l('Trade with ChampionFX &mdash; where the client is king. Your dedicated MT5 broker.') %]
+        </p>
+    </div>
+</div>
+
+<div class="fx-section">
     <div class="container">
-        <div class="center-text">
-            [% INCLUDE components/page_title.html.tt title=l('About ChampionFX') %]
-            <p>
-                [% l('Customer service is not just a department, it is the entire company.') %]
-                <br> [% l('Trade with ChampionFX –– where the client is king.') %]
-                <br> [% l('Your dedicated MT5 broker.') %]
-            </p>
-        </div>
-
-        <div class="fx-divider"></div>
-
-        <div class="fx-about-header vertical-center">
-            <div class="row content-inverse-color">
-                <div class="col-md-7">
-                    <p>[% l('The ChampionFX brand was founded and launched in 2017 with a clear vision to provide traders with the world’s best customer experience, superior customised trading conditions, state-of-the-art trading tools, and access to many markets.') %]</p>
+        <div class="row">
+            <div class="col-sm-8 offset-sm-2 margin-bottom-3">
+                <div class="yt-container">
+                    <iframe class="yt-iframe" src="https://www.youtube.com/embed/at9u_9op2lQ" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
-        </div>
-
-        <div class="fx-divider"></div>
-
-        <div class="row">
-            <div class="col-sm-5 flex-sm-middle">
-                <p>[% l('We’re committed to delivering the necessary trading tools and resources that enable traders to further develop their trading skills, and ultimately become champion traders.') %]</p>
-                <p>[% l('Our client-centric approach puts our clients’ needs at the centre of our operations.') %]</p>
-                <p>[% l('We provide our clients with access to top-tier liquidity and advanced trade execution with the No Dealing Desk (NDD) model.') %]</p>
-            </div>
-            <div class="col-sm-6 push-sm-1">
-                <iframe width="520" height="315" src="https://www.youtube.com/embed/at9u_9op2lQ" frameborder="0" allowfullscreen></iframe>
+            <div class="col-sm-12 center-text font-resize">
+                <h3 class="text-justified">[% l('The ChampionFX brand was founded and launched in 2017 with a clear vision to provide traders with the world’s best customer experience, superior customised trading conditions, state-of-the-art trading tools, and access to many markets.') %]</h3>
             </div>
         </div>
 
-        [% INCLUDE static/common/separator_line.html.tt %]
-
-        <h2>[% l('Mission') %]</h2>
-        <p>[% l('Our mission is to make trading accessible to all by offering smart custom trading solutions to local markets around the world.') %]</p>
-        <p>[% l('We aim to place our clients’ needs at the centre of our operations and dedicate ourselves to maintain the highest level of client satisfaction.') %]</p>
-        <p>[% l('ChampionFX is committed to becoming an industry leader by placing our clients’ needs at the centre of every decision we make. As the markets continually evolve, ChampionFX will continuously update our services to meet trader demands.') %]</p>
-
-        [% INCLUDE static/common/separator_line.html.tt %]
-
-        <h2>[% l('Values') %]</h2>
-        <p>[% l('At ChampionFX, we remain dedicated to creating a dynamic environment that both respects traders and equips them with all necessary tools to take their customer experience to a whole new “champion” level. ') %]</p>
-        <p>[% l('We will accomplish this by committing ourselves to these values:') %]</p>
-        <ul class="bullet">
-            <li>[% l('Client satisfaction') %]</li>
-            <li>[% l('Expansion and refinement of our business model — always with a trader’s needs in mind') %]</li>
-            <li>[% l('Honesty and integrity') %]</li>
-            <li>[% l('Respect and appreciation') %]</li>
-            <li>[% l('Positive thinking') %]</li>
-            <li>[% l('Inspiring and motivating people to achieve greatness') %]</li>
-        </ul>
+        <div class="row font-resize">
+            <div class="col-xs-5 col-sm-4">
+                <h3 class="text-align-right">[% l('We’re committed to delivering the necessary trading tools and resources') %]</h3>
+            </div>
+            <div class="col-xs-7 col-sm-8 no-gutters">
+                <p>[% l('that enable traders to further develop their trading skills, and ultimately become champion traders.') %]</p>
+                <p>[% l('Our client-centric approach puts our clients’ needs at the centre of our operations. We provide our clients with access to top-tier liquidity and advanced trade execution with the No Dealing Desk (NDD) model.') %]</p>
+            </div>
+        </div>
 
         [% INCLUDE static/common/separator_line.html.tt %]
 
-        <h2>[% l('License') %]</h2>
-        <div class="fx-divider"></div>
         <div class="row">
-            <div class="col-sm-5 primary-color margin-bottom-3">
-                <div class="lg-padding">
-                    <img src="[% request.url_for('images/vfsc.png') %]" class="fx-about-image" />
-                </div>
-                <div class="row fx-tb content-inverse-color">
-                    <div class="col-sm lg-padding">
-                        <p>[% l('ChampionFX is fully regulated by the Vanuatu Financial Services Commission (VFSC) bearing license number 14772. Its registered office is located at Govant Building, Port Vila, P.O. Box 1276, Vanuatu, Republic of Vanuatu.') %]</p>
+            <div class="col-sm-12 center-text">
+                <h2>[% l('Milestones') %]</h2>
+            </div>
+
+            <div class="col-xs-10 col-sm-8 offset-sm-2 col-lg-12 center-align">
+                <div class="timeline">
+                    <span class="timeline__vertical-line"></span>
+                    <div class="timeline__box">
+                        <ul>
+                            <li class="timeline__box__title">[% l('Q2 2017') %]</li>
+                            <li>[% l('ChampionFX rolls out a full suite of MT5 trading platforms') %]</li>
+                            <li>[% l('Official launch of ChampionFX Academy') %]</li>
+                            <li>[% l('ChampionFX Academy adds two key contributors: Vince Stanzione and Dave Evans') %]</li>
+                        </ul>
+                    </div>
+                    <div class="timeline__box">
+                        <ul>
+                            <li class="timeline__box__title">[% l('Q3 2017') %]</li>
+                            <li>[% l('ChampionFX adds Bitcoin, Ethereum and Litecoin trading') %]</li>
+                            <li>[% l('ChampionFX launches MAM Pro for MetaTrader 5') %]</li>
+                            <li>[% l('ChampionFX introduces the MQL5 Wizard') %]</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-5 push-sm-2 primary-color margin-bottom-3">
-                <div class="lg-padding">
-                    <img src="[% request.url_for('images/fiuv.png') %]" class="fx-about-image" />
-                </div>
-                <div class="row fx-tb content-inverse-color">
-                    <div class="col-sm lg-padding">
-                        <p>[% l('ChampionFX is also registered with the Financial Intelligence Unit (FIU) of Vanuatu for compliance with VFSC Anti-Money Laundering rules. ') %]</p>
+
+            <div class="col-sm-12 center-text">
+                <a class="button-secondary button_large" href="[% request.url_for('milestones') %]">
+                    <span>[% l('See more') %]</span>
+                </a>
+            </div>
+        </div>
+
+        [% INCLUDE static/common/separator_line.html.tt %]
+
+        <div class="row">
+            <!-- <div class="col-sm-12">
+                <h2>[% l('We provide our services worldwide') %]*</h2>
+                <div class="fx-divider"></div>
+            </div>
+
+            <div class="col-sm-8 offset-sm-2">
+                <img class="responsive" src="[% request.url_for('images/about/championfx_map.svg') %]" />
+                <p class="font-xs center-text hint">*[% l('Except Bosnia and Herzegovina, Costa Rica, Democratic People\'s Republic of Korea (DPRK), Ethiopia, Europe Union, Hong Kong, Iran, Iraq, Israel, Jersey, Malaysia, Malta, Syria, Uganda, United Kingdom, USA, Vanuatu or Yemen.') %]</p>
+            </div> -->
+
+            <div class="col-sm-12">
+                <h2>[% l('Mission') %]</h2>
+                <p>[% l('Our mission is to make trading accessible to all by offering smart custom trading solutions to local markets around the world. We aim to place our clients’ needs at the centre of our operations and dedicate ourselves to maintain the highest level of client satisfaction.') %]</p>
+                <p>[% l('ChampionFX is committed to becoming an industry leader by placing our clients’ needs at the centre of every decision we make. As the markets continually evolve, ChampionFX will continuously update our services to meet trader demands.') %]</p>
+            </div>
+
+            <div class="col-sm-12">
+                <h2>[% l('Vision') %]</h2>
+                <p>[% l('At ChampionFX, we remain dedicated to creating a dynamic environment that both respects traders and equips them with all necessary tools to take their customer experience to a whole new “champion” level. ') %]</p>
+                <p>[% l('We will accomplish this by committing ourselves to these values:') %]</p>
+                <ul class="bullet">
+                    <li>[% l('Client satisfaction') %]</li>
+                    <li>[% l('Expansion and refinement of our business model — always with a trader’s needs in mind') %]</li>
+                    <li>[% l('Honesty and integrity') %]</li>
+                    <li>[% l('Respect and appreciation') %]</li>
+                    <li>[% l('Positive thinking') %]</li>
+                    <li>[% l('Inspiring and motivating people to achieve greatness') %]</li>
+                </ul>
+            </div>
+        </div>
+
+        [% INCLUDE static/common/separator_line.html.tt %]
+
+        <div class="row box-grid box-grid-align-start">
+            <div class="col-sm-12 center-text">
+                <h2>[% l('License') %]</h2>
+            </div>
+            <div class="col-xs-12 push-md-1 col-md-5 col-bordered">
+                <div class="box bordered">
+                    <div class="center-text">
+                        <img src="[% request.url_for('images/about/regulation_VSFC.png') %]" class="img-md" />
+                        <h3>VSFC <br><small class="font-s">Vanuatu Financial Services Commission</small></h3>
                     </div>
+                    <p class="font-n">[% l('ChampionFX is fully regulated by the Vanuatu Financial Services Commission (VFSC). Its registered office is located at Govant Building, Port Vila, P.O. Box 1276, Vanuatu, Republic of Vanuatu.') %]</p>
+                </div>
+            </div>
+            <div class="col-xs-12 push-md-1 col-md-5 col-bordered">
+                <div class="box bordered">
+                    <div class="center-text">
+                        <img src="[% request.url_for('images/about/registered_FIU.png') %]" class="img-md" />
+                        <h3><span class="text-uppercase">Financial Intelligence Unit</span> <br><small class="font-s">Government of Vanuatu</small></h3>
+                    </div>
+                    <p class="font-n">[% l('ChampionFX is also registered with the Financial Intelligence Unit (FIU) of Vanuatu for compliance with VFSC Anti-Money Laundering rules. ') %]</p>
                 </div>
             </div>
         </div>
-        <div class="fx-divider"></div>
     </div>
 </div>

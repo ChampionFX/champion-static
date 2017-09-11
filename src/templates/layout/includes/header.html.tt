@@ -32,11 +32,14 @@
                         { text=l('MetaTrader 5') link='user/metatrader' icon='mt5'     is_logged_in=1 class='mt-hide' },
                         { text=l('Cashier')      link='cashier'         icon='cashier' is_logged_in=1 },
                         { text=l('Settings')     link='user/settings'   icon='setting' is_logged_in=1 },
-                        { text=l('About')        link='about-us'        icon='about' },
-                        { text=l('MT5') link_id='more_mt5_btn' icon='mt5' sub_class='submenu' sub_items=[
+                        { text=l('About Us')     link='about-us'        icon='about' },
+                        { text=l('MetaTrader 5') link_id='more_mt5_btn' icon='mt5' sub_class='submenu' sub_items=[
+                                { text=l('About MT5')          link='trading-platform/metatrader-5' },
+                                { text=l('Types of accounts')  link='trading-platform/mt5-types-of-accounts' },
                                 { text=l('Forex')  link='forex' },
                                 { text=l('CFDs')   link='cfd' },
                                 { text=l('Metals') link='metals' },
+                                { text=l('Economic calendar') link='economic-calendar' },
                             ] },
                         { text=l('Binary Options') link_id='more_options_btn' icon='binary' sub_class='submenu' sub_items=[
                                 { text=l('About binary options') link='binary-options' },
@@ -77,11 +80,14 @@
 [% END %]
             <div class="col-lg-7 hidden-lg-down vertical-center">
                 [% INCLUDE main_menu class='logged-out' items=[
-                    { text=l('About') link='about-us' },
-                    { text=l('MT5') sub_items=[
+                    { text=l('About Us') link='about-us' },
+                    { text=l('MetaTrader 5') sub_items=[
+                        { text=l('About MT5')          link='trading-platform/metatrader-5' },
+                        { text=l('Types of accounts')  link='trading-platform/mt5-types-of-accounts' },
                         { text=l('Forex')  link='forex' },
                         { text=l('CFDs')   link='cfd' },
                         { text=l('Metals') link='metals' },
+                        { text=l('Economic calendar') link='economic-calendar' },
                     ] },
                     { text=l('Binary Options') sub_items=[
                             { text=l('About binary options') link='binary-options' },
@@ -95,7 +101,7 @@
                     { text=l('Settings')          link='user/metatrader' class='mt-show' },
                     { text=l('Cashier')           link='cashier'         class='mt-hide' },
                     { text=l('Trading platforms') link='trading-platform/champion-trader' class='mt-hide' },
-                    { text=l('Trading platforms') link='trading-platform/metatrader-5'    class='mt-show' },
+                    { text=l('Trading platforms') link='trading-platform/mt5-platforms'   class='mt-show' },
                     { text=l('Academy')           link='https://academy.champion-fx.com/' target='_blank' },
                 ] %]
             </div>

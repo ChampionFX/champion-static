@@ -48,6 +48,14 @@ const PersonalDetails = (() => {
         get_settings.name  = `${get_settings.salutation} ${get_settings.first_name} ${get_settings.last_name}`;
         get_settings.date_of_birth = get_settings.date_of_birth ? moment.utc(new Date(get_settings.date_of_birth * 1000)).format('YYYY-MM-DD') : '';
 
+        if (get_settings.account_opening_reason) {
+            $('#lbl_account_opening_reason').text(get_settings.account_opening_reason);
+            $('#lbl_account_opening_reason').parent().parent().removeClass('invisible');
+            $('#account_opening_reason').parent().addClass('invisible');
+        } else {
+            $('#account_opening_reason').parent().removeClass('invisible');
+            $('#lbl_account_opening_reason').parent().parent().addClass('invisible');
+        }
         return displayGetSettingsData(get_settings);
     };
 
@@ -152,6 +160,7 @@ const PersonalDetails = (() => {
             { selector: '#place_of_birth', validations: '' },
             { selector: '#tax_residence',  validations: '' },
             { selector: '#tax_identification_number', validations: ['postcode', ['length', { min: 0, max: 20 }]] },
+            { selector: '#account_opening_reason',  validations: ['req'] },
         ]
     );
 

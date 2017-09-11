@@ -1,24 +1,20 @@
 const ChampionSocket = require('../../common/socket');
 const url_for        = require('../../common/url').url_for;
 const Client         = require('../../common/client');
-const Validation     = require('./../../common/validation');
+const get_params     = require('../../common/url').get_params;
+const Validation     = require('../../common/validation');
 
 const CashierDepositWithdraw = (function() {
     'use strict';
 
     const hidden_class  = 'invisible';
-    const form_selector = '#form_withdraw';
 
-    let $btn_submit,
-        $form_withdraw,
-        $error_msg,
+    let $error_msg,
         cashier_type;
 
     const fields = {
         cashier_title: '#cashier_title',
         error_msg    : '#error_msg',
-        btn_submit   : '#btn_submit',
-        token        : '#verification_token',
     };
 
     const load = () => {
@@ -31,11 +27,8 @@ const CashierDepositWithdraw = (function() {
         }
 
         const $container = $('#cashier_deposit');
-        $form_withdraw   = $('#form_withdraw');
+        $container.find(fields.cashier_title).html(cashier_type);
         $error_msg       = $container.find(fields.error_msg);
-
-        $(fields.cashier_title).html(cashier_type);
-        if (cashier_type === 'withdraw') initForm();
 
         ChampionSocket.send({ cashier_password: '1' }).then((response) => {
             if (response.error) {
@@ -45,35 +38,27 @@ const CashierDepositWithdraw = (function() {
                     .html('Your cashier is locked as per your request - to unlock it, please click <a href="[_1]">here</a>.'
                         .replace('[_1]', url_for('/cashier/cashier-password')));
             } else {
-                deposit_withdraw();
+                checkToken();
             }
         });
     };
 
-    const initForm = () => {
-        $btn_submit = $form_withdraw.find(fields.btn_submit);
-        $btn_submit.on('click', submit);
-        $form_withdraw.removeClass(hidden_class);
-        Validation.init(form_selector, [
-            { selector: fields.token, validations: ['req', 'email_token'] },
-        ]);
-        ChampionSocket.send({
-            verify_email: Client.get('email'),
-            type        : 'payment_withdraw',
-        });
-    };
-
-    const unload = () => {
-        if ($btn_submit) {
-            $btn_submit.off('click', submit);
-        }
-    };
-
-    const submit = (e) => {
-        e.preventDefault();
-        if (Validation.validate(form_selector)) {
-            $form_withdraw.addClass(hidden_class);
-            deposit_withdraw($(fields.token).val());
+    const checkToken = () => {
+        if (cashier_type === 'withdraw') {
+            const token = get_params().token || '';
+            if (!token) {
+                ChampionSocket.send({
+                    verify_email: Client.get('email'),
+                    type        : 'payment_withdraw',
+                });
+                $error_msg.html('Please check your email to complete the process.').removeClass(hidden_class);
+            } else if (!Validation.validEmailToken(token)) {
+                $error_msg.html('Verification code is wrong. Please use the link sent to your email.').removeClass(hidden_class);
+            } else {
+                deposit_withdraw(token);
+            }
+        } else {
+            deposit_withdraw();
         }
     };
 
@@ -85,6 +70,9 @@ const CashierDepositWithdraw = (function() {
             if (response.error) {
                 $error_msg.removeClass(hidden_class);
                 switch (response.error.code) {
+                    case 'ASK_EMAIL_VERIFY':
+                        checkToken();
+                        break;
                     case 'ASK_TNC_APPROVAL':
                         $error_msg.html('Please accept the latest Terms and Conditions.');
                         break;
@@ -104,7 +92,7 @@ const CashierDepositWithdraw = (function() {
                             if (res.error) {
                                 $error_msg.html(res.error.message);
                             } else {
-                                deposit_withdraw();
+                                deposit_withdraw(token);
                                 Client.setCurrency(res.echo_req.set_account_currency);
                             }
                         });
@@ -113,7 +101,7 @@ const CashierDepositWithdraw = (function() {
                         $error_msg.html(response.error.message);
                 }
             } else {
-                $('#error_msg').addClass(hidden_class);
+                $error_msg.addClass(hidden_class);
                 $(`#${cashier_type}_iframe_container`).removeClass(hidden_class)
                     .find('iframe')
                     .attr('src', response.cashier)
@@ -123,9 +111,7 @@ const CashierDepositWithdraw = (function() {
     };
 
     return {
-        load            : load,
-        unload          : unload,
-        deposit_withdraw: deposit_withdraw,
+        load: load,
     };
 })();
 

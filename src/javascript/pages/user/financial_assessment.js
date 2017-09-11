@@ -15,7 +15,8 @@ const FinancialAssessment = (() => {
         arr_validation = [],
         $btn_submit,
         $msg_form,
-        $msg_success;
+        $msg_success,
+        is_first_time;
 
     const load = () => {
         showLoadingImage($('<div/>', { id: 'loading', class: 'center-text' }).insertAfter('#heading'));
@@ -29,8 +30,8 @@ const FinancialAssessment = (() => {
         $msg_form    = $(form_selector).find('#msg_form');
         $msg_success = $(form_selector).find('#msg_success');
 
-        ChampionSocket.wait('get_financial_assessment').then((response) => {
-            handleForm(response);
+        ChampionSocket.send({ get_financial_assessment: 1 }, true).then((response) => {
+            handleForm(response.get_financial_assessment);
         });
     };
 
@@ -39,7 +40,9 @@ const FinancialAssessment = (() => {
             response = State.get(['response', 'get_financial_assessment']);
         }
         hideLoadingImg();
-        financial_assessment = $.extend({}, response.get_financial_assessment);
+        financial_assessment = $.extend({}, response);
+
+        is_first_time = isEmptyObject(financial_assessment);
 
         if (isEmptyObject(financial_assessment)) {
             ChampionSocket.wait('get_account_status').then((data) => {
@@ -49,14 +52,18 @@ const FinancialAssessment = (() => {
             });
         }
 
-
         Object.keys(financial_assessment).forEach((key) => {
             const val = financial_assessment[key];
             $(`#${key}`).val(val);
         });
+
         arr_validation = [];
         $(form_selector).find('select').map(function() {
-            arr_validation.push({ selector: `#${$(this).attr('id')}`, validations: ['req'] });
+            const id = $(this).attr('id');
+            arr_validation.push({ selector: `#${id}`, validations: ['req'] });
+            if (financial_assessment[id] === undefined) {  // handle fields not previously set by client
+                financial_assessment[id] = '';
+            }
         });
         Validation.init(form_selector, arr_validation);
     };
@@ -90,7 +97,8 @@ const FinancialAssessment = (() => {
                     showFormMessage('Sorry, an error occurred while processing your request.', false);
                 } else {
                     showFormMessage('Your changes have been updated successfully.', true);
-                    ChampionSocket.send({ get_financial_assessment: 1 }, true).then(() => {
+                    // need to remove financial_assessment_not_complete from status if any
+                    ChampionSocket.send({ get_account_status: 1 }, true).then(() => {
                         Header.displayAccountStatus();
                     });
                 }
@@ -107,7 +115,8 @@ const FinancialAssessment = (() => {
 
     const showFormMessage = (msg, isSuccess) => {
         $msg_form.removeClass(hidden_class).css('display', '').html('');
-        if (isSuccess) {
+        if (isSuccess && is_first_time) {
+            is_first_time = false;
             $msg_success.removeClass(hidden_class);
             ChampionSocket.send({ get_account_status: 1 }).then((response_status) => {
                 if ($.inArray('authenticated', response_status.get_account_status.status) === -1) {
@@ -115,7 +124,12 @@ const FinancialAssessment = (() => {
                 }
             });
         } else {
-            $msg_form.html(msg).delay(5000).fadeOut(1000);
+            $msg_success.addClass(hidden_class);
+            $msg_form
+                .attr('class', isSuccess ? 'success-msg' : 'error-msg').css('display', 'block')
+                .html(msg)
+                .delay(5000)
+                .fadeOut(1000);
         }
     };
 

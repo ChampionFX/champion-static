@@ -3,6 +3,7 @@ const GTM                     = require('./gtm');
 const Header                  = require('./header');
 const LoggedIn                = require('./logged_in');
 const Login                   = require('./login');
+const Redirect                = require('./redirect');
 const ChampionRouter          = require('./router');
 const SessionDurationLimit    = require('./session_duration_limit');
 const ChampionSocket          = require('./socket');
@@ -78,38 +79,42 @@ const Champion = (function() {
         const page = content.getAttribute('data-page');
         State.set('current_page', page);
         const pages_map = {
-            authenticate       : { module: Authenticate,           is_authenticated: true, only_real: true },
-            cashier            : { module: Cashier },
-            contact            : { module: ChampionContact },
-            endpoint           : { module: ChampionEndpoint },
-            forward            : { module: CashierDepositWithdraw, is_authenticated: true, only_real: true },
-            home               : { module: Home },
-            limits             : { module: Limits,              is_authenticated: true, only_real: true },
-            logged_inws        : { module: LoggedIn },
-            metatrader         : { module: MetaTrader,          is_authenticated: true },
-            forex              : { module: MT5 },
-            cfd                : { module: MT5 },
-            metals             : { module: MT5 },
-            profile            : { module: ChampionProfile,     is_authenticated: true },
-            settings           : { module: ChampionSettings,    is_authenticated: true },
-            security           : { module: ChampionSecurity,    is_authenticated: true },
-            'cashier-password' : { module: CashierPassword,     is_authenticated: true, only_real: true },
-            'change-password'  : { module: ChangePassword,      is_authenticated: true },
-            'login-history'    : { module: LoginHistory,        is_authenticated: true },
-            'lost-password'    : { module: LostPassword,        not_authenticated: true },
-            'binary-options'   : { module: BinaryOptions },
-            'mt5-web-platform' : { module: MT5WebPlatform },
-            'new-account'      : { module: NewAccount },
-            'payment-methods'  : { module: CashierPaymentMethods },
-            'reset-password'   : { module: ResetPassword,       not_authenticated: true },
-            'self-exclusion'   : { module: SelfExclusion,       is_authenticated: true, only_real: true },
-            'tnc-approval'     : { module: TNCApproval,         is_authenticated: true, only_real: true },
-            'top-up-virtual'   : { module: CashierTopUpVirtual, is_authenticated: true, only_virtual: true },
-            'trading-times'    : { module: TradingTimes },
-            'types-of-accounts': { module: ClientType },
-            'trading-platform' : { module: ClientType },
-            'metatrader-5'     : { module: ClientType },
-            'champion-trader'  : { module: ClientType },
+            authenticate           : { module: Authenticate,           is_authenticated: true, only_real: true },
+            cashier                : { module: Cashier },
+            contact                : { module: ChampionContact },
+            endpoint               : { module: ChampionEndpoint },
+            forward                : { module: CashierDepositWithdraw, is_authenticated: true, only_real: true },
+            home                   : { module: Home,                not_authenticated: true },
+            limits                 : { module: Limits,              is_authenticated: true, only_real: true },
+            logged_inws            : { module: LoggedIn },
+            metatrader             : { module: MetaTrader,          is_authenticated: true },
+            forex                  : { module: MT5 },
+            cfd                    : { module: MT5 },
+            metals                 : { module: MT5 },
+            profile                : { module: ChampionProfile,     is_authenticated: true },
+            redirect               : { module: Redirect },
+            settings               : { module: ChampionSettings,    is_authenticated: true },
+            security               : { module: ChampionSecurity,    is_authenticated: true },
+            'cashier-password'     : { module: CashierPassword,     is_authenticated: true, only_real: true },
+            'change-password'      : { module: ChangePassword,      is_authenticated: true },
+            'choose-platform'      : { is_authenticated: true },
+            'login-history'        : { module: LoginHistory,        is_authenticated: true },
+            'lost-password'        : { module: LostPassword,        not_authenticated: true },
+            'binary-options'       : { module: BinaryOptions },
+            'mt5-web-platform'     : { module: MT5WebPlatform },
+            'new-account'          : { module: NewAccount },
+            'payment-methods'      : { module: CashierPaymentMethods },
+            'reset-password'       : { module: ResetPassword,       not_authenticated: true },
+            'self-exclusion'       : { module: SelfExclusion,       is_authenticated: true, only_real: true },
+            'tnc-approval'         : { module: TNCApproval,         is_authenticated: true, only_real: true },
+            'top-up-virtual'       : { module: CashierTopUpVirtual, is_authenticated: true, only_virtual: true },
+            'trading-times'        : { module: TradingTimes },
+            'types-of-accounts'    : { module: ClientType },
+            'trading-platform'     : { module: ClientType },
+            'metatrader-5'         : { module: MT5 },
+            'champion-trader'      : { module: ClientType },
+            'economic-calendar'    : { module: ClientType },
+            'mt5-types-of-accounts': { module: MT5 },
         };
         if (page in pages_map) {
             loadHandler(pages_map[page]);
@@ -125,9 +130,9 @@ const Champion = (function() {
     const errorMessages = {
         login: module => (
             module === MetaTrader ?
-            Utility.template(`To register an MT5 account, please <a href="[_1]">log in</a> to your ChampionFX account<br />
-                Don't have a ChampionFX account? <a href="[_2]">Create one</a> now`, [Login.login_url(), url_for('/')]) :
-            Utility.template('Please <a href="[_1]">log in</a> to view this page.', [Login.login_url()])
+            Utility.template(`To register an MT5 account, please <a href="[_1]" class="login">log in</a> to your ChampionFX account<br />
+                Don't have a ChampionFX account? <a href="[_2]">Create one</a> now`, [`${'java'}${'script:;'}`, url_for('/')]) :
+            Utility.template('Please <a href="[_1]" class="login">log in</a> to view this page.', [`${'java'}${'script:;'}`])
         ),
         only_virtual: 'Sorry, this feature is available to virtual accounts only.',
         only_real   : 'This feature is not relevant to virtual-money accounts.',
@@ -163,6 +168,7 @@ const Champion = (function() {
         const $content = container.find('#champion-content .container');
         $content.html($content.find('h1').first())
             .append($('<p/>', { class: 'center-text notice-msg', html: message }));
+        $content.find('a.login').on('click', () => { Login.redirect_to_login(); });
     };
 
     return {
