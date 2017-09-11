@@ -49,7 +49,7 @@
                             <div class="separator primary-color col-xs-6 push-xs-3"></div>
                             <p>[% l('Trade and manage multiple MT5 client accounts from a single interface.') %]</p>
                             <p>
-                                <a class="button-secondary" href="[% request.url_for('multi-account-manager') %]">
+                                <a class="button-secondary" href="[% request.url_for('multiple-accounts-manager') %]">
                                     <span>[% l('Learn more') %]</span>
                                 </a>
                             </p>
