@@ -76,7 +76,7 @@ function handleActive() {
                 .find(content_to_show)
                 .removeClass(hidden_class);
 
-            $.scrollTo($(hash), 500, { offset: -5 });
+            $.scrollTo($(hash), 500, { offset: getOffset(-5) });
         }
     }
 }
@@ -185,6 +185,10 @@ function setPosition(element, type) {
     element.css({ position: type });
 }
 
+function getOffset(offset = 0) {
+    return -$('#top_group.logged-in').height() + (offset || -10);
+}
+
 module.exports = {
     showLoadingImage  : showLoadingImage,
     isEmptyObject     : isEmptyObject,
@@ -201,6 +205,7 @@ module.exports = {
     getPropertyValue  : getPropertyValue,
     slideIn           : slideIn,
     slideOut          : slideOut,
+    getOffset         : getOffset,
 
     compareBigUnsignedInt: compareBigUnsignedInt,
 };
