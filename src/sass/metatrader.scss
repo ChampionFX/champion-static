@@ -1,32 +1,27 @@
 #mt_account_management {
-    padding: 30px;
-
+    > div {
+        display: flex;
+    }
     .mt-container {
-        padding: 0 30px;
+        padding: 20px;
     }
     .mt-panel {
-        background: $white;
-        padding: 10px 0 20px;
-
-        .top {
-            height: 80px;
-            margin-bottom: 20px;
-        }
-        &:nth-child(2) {
-            border-left: 30px solid $fillColor;
-        }
+        border: 1px solid $borderColor;
+        border-radius: $BORDER_RADIUS;
+        margin-bottom: 20px;
+        flex: 1;
+        flex-direction: column;
     }
     #account_selector {
         position: relative;
-        margin: 5px;
         cursor: pointer;
 
         #mt5_account, #accounts_list {
             border: 1px solid $primaryBrandColor;
         }
         #mt5_account {
-            height: 40px;
-            line-height: 40px;
+            height: 36px;
+            line-height: 36px;
             padding: 0 20px;
             box-sizing: border-box;
             margin: 0;
@@ -66,24 +61,15 @@
                     color: $primaryBrandColor;
                     background: $fillColor;
                 }
-                &.disabled {
-                    color: $secondaryContentColor;
-
-                    .mt-new img {
-                        filter: grayscale(100%);
-                        opacity: 0.2;
-                    }
+                &.selected {
+                    background: $borderColor;
                 }
                 .mt-balance {
                     float: right;
                     font-size: $FONT_SIZE_S;
                 }
-                .mt-new {
+                .mt-icon {
                     float: right;
-
-                    img {
-                        width: 14px;
-                    }
                 }
             }
             .separator {
@@ -91,32 +77,74 @@
             }
         }
     }
-    #account_detail {
+    #mt_left_panel {
+        flex-direction: column;
+        padding-right: 5px;
+    }
+    #mt_right_panel {
+        font-size: $FONT_SIZE_S;
+
+        .platforms li {
+            margin-bottom: 10px;
+
+            img {
+                width: 16px;
+                height: 16px;
+                margin-right: 5px;
+            }
+        }
+    }
+    #account_details {
+        flex: 0;
+
+        #acc_icon {
+            width: 90px;
+            height: 90px;
+            border: 2px solid $borderColor;
+            border-radius: 50%;
+            background: no-repeat center;
+            background-size: 50px;
+
+            &.cent {
+                background-image: url('../images/metatrader/dashboard/acc_cent.svg');
+            }
+            &.standard {
+                background-image: url('../images/metatrader/dashboard/acc_standard.svg');
+            }
+            &.stp {
+                background-image: url('../images/metatrader/dashboard/acc_stp.svg');
+            }
+        }
         .acc-info {
             font-size: $FONT_SIZE_S;
-            line-height: 20px;
-            margin-top: 20px;
-            margin-bottom: 20px;
+
+            .balance {
+                font-size: $FONT_SIZE_N;
+                color: $primaryBrandColor;
+            }
         }
-        .acc-actions a {
-            margin: 5px;
-            display: block;
-            padding: 20px 30px;
+    }
+    .acc-actions {
+        display: flex;
+
+        * {
+            transition: unset !important;
+        }
+        a, > span {
             background: $fillColor;
+            line-height: 40px;
+            font-weight: normal;
+            flex: 1;
 
-            &:hover, &.selected {
-                border-right: 5px solid $primaryBrandColor;
+            &:first-child {
+                border-radius: $BORDER_RADIUS 0 0;
             }
-            img {
-                height: 24px;
+            &:last-child {
+                border-radius: 0 $BORDER_RADIUS 0 0;
             }
-        }
-        #account_desc {
-            font-size: $FONT_SIZE_S;
-
-            a.more {
-                display: block;
-                margin-top: 20px;
+            &.selected {
+                color: $white;
+                background: $primaryBrandColor;
             }
         }
     }
@@ -127,62 +155,155 @@
             h4 {
                 padding-top: 6px;
             }
-            .separator {
-                margin-bottom: 20px;
-            }
-            #main_msg {
+            .separator, #main_msg {
                 margin-bottom: 20px;
             }
             button .barspinner.white {
                 height: 13px;
                 margin: 3px;
             }
+            #frm_cashier {
+                .mt-panel {
+                    margin-bottom: 0;
+                    padding: 15px;
+                }
+                .binary-balance, .mt5-balance {
+                    font-weight: bold;
+                    color: $primaryBrandColor;
+                    font-size: $FONT_SIZE_N;
+                }
+                .flex {
+                    display: flex;
+                    flex: 1;
+                    flex-direction: column;
+
+                    &:first-child {
+                        padding-right: 10px;
+                    }
+                    &:last-child {
+                        padding-left: 10px;
+                    }
+                }
+                .cashier-guide {
+                    display: inline-block;
+
+                    div {
+                        display: inline-block;
+                        vertical-align: middle;
+                        padding: 0 20px;
+                        text-align: left;
+
+                        &:first-child {
+                            text-align: right;
+                        }
+                    }
+                }
+                img {
+                    height: 64px;
+                    max-width: 64px;
+                }
+            }
+            .type-group {
+                .mt5_type_box {
+                    width: 88px;
+                    height: 88px;
+                    margin: 0 auto;
+                    border: 1px solid $borderColor;
+                    border-radius: $BORDER_RADIUS;
+                    cursor: pointer;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+
+                    &:hover {
+                        border-color: $primaryBrandColor;
+                    }
+                    &:before {
+                        content: '';
+                        width: 16px;
+                        height: 16px;
+                        border: 1px solid $borderColor;
+                        border-radius: 50%;
+                        position: absolute;
+                        right: 6px;
+                        top: 6px;
+                    }
+                    div {
+                        font-weight: bold;
+                        color: $primaryBrandColor;
+                        text-align: center;
+                        flex: 1;
+                    }
+                    img {
+                        height: 65px;
+                        flex: 1;
+                    }
+                    &.disabled, &.existed {
+                        cursor: default;
+
+                        &:hover {
+                            border-color: $borderColor;
+                        }
+                        &:after {
+                            content: '';
+                            width: 88px;
+                            height: 88px;
+                            position: absolute;
+                            background: rgba(0, 0, 0, 0.05);
+                        }
+                    }
+                    &.existed:before {
+                        background: url('../images/metatrader/dashboard/tick_gray.svg');
+                        border: none;
+                    }
+                    &.selected {
+                        border-color: $primaryBrandColor;
+                        cursor: default;
+
+                        &:before {
+                            background: url('../images/metatrader/dashboard/tick.svg');
+                            border: none;
+                        }
+                    }
+                }
+                p {
+                    width: 140px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
         }
     }
     .txt-left {
         text-align: left;
     }
+    .padding-10 {
+        padding: 10px 0;
+    }
+    .small-text {
+        font-size: $FONT_SIZE_XS;
+    }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 575px) {
     #mt_account_management {
-        padding: 10px;
-
-        .mt-container {
+        #mt_left_panel {
             padding: 0 10px;
-        }
-        .mt-panel {
-            padding: 10px 0 0;
 
-            &:nth-child(2) {
-                border-left: none;
+            #account_selector {
+                margin-left: 20px;
             }
         }
-        .acc-actions {
-            display: table;
-            border-spacing: 5px;
-
-            > a {
-                display: table-cell !important;
-
-                &.invisible {
-                    display: none !important;
-                }
-                width: 1%;
-                text-align: center;
-                padding: 10px !important;
-
-                &:hover, &.selected {
-                    border-right: 0 !important;
-                    border-bottom: 5px solid $primaryBrandColor;
-                }
-                img {
-                    height: 36px;
-                    margin-bottom: 5px;
-                }
-                span {
-                    display: block;
-                }
+        #mt_right_panel {
+            padding: 0 10px;
+        }
+        .fst-container #fst_action #frm_cashier .flex {
+            &:first-child {
+                padding-right: 15px;
+                margin-bottom: 10px;
+            }
+            &:last-child {
+                padding-left: 15px;
             }
         }
     }
@@ -190,15 +311,12 @@
 
 @media (max-width: 991px) {
     #mt_account_management .mt-container {
-        padding: 0 10px;
+        padding: 10px;
     }
 }
 
 @media (max-width: 1199px) {
     #mt_account_management {
-        .mt-container {
-            padding: 0 20px;
-        }
         #accounts_list {
             font-size: $FONT_SIZE_S;
 

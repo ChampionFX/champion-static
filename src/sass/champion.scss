@@ -1204,6 +1204,11 @@ img.float-right {
     padding-right: 0 !important;
 }
 
+.gutters {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
 .fx-cashier {
     .button {
         margin-right: 20px;
@@ -1316,4 +1321,14 @@ iframe {
     td {
         vertical-align: middle;
     }
+}
+
+.flex-grow, .flex-adapt {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+}
+
+.flex-adapt {
+    flex: 0 1 auto;
 }
