@@ -1,5 +1,3 @@
-const Client = require('../common/client');
-
 const MT5 = (() => {
     'use strict';
 
