@@ -1,4 +1,6 @@
 #mt_account_management {
+    border: 3px solid $fillColor;
+
     > div {
         display: flex;
     }
@@ -6,8 +8,6 @@
         padding: 20px;
     }
     .mt-panel {
-        border: 1px solid $borderColor;
-        border-radius: $BORDER_RADIUS;
         margin-bottom: 20px;
         flex: 1;
         flex-direction: column;
@@ -45,7 +45,6 @@
         }
         #accounts_list {
             width: 100%;
-            padding: 10px 0;
             border-radius: 0 0 $BORDER_RADIUS $BORDER_RADIUS;
             border-top: 0;
             display: none;
@@ -56,6 +55,7 @@
             .acc-name {
                 line-height: 30px;
                 padding: 0 20px;
+                border-top: 1px solid $fillColor;
 
                 &:hover {
                     color: $primaryBrandColor;
@@ -82,7 +82,9 @@
         padding-right: 5px;
     }
     #mt_right_panel {
+        border-left: 3px solid $fillColor;
         font-size: $FONT_SIZE_S;
+        padding-left: 0;
 
         .platforms li {
             margin-bottom: 10px;
@@ -118,6 +120,12 @@
         .acc-info {
             font-size: $FONT_SIZE_S;
 
+            .login {
+                padding: 2px 15px;
+                border-radius: 15px;
+                background: $fillColor;
+                color: $primaryBrandColor;
+            }
             .balance {
                 font-size: $FONT_SIZE_N;
                 color: $primaryBrandColor;
@@ -203,17 +211,24 @@
                     max-width: 64px;
                 }
             }
-            .type-group {
-                .mt5_type_box {
-                    width: 88px;
-                    height: 88px;
+            #frm_new_account #btn_next span {
+                padding-right: 50px;
+                padding-left: 50px;
+            }
+            #view_1 {
+                margin: 0 50px;
+
+                .flex {
+                    display: flex;
+                    flex: 1;
+                }
+                .mt5-type-box {
                     margin: 0 auto;
-                    border: 1px solid $borderColor;
-                    border-radius: $BORDER_RADIUS;
                     cursor: pointer;
                     position: relative;
                     display: flex;
                     align-items: center;
+                    border: 1px solid $fillColor;
 
                     &:hover {
                         border-color: $primaryBrandColor;
@@ -222,35 +237,11 @@
                         content: '';
                         width: 16px;
                         height: 16px;
-                        border: 1px solid $borderColor;
+                        border: 1px solid $fillColor;
                         border-radius: 50%;
                         position: absolute;
                         right: 6px;
                         top: 6px;
-                    }
-                    div {
-                        font-weight: bold;
-                        color: $primaryBrandColor;
-                        text-align: center;
-                        flex: 1;
-                    }
-                    img {
-                        height: 65px;
-                        flex: 1;
-                    }
-                    &.disabled, &.existed {
-                        cursor: default;
-
-                        &:hover {
-                            border-color: $borderColor;
-                        }
-                        &:after {
-                            content: '';
-                            width: 88px;
-                            height: 88px;
-                            position: absolute;
-                            background: rgba(0, 0, 0, 0.05);
-                        }
                     }
                     &.existed:before {
                         background: url('../images/metatrader/dashboard/tick_gray.svg');
@@ -265,11 +256,78 @@
                             border: none;
                         }
                     }
+                    &.disabled:before {
+                        display: none;
+                    }
+                    &.disabled, &.existed {
+                        cursor: default;
+
+                        &:hover {
+                            border-color: $fillColor;
+                        }
+                    }
                 }
-                p {
-                    width: 140px;
-                    margin-left: auto;
-                    margin-right: auto;
+                .step-1 .mt5-type-box {
+                    flex-direction: column;
+                    padding-top: 20px;
+                    width: 100%;
+                    border-width: 3px;
+
+                    .title {
+                        color: $primaryBrandColor;
+                    }
+                    .image {
+                        display: inline-block;
+                        width: 75px;
+                        height: 50px;
+                        margin-top: 10px;
+                        background: url('../images/metatrader/dashboard/acc_demo.svg') no-repeat center;
+                    }
+                    &#rbtn_real .image {
+                        background-image: url('../images/metatrader/dashboard/acc_real.svg');
+                    }
+                    &#rbtn_real.disabled .image {
+                        background-image: url('../images/metatrader/dashboard/acc_real_disabled.svg');
+                    }
+                    #msg_real_financial {
+                        display: none;
+                    }
+                    &.disabled {
+                        .title {
+                            color: $secondaryContentColor;
+                        }
+                        .desc {
+                            display: none;
+                        }
+                        #msg_real_financial {
+                            display: block;
+                            margin-top: 10px;
+                            text-align: left;
+                        }
+                    }
+                }
+                .step-2 {
+                    .mt5-type-box {
+                        width: 128px;
+                        height: 128px;
+
+                        &.disabled, &.existed {
+                            background: rgba(0, 0, 0, 0.05);
+                        }
+                        div {
+                            font-weight: bold;
+                            color: $primaryBrandColor;
+                            text-align: center;
+                            flex: 1;
+                        }
+                        img {
+                            height: 65px;
+                            flex: 1;
+                        }
+                    }
+                    p {
+                        margin-bottom: 0;
+                    }
                 }
             }
         }

@@ -23,15 +23,16 @@ const MetaTraderConfig = (function() {
         new_account: {
             title        : 'Sign up',
             login        : response => response.mt5_new_account.login,
-            prerequisites: acc_type => (
+            prerequisites: is_real => (
                 new Promise((resolve) => {
-                    if (types_info[acc_type].is_demo) {
+                    if (!is_real) {
                         resolve();
                     } else if (Client.is_virtual()) {
-                        resolve(needsRealMessage());
+                        $('#msg_real_financial').html(needsRealMessage());
+                        resolve(true);
                     } else {
                         ChampionSocket.send({ get_account_status: 1 }).then((response_get_account_status) => {
-                            const $message = $('#msg_real_financial').clone();
+                            const $message = $('#msg_real_financial');
                             let is_ok = true;
                             if (/financial_assessment_not_complete/.test(response_get_account_status.get_account_status.status)) {
                                 $message.find('.assessment').setVisibility(1).find('a').attr('onclick', `localStorage.setItem('financial_assessment_redirect', '${url_for('user/metatrader')}')`);
@@ -41,7 +42,7 @@ const MetaTraderConfig = (function() {
                                 $message.find('.authenticate').setVisibility(1);
                                 is_ok = false;
                             }
-                            resolve(is_ok ? '' : $message.html());
+                            resolve(!is_ok);
                         });
                     }
                 })

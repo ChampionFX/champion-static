@@ -3,7 +3,6 @@ const Client            = require('../../../common/client');
 const formatMoney       = require('../../../common/currency').formatMoney;
 const getOffset         = require('../../../common/utility').getOffset;
 const showLoadingImage  = require('../../../common/utility').showLoadingImage;
-const template          = require('../../../common/utility').template;
 const Validation        = require('../../../common/validation');
 
 const MetaTraderUI = (function() {
@@ -229,7 +228,6 @@ const MetaTraderUI = (function() {
     const handleNewAccountUI = (action, acc_type, $target) => {
         const is_new_account = action === 'new_account';
         const $acc_actions = $container.find('.acc-actions');
-        $acc_actions.find('.new-account').setVisibility(is_new_account);
         $acc_actions.find('.has-account').setVisibility(!is_new_account);
         $detail.setVisibility(!is_new_account);
 
@@ -242,12 +240,18 @@ const MetaTraderUI = (function() {
         }
 
         // is_new_account
-        newAccountSetTitle();
         displayAccountDescription(action);
         $form = actions_info[action].$form;
+        actions_info[action].prerequisites(true).then((error_msg) => {
+            $form.find('#rbtn_real')[error_msg ? 'addClass' : 'removeClass']('disabled');
+        });
 
         // Navigation buttons: cancel, next, back
-        $form.find('#btn_cancel').click(() => { loadAction(null, acc_type); });
+        $form.find('#btn_cancel').click(() => {
+            loadAction(null, acc_type);
+            displayAccountDescription(acc_type);
+            $.scrollTo($('h1'), 300, { offset: getOffset() });
+        });
         const displayStep = (step) => {
             $form.find('#mv_new_account div[id^="view_"]').setVisibility(0);
             $form.find(`#view_${step}`).setVisibility(1);
@@ -262,18 +266,14 @@ const MetaTraderUI = (function() {
         $form.find('#btn_back').click(() => { displayStep(1); });
 
         // Account type selection
-        $form.find('.mt5_type_box').click(selectAccountTypeUI);
-    };
-
-    const newAccountSetTitle = (acc_type) => {
-        $container.find('.acc-actions .new-account span').text(template($templates.find('#title_new_account').text(), [acc_type ? types_info[acc_type].title : '']));
+        $form.find('.mt5-type-box').click(selectAccountTypeUI);
     };
 
     const newAccountGetType = () => `${$form.find('.step-1 .selected').attr('data-acc-type')}_${$form.find('.step-2 .selected').attr('data-acc-type')}`;
 
     const selectAccountTypeUI = (e) => {
         const action = 'new_account';
-        const box_class = 'mt5_type_box';
+        const box_class = 'mt5-type-box';
         let $item = $(e.target);
         if (!$item.hasClass(box_class)) {
             $item = $item.parents(`.${box_class}`);
@@ -283,7 +283,6 @@ const MetaTraderUI = (function() {
         $item.addClass('selected');
         const selected_acc_type = $item.attr('data-acc-type');
         if (/(demo|real)/.test(selected_acc_type)) {
-            newAccountSetTitle();
             displayAccountDescription(action);
             updateAccountTypesUI(selected_acc_type);
             $form.find('#view_1 #btn_next').addClass('button-disabled');
@@ -291,12 +290,8 @@ const MetaTraderUI = (function() {
             displayMessage('#new_account_msg', (selected_acc_type === 'real' && Client.get('is_virtual')) ? MetaTraderConfig.needsRealMessage() : '', true);
         } else {
             const new_acc_type = newAccountGetType();
-            newAccountSetTitle(new_acc_type);
             displayAccountDescription(new_acc_type);
-            actions_info[action].prerequisites(new_acc_type).then((error_msg) => {
-                displayMessage('#new_account_msg', error_msg || '');
-                $form.find('#view_1 #btn_next')[error_msg ? 'addClass' : 'removeClass']('button-disabled');
-            });
+            $form.find('#view_1 #btn_next').removeClass('button-disabled');
         }
     };
 
