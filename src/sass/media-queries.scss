@@ -44,7 +44,7 @@
         margin-bottom: 10px;
     }
     .fx-row-margin-bottom {
-        margin-bottom: unset;
+        margin-bottom: 10px;
     }
     .fx-row-margin-top {
         margin-top: 10px !important;
@@ -57,6 +57,9 @@
 @media (min-width: 768px) {
     .container, .fx-container {
         width: 100%;
+    }
+    .fx-row-margin-bottom {
+        margin-bottom: 30px;
     }
 }
 
@@ -72,9 +75,6 @@
     }
     .fx-liquidity-margin-top {
         margin-top: 30px;
-    }
-    .fx-row-margin-bottom {
-        margin-bottom: 10px;
     }
     .fx-partnerships-margin-top {
         margin-top: 20px;
