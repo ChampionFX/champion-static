@@ -40,14 +40,20 @@
     .table-container {
         overflow-x: auto;
     }
+    .fx-box-margin {
+        margin-bottom: 10px;
+    }
+    .fx-row-margin-bottom {
+        margin-bottom: unset;
+    }
+    .fx-row-margin-top {
+        margin-top: 10px !important;
+    }
 }
 
 @media (min-width: 768px) {
     .container, .fx-container {
         width: 100%;
-    }
-    .hidden-sm-up {
-        display: none !important;
     }
 }
 
@@ -61,11 +67,17 @@
     .fx-panel, .fx-panel-item {
         height: auto;
     }
+    .fx-row-margin-bottom {
+        margin-bottom: 10px;
+    }
 }
 
 @media (min-width: 991px) {
     .container, .fx-container {
         width: 100%;
+    }
+    .hidden-md-up {
+        display: none !important;
     }
 }
 

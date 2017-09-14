@@ -13,21 +13,21 @@
             <div class="col-sm-12">
                 <h2>[% l('Key features') %]</h2>
             </div>
-            <div class="col-xs-12 col-md-6 col-lg-3">
+            <div class="col-xs-12 col-md-6 col-lg-3 fx-box-margin fx-row-margin-bottom">
                 <div class="box fill-bg-color">
                     <span class="fx fx-multi-asset-execution"></span>
                     <p class="text-bold">[% l('Multi-asset execution') %]</p>
                     <p>[% l('Over 50 FX pairs, plus spot metals, CFD indices, commodities, and cryptocurrencies.') %]</p>
                 </div>
             </div>
-            <div class="col-xs-12 col-md-6 col-lg-3">
+            <div class="col-xs-12 col-md-6 col-lg-3 fx-box-margin fx-row-margin-bottom">
                 <div class="box fill-bg-color">
                     <span class="fx fx-liquidity-solution"></span>
                     <p class="text-bold">[% l('Top-tier liquidity') %]</p>
                     <p>[% l('Access market quotes and trade execution from top-tier liquidity providers, including banks and non-banks.') %]</p>
                 </div>
             </div>
-            <div class="col-xs-12 col-md-6 col-lg-3">
+            <div class="col-xs-12 col-md-6 col-lg-3 fx-box-margin">
                 <div class="box fill-bg-color">
                     <span class="fx fx-full-transparency"></span>
                     <p class="text-bold">[% l('Full transparency') %]</p>
@@ -49,14 +49,14 @@
             <div class="col-sm-12">
                 <h2>[% l('How it works') %]</h2>
             </div>
-            <div class="col-md-8 push-md-2 col-lg-4 push-lg-0">
+            <div class="col-md-8 push-md-2 col-lg-4 push-lg-0 fx-box-margin fx-row-margin-bottom">
                 <div class="box box-bordered">
                     <span class="fx fx-one-zero"></span>
                     <p class="box-title">[% l('One Zero') %]</p>
                     <p>[% l('MT4 and MT5 brokers can connect directly to our liquidity on the One Zero bridge by using built-in plugins.') %]</p>
                 </div>
             </div>
-            <div class="col-md-8 push-md-2 col-lg-4 push-lg-0">
+            <div class="col-md-8 push-md-2 col-lg-4 push-lg-0 fx-box-margin fx-row-margin-bottom">
                 <div class="box box-bordered">
                     <span class="fx fx-mt5-gateaway"></span>
                     <p class="box-title">[% l('MT5 Gateaway') %]</p>
