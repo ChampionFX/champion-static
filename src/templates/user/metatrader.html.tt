@@ -209,7 +209,7 @@
                                         { type='champion_standard' desc='Standard' },
                                         { type='champion_stp'      desc='STP' },
                                     ] %]
-                                    <div class="small-text">[% l('Go to [_1]MetaTrader 5 types of accounts[_2] to see the comparison between these accounts.', '<a href="' _ request.url_for('metatrader/types-of-accounts.html') _ '">', '</a>') %]</div>
+                                    <div class="small-text">[% l('Go to [_1]MetaTrader 5 types of accounts[_2] to see the comparison between these accounts.', '<a href="' _ request.url_for('metatrader/types-of-accounts') _ '">', '</a>') %]</div>
                                 </div>
                                 <p id="new_account_msg" class="notice-msg center-text invisible"></p>
                                 <div class="separator padding-10"></div>
@@ -261,6 +261,9 @@
                             <p class="col-lg-8 push-lg-2 center-text">[% l('This demo account comes with [_1] of the virtual fund. Contact our [_2]customer service[_3] to top up your demo account once virtual fund reaches zero.', '$10,000.00', '<a href="mailto:support@champion-fx.com" rel="nofollow">', '</a>') %]</p>
                         </div>
                         <div class="real-only invisible">
+                            <div class="payment-guide">
+                                <a class="small-text" href="[% request.url_for('how-payment-works') %]" target="_blank">[% l('How our payment works') %]</a>
+                            </div>
                             <div class="fill-bg-color center-text mt-container">
                                 <div class="col-lg-10 push-lg-1">
                                     <h3 class="secondary-color">[% l('Fund overview') %]</h3>

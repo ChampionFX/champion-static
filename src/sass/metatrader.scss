@@ -221,6 +221,19 @@
                         }
                     }
                 }
+                .payment-guide {
+                    display: block;
+                    text-align: right;
+                    line-height: 20px;
+                    margin-top: -15px;
+
+                    a {
+                        color: $secondaryContentColor;
+                        font-weight: normal;
+                        padding-right: 20px;
+                        background: url('../images/metatrader/dashboard/question_mark.svg') no-repeat center right;
+                    }
+                }
                 img {
                     height: 64px;
                     max-width: 64px;
