@@ -36,6 +36,7 @@ sub all_pages {
         ['cfd',                        'mt5/cfd',                      'full_width', 'Contracts for Difference'],
         ['metals',                     'mt5/metals',                   'full_width', 'Metals'],
         ['mt5-web-platform',           'mt5/mt5_web_platform',         'full_width', 'MetaTrader 5 Web Platform'],
+        ['how-payment-works',          'mt5/how_payment_works',        'full_width', 'How our payment works'],
 
         ['partnerships',               'static/partnerships/partnerships',             'full_width', 'Partnerships'],
         ['partnerships-affiliate',     'static/partnerships/partnerships_affiliate',   'full_width', 'Affiliate programme'],
