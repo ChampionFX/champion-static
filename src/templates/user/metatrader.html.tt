@@ -50,11 +50,12 @@
                         </div>
                     </div>
 
-                    <div class="mt-panel">
+                    <div class="tab-container">
                         <div class="acc-actions">
                             <a href="javascript:;" class="act_cashier has-account center-text invisible">
                                 <span>[% l('Manage Fund') %]</span>
                             </a>
+                            <span class="spacer"></span>
                             <a href="javascript:;" class="act_password_change has-account center-text invisible">
                                 <span>[% l('Change Password') %]</span>
                             </a>
@@ -286,7 +287,7 @@
                             <div class="separator"></div>
                             <div class="row">
                                 <div class="col-lg-6 flex">
-                                    <div class="mt-panel mt-container">
+                                    <div class="mt-panel mt-container bordered">
                                         <form id="frm_deposit">
                                             [% INCLUDE cashier_desc title=l('Deposit into MT5 account') action='deposit'
                                                 desc=l('Deposit funds from your Binary account into your MetaTrader 5 account.') %]
@@ -299,7 +300,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6 flex">
-                                    <div class="mt-panel mt-container">
+                                    <div class="mt-panel mt-container bordered">
                                         <form id="frm_withdrawal">
                                             [% INCLUDE cashier_desc title=l('Withdraw from MT5 account') action='withdraw'
                                                 desc=l('Withdraw funds from MetaTrader 5 account into your Binary account.') %]

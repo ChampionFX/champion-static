@@ -1,5 +1,6 @@
 #mt_account_management {
     border: 3px solid $fillColor;
+    border-radius: $BORDER_RADIUS;
 
     > div {
         display: flex;
@@ -58,11 +59,11 @@
                 border-top: 1px solid $fillColor;
 
                 &:hover {
-                    color: $primaryBrandColor;
                     background: $fillColor;
                 }
                 &.selected {
-                    background: $borderColor;
+                    color: $primaryBrandColor;
+                    background: $fillColor;
                 }
                 .mt-balance {
                     float: right;
@@ -79,7 +80,7 @@
     }
     #mt_left_panel {
         flex-direction: column;
-        padding-right: 5px;
+        padding-right: 0px;
     }
     #mt_right_panel {
         border-left: 3px solid $fillColor;
@@ -98,6 +99,7 @@
     }
     #account_details {
         flex: 0;
+        margin-bottom: 0;
 
         #acc_icon {
             width: 90px;
@@ -132,31 +134,41 @@
             }
         }
     }
-    .acc-actions {
-        display: flex;
+    .tab-container {
+        padding: 0 10px 10px;
 
-        * {
-            transition: unset !important;
-        }
-        a, > span {
-            background: $fillColor;
-            line-height: 40px;
-            font-weight: normal;
-            flex: 1;
+        .acc-actions {
+            display: flex;
 
-            &:first-child {
-                border-radius: $BORDER_RADIUS 0 0;
+            * {
+                transition: unset !important;
             }
-            &:last-child {
-                border-radius: 0 $BORDER_RADIUS 0 0;
+            .spacer {
+                width: 5px;
             }
-            &.selected {
-                color: $white;
-                background: $primaryBrandColor;
+            a {
+                border-radius: $BORDER_RADIUS $BORDER_RADIUS 0 0;
+                line-height: 40px;
+                font-weight: normal;
+                flex: 1;
+                background: #e0e8f0; /* stylelint-disable-line color-no-hex */
+                color: $black;
+
+                &.selected {
+                    border: 2px solid $fillColor;
+                    border-bottom: none;
+                    background: $white;
+                    color: $primaryBrandColor;
+                    padding-bottom: 2px;
+                    margin-bottom: -2px;
+                }
             }
         }
     }
     .fst-container {
+        border: 2px solid $fillColor;
+        border-radius: 0 0 $BORDER_RADIUS $BORDER_RADIUS;
+
         #fst_action {
             position: relative;
 
@@ -174,6 +186,9 @@
                 .mt-panel {
                     margin-bottom: 0;
                     padding: 15px;
+                }
+                .bordered {
+                    border: 2px solid $fillColor;
                 }
                 .binary-balance, .mt5-balance {
                     font-weight: bold;
