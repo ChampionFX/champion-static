@@ -169,6 +169,9 @@
         border: 2px solid $fillColor;
         border-radius: 0 0 $BORDER_RADIUS $BORDER_RADIUS;
 
+        &.no-border {
+            border: none;
+        }
         #fst_action {
             position: relative;
 

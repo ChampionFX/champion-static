@@ -230,6 +230,7 @@ const MetaTraderUI = (function() {
         const $acc_actions = $container.find('.acc-actions');
         $acc_actions.find('.has-account').setVisibility(!is_new_account);
         $detail.setVisibility(!is_new_account);
+        $('.fst-container').toggleClass('no-border', is_new_account);
 
         if (!is_new_account) {
             // set active tab
