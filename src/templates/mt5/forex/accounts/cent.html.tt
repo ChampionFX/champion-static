@@ -28,7 +28,7 @@
                             </tr>
                             <tr>
                                 <td>[% l('Forex spread') %]</td>
-                                <td>[% l('Fixed spreads') %]</td>
+                                <td>[% l('Variable spreads') %]</td>
                             </tr>
                             <tr>
                                 <td>[% l('Commission') %]</td>

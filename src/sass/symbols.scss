@@ -354,6 +354,66 @@
     content: url('../images/liquidity_solutions/one_zero.svg');
 }
 
+// Multiple Accounts Manager
+
+.fx-access-available:before {
+    content: url('../images/multi_account_manager/fx_access_available.svg');
+}
+
+.fx-allow-expert:before {
+    content: url('../images/multi_account_manager/fx_allow_expert.svg');
+}
+
+.fx-deposit:before {
+    content: url('../images/multi_account_manager/fx_deposit_withdrawal.svg');
+}
+
+.fx-instant-daily:before {
+    content: url('../images/multi_account_manager/fx_instant_daily.svg');
+}
+
+.fx-multi-exclusion:before {
+    content: url('../images/multi_account_manager/fx_multi_exclusion.svg');
+}
+
+.fx-essential-information:before {
+    content: url('../images/multi_account_manager/fx_essential_information.svg');
+}
+
+.fx-trade-allocations:before {
+    content: url('../images/multi_account_manager/fx_trade_allocations.svg');
+}
+
+.fx-variety-allocations:before {
+    content: url('../images/multi_account_manager/fx_variety_allocations.svg');
+}
+
+.fx-talk:before {
+    content: url('../images/multi_account_manager/fx_talk.svg');
+}
+
+.fx-download:before {
+    content: url('../images/multi_account_manager/fx_download.svg');
+}
+
+.fx-manage-subaccounts:before {
+    content: url('../images/multi_account_manager/fx_manage_subaccounts.svg');
+}
+
+.fx-view-all:before {
+    content: url('../images/multi_account_manager/fx_view_all.svg');
+}
+
+.fx-arrow-right {
+    position: absolute;
+    left: 0;
+    top: 25%;
+}
+
+.fx-arrow-right-icon {
+    content: url('../images/multi_account_manager/fx_arrow_right.svg');
+}
+
 // Home
 .fx-trading-books:before {
     content: url('../images/home/free_trading_books.svg');

@@ -24,9 +24,9 @@
                     <div class="row">
                         <h2>[% l('Introduce clients to Forex, CFDs, metals, and futures trading on MetaTrader 5') %]</h2>
                         <div class="fx-divider"></div>
-                        <div class="col-md-5 push-md-1">
-                            <h3>[% l('Introducing Broker (IB)') %]</h3>
-                            <div class="separator primary-color col-xs-6 push-xs-3"></div>
+                        <div class="col-md-8 push-md-2 col-lg-4 push-lg-0">
+                            <h4>[% l('Introducing Broker (IB)') %]</h4>
+                            <div class="separator primary-color"></div>
                             <p>[% l('Earn a commission on all ongoing trades done by your referred clients.') %]</p>
                             <p>
                                 <a class="button-secondary" href="[% request.url_for('partnerships-ib') %]">
@@ -34,12 +34,22 @@
                                 </a>
                             </p>
                         </div>
-                        <div class="col-md-5 push-md-1">
-                            <h3>[% l('Liquidity Solutions') %]</h3>
-                            <div class="separator primary-color col-xs-6 push-xs-3"></div>
+                        <div class="col-md-8 push-md-2 col-lg-4 push-lg-0">
+                            <h4>[% l('Liquidity Solutions') %]</h4>
+                            <div class="separator primary-color"></div>
                             <p>[% l('Access to multi-asset liquidity and back-office functionality via margin accounts.') %]</p>
                             <p>
                                 <a class="button-secondary" href="[% request.url_for('liquidity-solutions') %]">
+                                    <span>[% l('Learn more') %]</span>
+                                </a>
+                            </p>
+                        </div>
+                        <div class="col-md-8 push-md-2 col-lg-4 push-lg-0">
+                            <h4>[% l('Multiple Accounts Manager (MAM)') %]</h4>
+                            <div class="separator primary-color"></div>
+                            <p>[% l('Trade and manage multiple MT5 client accounts from a single interface.') %]</p>
+                            <p>
+                                <a class="button-secondary" href="[% request.url_for('multiple-accounts-manager') %]">
                                     <span>[% l('Learn more') %]</span>
                                 </a>
                             </p>
@@ -49,11 +59,10 @@
                     <div class="row">
                         <div class="col-sm">
                             <h2>[% l('Introduce clients to binary options trading on Champion Trader') %]</h2>
-                            <div class="fx-divider"></div>
                             <div class="row">
                                 <div class="col-md-5 push-md-1">
-                                    <h3>[% l('Affiliate Programme') %]</h3>
-                                    <div class="separator primary-color col-xs-6 push-xs-3"></div>
+                                    <h4>[% l('Affiliate Programme') %]</h4>
+                                    <div class="separator primary-color"></div>
                                     <p>[% l('Earn up to 35% commission on all binary options trades performed by your referred clients.') %]</p>
                                     <p>
                                         <a class="button-secondary" href="[% request.url_for('partnerships-affiliate') %]">
@@ -62,8 +71,8 @@
                                     </p>
                                 </div>
                                 <div class="col-md-5 push-md-1">
-                                    <h3>[% l('Content Contributors') %]</h3>
-                                    <div class="separator primary-color col-xs-6 push-xs-3"></div>
+                                    <h4>[% l('Content Contributors') %]</h4>
+                                    <div class="separator primary-color"></div>
                                     <p>[% l('Create premium content to help clients trade. Earn a commission by converting viewers into regular clients.') %]</p>
                                     <p>
                                         <a class="button-secondary" href="[% request.url_for('partnerships-contributor') %]">
