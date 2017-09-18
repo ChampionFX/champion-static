@@ -67,9 +67,6 @@
     .fx-box-margin {
         margin-bottom: 10px;
     }
-    .fx-row-margin-bottom {
-        margin-bottom: 10px;
-    }
     .fx-row-margin-top {
         margin-top: 10px !important;
     }
@@ -111,6 +108,9 @@
     }
     .hidden-md-up {
         display: none !important;
+    }
+    .fx-row-margin-bottom {
+        margin-bottom: unset;
     }
 }
 
