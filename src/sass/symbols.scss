@@ -410,8 +410,12 @@
     top: 25%;
 }
 
-.fx-arrow-right-icon {
+.fx-arrow-right-icon:before {
     content: url('../images/multi_account_manager/fx_arrow_right.svg');
+}
+
+.fx-arrow-down-icon:before {
+    content: url('../images/multi_account_manager/fx_arrow_down.svg');
 }
 
 // Home
