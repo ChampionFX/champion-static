@@ -195,8 +195,10 @@ function showLightBox(id, contents, has_close_button) {
 
     if (has_close_button) {
         $lightbox.find('.lightbox-contents').prepend($('<div/>', { class: 'close' }));
-        $lightbox.find('.close').on('click', function() {
-            $lightbox.remove();
+        $lightbox.on('click', function(e) {
+            if (e.target === this || $(e.target).hasClass('close')) {
+                $lightbox.remove();
+            }
         });
     }
 
