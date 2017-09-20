@@ -1024,9 +1024,8 @@ a:hover {
     text-decoration: none;
 }
 
-// financial assessment popup
 .lightbox {
-    display: table;
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
@@ -1034,23 +1033,17 @@ a:hover {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 2000000000;
-}
 
-.lightbox > div {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.lightbox > div > div {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0.5em;
-    width: 44em;
-    text-align: center;
-    background-color: $white;
-    border-radius: $BORDER_RADIUS;
-    max-height: 80vh;
-    overflow: auto;
+    > div {
+        margin: auto;
+        max-width: 90vw;
+        max-height: 90vh;
+        padding: 30px;
+        text-align: center;
+        background-color: $white;
+        border-radius: $BORDER_RADIUS;
+        overflow: auto;
+    }
 }
 
 .small-spinner .barspinner {
