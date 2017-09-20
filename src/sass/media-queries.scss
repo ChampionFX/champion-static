@@ -17,9 +17,6 @@
     .signup-box input {
         margin: 15px 0;
     }
-    .nav-menu-dropdown {
-        width: 85vw !important;
-    }
     // temporary workaround until we adopt responsive typography
     .font-resize {
         h3 {
@@ -31,6 +28,12 @@
     }
     .text-justified {
         text-align: justify;
+    }
+    .navbar__brand.logged-in {
+        display: none;
+    }
+    .navbar__button-group {
+        width: 100px;
     }
 }
 
@@ -102,31 +105,34 @@
     }
 }
 
+// desktop breakpoint for header is 1024px
+@media (min-width: 1024px) {
+    #topbar, #header {
+        .hidden-lg-up {
+            display: none !important;
+        }
+        .hidden-lg-down {
+            display: inline-block !important;
+        }
+    }
+}
+
 @media (max-width: 1199px) {
     .hidden-lg-down {
         display: none !important;
     }
-    .logo-wrapper {
-        margin: 0 auto; // align logo center
-    }
-    .nav-menu-dropdown {
-        transform: translateX(-120%);
-        width: initial;
-    }
     #account-info {
         float: right;
         white-space: nowrap;
-    }
-    #header .button, .button-secondary {
-        span {
-            padding: 7px 20px !important;
-        }
     }
 }
 
 @media (min-width: 1200px) {
     .hidden-lg-up {
         display: none !important;
+    }
+    .navbar__button-group {
+        margin-left: 60px;
     }
 }
 
