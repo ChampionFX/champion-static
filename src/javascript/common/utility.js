@@ -189,6 +189,20 @@ function getOffset(offset = 0) {
     return -$('#top_group.logged-in').height() + (offset || -10);
 }
 
+function showLightBox(id, contents, has_close_button) {
+    const $lightbox = $('<div/>', { id: id || '', class: 'lightbox' })
+            .append($('<div/>', { class: 'lightbox-contents', html: contents }));
+
+    if (has_close_button) {
+        $lightbox.find('.lightbox-contents').prepend($('<div/>', { class: 'close' }));
+        $lightbox.find('.close').on('click', function() {
+            $lightbox.remove();
+        });
+    }
+
+    $('body').append($lightbox);
+}
+
 module.exports = {
     showLoadingImage  : showLoadingImage,
     isEmptyObject     : isEmptyObject,
@@ -206,6 +220,7 @@ module.exports = {
     slideIn           : slideIn,
     slideOut          : slideOut,
     getOffset         : getOffset,
+    showLightBox      : showLightBox,
 
     compareBigUnsignedInt: compareBigUnsignedInt,
 };

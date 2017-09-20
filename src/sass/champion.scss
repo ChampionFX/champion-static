@@ -1034,7 +1034,7 @@ a:hover {
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 2000000000;
 
-    > div {
+    .lightbox-contents {
         margin: auto;
         max-width: 90vw;
         max-height: 90vh;
@@ -1043,6 +1043,17 @@ a:hover {
         background-color: $white;
         border-radius: $BORDER_RADIUS;
         overflow: auto;
+        position: relative;
+
+        .close {
+            cursor: pointer;
+            width: 14px;
+            height: 14px;
+            background: url('../images/mt5/close.svg') no-repeat center;
+            position: absolute;
+            right: 15px;
+            top: 15px;
+        }
     }
 }
 
