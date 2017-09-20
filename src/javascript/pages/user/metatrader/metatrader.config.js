@@ -1,9 +1,10 @@
-const Client         = require('../../../common/client');
-const formatMoney    = require('../../../common/currency').formatMoney;
-const GTM            = require('../../../common/gtm');
-const ChampionSocket = require('../../../common/socket');
-const url_for        = require('../../../common/url').url_for;
-const template       = require('../../../common/utility').template;
+const Client           = require('../../../common/client');
+const formatMoney      = require('../../../common/currency').formatMoney;
+const GTM              = require('../../../common/gtm');
+const ChampionSocket   = require('../../../common/socket');
+const url_for          = require('../../../common/url').url_for;
+const template         = require('../../../common/utility').template;
+const showSuccessPopup = require('../../../common/utility').showSuccessPopup;
 
 const MetaTraderConfig = (function() {
     'use strict';
@@ -47,7 +48,8 @@ const MetaTraderConfig = (function() {
                     }
                 })
             ),
-            onSuccess: (response) => {
+            onSuccess: (response, acc_type) => {
+                showSuccessPopup(template('Congratulation, you’ve successfully created your [_1] account.', [types_info[acc_type].title]), 'You can trade Forex, CFDs and Metals with our virtual money, launch our MetaTrader 5 on our sidebar Quick Links or Download it to your machine or mobile applications.');
                 GTM.mt5NewAccount(response);
             },
         },
