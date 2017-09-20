@@ -1036,7 +1036,7 @@ a:hover {
 
     .lightbox-contents {
         margin: auto;
-        max-width: 90vw;
+        max-width: 600px;
         max-height: 90vh;
         padding: 30px;
         text-align: center;
@@ -1053,6 +1053,19 @@ a:hover {
             position: absolute;
             right: 15px;
             top: 15px;
+        }
+    }
+    &#success_popup {
+        .main-image {
+            height: 90px;
+            min-width: 90px;
+            background: url('../images/mt5/success.svg') no-repeat center;
+        }
+        h3 {
+            margin: 10px 0;
+        }
+        .success-contents {
+            line-height: 24px;
         }
     }
 }

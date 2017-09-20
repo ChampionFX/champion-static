@@ -203,6 +203,15 @@ function showLightBox(id, contents, has_close_button) {
     $('body').append($lightbox);
 }
 
+function showSuccessPopup(title, contents) {
+    const $contents = $('<div/>', { class: 'center-text' }).append(
+        $('<div/>', { class: 'main-image' }),
+        $('<h3/>', { text: title }),
+        $('<div/>', { class: 'success-contents', html: contents }));
+
+    showLightBox('success_popup', $contents, true);
+}
+
 module.exports = {
     showLoadingImage  : showLoadingImage,
     isEmptyObject     : isEmptyObject,
@@ -221,6 +230,7 @@ module.exports = {
     slideOut          : slideOut,
     getOffset         : getOffset,
     showLightBox      : showLightBox,
+    showSuccessPopup  : showSuccessPopup,
 
     compareBigUnsignedInt: compareBigUnsignedInt,
 };
