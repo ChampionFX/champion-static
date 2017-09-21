@@ -1,12 +1,21 @@
+@media (max-width: 340px) {
+    .fx-one-zero:before {
+        transform: scale(0.8);
+    }
+    .fx-mt5-gateaway:before {
+        transform: scale(0.8);
+    }
+    .fx-fix-api:before {
+        transform: scale(0.8);
+    }
+}
+
 @media (max-width: 575px) {
     .hidden-xs-down {
         display: none !important;
     }
     .signup-box input {
         margin: 15px 0;
-    }
-    .nav-menu-dropdown {
-        width: 85vw !important;
     }
     // temporary workaround until we adopt responsive typography
     .font-resize {
@@ -19,6 +28,12 @@
     }
     .text-justified {
         text-align: justify;
+    }
+    .navbar__brand.logged-in {
+        display: none;
+    }
+    .navbar__button-group {
+        width: 100px;
     }
 }
 
@@ -40,14 +55,23 @@
     .table-container {
         overflow-x: auto;
     }
+    .fx-box-margin {
+        margin-bottom: 10px;
+    }
+    .fx-row-margin-top {
+        margin-top: 10px !important;
+    }
+    .fx-partnerships-margin-bottom {
+        margin-bottom: 20px;
+    }
 }
 
 @media (min-width: 768px) {
     .container, .fx-container {
         width: 100%;
     }
-    .hidden-sm-up {
-        display: none !important;
+    .fx-row-margin-bottom {
+        margin-bottom: 30px;
     }
 }
 
@@ -61,11 +85,35 @@
     .fx-panel, .fx-panel-item {
         height: auto;
     }
+    .fx-liquidity-margin-top {
+        margin-top: 30px;
+    }
+    .fx-partnerships-margin-top {
+        margin-top: 20px;
+    }
 }
 
-@media (min-width: 991px) {
+@media (min-width: 992px) {
     .container, .fx-container {
         width: 100%;
+    }
+    .hidden-md-up {
+        display: none !important;
+    }
+    .fx-row-margin-bottom {
+        margin-bottom: unset;
+    }
+}
+
+// desktop breakpoint for header is 1024px
+@media (min-width: 1024px) {
+    #topbar, #header {
+        .hidden-lg-up {
+            display: none !important;
+        }
+        .hidden-lg-down {
+            display: inline-block !important;
+        }
     }
 }
 
@@ -73,27 +121,18 @@
     .hidden-lg-down {
         display: none !important;
     }
-    .logo-wrapper {
-        margin: 0 auto; // align logo center
-    }
-    .nav-menu-dropdown {
-        transform: translateX(-120%);
-        width: initial;
-    }
     #account-info {
         float: right;
         white-space: nowrap;
-    }
-    #header .button, .button-secondary {
-        span {
-            padding: 7px 20px !important;
-        }
     }
 }
 
 @media (min-width: 1200px) {
     .hidden-lg-up {
         display: none !important;
+    }
+    .navbar__button-group {
+        margin-left: 60px;
     }
 }
 

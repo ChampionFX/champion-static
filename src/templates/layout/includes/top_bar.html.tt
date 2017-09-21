@@ -1,13 +1,13 @@
 <div id="msg_notification" class="notice-msg center-text"></div>
 <div id="topbar" class="primary-color-dark logged-in">
-    <div class="menu-container">
+    <div class="container">
         <div class="row">
             <div class="col-sm-12 topbar-container flex-items-sm-middle">
                 <div class="topbar-contacts">
                     <ul>
                         <li class="last hidden-lg-up">
                             <a href="[% request.url_for('contact') %]">
-                                <span class="fx-topbar fx-contact-icon"></span>
+                                <span class="fx-topbar fx-contact"></span>
                             </a>
                         </li>
                         <li class="last hidden-lg-down">
