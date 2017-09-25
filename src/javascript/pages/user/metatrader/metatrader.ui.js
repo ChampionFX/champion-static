@@ -331,6 +331,7 @@ const MetaTraderUI = (function() {
     const displayMainMessage = (message) => {
         $main_msg.html(message).setVisibility(1);
         $.scrollTo($action, 500, { offset: getOffset(-80) });
+        setTimeout(() => { $main_msg.setVisibility(0); }, 5000);
     };
 
     const displayMessage = (selector, message, is_centered) => {
