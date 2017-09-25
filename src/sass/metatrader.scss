@@ -300,7 +300,7 @@
                 }
                 .step-1 .mt5-type-box {
                     flex-direction: column;
-                    padding-top: 20px;
+                    padding: 20px 10px 0;
                     width: 100%;
                     border-width: 3px;
 
@@ -332,8 +332,6 @@
                         }
                         #msg_real_financial {
                             display: block;
-                            margin-top: 10px;
-                            text-align: left;
                         }
                     }
                 }

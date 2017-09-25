@@ -172,7 +172,7 @@
                                             <div class="image"></div>
                                             <p class="no-margin-top padding-10 small-text desc">[% box.desc %]</p>
                                         [% IF box.type == 'real' %]
-                                            <div id="msg_real_financial" class="small-text">
+                                            <div id="msg_real_financial" class="small-text padding-10">
                                                 [% l('To create a real account please:') %]
                                                 <div class="authenticate invisible"><a href="[% request.url_for('user/authenticate') %]">[% l('Authenticate your account') %]</a></div>
                                                 <div class="assessment invisible"><a href="[% request.url_for('user/profile') %]#assessment">[% l('Complete the financial assessment') %]</a></div>
