@@ -280,8 +280,8 @@
                                         </div>
                                         <div class="col-sm-5">
                                             <img src="[% request.url_for('images/metatrader/dashboard/mt5_wallet.svg') %]" />
-                                            <div class="mt5-account padding-10"></div>
-                                            <div class="mt5-balance padding-10"></div>
+                                            <div class="mt-account padding-10"></div>
+                                            <div class="mt-balance padding-10"></div>
                                             <div class="small-text">[% l('Deposit or withdraw below') %]</div>
                                         </div>
                                     </div>
