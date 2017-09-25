@@ -219,7 +219,7 @@ const Validation = (() => {
 
     const showError = (field, message) => {
         clearError(field);
-        field.$error.text(message).removeClass(hidden_class);
+        field.$error.html(message).removeClass(hidden_class);
     };
 
     const validate = (form_selector) => {
