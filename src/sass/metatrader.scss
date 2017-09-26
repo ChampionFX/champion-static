@@ -153,6 +153,7 @@
                 flex: 1;
                 background: #e0e8f0; /* stylelint-disable-line color-no-hex */
                 color: $black;
+                text-decoration: none;
 
                 &.selected {
                     border: 2px solid $fillColor;
