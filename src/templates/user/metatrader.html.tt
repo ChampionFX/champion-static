@@ -209,7 +209,7 @@
                                         { type='champion_standard' desc='Standard' },
                                         { type='champion_stp'      desc='STP' },
                                     ] %]
-                                    <div class="small-text">[% l('Go to [_1]MetaTrader 5 types of accounts[_2] to see the comparison between these accounts.', '<a href="' _ request.url_for('metatrader/types-of-accounts') _ '">', '</a>') %]</div>
+                                    <div class="small-text">[% l('Go to [_1]MetaTrader 5 types of accounts[_2] to see the comparison between these accounts.', '<a href="' _ request.url_for('trading-platform/mt5-types-of-accounts') _ '">', '</a>') %]</div>
                                 </div>
                                 <p id="new_account_msg" class="notice-msg center-text invisible"></p>
                                 <div class="separator padding-10"></div>
