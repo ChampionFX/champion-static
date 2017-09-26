@@ -70,7 +70,7 @@
                 </div>
                 <div id="mt_right_panel" class="col-lg-3 col-md-4">
                     <div class="mt-panel">
-                        <div id="account_desc" class="mt-container border-bottom"></div>
+                        <div id="account_desc" class="mt-container"></div>
                         <div class="mt-container">
                             <p>[% l('Trade platform quick links:') %]</p>
                             <ul class="platforms no-padding">
@@ -91,7 +91,8 @@
                                     <a href="https://www.metatrader5.com/en/terminal/help/start_advanced/install_linux" target="_blank">[% l('Instructions for Linux') %]</a>
                                 </li>
                             </ul>
-                            <p>[% l('Mobile applications:') %]</p>
+                            <div class="padding-10"></div>
+                            <div>[% l('Mobile applications:') %]</div>
                             <ul class="platforms no-padding">
                                 <li>
                                     <img src="[% request.url_for('images/metatrader/dashboard/mac.svg') %]" />
@@ -118,7 +119,7 @@
 
                     [% BLOCK account_desc %]
                         <div class="[% account_type ? 'demo_champion_' _ account_type _ ' real_champion_' _ account_type : 'new_account' %]">
-                            <h3 class="no-margin-top">[% title %]</h3>
+                            <h4 class="no-margin-top">[% title %]</h4>
                             <p>[% description %]</p>
                             <ul class="checked small no-padding">
                                 [% FOREACH item IN items %]
@@ -126,7 +127,7 @@
                                 [% END %]
                             </ul>
                             <p>
-                                <a href="[% request.url_for('trading-platform/mt5-types-of-accounts') %]">[% l('MetaTrader 5 Account Comparison') %]</a>
+                                <a href="[% request.url_for('trading-platform/mt5-types-of-accounts') %]">[% l('MetaTrader 5 types of accounts') %]</a>
                             </p>
                         </div>
                     [% END %]

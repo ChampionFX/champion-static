@@ -87,6 +87,9 @@
         font-size: $FONT_SIZE_S;
         padding-left: 0;
 
+        #account_desc {
+            border-bottom: 1px solid $fillColor;
+        }
         .platforms li {
             margin-bottom: 10px;
 
