@@ -23,10 +23,10 @@
 
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/CFX_favicon16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/CFX_favicon32.png" />
-     <link rel="stylesheet" href="https://style.champion-fx.com/binary.css?mcw6zr0b" />
-     <link rel="stylesheet" href="/css/style.min.css?mcw6zr0b" />
-      <script src="/js/bundle.min.js?mcw6zr0b" type="text/javascript"></script>
-     <script src="https://style.champion-fx.com/binary.js?mcw6zr0b" type="text/javascript"></script>
+     <link rel="stylesheet" href="https://style.champion-fx.com/binary.css?33gdj2d9" />
+     <link rel="stylesheet" href="/css/style.min.css?33gdj2d9" />
+      <script src="/js/bundle.min.js?33gdj2d9" type="text/javascript"></script>
+     <script src="https://style.champion-fx.com/binary.js?33gdj2d9" type="text/javascript"></script>
      
 </head>
 <body>
@@ -34,14 +34,14 @@
     <div id="top_group" class="logged-in">
         <div id="msg_notification" class="notice-msg center-text"></div>
 <div id="topbar" class="primary-color-dark logged-in">
-    <div class="menu-container">
+    <div class="container">
         <div class="row">
             <div class="col-sm-12 topbar-container flex-items-sm-middle">
                 <div class="topbar-contacts">
                     <ul>
                         <li class="last hidden-lg-up">
                             <a href="/en/contact.html">
-                                <span class="fx-topbar fx-contact-icon"></span>
+                                <span class="fx-topbar fx-contact"></span>
                             </a>
                         </li>
                         <li class="last hidden-lg-down">
@@ -78,377 +78,383 @@
         </div>
     </div>
 </div>
-        <div id="header" class="dark-blue header">
-    <div class="menu-container">
-        <div class="row">
-            <!-- Mobile menu toggle -->
-            <div class="col-lg-2 col-sm-4 col-xs-5 hidden-lg-up vertical-center">
-                <div class="nav-menu nav-toggle-dropdown">
-                    <a href="javascript:;" id="mobile_menu_icon" class="vertical-center hidden-lg-up"><span></span></a>
-                </div>
-            </div>
-
-
-            <!-- Mobile menu dropdown -->
-            <div id="mobile-menu" class="nav-menu">
-                <ul class="nav-menu-dropdown hidden-lg-up">
-                    <div class="login-id-list"></div>
-                    <li class="invisible logged-in mt-hide">
-            <a href="/en/user/metatrader.html" class="">
-                <span class="nav-menu-icon pull-left fx-mt5-icon"></span>
-                MetaTrader 5
-                
+        <div id="header">
+    <nav class="navbar">
+        <div class="container">
+            <span class="navbar__toggle logged-in" id="toggle-menu" href="button"></span>
+            <a class="navbar__brand fx-logo logged-in" href="/en/home.html">
+                <span class="fx-logo__icon--light"></span>
+                <span class="fx-logo__wordmark--light"></span>
             </a>
-            
-        </li>
+            <div class="navbar__nav has-accounts">
+                <ul class="navbar__nav__menu account-dropdown logged-in invisible">
+                    <li>
+                        <a class="navbar__nav__toggle account-info" href="javascript:;">
+                            <div class="mt-show invisible">MetaTrader 5</div>
+<div class="account-id mt-hide"></div>
+<div class="vertical-center">
+    <span class="account-balance mt-hide"></span>
+    <span class="account-type mt-hide"></span>
+</div>
+                        </a>
+                        <ul class="navbar__nav__menu account-list">
+                            <div class="login-id-list"></div>
+                            <li><a href="/en/new-account/real.html" class="upgrade invisible">Upgrade to<br />Real Account</a></li>
+                            <li class="mt-hide invisible"><a href="/en/user/metatrader.html"><span class="fx fx-mt5-o"></span>MetaTrader 5</a></li>
+                            <li class="hidden-lg-down"><a href="javascript:;" class="btn-logout logout">Sign out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="navbar__nav__menu invisible logged-out">
     
-        <li class="invisible logged-in ">
-            <a href="/en/cashier.html" class="">
-                <span class="nav-menu-icon pull-left fx-cashier-icon"></span>
-                Cashier
+        <li>
+            <a href="/en/about-us.html"
                 
-            </a>
-            
-        </li>
-    
-        <li class="invisible logged-in ">
-            <a href="/en/user/settings.html" class="">
-                <span class="nav-menu-icon pull-left fx-setting-icon"></span>
-                Settings
-                
-            </a>
-            
-        </li>
-    
-        <li class=" ">
-            <a href="/en/about-us.html" class="">
-                <span class="nav-menu-icon pull-left fx-about-icon"></span>
+                >
+                 <span class="fx fx-about"></span>
                 About Us
-                
             </a>
             
         </li>
     
-        <li class=" ">
-            <a href="javascript:;" id="more_mt5_btn" class=" nav-dropdown-toggle">
-                <span class="nav-menu-icon pull-left fx-mt5-icon"></span>
+        <li>
+            <a href="javascript:;"
+                
+                 class="navbar__nav__toggle">
+                 <span class="fx fx-mt5-o"></span>
                 MetaTrader 5
-                <span class="nav-menu-icon pull-right fx-moremenu-icon"></span>
             </a>
             
-            <ul class="invisible submenu">
-                <li class=" ">
-            <a href="/en/trading-platform/metatrader-5.html" class="">
+                <ul class="navbar__nav__menu invisible logged-out">
+    
+        <li>
+            <a href="/en/trading-platform/metatrader-5.html"
+                
+                >
                 
                 About MT5
-                
             </a>
             
         </li>
     
-        <li class=" ">
-            <a href="/en/trading-platform/mt5-types-of-accounts.html" class="">
+        <li>
+            <a href="/en/trading-platform/mt5-types-of-accounts.html"
+                
+                >
                 
                 Types of accounts
-                
             </a>
             
         </li>
     
-        <li class=" ">
-            <a href="/en/forex.html" class="">
+        <li>
+            <a href="/en/forex.html"
+                
+                >
                 
                 Forex
-                
             </a>
             
         </li>
     
-        <li class=" ">
-            <a href="/en/cfd.html" class="">
+        <li>
+            <a href="/en/cfd.html"
+                
+                >
                 
                 CFDs
-                
             </a>
             
         </li>
     
-        <li class=" ">
-            <a href="/en/metals.html" class="">
+        <li>
+            <a href="/en/metals.html"
+                
+                >
                 
                 Metals
-                
             </a>
             
         </li>
     
-        <li class=" ">
-            <a href="/en/economic-calendar.html" class="">
+        <li>
+            <a href="/en/economic-calendar.html"
+                
+                >
                 
                 Economic calendar
-                
             </a>
-            
-        </li>
-            </ul>
             
         </li>
     
-        <li class=" ">
-            <a href="javascript:;" id="more_options_btn" class=" nav-dropdown-toggle">
-                <span class="nav-menu-icon pull-left fx-binary-icon"></span>
+</ul>
+            
+        </li>
+    
+        <li>
+            <a href="javascript:;"
+                
+                 class="navbar__nav__toggle">
+                 <span class="fx fx-binary"></span>
                 Binary Options
-                <span class="nav-menu-icon pull-right fx-moremenu-icon"></span>
             </a>
             
-            <ul class="invisible submenu">
-                <li class=" ">
-            <a href="/en/binary-options.html" class="">
+                <ul class="navbar__nav__menu invisible logged-out">
+    
+        <li>
+            <a href="/en/binary-options.html"
+                
+                >
                 
                 About binary options
-                
             </a>
             
         </li>
     
-        <li class=" ">
-            <a href="/en/types-of-accounts.html" class="">
+        <li>
+            <a href="/en/types-of-accounts.html"
+                
+                >
                 
                 Types of accounts
-                
-            </a>
-            
-        </li>
-            </ul>
-            
-        </li>
-    
-        <li class=" ">
-            <a href="/en/trading-platform.html" class="">
-                <span class="nav-menu-icon pull-left fx-trading-icon"></span>
-                Trading Platforms
-                
             </a>
             
         </li>
     
-        <li class=" ">
-            <a href="/en/partnerships.html" class="">
-                <span class="nav-menu-icon pull-left fx-partnership-icon"></span>
+</ul>
+            
+        </li>
+    
+        <li>
+            <a href="/en/trading-platform.html"
+                
+                >
+                 <span class="fx fx-trading"></span>
+                Trading platforms
+            </a>
+            
+        </li>
+    
+        <li>
+            <a href="/en/partnerships.html"
+                
+                >
+                 <span class="fx fx-partnership"></span>
                 Partnerships
-                
             </a>
             
         </li>
     
-        <li class="invisible logged-in ">
-            <a href="/en/user/settings.html" class="btn-logout logout invisible logged-in">
-                <span class="nav-menu-icon pull-left fx-signout-icon"></span>
+</ul>
+                <ul class="navbar__nav__menu invisible logged-in">
+    
+        <li class="mt-hide">
+            <a href="/en/user/settings.html"
+                
+                >
+                 <span class="fx fx-setting"></span>
+                Settings
+            </a>
+            
+        </li>
+    
+        <li class="mt-show">
+            <a href="/en/user/metatrader.html"
+                
+                >
+                 <span class="fx fx-setting"></span>
+                Settings
+            </a>
+            
+        </li>
+    
+        <li class="mt-hide">
+            <a href="/en/cashier.html"
+                
+                >
+                 <span class="fx fx-dollar"></span>
+                Cashier
+            </a>
+            
+        </li>
+    
+        <li class="hidden-lg-up">
+            <a href="/en/about-us.html"
+                
+                >
+                 <span class="fx fx-about"></span>
+                About Us
+            </a>
+            
+        </li>
+    
+        <li class="hidden-lg-up">
+            <a href="javascript:;"
+                
+                 class="navbar__nav__toggle">
+                 <span class="fx fx-mt5-o"></span>
+                MetaTrader 5
+            </a>
+            
+                <ul class="navbar__nav__menu invisible logged-in">
+    
+        <li>
+            <a href="/en/trading-platform/metatrader-5.html"
+                
+                >
+                
+                About MT5
+            </a>
+            
+        </li>
+    
+        <li>
+            <a href="/en/trading-platform/mt5-types-of-accounts.html"
+                
+                >
+                
+                Types of accounts
+            </a>
+            
+        </li>
+    
+        <li>
+            <a href="/en/forex.html"
+                
+                >
+                
+                Forex
+            </a>
+            
+        </li>
+    
+        <li>
+            <a href="/en/cfd.html"
+                
+                >
+                
+                CFDs
+            </a>
+            
+        </li>
+    
+        <li>
+            <a href="/en/metals.html"
+                
+                >
+                
+                Metals
+            </a>
+            
+        </li>
+    
+        <li>
+            <a href="/en/economic-calendar.html"
+                
+                >
+                
+                Economic calendar
+            </a>
+            
+        </li>
+    
+</ul>
+            
+        </li>
+    
+        <li class="hidden-lg-up">
+            <a href="javascript:;"
+                
+                 class="navbar__nav__toggle">
+                 <span class="fx fx-binary"></span>
+                Binary Options
+            </a>
+            
+                <ul class="navbar__nav__menu invisible logged-in">
+    
+        <li>
+            <a href="/en/binary-options.html"
+                
+                >
+                
+                About binary options
+            </a>
+            
+        </li>
+    
+        <li>
+            <a href="/en/types-of-accounts.html"
+                
+                >
+                
+                Types of accounts
+            </a>
+            
+        </li>
+    
+</ul>
+            
+        </li>
+    
+        <li class="mt-hide">
+            <a href="/en/trading-platform/champion-trader.html"
+                
+                >
+                 <span class="fx fx-trading"></span>
+                Trading platform
+            </a>
+            
+        </li>
+    
+        <li class="mt-show">
+            <a href="/en/trading-platform/mt5-platforms.html"
+                
+                >
+                 <span class="fx fx-trading"></span>
+                Trading platforms
+            </a>
+            
+        </li>
+    
+        <li class="hidden-lg-down">
+            <a href="https://academy.champion-fx.com/"
+                 target="_blank"
+                >
+                 <span class="fx fx-mt5-o"></span>
+                Academy
+            </a>
+            
+        </li>
+    
+        <li class="hidden-lg-up">
+            <a href="/en/partnerships.html"
+                
+                >
+                 <span class="fx fx-partnership"></span>
+                Partnerships
+            </a>
+            
+        </li>
+    
+        <li class="btn-logout logout invisible hidden-lg-up logged-in">
+            <a href="javascript:;"
+                
+                >
+                 <span class="fx fx-signout"></span>
                 Sign out
-                
             </a>
             
         </li>
-                    <div class="separator-line-thin-gray"></div>
-                </ul>
+    
+</ul>
             </div>
 
-            <div class="col-xl-3 col-lg-8 col-sm-4 col-xs-2 vertical-center">
-                <div class="logo-wrapper">
-                    <a href="/en/home.html" class="logo-parent">
-                        <div class="logo">
-                            <div></div>
-                        </div>
-                        <div class="binary-logo-text hidden-xs-down">
-                            <div></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-
-            <div class="col-lg-7 hidden-lg-down vertical-center">
-                <ul class="top-nav-menu invisible logged-out">
-    
-        <li>
-            <a href="/en/about-us.html" class="nav-dropdown-toggle">About Us</a>
-            
-        </li>
-    
-        <li>
-            <a href="javascript:;" class="nav-dropdown-toggle">MetaTrader 5<span class="nav-caret"></span></a>
-            
-                <ul class="top-nav-menu invisible logged-out">
-    
-        <li>
-            <a href="/en/trading-platform/metatrader-5.html" class="nav-dropdown-toggle">About MT5</a>
-            
-        </li>
-    
-        <li>
-            <a href="/en/trading-platform/mt5-types-of-accounts.html" class="nav-dropdown-toggle">Types of accounts</a>
-            
-        </li>
-    
-        <li>
-            <a href="/en/forex.html" class="nav-dropdown-toggle">Forex</a>
-            
-        </li>
-    
-        <li>
-            <a href="/en/cfd.html" class="nav-dropdown-toggle">CFDs</a>
-            
-        </li>
-    
-        <li>
-            <a href="/en/metals.html" class="nav-dropdown-toggle">Metals</a>
-            
-        </li>
-    
-        <li>
-            <a href="/en/economic-calendar.html" class="nav-dropdown-toggle">Economic calendar</a>
-            
-        </li>
-    
-    </ul>
-            
-        </li>
-    
-        <li>
-            <a href="javascript:;" class="nav-dropdown-toggle">Binary Options<span class="nav-caret"></span></a>
-            
-                <ul class="top-nav-menu invisible logged-out">
-    
-        <li>
-            <a href="/en/binary-options.html" class="nav-dropdown-toggle">About binary options</a>
-            
-        </li>
-    
-        <li>
-            <a href="/en/types-of-accounts.html" class="nav-dropdown-toggle">Types of accounts</a>
-            
-        </li>
-    
-    </ul>
-            
-        </li>
-    
-        <li>
-            <a href="/en/trading-platform.html" class="nav-dropdown-toggle">Trading platforms</a>
-            
-        </li>
-    
-        <li>
-            <a href="/en/partnerships.html" class="nav-dropdown-toggle">Partnerships</a>
-            
-        </li>
-    
-    </ul>
-                <ul class="top-nav-menu invisible logged-in">
-    
-        <li class="mt-hide">
-            <a href="/en/user/settings.html" class="nav-dropdown-toggle">Settings</a>
-            
-        </li>
-    
-        <li class="mt-show">
-            <a href="/en/user/metatrader.html" class="nav-dropdown-toggle">Settings</a>
-            
-        </li>
-    
-        <li class="mt-hide">
-            <a href="/en/cashier.html" class="nav-dropdown-toggle">Cashier</a>
-            
-        </li>
-    
-        <li class="mt-hide">
-            <a href="/en/trading-platform/champion-trader.html" class="nav-dropdown-toggle">Trading platforms</a>
-            
-        </li>
-    
-        <li class="mt-show">
-            <a href="/en/trading-platform/mt5-platforms.html" class="nav-dropdown-toggle">Trading platforms</a>
-            
-        </li>
-    
-        <li>
-            <a href="https://academy.champion-fx.com/" target="_blank" class="nav-dropdown-toggle">Academy</a>
-            
-        </li>
-    
-    </ul>
-            </div>
-
-            <div class="col-lg-2 col-sm-4 col-xs-5 vertical-center">
-                <div class="right-align">
-                    <div class="logged-out invisible">
-                        <div id="main-login" class="hidden-lg-up">
-                            <ul class="login-button">
-                                <li><a class="btn-login button" href="javascript:;"><span>Log In</span></a></li>
-                            </ul>
-                        </div>
-                        <div id="main-signup">
-                            <ul class="signup-button">
-                                <li><a class="button-secondary" href="/en/home.html#signup"><span>Sign Up</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- Desktop menu -->
-
-                    <div class="logged-in invisible hidden-lg-up">
-                        <a id="account-info" href="javascript:;" class="main-account nav-menu nav-toggle-dropdown">
-                            <div class="account-id mt-hide"></div>
-    <span class="account-balance mt-hide"></span>
-    <span class="account-type mt-hide"></span>
-    <div class="mt-show invisible">MetaTrader 5</div>
-                        </a>
-                    </div>
-                    <div id="main-logout" class="logged-in invisible hidden-lg-down">
-                        <ul id="main-account" class="nav-menu main-nav hidden-lg-down">
-                            <li class="account">
-                                <a href="javascript:;">
-                                    <div class="main-account">
-                                        <div class="account-id mt-hide"></div>
-    <span class="account-balance mt-hide"></span>
-    <span class="account-type mt-hide"></span>
-    <div class="mt-show invisible">MetaTrader 5</div>
-                                    </div>
-                                    <div class="nav-caret"></div>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul id="all-accounts" class="nav-menu main-nav hidden-lg-down">
-                            <li class="account">
-                                <a href="javascript:;" class="menu-icon">
-                                    <div class="main-account">
-                                        <div class="account-id mt-hide"></div>
-    <span class="account-balance mt-hide"></span>
-    <span class="account-type mt-hide"></span>
-    <div class="mt-show invisible">MetaTrader 5</div>
-                                    </div>
-                                    <div class="nav-caret"></div>
-                                </a>
-                                <ul>
-                                    <div class="login-id-list"></div>
-                                    <a href="/en/new-account/real.html" class="upgrade invisible">
-                                        <li>Upgrade to<br />Real Account</li>
-                                        <div class="separator-line-thin-gray"></div>
-                                    </a>
-                                    <a href="/en/user/metatrader.html" class="mt-hide">
-                                        <li>MetaTrader 5</li>
-                                        <div class="separator-line-thin-gray"></div>
-                                    </a>
-                                    <a href="javascript:;" class="btn-logout logout">
-                                        <li>Sign out</li>
-                                    </a>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="navbar__button-group logged-out invisible">
+                <a class="btn-login button hidden-lg-up" href="javascript:;"><span>Log In</span></a>
+                <a class="button-secondary" href="/en/home.html#signup"><span>Sign Up</span></a>
             </div>
         </div>
-    </div>
+    </nav>
 </div>
     </div>
     <!-- Google Tag Manager -->
@@ -538,11 +544,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="col-sm-6">
                 <p class="text-align-right">Monitor all your favourite assets and markets at the same time, as well as charts, the asset index, trading times, and historical data.</p>
                 <div class="row">
-                    <!-- div class="col-xl-3 col-xs-12 offset-xl-3 margin-top-bottom">
-                        <a class="underline-link" href="/en/trading-platform/champion-trader.html">
-                            <span>Learn more</span>
-                        </a>
-                    </div -->
                     <div class="col-xl-12 text-align-right">
                         <a class="button" href="https://webtrader.champion-fx.com" target="_blank">
                             <span>Go to Champion Trader</span>
