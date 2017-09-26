@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-sm-8 offset-sm-2 margin-bottom-3">
                 <div class="yt-container">
-                    <iframe class="yt-iframe" src="https://www.youtube.com/embed/at9u_9op2lQ" frameborder="0" allowfullscreen></iframe>
+                    <iframe class="yt-iframe" src="https://www.youtube.com/embed/iuo5wVSk-I4?list=PLFiUR_KIgoDKTY6A3yD8L_LE-fy32RP4f" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
             <div class="col-sm-12 center-text font-resize">
@@ -103,7 +103,7 @@
 
         [% INCLUDE static/common/separator_line.html.tt %]
 
-        <div class="row box-grid">
+        <div class="row box-grid box-grid-align-start">
             <div class="col-sm-12 center-text">
                 <h2>[% l('License') %]</h2>
             </div>
@@ -113,7 +113,7 @@
                         <img src="[% request.url_for('images/about/regulation_VSFC.png') %]" class="img-md" />
                         <h3>VSFC <br><small class="font-s">Vanuatu Financial Services Commission</small></h3>
                     </div>
-                    <p class="font-n">[% l('ChampionFX is fully regulated by the Vanuatu Financial Services Commission (VFSC) bearing license number 14772. Its registered office is located at Govant Building, Port Vila, P.O. Box 1276, Vanuatu, Republic of Vanuatu.') %]</p>
+                    <p class="font-n">[% l('ChampionFX is fully regulated by the Vanuatu Financial Services Commission (VFSC). Its registered office is located at Govant Building, Port Vila, P.O. Box 1276, Vanuatu, Republic of Vanuatu.') %]</p>
                 </div>
             </div>
             <div class="col-xs-12 push-md-1 col-md-5 col-bordered">

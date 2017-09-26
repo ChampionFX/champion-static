@@ -254,80 +254,10 @@
 
 // ChampionFX menu icons
 .fx-topbar {
+    display: inline-block;
     width: 16px;
     height: 16px;
-    background-repeat: no-repeat !important;
-    background-size: contain !important;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.fx-about-icon {
-    background: url('../images/menu_icons/about.svg');
-}
-
-.fx-arrow-icon {
-    background: url('../images/menu_icons/arrow.svg');
-}
-
-.fx-binary-icon {
-    background: url('../images/menu_icons/binary.svg');
-}
-
-.fx-cashier-icon {
-    background: url('../images/menu_icons/cashier.svg');
-}
-
-.fx-contact-icon {
-    background: url('../images/menu_icons/contact.svg');
-}
-
-.fx-gmt-icon {
-    background: url('../images/menu_icons/gmt.svg');
-}
-
-.fx-language-icon {
-    background: url('../images/menu_icons/language.svg');
-}
-
-.fx-login-icon {
-    background: url('../images/menu_icons/log_in.svg');
-}
-
-.fx-mainmenu-icon {
-    background: url('../images/menu_icons/main_menu.svg');
-}
-
-.fx-moremenu-icon {
-    background: url('../images/menu_icons/more_menu.svg');
-}
-
-.fx-mt5-icon {
-    background: url('../images/menu_icons/mt5.svg');
-}
-
-.fx-partnership-icon {
-    background: url('../images/menu_icons/partnership.svg');
-}
-
-.fx-real-icon {
-    background: url('../images/menu_icons/real.svg');
-}
-
-.fx-virtual-icon {
-    background: url('../images/menu_icons/virtual.svg');
-}
-
-.fx-setting-icon {
-    background: url('../images/menu_icons/settings.svg');
-}
-
-.fx-signout-icon {
-    background: url('../images/menu_icons/sign_out.svg');
-}
-
-.fx-trading-icon {
-    background: url('../images/menu_icons/trading.svg');
+    margin-top: 4px;
 }
 
 // ChampionFX contact us icons
@@ -390,11 +320,11 @@
 }
 
 // Liquidity solutions
-.fx {
-    display: flex;
-    justify-content: center;
-    margin: 0 0 10px;
-}
+//.fx {
+//    display: flex;
+//    justify-content: center;
+//    margin: 0 0 10px;
+//}
 
 .fx-backoffice-support:before {
     content: url('../images/liquidity_solutions/backoffice_support.svg');
@@ -422,6 +352,70 @@
 
 .fx-one-zero:before {
     content: url('../images/liquidity_solutions/one_zero.svg');
+}
+
+// Multiple Accounts Manager
+
+.fx-access-available:before {
+    content: url('../images/multi_account_manager/fx_access_available.svg');
+}
+
+.fx-allow-expert:before {
+    content: url('../images/multi_account_manager/fx_allow_expert.svg');
+}
+
+.fx-deposit:before {
+    content: url('../images/multi_account_manager/fx_deposit_withdrawal.svg');
+}
+
+.fx-instant-daily:before {
+    content: url('../images/multi_account_manager/fx_instant_daily.svg');
+}
+
+.fx-multi-exclusion:before {
+    content: url('../images/multi_account_manager/fx_multi_exclusion.svg');
+}
+
+.fx-essential-information:before {
+    content: url('../images/multi_account_manager/fx_essential_information.svg');
+}
+
+.fx-trade-allocations:before {
+    content: url('../images/multi_account_manager/fx_trade_allocations.svg');
+}
+
+.fx-variety-allocations:before {
+    content: url('../images/multi_account_manager/fx_variety_allocations.svg');
+}
+
+.fx-talk:before {
+    content: url('../images/multi_account_manager/fx_talk.svg');
+}
+
+.fx-download:before {
+    content: url('../images/multi_account_manager/fx_download.svg');
+}
+
+.fx-manage-subaccounts:before {
+    content: url('../images/multi_account_manager/fx_manage_subaccounts.svg');
+}
+
+.fx-view-all:before {
+    content: url('../images/multi_account_manager/fx_view_all.svg');
+}
+
+.fx-arrow-right {
+    position: absolute;
+    left: 0;
+    top: 25%;
+}
+
+.fx-arrow-right-icon:before {
+    content: url('../images/multi_account_manager/fx_arrow_right.svg');
+}
+
+.fx-arrow-down-icon:before {
+    content: url('../images/multi_account_manager/fx_arrow_down.svg');
 }
 
 // Home
@@ -521,4 +515,77 @@
     height: 120px;
     border-radius: 100%;
     background-color: $fillColor;
+}
+
+.fx-tools-timeframes:before {
+    content: url('../images/metatrader/analytical_tools_and_timeframes.svg');
+}
+
+.fx-fundamental-analysis:before {
+    content: url('../images/metatrader/fundamental_analysis.svg');
+}
+
+.fx-integrated-environment:before {
+    content: url('../images/metatrader/integrated_development_environment_for_expert_advisors.svg');
+}
+
+.fx-market-depth-info:before {
+    content: url('../images/metatrader/market_depth_information.svg');
+}
+
+.fx-one-click:before {
+    content: url('../images/metatrader/one_click_trading.svg');
+}
+
+.fx-expert-advisors:before {
+    content: url('../images/metatrader/ready_to_use_expert_advisors.svg');
+}
+
+.fx-copy-trading:before {
+    content: url('../images/metatrader/trading_signals_and_copy_trading.svg');
+}
+
+.fx-friendly-ui:before {
+    content: url('../images/metatrader/user_friendly_interface.svg');
+}
+
+.fx-back-testing-tool:before {
+    content: url('../images/metatrader/back_testing_tool.svg');
+}
+
+// Binary options
+.fx-payouts:before {
+    content: url('../images/binary_options/competitive_payouts.svg');
+}
+
+.fx-risk:before {
+    content: url('../images/binary_options/controlled_risk.svg');
+}
+
+.fx-easy-trade:before {
+    content: url('../images/binary_options/easy_to_trade.svg');
+}
+
+.fx-low-stakes:before {
+    content: url('../images/binary_options/low_stakes.svg');
+}
+
+.fx-no-surprises:before {
+    content: url('../images/binary_options/no_surprises.svg');
+}
+
+.fx-sharp-prices:before {
+    content: url('../images/binary_options/sharp_prices.svg');
+}
+
+.fx-simple:before {
+    content: url('../images/binary_options/simple_and_intuitive.svg');
+}
+
+.fx-world-square:before {
+    content: url('../images/binary_options/trade_the_worlds_markets.svg');
+}
+
+.fx-wide-products:before {
+    content: url('../images/binary_options/wide_product_range.svg');
 }
