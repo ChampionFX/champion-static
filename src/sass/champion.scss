@@ -131,7 +131,6 @@ h1.main-title {
     @include no-margin-padding;
     display: flex;
     flex-grow: 1;
-    // height: 100%;
 
     #email {
         text-align: center;
@@ -1355,7 +1354,7 @@ iframe {
     width: 100%;
 }
 
-// dialog popup animation
+// modal popup animation
 @-webkit-keyframes animatetop {
     from {
         top: -300px;
