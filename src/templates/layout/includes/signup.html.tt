@@ -1,9 +1,5 @@
 <form id="verify-email-form" class="frm-verify-email">
-    <div class="row signup-box">
-        <div class="col">
-            <input class="clean-input secondary-input" autocomplete="off" name="email" id="email" maxlength="50" placeholder="[% l('Enter your email') %]">
-            <button class="button" id="btn-verify-email" type="submit">[% l('Create Free Account') %]</button>
-            <span class="error-msg hint color-white center-text invisible" id="signup_error"></span>
-        </div>
-    </div>
+    <input class="clean-input primary-input" autocomplete="off" name="email" id="email" maxlength="50" placeholder="[% l('Enter your email') %]">
+    <span class="error-msg invisible" id="signup_error"></span>
+    <button class="button" id="btn-verify-email" type="submit">[% l('Create Free Account') %]</button>
 </form>
