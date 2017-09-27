@@ -1262,6 +1262,15 @@ iframe {
     &__form_message {
         padding: 50px 30px;
     }
+    &__footer {
+        margin: auto;
+        bottom: 0;
+        font-size: 12px !important;
+
+        a:hover {
+            color: $darkPrimaryBrandColor;
+        }
+    }
     .asterisk {
         color: $crossColor;
         font-size: 14px;
@@ -1275,13 +1284,6 @@ iframe {
         width: 30px;
         margin: 0 auto;
     }
-    .note, .note * {
-        font-size: 12px !important;
-
-        a:hover {
-            color: $white;
-        }
-    }
     .flex-display {
         display: flex;
         justify-content: center;
@@ -1290,6 +1292,7 @@ iframe {
     }
     .flex-display-swap {
         flex-direction: column-reverse;
+        height: initial;
     }
     @media (min-width: 768px) {
         overflow: hidden;
@@ -1326,10 +1329,23 @@ iframe {
                 }
             }
         }
+        &__footer {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding: 0 30px 10px;
+
+            p, a, a:hover {
+                font-size: 12px;
+                color: $white;
+            }
+
+        }
         .flex-display-swap {
             flex-direction: column;
+            height: 100%;
         }
-        .invisible.invisible-md-down {
+        .invisible.visible-md-down {
             display: block !important;
         }
     }

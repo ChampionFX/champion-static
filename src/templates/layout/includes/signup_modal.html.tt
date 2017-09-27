@@ -3,15 +3,13 @@
         <div class="modal__header">
             <a href="javascript:;" class="close"></a>
         </div>
-        <div class="modal__body col-xs-12 col-md-4 invisible-md-down">
+        <div class="modal__body col-xs-12 col-md-4 visible-md-down">
             <div class="flex-display">
                 <h2>[% l('No funds, no problem.') %]</h2>
                 <div class="flex-display flex-display-swap">
                     <img src="[% request.url_for('images/signup/wallet_money.svg') %]"/>
                     <p>[% l('Your first trade is on us') %]*</p>
                 </div>
-                <div class="dash hidden-sm-down"></div>
-                <p class="note hidden-sm-down">*<a href="[% request.url_for('free-bonus.html') %]">[% l('terms and conditions') %]</a>[% l(' apply') %]</p>
             </div>
         </div>
         <div class="modal__form_wrapper col-xs-12 col-md-8">
@@ -27,6 +25,10 @@
             <h2>[% l('Thank you for signing up!') %]</h2>
             <img src="[% request.url_for('images/signup/check_email.svg') %]"/>
             <p>[% l('Please check your email to complete the registration process.') %]</p>
+        </div>
+        <div class="modal__footer visible-md-down">
+            <div class="dash hidden-sm-down"></div>
+            <p class="note">*<a href="[% request.url_for('download/no_deposit_terms.pdf') %]">[% l('terms and conditions') %]</a>[% l(' apply') %]</p>
         </div>
     </div>
 </div>
