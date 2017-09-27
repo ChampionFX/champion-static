@@ -14,6 +14,7 @@
         flex-direction: column;
     }
     #account_selector {
+        width: 300px;
         position: relative;
         cursor: pointer;
 
@@ -23,7 +24,7 @@
         #mt5_account {
             height: 36px;
             line-height: 36px;
-            padding: 0 20px;
+            padding: 0 30px 0 20px;
             box-sizing: border-box;
             margin: 0;
             overflow: hidden;
@@ -39,6 +40,7 @@
                 display: block;
                 float: right;
                 margin-top: 17px;
+                margin-right: -15px;
                 border-left: 5px solid transparent;
                 border-right: 5px solid transparent;
                 border-top: 5px solid $white;
@@ -64,10 +66,6 @@
                 &.selected {
                     color: $primaryBrandColor;
                     background: $fillColor;
-                }
-                .mt-balance {
-                    float: right;
-                    font-size: $FONT_SIZE_S;
                 }
                 .mt-icon {
                     float: right;
@@ -132,8 +130,14 @@
                 color: $primaryBrandColor;
             }
             .balance {
-                font-size: $FONT_SIZE_N;
                 color: $primaryBrandColor;
+            }
+        }
+        .acc-box {
+            max-width: 300px;
+
+            span[data] {
+                float: right;
             }
         }
     }
@@ -150,18 +154,19 @@
                 width: 5px;
             }
             a {
+                border: 2px solid $fillColor;
+                border-bottom: none;
                 border-radius: $BORDER_RADIUS $BORDER_RADIUS 0 0;
                 line-height: 40px;
                 font-weight: normal;
                 flex: 1;
-                background: #e0e8f0; /* stylelint-disable-line color-no-hex */
+                background: $white;
                 color: $black;
                 text-decoration: none;
 
                 &.selected {
-                    border: 2px solid $fillColor;
-                    border-bottom: none;
-                    background: $white;
+                    border-color: $lighterBlue;
+                    background: $lighterBlue;
                     color: $primaryBrandColor;
                     padding-bottom: 2px;
                     margin-bottom: -2px;
@@ -196,11 +201,6 @@
                 }
                 .bordered {
                     border: 2px solid $fillColor;
-                }
-                .binary-balance, .mt-balance {
-                    font-weight: bold;
-                    color: $primaryBrandColor;
-                    font-size: $FONT_SIZE_N;
                 }
                 .flex {
                     display: flex;
@@ -244,6 +244,9 @@
                 img {
                     height: 64px;
                     max-width: 64px;
+                }
+                h2 {
+                    margin-bottom: 10px;
                 }
             }
             #frm_new_account #btn_next span {
@@ -362,6 +365,9 @@
                         margin-bottom: 0;
                     }
                 }
+                #btn_cancel {
+                    margin: 0 20px;
+                }
             }
         }
     }
@@ -382,7 +388,12 @@
             padding: 0 10px;
 
             #account_selector {
+                width: 200px;
                 margin-left: 20px;
+            }
+            .acc-box {
+                padding: 0 20px;
+                max-width: 240px;
             }
         }
         #mt_right_panel {
@@ -410,10 +421,6 @@
     #mt_account_management {
         #accounts_list {
             font-size: $FONT_SIZE_S;
-
-            .mt-balance {
-                font-size: $FONT_SIZE_XS !important;
-            }
         }
     }
 }

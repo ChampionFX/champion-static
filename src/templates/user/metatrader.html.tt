@@ -1,6 +1,6 @@
 <div class="fx-section">
     <div class="container">
-        <h1>[% l('MetaTrader 5 Dashboard') %]</h1>
+        <h3>[% l('MetaTrader 5 Dashboard') %]</h3>
         <div id="mt_loading">[% INCLUDE static/common/loading.html.tt %]</div>
         <div id="mt_account_management" class="invisible">
             <div class="row">
@@ -11,8 +11,8 @@
                                 <div id="acc_icon"></div>
                             </div>
                             <div class="flex-grow gutters">
-                                <div class="row">
-                                    <div class="flex-grow">
+                                <div class="row gutters">
+                                    <div class="flex-adapt">
                                         <div id="account_selector">
                                             <h4 id="mt5_account"></h4>
                                             <div id="accounts_list">
@@ -26,25 +26,25 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="acc-info has-account invisible">
-                                    <div class="row padding-10">
-                                        <div class="col-sm-2 col-xs-3">[% l('Name:') %]</div>
-                                        <div data="name"></div>
+                                <div class="acc-info has-account acc-box invisible">
+                                    <div class="padding-10">
+                                        <span>[% l('Name:') %]</span>
+                                        <span data="name"></span>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-sm-2 col-xs-3">[% l('Login ID:') %]</div>
-                                        <div class="login" data="login"></div>
+                                    <div>
+                                        <span>[% l('Login ID:') %]</span>
+                                        <span class="login" data="login"></span>
                                     </div>
-                                    <div class="row padding-10 hidden-sm-up">
-                                        <div class="col-sm-2 col-xs-3">[% l('Balance:') %]</div>
-                                        <div class="balance flex-grow" data="balance"></div>
+                                    <div class="padding-10 hidden-md-up">
+                                        <span>[% l('Balance:') %]</span>
+                                        <span class="balance flex-grow" data="balance"></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="flex-adapt align-end gutters hidden-xs-down">
+                            <div class="flex-adapt align-end gutters hidden-md-down">
                                 <div class="acc-info has-account invisible">
-                                    <div>[% l('Balance') %]</div>
-                                    <div class="balance padding-10" data="balance"></div>
+                                    <div>[% l('Current balance:') %]</div>
+                                    <h3 class="balance padding-10" data="balance"></h3>
                                 </div>
                             </div>
                         </div>
@@ -215,9 +215,7 @@
                                 <p id="new_account_msg" class="notice-msg center-text invisible"></p>
                                 <div class="separator padding-10"></div>
                                 <div class="center-text">
-                                    <a id="btn_cancel" class="button button-secondary" href="javascript:;">
-                                        <span>[% l('Cancel') %]</span>
-                                    </a>
+                                    <a id="btn_cancel" href="javascript:;">[% l('Cancel') %]</a>
                                     <a id="btn_next" class="button button-disabled" href="javascript:;">
                                         <span>[% l('Next') %]</span>
                                     </a>
@@ -273,7 +271,7 @@
                                         <div class="col-sm-5">
                                             <img src="[% request.url_for('images/metatrader/dashboard/binary_wallet.svg') %]" />
                                             <div class="binary-account padding-10"></div>
-                                            <div class="binary-balance padding-10"></div>
+                                            <h2 class="binary-balance"></h2>
                                             <a class="secondary-color small-text" href="[% request.url_for('cashier') %]">[% l('Add fund') %]</a>
                                         </div>
                                         <div class="col-sm-2">
@@ -282,7 +280,7 @@
                                         <div class="col-sm-5">
                                             <img src="[% request.url_for('images/metatrader/dashboard/mt5_wallet.svg') %]" />
                                             <div class="mt-account padding-10"></div>
-                                            <div class="mt-balance padding-10"></div>
+                                            <h2 class="mt-balance"></h2>
                                             <div class="small-text">[% l('Deposit or withdraw below') %]</div>
                                         </div>
                                     </div>

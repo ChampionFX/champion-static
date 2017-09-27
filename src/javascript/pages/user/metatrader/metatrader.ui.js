@@ -123,7 +123,7 @@ const MetaTraderUI = (function() {
 
         if (types_info[acc_type].account_info) {
             // Update account info
-            $detail.find('.acc-info div[data]').map(function () {
+            $detail.find('.acc-info [data]').map(function () {
                 const key  = $(this).attr('data');
                 const info = types_info[acc_type].account_info[key];
                 $(this).text(
