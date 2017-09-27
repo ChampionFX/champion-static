@@ -90,8 +90,8 @@
             </div>
 
             <div class="navbar__button-group logged-out invisible">
-                <a class="btn-login button hidden-lg-up" href="javascript:;"><span>[% l('Log In') %]</span></a>
-                <a class="button-secondary" href="[% request.url_for('home') %]#signup"><span>[% l('Sign Up') %]</span></a>
+                <a class="hidden-lg-up toggle-modal" href="javascript:;"><img src="[% request.url_for('images/signup/login.svg') %]"/></a>
+                <a class="button-secondary hidden-lg-down toggle-modal" href="javascript:;"><span>[% l('Sign Up') %]</span></a>
             </div>
         </div>
     </nav>
