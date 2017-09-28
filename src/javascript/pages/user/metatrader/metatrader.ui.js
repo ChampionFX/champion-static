@@ -17,6 +17,7 @@ const MetaTraderUI = (function() {
         $templates,
         $form,
         $main_msg,
+        new_account_type,
         submit;
 
     const types_info   = MetaTraderConfig.types_info;
@@ -119,7 +120,9 @@ const MetaTraderUI = (function() {
         if (acc_type !== Client.get('mt5_account')) return;
 
         $detail.find('#acc_icon').attr('class', types_info[acc_type].mt5_account_type);
-        displayAccountDescription(acc_type);
+        if (!$('#frm_new_account').is(':visible')) {
+            displayAccountDescription(acc_type);
+        }
 
         if (types_info[acc_type].account_info) {
             // Update account info
@@ -127,10 +130,10 @@ const MetaTraderUI = (function() {
                 const key  = $(this).attr('data');
                 const info = types_info[acc_type].account_info[key];
                 $(this).text(
-                    key === 'balance' ? formatMoney(+info, mt5_currency) :
+                    key === 'balance' ? (isNaN(info) ? '' : formatMoney(+info, mt5_currency)) :
                     key === 'leverage' ? `1:${info}` : info);
             });
-            $container.find('.has-account').setVisibility(1);
+            $detail.find('.has-account').setVisibility(1);
         } else {
             $detail.find('.acc-info, .acc-actions').setVisibility(0);
         }
@@ -140,7 +143,16 @@ const MetaTraderUI = (function() {
         setAccountType(acc_type);
 
         if ($action.hasClass('invisible')) {
-            loadAction(defaultAction(acc_type));
+            let action = defaultAction(acc_type);
+
+            const hash = location.hash.substring(1);
+            if (types_info[hash] && !types_info[hash].account_info) {
+                action = 'new_account';
+                new_account_type = hash;
+                removeUrlHash();
+            }
+
+            loadAction(action);
         }
     };
 
@@ -248,13 +260,21 @@ const MetaTraderUI = (function() {
         $form = actions_info[action].$form;
         actions_info[action].prerequisites(true).then((error_msg) => {
             $form.find('#rbtn_real')[error_msg ? 'addClass' : 'removeClass']('disabled');
+            if (new_account_type) {
+                // simulate user clicks, so on click the back button correct choice is pre-selected
+                $form.find(`#rbtn_${types_info[new_account_type].is_demo ? 'demo' : 'real'}`).click();
+                $form.find(`#rbtn_${new_account_type.split('_').slice(-2).join('_')}`).click();
+                $form.find('#btn_next').click();
+                displayAccountDescription(new_account_type);
+                new_account_type = '';
+            }
         });
 
         // Navigation buttons: cancel, next, back
         $form.find('#btn_cancel').click(() => {
             loadAction(null, acc_type);
             displayAccountDescription(acc_type);
-            $.scrollTo($('h1'), 300, { offset: getOffset() });
+            $.scrollTo($('#champion-content'), 300, { offset: getOffset() });
         });
         const displayStep = (step) => {
             $form.find('#mv_new_account div[id^="view_"]').setVisibility(0);
@@ -320,6 +340,11 @@ const MetaTraderUI = (function() {
             new Promise(resolve => resolve(true));
     };
 
+    const removeUrlHash = () => {
+        const url = location.href.split('#')[0];
+        window.history.replaceState({ url: url }, document.title, url);
+    };
+
     const hideFormMessage = (action) => {
         actions_info[action].$form.find('#msg_form').html('').setVisibility(0);
     };
@@ -362,6 +387,7 @@ const MetaTraderUI = (function() {
         loadAction        : loadAction,
         updateAccount     : updateAccount,
         postValidate      : postValidate,
+        removeUrlHash     : removeUrlHash,
         hideFormMessage   : hideFormMessage,
         displayFormMessage: displayFormMessage,
         displayMainMessage: displayMainMessage,
