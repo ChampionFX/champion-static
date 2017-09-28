@@ -10,7 +10,7 @@ const MT5 = (() => {
 
         if (!Client.is_logged_in()) {
             const $signup_btn = $('#mt5-accounts').find('a');
-            $signup_btn.addClass('toggle-modal');
+            $signup_btn.addClass('toggle-signup-modal');
             replaceHref($signup_btn);
         }
     };

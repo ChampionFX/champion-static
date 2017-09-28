@@ -1,6 +1,5 @@
 const ChampionSocket = require('../common/socket');
 const Validation     = require('../common/validation');
-// const Client         = require('../common/client');
 
 const ChampionSignup = (function() {
     'use strict';
@@ -14,7 +13,7 @@ const ChampionSignup = (function() {
         $button;
 
     const load = () => {
-        $('.toggle-modal').off('click').on('click', showModal);
+        $('.toggle-signup-modal').off('click').on('click', showModal);
         $('.modal__header .close').off('click').on('click', hideModal);
 
         eventHandler();
