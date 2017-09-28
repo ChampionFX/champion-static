@@ -41,7 +41,7 @@ const MetaTrader = (function() {
 
         // Update types with no account
         Object.keys(types_info)
-            .filter(acc_type => hasAccount(acc_type))
+            .filter(acc_type => !hasAccount(acc_type))
             .forEach((acc_type) => { MetaTraderUI.updateAccount(acc_type); });
     };
 
