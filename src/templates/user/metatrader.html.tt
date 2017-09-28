@@ -7,7 +7,7 @@
                 <div id="mt_left_panel" class="col-lg-9 col-md-8">
                     <div id="account_details" class="mt-panel mt-container">
                         <div class="row">
-                            <div class="flex-adapt gutters hidden-xs-down">
+                            <div class="flex-adapt gutters hidden-md-down">
                                 <div id="acc_icon"></div>
                             </div>
                             <div class="flex-grow gutters">
@@ -247,7 +247,7 @@
                         <div class="center-text small-text">
                             <h3 class="secondary-color">[% title %]</h3>
                             <p>[% desc %]</p>
-                            <div class="vertical-center padding-10 cashier-guide">
+                            <div class="vertical-center padding-10 cashier-guide hidden-xs-down">
                                 <div></div>
                                 <img src="[% request.url_for('images/metatrader/dashboard/' _ action _ '.svg') %]" />
                                 <div></div>
@@ -286,9 +286,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="separator"></div>
+                            <div class="separator hidden-md-down"></div>
                             <div class="row">
-                                <div class="col-lg-6 flex">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 flex">
                                     <div class="mt-panel mt-container bordered">
                                         <form id="frm_deposit">
                                             [% INCLUDE cashier_desc title=l('Deposit into MT5 account') action='deposit'
@@ -301,7 +301,7 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 flex">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 flex">
                                     <div class="mt-panel mt-container bordered">
                                         <form id="frm_withdrawal">
                                             [% INCLUDE cashier_desc title=l('Withdraw from MT5 account') action='withdraw'

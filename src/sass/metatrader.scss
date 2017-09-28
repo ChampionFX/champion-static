@@ -17,6 +17,7 @@
         width: 300px;
         position: relative;
         cursor: pointer;
+        margin-bottom: 10px;
 
         #mt5_account, #accounts_list {
             border: 1px solid $primaryBrandColor;
@@ -157,7 +158,8 @@
                 border: 2px solid $fillColor;
                 border-bottom: none;
                 border-radius: $BORDER_RADIUS $BORDER_RADIUS 0 0;
-                line-height: 40px;
+                line-height: 20px;
+                padding: 10px;
                 font-weight: normal;
                 flex: 1;
                 background: $white;
@@ -204,7 +206,7 @@
                 }
                 .flex {
                     display: flex;
-                    flex: 1;
+                    flex: 1 1 auto;
                     flex-direction: column;
 
                     &:first-child {
@@ -215,7 +217,8 @@
                     }
                 }
                 .cashier-guide {
-                    display: inline-block;
+                    display: inline-flex;
+                    flex-wrap: wrap;
 
                     div {
                         display: inline-block;
@@ -411,9 +414,35 @@
     }
 }
 
+@media (max-width: 767px) {
+    #mt_account_management {
+        #mt_left_panel {
+            padding-right: 15px;
+        }
+        #mt_right_panel {
+            border-left: 0;
+            padding-left: 15px;
+        }
+    }
+}
+
 @media (max-width: 991px) {
-    #mt_account_management .mt-container {
-        padding: 10px;
+    #mt_account_management {
+        .mt-container {
+            padding: 10px;
+        }
+        .fst-container #fst_action #frm_cashier {
+            .payment-guide {
+                margin-top: -5px;
+            }
+            .flex:first-child {
+                padding-right: 15px;
+                margin: 10px 0;
+            }
+            .flex:last-child {
+                padding-left: 15px;
+            }
+        }
     }
 }
 
