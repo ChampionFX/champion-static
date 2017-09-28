@@ -1,6 +1,7 @@
 const MetaTraderConfig = require('./metatrader.config');
 const MetaTraderUI     = require('./metatrader.ui');
 const Client           = require('../../../common/client');
+const switchLoginId    = require('../../../common/header').switchLoginId;
 const ChampionSocket   = require('../../../common/socket');
 const State            = require('../../../common/storage').State;
 const Validation       = require('../../../common/validation');
@@ -14,6 +15,13 @@ const MetaTrader = (function() {
 
     const load = () => {
         State.set('is_mt_pages', 1);
+
+        if (Client.is_virtual() && Client.has_real()) {
+            const real_login_id = Client.get('loginid_array').find(login => !login.disabled && login.real).id;
+            switchLoginId(real_login_id);
+            return;
+        }
+
         ChampionSocket.wait('mt5_login_list').then((response) => {
             responseLoginList(response);
         });
