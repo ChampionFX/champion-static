@@ -261,11 +261,13 @@ const MetaTraderUI = (function() {
         actions_info[action].prerequisites(true).then((error_msg) => {
             $form.find('#rbtn_real')[error_msg ? 'addClass' : 'removeClass']('disabled');
             if (new_account_type) {
-                // simulate user clicks, so on click the back button correct choice is pre-selected
-                $form.find(`#rbtn_${types_info[new_account_type].is_demo ? 'demo' : 'real'}`).click();
-                $form.find(`#rbtn_${new_account_type.split('_').slice(-2).join('_')}`).click();
-                $form.find('#btn_next').click();
-                displayAccountDescription(new_account_type);
+                if (!/real/.test(new_account_type) || !Client.is_virtual()) {
+                    // simulate user clicks, so on click the back button correct choice is pre-selected
+                    $form.find(`#rbtn_${types_info[new_account_type].is_demo ? 'demo' : 'real'}`).click();
+                    $form.find(`#rbtn_${new_account_type.split('_').slice(-2).join('_')}`).click();
+                    $form.find('#btn_next').click();
+                    displayAccountDescription(new_account_type);
+                }
                 new_account_type = '';
             }
         });
