@@ -47,7 +47,7 @@ const MetaTrader = (function() {
         } else {
             default_account = Object.keys(types_info)
                 .filter(acc_type => hasAccount(acc_type))
-                .sort(acc_type => types_info[acc_type].is_demo)[0] || ''; // real first
+                .sort(acc_type => (types_info[acc_type].is_demo ? 1 : -1))[0] || ''; // real first
         }
         return default_account;
     };

@@ -43,7 +43,7 @@ const MetaTraderUI = (function() {
     const populateAccountList = () => {
         const $acc_name = $templates.find('> .acc-name');
         Object.keys(types_info)
-            .sort((a, b) => types_info[a].order > types_info[b].order)
+            .sort((a, b) => types_info[a].order - types_info[b].order)
             .forEach((acc_type) => {
                 if ($list.find(`[value="${acc_type}"]`).length === 0) {
                     const $acc_item = $acc_name.clone();
