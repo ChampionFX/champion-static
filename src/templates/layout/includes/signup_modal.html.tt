@@ -28,7 +28,7 @@
         </div>
         <div class="modal__footer visible-md-down">
             <div class="dash hidden-sm-down"></div>
-            <p class="note">*<a href="[% request.url_for('download/no_deposit_terms.pdf') %]">[% l('terms and conditions') %]</a>[% l(' apply') %]</p>
+            <p class="note">*<a href="[% request.url_for('download/no_deposit_terms.pdf') %]" target="_blank">[% l('terms and conditions') %]</a>[% l(' apply') %]</p>
         </div>
     </div>
 </div>
