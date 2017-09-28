@@ -116,7 +116,7 @@ sub css_files {
     my @css;
 
     # Binary-style
-    push @css, "https://kelly-championfx.github.io/binary-style/binary.css?$static_hash";
+    push @css, "https://style.champion-fx.com/binary.css?$static_hash";
 
     # if (is_dev()) {
     #     if (grep { $_ eq uc $LANG } rtl_languages()) {
@@ -143,7 +143,7 @@ sub js_config {
     }
 
     # Binary-style-js
-    push @libs, "https://kelly-championfx.github.io/binary-style/binary.js?$static_hash";
+    push @libs, "https://style.champion-fx.com/binary.js?$static_hash";
 
     return {
         libs     => \@libs,
