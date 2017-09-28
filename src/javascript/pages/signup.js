@@ -45,9 +45,7 @@ const ChampionSignup = (function() {
     const hideModal = (e) => {
         e.stopPropagation();
         $modal.removeClass('modal--show');
-        $('.modal-overlay').fadeOut(500, function() {
-            this.remove();
-        });
+        $('.modal-overlay').remove();
     };
 
     const resetForm = () => {
