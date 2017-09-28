@@ -15,20 +15,8 @@ const ChampionSignup = (function() {
         $button;
 
     const load = () => {
-        $('.toggle-modal').off('click').on('click', function(e) {
-            e.stopPropagation();
-            $('.modal').toggleClass('modal--show');
-            if ($('.modal--show').length) {
-                $('body').css('position', 'static').append('<div class="modal-overlay"></div>');
-                $('html').css('overflow-y', 'hidden');
-            }
-        });
-        $('.modal__header .close').off('click').on('click', function(e) {
-            e.stopPropagation();
-            $('.modal').removeClass('modal--show');
-            $('.modal-overlay').remove();
-            $('html').css('overflow-y', 'auto');
-        });
+        $('.toggle-modal').off('click').on('click', showModal);
+        $('.modal__header .close').off('click').on('click', hideModal);
 
         if (Client.is_logged_in() || /(new-account|terms-and-conditions|user|cashier)/.test(window.location.pathname)) {
             changeVisibility($(form_selector), 'hide');
@@ -41,6 +29,25 @@ const ChampionSignup = (function() {
             }
             eventHandler();
         }
+    };
+
+    const showModal = (e) => {
+        e.stopPropagation();
+        $('.modal').toggleClass('modal--show');
+        if ($('.modal--show').length) {
+            $('html').css('overflow-y', 'hidden');
+            $('body').css('position', 'static').append('<div class="modal-overlay"></div>');
+            $('.modal-overlay').off('click', hideModal).on('click', hideModal);
+        }
+    };
+
+    const hideModal = (e) => {
+        e.stopPropagation();
+        $('html').css('overflow-y', 'auto');
+        $('.modal').removeClass('modal--show');
+        $('.modal-overlay').fadeOut(500, function() {
+            this.remove();
+        });
     };
 
     const changeVisibility = ($selector, action) => {
@@ -68,7 +75,8 @@ const ChampionSignup = (function() {
             $input.val('');
         }
         is_active = false;
-        $('toggle-notification').off('click');
+
+        $('toggle-modal').off('click');
         $('.modal__header .close').off('click');
     };
 
@@ -80,8 +88,8 @@ const ChampionSignup = (function() {
                 type        : 'account_opening',
             }).then((response) => {
                 if (response.verify_email) {
-                    $('.modal__form_message').removeClass('invisible');
-                    $('.modal__form_wrapper, .modal__body, .modal__footer').addClass('invisible');
+                    $('.modal__form_message').removeClass(hidden_class);
+                    $('.modal__form_wrapper, .modal__body, .modal__footer').addClass(hidden_class);
                 } else if (response.error) {
                     $(`${form_selector}:visible #signup_error`).text(response.error.message).removeClass(hidden_class);
                 }
