@@ -21,7 +21,7 @@ const ChampionSignup = (function() {
     };
 
     const showModal = (e) => {
-        e.stopPropagation();
+        if (e) e.stopPropagation();
         $('.modal').toggleClass('modal--show');
         if ($('.modal--show').length) {
             $('body').css('position', 'static').append('<div class="modal-overlay"></div>');
@@ -77,8 +77,9 @@ const ChampionSignup = (function() {
     };
 
     return {
-        load  : load,
-        unload: unload,
+        load     : load,
+        unload   : unload,
+        showModal: showModal,
     };
 })();
 

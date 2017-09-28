@@ -9,7 +9,6 @@ const SessionDurationLimit    = require('./session_duration_limit');
 const ChampionSocket          = require('./socket');
 const State                   = require('./storage').State;
 const default_redirect_url    = require('./url').default_redirect_url;
-const url_for                 = require('./url').url_for;
 const Utility                 = require('./utility');
 const Cashier                 = require('./../pages/cashier/cashier');
 const CashierPassword         = require('./../pages/cashier/cashier_password');
