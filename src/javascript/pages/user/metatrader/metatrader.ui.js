@@ -117,7 +117,7 @@ const MetaTraderUI = (function() {
     };
 
     const setCurrentAccount = (acc_type) => {
-        if (acc_type !== Client.get('mt5_account')) return;
+        if (Client.get('mt5_account') && Client.get('mt5_account') !== acc_type) return;
 
         $detail.find('#acc_icon').attr('class', types_info[acc_type].mt5_account_type);
         if (!$('#frm_new_account').is(':visible')) {
