@@ -1,13 +1,12 @@
 const ChampionSocket = require('../common/socket');
 const Validation     = require('../common/validation');
-const Client         = require('../common/client');
+// const Client         = require('../common/client');
 
 const ChampionSignup = (function() {
     'use strict';
 
-    const form_selector   = '.frm-verify-email';
-    const signup_selector = '#signup';
-    const hidden_class    = 'invisible';
+    const form_selector = '.frm-verify-email';
+    const hidden_class  = 'invisible';
 
     let is_active = false,
         $form,
@@ -18,24 +17,13 @@ const ChampionSignup = (function() {
         $('.toggle-modal').off('click').on('click', showModal);
         $('.modal__header .close').off('click').on('click', hideModal);
 
-        if (Client.is_logged_in() || /(new-account|terms-and-conditions|user|cashier)/.test(window.location.pathname)) {
-            changeVisibility($(form_selector), 'hide');
-        } else {
-            changeVisibility($(form_selector), 'show');
-            if ($(form_selector).length === 1) {
-                changeVisibility($(signup_selector), 'show');
-            } else {
-                changeVisibility($(signup_selector), 'hide');
-            }
-            eventHandler();
-        }
+        eventHandler();
     };
 
     const showModal = (e) => {
         e.stopPropagation();
         $('.modal').toggleClass('modal--show');
         if ($('.modal--show').length) {
-            $('html').css('overflow-y', 'hidden');
             $('body').css('position', 'static').append('<div class="modal-overlay"></div>');
             $('.modal-overlay').off('click', hideModal).on('click', hideModal);
         }
@@ -43,19 +31,10 @@ const ChampionSignup = (function() {
 
     const hideModal = (e) => {
         e.stopPropagation();
-        $('html').css('overflow-y', 'auto');
         $('.modal').removeClass('modal--show');
         $('.modal-overlay').fadeOut(500, function() {
             this.remove();
         });
-    };
-
-    const changeVisibility = ($selector, action) => {
-        if (action === 'hide') {
-            $selector.addClass(hidden_class);
-        } else {
-            $selector.removeClass(hidden_class);
-        }
     };
 
     const eventHandler = () => {

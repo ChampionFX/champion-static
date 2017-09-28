@@ -133,7 +133,7 @@ const Champion = (function() {
         login: module => (
             module === MetaTrader ?
             Utility.template(`To register an MT5 account, please <a href="[_1]" class="login">log in</a> to your ChampionFX account<br />
-                Don't have a ChampionFX account? <a href="[_2]">Create one</a> now`, [`${'java'}${'script:;'}`, url_for('/')]) :
+                Don't have a ChampionFX account? <a href="[_2]" class="toggle-modal">Create one</a> now`, [`${'java'}${'script:;'}`, `${'java'}${'script:;'}`]) :
             Utility.template('Please <a href="[_1]" class="login">log in</a> to view this page.', [`${'java'}${'script:;'}`])
         ),
         only_virtual: 'Sorry, this feature is available to virtual accounts only.',

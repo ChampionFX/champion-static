@@ -1166,7 +1166,7 @@ iframe {
 }
 
 .modal {
-    position: absolute;
+    position: fixed;
     background: $fillColor;
     margin: auto;
     top: 20px;
@@ -1360,7 +1360,7 @@ iframe {
 }
 
 .modal-overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     background: $black;
