@@ -10,9 +10,16 @@ const ChampionSignup = (function() {
     let is_active = false,
         $form,
         $input,
-        $button;
+        $button,
+        $after_signup_msg,
+        $before_signup_el,
+        $modal;
 
     const load = () => {
+        $after_signup_msg = $('.modal__form_message');
+        $before_signup_el = $('.modal__form_wrapper, .modal__body, .modal__footer');
+        $modal            = $('.modal');
+
         $('.toggle-signup-modal').off('click').on('click', showModal);
         $('.modal__header .close').off('click').on('click', hideModal);
 
@@ -21,19 +28,34 @@ const ChampionSignup = (function() {
 
     const showModal = (e) => {
         if (e) e.stopPropagation();
-        $('.modal').toggleClass('modal--show');
+        $modal.toggleClass('modal--show');
         if ($('.modal--show').length) {
             $('body').css('position', 'static').append('<div class="modal-overlay"></div>');
             $('.modal-overlay').off('click', hideModal).on('click', hideModal);
+
+            // if sign-up success message is already visible, show sign-up form
+            if (!$after_signup_msg.hasClass(hidden_class)) {
+                $input.val('');
+                changeVisibility($after_signup_msg, 'hide');
+                changeVisibility($before_signup_el, 'show');
+            }
         }
     };
 
     const hideModal = (e) => {
         e.stopPropagation();
-        $('.modal').removeClass('modal--show');
+        $modal.removeClass('modal--show');
         $('.modal-overlay').fadeOut(500, function() {
             this.remove();
         });
+    };
+
+    const changeVisibility = ($selector, action) => {
+        if (action === 'hide') {
+            $selector.addClass(hidden_class);
+        } else {
+            $selector.removeClass(hidden_class);
+        }
     };
 
     const eventHandler = () => {
@@ -66,8 +88,8 @@ const ChampionSignup = (function() {
                 type        : 'account_opening',
             }).then((response) => {
                 if (response.verify_email) {
-                    $('.modal__form_message').removeClass(hidden_class);
-                    $('.modal__form_wrapper, .modal__body, .modal__footer').addClass(hidden_class);
+                    changeVisibility($after_signup_msg, 'show');
+                    changeVisibility($before_signup_el, 'hide');
                 } else if (response.error) {
                     $(`${form_selector}:visible #signup_error`).text(response.error.message).removeClass(hidden_class);
                 }
