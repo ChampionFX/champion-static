@@ -1,6 +1,7 @@
 const Client         = require('./client');
 const formatMoney    = require('./currency').formatMoney;
 const GTM            = require('./gtm');
+const Notify         = require('./notify');
 const ChampionRouter = require('./router');
 const ChampionSocket = require('./socket');
 const State          = require('./storage').State;
@@ -66,7 +67,9 @@ const Header = (function () {
 
     const userMenu = function() {
         if (!Client.is_logged_in()) return;
-
+        if (!Client.is_virtual()) {
+            Notify.init();
+        }
         setMetaTrader();
 
         const selectedTemplate = (text, value, icon) => (

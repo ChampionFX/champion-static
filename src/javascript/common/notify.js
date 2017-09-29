@@ -55,21 +55,22 @@ const Notify = (() => {
                         has_mt_account = true;
                     }
                     let key = '';
-                    const notified = check_statuses.some((object) => {
+                    check_statuses.some((object) => {
                         if (object.validation()) {
                             key = object.validation.name;
                             addToNotifications(object.message(), key);
-                            return true;
+                        } else {
+                            removeFromNotifications(key);
                         }
-                        return false;
                     });
-                    if (!notified) removeFromNotifications(key);
                 });
             });
         });
     };
 
     const createUI = () => {
+        if ($('.notify .toggle-notification').length) return;
+
         const toggler       = `<a class="toggle-notification bell" href="javascript:;"></a>
                                <div class="talk-bubble"></div>`;
         const notifications = `<div class="notifications">
@@ -113,6 +114,7 @@ const Notify = (() => {
     };
 
     const addToNotifications = (msg, key) => {
+        if ($(`.notifications__list .notification.${key}`).length) return;
         $('.notifications__list').append(`<div class="notification ${key}">${msg}</div>`);
         $('.notification > a').off('click').on('click', hideNotifications);
         numberOfNotification++;
