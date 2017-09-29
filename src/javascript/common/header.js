@@ -113,8 +113,9 @@ const Header = (function () {
         $('.login-id-list a').off('click').on('click', function(e) {
             e.preventDefault();
             $(this).attr('disabled', 'disabled');
+            const is_mt = State.get('is_mt_pages');
             State.remove('is_mt_pages'); // needs to remove the flag before redirection
-            if (State.get('current_page') === 'metatrader') {
+            if (is_mt || State.get('current_page') === 'metatrader') {
                 ChampionRouter.forward(url_for('user/settings'));
             }
             switchLoginId($(this).attr('value')); // should be at the end as this reloads the page
