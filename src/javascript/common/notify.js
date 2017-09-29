@@ -108,10 +108,10 @@ const Notify = (() => {
     const updateUI = () => {
         if (!numberOfNotification) return;
         $('.toggle-notification').html('<span class="bell-active"></span>');
-        const login_time = Cookies.get('login_time');
 
-        if (lessThan5Seconds(login_time)) { // avoid showing talk bubble on every page refresh
+        if (!Client.get('notification_shown')) { // avoid showing talk bubble on every page refresh
             showTalkBubble();
+            Client.set('notification_shown', 1);
         }
     };
 
@@ -137,8 +137,6 @@ const Notify = (() => {
     const hideTalkBubble = () => {
         $('.talk-bubble').fadeOut();
     };
-
-    const lessThan5Seconds = date => (moment(date).isAfter(moment().subtract(5, 'seconds')));
 
     return {
         init                   : init,
