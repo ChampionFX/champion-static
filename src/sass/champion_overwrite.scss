@@ -376,36 +376,55 @@ p {
     padding: 40px 15px;
 }
 
+// fix in style
+.navbar .container {
+    position: relative;
+}
+
+.bell:before {
+    content: url('../images/bell.svg');
+}
+
+.bell-active:before {
+    content: url('../images/bell-active.svg');
+}
+
 .notify {
     position: absolute;
     display: flex;
-    justify-content: center;
+    z-index: 100000;
+    top: 0;
+    right: 15px;
+    @media (min-width: 1024px) {
+        right: 280px;
+    }
 
-    .notify-bell:before {
-        content: url('../images/bell.svg');
-    }
-    .notify-bell-active:before {
-        content: url('../images/bell-active.svg');
-    }
-    .notify-bubble {
+    .talk-bubble {
         position: absolute;
+        top: 50px;
+        right: -5px;
+        @media (min-width: 1024px) {
+            right: -124px;
+        }
+        min-width: 245px;
+        z-index: 1;
         background: $white;
         border-radius: 5px;
-        min-width: 245px;
         padding: 10px;
-        text-align: center;
-        z-index: 1;
-        top: 50px;
-        font-size: 14px;
         box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.2);
         cursor: pointer;
+        font-size: 14px;
+        text-align: center;
         display: none;
 
         &:after {
             content: '';
             position: absolute;
             top: 0;
-            left: 50%;
+            right: 5px;
+            @media (min-width: 1024px) {
+                right: 50%;
+            }
             width: 0;
             height: 0;
             border: 10px solid transparent;
@@ -423,7 +442,7 @@ p {
 }
 
 .notifications {
-    position: absolute;
+    position: fixed;
     right: -300px;
     z-index: 999;
     height: 100vh;
@@ -433,20 +452,20 @@ p {
     transform: translateX(0);
     transition: transform 0.3s;
     overflow-y: auto;
-    box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.2);
+    box-shadow: none;
     @media (max-width: 575px) {
         width: 100%;
         right: -100%;
     }
 
-    .notifications-header {
+    &__header {
         background-color: $white;
         padding: 15px 10px;
         color: $primaryBrandColor;
-        box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.3);
         font-weight: 500;
 
-        .btn-close {
+        .close {
             color: $primaryBrandColor;
             float: right;
             text-decoration: none;
@@ -461,14 +480,20 @@ p {
         background: $white;
         margin: 10px;
         box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1);
-
-        &-message {
-            padding: 15px 10px;
-            font-size: 14px;
-        }
+        padding: 15px 10px;
+        font-size: 14px;
     }
     &--show {
         transform: translateX(-100%);
         transition: transform 0.3s;
+        box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.3);
     }
+}
+
+.overlay {
+    position: fixed;
+    background: $black;
+    opacity: 0.5;
+    height: 100%;
+    width: 100%;
 }

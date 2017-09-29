@@ -24,9 +24,6 @@
     <span class="account-type mt-hide"></span>
 </div>
 [% END %]
-<<<<<<< HEAD
-            <div class="col-lg-6 hidden-lg-down vertical-center">
-=======
 
 <div id="header">
     <nav class="navbar">
@@ -36,6 +33,7 @@
                 <span class="fx-logo__icon--light"></span>
                 <span class="fx-logo__wordmark--light"></span>
             </a>
+            <div class="notify logged-in invisible"></div>
             <div class="navbar__nav has-accounts">
                 <ul class="navbar__nav__menu account-dropdown logged-in invisible">
                     <li>
@@ -50,7 +48,6 @@
                         </ul>
                     </li>
                 </ul>
->>>>>>> upstream/beta
                 [% INCLUDE main_menu class='logged-out' items=[
                     { text=l('About Us') link='about-us' icon='about'},
                     { text=l('MetaTrader 5') sub_items=[
@@ -93,84 +90,10 @@
                 ] %]
             </div>
 
-<<<<<<< HEAD
-
-
-            <div class="col-lg-3 col-sm-4 col-xs-5 vertical-center">
-                <div class="right-align">
-                    <div class="logged-out invisible">
-                        <div id="main-login" class="hidden-lg-up">
-                            <ul class="login-button">
-                                <li><a class="btn-login button" href="javascript:;"><span>[% l('Log In') %]</span></a></li>
-                            </ul>
-                        </div>
-                        <div id="main-signup">
-                            <ul class="signup-button">
-                                <li><a class="button-secondary" href="[% request.url_for('home') %]#signup"><span>[% l('Sign Up') %]</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- Desktop menu -->
-[% BLOCK account_info %]
-    <div class="account-id mt-hide"></div>
-    <span class="account-balance mt-hide"></span>
-    <span class="account-type mt-hide"></span>
-    <div class="mt-show invisible">[% l("MetaTrader 5") %]</div>
-[% END %]
-                    <div class="logged-in invisible hidden-lg-up">
-                        <a id="account-info" href="javascript:;" class="main-account nav-menu nav-toggle-dropdown">
-                            [% PROCESS account_info %]
-                        </a>
-                    </div>
-
-                    <div class="notify logged-in invisible"></div>
-
-                    <div id="main-logout" class="logged-in invisible hidden-lg-down">
-                        <ul id="main-account" class="nav-menu main-nav hidden-lg-down">
-                            <li class="account">
-                                <a href="javascript:;">
-                                    <div class="main-account">
-                                        [% PROCESS account_info %]
-                                    </div>
-                                    <div class="nav-caret"></div>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul id="all-accounts" class="nav-menu main-nav hidden-lg-down">
-                            <li class="account">
-                                <a href="javascript:;" class="menu-icon">
-                                    <div class="main-account">
-                                        [% PROCESS account_info %]
-                                    </div>
-                                    <div class="nav-caret"></div>
-                                </a>
-                                <ul>
-                                    <div class="login-id-list"></div>
-                                    <a href="[% request.url_for('new-account/real') %]" class="upgrade invisible">
-                                        <li>[% l("Upgrade to<br />Real Account") %]</li>
-                                        <div class="separator-line-thin-gray"></div>
-                                    </a>
-                                    <a href="[% request.url_for('user/metatrader') %]" class="mt-hide">
-                                        <li>[% l("MetaTrader 5") %]</li>
-                                        <div class="separator-line-thin-gray"></div>
-                                    </a>
-                                    <a href="javascript:;" class="btn-logout logout">
-                                        <li>[% l("Sign out") %]</li>
-                                    </a>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-=======
             <div class="navbar__button-group logged-out invisible">
                 <a class="btn-login button hidden-lg-up" href="javascript:;"><span>[% l('Log In') %]</span></a>
                 <a class="button-secondary" href="[% request.url_for('home') %]#signup"><span>[% l('Sign Up') %]</span></a>
             </div>
         </div>
     </nav>
->>>>>>> upstream/beta
 </div>

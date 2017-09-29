@@ -27,6 +27,7 @@ const LoggedIn = (function() {
             Client.set_cookie('loginid_list', loginid_list);
         }
         Client.set_cookie('token', tokens[loginid].token);
+        Client.set_cookie('login_time', new Date().toISOString());
 
         // set flags
         GTM.setLoginFlag();

@@ -3,6 +3,8 @@ const ChampionSocket = require('./socket');
 const State          = require('./storage').State;
 const url_for        = require('./url').url_for;
 const template       = require('./utility').template;
+const Cookies        = require('../lib/js-cookie');
+const moment         = require('moment');
 
 const Notify = (() => {
     'use strict';
@@ -12,30 +14,7 @@ const Notify = (() => {
     const init = () => {
         if (!Client.is_logged_in()) return;
 
-        // create ui
-        $('.notify')
-            .append(`<a class="toggle-notification"><span class="notify-bell"></span></a>
-                     <div class="notify-bubble"></div>`);
-
-        $('#top_group')
-            .append(`<div class="notifications">
-                     <div class="notifications-header">Notifications<a class="btn-close"></a></div>
-                     <div class="notifications-list"></div></div>`);
-
-        // attach event listeners
-        $('.toggle-notification, .notify-bubble, .notifications > .btn-close').off('click').on('click', function(e) {
-            e.stopPropagation();
-            hidePopUpMessage();
-            $('.notifications').toggleClass('notifications--show');
-        });
-
-        $('body').off('click').on('click', function(e) {
-            if ($(e.target).is('.notifications, .notifications-header')) {
-                return false;
-            }
-            $('.notifications').removeClass('notifications--show');
-            return true;
-        });
+        createUI();
 
         ChampionSocket.wait('authorize').then(() => {
             let get_account_status,
@@ -79,52 +58,91 @@ const Notify = (() => {
                     }
                     const notified = check_statuses.some((object) => {
                         if (object.validation()) {
-                            notify(object.message());
+                            addToNotifications(object.message());
                             return true;
                         }
                         return false;
                     });
-                    if (!notified) hideNotification();
+                    if (!notified) removeFromNotifications();
                 });
             });
         });
     };
 
-    const updateUI = () => {
-        $('.toggle-notification')
-            .html(`<span class="${!numberOfNotification ? 'notify-bell' : 'notify-bell-active'}"></span>`);
-        if (numberOfNotification) {
-            showPopUpMessage();
+    const createUI = () => {
+        const toggler       = `<a class="toggle-notification" href="javascript:;">
+                                  <span class="bell"></span>
+                               </a>
+                               <div class="talk-bubble"></div>`;
+        const notifications = `<div class="notifications">
+                                  <div class="notifications__header">Notifications<a class="close"></a></div>
+                                  <div class="notifications__list"></div>
+                               </div>`;
+
+        $('.notify').append(toggler);
+        $('body').append(notifications);
+
+        // attach event listeners
+        $('.toggle-notification, .talk-bubble').off('click').on('click', showNotifications);
+        $('.notifications__header .close').off('click').on('click', hideNotifications);
+    };
+
+    const showNotifications = (e) => {
+        e.stopPropagation();
+        hideTalkBubble();
+        $('.notifications').toggleClass('notifications--show');
+        if ($('.overlay').length) {
+            $('.overlay').remove();
+        } else {
+            $('body').append('<div class="overlay"></div>');
+            $('.overlay').off('click').on('click', hideNotifications);
         }
     };
 
-    const notify = (msg) => {
-        $('.notifications-list')
-            .append(`<div class="notification"><div class="notification-message">${msg}</div></div>`);
+    const hideNotifications = (e) => {
+        e.stopPropagation();
+        $('.notifications').removeClass('notifications--show');
+        $('.overlay').remove();
+    };
+
+    const updateUI = () => {
+        $('.toggle-notification').html(`<span class="${!numberOfNotification ? 'bell' : 'bell-active'}"></span>`);
+        const login_time = Cookies.get('login_time');
+
+        if (lessThan5Seconds(login_time)) { // avoid showing talk bubble on every page refresh
+            showTalkBubble();
+        }
+    };
+
+    const addToNotifications = (msg) => {
+        $('.notifications__list').append(`<div class="notification">${msg}</div>`);
+        $('.notification > a').off('click').on('click', hideNotifications);
         numberOfNotification++;
         updateUI();
     };
 
-    const showPopUpMessage = () => {
-        $('.notify-bubble')
-            .html(`You've got ${numberOfNotification} notification${numberOfNotification === 1 ? '' : 's'}`)
-            .fadeIn(500);
-        setTimeout(hidePopUpMessage, 5000);
-    };
-
-    const hidePopUpMessage = () => {
-        $('.notify-bubble').fadeOut();
-    };
-
-    const hideNotification = () => {
+    const removeFromNotifications = () => {
         numberOfNotification = 0;
         updateUI();
     };
 
+    const showTalkBubble = () => {
+        $('.talk-bubble')
+            .html(`You got ${numberOfNotification} notification${numberOfNotification === 1 ? '' : 's'}`)
+            .fadeIn(500);
+        setTimeout(hideTalkBubble, 5000);
+    };
+
+    const hideTalkBubble = () => {
+        $('.talk-bubble').fadeOut();
+    };
+
+    const lessThan5Seconds = date => (moment(date).isAfter(moment().subtract(5, 'seconds')));
+
     return {
-        init            : init,
-        notify          : notify,
-        hideNotification: hideNotification,
+        init                   : init,
+        addToNotifications     : addToNotifications,
+        removeFromNotifications: removeFromNotifications,
     };
 })();
 
