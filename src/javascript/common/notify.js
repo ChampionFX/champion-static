@@ -122,7 +122,6 @@ const Notify = (() => {
 
     const removeFromNotifications = () => {
         numberOfNotification = 0;
-        updateUI();
     };
 
     const showTalkBubble = () => {
@@ -137,9 +136,7 @@ const Notify = (() => {
     };
 
     return {
-        init                   : init,
-        addToNotifications     : addToNotifications,
-        removeFromNotifications: removeFromNotifications,
+        init: init,
     };
 })();
 
