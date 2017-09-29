@@ -50,6 +50,7 @@ const MetaTraderConfig = (function() {
             ),
             onSuccess: (response, acc_type) => {
                 showSuccessPopup(template('Congratulation, you’ve successfully created your [_1] account.', [types_info[acc_type].title]), 'You can trade Forex, CFDs and Metals with our virtual money, launch our MetaTrader 5 on our sidebar Quick Links or Download it to your machine or mobile applications.');
+                ChampionSocket.send({ mt5_login_list: 1 });
                 GTM.mt5NewAccount(response);
             },
         },
