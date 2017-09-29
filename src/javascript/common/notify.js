@@ -106,7 +106,8 @@ const Notify = (() => {
     };
 
     const updateUI = () => {
-        $('.toggle-notification').html(`<span class="${!numberOfNotification ? 'bell' : 'bell-active'}"></span>`);
+        if (!numberOfNotification) return;
+        $('.toggle-notification').html('<span class="bell-active"></span>');
         const login_time = Cookies.get('login_time');
 
         if (lessThan5Seconds(login_time)) { // avoid showing talk bubble on every page refresh
