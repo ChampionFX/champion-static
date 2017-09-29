@@ -54,23 +54,23 @@ const Notify = (() => {
                     if (response.mt5_login_list.length) {
                         has_mt_account = true;
                     }
+                    let key = '';
                     const notified = check_statuses.some((object) => {
                         if (object.validation()) {
-                            addToNotifications(object.message());
+                            key = object.validation.name;
+                            addToNotifications(object.message(), key);
                             return true;
                         }
                         return false;
                     });
-                    if (!notified) removeFromNotifications();
+                    if (!notified) removeFromNotifications(key);
                 });
             });
         });
     };
 
     const createUI = () => {
-        const toggler       = `<a class="toggle-notification" href="javascript:;">
-                                  <span class="bell"></span>
-                               </a>
+        const toggler       = `<a class="toggle-notification bell" href="javascript:;"></a>
                                <div class="talk-bubble"></div>`;
         const notifications = `<div class="notifications">
                                   <div class="notifications__header">Notifications<a class="close"></a></div>
@@ -104,8 +104,7 @@ const Notify = (() => {
     };
 
     const updateUI = () => {
-        if (!numberOfNotification) return;
-        $('.toggle-notification').html('<span class="bell-active"></span>');
+        $('.toggle-notification')[numberOfNotification ? 'addClass' : 'removeClass']('bell-active');
 
         if (!Client.get('notification_shown')) { // avoid showing talk bubble on every page refresh
             showTalkBubble();
@@ -113,15 +112,20 @@ const Notify = (() => {
         }
     };
 
-    const addToNotifications = (msg) => {
-        $('.notifications__list').append(`<div class="notification">${msg}</div>`);
+    const addToNotifications = (msg, key) => {
+        $('.notifications__list').append(`<div class="notification ${key}">${msg}</div>`);
         $('.notification > a').off('click').on('click', hideNotifications);
         numberOfNotification++;
         updateUI();
     };
 
-    const removeFromNotifications = () => {
-        numberOfNotification = 0;
+    const removeFromNotifications = (key) => {
+        if (!key) return;
+        const $note = $(`.notifications__list .notification.${key}`);
+        if (!$note.length) return;
+        numberOfNotification--;
+        $note.remove();
+        updateUI();
     };
 
     const showTalkBubble = () => {
