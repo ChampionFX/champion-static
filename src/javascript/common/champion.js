@@ -52,7 +52,6 @@ const Champion = (function() {
         container.on('champion:before', beforeContentChange);
         container.on('champion:after', afterContentChange);
         Client.init();
-        Notify.init(); // call once
 
         ChampionSocket.init({
             authorize         : (response) => { Client.response_authorize(response); },
@@ -61,6 +60,7 @@ const Champion = (function() {
             get_settings      : (response) => { GTM.eventHandler(response.get_settings); },
             get_self_exclusion: (response) => { SessionDurationLimit.exclusionResponseHandler(response); },
         }, Client.is_logged_in());
+        Notify.init(); // call once
         ChampionRouter.init(container, '#champion-content');
         if (!Client.is_logged_in()) {
             $('.btn-login').on('click', () => { Login.redirect_to_login(); });
