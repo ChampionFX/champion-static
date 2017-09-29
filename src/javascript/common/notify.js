@@ -57,9 +57,8 @@ const Notify = (() => {
                         has_mt_account = true;
                     }
                     check_statuses.some((object) => {
-                        let key = '';
+                        const key = object.validation.name;
                         if (object.validation()) {
-                            key = object.validation.name;
                             addToNotifications(object.message(), key);
                         } else {
                             removeFromNotifications(key);
