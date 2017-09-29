@@ -68,7 +68,7 @@ const Header = (function () {
     const userMenu = function() {
         if (!Client.is_logged_in()) return;
         if (!Client.is_virtual()) {
-            Notify.init();
+            Notify.updateNotifications();
         }
         setMetaTrader();
 

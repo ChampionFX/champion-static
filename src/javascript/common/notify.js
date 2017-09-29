@@ -11,9 +11,11 @@ const Notify = (() => {
 
     const init = () => {
         if (!Client.is_logged_in()) return;
-
         createUI();
+        updateNotifications();
+    };
 
+    const updateNotifications = () => {
         ChampionSocket.wait('authorize').then(() => {
             let get_account_status,
                 status,
@@ -54,8 +56,8 @@ const Notify = (() => {
                     if (response.mt5_login_list.length) {
                         has_mt_account = true;
                     }
-                    let key = '';
                     check_statuses.some((object) => {
+                        let key = '';
                         if (object.validation()) {
                             key = object.validation.name;
                             addToNotifications(object.message(), key);
@@ -142,7 +144,8 @@ const Notify = (() => {
     };
 
     return {
-        init: init,
+        init               : init,
+        updateNotifications: updateNotifications,
     };
 })();
 
