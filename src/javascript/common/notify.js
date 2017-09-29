@@ -3,8 +3,6 @@ const ChampionSocket = require('./socket');
 const State          = require('./storage').State;
 const url_for        = require('./url').url_for;
 const template       = require('./utility').template;
-const Cookies        = require('../lib/js-cookie');
-const moment         = require('moment');
 
 const Notify = (() => {
     'use strict';
