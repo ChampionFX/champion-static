@@ -19,9 +19,6 @@
         cursor: pointer;
         margin-bottom: 10px;
 
-        #mt5_account, #accounts_list {
-            border: 1px solid $primaryBrandColor;
-        }
         #mt5_account {
             height: 36px;
             line-height: 36px;
@@ -29,13 +26,11 @@
             box-sizing: border-box;
             margin: 0;
             overflow: hidden;
-            background: $primaryBrandColor;
-            color: $white;
+            color: $primaryBrandColor;
+            border: 1px solid $secondaryContentColor;
             border-radius: $BORDER_RADIUS;
+            font-size: inherit;
 
-            &.open {
-                border-radius: $BORDER_RADIUS $BORDER_RADIUS 0 0;
-            }
             &:after {
                 content: '';
                 display: block;
@@ -44,11 +39,24 @@
                 margin-right: -15px;
                 border-left: 5px solid transparent;
                 border-right: 5px solid transparent;
-                border-top: 5px solid $white;
+                border-top: 5px solid $primaryBrandColor;
+            }
+            &.open, &:hover {
+                background: $primaryBrandColor;
+                color: $white;
+                border-color: $primaryBrandColor;
+
+                &:after {
+                    border-top-color: $white;
+                }
+            }
+            &.open {
+                border-radius: $BORDER_RADIUS $BORDER_RADIUS 0 0;
             }
         }
         #accounts_list {
             width: 100%;
+            border: 1px solid $primaryBrandColor;
             border-radius: 0 0 $BORDER_RADIUS $BORDER_RADIUS;
             border-top: 0;
             display: none;
@@ -78,6 +86,7 @@
         }
     }
     #mt_left_panel {
+        display: flex;
         flex-direction: column;
         padding-right: 0px;
     }
@@ -132,6 +141,7 @@
             }
             .balance {
                 color: $primaryBrandColor;
+                padding-top: 0;
             }
         }
         .acc-box {
@@ -144,6 +154,9 @@
     }
     .tab-container {
         padding: 0 10px 10px;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
 
         .acc-actions {
             display: flex;
@@ -179,6 +192,7 @@
     .fst-container {
         border: 2px solid $fillColor;
         border-radius: 0 0 $BORDER_RADIUS $BORDER_RADIUS;
+        flex: 1 1 auto;
 
         &.no-border {
             border: none;
@@ -381,7 +395,7 @@
         padding: 10px 0;
     }
     .small-text {
-        font-size: $FONT_SIZE_XS;
+        font-size: $FONT_SIZE_S;
     }
 }
 
