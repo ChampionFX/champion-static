@@ -1,0 +1,51 @@
+<div class="fx-section">
+    <div id="how_payment_works" class="container">
+        [% INCLUDE components/page_title.html.tt title=l('How our payment works') %]
+
+        [% INCLUDE section title=l('Deposit') type='deposit' value_1=100 value_2=60 value_3=[15, 20, 5]
+            desc=l('Deposit funds from your selected [_1]payment methods[_2] to your [_3] binary account wallet. You can use all the money in your wallet in Champion Trader or transfer it into MetaTrader 5 (Real Cent/Real Standard/Real STP)', '<a href="' _ request.url_for('cashier/payment-methods') _ '">', '</a>', website_name) %]
+
+        <div class="fx-divider"></div>
+
+        [% INCLUDE section title=l('Withdraw') type='withdraw' value_1=900 value_2=550 value_3=[200, 50, 100]
+            desc=l('Withdraw funds from your [_1] binary account wallet to your selected [_2]payment methods[_3]. You can transfer your money from your MetaTrader 5 (Real Cent/Real Standard/Real STP) to your wallet and withdraw all your funds back to your selected payment methods.', website_name, '<a href="' _ request.url_for('cashier/payment-methods') _ '">', '</a>') %]
+    </div>
+</div>
+
+[% BLOCK section %]
+    <fieldset>
+        <legend>[% title %]</legend>
+        <div class="row vertical-center center-text">
+            <div class="col-sm">
+                <img src="[% request.url_for('images/mt5/how_payment_works/payment_methods.svg') %]" />
+                <p>[% l('Payment Method') %]</p>
+            </div>
+            <div class="col-sm col-xs-6 arrow-1">
+                <div class="[% type %]">
+                    <div class="amount">&#36;[% value_1 %]</div>
+                </div>
+            </div>
+            <div class="col-sm col-xs-6">
+                <p class="amount">&#36;[% value_2 %]</p>
+                <img src="[% request.url_for('images/metatrader/dashboard/binary_wallet.svg') %]" />
+                <p>[% l('[_1] binary account wallet', website_name) %]</p>
+            </div>
+            <div class="col-sm col-xs-6 arrow-3 amount">
+                <div class="[% type %]">
+                    [% FOREACH value IN value_3 %]
+                        <div>&#36;[% value %]</div>
+                    [% END %]
+                </div>
+            </div>
+            <div class="col-sm col-xs-6 mt5-account">
+                [% FOREACH acc_type IN [l('Real Cent'), l('Real Standard'), l('Real STP')] %]
+                    <div>
+                        <img src="[% request.url_for('images/metatrader/dashboard/mt5_wallet.svg') %]" />
+                        <span>[% acc_type %]</span>
+                    </div>
+                [% END %]
+            </div>
+        </div>
+    </fieldset>
+    <p>[% desc %]</p>
+[% END %]

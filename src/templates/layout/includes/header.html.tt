@@ -1,86 +1,54 @@
-<div id="header" class="dark-blue header">
-    <div class="menu-container">
-        <div class="row">
-            <!-- Mobile menu toggle -->
-            <div class="col-lg-2 col-sm-4 col-xs-5 hidden-lg-up vertical-center">
-                <div class="nav-menu nav-toggle-dropdown">
-                    <a href="javascript:;" id="mobile_menu_icon" class="vertical-center hidden-lg-up"><span></span></a>
-                </div>
-            </div>
-
-[% BLOCK mobile_menu %]
-    [% FOREACH item IN items %]
-        <li class="[% item.is_logged_in ? 'invisible logged-in' : '' %] [% item.class %]">
-            <a href="[% item.link ? request.url_for(item.link) : 'javascript:;' %]"[% IF item.link_id %] id="[% item.link_id %]"[% END %] class="[% item.link_class _ (item.sub_items ? ' nav-dropdown-toggle' : '') %]">
-                [% IF item.icon %]<span class="nav-menu-icon pull-left fx-[% item.icon %]-icon"></span>[% END %]
-                [% item.text %]
-                [% IF item.sub_items %]<span class="nav-menu-icon pull-right fx-moremenu-icon"></span>[% END %]
-            </a>
-            [% IF item.sub_items %]
-            <ul class="invisible [% item.sub_class %]">
-                [% INCLUDE mobile_menu items=item.sub_items %]
-            </ul>
-            [% END %]
-        </li>
-    [% END %]
-[% END %]
-            <!-- Mobile menu dropdown -->
-            <div id="mobile-menu" class="nav-menu">
-                <ul class="nav-menu-dropdown hidden-lg-up">
-                    <div class="login-id-list"></div>
-                    [% INCLUDE mobile_menu items=[
-                        { text=l('MetaTrader 5') link='user/metatrader' icon='mt5'     is_logged_in=1 class='mt-hide' },
-                        { text=l('Cashier')      link='cashier'         icon='cashier' is_logged_in=1 },
-                        { text=l('Settings')     link='user/settings'   icon='setting' is_logged_in=1 },
-                        { text=l('About Us')     link='about-us'        icon='about' },
-                        { text=l('MetaTrader 5') link_id='more_mt5_btn' icon='mt5' sub_class='submenu' sub_items=[
-                                { text=l('About MT5')          link='trading-platform/metatrader-5' },
-                                { text=l('Types of accounts')  link='trading-platform/mt5-types-of-accounts' },
-                                { text=l('Forex')  link='forex' },
-                                { text=l('CFDs')   link='cfd' },
-                                { text=l('Metals') link='metals' },
-                                { text=l('Economic calendar') link='economic-calendar' },
-                            ] },
-                        { text=l('Binary Options') link_id='more_options_btn' icon='binary' sub_class='submenu' sub_items=[
-                                { text=l('About binary options') link='binary-options' },
-                                { text=l('Types of accounts')    link='types-of-accounts' },
-                            ] },
-                        { text=l('Trading Platforms') link='trading-platform' icon='trading' },
-                        { text=l('Partnerships')      link='partnerships'     icon='partnership' },
-                        { text=l('Sign out') link='user/settings' icon='signout' is_logged_in=1 link_class='btn-logout logout invisible logged-in' },
-                    ] %]
-                    <div class="separator-line-thin-gray"></div>
-                </ul>
-            </div>
-
-            <div class="col-xl-3 col-lg-8 col-sm-4 col-xs-2 vertical-center">
-                <div class="logo-wrapper">
-                    <a href="[% request.url_for('home') %]" class="logo-parent">
-                        <div class="logo">
-                            <div></div>
-                        </div>
-                        <div class="binary-logo-text hidden-xs-down">
-                            <div></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
 [% BLOCK main_menu %]
-    <ul class="[% class ? 'top-nav-menu invisible ' _ class : '' %]">
+<ul class="[% class ? 'navbar__nav__menu invisible ' _ class : '' %]">
     [% FOREACH item IN items %]
         <li[% IF item.class %] class="[% item.class %]"[% END %]>
-            <a href="[% item.sub_items ? 'javascript:;' : request.url_for(item.link) %]"[% IF item.target %] target="[% item.target %]"[% END %] class="nav-dropdown-toggle">[% item.text %][% IF item.sub_items %]<span class="nav-caret"></span>[% END %]</a>
+            <a href="[% item.sub_items ? 'javascript:;' : request.url_for(item.link) %]"
+                [% IF item.target %] target="[% item.target %]"[% END %]
+                [% IF item.sub_items %] class="navbar__nav__toggle"[% END %]>
+                [% IF item.icon %] <span class="fx fx-[% item.icon %]"></span>[% END %]
+                [% item.text %]
+            </a>
             [% IF item.sub_items %]
                 [% INCLUDE main_menu items=item.sub_items %]
             [% END %]
         </li>
     [% END %]
-    </ul>
+</ul>
 [% END %]
-            <div class="col-lg-7 hidden-lg-down vertical-center">
+
+[% BLOCK account_info %]
+<div class="mt-show invisible">[% l("MetaTrader 5") %]</div>
+<div class="account-id mt-hide"></div>
+<div class="vertical-center">
+    <span class="account-balance mt-hide"></span>
+    <span class="account-type mt-hide"></span>
+</div>
+[% END %]
+
+<div id="header">
+    <nav class="navbar">
+        <div class="container">
+            <span class="navbar__toggle logged-in" id="toggle-menu" href="button"></span>
+            <a class="navbar__brand fx-logo logged-in" href="[% request.url_for('home') %]">
+                <span class="fx-logo__icon--light"></span>
+                <span class="fx-logo__wordmark--light"></span>
+            </a>
+            <div class="navbar__nav has-accounts">
+                <ul class="navbar__nav__menu account-dropdown logged-in invisible">
+                    <li>
+                        <a class="navbar__nav__toggle account-info" href="javascript:;">
+                            [% PROCESS account_info %]
+                        </a>
+                        <ul class="navbar__nav__menu account-list">
+                            <div class="login-id-list"></div>
+                            <li><a href="[% request.url_for('new-account') %]" class="upgrade invisible">[% l("Upgrade to<br />Real Account") %]</a></li>
+                            <li class="mt-hide invisible"><a href="[% request.url_for('user/metatrader') %]"><span class="fx fx-mt5-o"></span>[% l("MetaTrader 5") %]</a></li>
+                            <li class="hidden-lg-down"><a href="javascript:;" class="btn-logout logout">[% l("Sign out") %]</a></li>
+                        </ul>
+                    </li>
+                </ul>
                 [% INCLUDE main_menu class='logged-out' items=[
-                    { text=l('About Us') link='about-us' },
+                    { text=l('About Us') link='about-us' icon='about'},
                     { text=l('MetaTrader 5') sub_items=[
                         { text=l('About MT5')          link='trading-platform/metatrader-5' },
                         { text=l('Types of accounts')  link='trading-platform/mt5-types-of-accounts' },
@@ -88,88 +56,43 @@
                         { text=l('CFDs')   link='cfd' },
                         { text=l('Metals') link='metals' },
                         { text=l('Economic calendar') link='economic-calendar' },
-                    ] },
+                    ] icon='mt5-o' },
                     { text=l('Binary Options') sub_items=[
                             { text=l('About binary options') link='binary-options' },
                             { text=l('Types of accounts')    link='types-of-accounts' },
-                        ] },
-                    { text=l('Trading platforms') link='trading-platform' },
-                    { text=l('Partnerships')      link='partnerships' },
+                        ] icon='binary' },
+                    { text=l('Trading platforms') link='trading-platform' icon='trading'},
+                    { text=l('Partnerships')      link='partnerships'     icon='partnership'},
                 ] %]
                 [% INCLUDE main_menu class='logged-in' items=[
-                    { text=l('Settings')          link='user/settings'   class='mt-hide' },
-                    { text=l('Settings')          link='user/metatrader' class='mt-show' },
-                    { text=l('Cashier')           link='cashier'         class='mt-hide' },
-                    { text=l('Trading platforms') link='trading-platform/champion-trader' class='mt-hide' },
-                    { text=l('Trading platforms') link='trading-platform/mt5-platforms'   class='mt-show' },
-                    { text=l('Academy')           link='https://academy.champion-fx.com/' target='_blank' },
+                    { text=l('Settings')          link='user/settings'   class='mt-hide' icon='setting' },
+                    { text=l('Settings')          link='user/metatrader' class='mt-show' icon='setting' },
+                    { text=l('Cashier')           link='cashier'         class='mt-hide' icon='dollar' },
+                    { text=l('About Us') link='about-us' class='hidden-lg-up' icon='about'},
+                    { text=l('MetaTrader 5') sub_items=[
+                            { text=l('About MT5')          link='trading-platform/metatrader-5' },
+                            { text=l('Types of accounts')  link='trading-platform/mt5-types-of-accounts' },
+                            { text=l('Forex')  link='forex' },
+                            { text=l('CFDs')   link='cfd' },
+                            { text=l('Metals') link='metals' },
+                            { text=l('Economic calendar') link='economic-calendar' },
+                        ] class='hidden-lg-up' icon='mt5-o' },
+                    { text=l('Binary Options') sub_items=[
+                            { text=l('About binary options') link='binary-options' },
+                            { text=l('Types of accounts')    link='types-of-accounts' },
+                        ] class='hidden-lg-up' icon='binary' },
+                    { text=l('Trading platform')  link='trading-platform/champion-trader' class='mt-hide' icon='trading' },
+                    { text=l('Trading platforms') link='trading-platform/mt5-platforms'    class='mt-show' icon='trading' },
+                    { text=l('Academy')           link='https://academy.champion-fx.com/' class='hidden-lg-down' target='_blank' icon='mt5-o' },
+                    { text=l('Partnerships')      link='partnerships'   class='hidden-lg-up'  icon='partnership'},
+                    { text=l('Sign out') link='javascript:;' icon='signout' is_logged_in=1 class='btn-logout logout invisible hidden-lg-up logged-in' },
                 ] %]
             </div>
 
-            <div class="col-lg-2 col-sm-4 col-xs-5 vertical-center">
-                <div class="right-align">
-                    <div class="logged-out invisible">
-                        <div id="main-login" class="hidden-lg-up">
-                            <ul class="login-button">
-                                <li><a class="btn-login button" href="javascript:;"><span>[% l('Log In') %]</span></a></li>
-                            </ul>
-                        </div>
-                        <div id="main-signup">
-                            <ul class="signup-button">
-                                <li><a class="button-secondary" href="[% request.url_for('home') %]#signup"><span>[% l('Sign Up') %]</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- Desktop menu -->
-[% BLOCK account_info %]
-    <div class="account-id mt-hide"></div>
-    <span class="account-balance mt-hide"></span>
-    <span class="account-type mt-hide"></span>
-    <div class="mt-show invisible">[% l("MetaTrader 5") %]</div>
-[% END %]
-                    <div class="logged-in invisible hidden-lg-up">
-                        <a id="account-info" href="javascript:;" class="main-account nav-menu nav-toggle-dropdown">
-                            [% PROCESS account_info %]
-                        </a>
-                    </div>
-                    <div id="main-logout" class="logged-in invisible hidden-lg-down">
-                        <ul id="main-account" class="nav-menu main-nav hidden-lg-down">
-                            <li class="account">
-                                <a href="javascript:;">
-                                    <div class="main-account">
-                                        [% PROCESS account_info %]
-                                    </div>
-                                    <div class="nav-caret"></div>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul id="all-accounts" class="nav-menu main-nav hidden-lg-down">
-                            <li class="account">
-                                <a href="javascript:;" class="menu-icon">
-                                    <div class="main-account">
-                                        [% PROCESS account_info %]
-                                    </div>
-                                    <div class="nav-caret"></div>
-                                </a>
-                                <ul>
-                                    <div class="login-id-list"></div>
-                                    <a href="[% request.url_for('new-account') %]" class="upgrade invisible">
-                                        <li>[% l("Upgrade to<br />Real Account") %]</li>
-                                        <div class="separator-line-thin-gray"></div>
-                                    </a>
-                                    <a href="[% request.url_for('user/metatrader') %]" class="mt-hide">
-                                        <li>[% l("MetaTrader 5") %]</li>
-                                        <div class="separator-line-thin-gray"></div>
-                                    </a>
-                                    <a href="javascript:;" class="btn-logout logout">
-                                        <li>[% l("Sign out") %]</li>
-                                    </a>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="navbar__button-group toggle-signup-modal logged-out invisible">
+                <a class="hidden-lg-up " href="javascript:;"><img src="[% request.url_for('images/signup/login.svg') %]"/></a>
+                <a class="button-secondary hidden-lg-down" href="javascript:;"><span>[% l('Sign Up') %]</span></a>
             </div>
         </div>
-    </div>
+    </nav>
 </div>

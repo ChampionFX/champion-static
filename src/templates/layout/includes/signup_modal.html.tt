@@ -1,0 +1,34 @@
+<div class="modal">
+    <div class="modal--wrapper row">
+        <div class="modal__header">
+            <a href="javascript:;" class="close"></a>
+        </div>
+        <div class="modal__body col-xs-12 col-md-4 visible-md-down">
+            <div class="flex-display">
+                <h2>[% l('No funds, no problem.') %]</h2>
+                <div class="flex-display flex-display-swap">
+                    <img src="[% request.url_for('images/signup/wallet_money.svg') %]"/>
+                    <p>[% l('Your first trade is on us') %]*</p>
+                </div>
+            </div>
+        </div>
+        <div class="modal__form_wrapper col-xs-12 col-md-8">
+            <h1>[% l('Sign up now!') %]</h1>
+            <p>[% l('And get <span class="color-blue">free welcome bonus worth $10</span>') %]<span class="asterisk">*</span></p>
+            <p>[% l('No deposit required.') %]</p>
+            [% INCLUDE layout/includes/signup.html.tt %]
+            <div class="separator hidden-sm-up"></div>
+            <p>[% l('Already have an account?') %] <a class="btn-login hidden-sm-down" href="javascript:;">[% l('Log In') %]</a></p>
+            <button class="btn-login button-secondary hidden-sm-up" type="submit">[% l('Log In') %]</button>
+        </div>
+        <div class="modal__form_message col-xs-12 col-md-8 invisible">
+            <h2>[% l('Thank you for signing up!') %]</h2>
+            <img src="[% request.url_for('images/signup/check_email.svg') %]"/>
+            <p>[% l('Please check your email to complete the registration process.') %]</p>
+        </div>
+        <div class="modal__footer visible-md-down">
+            <div class="dash hidden-sm-down"></div>
+            <p class="note">*<a href="[% request.url_for('download/no_deposit_terms.pdf') %]" target="_blank">[% l('terms and conditions') %]</a>[% l(' apply') %]</p>
+        </div>
+    </div>
+</div>
