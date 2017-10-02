@@ -1,6 +1,6 @@
 <div class="fx-section">
     <div class="container">
-        <h1>[% l('Authentication') %]</h1>
+        [% INCLUDE components/page_title.html.tt title=l('Authentication') %]
         <div id="authentication-message">
             <p id="fully_authenticated" class="invisible">
                 [% l('Your account is fully authenticated') %]

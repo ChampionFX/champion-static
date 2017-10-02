@@ -871,9 +871,8 @@ select[disabled=disabled] {
     }
 }
 
-// financial assessment popup
 .lightbox {
-    display: table;
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
@@ -881,23 +880,41 @@ select[disabled=disabled] {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 2000000000;
-}
 
-.lightbox > div {
-    display: table-cell;
-    vertical-align: middle;
-}
+    .lightbox-contents {
+        margin: auto;
+        max-width: 600px;
+        max-height: 90vh;
+        padding: 30px;
+        text-align: center;
+        background-color: $white;
+        border-radius: $BORDER_RADIUS;
+        overflow: auto;
+        position: relative;
 
-.lightbox > div > div {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0.5em;
-    width: 44em;
-    text-align: center;
-    background-color: $white;
-    border-radius: $BORDER_RADIUS;
-    max-height: 80vh;
-    overflow: auto;
+        .close {
+            cursor: pointer;
+            width: 14px;
+            height: 14px;
+            background: url('../images/mt5/close.svg') no-repeat center;
+            position: absolute;
+            right: 15px;
+            top: 15px;
+        }
+    }
+    &#success_popup {
+        .main-image {
+            height: 90px;
+            min-width: 90px;
+            background: url('../images/mt5/success.svg') no-repeat center;
+        }
+        h3 {
+            margin: 10px 0;
+        }
+        .success-contents {
+            line-height: 24px;
+        }
+    }
 }
 
 .small-spinner .barspinner {
@@ -1051,6 +1068,11 @@ img.float-right {
     padding-right: 0 !important;
 }
 
+.gutters {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
 .fx-cashier {
     .button {
         margin-right: 20px;
@@ -1164,4 +1186,73 @@ iframe {
     td {
         vertical-align: middle;
     }
+}
+
+.flex-grow, .flex-adapt {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+}
+
+.flex-adapt {
+    flex: 0 1 auto;
+}
+
+#how_payment_works {
+    fieldset {
+        border: 3px solid $fillColor !important;
+        padding: 40px;
+
+        legend {
+            color: $primaryBrandColor;
+            padding: 0 10px;
+            margin-left: -20px;
+        }
+        .amount {
+            color: $primaryBrandColor;
+            font-size: $FONT_SIZE_S;
+        }
+        .arrow-1 > div {
+            width: 155px;
+            height: 33px;
+            background: url('../images/mt5/how_payment_works/arrow_deposit.svg') no-repeat center;
+
+            &.withdraw {
+                background-image: url('../images/mt5/how_payment_works/arrow_withdraw.svg');
+            }
+        }
+        .arrow-3 {
+            > div {
+                width: 155px;
+                height: 145px;
+                line-height: 40px;
+                background: url('../images/mt5/how_payment_works/arrow_deposit_3.svg') no-repeat center;
+
+                &.withdraw {
+                    background-image: url('../images/mt5/how_payment_works/arrow_withdraw_3.svg');
+                }
+                :first-child {
+                    transform: rotate(-15deg);
+                }
+                :last-child {
+                    transform: rotate(15deg);
+                }
+            }
+        }
+        .mt5-account {
+            text-align: left;
+
+            > div {
+                margin-bottom: 25px;
+            }
+        }
+    }
+}
+
+.button {
+    text-decoration: none;
+}
+
+.align-end {
+    text-align: right;
 }

@@ -1,8 +1,10 @@
-const Client         = require('../../../common/client');
-const formatMoney    = require('../../../common/currency').formatMoney;
-const GTM            = require('../../../common/gtm');
-const ChampionSocket = require('../../../common/socket');
-const url_for        = require('../../../common/url').url_for;
+const Client           = require('../../../common/client');
+const formatMoney      = require('../../../common/currency').formatMoney;
+const GTM              = require('../../../common/gtm');
+const ChampionSocket   = require('../../../common/socket');
+const url_for          = require('../../../common/url').url_for;
+const template         = require('../../../common/utility').template;
+const showSuccessPopup = require('../../../common/utility').showSuccessPopup;
 
 const MetaTraderConfig = (function() {
     'use strict';
@@ -20,33 +22,35 @@ const MetaTraderConfig = (function() {
 
     const actions_info = {
         new_account: {
-            title      : 'Sign up',
-            success_msg: response => 'Congratulations! Your [_1] Account has been created.'.replace('[_1]', types_info[
-                Object.keys(types_info).find(t => (
-                    types_info[t].account_type     === response.mt5_new_account.account_type &&
-                    types_info[t].mt5_account_type === response.mt5_new_account.mt5_account_type
-                ))].title),
+            title        : 'Sign up',
             login        : response => response.mt5_new_account.login,
-            prerequisites: acc_type => (
+            prerequisites: is_real => (
                 new Promise((resolve) => {
-                    if (types_info[acc_type].is_demo) {
+                    if (!is_real) {
                         resolve();
                     } else if (Client.is_virtual()) {
-                        resolve(needsRealMessage());
+                        $('#msg_real_financial').html(needsRealMessage());
+                        resolve(true);
                     } else {
-                        ChampionSocket.send({ get_account_status: 1 }).then((response) => {
-                            resolve(/financial_assessment_not_complete/.test(response.get_account_status.status) ? $('#msg_assessment').html() : '');
+                        ChampionSocket.send({ get_account_status: 1 }).then((response_get_account_status) => {
+                            const $message = $('#msg_real_financial');
+                            let is_ok = true;
+                            if (/financial_assessment_not_complete/.test(response_get_account_status.get_account_status.status)) {
+                                $message.find('.assessment').setVisibility(1).find('a').attr('onclick', `localStorage.setItem('financial_assessment_redirect', '${url_for('user/metatrader')}')`);
+                                is_ok = false;
+                            }
+                            if (response_get_account_status.get_account_status.prompt_client_to_authenticate) {
+                                $message.find('.authenticate').setVisibility(1);
+                                is_ok = false;
+                            }
+                            resolve(!is_ok);
                         });
                     }
                 })
             ),
-            formValues: ($form, acc_type, action) => {
-                // Account type, Sub account type
-                $form.find(fields[action].lbl_account_type.id).text(types_info[acc_type].title);
-                // Email
-                $form.find(fields[action].lbl_email.id).text(fields[action].additional_fields(acc_type).email);
-            },
-            onSuccess: (response) => {
+            onSuccess: (response, acc_type) => {
+                showSuccessPopup(template('Congratulation, you’ve successfully created your [_1] account.', [types_info[acc_type].title]), 'You can trade Forex, CFDs and Metals with our virtual money, launch our MetaTrader 5 on our sidebar Quick Links or Download it to your machine or mobile applications.');
+                ChampionSocket.send({ mt5_login_list: 1 });
                 GTM.mt5NewAccount(response);
             },
         },
@@ -54,10 +58,6 @@ const MetaTraderConfig = (function() {
             title        : 'Change password',
             success_msg  : response => 'The main password of account number [_1] has been changed.'.replace('[_1]', response.echo_req.login),
             prerequisites: () => new Promise(resolve => resolve('')),
-            formValues   : ($form, acc_type, action) => {
-                // Login ID
-                $form.find(fields[action].lbl_login.id).text(fields[action].additional_fields(acc_type).login);
-            },
         },
         deposit: {
             title      : 'Deposit',
@@ -80,11 +80,6 @@ const MetaTraderConfig = (function() {
                     });
                 }
             }),
-            formValues: ($form, acc_type, action) => {
-                // From, To
-                $form.find(fields[action].lbl_from.id).text(fields[action].additional_fields(acc_type).from_binary);
-                $form.find(fields[action].lbl_to.id).text(fields[action].additional_fields(acc_type).to_mt5);
-            },
         },
         withdrawal: {
             title      : 'Withdraw',
@@ -98,9 +93,11 @@ const MetaTraderConfig = (function() {
                     resolve(needsRealMessage());
                 } else {
                     ChampionSocket.send({ get_account_status: 1 }).then((response_status) => {
-                        resolve($.inArray('authenticated', response_status.get_account_status.status) === -1 ?
-                            $('#msg_authenticate').find('.show_for_mt5').removeClass('invisible').end()
-                                .html() : '');
+                        // There are cases that prompt_client_to_authenticate=0
+                        // but websocket returns authentication required error when trying to withdraw
+                        // so we check for 'authenticated' status as well to display a user friendly message instead
+                        resolve(+response_status.get_account_status.prompt_client_to_authenticate || !/authenticated/.test(response_status.get_account_status.status) ?
+                        $('#msg_authenticate').html() : '');
                     });
                 }
             }),
@@ -113,23 +110,16 @@ const MetaTraderConfig = (function() {
                     if (+response.mt5_password_check === 1) {
                         return true;
                     } else if (response.error) {
-                        displayFormMessage(response.error.message);
+                        displayFormMessage(response.error.message, 'withdrawal');
                     }
                     return false;
                 })
             ),
-            formValues: ($form, acc_type, action) => {
-                // From, To
-                $form.find(fields[action].lbl_from.id).text(fields[action].additional_fields(acc_type).from_mt5);
-                $form.find(fields[action].lbl_to.id).text(fields[action].additional_fields(acc_type).to_binary);
-            },
         },
     };
 
     const fields = {
         new_account: {
-            lbl_account_type : { id: '#lbl_account_type' },
-            lbl_email        : { id: '#lbl_email' },
             txt_name         : { id: '#txt_name',          request_field: 'name' },
             txt_main_pass    : { id: '#txt_main_pass',     request_field: 'mainPassword' },
             txt_re_main_pass : { id: '#txt_re_main_pass' },
@@ -147,7 +137,6 @@ const MetaTraderConfig = (function() {
                     } : {})),
         },
         password_change: {
-            lbl_login          : { id: '#lbl_login' },
             txt_old_password   : { id: '#txt_old_password', request_field: 'old_password' },
             txt_new_password   : { id: '#txt_new_password', request_field: 'new_password' },
             txt_re_new_password: { id: '#txt_re_new_password' },
@@ -157,9 +146,7 @@ const MetaTraderConfig = (function() {
                 }),
         },
         deposit: {
-            lbl_from         : { id: '#lbl_from' },
-            lbl_to           : { id: '#lbl_to' },
-            txt_amount       : { id: '#txt_amount', request_field: 'amount' },
+            txt_amount       : { id: '#txt_amount_deposit', request_field: 'amount' },
             additional_fields:
                 acc_type => ({
                     from_binary: Client.get('loginid'),
@@ -167,9 +154,7 @@ const MetaTraderConfig = (function() {
                 }),
         },
         withdrawal: {
-            lbl_from         : { id: '#lbl_from' },
-            lbl_to           : { id: '#lbl_to' },
-            txt_amount       : { id: '#txt_amount', request_field: 'amount' },
+            txt_amount       : { id: '#txt_amount_withdrawal', request_field: 'amount' },
             txt_main_pass    : { id: '#txt_main_pass' },
             additional_fields:
                 acc_type => ({
@@ -185,7 +170,6 @@ const MetaTraderConfig = (function() {
             { selector: fields.new_account.txt_main_pass.id,     validations: ['req', ['password', 'mt']] },
             { selector: fields.new_account.txt_re_main_pass.id,  validations: ['req', ['compare', { to: fields.new_account.txt_main_pass.id }]] },
             { selector: fields.new_account.txt_investor_pass.id, validations: ['req', ['password', 'mt'], ['not_equal', { to: fields.new_account.txt_main_pass.id, name1: 'Main password', name2: 'Investor password' }]] },
-            { selector: fields.new_account.chk_tnc.id,           validations: ['req'] },
         ],
         password_change: [
             { selector: fields.password_change.txt_old_password.id,    validations: ['req'] },
@@ -193,7 +177,7 @@ const MetaTraderConfig = (function() {
             { selector: fields.password_change.txt_re_new_password.id, validations: ['req', ['compare', { to: fields.password_change.txt_new_password.id }]] },
         ],
         deposit: [
-            { selector: fields.deposit.txt_amount.id, validations: ['req', ['number', { type: 'float', min: 1, max: 20000, decimals: '0, 2' }]] },
+            { selector: fields.deposit.txt_amount.id, validations: ['req', ['number', { type: 'float', min: 1, max: 20000, decimals: '0, 2' }], ['custom', { func: () => (+Client.get('balance') >= +$(fields.deposit.txt_amount.id).val()), message: template('You have insufficient funds in your Binary account, please <a href="[_1]">add fund</a>.', [url_for('cashier')]) }]] },
         ],
         withdrawal: [
             { selector: fields.withdrawal.txt_main_pass.id, validations: ['req'] },
@@ -202,10 +186,12 @@ const MetaTraderConfig = (function() {
     };
 
     return {
-        types_info  : types_info,
-        actions_info: actions_info,
-        fields      : fields,
-        validations : validations,
+        types_info      : types_info,
+        actions_info    : actions_info,
+        fields          : fields,
+        validations     : validations,
+        needsRealMessage: needsRealMessage,
+        mt5Currency     : () => 'USD',
     };
 })();
 
