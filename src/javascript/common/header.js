@@ -36,7 +36,6 @@ const Header = (function () {
             $('#top_group').removeClass('logged-in').find('.logged-out').removeClass(hidden_class);
             $('.trading-platform-header').removeClass(hidden_class);
             $('.navbar__brand, .navbar__toggle').removeClass('logged-in'); // show logo
-            $('#header > .navbar').removeClass('navbar--fixed');
         }
     };
 
@@ -47,7 +46,6 @@ const Header = (function () {
         updateBody();
 
         $('#header .logged-in').removeClass(hidden_class);
-        $('#header > .navbar').addClass('navbar--fixed');
 
         // to be remove when we change notification ui
         $(window).on('orientationchange resize', updateMobileMenuHeight);
@@ -103,9 +101,6 @@ const Header = (function () {
                 if (is_current && !is_mt_pages) {
                     $('.account-type').html(type);
                     $('.account-id').html(curr_id);
-                } else if (is_mt_pages && login.real && Client.is_virtual()) {
-                    switchLoginId(curr_id);
-                    return;
                 }
                 loginid_select += switchTemplate(curr_id, curr_id, icon, type, is_current ? (is_mt_pages ? 'mt-show' : 'invisible') : '');
             }
@@ -118,11 +113,12 @@ const Header = (function () {
         $('.login-id-list a').off('click').on('click', function(e) {
             e.preventDefault();
             $(this).attr('disabled', 'disabled');
-            switchLoginId($(this).attr('value'));
-            if (State.get('is_mt_pages')) {
-                State.remove('is_mt_pages');
+            const is_mt = State.get('is_mt_pages');
+            State.remove('is_mt_pages'); // needs to remove the flag before redirection
+            if (is_mt || State.get('current_page') === 'metatrader') {
                 ChampionRouter.forward(url_for('user/settings'));
             }
+            switchLoginId($(this).attr('value')); // should be at the end as this reloads the page
         });
     };
 
@@ -236,6 +232,7 @@ const Header = (function () {
     return {
         init                : init,
         displayAccountStatus: displayAccountStatus,
+        switchLoginId       : switchLoginId,
         updateBalance       : updateBalance,
     };
 })();
