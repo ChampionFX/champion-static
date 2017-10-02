@@ -1,18 +1,20 @@
-<div class="container fx-section">
-    <h1>[% l('Authentication') %]</h1>
-    <div id="authentication-message">
-        <p id="fully_authenticated" class="invisible">
-            [% l('Your account is fully authenticated') %]
-        </p>
+<div class="fx-section">
+    <div class="container">
+        [% INCLUDE components/page_title.html.tt title=l('Authentication') %]
+        <div id="authentication-message">
+            <p id="fully_authenticated" class="invisible">
+                [% l('Your account is fully authenticated') %]
+            </p>
 
-        <p id="needs_age_verification" class="invisible">
-            [% l('Account needs age verification, please contact <a href="[_1]">customer support</a> for more information.', request.url_for('/contact')) %]
-        </p>
+            <p id="needs_age_verification" class="invisible">
+                [% l('Account needs age verification, please contact <a href="[_1]">customer support</a> for more information.', request.url_for('/contact')) %]
+            </p>
 
-        <div id="not_authenticated" class="invisible">
-            [% INCLUDE user/common/authenticate_message.html.tt %]
+            <div id="not_authenticated" class="invisible">
+                [% INCLUDE user/common/authenticate_message.html.tt %]
+            </div>
+
+            <p class="center-text notice-msg invisible" id="error_message"></p>
         </div>
-
-        <p class="center-text notice-msg invisible" id="error_message"></p>
     </div>
 </div>

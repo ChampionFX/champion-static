@@ -1,5 +1,6 @@
 const get_params            = require('../common/url').get_params;
 const compareBigUnsignedInt = require('../common/utility').compareBigUnsignedInt;
+const getOffset             = require('../common/utility').getOffset;
 const template              = require('../common/utility').template;
 
 const Validation = (() => {
@@ -232,7 +233,7 @@ const Validation = (() => {
         form.fields.forEach((field) => {
             if (!checkField(field)) {
                 if (form.is_ok && !field.no_scroll) { // first error
-                    $.scrollTo(field.$, 500, { offset: -10 });
+                    $.scrollTo(field.$.parent('.form-row'), 500, { offset: getOffset() });
                 }
                 form.is_ok = false;
             }

@@ -1,5 +1,10 @@
 <div class="submit-row[% is_centered ? ' center-text' : '' %] [% row_class %]">
     <p id="[% msg_id || 'msg_form' %]" class="error-msg invisible"></p>
-    <button id="[% id || 'btn_submit' %]"[% IF type=='submit' %] type="submit"[% END %]>[% text %]</button>
+    [% IF custom_btn_text %]
+        <a class="button [% custom_btn_class %]" href="[% custom_btn_href || 'javascript:;' %]" id="[% custom_btn_id %]">
+            <span class="button">[% custom_btn_text %]</span>
+        </a>
+    [% END %]
+    <button id="[% id || 'btn_submit' %]"[% IF type=='submit' %] type="submit"[% END %] [% attributes %]>[% text %]</button>
     [%= content -%]
 </div>
