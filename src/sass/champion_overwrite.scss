@@ -444,7 +444,7 @@ p {
 .notifications {
     position: fixed;
     right: -350px;
-    z-index: 999;
+    z-index: 1002;
     height: 100%;
     width: 350px;
     top: 50px;
@@ -496,7 +496,7 @@ p {
     opacity: 0.5;
     height: 100%;
     width: 100%;
-    z-index: 99;
+    z-index: 1001;
     @media (min-width: 1024px) {
         z-index: initial;
     }
