@@ -36,7 +36,7 @@ const Notify = (() => {
             };
 
             const validations = {
-                authenticate: () => get_account_status.prompt_client_to_authenticate,
+                authenticate: () => get_account_status.prompt_client_to_authenticate && !Client.is_virtual(),
                 risk        : () => riskAssessment(),
                 tnc         : () => Client.should_accept_tnc(),
                 unwelcome   : () => /(unwelcome|(cashier|withdrawal)_locked)/.test(status),
