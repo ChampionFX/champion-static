@@ -46,21 +46,11 @@ const Header = (function () {
         updateBody();
 
         $('#header .logged-in').removeClass(hidden_class);
-
-        // to be remove when we change notification ui
-        $(window).on('orientationchange resize', updateMobileMenuHeight);
-        updateMobileMenuHeight();
     };
 
     const updateBody = () => {
         $('#champion-container').css('margin-top', $('#top_group').height());
-        updateMobileMenuHeight();
     };
-
-    const updateMobileMenuHeight = () => {
-        $('.navbar__nav').height($(window).height() - $('#top_group').height());
-    };
-
     const userMenu = function() {
         if (!Client.is_logged_in()) return;
         if (!Client.is_virtual()) {
