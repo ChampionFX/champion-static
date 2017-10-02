@@ -131,7 +131,6 @@ h1.main-title {
     @include no-margin-padding;
     display: flex;
     flex-grow: 1;
-    height: 100%;
 
     #email {
         text-align: center;
@@ -451,7 +450,7 @@ h1.main-title {
 
 // Contact us
 .contact-us-header {
-    background-image: url('../images/contact_us/contact_us_banner.png') top left / cover no-repeat;
+    background: url('../images/contact_us/contact_us_banner.png') top left / cover no-repeat;
 
     h4 {
         margin-bottom: 0;
@@ -1255,4 +1254,210 @@ iframe {
 
 .align-end {
     text-align: right;
+}
+
+.modal {
+    position: fixed;
+    background: $fillColor;
+    margin: auto;
+    top: 20px;
+    bottom: 20px;
+    right: 0;
+    left: 0;
+    text-align: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-radius: 10px;
+    z-index: -1;
+    width: 300px;
+    height: 80vh;
+    max-height: 580px;
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: 0.3s;
+
+    h1 {
+        @include fluid-type(18px, 36px);
+    }
+    h2 {
+        @include fluid-type(16px, 28px);
+    }
+    h1, h2, h3, h4 {
+        line-height: 1.25;
+    }
+    p, a {
+        @include fluid-type(12px, 16px);
+        line-height: 1.5;
+    }
+    &--wrapper {
+        height: initial;
+        width: inherit;
+        margin: 0;
+    }
+    &__header {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        .close {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            z-index: 100002;
+
+            &:before {
+                content: url('../images/signup/cross.svg');
+            }
+        }
+    }
+    &__body {
+        padding: 30px 0 0;
+        background: $fillColor;
+
+        h2 {
+            margin-bottom: 0 !important;
+        }
+    }
+    &__form_wrapper {
+        padding: 20px 0 30px;
+        width: 200px;
+        margin: 0 auto;
+
+        h1 {
+            margin-bottom: 0;
+        }
+        form {
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0 !important;
+        }
+        input, button {
+            text-align: center;
+            width: 200px !important;
+            height: 40px;
+            font-size: 14px;
+
+            ~ * {
+                margin: 10px 0 0;
+            }
+        }
+        .separator {
+            margin: 20px auto;
+            width: 200px;
+            background: $white;
+        }
+        .error-msg:before {
+            content: '*';
+        }
+    }
+    &__form_message {
+        padding: 50px 30px;
+    }
+    &__footer {
+        margin: auto;
+        bottom: 0;
+        font-size: 12px !important;
+
+        a:hover {
+            color: $darkPrimaryBrandColor;
+        }
+    }
+    .asterisk {
+        color: $crossColor;
+        font-size: 14px;
+    }
+    .color-blue {
+        color: $primaryBrandColor;
+    }
+    .dash {
+        height: 2px;
+        background: $white;
+        width: 30px;
+        margin: 0 auto;
+    }
+    .flex-display {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: 100%;
+    }
+    .flex-display-swap {
+        flex-direction: column-reverse;
+        height: initial;
+    }
+    @media (min-width: 768px) {
+        overflow: hidden;
+        width: 700px;
+        height: 395px;
+
+        &__body {
+            padding: 30px;
+            height: 395px;
+            background: $darkPrimaryBrandColor;
+
+            h2, p, a {
+                color: $white;
+            }
+        }
+        &__form_wrapper {
+            padding: 30px;
+            height: 395px;
+
+            h1 {
+                margin-bottom: 20px;
+            }
+            form {
+                margin: 40px 0 !important;
+            }
+            input, button {
+                width: 338px !important;
+
+                ~ .error-msg.invisible ~ button {
+                    margin: 20px 0 0;
+                }
+                ~ .error-msg ~ button {
+                    margin: 10px 0 0;
+                }
+            }
+        }
+        &__footer {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding: 0 30px 10px;
+
+            p, a, a:hover {
+                font-size: 12px;
+                color: $white;
+            }
+
+        }
+        .flex-display-swap {
+            flex-direction: column;
+            height: 100%;
+        }
+        .invisible.visible-md-down {
+            display: block !important;
+        }
+    }
+}
+
+.modal--show {
+    opacity: 1;
+    z-index: 100001;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: $black;
+    opacity: 0.5;
+    z-index: 99999;
+    height: 100%;
+    width: 100%;
+}
+
+.field-error {
+    border: 1px solid $crossColor;
 }

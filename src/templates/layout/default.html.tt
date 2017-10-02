@@ -16,6 +16,7 @@
         </div>
     </main>
     [% INCLUDE layout/includes/footer.html.tt %]
+    [% INCLUDE layout/includes/signup_modal.html.tt %]
     <!--/email_off-->
 </body>
 </html>

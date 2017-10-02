@@ -1,4 +1,5 @@
-const Slider = require('./../pages/slider');
+const Slider         = require('./../pages/slider');
+const ChampionSignup = require('./signup');
 
 const Home = (function() {
     'use strict';
@@ -7,7 +8,7 @@ const Home = (function() {
         Slider.init();
         const hash = window.location.hash.substring(1);
         if (hash === 'signup') {
-            setTimeout(() => { $.scrollTo($('#verify-email-form'), 500); }, 500);
+            ChampionSignup.showModal();
         }
     };
 
