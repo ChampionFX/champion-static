@@ -64,6 +64,10 @@ const Notify = (() => {
                             removeFromNotifications(key);
                         }
                     });
+                    if (!Client.get('notification_shown')) {
+                        showTalkBubble();
+                        Client.set('notification_shown', 1);
+                    }
                 });
             });
         });
@@ -84,7 +88,7 @@ const Notify = (() => {
 
         // attach event listeners
         $('.toggle-notification, .talk-bubble').off('click').on('click', showNotifications);
-        $('.notifications__header .close').off('click').on('click', hideNotifications);
+        $('.notifications__header .close, .navbar').off('click').on('click', hideNotifications);
     };
 
     const showNotifications = (e) => {
@@ -107,11 +111,6 @@ const Notify = (() => {
 
     const updateUI = () => {
         $('.toggle-notification')[numberOfNotification ? 'addClass' : 'removeClass']('bell-active');
-
-        if (!Client.get('notification_shown')) { // avoid showing talk bubble on every page refresh
-            showTalkBubble();
-            Client.set('notification_shown', 1);
-        }
     };
 
     const addToNotifications = (msg, key) => {
@@ -132,6 +131,7 @@ const Notify = (() => {
     };
 
     const showTalkBubble = () => {
+        if (!numberOfNotification) return;
         $('.talk-bubble')
             .html(`You got ${numberOfNotification} notification${numberOfNotification === 1 ? '' : 's'}`)
             .fadeIn(500);
