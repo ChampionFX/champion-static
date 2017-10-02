@@ -67,6 +67,8 @@ const Header = (function () {
         if (!Client.is_logged_in()) return;
         if (!Client.is_virtual()) {
             Notify.updateNotifications();
+        } else {
+            Notify.removeUI();
         }
         setMetaTrader();
 

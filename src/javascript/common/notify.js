@@ -10,7 +10,7 @@ const Notify = (() => {
     let numberOfNotification = 0;
 
     const init = () => {
-        if (!Client.is_logged_in()) return;
+        if (!Client.is_logged_in() || Client.is_virtual()) return;
         createUI();
         updateNotifications();
     };
@@ -36,8 +36,8 @@ const Notify = (() => {
             };
 
             const validations = {
-                authenticate: () => get_account_status.prompt_client_to_authenticate && !Client.is_virtual(),
-                risk        : () => riskAssessment() && !Client.is_virtual(),
+                authenticate: () => get_account_status.prompt_client_to_authenticate,
+                risk        : () => riskAssessment(),
                 tnc         : () => Client.should_accept_tnc(),
                 unwelcome   : () => /(unwelcome|(cashier|withdrawal)_locked)/.test(status),
             };
@@ -89,6 +89,10 @@ const Notify = (() => {
         // attach event listeners
         $('.toggle-notification, .talk-bubble').off('click').on('click', showNotifications);
         $('.notifications__header .close, .navbar').off('click').on('click', hideNotifications);
+    };
+
+    const removeUI = () => {
+        $('.toggle-notification, .talk-bubble, .notifications').remove();
     };
 
     const showNotifications = (e) => {
@@ -145,6 +149,7 @@ const Notify = (() => {
     return {
         init               : init,
         updateNotifications: updateNotifications,
+        removeUI           : removeUI,
     };
 })();
 
