@@ -41,17 +41,18 @@
                 border-right: 5px solid transparent;
                 border-top: 5px solid $primaryBrandColor;
             }
-            &.open, &:hover {
+            &:hover {
+                border-color: $primaryBrandColor;
+            }
+            &.open {
                 background: $primaryBrandColor;
                 color: $white;
                 border-color: $primaryBrandColor;
+                border-radius: $BORDER_RADIUS $BORDER_RADIUS 0 0;
 
                 &:after {
                     border-top-color: $white;
                 }
-            }
-            &.open {
-                border-radius: $BORDER_RADIUS $BORDER_RADIUS 0 0;
             }
         }
         #accounts_list {

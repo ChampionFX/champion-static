@@ -53,9 +53,7 @@ const Header = (function () {
     };
 
     const updateBody = () => {
-        const notificationBarHeight = $('#msg_notification').css('display') === 'block' ? $('#top_group').height() : 0;
-        const navbarHeight = 50;
-        $('#champion-container').css('margin-top', navbarHeight + notificationBarHeight);
+        $('#champion-container').css('margin-top', $('#top_group').height());
         updateMobileMenuHeight();
     };
 
