@@ -1,31 +1,56 @@
 const ChampionSocket = require('../common/socket');
 const Validation     = require('../common/validation');
-const Client         = require('../common/client');
 
 const ChampionSignup = (function() {
     'use strict';
 
-    const form_selector   = '.frm-verify-email';
-    const signup_selector = '#signup';
-    const hidden_class    = 'invisible';
+    const form_selector = '.frm-verify-email';
+    const hidden_class  = 'invisible';
 
     let is_active = false,
         $form,
         $input,
-        $button;
+        $button,
+        $after_signup_msg,
+        $before_signup_el,
+        $modal;
 
     const load = () => {
-        if (Client.is_logged_in() || /(new-account|terms-and-conditions|user|cashier)/.test(window.location.pathname)) {
-            changeVisibility($(form_selector), 'hide');
-        } else {
-            changeVisibility($(form_selector), 'show');
-            if ($(form_selector).length === 1) {
-                changeVisibility($(signup_selector), 'show');
-            } else {
-                changeVisibility($(signup_selector), 'hide');
+        $after_signup_msg = $('.modal__form_message');
+        $before_signup_el = $('.modal__form_wrapper, .modal__body, .modal__footer');
+        $modal            = $('.modal');
+
+        $('.toggle-signup-modal').off('click').on('click', showModal);
+        $('.modal__header .close').off('click').on('click', hideModal);
+
+        eventHandler();
+    };
+
+    const showModal = (e) => {
+        if (e) e.stopPropagation();
+        $modal.toggleClass('modal--show');
+        if ($('.modal--show').length) {
+            $('body').css('position', 'static').append('<div class="modal-overlay"></div>');
+            $('.modal-overlay').off('click', hideModal).on('click', hideModal);
+            resetForm();
+
+            // if sign-up success message is already visible, show sign-up form
+            if (!$after_signup_msg.hasClass(hidden_class)) {
+                changeVisibility($after_signup_msg, 'hide');
+                changeVisibility($before_signup_el, 'show');
             }
-            eventHandler();
         }
+    };
+
+    const hideModal = (e) => {
+        e.stopPropagation();
+        $modal.removeClass('modal--show');
+        $('.modal-overlay').remove();
+    };
+
+    const resetForm = () => {
+        $input.val('').removeClass('field-error');
+        $(`${form_selector}:visible #signup_error`).addClass(hidden_class);
     };
 
     const changeVisibility = ($selector, action) => {
@@ -43,7 +68,7 @@ const ChampionSignup = (function() {
         $button.off('click', submit).on('click', submit);
         is_active = true;
         Validation.init(form_selector, [
-            { selector: '#email', validations: ['req', 'email'], msg_element: '#signup_error' },
+            { selector: '#email', validations: ['req', 'email'], msg_element: '#signup_error', no_scroll: true },
         ]);
     };
 
@@ -53,6 +78,9 @@ const ChampionSignup = (function() {
             $input.val('');
         }
         is_active = false;
+
+        $('toggle-modal').off('click');
+        $('.modal__header .close').off('click');
     };
 
     const submit = (e) => {
@@ -63,7 +91,8 @@ const ChampionSignup = (function() {
                 type        : 'account_opening',
             }).then((response) => {
                 if (response.verify_email) {
-                    $('.signup-box').text('Thank you for signing up! Please check your email to complete the registration process.');
+                    changeVisibility($after_signup_msg, 'show');
+                    changeVisibility($before_signup_el, 'hide');
                 } else if (response.error) {
                     $(`${form_selector}:visible #signup_error`).text(response.error.message).removeClass(hidden_class);
                 }
@@ -72,8 +101,9 @@ const ChampionSignup = (function() {
     };
 
     return {
-        load  : load,
-        unload: unload,
+        load     : load,
+        unload   : unload,
+        showModal: showModal,
     };
 })();
 

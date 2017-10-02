@@ -141,7 +141,7 @@ const Validation = (() => {
 
     const validators_map = {
         req          : { func: validRequired,     message: '' },
-        email        : { func: validEmail,        message: 'Invalid email address' },
+        email        : { func: validEmail,        message: 'Invalid email address.' },
         password     : { func: validPassword,     message: 'Password should have lower and uppercase letters with numbers.' },
         general      : { func: validGeneral,      message: 'Only letters, numbers, space, hyphen, period, and apostrophe are allowed.' },
         address      : { func: validAddress,      message: 'Only letters, numbers, space, hyphen, period, and apostrophe are allowed.' },
@@ -214,12 +214,16 @@ const Validation = (() => {
     const clearError = (field) => {
         if (field.$error && field.$error.length) {
             field.$error.addClass(hidden_class);
+            field.$.removeClass('field-error');
         }
     };
 
     const showError = (field, message) => {
         clearError(field);
-        field.$error.html(message).removeClass(hidden_class);
+        if (field.type === 'input') {
+            field.$.addClass('field-error');
+        }
+        field.$error.text(message).removeClass(hidden_class);
     };
 
     const validate = (form_selector) => {

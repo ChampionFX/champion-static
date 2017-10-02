@@ -129,7 +129,7 @@
                 <p class="hint">*[% l('All your deposits and withdrawals are processed by ChampionFX within 24 hours. However, there may be additional processing time required by your bank or money transfer service.') %]</p>
 
                 <div class="col-md-12 center-text">
-                    <a id="btn-signup" class="button invisible" href="[% request.url_for('home') %]#signup"><span>[% l('Sign up') %]</span>
+                    <a id="btn-signup" class="button invisible toggle-signup-modal" href="javascript:;"><span>[% l('Sign up') %]</span>
                     </a>
                     <a id="btn-cashier" class="button-secondary invisible" href="[% request.url_for('cashier') %]">
                         <span>[% l('Go to cashier') %]</span>
