@@ -1,5 +1,5 @@
 const Client               = require('../../common/client');
-const Header               = require('../../common/header');
+const Notify               = require('../../common/notify');
 const ChampionSocket       = require('../../common/socket');
 const default_redirect_url = require('../../common/url').default_redirect_url;
 const url_for              = require('../../common/url').url_for;
@@ -31,7 +31,7 @@ const TNCApproval = (function() {
         ChampionSocket.send({ tnc_approval: '1' }).then((response) => {
             if (!Object.prototype.hasOwnProperty.call(response, 'error')) {
                 ChampionSocket.send({ get_settings: 1 }, true).then(() => {
-                    Header.displayAccountStatus();
+                    Notify.updateNotifications();
                 });
                 window.location.href = default_redirect_url();
             } else {

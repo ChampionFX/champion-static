@@ -33,6 +33,7 @@
                 <span class="fx-logo__icon--light"></span>
                 <span class="fx-logo__wordmark--light"></span>
             </a>
+            <div class="notify logged-in invisible"></div>
             <div class="navbar__nav has-accounts">
                 <ul class="navbar__nav__menu account-dropdown logged-in invisible">
                     <li>
