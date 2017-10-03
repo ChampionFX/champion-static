@@ -8,6 +8,7 @@ const Validation = (() => {
 
     const forms = {};
     const error_class  = 'error-msg';
+    const error_address_class = 'error-address-msg';
     const hidden_class = 'invisible';
 
     const events_map = {
@@ -52,6 +53,7 @@ const Validation = (() => {
                             $parent.append($('<div/>', { class: `${error_class} ${hidden_class}` }));
                         }
                         field.$error = $parent.find(`.${error_class}`);
+                        field.$error_address = $parent.find(`.${error_address_class}`);
                         // Add indicator to required fields
                         if (field.validations.indexOf('req') >= 0) {
                             const $label = $parent.find('label');
@@ -144,7 +146,7 @@ const Validation = (() => {
         email        : { func: validEmail,        message: 'Invalid email address.' },
         password     : { func: validPassword,     message: 'Password should have lower and uppercase letters with numbers.' },
         general      : { func: validGeneral,      message: 'Only letters, numbers, space, hyphen, period, and apostrophe are allowed.' },
-        address      : { func: validAddress,      message: 'Only letters, numbers, space, hyphen, period, and apostrophe are allowed.' },
+        address      : { func: validAddress,      message: 'Invalid character used.'  },
         letter_symbol: { func: validLetterSymbol, message: 'Only letters, space, hyphen, period, and apostrophe are allowed.' },
         postcode     : { func: validPostCode,     message: 'Only letters, numbers, space, and hyphen are allowed.' },
         phone        : { func: validPhone,        message: 'Only numbers and spaces are allowed.' },
@@ -216,14 +218,28 @@ const Validation = (() => {
             field.$error.addClass(hidden_class);
             field.$.removeClass('field-error');
         }
+
+        if (field.$error_address && field.$error.length) {
+            field.$error_address.addClass(hidden_class);
+            field.$.removeClass('field-error');
+        }
     };
 
     const showError = (field, message) => {
-        clearError(field);
-        if (field.type === 'input') {
-            field.$.addClass('field-error');
+        if (field.selector === '#address_line_1' || field.selector === '#txt_address1' || field.selector === '#address_line_2' || field.selector === '#txt_address2') {
+            clearError(field);
+            if (field.type === 'input') {
+                field.$.addClass('field-error');
+            }
+            field.$error.text(message).removeClass(hidden_class);
+            field.$error_address.removeClass(hidden_class);
+        } else {
+            clearError(field);
+            if (field.type === 'input') {
+                field.$.addClass('field-error');
+            }
+            field.$error.text(message).removeClass(hidden_class);
         }
-        field.$error.text(message).removeClass(hidden_class);
     };
 
     const validate = (form_selector) => {
