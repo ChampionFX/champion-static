@@ -226,18 +226,14 @@ const Validation = (() => {
     };
 
     const showError = (field, message) => {
+        clearError(field);
+        if (field.type === 'input') {
+            field.$.addClass('field-error');
+        }
         if (field.selector === '#address_line_1' || field.selector === '#txt_address1' || field.selector === '#address_line_2' || field.selector === '#txt_address2') {
-            clearError(field);
-            if (field.type === 'input') {
-                field.$.addClass('field-error');
-            }
             field.$error.text(message).removeClass(hidden_class);
             field.$error_address.removeClass(hidden_class);
         } else {
-            clearError(field);
-            if (field.type === 'input') {
-                field.$.addClass('field-error');
-            }
             field.$error.text(message).removeClass(hidden_class);
         }
     };
