@@ -2,6 +2,7 @@ const moment         = require('moment');
 const Client         = require('./client');
 const ChampionSocket = require('./socket');
 const template       = require('./utility').template;
+const showLightBox   = require('./utility').showLightBox;
 
 const SessionDurationLimit = (() => {
     'use strict';
@@ -55,8 +56,7 @@ const SessionDurationLimit = (() => {
     };
 
     const displayWarning = () => {
-        $('body').append(
-            $(`<div id='session_limit' class='lightbox'><div><div><div class='limit_message'>${template('Your session duration limit will end in [_1] seconds.', [warning / 1000])}</div></div></div></div>`));
+        showLightBox('session_limit', $('<div/>', { class: 'limit_message', text: template('Your session duration limit will end in [_1] seconds.', [warning / 1000]) }));
         $('#session_limit').click(function() { $(this).remove(); });
     };
 

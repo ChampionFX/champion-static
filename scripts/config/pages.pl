@@ -36,12 +36,14 @@ sub all_pages {
         ['cfd',                        'mt5/cfd',                      'full_width', 'Contracts for Difference'],
         ['metals',                     'mt5/metals',                   'full_width', 'Metals'],
         ['mt5-web-platform',           'mt5/mt5_web_platform',         'full_width', 'MetaTrader 5 Web Platform'],
+        ['how-payment-works',          'mt5/how_payment_works',        'full_width', 'How our payment works'],
 
         ['partnerships',               'static/partnerships/partnerships',             'full_width', 'Partnerships'],
         ['partnerships-affiliate',     'static/partnerships/partnerships_affiliate',   'full_width', 'Affiliate programme'],
         ['partnerships-contributor',   'static/partnerships/partnerships_contributor', 'full_width', 'Content Contributor programme'],
         ['partnerships-ib',            'static/partnerships/partnerships_ib',          'full_width', 'Introducing Broker'],
         ['liquidity-solutions',        'static/liquidity_solutions',                   'full_width', 'Liquidity Solutions'],
+        ['multiple-accounts-manager',  'static/multiple_accounts_manager',             'full_width', 'Multiple Accounts Manager'],
 
         ['terms-and-conditions',       'legal/tac',                    'full_width', 'Terms and Conditions'],
 

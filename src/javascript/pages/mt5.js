@@ -8,14 +8,15 @@ const MT5 = (() => {
     const load = () => {
         $('.has-tabs').tabs().removeClass(hidden_class);
 
-        const $mt5_accounts = $('#mt5-accounts');
-
-        if (Client.is_logged_in()) {
-            $mt5_accounts.find('.button-disabled').addClass('button').removeClass('button-disabled');
-        } else {
-            $mt5_accounts.find('.button').addClass('button-disabled').removeClass('button');
-            $mt5_accounts.find('a').removeAttr('href');
+        if (!Client.is_logged_in()) {
+            const $signup_btn = $('#mt5-accounts').find('a');
+            $signup_btn.addClass('toggle-signup-modal');
+            replaceHref($signup_btn);
         }
+    };
+
+    const replaceHref = ($element) => {
+        $element.attr('href', `${'java'}${'script:;'}`);
     };
 
     return {

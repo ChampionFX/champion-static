@@ -23,11 +23,6 @@
                             <span>[% l('Go to Champion Trader') %]</span>
                         </a>
                     </div>
-                    <!-- div class="col-xl-3 col-xs-12 margin-top-bottom">
-                        <a class="underline-link" href="[% request.url_for('trading-platform/champion-trader') %]">
-                            <span>[% l('Learn more') %]</span>
-                        </a>
-                    </div -->
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
 const MetaTraderConfig = require('./metatrader.config');
 const MetaTraderUI     = require('./metatrader.ui');
 const Client           = require('../../../common/client');
+const switchLoginId    = require('../../../common/header').switchLoginId;
 const ChampionSocket   = require('../../../common/socket');
 const State            = require('../../../common/storage').State;
 const Validation       = require('../../../common/validation');
@@ -14,6 +15,13 @@ const MetaTrader = (function() {
 
     const load = () => {
         State.set('is_mt_pages', 1);
+
+        if (Client.is_virtual() && Client.has_real()) {
+            const real_login_id = Client.get('loginid_array').find(login => !login.disabled && login.real).id;
+            switchLoginId(real_login_id);
+            return;
+        }
+
         ChampionSocket.wait('mt5_login_list').then((response) => {
             responseLoginList(response);
         });
@@ -29,27 +37,30 @@ const MetaTrader = (function() {
             }
         });
 
-        Client.set('mt5_account', getDefaultAccount(response.mt5_login_list));
+        Client.set('mt5_account', getDefaultAccount());
 
         // Update types with no account
-        Object.keys(types_info).forEach((acc_type) => {
-            if (!types_info[acc_type].account_info) {
-                MetaTraderUI.updateAccount(acc_type);
-            }
-        });
+        Object.keys(types_info)
+            .filter(acc_type => !hasAccount(acc_type))
+            .forEach((acc_type) => { MetaTraderUI.updateAccount(acc_type); });
     };
 
-    const getDefaultAccount = login_list => (
-        // remove hash from url
-        // const url = window.location.href.split('#')[0];
-        // window.history.replaceState({ url: url }, null, url);
-        Object.keys(types_info).indexOf(location.hash.substring(1)) >= 0 ? location.hash.substring(1) :
-        Client.get('mt5_account') ||
-        (login_list && login_list.length ?
-            Client.getMT5AccountType(
-                (login_list.find(login => /real/.test(login.group)) || login_list.find(login => /demo/.test(login.group))).group) :
-            'demo_champion_cent')
-    );
+    const getDefaultAccount = () => {
+        let default_account = '';
+        if (hasAccount(location.hash.substring(1))) {
+            default_account = location.hash.substring(1);
+            MetaTraderUI.removeUrlHash();
+        } else if (hasAccount(Client.get('mt5_account'))) {
+            default_account = Client.get('mt5_account');
+        } else {
+            default_account = Object.keys(types_info)
+                .filter(acc_type => hasAccount(acc_type))
+                .sort(acc_type => (types_info[acc_type].is_demo ? 1 : -1))[0] || ''; // real first
+        }
+        return default_account;
+    };
+
+    const hasAccount = acc_type => (types_info[acc_type] || {}).account_info;
 
     const getAccountDetails = (login, acc_type) => {
         ChampionSocket.send({
@@ -84,37 +95,40 @@ const MetaTrader = (function() {
 
     const submit = (e) => {
         e.preventDefault();
-        MetaTraderUI.hideFormMessage();
         const $btn_submit = $(e.target);
         const acc_type = $btn_submit.attr('acc_type');
         const action = $btn_submit.attr('action');
+        MetaTraderUI.hideFormMessage(action);
         if (Validation.validate(`#frm_${action}`)) {
-            MetaTraderUI.disableButton();
+            MetaTraderUI.disableButton(action);
             // further validations before submit (password_check)
             MetaTraderUI.postValidate(acc_type, action).then((is_ok) => {
                 if (!is_ok) {
-                    MetaTraderUI.enableButton();
+                    MetaTraderUI.enableButton(action);
                     return;
                 }
 
                 const req = makeRequestObject(acc_type, action);
                 ChampionSocket.send(req).then((response) => {
                     if (response.error) {
-                        MetaTraderUI.displayFormMessage(response.error.message);
+                        MetaTraderUI.displayFormMessage(response.error.message, action);
                     } else {
                         const login = actions_info[action].login ?
                             actions_info[action].login(response) : types_info[acc_type].account_info.login;
                         if (!types_info[acc_type].account_info) {
                             types_info[acc_type].account_info = { login: login };
+                            MetaTraderUI.setAccountType(acc_type, true);
                         }
                         MetaTraderUI.loadAction(null, acc_type);
-                        MetaTraderUI.displayMainMessage(actions_info[action].success_msg(response));
                         getAccountDetails(login, acc_type);
+                        if (typeof actions_info[action].success_msg === 'function') {
+                            MetaTraderUI.displayMainMessage(actions_info[action].success_msg(response));
+                        }
                         if (typeof actions_info[action].onSuccess === 'function') {
                             actions_info[action].onSuccess(response, acc_type);
                         }
                     }
-                    MetaTraderUI.enableButton();
+                    MetaTraderUI.enableButton(action);
                 });
             });
         }

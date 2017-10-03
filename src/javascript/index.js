@@ -3,6 +3,7 @@ require('babel-polyfill');
 
 window.$ = window.jQuery = require('jquery');
 
+require('./lib/plugins');
 require('./pages/contact');
 
 const Champion = require('./common/champion');
