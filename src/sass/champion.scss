@@ -448,6 +448,49 @@ h1.main-title {
     background: url('../images/about/banner_championfx.png') top left / cover no-repeat;
 }
 
+.img-personnel {
+    position: absolute;
+    z-index: 999;
+    width: 70%;
+    top: -25%;
+    left: 10%;
+}
+
+.personnel-row {
+    margin-top: 6em;
+}
+
+.personnel-header {
+    font-size: $FONT_SIZE_L;
+}
+
+.personnel-subheader {
+    span {
+        font-size: $FONT_SIZE_XS;
+    }
+    margin-top: -15px;
+    padding-bottom: 15px;
+}
+
+.fx-linkedin:before {
+    margin-left: 10px;
+    content: url('../images/about/Linkedin.svg');
+}
+
+.fx-about-email:before {
+    margin-left: 10px;
+    content: url('../images/about/Email.svg');
+}
+
+.personnel-header-bg {
+    color: $white;
+    background-color: $black;
+}
+
+.personnel-desc-bg {
+    background-color: $secondaryContentColor;
+}
+
 // Contact us
 .contact-us-header {
     background: url('../images/contact_us/contact_us_banner.png') top left / cover no-repeat;

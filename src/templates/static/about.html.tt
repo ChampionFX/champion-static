@@ -103,6 +103,44 @@
 
         [% INCLUDE static/common/separator_line.html.tt %]
 
+        <div class="row">
+            <div class="col-sm-12 center-text">
+                <h2>[% l('ChampionFX management') %]</h2>
+            </div>
+        </div>
+        <div class="row personnel-row">
+            <div class="col-sm-12 col-md-4">
+                <img src="[% request.url_for('images/about/Athol.png') %]" class="img img-personnel" />
+            </div>
+            <div class="col-sm-12 col-md-8">
+                <p>[% l('Athol is an industry veteran and has over 15 years experience of working in Senior management positions for financial institutions throughout the world in UK, Tokyo, and Australia catering to retail and institutional clients in Forex and capital markets. He comes from an equities background and started his career as a stockbroker in London where he specialised in small cap stocks, IPOs, and private placements. In ChampionFX he is responsible for international business development and strategic planning.') %]</p>
+            </div>
+            <div class="col-sm-12 personnel-header-bg">
+                <div class="col-sm-12 col-md-7 push-md-4">
+                    <p><span class="personnel-header">[% l('Athol Nourse') %]</span><a href="#"><span class = "fx-linkedin"></span></a><a href="#"><span class = "fx-about-email"></span></a></p>
+                    <p class="personnel-subheader"><span>[% l('Managing Director') %]</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="row personnel-row">
+            <div class="col-sm-12 col-md-8">
+                <div>
+                    <p>[% l('Sebastian’s passion for Finance and FX started a decade ago. He showed interest in Economics, Banking and ultimately, Financial Markets. He describes himself as a fast learner and he believes that anyone can go beyond their limits and enjoy their work if there is a great deal of passion in it. As a Senior Financial Market Analyst in ChampionFX, he combines the experience gained throughout the years in FX Business Development, FX Dealing and Market Analysis with his passion for writing, research and public relations.') %]</p>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <img src="[% request.url_for('images/about/Sebastian.png') %]" class="img img-personnel" />
+            </div>
+            <div class="col-sm-12 personnel-header-bg">
+                <div class="col-sm-12 col-md-7 push-md-4">
+                    <p><span class="personnel-header">[% l('Sebastian Diaconu') %]</span><a href="#"><span class = "fx-linkedin"></span></a><a href="#"><span class = "fx-about-email"></span></a></p>
+                    <p class="personnel-subheader"><span>[% l('Senior Financial Market Analyst') %]</span></p>
+                </div>
+            </div>
+        </div>
+
+        [% INCLUDE static/common/separator_line.html.tt %]
+
         <div class="row box-grid box-grid-align-start">
             <div class="col-sm-12 center-text">
                 <h2>[% l('License') %]</h2>
