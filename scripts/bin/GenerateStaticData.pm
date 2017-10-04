@@ -44,6 +44,7 @@ sub _texts {
         push @texts, localize('Only letters, space, hyphen, period, and apostrophe are allowed.');
         push @texts, localize('Only letters, numbers, and hyphen are allowed.');
         push @texts, localize('Only numbers and spaces are allowed.');
+        push @texts, localize('Invalid character used.');
         push @texts, localize('Please input a valid date');
         push @texts, localize('Should be a valid number');
         push @texts, localize('Should be more than [_1]');

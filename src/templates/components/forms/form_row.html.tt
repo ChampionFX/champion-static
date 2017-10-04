@@ -26,22 +26,9 @@
             [% content %]
     [%- END %]
     [% IF hint %]<p class="hint">[% hint %]</p>[% END %]
-    [% IF id == 'address_line_1' || id == 'txt_address1' %]
+    [% IF id == 'address_line_1' || id == 'txt_address1' || id == 'address_line_2' || id == 'txt_address2' %]
         <div class="error-msg invisible"></div>
-        <div class="error-address-msg invisible col-12 form-validation-message" id="form_addressline1_message">
-            <h4 class="col-12">
-                [% INCLUDE address_validation_header %]
-            </h4>
-            <div class = "col-12 form-validation-desc">
-                <div class="row">
-                    [% INCLUDE address_validation_desc %]
-                  </div>
-            </div>
-        </div>
-    [% END %]
-    [% IF id == 'address_line_2' || id == 'txt_address2' %]
-        <div class="error-msg invisible"></div>
-        <div class="error-address-msg invisible col-12 form-validation-message" id="form_addressline2_message">
+        <div class="error-address-msg invisible col-12 form-validation-message" id="[% address_id %]">
             <h4 class="col-12">
                 [% INCLUDE address_validation_header %]
             </h4>
@@ -56,7 +43,7 @@
 [%- END %]
 
 [% BLOCK address_validation_header %]
-    <span>[% l("Please refer to the") %]<strong>&nbsp[% l("characters that can be used") %]</strong></span>
+    <span>[% l("Please refer to the [_1]characters that can be used", "<strong>") %]</strong></span>
 [% END %]
 
 [% BLOCK address_validation_desc %]

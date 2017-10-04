@@ -37,18 +37,6 @@ const PersonalDetails = (() => {
                         populateStates(states_list_response);
                     });
                 }
-                $(() => {
-                    $('#form_addressline1_message').accordion({
-                        heightStyle: 'content',
-                        collapsible: true,
-                        active     : false,
-                    });
-                    $('#form_addressline2_message').accordion({
-                        heightStyle: 'content',
-                        collapsible: true,
-                        active     : false,
-                    });
-                });
             } else {
                 $('.is-real').addClass(hidden_class);
             }

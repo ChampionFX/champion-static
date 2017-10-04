@@ -44,18 +44,6 @@ const ChampionNewRealAccount = (function() {
             window.location.href = default_redirect_url();
             return;
         }
-        $(() => {
-            $('#form_addressline1_message').accordion({
-                heightStyle: 'content',
-                collapsible: true,
-                active     : false,
-            });
-            $('#form_addressline2_message').accordion({
-                heightStyle: 'content',
-                collapsible: true,
-                active     : false,
-            });
-        });
 
         container        = $('#champion-container');
         client_residence = Client.get('residence');

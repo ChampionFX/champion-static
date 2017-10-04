@@ -30,8 +30,8 @@
     [% INCLUDE components/forms/form_row.html.tt id='tax_identification_number' row_class='is-real' label=l("Tax identification number") type='text' %]
 
     <h3 class="is-real underline-title">[% l('Contact information') %]</h3>
-    [% INCLUDE components/forms/form_row.html.tt id='address_line_1' row_class='is-real' label=l("Address") type='text' %]
-    [% INCLUDE components/forms/form_row.html.tt id='address_line_2' row_class='is-real' type='text' %]
+    [% INCLUDE components/forms/form_row.html.tt id='address_line_1' address_id='form_addressline1_message' row_class='is-real' label=l("Address") type='text' %]
+    [% INCLUDE components/forms/form_row.html.tt id='address_line_2' address_id='form_addressline2_message' row_class='is-real' type='text' %]
 
     [% INCLUDE components/forms/form_row.html.tt id='address_city' row_class='is-real' label=l("City/Town") type='text' %]
 

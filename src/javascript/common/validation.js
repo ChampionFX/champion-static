@@ -6,10 +6,10 @@ const template              = require('../common/utility').template;
 const Validation = (() => {
     'use strict';
 
-    const forms = {};
-    const error_class  = 'error-msg';
+    const forms               = {};
+    const error_class         = 'error-msg';
     const error_address_class = 'error-address-msg';
-    const hidden_class = 'invisible';
+    const hidden_class        = 'invisible';
 
     const events_map = {
         input   : 'input change',
@@ -53,7 +53,9 @@ const Validation = (() => {
                             $parent.append($('<div/>', { class: `${error_class} ${hidden_class}` }));
                         }
                         field.$error = $parent.find(`.${error_class}`);
-                        field.$error_address = $parent.find(`.${error_address_class}`);
+                        if (/#address_line_[1|2]/.test(field.selector) || /#txt_address[1|2]/.test(field.selector)) {
+                            field.$error_address = $parent.find(`.${error_address_class}`);
+                        }
                         // Add indicator to required fields
                         if (field.validations.indexOf('req') >= 0) {
                             const $label = $parent.find('label');
@@ -78,6 +80,19 @@ const Validation = (() => {
             }
         }
     };
+
+    $(() => {
+        $('#form_addressline1_message').accordion({
+            heightStyle: 'content',
+            collapsible: true,
+            active     : false,
+        });
+        $('#form_addressline2_message').accordion({
+            heightStyle: 'content',
+            collapsible: true,
+            active     : false,
+        });
+    });
 
     // ------------------------------
     // ----- Validation Methods -----
@@ -227,14 +242,12 @@ const Validation = (() => {
 
     const showError = (field, message) => {
         clearError(field);
+        field.$error.text(message).removeClass(hidden_class);
         if (field.type === 'input') {
             field.$.addClass('field-error');
         }
-        if (field.selector === '#address_line_1' || field.selector === '#txt_address1' || field.selector === '#address_line_2' || field.selector === '#txt_address2') {
-            field.$error.text(message).removeClass(hidden_class);
+        if (/#address_line_[1|2]/.test(field.selector) || /#txt_address[1|2]/.test(field.selector)) {
             field.$error_address.removeClass(hidden_class);
-        } else {
-            field.$error.text(message).removeClass(hidden_class);
         }
     };
 
