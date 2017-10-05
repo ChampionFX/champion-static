@@ -81,19 +81,6 @@ const Validation = (() => {
         }
     };
 
-    $(() => {
-        $('#form_addressline1_message').accordion({
-            heightStyle: 'content',
-            collapsible: true,
-            active     : false,
-        });
-        $('#form_addressline2_message').accordion({
-            heightStyle: 'content',
-            collapsible: true,
-            active     : false,
-        });
-    });
-
     // ------------------------------
     // ----- Validation Methods -----
     // ------------------------------
@@ -161,7 +148,7 @@ const Validation = (() => {
         email        : { func: validEmail,        message: 'Invalid email address.' },
         password     : { func: validPassword,     message: 'Password should have lower and uppercase letters with numbers.' },
         general      : { func: validGeneral,      message: 'Only letters, numbers, space, hyphen, period, and apostrophe are allowed.' },
-        address      : { func: validAddress,      message: 'Invalid character used.'  },
+        address      : { func: validAddress,      message: 'Invalid character used.' },
         letter_symbol: { func: validLetterSymbol, message: 'Only letters, space, hyphen, period, and apostrophe are allowed.' },
         postcode     : { func: validPostCode,     message: 'Only letters, numbers, space, and hyphen are allowed.' },
         phone        : { func: validPhone,        message: 'Only numbers and spaces are allowed.' },
@@ -229,14 +216,13 @@ const Validation = (() => {
     };
 
     const clearError = (field) => {
+        field.$.removeClass('field-error');
         if (field.$error && field.$error.length) {
             field.$error.addClass(hidden_class);
-            field.$.removeClass('field-error');
         }
 
         if (field.$error_address && field.$error.length) {
             field.$error_address.addClass(hidden_class);
-            field.$.removeClass('field-error');
         }
     };
 

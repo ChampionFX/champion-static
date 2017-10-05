@@ -28,13 +28,10 @@
     [% IF hint %]<p class="hint">[% hint %]</p>[% END %]
     [% IF id == 'address_line_1' || id == 'txt_address1' || id == 'address_line_2' || id == 'txt_address2' %]
         <div class="error-msg invisible"></div>
-        <div class="error-address-msg invisible col-12 form-validation-message" id="[% address_id %]">
-            <h4 class="col-12">
-                [% INCLUDE address_validation_header %]
-            </h4>
-            <div class = "col-12 form-validation-desc">
+        <div class="error-address-msg invisible col-12 form-validation-message">
+            <div class = "col-sm-12 form-validation-desc">
                 <div class="row">
-                    [% INCLUDE address_validation_desc %]
+                    [% INCLUDE address_validation_text %]
                   </div>
             </div>
         </div>
@@ -42,22 +39,8 @@
 </div>
 [%- END %]
 
-[% BLOCK address_validation_header %]
-    <span>[% l("Please refer to the [_1]characters that can be used", "<strong>") %]</strong></span>
-[% END %]
-
-[% BLOCK address_validation_desc %]
-    <span class="col-6">
-        <p>[% l(" - Letters (A-Z and a-z)") %]</p>
-        <p>[% l(" - Numbers (0-9)") %]</p>
-        <p>[% l(" - Hyphens (-)") %]</p>
-        <p>[% l(" - Periods (.)") %]</p>
-        <p>[% l(" - Apostrophe (')") %]</p>
-    </span>
-    <span class="col-6">
-        <p>[% l(" - Hashes (#)") %]</p>
-        <p>[% l(" - Semi-colons") %]</p>
-        <p>[% l(" - Colons") %]</p>
-        <p>[% l(" - Brackets (())") %]</p>
+[% BLOCK address_validation_text %]
+    <span class="col-sm-12">
+        <p>[% l("You can use letters and numbers (A-Z, a-z, 0-9) and the following special characters: -.'#;:()") %]</p>
     </span>
 [% END %]

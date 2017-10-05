@@ -1462,31 +1462,9 @@ iframe {
     border: 1px solid $crossColor;
 }
 
-.form-validation-message {
-    h4 {
-        &:after {
-            content: '\25BE';
-            font-style: normal;
-        }
-        .ui-accordion-header-collapsed {
-            margin-bottom: -15px !important;
-        }
-        font-size: $FONT_SIZE_S !important;
-        font-style: italic !important;
-        color: $black !important;
-        background-color: transparent !important;
-        background-image: none !important;
-        border: 0 !important;
-        padding: 5px 0px 10px !important;
-    }
-}
-
 .form-validation-desc {
     span {
-        margin: 0 auto;
+        margin-bottom: -15px;
         font-size: $FONT_SIZE_XS;
-        background-color: $secondaryContentColor;
     }
-    border: 0 !important;
-    background-color: $secondaryContentColor;
 }

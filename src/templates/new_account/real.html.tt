@@ -31,8 +31,8 @@
 
                 <div class="col-md-4">
                     [% INCLUDE form_title title=l('Address') %]
-                    [% INCLUDE components/forms/form_row.html.tt type='text'   id='txt_address1' address_id='form_addressline1_message' label=l('First line of home address')  attributes='maxlength="70"' %]
-                    [% INCLUDE components/forms/form_row.html.tt type='text'   id='txt_address2' address_id='form_addressline2_message' label=l('Second line of home address') attributes='maxlength="70"' %]
+                    [% INCLUDE components/forms/form_row.html.tt type='text'   id='txt_address1' label=l('First line of home address')  attributes='maxlength="70"' %]
+                    [% INCLUDE components/forms/form_row.html.tt type='text'   id='txt_address2' label=l('Second line of home address') attributes='maxlength="70"' %]
                     [% INCLUDE components/forms/form_row.html.tt type='text'   id='txt_city'     label=l('Town/City')                   attributes='maxlength="35"' %]
                     [% INCLUDE components/forms/form_row.html.tt type='select' id='ddl_state'    label=l('State/Province')
                         attributes='class="invisible"' loading=1 loading_id='state_loading' %]
