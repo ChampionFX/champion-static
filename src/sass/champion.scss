@@ -451,18 +451,9 @@ h1.main-title {
 .img-personnel {
     position: absolute;
     z-index: 1;
-}
-
-.img-personnel-left {
-    top: -50px;
+    top: 0;
     left: 30%;
     width: 80%;
-}
-
-.img-personnel-right {
-    top: -50px;
-    left: 30%;
-    width: 90%;
 }
 
 .personnel-container {
@@ -470,7 +461,7 @@ h1.main-title {
 }
 
 .personnel-row {
-    margin-top: 6em;
+    margin-top: 3em;
 }
 
 .personnel-header {
@@ -516,10 +507,16 @@ h1.main-title {
 .personnel-desc-bg {
     p {
         padding: 10px;
+        text-align: justify;
     }
     border-radius: 12px 12px 0px 0px;
     background-color: $secondaryContentColor;
     padding-top: 10px;
+}
+
+.padding-bottom-15 {
+    border-radius: 0px 0px 12px 12px;
+    padding-bottom: 15px;
 }
 
 // Contact us

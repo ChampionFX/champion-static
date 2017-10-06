@@ -108,10 +108,10 @@
                 <h2>[% l('ChampionFX management') %]</h2>
             </div>
         </div>
-        <div class="row personnel-container">
+        <div class="row fx-container">
             <div class="row personnel-row">
                 <div class="col-sm-12 col-md-4">
-                    <img src="[% request.url_for('images/about/Athol.png') %]" class="img img-personnel img-personnel-left" />
+                    <img src="[% request.url_for('images/about/Athol.png') %]" class="img img-personnel" />
                 </div>
                 <div class="col-sm-11 push-sm-1 personnel-desc-bg">
                     <div class="col-sm-12 col-md-8 push-md-4">
@@ -125,13 +125,14 @@
                         <p class="personnel-subheader"><span>[% l('Managing Director') %]</span></p>
                     </div>
                 </div>
+                <div class="col-sm-11 push-sm-1 personnel-desc-bg padding-bottom-15"></div>
             </div>
             <div class="row personnel-row">
                 <div class="col-sm-11 personnel-desc-bg">
                     <div class="col-sm-12 col-md-4 push-md-7">
-                        <img src="[% request.url_for('images/about/Sebastian.png') %]" class="img img-personnel img-personnel-right" />
+                        <img src="[% request.url_for('images/about/Sebastian.png') %]" class="img img-personnel" />
                     </div>
-                    <div class="col-sm-12 col-md-8 pull-md-0">
+                    <div class="col-sm-12 col-md-8">
                         <p>[% l('Sebastian’s passion for Finance and FX started a decade ago. He showed interest in Economics, Banking and ultimately, Financial Markets. He describes himself as a fast learner and he believes that anyone can go beyond their limits and enjoy their work if there is a great deal of passion in it. As a Senior Financial Market Analyst in ChampionFX, he combines the experience gained throughout the years in FX Business Development, FX Dealing and Market Analysis with his passion for writing, research and public relations.') %]</p>
                     </div>
                 </div>
@@ -142,6 +143,7 @@
                         <p class="personnel-subheader"><span>[% l('Senior Financial Market Analyst') %]</span></p>
                     </div>
                 </div>
+                <div class="col-sm-11 personnel-desc-bg padding-bottom-15"></div>
             </div>
         </div>
 
