@@ -26,21 +26,5 @@
             [% content %]
     [%- END %]
     [% IF hint %]<p class="hint">[% hint %]</p>[% END %]
-    [% IF id == 'address_line_1' || id == 'txt_address1' || id == 'address_line_2' || id == 'txt_address2' %]
-        <div class="error-msg invisible"></div>
-        <div class="error-address-msg invisible col-12 form-validation-message">
-            <div class = "col-sm-12 form-validation-desc">
-                <div class="row">
-                    [% INCLUDE address_validation_text %]
-                  </div>
-            </div>
-        </div>
-    [% END %]
 </div>
 [%- END %]
-
-[% BLOCK address_validation_text %]
-    <span class="col-sm-12">
-        <p>[% l("You can use letters and numbers (A-Z, a-z, 0-9) and the following special characters: -.'#;:()") %]</p>
-    </span>
-[% END %]
