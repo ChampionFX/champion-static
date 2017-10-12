@@ -1229,24 +1229,33 @@ iframe {
         }
         .arrow-3 {
             > div {
-                height: 110px;
-                line-height: 30px;
-                @media (min-width: 769px) {
-                    height: 145px;
-                    line-height: 40px;
+                height: 180px;
+                margin-bottom: 40px;
+
+                div {
+                    line-height: 50px;
                 }
-                background: url('../images/mt5/how_payment_works/arrow_deposit_3.svg') no-repeat center;
+                @media (max-width: 768px) {
+                    height: 110px;
+
+                    div {
+                        line-height: 30px;
+                    }
+                }
+
+                background: url('../images/mt5/how_payment_works/deposit.svg') no-repeat center;
 
                 &.withdraw {
-                    background-image: url('../images/mt5/how_payment_works/arrow_withdraw_3.svg');
+                    background: url('../images/mt5/how_payment_works/withdraw.svg') no-repeat center;
                 }
                 :first-child {
-                    transform: rotate(-15deg) translateX(-5px);
+                    transform: rotateZ(-15deg) translateY(-5px) translateX(-10px);
                 }
                 :last-child {
-                    transform: rotate(15deg);
+                    transform: rotateZ(15deg) translateY(10px) translateX(5px);
                 }
             }
+
         }
         .mt5-account {
             text-align: left;
