@@ -1197,6 +1197,11 @@ iframe {
     flex: 0 1 auto;
 }
 
+.flex-column-swap {
+    display: flex;
+    flex-direction: column;
+}
+
 #how_payment_works {
     fieldset {
         border: 3px solid $fillColor !important;
@@ -1212,7 +1217,6 @@ iframe {
             font-size: $FONT_SIZE_S;
         }
         .arrow-1 > div {
-            width: 155px;
             height: 33px;
             background: url('../images/mt5/how_payment_works/arrow_deposit.svg') no-repeat center;
 
@@ -1222,7 +1226,6 @@ iframe {
         }
         .arrow-3 {
             > div {
-                width: 155px;
                 height: 145px;
                 line-height: 40px;
                 background: url('../images/mt5/how_payment_works/arrow_deposit_3.svg') no-repeat center;
@@ -1243,6 +1246,10 @@ iframe {
 
             > div {
                 margin-bottom: 25px;
+
+                span {
+                    display: block;
+                }
             }
         }
     }
