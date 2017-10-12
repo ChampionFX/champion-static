@@ -78,12 +78,16 @@
             .amount {
                 font-size: 16px;
 
+                span.hidden-sm-up {
+                    position: absolute;
+                    top: 35%;
+                    left: 0;
+                    right: 0;
+                    font-size: 16px;
+                }
                 .deposit, .withdraw {
                     div {
                         display: none;
-                    }
-                    &:after {
-                        content: 'Transfer';
                     }
                 }
             }

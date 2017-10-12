@@ -33,6 +33,7 @@
                 <p>[% l('[_1] binary account wallet', website_name) %]</p>
             </div>
             <div class="col-md arrow-3 amount">
+                <span class="hidden-sm-up">[% l('Transfer') %]</span>
                 <div class="[% type %]">
                     [% FOREACH value IN value_3 %]
                         <div>&#36;[% value %]</div>
