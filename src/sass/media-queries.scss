@@ -101,14 +101,7 @@
                     margin: 20px 0;
                 }
             }
-            .arrow-1 > div {
-                background: url('../images/mt5/how_payment_works/arrow_vertical_down.svg') no-repeat center;
-
-                &.withdraw {
-                    background: url('../images/mt5/how_payment_works/arrow_vertical_up.svg') no-repeat center;
-                }
-            }
-            .arrow-3 > div {
+            .arrow-1 > div, .arrow-3 > div {
                 background: url('../images/mt5/how_payment_works/arrow_vertical_down.svg') no-repeat center;
 
                 &.withdraw {
