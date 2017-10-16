@@ -1311,11 +1311,19 @@ iframe {
         }
     }
     &__body {
-        padding: 30px 0 0;
+        padding: 30px 30px 0;
         background: $fillColor;
 
-        h2 {
-            margin-bottom: 0 !important;
+        h4 {
+            margin: 10px 0;
+        }
+        .flex-sm-middle.col-xs-9 {
+            padding-left: 5px;
+
+            p {
+                text-align: left;
+                font-size: 13px !important;
+            }
         }
     }
     &__form_wrapper {
@@ -1339,6 +1347,21 @@ iframe {
 
             ~ * {
                 margin: 10px 0 0;
+            }
+        }
+        a.button-secondary {
+            text-decoration: none;
+
+            span {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 200px;
+                height: 40px;
+                padding: 0;
+            }
+            span.fx:before {
+                padding-right: 10px;
             }
         }
         .separator {
@@ -1375,28 +1398,21 @@ iframe {
         width: 30px;
         margin: 0 auto;
     }
-    .flex-display {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        height: 100%;
-    }
-    .flex-display-swap {
-        flex-direction: column-reverse;
-        height: initial;
-    }
     @media (min-width: 768px) {
         overflow: hidden;
         width: 700px;
         height: 395px;
 
         &__body {
-            padding: 30px;
+            padding: 25px;
             height: 395px;
             background: $darkPrimaryBrandColor;
 
-            h2, p, a {
+            * {
                 color: $white;
+            }
+            h4 {
+                font-size: 16px;
             }
         }
         &__form_wrapper {
@@ -1419,6 +1435,9 @@ iframe {
                     margin: 10px 0 0;
                 }
             }
+            a.button-secondary span {
+                width: 338px;
+            }
         }
         &__footer {
             position: absolute;
@@ -1431,10 +1450,6 @@ iframe {
                 color: $white;
             }
 
-        }
-        .flex-display-swap {
-            flex-direction: column;
-            height: 100%;
         }
         .invisible.visible-md-down {
             display: block !important;
@@ -1460,4 +1475,8 @@ iframe {
 
 .field-error {
     border: 1px solid $crossColor;
+}
+
+.google-signup:before {
+    content: url('../images/signup/google_logo.svg');
 }
