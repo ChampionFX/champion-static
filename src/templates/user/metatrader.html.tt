@@ -322,7 +322,7 @@
                     <div id="messages">
                         <div id="title_new_account">[% l('Create MetaTrader 5 [_1] account', '[_1]') %]</div>
                         <div id="msg_switch">[% l('To perform this action, please switch to your [_1] Real ChampionFX Binary Account.', website_name) %]</div>
-                        <div id="msg_upgrade">[% l('To perform this action, please <a href="[_1]">upgrade to a [_2] Real Account</a>.', request.url_for('new-account/real'), website_name) %]</div>
+                        <div id="msg_upgrade">[% l('To perform this action, please <a href="[_1]">upgrade to a [_2] Real Account</a>.', request.url_for('new-account'), website_name) %]</div>
                         <div id="msg_authenticate">[% l('To withdraw from MetaTrader 5 Financial Account please <a href="[_1]">Authenticate</a> your Binary account.', request.url_for('user/authenticate')) %]</div>
                     </div>
                 </div>

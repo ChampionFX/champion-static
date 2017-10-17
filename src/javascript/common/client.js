@@ -67,7 +67,7 @@ const Client = (function () {
     };
 
     const response_authorize = (response) => {
-        if (response.error || response.authorize.loginid !== Client.get('loginid')) {
+        if (response.error || response.authorize.loginid !== (Client.get('loginid') || Cookies.get('loginid'))) {
             request_logout();
             return;
         }
@@ -150,7 +150,7 @@ const Client = (function () {
         cookie.write(value, cookie_expire, true);
     };
 
-    const process_new_account = (client_email, client_loginid, token, virtual_client) => {
+    const process_new_account = (client_email, client_loginid, token, is_virtual) => {
         if (!client_email || !client_loginid || !token) {
             return;
         }
@@ -160,11 +160,13 @@ const Client = (function () {
         set_cookie('email',        client_email);
         set_cookie('token',        token);
         set_cookie('loginid',      client_loginid);
-        set_cookie('loginid_list', virtual_client ? `${client_loginid}:V:E` : `${client_loginid}:R:E+${Cookies.get('loginid_list')}`);
+        set_cookie('loginid_list', is_virtual ? `${client_loginid}:V:E` : `${client_loginid}:R:E+${Cookies.get('loginid_list')}`);
         // set local storage
         localStorage.setItem('GTM_new_account', '1');
-        set('loginid', client_loginid);
-        window.location.href = url.default_redirect_url();
+        if (!is_virtual) {
+            set('loginid', client_loginid);
+            window.location.href = url.default_redirect_url();
+        }
     };
 
     const request_logout = () => {

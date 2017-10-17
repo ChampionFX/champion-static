@@ -51,7 +51,7 @@ const Validation = (() => {
                         if ($parent.find(`div.${error_class}`).length === 0) {
                             $parent.append($('<div/>', { class: `${error_class} ${hidden_class}` }));
                         }
-                        field.$error = $parent.find(`.${error_class}`);
+                        field.$error = $parent.find(`div.${error_class}`);
                         // Add indicator to required fields
                         if (field.validations.indexOf('req') >= 0) {
                             const $label = $parent.find('label');
@@ -63,7 +63,7 @@ const Validation = (() => {
 
                     const event = events_map[field.type];
                     if (event) {
-                        field.$.unbind(event).on(event, () => {
+                        field.$.off(`${event}.validation`).on(`${event}.validation`, () => {
                             checkField(field);
                             if (field.re_check_field) {
                                 checkField(forms[form_selector].fields.find(fld => (

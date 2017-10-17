@@ -50,8 +50,6 @@ sub _texts {
         push @texts, localize('Should be more than [_1]');
         push @texts, localize('Should be less than [_1]');
         push @texts, localize('This feature is not relevant to virtual-money accounts.');
-
-        # new virtual account
         push @texts, localize('Please submit a valid verification token.');
 
         # new real account

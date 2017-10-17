@@ -24,8 +24,6 @@ const LostPassword            = require('./../pages/lost_password');
 const MT5                     = require('./../pages/mt5');
 const MT5WebPlatform          = require('./../pages/mt5_web_platform');
 const BinaryOptions           = require('./../pages/binary_options');
-const ChampionNewReal         = require('./../pages/new_account/real');
-const ChampionNewVirtual      = require('./../pages/new_account/virtual');
 const ResetPassword           = require('./../pages/reset_password');
 const ChampionSignup          = require('./../pages/signup');
 const TradingTimes            = require('./../pages/trading_times');
@@ -34,6 +32,7 @@ const ChangePassword          = require('./../pages/user/change_password');
 const Limits                  = require('./../pages/user/limits');
 const LoginHistory            = require('./../pages/user/login_history');
 const MetaTrader              = require('./../pages/user/metatrader/metatrader');
+const NewAccount              = require('./../pages/user/new_account');
 const ChampionProfile         = require('./../pages/user/profile');
 const ChampionSecurity        = require('./../pages/user/security');
 const SelfExclusion           = require('./../pages/user/self_exclusion');
@@ -94,11 +93,9 @@ const Champion = (function() {
             cfd                    : { module: MT5 },
             metals                 : { module: MT5 },
             profile                : { module: ChampionProfile,     is_authenticated: true },
-            real                   : { module: ChampionNewReal,     is_authenticated: true, only_virtual: true },
             redirect               : { module: Redirect },
             settings               : { module: ChampionSettings,    is_authenticated: true },
             security               : { module: ChampionSecurity,    is_authenticated: true },
-            virtual                : { module: ChampionNewVirtual,  not_authenticated: true },
             'cashier-password'     : { module: CashierPassword,     is_authenticated: true, only_real: true },
             'change-password'      : { module: ChangePassword,      is_authenticated: true },
             'choose-platform'      : { is_authenticated: true },
@@ -106,6 +103,7 @@ const Champion = (function() {
             'lost-password'        : { module: LostPassword,        not_authenticated: true },
             'binary-options'       : { module: BinaryOptions },
             'mt5-web-platform'     : { module: MT5WebPlatform },
+            'new-account'          : { module: NewAccount },
             'payment-methods'      : { module: CashierPaymentMethods },
             'reset-password'       : { module: ResetPassword,       not_authenticated: true },
             'self-exclusion'       : { module: SelfExclusion,       is_authenticated: true, only_real: true },

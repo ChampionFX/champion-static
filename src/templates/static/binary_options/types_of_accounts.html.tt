@@ -40,7 +40,7 @@
                                 <li>[% l('Win up to USD 50,000 with each correct prediction') %]</li>
                             </ul>
                             <div class="box-item-end">
-                                <a class="button real-signup" href="[% request.url_for('new-account/real') %]">
+                                <a class="button real-signup" href="[% request.url_for('home') %]#signup">
                                     <span>[% l('Sign up') %]</span>
                                 </a>
                             </div>
