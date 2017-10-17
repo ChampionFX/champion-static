@@ -1271,11 +1271,19 @@ iframe {
     flex: 0 1 auto;
 }
 
+.flex-column-swap {
+    display: flex;
+    flex-direction: column;
+}
+
 #how_payment_works {
     fieldset {
         border: 3px solid $fillColor !important;
         padding: 40px;
 
+        span, p {
+            @include fluid-type(12px, 16px);
+        }
         legend {
             color: $primaryBrandColor;
             padding: 0 10px;
@@ -1286,7 +1294,6 @@ iframe {
             font-size: $FONT_SIZE_S;
         }
         .arrow-1 > div {
-            width: 155px;
             height: 33px;
             background: url('../images/mt5/how_payment_works/arrow_deposit.svg') no-repeat center;
 
@@ -1296,27 +1303,43 @@ iframe {
         }
         .arrow-3 {
             > div {
-                width: 155px;
-                height: 145px;
-                line-height: 40px;
-                background: url('../images/mt5/how_payment_works/arrow_deposit_3.svg') no-repeat center;
+                height: 180px;
+                margin-bottom: 40px;
+
+                div {
+                    line-height: 50px;
+                }
+                @media (max-width: 768px) {
+                    height: 110px;
+
+                    div {
+                        line-height: 30px;
+                    }
+                }
+
+                background: url('../images/mt5/how_payment_works/deposit.svg') no-repeat center;
 
                 &.withdraw {
-                    background-image: url('../images/mt5/how_payment_works/arrow_withdraw_3.svg');
+                    background: url('../images/mt5/how_payment_works/withdraw.svg') no-repeat center;
                 }
                 :first-child {
-                    transform: rotate(-15deg);
+                    transform: rotateZ(-15deg) translateY(-5px) translateX(-10px);
                 }
                 :last-child {
-                    transform: rotate(15deg);
+                    transform: rotateZ(15deg) translateY(10px) translateX(5px);
                 }
             }
+
         }
         .mt5-account {
             text-align: left;
 
             > div {
                 margin-bottom: 25px;
+
+                span {
+                    display: block;
+                }
             }
         }
     }
