@@ -451,9 +451,10 @@ h1.main-title {
 .img-personnel {
     position: absolute;
     z-index: 1;
-    top: 0;
-    left: 30%;
+    bottom: 0;
+    left: 25%;
     width: 80%;
+    filter: drop-shadow(5px 5px 5px $black);
 }
 
 .personnel-container {
@@ -466,11 +467,13 @@ h1.main-title {
 
 .personnel-header {
     font-size: $FONT_SIZE_L;
+    color: $fillColor;
 }
 
 .personnel-subheader {
     span {
-        font-size: $FONT_SIZE_XS;
+        font-size: $FONT_SIZE_M;
+        color: $fillColor;
     }
     margin-top: -15px;
     padding-bottom: 5px;
@@ -510,7 +513,7 @@ h1.main-title {
         text-align: justify;
     }
     border-radius: 12px 12px 0px 0px;
-    background-color: $secondaryContentColor;
+    background-color: $borderColor;
     padding-top: 10px;
 }
 
