@@ -444,82 +444,73 @@ h1.main-title {
 }
 
 // About us
-.about-us-header {
-    background: url('../images/about/banner_championfx.png') top left / cover no-repeat;
-}
-
-.img-personnel {
-    position: absolute;
-    z-index: 1;
-    bottom: 0;
-    left: 25%;
-    width: 80%;
-    filter: drop-shadow(5px 5px 5px $black);
-}
-
-.personnel-container {
-    margin-bottom: 4em;
-}
-
-.personnel-row {
-    margin-top: 3em;
-}
-
-.personnel-header {
-    font-size: $FONT_SIZE_L;
-    color: $fillColor;
-}
-
-.personnel-subheader {
-    span {
-        font-size: $FONT_SIZE_M;
+#about-us {
+    .about-us-header {
+        background: url('../images/about/banner_championfx.png') top left / cover no-repeat;
+    }
+    .img-personnel {
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        left: 25%;
+        width: 80%;
+        filter: drop-shadow(5px 5px 5px $black);
+    }
+    .personnel-container {
+        margin-bottom: 4em;
+    }
+    .personnel-row {
+        margin-top: 3em;
+    }
+    .personnel-header {
+        font-size: $FONT_SIZE_L;
         color: $fillColor;
     }
-    margin-top: -15px;
-    padding-bottom: 5px;
-}
+    .personnel-subheader {
+        margin-top: -15px;
+        padding-bottom: 5px;
 
-.fx-about-quote-left:before {
-    content: url('../images/about/quote.svg');
-    position: absolute;
-    top: 35%;
-}
-
-.fx-about-quote-right:after {
-    content: url('../images/about/quote.svg');
-    position: absolute;
-    top: 35%;
-    right: 15px;
-}
-
-.fx-linkedin:before {
-    margin-left: 10px;
-    content: url('../images/about/Linkedin.svg');
-}
-
-.fx-about-email:before {
-    margin-left: 10px;
-    content: url('../images/about/Email.svg');
-}
-
-.personnel-header-bg {
-    color: $white;
-    background-color: $black;
-}
-
-.personnel-desc-bg {
-    p {
-        padding: 10px;
-        text-align: justify;
+        span {
+            font-size: $FONT_SIZE_M;
+            color: $fillColor;
+        }
     }
-    border-radius: 12px 12px 0px 0px;
-    background-color: $borderColor;
-    padding-top: 10px;
-}
-
-.padding-bottom-15 {
-    border-radius: 0px 0px 12px 12px;
-    padding-bottom: 15px;
+    .fx-about-quote-left:before {
+        content: url('../images/about/quote.svg');
+        position: absolute;
+        top: 35%;
+    }
+    .fx-about-quote-right:after {
+        content: url('../images/about/quote.svg');
+        position: absolute;
+        top: 35%;
+        right: 15px;
+    }
+    .fx-linkedin:before {
+        margin-left: 10px;
+        content: url('../images/about/Linkedin.svg');
+    }
+    .fx-about-email:before {
+        margin-left: 10px;
+        content: url('../images/about/Email.svg');
+    }
+    .personnel-header-bg {
+        color: $white;
+        background-color: $black;
+    }
+    .personnel-desc-bg {
+        p {
+            padding: 10px;
+            text-align: justify;
+        }
+        border-radius: 12px 12px 0px 0px;
+        background-color: $borderColor;
+        padding-top: 10px;
+    }
+    .padding-bottom-15 {
+        border-radius: 0px 0px 12px 12px;
+        padding-bottom: 15px;
+    }
 }
 
 // Contact us

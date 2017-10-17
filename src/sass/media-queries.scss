@@ -8,7 +8,7 @@
     .fx-fix-api:before {
         transform: scale(0.8);
     }
-    .personnel-desc p {
+    #about-us .personnel-desc p {
         span:last-child {
             width: 100% !important;
         }
@@ -41,30 +41,32 @@
         width: 40px;
         padding: 25px 0;
     }
-    .personnel-desc p {
-        span:last-child {
-            width: 95% !important;
+    #about-us {
+        .personnel-desc p {
+            span:last-child {
+                width: 95% !important;
+            }
+            padding: 0;
+            text-align: left;
         }
-        padding: 0;
-        text-align: left;
-    }
-    .personnel-card {
-        p {
-            padding-bottom: 5px;
+        .personnel-card {
+            p {
+                padding-bottom: 5px;
+            }
+            padding-left: 0;
+            width: 80%;
         }
-        padding-left: 0;
-        width: 80%;
-    }
-    .personnel-header {
-        font-size: $FONT_SIZE_M !important;
-    }
-    .personnel-subheader {
-        span {
-            font-size: $FONT_SIZE_S !important;
+        .personnel-header {
+            font-size: $FONT_SIZE_M !important;
         }
-    }
-    .img-personnel {
-        right: -5% !important;
+        .personnel-subheader {
+            span {
+                font-size: $FONT_SIZE_S !important;
+            }
+        }
+        .img-personnel {
+            right: -5% !important;
+        }
     }
 }
 
@@ -95,24 +97,26 @@
     .fx-partnerships-margin-bottom {
         margin-bottom: 20px;
     }
-    .img-personnel {
-        width: 35%;
-        left: unset;
-        right: 0;
-    }
-    .personnel-desc p {
-        span:last-child {
-            width: 75%;
-            float: left;
+    #about-us {
+        .img-personnel {
+            width: 35%;
+            left: unset;
+            right: 0;
         }
-        padding: 0;
-        text-align: left;
-    }
-    .personnel-header {
-        font-size: $FONT_SIZE_N;
-    }
-    .fx-about-quote-left, .fx-about-quote-right {
-        display: none;
+        .personnel-desc p {
+            span:last-child {
+                width: 75%;
+                float: left;
+            }
+            padding: 0;
+            text-align: left;
+        }
+        .personnel-header {
+            font-size: $FONT_SIZE_N;
+        }
+        .fx-about-quote-left, .fx-about-quote-right {
+            display: none;
+        }
     }
     #how_payment_works {
         fieldset {
