@@ -43,18 +43,20 @@
     }
     #about-us {
         .personnel-desc p {
+            padding: 0;
+            text-align: left;
+
             span:last-child {
                 width: 95% !important;
             }
-            padding: 0;
-            text-align: left;
         }
         .personnel-card {
+            padding-left: 0;
+            width: 80%;
+
             p {
                 padding-bottom: 5px;
             }
-            padding-left: 0;
-            width: 80%;
         }
         .personnel-header {
             font-size: $FONT_SIZE_M !important;
@@ -104,12 +106,13 @@
             right: 0;
         }
         .personnel-desc p {
+            padding: 0;
+            text-align: left;
+
             span:last-child {
                 width: 75%;
                 float: left;
             }
-            padding: 0;
-            text-align: left;
         }
         .personnel-header {
             font-size: $FONT_SIZE_N;
