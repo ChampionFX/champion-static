@@ -1,4 +1,5 @@
 const ChampionSocket = require('../common/socket');
+const Login          = require('../common/login');
 const Validation     = require('../common/validation');
 
 const ChampionSignup = (function() {
@@ -70,6 +71,12 @@ const ChampionSignup = (function() {
         Validation.init(form_selector, [
             { selector: '#email', validations: ['req', 'email'], msg_element: '#signup_error', no_scroll: true },
         ]);
+        $('#google-signup').off('click', socialLogin).on('click', { param: 'google' }, socialLogin);
+    };
+
+    const socialLogin = (e) => {
+        e.preventDefault();
+        window.location.href = Login.social_login(e.data.param);
     };
 
     const unload = () => {
@@ -81,6 +88,7 @@ const ChampionSignup = (function() {
 
         $('toggle-modal').off('click');
         $('.modal__header .close').off('click');
+        $('#google-signup').off('click');
     };
 
     const submit = (e) => {

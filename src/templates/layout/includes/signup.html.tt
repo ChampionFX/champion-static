@@ -3,7 +3,7 @@
     <span class="error-msg invisible" id="signup_error"></span>
     <button class="button" id="btn-verify-email" type="submit">[% l('Submit') %]</button>
     <p>[% l('or') %]</p>
-    <a href="https://oauth.champion-fx.com/oauth2/authorize?app_id=2472&l=EN&social_signup=google" target="_blank" class="button-secondary">
+    <a id="google-signup" href="javascript:;" class="button-secondary">
         <span class="fx google-signup">[% l('Sign up with Google') %]</span>
     </a>
 </form>
