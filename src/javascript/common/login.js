@@ -24,7 +24,7 @@ const Login = (function() {
         );
     };
 
-    const social_login = brand => (`${login_url()}&brand=champion&social_signup=${brand}`);
+    const social_login = brand => (`${login_url()}&social_signup=${brand}`);
 
     const is_login_pages = () => /logged_inws/.test(document.URL);
 
