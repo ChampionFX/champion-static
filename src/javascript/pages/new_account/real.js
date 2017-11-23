@@ -94,9 +94,6 @@ const ChampionNewRealAccount = (function() {
         ];
         if (!hasResidence()) {
             validations.push(
-                { selector: fields.txt_verification_code, validations: ['req', 'email_token'] },
-                { selector: fields.txt_password,          validations: ['req', 'password'] },
-                { selector: fields.txt_re_password,       validations: ['req', ['compare', { to: fields.txt_password }]] },
                 { selector: fields.ddl_residence,         validations: ['req'] });
         }
 
