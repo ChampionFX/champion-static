@@ -20,8 +20,10 @@
                     [% INCLUDE components/forms/form_row.html.tt type='text'  id='txt_fname'      label=l('First name')           attributes='maxlength="30"' %]
                     [% INCLUDE components/forms/form_row.html.tt type='text'  id='txt_lname'      label=l('Family name')          attributes='maxlength="30"' %]
                     [% INCLUDE components/forms/form_row.html.tt type='text'  id='txt_birth_date' label=l('Date of birth')        attributes='size="12" readonly="readonly"' %]
+                    [% INCLUDE components/forms/form_row.html.tt type='select' id='ddl_residence' label=l('Country of residence')
+                        attributes='class="invisible"' loading=1 loading_id='ddl_residence_loading' row_class='hide-upgrade invisible' %]
                     [% INCLUDE components/forms/form_row.html.tt type='label' id='lbl_residence'  label=l('Country of residence')
-                        class="invisible" loading=1 loading_id='residence_loading' %]
+                        class="invisible" loading=1 loading_id='lbl_residence_loading' row_class='show-upgrade invisible' %]
                     [% WRAPPER components/forms/form_row.html.tt type='select' id='ddl_opening_reason' label=l("Account opening reason") %]
                         <option value="Speculative">[% l('Speculative') %]</option>
                         <option value="Income Earning">[% l("Income Earning") %]</option>
