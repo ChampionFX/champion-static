@@ -59,7 +59,7 @@ const ChampionNewRealAccount = (function() {
         btn_submit.on('click dblclick', submit);
     };
 
-    const isUpgrade = () => Client.is_logged_in();
+    const hasResidence = () => Client.get('residence');
 
     const unload = () => {
         if (btn_submit) {
@@ -70,7 +70,7 @@ const ChampionNewRealAccount = (function() {
         }
     };
 
-    const toggleForm = (is_upgrade = isUpgrade()) => {
+    const toggleForm = (is_upgrade = hasResidence()) => {
         $container.find('.hide-upgrade')[is_upgrade ? 'addClass' : 'removeClass'](hidden_class);
         $container.find('.show-upgrade')[is_upgrade ? 'removeClass' : 'addClass'](hidden_class);
     };
@@ -92,7 +92,7 @@ const ChampionNewRealAccount = (function() {
             { selector: fields.chk_not_pep,         validations: ['req'] },
             { selector: fields.ddl_opening_reason,  validations: ['req'] },
         ];
-        if (!isUpgrade()) {
+        if (!hasResidence()) {
             validations.push(
                 { selector: fields.txt_verification_code, validations: ['req', 'email_token'] },
                 { selector: fields.txt_password,          validations: ['req', 'password'] },
@@ -106,7 +106,7 @@ const ChampionNewRealAccount = (function() {
     const displayResidence = () => {
         ChampionSocket.send({ residence_list: 1 }).then((response) => {
             $container.find('#ddl_residence_loading, #lbl_residence_loading').remove();
-            if (isUpgrade()) {
+            if (hasResidence()) {
                 $container.find(fields.lbl_residence).text(setPhoneIdd(client_residence).text)
                     .parent().removeClass(hidden_class);
                 populateState();
