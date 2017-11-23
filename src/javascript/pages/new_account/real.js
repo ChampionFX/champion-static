@@ -118,9 +118,9 @@ const ChampionNewRealAccount = (function() {
     };
 
     const residenceOnChange = () => {
-        const residence = $container.find(fields.ddl_residence).val();
-        setPhoneIdd(residence);
-        populateState(residence);
+        client_residence = $container.find(fields.ddl_residence).val();
+        setPhoneIdd(client_residence);
+        populateState(client_residence);
     };
 
     const setPhoneIdd = (country) => {
