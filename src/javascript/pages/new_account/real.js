@@ -130,10 +130,15 @@ const ChampionNewRealAccount = (function() {
 
     const populateState = (country = client_residence) => {
         ChampionSocket.send({ states_list: country }).then((response) => {
-            const $ddl_state = $container.find(fields.ddl_state);
+            const $ddl_state = $container.find(fields.ddl_state).length ?
+                $container.find(fields.ddl_state) : $container.find(fields.txt_state);
             const states = response.states_list;
             $container.find('#state_loading').remove();
             if (states && states.length) {
+                if (/INPUT/.test($ddl_state[0].nodeName)) {
+                    $ddl_state.replaceWith($('<select/>', { id: fields.txt_state.replace('#', '') }));
+                    populateState(country);
+                }
                 Utility.dropDownFromObject($ddl_state, states);
                 $ddl_state.removeClass(hidden_class);
             } else {
