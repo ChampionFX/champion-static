@@ -47,12 +47,11 @@ const ChampionNewRealAccount = (function() {
             return;
         }
 
-        $container        = $('#champion-container');
+        $container       = $('#champion-container');
         client_residence = Client.get('residence');
 
         toggleForm();
         displayResidence();
-        populateState();
         attachDatePicker();
 
         btn_submit = $container.find(fields.btn_submit);
@@ -110,7 +109,7 @@ const ChampionNewRealAccount = (function() {
             } else {
                 const $ddl_residence = $container.find(fields.ddl_residence);
                 Utility.dropDownFromObject($ddl_residence, response.residence_list);
-                $ddl_residence.off('change').on('change', residenceOnChange);
+                $ddl_residence[0].addEventListener('change', residenceOnChange); // jQuery .on('change') doesn't work
                 residenceOnChange();
                 $ddl_residence.removeClass(hidden_class);
             }
