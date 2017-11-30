@@ -166,6 +166,9 @@ const ChampionNewRealAccount = (function() {
     const submit = (e) => {
         e.preventDefault();
         btn_submit.attr('disabled', 'disabled');
+        if (!hasResidence()) {
+            setResidence();
+        }
         if (Validation.validate(form_selector)) {
             const data = {
                 new_account_real      : 1,
@@ -200,6 +203,19 @@ const ChampionNewRealAccount = (function() {
         } else {
             btn_submit.removeAttr('disabled');
         }
+    };
+
+    const setResidence = () => {
+        const req = {
+            set_settings: 1,
+            residence   : client_residence,
+        };
+        ChampionSocket.send(req).then((response) => {
+            if (response.error) {
+                $('#msg_form').removeClass(hidden_class).text(response.error.message);
+                btn_submit.removeAttr('disabled');
+            }
+        });
     };
 
     return {
