@@ -1,5 +1,9 @@
 <form id="verify-email-form" class="frm-verify-email">
     <input class="clean-input primary-input" autocomplete="off" name="email" id="email" maxlength="50" placeholder="[% l('Enter your email') %]">
     <span class="error-msg invisible" id="signup_error"></span>
-    <button class="button" id="btn-verify-email" type="submit">[% l('Create Free Account') %]</button>
+    <button class="button" id="btn-verify-email" type="submit">[% l('Submit') %]</button>
+    <p>[% l('or') %]</p>
+    <a id="google-signup" href="javascript:;" class="button-secondary">
+        <span class="fx google-signup">[% l('Sign up with Google') %]</span>
+    </a>
 </form>
