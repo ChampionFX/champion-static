@@ -1,56 +1,63 @@
 #mt_account_management {
-    padding: 30px;
+    border: 3px solid $fillColor;
+    border-radius: $BORDER_RADIUS;
 
+    > div {
+        display: flex;
+    }
     .mt-container {
-        padding: 0 30px;
+        padding: 20px;
     }
     .mt-panel {
-        background: $white;
-        padding: 10px 0 20px;
-
-        .top {
-            height: 80px;
-            margin-bottom: 20px;
-        }
-        &:nth-child(2) {
-            border-left: 30px solid $fillColor;
-        }
+        margin-bottom: 20px;
+        flex: 1;
+        flex-direction: column;
     }
     #account_selector {
+        width: 300px;
         position: relative;
-        margin: 5px;
         cursor: pointer;
+        margin-bottom: 10px;
 
-        #mt5_account, #accounts_list {
-            border: 1px solid $primaryBrandColor;
-        }
         #mt5_account {
-            height: 40px;
-            line-height: 40px;
-            padding: 0 20px;
+            height: 36px;
+            line-height: 36px;
+            padding: 0 30px 0 20px;
             box-sizing: border-box;
             margin: 0;
             overflow: hidden;
-            background: $primaryBrandColor;
-            color: $white;
+            color: $primaryBrandColor;
+            border: 1px solid $secondaryContentColor;
             border-radius: $BORDER_RADIUS;
+            font-size: inherit;
 
-            &.open {
-                border-radius: $BORDER_RADIUS $BORDER_RADIUS 0 0;
-            }
             &:after {
                 content: '';
                 display: block;
                 float: right;
                 margin-top: 17px;
+                margin-right: -15px;
                 border-left: 5px solid transparent;
                 border-right: 5px solid transparent;
-                border-top: 5px solid $white;
+                border-top: 5px solid $primaryBrandColor;
+            }
+            &:hover {
+                border-color: $primaryBrandColor;
+            }
+            &.open {
+                background: $primaryBrandColor;
+                color: $white;
+                border-color: $primaryBrandColor;
+                border-radius: $BORDER_RADIUS $BORDER_RADIUS 0 0;
+
+                &:after {
+                    border-top-color: $white;
+                }
             }
         }
         #accounts_list {
             width: 100%;
-            padding: 10px 0;
+            border: 1px solid $primaryBrandColor;
             border-radius: 0 0 $BORDER_RADIUS $BORDER_RADIUS;
             border-top: 0;
             display: none;
@@ -61,29 +68,17 @@
             .acc-name {
                 line-height: 30px;
                 padding: 0 20px;
+                border-top: 1px solid $fillColor;
 
                 &:hover {
+                    background: $fillColor;
+                }
+                &.selected {
                     color: $primaryBrandColor;
                     background: $fillColor;
                 }
-                &.disabled {
-                    color: $secondaryContentColor;
-
-                    .mt-new img {
-                        filter: grayscale(100%);
-                        opacity: 0.2;
-                    }
-                }
-                .mt-balance {
+                .mt-icon {
                     float: right;
-                    font-size: $FONT_SIZE_S;
-                }
-                .mt-new {
-                    float: right;
-
-                    img {
-                        width: 14px;
-                    }
                 }
             }
             .separator {
@@ -91,120 +86,385 @@
             }
         }
     }
-    #account_detail {
+    #mt_left_panel {
+        display: flex;
+        flex-direction: column;
+        padding-right: 0px;
+    }
+    #mt_right_panel {
+        border-left: 3px solid $fillColor;
+        font-size: $FONT_SIZE_S;
+        padding-left: 0;
+
+        #account_desc {
+            border-bottom: 1px solid $fillColor;
+        }
+        .platforms li {
+            margin-bottom: 10px;
+
+            img {
+                width: 16px;
+                height: 16px;
+                margin-right: 5px;
+            }
+        }
+    }
+    #account_details {
+        flex: 0;
+        margin-bottom: 0;
+
+        #acc_icon {
+            width: 90px;
+            height: 90px;
+            border: 2px solid $borderColor;
+            border-radius: 50%;
+            background: no-repeat center;
+            background-size: 50px;
+
+            &.cent {
+                background-image: url('../images/metatrader/dashboard/acc_cent.svg');
+            }
+            &.standard {
+                background-image: url('../images/metatrader/dashboard/acc_standard.svg');
+            }
+            &.stp {
+                background-image: url('../images/metatrader/dashboard/acc_stp.svg');
+            }
+        }
         .acc-info {
             font-size: $FONT_SIZE_S;
-            line-height: 20px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-        .acc-actions a {
-            margin: 5px;
-            display: block;
-            padding: 20px 30px;
-            background: $fillColor;
 
-            &:hover, &.selected {
-                border-right: 5px solid $primaryBrandColor;
+            .login {
+                padding: 2px 15px;
+                border-radius: 15px;
+                background: $fillColor;
+                color: $primaryBrandColor;
             }
-            img {
-                height: 24px;
+            .balance {
+                color: $primaryBrandColor;
+                padding-top: 0;
             }
         }
-        #account_desc {
-            font-size: $FONT_SIZE_S;
+        .acc-box {
+            max-width: 300px;
 
-            a.more {
-                display: block;
-                margin-top: 20px;
+            span[data] {
+                float: right;
+            }
+        }
+    }
+    .tab-container {
+        padding: 0 10px 10px;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+
+        .acc-actions {
+            display: flex;
+
+            * {
+                transition: unset !important;
+            }
+            .spacer {
+                width: 5px;
+            }
+            a {
+                border: 2px solid $fillColor;
+                border-bottom: none;
+                border-radius: $BORDER_RADIUS $BORDER_RADIUS 0 0;
+                line-height: 20px;
+                padding: 10px;
+                font-weight: normal;
+                flex: 1;
+                background: $white;
+                color: $black;
+                text-decoration: none;
+
+                &.selected {
+                    border-color: $lighterBlue;
+                    background: $lighterBlue;
+                    color: $primaryBrandColor;
+                    padding-bottom: 2px;
+                    margin-bottom: -2px;
+                }
             }
         }
     }
     .fst-container {
+        border: 2px solid $fillColor;
+        border-radius: 0 0 $BORDER_RADIUS $BORDER_RADIUS;
+        flex: 1 1 auto;
+
+        &.no-border {
+            border: none;
+        }
         #fst_action {
             position: relative;
 
             h4 {
                 padding-top: 6px;
             }
-            .separator {
-                margin-bottom: 20px;
-            }
-            #main_msg {
+            .separator, #main_msg {
                 margin-bottom: 20px;
             }
             button .barspinner.white {
                 height: 13px;
                 margin: 3px;
             }
+            #frm_cashier {
+                .mt-panel {
+                    margin-bottom: 0;
+                    padding: 15px;
+                }
+                .bordered {
+                    border: 2px solid $fillColor;
+                }
+                .flex {
+                    display: flex;
+                    flex: 1 1 auto;
+                    flex-direction: column;
+
+                    &:first-child {
+                        padding-right: 10px;
+                    }
+                    &:last-child {
+                        padding-left: 10px;
+                    }
+                }
+                .cashier-guide {
+                    display: inline-flex;
+                    flex-wrap: wrap;
+
+                    div {
+                        display: inline-block;
+                        vertical-align: middle;
+                        padding: 0 20px;
+                        text-align: left;
+
+                        &:first-child {
+                            text-align: right;
+                        }
+                    }
+                }
+                .payment-guide {
+                    display: block;
+                    text-align: right;
+                    line-height: 20px;
+                    margin-top: -15px;
+
+                    a {
+                        color: $secondaryContentColor;
+                        font-weight: normal;
+                        padding-right: 20px;
+                        background: url('../images/metatrader/dashboard/question_mark.svg') no-repeat center right;
+                    }
+                }
+                img {
+                    height: 64px;
+                    max-width: 64px;
+                }
+                h2 {
+                    margin-bottom: 10px;
+                }
+            }
+            #frm_new_account #btn_next span {
+                padding-right: 50px;
+                padding-left: 50px;
+            }
+            #view_1 {
+                margin: 0 50px;
+
+                .flex {
+                    display: flex;
+                    flex: 1;
+                }
+                .mt5-type-box {
+                    margin: 0 auto;
+                    cursor: pointer;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    border: 1px solid $fillColor;
+
+                    &:hover {
+                        border-color: $primaryBrandColor;
+                    }
+                    &:before {
+                        content: '';
+                        width: 16px;
+                        height: 16px;
+                        border: 1px solid $fillColor;
+                        border-radius: 50%;
+                        position: absolute;
+                        right: 6px;
+                        top: 6px;
+                    }
+                    &.existed:before {
+                        background: url('../images/metatrader/dashboard/tick_gray.svg');
+                        border: none;
+                    }
+                    &.selected {
+                        border-color: $primaryBrandColor;
+                        cursor: default;
+
+                        &:before {
+                            background: url('../images/metatrader/dashboard/tick.svg');
+                            border: none;
+                        }
+                    }
+                    &.disabled:before {
+                        display: none;
+                    }
+                    &.disabled, &.existed {
+                        cursor: default;
+
+                        &:hover {
+                            border-color: $fillColor;
+                        }
+                    }
+                }
+                .step-1 .mt5-type-box {
+                    flex-direction: column;
+                    padding: 20px 10px 0;
+                    width: 100%;
+                    border-width: 3px;
+
+                    .title {
+                        color: $primaryBrandColor;
+                    }
+                    .image {
+                        display: inline-block;
+                        width: 75px;
+                        height: 50px;
+                        margin-top: 10px;
+                        background: url('../images/metatrader/dashboard/acc_demo.svg') no-repeat center;
+                    }
+                    &#rbtn_real .image {
+                        background-image: url('../images/metatrader/dashboard/acc_real.svg');
+                    }
+                    &#rbtn_real.disabled .image {
+                        background-image: url('../images/metatrader/dashboard/acc_real_disabled.svg');
+                    }
+                    #msg_real_financial {
+                        display: none;
+                    }
+                    &.disabled {
+                        .title {
+                            color: $secondaryContentColor;
+                        }
+                        .desc {
+                            display: none;
+                        }
+                        #msg_real_financial {
+                            display: block;
+                        }
+                    }
+                }
+                .step-2 {
+                    .mt5-type-box {
+                        width: 128px;
+                        height: 128px;
+
+                        &.disabled, &.existed {
+                            background: rgba(0, 0, 0, 0.05);
+                        }
+                        div {
+                            font-weight: bold;
+                            color: $primaryBrandColor;
+                            text-align: center;
+                            flex: 1;
+                        }
+                        img {
+                            height: 65px;
+                            flex: 1;
+                        }
+                    }
+                    p {
+                        margin-bottom: 0;
+                    }
+                }
+                #btn_cancel {
+                    margin: 0 20px;
+                }
+            }
         }
     }
     .txt-left {
         text-align: left;
     }
+    .padding-10 {
+        padding: 10px 0;
+    }
+    .small-text {
+        font-size: $FONT_SIZE_S;
+    }
+}
+
+@media (max-width: 575px) {
+    #mt_account_management {
+        #mt_left_panel {
+            padding: 0 10px;
+
+            #account_selector {
+                width: 200px;
+                margin-left: 20px;
+            }
+            .acc-box {
+                padding: 0 20px;
+                max-width: 240px;
+            }
+        }
+        #mt_right_panel {
+            padding: 0 10px;
+        }
+        .fst-container #fst_action #frm_cashier .flex {
+            &:first-child {
+                padding-right: 15px;
+                margin-bottom: 10px;
+            }
+            &:last-child {
+                padding-left: 15px;
+            }
+        }
+    }
 }
 
 @media (max-width: 767px) {
     #mt_account_management {
-        padding: 10px;
-
-        .mt-container {
-            padding: 0 10px;
+        #mt_left_panel {
+            padding-right: 15px;
         }
-        .mt-panel {
-            padding: 10px 0 0;
-
-            &:nth-child(2) {
-                border-left: none;
-            }
-        }
-        .acc-actions {
-            display: table;
-            border-spacing: 5px;
-
-            > a {
-                display: table-cell !important;
-
-                &.invisible {
-                    display: none !important;
-                }
-                width: 1%;
-                text-align: center;
-                padding: 10px !important;
-
-                &:hover, &.selected {
-                    border-right: 0 !important;
-                    border-bottom: 5px solid $primaryBrandColor;
-                }
-                img {
-                    height: 36px;
-                    margin-bottom: 5px;
-                }
-                span {
-                    display: block;
-                }
-            }
+        #mt_right_panel {
+            border-left: 0;
+            padding-left: 15px;
         }
     }
 }
 
 @media (max-width: 991px) {
-    #mt_account_management .mt-container {
-        padding: 0 10px;
+    #mt_account_management {
+        .mt-container {
+            padding: 10px;
+        }
+        .fst-container #fst_action #frm_cashier {
+            .payment-guide {
+                margin-top: -5px;
+            }
+            .flex:first-child {
+                padding-right: 15px;
+                margin: 10px 0;
+            }
+            .flex:last-child {
+                padding-left: 15px;
+            }
+        }
     }
 }
 
 @media (max-width: 1199px) {
     #mt_account_management {
-        .mt-container {
-            padding: 0 20px;
-        }
         #accounts_list {
             font-size: $FONT_SIZE_S;
-
-            .mt-balance {
-                font-size: $FONT_SIZE_XS !important;
-            }
         }
     }
 }

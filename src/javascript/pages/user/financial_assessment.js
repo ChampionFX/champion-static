@@ -1,9 +1,10 @@
-const Header             = require('../../common/header');
+const Notify             = require('../../common/notify');
 const ChampionSocket     = require('../../common/socket');
 const State              = require('../../common/storage').State;
 const isEmptyObject      = require('../../common/utility').isEmptyObject;
 const showLoadingImage   = require('../../common/utility').showLoadingImage;
 const Validation         = require('../../common/validation');
+
 
 const FinancialAssessment = (() => {
     'use strict';
@@ -99,7 +100,7 @@ const FinancialAssessment = (() => {
                     showFormMessage('Your changes have been updated successfully.', true);
                     // need to remove financial_assessment_not_complete from status if any
                     ChampionSocket.send({ get_account_status: 1 }, true).then(() => {
-                        Header.displayAccountStatus();
+                        Notify.updateNotifications();
                     });
                 }
             });

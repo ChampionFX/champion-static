@@ -25,7 +25,7 @@
                                 <li>[% l('Replenish your virtual funds when your balance dips below USD 1,000') %]</li>
                             </ul>
                             <div class="box-item-end">
-                                <a class="button virtual-signup" href="[% request.url_for('home') %]#signup">
+                                <a class="button virtual-signup toggle-signup-modal" href="javascript:;">
                                     <span>[% l('Sign up') %]</span>
                                 </a>
                             </div>

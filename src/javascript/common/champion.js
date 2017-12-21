@@ -9,8 +9,8 @@ const SessionDurationLimit    = require('./session_duration_limit');
 const ChampionSocket          = require('./socket');
 const State                   = require('./storage').State;
 const default_redirect_url    = require('./url').default_redirect_url;
-const url_for                 = require('./url').url_for;
 const Utility                 = require('./utility');
+const Notify                  = require('./notify');
 const Cashier                 = require('./../pages/cashier/cashier');
 const CashierPassword         = require('./../pages/cashier/cashier_password');
 const CashierDepositWithdraw  = require('./../pages/cashier/deposit_withdraw');
@@ -59,6 +59,7 @@ const Champion = (function() {
             get_settings      : (response) => { GTM.eventHandler(response.get_settings); },
             get_self_exclusion: (response) => { SessionDurationLimit.exclusionResponseHandler(response); },
         }, Client.is_logged_in());
+        Notify.init(); // call once
         ChampionRouter.init(container, '#champion-content');
         if (!Client.is_logged_in()) {
             $('.btn-login').on('click', () => { Login.redirect_to_login(); });
@@ -133,7 +134,7 @@ const Champion = (function() {
         login: module => (
             module === MetaTrader ?
             Utility.template(`To register an MT5 account, please <a href="[_1]" class="login">log in</a> to your ChampionFX account<br />
-                Don't have a ChampionFX account? <a href="[_2]">Create one</a> now`, [`${'java'}${'script:;'}`, url_for('/')]) :
+                Don't have a ChampionFX account? <a href="[_1]" class="toggle-signup-modal">Create one</a> now`, [`${'java'}${'script:;'}`]) :
             Utility.template('Please <a href="[_1]" class="login">log in</a> to view this page.', [`${'java'}${'script:;'}`])
         ),
         only_virtual: 'Sorry, this feature is available to virtual accounts only.',

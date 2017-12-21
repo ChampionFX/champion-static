@@ -24,12 +24,15 @@ const Login = (function() {
         );
     };
 
+    const social_login = brand => (`${login_url()}&social_signup=${brand}`);
+
     const is_login_pages = () => /logged_inws/.test(document.URL);
 
     return {
         redirect_to_login: redirect_to_login,
         login_url        : login_url,
         is_login_pages   : is_login_pages,
+        social_login     : social_login,
     };
 })();
 

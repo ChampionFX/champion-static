@@ -33,6 +33,7 @@
                 <span class="fx-logo__icon--light"></span>
                 <span class="fx-logo__wordmark--light"></span>
             </a>
+            <div class="notify logged-in invisible"></div>
             <div class="navbar__nav has-accounts">
                 <ul class="navbar__nav__menu account-dropdown logged-in invisible">
                     <li>
@@ -89,9 +90,9 @@
                 ] %]
             </div>
 
-            <div class="navbar__button-group logged-out invisible">
-                <a class="btn-login button hidden-lg-up" href="javascript:;"><span>[% l('Log In') %]</span></a>
-                <a class="button-secondary" href="[% request.url_for('home') %]#signup"><span>[% l('Sign Up') %]</span></a>
+            <div class="navbar__button-group toggle-signup-modal logged-out invisible">
+                <a class="hidden-lg-up " href="javascript:;"><img src="[% request.url_for('images/signup/login.svg') %]"/></a>
+                <a class="button-secondary hidden-lg-down" href="javascript:;"><span>[% l('Sign Up') %]</span></a>
             </div>
         </div>
     </nav>

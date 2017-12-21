@@ -1,11 +1,11 @@
 const Client         = require('./client');
 const formatMoney    = require('./currency').formatMoney;
 const GTM            = require('./gtm');
+const Notify         = require('./notify');
 const ChampionRouter = require('./router');
 const ChampionSocket = require('./socket');
 const State          = require('./storage').State;
 const url_for        = require('./url').url_for;
-const template       = require('./utility').template;
 
 const Header = (function () {
     'use strict';
@@ -36,7 +36,6 @@ const Header = (function () {
             $('#top_group').removeClass('logged-in').find('.logged-out').removeClass(hidden_class);
             $('.trading-platform-header').removeClass(hidden_class);
             $('.navbar__brand, .navbar__toggle').removeClass('logged-in'); // show logo
-            $('#header > .navbar').removeClass('navbar--fixed');
         }
     };
 
@@ -47,30 +46,18 @@ const Header = (function () {
         updateBody();
 
         $('#header .logged-in').removeClass(hidden_class);
-        $('#header > .navbar').addClass('navbar--fixed');
-
-        // to be remove when we change notification ui
-        $(window).on('orientationchange resize', updateMobileMenuHeight);
-        updateMobileMenuHeight();
     };
 
     const updateBody = () => {
-        const notificationBarHeight = $('#msg_notification').css('display') === 'block' ? $('#top_group').height() : 0;
-        const navbarHeight = 50;
-        $('#champion-container').css('margin-top', navbarHeight + notificationBarHeight);
-        updateMobileMenuHeight();
+        $('#champion-container').css('margin-top', $('#top_group').height());
     };
-
-    const updateMobileMenuHeight = () => {
-        $('.navbar__nav').height($(window).height() - $('#top_group').height());
-    };
-
     const userMenu = function() {
         if (!Client.is_logged_in()) return;
         if (!Client.is_virtual()) {
-            displayAccountStatus();
+            Notify.updateNotifications();
+        } else {
+            Notify.removeUI();
         }
-
         setMetaTrader();
 
         const selectedTemplate = (text, value, icon) => (
@@ -103,9 +90,6 @@ const Header = (function () {
                 if (is_current && !is_mt_pages) {
                     $('.account-type').html(type);
                     $('.account-id').html(curr_id);
-                } else if (is_mt_pages && login.real && Client.is_virtual()) {
-                    switchLoginId(curr_id);
-                    return;
                 }
                 loginid_select += switchTemplate(curr_id, curr_id, icon, type, is_current ? (is_mt_pages ? 'mt-show' : 'invisible') : '');
             }
@@ -118,11 +102,12 @@ const Header = (function () {
         $('.login-id-list a').off('click').on('click', function(e) {
             e.preventDefault();
             $(this).attr('disabled', 'disabled');
-            switchLoginId($(this).attr('value'));
-            if (State.get('is_mt_pages')) {
-                State.remove('is_mt_pages');
+            const is_mt = State.get('is_mt_pages');
+            State.remove('is_mt_pages'); // needs to remove the flag before redirection
+            if (is_mt || State.get('current_page') === 'metatrader') {
                 ChampionRouter.forward(url_for('user/settings'));
             }
+            switchLoginId($(this).attr('value')); // should be at the end as this reloads the page
         });
     };
 
@@ -130,71 +115,6 @@ const Header = (function () {
         const is_mt_pages = State.get('is_mt_pages');
         $('#header, #footer').find('.mt-hide')[is_mt_pages ? 'addClass' : 'removeClass'](hidden_class);
         $('#header, #footer').find('.mt-show')[is_mt_pages ? 'removeClass' : 'addClass'](hidden_class);
-    };
-
-    const displayNotification = (message) => {
-        const $msg_notification = $('#msg_notification');
-        $msg_notification.html(message);
-        if ($msg_notification.is(':hidden')) $msg_notification.slideDown(500, updateBody);
-    };
-
-    const hideNotification = () => {
-        const $msg_notification = $('#msg_notification');
-        if ($msg_notification.is(':visible')) $msg_notification.slideUp(500, () => { $msg_notification.html(''); });
-    };
-
-    const displayAccountStatus = () => {
-        ChampionSocket.wait('authorize').then(() => {
-            let get_account_status,
-                status,
-                has_mt_account = false;
-
-            const riskAssessment = () => (get_account_status.risk_classification === 'high' || has_mt_account) &&
-            /financial_assessment_not_complete/.test(status);
-
-            const messages = {
-                authenticate: () => template('Please [_1]authenticate your account[_2] to lift your withdrawal and trading limits.',
-                    [`<a href="${url_for('user/authenticate')}">`, '</a>']),
-                risk: () => template('Please complete the [_1]financial assessment form[_2] to lift your withdrawal and trading limits.',
-                    [`<a href="${url_for('user/profile')}#assessment">`, '</a>']),
-                tnc: () => template('Please [_1]accept the updated Terms and Conditions[_2] to lift your withdrawal and trading limits.',
-                    [`<a href="${url_for('user/tnc-approval')}">`, '</a>']),
-                unwelcome: () => template('Your account is restricted. Kindly [_1]contact customer support[_2] for assistance.',
-                    [`<a href="${url_for('contact')}">`, '</a>']),
-            };
-
-            const validations = {
-                authenticate: () => get_account_status.prompt_client_to_authenticate,
-                risk        : () => riskAssessment(),
-                tnc         : () => Client.should_accept_tnc(),
-                unwelcome   : () => /(unwelcome|(cashier|withdrawal)_locked)/.test(status),
-            };
-
-            const check_statuses = [
-                { validation: validations.tnc,          message: messages.tnc },
-                { validation: validations.risk,         message: messages.risk },
-                { validation: validations.authenticate, message: messages.authenticate },
-                { validation: validations.unwelcome,    message: messages.unwelcome },
-            ];
-
-            ChampionSocket.wait('website_status', 'get_account_status', 'get_settings', 'get_financial_assessment').then(() => {
-                get_account_status = State.get(['response', 'get_account_status', 'get_account_status']) || {};
-                status = get_account_status.status;
-                ChampionSocket.wait('mt5_login_list').then((response) => {
-                    if (response.mt5_login_list.length) {
-                        has_mt_account = true;
-                    }
-                    const notified = check_statuses.some((object) => {
-                        if (object.validation()) {
-                            displayNotification(object.message());
-                            return true;
-                        }
-                        return false;
-                    });
-                    if (!notified) hideNotification();
-                });
-            });
-        });
     };
 
     const switchLoginId = (loginid) => {
@@ -234,9 +154,9 @@ const Header = (function () {
     };
 
     return {
-        init                : init,
-        displayAccountStatus: displayAccountStatus,
-        updateBalance       : updateBalance,
+        init         : init,
+        switchLoginId: switchLoginId,
+        updateBalance: updateBalance,
     };
 })();
 

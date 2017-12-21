@@ -375,3 +375,132 @@ p {
 .fx-section-padding {
     padding: 40px 15px;
 }
+
+// fix in style
+.navbar .container {
+    position: relative;
+}
+
+.bell:before {
+    content: url('../images/bell.svg');
+}
+
+.bell-active:before {
+    content: url('../images/bell-active.svg');
+}
+
+.notify {
+    position: absolute;
+    display: flex;
+    z-index: 100000;
+    top: 0;
+    right: 15px;
+    @media (min-width: 1024px) {
+        right: 280px;
+    }
+
+    .talk-bubble {
+        position: absolute;
+        top: 48px;
+        right: -5px;
+        @media (min-width: 1024px) {
+            right: -124px;
+        }
+        min-width: 245px;
+        z-index: 1;
+        background: $white;
+        border-radius: 5px;
+        padding: 10px;
+        box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        font-size: 14px;
+        text-align: center;
+        display: none;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 5px;
+            @media (min-width: 1024px) {
+                right: 50%;
+            }
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-bottom-color: $white;
+            border-top: 0;
+            margin-left: -10px;
+            margin-top: -10px;
+        }
+    }
+    .toggle-notification {
+        position: relative;
+        margin-top: 15px;
+        cursor: pointer;
+    }
+}
+
+.notifications {
+    position: fixed;
+    right: -350px;
+    z-index: 1002;
+    height: 100%;
+    width: 350px;
+    top: 50px;
+    background-color: $fillColor;
+    transform: translateX(0);
+    transition: transform 0.3s;
+    overflow-y: auto;
+    box-shadow: none;
+    @media (max-width: 575px) {
+        width: 100%;
+        right: -100%;
+    }
+
+    &__header {
+        background-color: $white;
+        padding: 15px 10px;
+        color: $primaryBrandColor;
+        box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.5);
+        font-weight: 500;
+
+        .close {
+            color: $primaryBrandColor;
+            float: right;
+            text-decoration: none;
+            cursor: pointer;
+
+            &:before {
+                content: url('../images/cross_blue.svg');
+            }
+        }
+    }
+    .notification {
+        background: $white;
+        margin: 10px;
+        box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1);
+        padding: 15px 10px;
+        font-size: 14px;
+    }
+    &--show {
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+        box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.overlay {
+    position: fixed;
+    background: $black;
+    opacity: 0.5;
+    height: 100%;
+    width: 100%;
+    z-index: 1001;
+    top: 0;
+    left: 0;
+    @media (min-width: 1024px) {
+        z-index: initial;
+        top: 50px;
+    }
+}

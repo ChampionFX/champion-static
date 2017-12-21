@@ -15,7 +15,7 @@
             <h3>[% l('New to ChampionFX?') %]</h3>
             <p>[% l('Register now and get access to all our tools and platforms. Trade the world’s financial markets through one broker.') %]</p>
             <p>
-                <a class="button" href="[% request.url_for('home') %]#signup">
+                <a class="button toggle-signup-modal" href="javascript:;">
                     <span>[% l('Create an account') %]</span>
                 </a>
             </p>

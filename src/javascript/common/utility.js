@@ -76,7 +76,7 @@ function handleActive() {
                 .find(content_to_show)
                 .removeClass(hidden_class);
 
-            $.scrollTo($(hash), 500, { offset: -5 });
+            $.scrollTo($(hash), 500, { offset: getOffset(-5) });
         }
     }
 }
@@ -185,6 +185,35 @@ function setPosition(element, type) {
     element.css({ position: type });
 }
 
+function getOffset(offset = 0) {
+    return -$('#top_group.logged-in').height() + (offset || -10);
+}
+
+function showLightBox(id, contents, has_close_button) {
+    const $lightbox = $('<div/>', { id: id || '', class: 'lightbox' })
+            .append($('<div/>', { class: 'lightbox-contents', html: contents }));
+
+    if (has_close_button) {
+        $lightbox.find('.lightbox-contents').prepend($('<div/>', { class: 'close' }));
+        $lightbox.on('click', function(e) {
+            if (e.target === this || $(e.target).hasClass('close')) {
+                $lightbox.remove();
+            }
+        });
+    }
+
+    $('body').append($lightbox);
+}
+
+function showSuccessPopup(title, contents) {
+    const $contents = $('<div/>', { class: 'center-text' }).append(
+        $('<div/>', { class: 'main-image' }),
+        $('<h3/>', { text: title }),
+        $('<div/>', { class: 'success-contents', html: contents }));
+
+    showLightBox('success_popup', $contents, true);
+}
+
 module.exports = {
     showLoadingImage  : showLoadingImage,
     isEmptyObject     : isEmptyObject,
@@ -201,6 +230,9 @@ module.exports = {
     getPropertyValue  : getPropertyValue,
     slideIn           : slideIn,
     slideOut          : slideOut,
+    getOffset         : getOffset,
+    showLightBox      : showLightBox,
+    showSuccessPopup  : showSuccessPopup,
 
     compareBigUnsignedInt: compareBigUnsignedInt,
 };

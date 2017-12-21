@@ -33,7 +33,8 @@
         display: none;
     }
     .navbar__button-group {
-        width: 100px;
+        width: 40px;
+        padding: 25px 0;
     }
 }
 
@@ -64,6 +65,64 @@
     .fx-partnerships-margin-bottom {
         margin-bottom: 20px;
     }
+    #how_payment_works {
+        fieldset {
+            padding: 20px 0 0;
+
+            p {
+                margin: 0;
+            }
+            legend {
+                margin-left: 10px;
+            }
+            .amount {
+                font-size: 16px;
+
+                span.hidden-sm-up {
+                    position: absolute;
+                    top: 35%;
+                    left: 0;
+                    right: 0;
+                    font-size: 16px;
+                }
+                .deposit, .withdraw {
+                    div {
+                        display: none;
+                    }
+                }
+            }
+            .arrow-1, .arrow-3 {
+                div {
+                    width: 100%;
+                    height: 60px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 20px 0;
+                }
+            }
+            .arrow-1 > div, .arrow-3 > div {
+                background: url('../images/mt5/how_payment_works/arrow_vertical_down.svg') no-repeat center;
+
+                &.withdraw {
+                    background: url('../images/mt5/how_payment_works/arrow_vertical_up.svg') no-repeat center;
+                }
+            }
+            .mt5-account {
+                display: inline-flex;
+                justify-content: space-evenly;
+                text-align: center !important;
+
+                div {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+    .flex-column-swap {
+        flex-direction: column-reverse;
+    }
 }
 
 @media (min-width: 768px) {
@@ -72,6 +131,9 @@
     }
     .fx-row-margin-bottom {
         margin-bottom: 30px;
+    }
+    .hidden-sm-up {
+        display: none !important;
     }
 }
 

@@ -1,6 +1,7 @@
 const moment               = require('moment');
 const ChampionSocket       = require('../../common/socket');
 const Client               = require('../../common/client');
+const State                = require('../../common/storage').State;
 const Utility              = require('../../common/utility');
 const default_redirect_url = require('../../common/url').default_redirect_url;
 const Validation           = require('../../common/validation');
@@ -14,7 +15,7 @@ const ChampionNewRealAccount = (function() {
 
     let client_residence;
 
-    let container,
+    let $container,
         btn_submit,
         datePickerInst;
 
@@ -24,6 +25,7 @@ const ChampionNewRealAccount = (function() {
         txt_lname          : '#txt_lname',
         txt_birth_date     : '#txt_birth_date',
         lbl_residence      : '#lbl_residence',
+        ddl_residence      : '#ddl_residence',
         txt_address1       : '#txt_address1',
         txt_address2       : '#txt_address2',
         txt_city           : '#txt_city',
@@ -45,15 +47,18 @@ const ChampionNewRealAccount = (function() {
             return;
         }
 
-        container        = $('#champion-container');
+        $container       = $('#champion-container');
         client_residence = Client.get('residence');
+
+        toggleForm();
         displayResidence();
-        populateState();
         attachDatePicker();
 
-        btn_submit = container.find(fields.btn_submit);
+        btn_submit = $container.find(fields.btn_submit);
         btn_submit.on('click dblclick', submit);
     };
+
+    const hasResidence = () => Client.get('residence');
 
     const unload = () => {
         if (btn_submit) {
@@ -64,8 +69,13 @@ const ChampionNewRealAccount = (function() {
         }
     };
 
+    const toggleForm = (is_upgrade = hasResidence()) => {
+        $container.find('.hide-upgrade')[is_upgrade ? 'addClass' : 'removeClass'](hidden_class);
+        $container.find('.show-upgrade')[is_upgrade ? 'removeClass' : 'addClass'](hidden_class);
+    };
+
     const initValidation = () => {
-        Validation.init(form_selector, [
+        const validations = [
             { selector: fields.txt_fname,           validations: ['req', 'letter_symbol', ['min', { min: 2 }]] },
             { selector: fields.txt_lname,           validations: ['req', 'letter_symbol', ['min', { min: 2 }]] },
             { selector: fields.txt_birth_date,      validations: ['req'] },
@@ -80,30 +90,55 @@ const ChampionNewRealAccount = (function() {
             { selector: fields.chk_tnc,             validations: ['req'] },
             { selector: fields.chk_not_pep,         validations: ['req'] },
             { selector: fields.ddl_opening_reason,  validations: ['req'] },
-        ]);
+        ];
+        if (!hasResidence()) {
+            validations.push(
+                { selector: fields.ddl_residence,         validations: ['req'] });
+        }
+
+        Validation.init(form_selector, validations);
     };
 
     const displayResidence = () => {
         ChampionSocket.send({ residence_list: 1 }).then((response) => {
-            container.find('#residence_loading').remove();
-            const $lbl_residence = container.find(fields.lbl_residence);
-            const country_obj = response.residence_list.find(r => r.value === client_residence);
-            if (country_obj) {
-                $lbl_residence.text(country_obj.text);
-                if (country_obj.phone_idd) {
-                    $(fields.txt_phone).val(`+${country_obj.phone_idd}`);
-                }
+            $container.find('#ddl_residence_loading, #lbl_residence_loading').remove();
+            if (hasResidence()) {
+                $container.find(fields.lbl_residence).text(setPhoneIdd(client_residence).text)
+                    .parent().removeClass(hidden_class);
+                populateState();
+            } else {
+                const $ddl_residence = $container.find(fields.ddl_residence);
+                Utility.dropDownFromObject($ddl_residence, response.residence_list);
+                $ddl_residence[0].addEventListener('change', residenceOnChange); // jQuery .on('change') doesn't work
+                residenceOnChange();
+                $ddl_residence.removeClass(hidden_class);
             }
-            $lbl_residence.parent().removeClass(hidden_class);
         });
     };
 
-    const populateState = () => {
-        ChampionSocket.send({ states_list: client_residence }).then((response) => {
-            const $ddl_state = container.find(fields.ddl_state);
+    const residenceOnChange = () => {
+        client_residence = $container.find(fields.ddl_residence).val();
+        setPhoneIdd(client_residence);
+        populateState(client_residence);
+    };
+
+    const setPhoneIdd = (country) => {
+        const country_obj = State.get(['response', 'residence_list']).residence_list.find(r => r.value === country);
+        $(fields.txt_phone).val(country_obj && country_obj.phone_idd ? `+${country_obj.phone_idd}` : '');
+        return country_obj;
+    };
+
+    const populateState = (country = client_residence) => {
+        ChampionSocket.send({ states_list: country }).then((response) => {
+            const $ddl_state = $container.find(fields.ddl_state).length ?
+                $container.find(fields.ddl_state) : $container.find(fields.txt_state);
             const states = response.states_list;
-            container.find('#state_loading').remove();
+            $container.find('#state_loading').remove();
             if (states && states.length) {
+                if (/INPUT/.test($ddl_state[0].nodeName)) {
+                    $ddl_state.replaceWith($('<select/>', { id: fields.txt_state.replace('#', '') }));
+                    populateState(country);
+                }
                 Utility.dropDownFromObject($ddl_state, states);
                 $ddl_state.removeClass(hidden_class);
             } else {
@@ -131,6 +166,9 @@ const ChampionNewRealAccount = (function() {
     const submit = (e) => {
         e.preventDefault();
         btn_submit.attr('disabled', 'disabled');
+        if (!hasResidence()) {
+            setResidence();
+        }
         if (Validation.validate(form_selector)) {
             const data = {
                 new_account_real      : 1,
@@ -165,6 +203,19 @@ const ChampionNewRealAccount = (function() {
         } else {
             btn_submit.removeAttr('disabled');
         }
+    };
+
+    const setResidence = () => {
+        const req = {
+            set_settings: 1,
+            residence   : client_residence,
+        };
+        ChampionSocket.send(req).then((response) => {
+            if (response.error) {
+                $('#msg_form').removeClass(hidden_class).text(response.error.message);
+                btn_submit.removeAttr('disabled');
+            }
+        });
     };
 
     return {
