@@ -54,7 +54,7 @@ How to work with this project
 Use `https://YOUR_GITHUB_USERNAME.github.io/champion-static/en/logged_inws.html` for Redirect URL.
 
 2. In `src/javascript/common/socket.js`: Replace the number `2472` in `getAppId()` function with the `Application ID` of your registered application.
-  * **NOTE:** In order to avoid accidentally committing personal changes to this file, use `git update-index --assume-unchanged src/javascript/config.js`
+  * **NOTE:** In order to avoid accidentally committing personal changes to this file, use `git update-index --assume-unchanged src/javascript/common/socket.js`
 
 3. Run `grunt dev`
 
