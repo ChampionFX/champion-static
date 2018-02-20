@@ -39,23 +39,6 @@
                 <ul class="row">
                     <li class="col-md-6 col-sm-6 slider-text center-text">
                         <div class="center-items">
-                            <h3 class="blue">[% l('No funds, no problem.') %]</h3>
-                            <h3 class="blue">[% l('Your first trade is on us.') %]</h3>
-                            <p>[% l('Sign up now and get a free welcome bonus worth $10.<br>No deposit required.') %]</p>
-                            <a href="[% request.url_for('free-bonus') %]">[% l('Learn more') %]
-                                <img src="[% request.url_for('images/symbols/next.svg') %]" alt="">
-                            </a>
-                        </div>
-                    </li>
-                    <li class="col-md-6 col-sm-6 flex-md-middle" id="slide-3"></li>
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <ul class="row">
-                    <li class="col-md-6 col-sm-6 slider-text center-text">
-                        <div class="center-items">
                             <h3 class="blue">[% l('Super competitive gold spreads') %]</h3>
                             <p>[% l("Trade on fixed or variable spreads. Plus, it's 100% commission free.") %]</p>
                             <a href="[% request.url_for('metals') %]">[% l('Learn more') %]
