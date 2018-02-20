@@ -8,6 +8,11 @@
     .fx-fix-api:before {
         transform: scale(0.8);
     }
+    #about-us .personnel-desc p {
+        span:last-child {
+            width: 100% !important;
+        }
+    }
 }
 
 @media (max-width: 575px) {
@@ -35,6 +40,35 @@
     .navbar__button-group {
         width: 40px;
         padding: 25px 0;
+    }
+    #about-us {
+        .personnel-desc p {
+            padding: 0;
+            text-align: left;
+
+            span:last-child {
+                width: 95% !important;
+            }
+        }
+        .personnel-card {
+            padding-left: 0;
+            width: 80%;
+
+            p {
+                padding-bottom: 5px;
+            }
+        }
+        .personnel-header {
+            font-size: $FONT_SIZE_M !important;
+        }
+        .personnel-subheader {
+            span {
+                font-size: $FONT_SIZE_S !important;
+            }
+        }
+        .img-personnel {
+            right: -5% !important;
+        }
     }
 }
 
@@ -64,6 +98,28 @@
     }
     .fx-partnerships-margin-bottom {
         margin-bottom: 20px;
+    }
+    #about-us {
+        .img-personnel {
+            width: 35%;
+            left: unset;
+            right: 0;
+        }
+        .personnel-desc p {
+            padding: 0;
+            text-align: left;
+
+            span:last-child {
+                width: 75%;
+                float: left;
+            }
+        }
+        .personnel-header {
+            font-size: $FONT_SIZE_N;
+        }
+        .fx-about-quote-left, .fx-about-quote-right {
+            display: none;
+        }
     }
     #how_payment_works {
         fieldset {
