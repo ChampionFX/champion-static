@@ -94,7 +94,9 @@ const Champion = (function() {
             cfd                    : { module: MT5 },
             metals                 : { module: MT5 },
             profile                : { module: ChampionProfile,     is_authenticated: true },
-            real                   : { module: ChampionNewReal,     is_authenticated: true, only_virtual: true },
+            /* eslint-disable */
+            real                   : { module: ChampionNewReal,     is_authenticated: true, only_virtual: true, is_disabled: true },
+            /* eslint-enable */
             redirect               : { module: Redirect },
             settings               : { module: ChampionSettings,    is_authenticated: true },
             security               : { module: ChampionSecurity,    is_authenticated: true },
@@ -155,6 +157,8 @@ const Champion = (function() {
                             displayMessage(errorMessages.only_virtual);
                         } else if (config.only_real && Client.is_virtual()) {
                             displayMessage(errorMessages.only_real);
+                        } else if (config.is_disabled) {
+                            displayMessage('Sorry, we are disabling this feature at the moment.');
                         } else {
                             active_script.load();
                         }

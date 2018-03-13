@@ -5,7 +5,7 @@
                 <div class="lg-padding no-gutters">
                     <h1>[% l('Cent account') %]</h1>
                     <p>[% l('The Cent account offers the highest leverage, as well as low margin call and stop out level. It is ideal for new traders who want to start trading with a smaller capital.') %]</p>
-                    <a class="button" href="[% request.url_for('user/metatrader') %]#real_champion_cent"><span>[% l('Create account') %]</span></a>
+                    <!-- a class="button" href="[% request.url_for('user/metatrader') %]#real_champion_cent"><span>[% l('Create account') %]</span></a -->
                     <div class="fx-divider"></div>
                     <table class="col-md-8 push-md-2">
                         <tbody>
