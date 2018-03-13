@@ -33,7 +33,7 @@
         </div>
         <div class="modal__form_wrapper col-xs-12 col-md-8">
             <h1>[% l('Sign up now!') %]</h1>
-            [% INCLUDE layout/includes/signup.html.tt %]
+            <p>Sorry, we are disabling this feature at the moment.</p>
             <div class="separator hidden-sm-up"></div>
             <p>[% l('Already have an account?') %] <a class="btn-login hidden-sm-down" href="javascript:;">[% l('Log In') %]</a></p>
             <button class="btn-login button-secondary hidden-sm-up" type="submit">[% l('Log In') %]</button>

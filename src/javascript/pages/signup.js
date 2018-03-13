@@ -29,17 +29,17 @@ const ChampionSignup = (function() {
 
     const showModal = (e) => {
         if (e) e.stopPropagation();
-        $modal.toggleClass('modal--show');
+        $('.modal').toggleClass('modal--show');
         if ($('.modal--show').length) {
             $('body').css('position', 'static').append('<div class="modal-overlay"></div>');
             $('.modal-overlay').off('click', hideModal).on('click', hideModal);
-            resetForm();
+            // resetForm();
 
             // if sign-up success message is already visible, show sign-up form
-            if (!$after_signup_msg.hasClass(hidden_class)) {
-                changeVisibility($after_signup_msg, 'hide');
-                changeVisibility($before_signup_el, 'show');
-            }
+            // if (!$after_signup_msg.hasClass(hidden_class)) {
+            //     changeVisibility($after_signup_msg, 'hide');
+            //     changeVisibility($before_signup_el, 'show');
+            // }
         }
     };
 
@@ -49,10 +49,10 @@ const ChampionSignup = (function() {
         $('.modal-overlay').remove();
     };
 
-    const resetForm = () => {
-        $input.val('').removeClass('field-error');
-        $(`${form_selector}:visible #signup_error`).addClass(hidden_class);
-    };
+    // const resetForm = () => {
+    //     $input.val('').removeClass('field-error');
+    //     $(`${form_selector}:visible #signup_error`).addClass(hidden_class);
+    // };
 
     const changeVisibility = ($selector, action) => {
         if (action === 'hide') {
