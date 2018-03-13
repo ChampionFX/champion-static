@@ -6,11 +6,9 @@
         <td>[% l('[_1] 1 per point', string_4) %]</td>
         <td>[% string_5 %]</td>
         <td>
-            [% l('0.2% (Cent)') %]
-            <br />
             [% l('0.3% (Standard)') %]
             <br />
-            [% l('0.4% (STP)') %]
+            [% l('0.4% (Advanced)') %]
         </td>
     </tr>
 [% END %]
