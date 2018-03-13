@@ -61,7 +61,22 @@ InScriptStore.prototype = {
     keys  : function()    { return Object.keys(this.store); },
 };
 
-const State = new InScriptStore();
+const State     = new InScriptStore();
+State.prototype = InScriptStore.prototype;
+/**
+ * Shorthand function to get values from response object of State
+ *
+ * @param {String} pathname
+ *     e.g. getResponse('authorize.currency') == get(['response', 'authorize', 'authorize', 'currency'])
+ */
+State.prototype.getResponse = function (pathname) {
+    let path = pathname;
+    if (typeof path === 'string') {
+        const keys = path.split('.');
+        path = ['response', keys[0]].concat(keys);
+    }
+    return this.get(path);
+};
 State.set('response', {});
 
 const CookieStorage = function(cookie_name, cookie_domain) {

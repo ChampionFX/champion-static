@@ -9,14 +9,14 @@ const showSuccessPopup = require('../../../common/utility').showSuccessPopup;
 const MetaTraderConfig = (function() {
     'use strict';
 
-    const types_info = {
-        demo_champion_cent    : { account_type: 'demo',      mt5_account_type: 'cent',     title: 'Demo Cent',     order: 1, max_leverage: 1000, is_demo: true },
-        demo_champion_standard: { account_type: 'demo',      mt5_account_type: 'standard', title: 'Demo Standard', order: 3, max_leverage: 300,  is_demo: true },
-        demo_champion_stp     : { account_type: 'demo',      mt5_account_type: 'stp',      title: 'Demo STP',      order: 5, max_leverage: 100,  is_demo: true },
-        real_champion_cent    : { account_type: 'financial', mt5_account_type: 'cent',     title: 'Real Cent',     order: 2, max_leverage: 1000 },
-        real_champion_standard: { account_type: 'financial', mt5_account_type: 'standard', title: 'Real Standard', order: 4, max_leverage: 300 },
-        real_champion_stp     : { account_type: 'financial', mt5_account_type: 'stp',      title: 'Real STP',      order: 6, max_leverage: 100 },
+    const mt_companies = {
+        financial: {
+            standard: { mt5_account_type: 'standard', max_leverage: 500, title: 'Standard' },
+            advanced: { mt5_account_type: 'advanced', max_leverage: 100, title: 'Advanced' },
+        },
     };
+
+    const accounts_info = {};
 
     const needsRealMessage = () => $(`#msg_${Client.has_real() ? 'switch' : 'upgrade'}`).html();
 
@@ -32,7 +32,7 @@ const MetaTraderConfig = (function() {
                         $('#msg_real_financial').html(needsRealMessage());
                         resolve(true);
                     } else {
-                        ChampionSocket.send({ get_account_status: 1 }).then((response_get_account_status) => {
+                        ChampionSocket.wait('get_account_status').then((response_get_account_status) => {
                             const $message = $('#msg_real_financial');
                             let is_ok = true;
                             if (/financial_assessment_not_complete/.test(response_get_account_status.get_account_status.status)) {
@@ -49,7 +49,7 @@ const MetaTraderConfig = (function() {
                 })
             ),
             onSuccess: (response, acc_type) => {
-                showSuccessPopup(template('Congratulation, you’ve successfully created your [_1] account.', [types_info[acc_type].title]), 'You can trade Forex, CFDs and Metals with our virtual money, launch our MetaTrader 5 on our sidebar Quick Links or Download it to your machine or mobile applications.');
+                showSuccessPopup(template('Congratulations! You’ve successfully created your [_1] account.', [accounts_info[acc_type].title]), 'You can trade Forex, CFDs and Metals with our virtual money, launch our MetaTrader 5 on our sidebar Quick Links or Download it to your machine or mobile applications.');
                 ChampionSocket.send({ mt5_login_list: 1 });
                 GTM.mt5NewAccount(response);
             },
@@ -104,7 +104,7 @@ const MetaTraderConfig = (function() {
             pre_submit: ($form, acc_type, displayFormMessage) => (
                 ChampionSocket.send({
                     mt5_password_check: 1,
-                    login             : types_info[acc_type].account_info.login,
+                    login             : accounts_info[acc_type].account_info.login,
                     password          : $form.find(fields.withdrawal.txt_main_pass.id).val(),
                 }).then((response) => {
                     if (+response.mt5_password_check === 1) {
@@ -128,12 +128,12 @@ const MetaTraderConfig = (function() {
             additional_fields:
                 acc_type => ($.extend(
                     {
-                        account_type: types_info[acc_type].account_type,
+                        account_type: accounts_info[acc_type].account_type,
                         email       : Client.get('email'),
                     },
-                    types_info[acc_type].mt5_account_type ? {
-                        mt5_account_type: types_info[acc_type].mt5_account_type,
-                        leverage        : types_info[acc_type].max_leverage,
+                    accounts_info[acc_type].mt5_account_type ? {
+                        mt5_account_type: accounts_info[acc_type].mt5_account_type,
+                        leverage        : accounts_info[acc_type].max_leverage,
                     } : {})),
         },
         password_change: {
@@ -142,7 +142,7 @@ const MetaTraderConfig = (function() {
             txt_re_new_password: { id: '#txt_re_new_password' },
             additional_fields  :
                 acc_type => ({
-                    login: types_info[acc_type].account_info.login,
+                    login: accounts_info[acc_type].account_info.login,
                 }),
         },
         deposit: {
@@ -150,15 +150,15 @@ const MetaTraderConfig = (function() {
             additional_fields:
                 acc_type => ({
                     from_binary: Client.get('loginid'),
-                    to_mt5     : types_info[acc_type].account_info.login,
+                    to_mt5     : accounts_info[acc_type].account_info.login,
                 }),
         },
         withdrawal: {
             txt_amount       : { id: '#txt_amount_withdrawal', request_field: 'amount' },
-            txt_main_pass    : { id: '#txt_main_pass' },
+            txt_main_pass    : { id: '#txt_main_pass_wd' },
             additional_fields:
                 acc_type => ({
-                    from_mt5 : types_info[acc_type].account_info.login,
+                    from_mt5 : accounts_info[acc_type].account_info.login,
                     to_binary: Client.get('loginid'),
                 }),
         },
@@ -186,12 +186,13 @@ const MetaTraderConfig = (function() {
     };
 
     return {
-        types_info      : types_info,
-        actions_info    : actions_info,
-        fields          : fields,
-        validations     : validations,
-        needsRealMessage: needsRealMessage,
-        mt5Currency     : () => 'USD',
+        mt_companies,
+        accounts_info,
+        actions_info,
+        fields,
+        validations,
+        needsRealMessage,
+        mt5Currency: () => 'USD',
     };
 })();
 

@@ -65,17 +65,28 @@
             background: $white;
             z-index: 1;
 
+            .acc-group {
+                line-height: 30px;
+                padding: 0 5px;
+                color: $primaryBrandColor;
+
+                &:hover {
+                    cursor: auto;
+                }
+            }
             .acc-name {
                 line-height: 30px;
                 padding: 0 20px;
-                border-top: 1px solid $fillColor;
 
                 &:hover {
                     background: $fillColor;
                 }
                 &.selected {
-                    color: $primaryBrandColor;
                     background: $fillColor;
+                }
+                .mt-balance {
+                    float: right;
+                    font-size: $FONT_SIZE_XS;
                 }
                 .mt-icon {
                     float: right;
@@ -121,14 +132,11 @@
             background: no-repeat center;
             background-size: 50px;
 
-            &.cent {
-                background-image: url('../images/metatrader/dashboard/acc_cent.svg');
-            }
             &.standard {
                 background-image: url('../images/metatrader/dashboard/acc_standard.svg');
             }
-            &.stp {
-                background-image: url('../images/metatrader/dashboard/acc_stp.svg');
+            &.advanced {
+                background-image: url('../images/metatrader/dashboard/acc_advanced.svg');
             }
         }
         .acc-info {
@@ -154,7 +162,6 @@
         }
     }
     .tab-container {
-        padding: 0 10px 10px;
         display: flex;
         flex-direction: column;
         flex: 1 1 auto;
@@ -187,6 +194,13 @@
                     padding-bottom: 2px;
                     margin-bottom: -2px;
                 }
+            }
+            .new-account {
+                background: $fillColor;
+                padding: 0 10px;
+                line-height: 40px;
+                font-weight: normal;
+                flex: 1;
             }
         }
     }

@@ -214,6 +214,10 @@ function showSuccessPopup(title, contents) {
     showLightBox('success_popup', $contents, true);
 }
 
+function toTitleCase(str) {
+    return (str || '').replace(/\w[^\s/\\]*/g, txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+}
+
 module.exports = {
     showLoadingImage  : showLoadingImage,
     isEmptyObject     : isEmptyObject,
@@ -233,6 +237,7 @@ module.exports = {
     getOffset         : getOffset,
     showLightBox      : showLightBox,
     showSuccessPopup  : showSuccessPopup,
+    toTitleCase       : toTitleCase,
 
     compareBigUnsignedInt: compareBigUnsignedInt,
 };
