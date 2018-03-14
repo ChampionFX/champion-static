@@ -20,11 +20,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="flex-grow gutters">
+                                    <!--div class="flex-grow gutters">
                                         <a class="button button-secondary act_new_account" href="javascript:;">
                                             <span>[% l('New') %]</span>
                                         </a>
-                                    </div>
+                                    </div-->
                                 </div>
                                 <div class="acc-info has-account acc-box invisible">
                                     <div class="padding-10">
