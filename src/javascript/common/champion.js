@@ -94,9 +94,7 @@ const Champion = (function() {
             cfd                    : { module: MT5 },
             metals                 : { module: MT5 },
             profile                : { module: ChampionProfile,     is_authenticated: true },
-            /* eslint-disable */
-            real                   : { module: ChampionNewReal,     is_authenticated: true, only_virtual: true, is_disabled: true },
-            /* eslint-enable */
+            real                   : { module: ChampionNewReal,     is_authenticated: true, only_virtual: true, is_disabled: true }, // eslint-disable-line max-len
             redirect               : { module: Redirect },
             settings               : { module: ChampionSettings,    is_authenticated: true },
             security               : { module: ChampionSecurity,    is_authenticated: true },
