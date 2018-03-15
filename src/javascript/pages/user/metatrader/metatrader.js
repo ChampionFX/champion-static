@@ -68,6 +68,13 @@ const MetaTrader = (function() {
                 obj.group && Client.getMT5AccountType(obj.group) in accounts_info
             ));
 
+            // Don't allow new MT5 account
+            if (!mt5_login_list.length) {
+                $('#page_error').html('Sorry, we are disabling this feature at the moment.').setVisibility(1);
+                $('#mt_loading').remove();
+                return;
+            }
+
             // Update account info
             mt5_login_list.forEach((obj) => {
                 const acc_type = Client.getMT5AccountType(obj.group);

@@ -193,6 +193,7 @@ const MetaTraderUI = (function() {
         $main_msg.setVisibility(0);
 
         const acc_type = Client.get('mt5_account');
+
         const action = $target.attr('class').split(' ').find(c => /^act_/.test(c)).replace('act_', '');
 
         const cloneForm = () => {
