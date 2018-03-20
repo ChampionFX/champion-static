@@ -10,45 +10,32 @@
         <div class="row center-text">
             <div class="col-sm-12">
                 <h2>[% l('Types of accounts') %]</h2>
-                <p>[% l('ChampionFX offers a variety of account types to cater to the diverse needs of traders everywhere, whether you’re an experienced trader or just starting out. Each account has been tailored to provide you with a unique opportunity in the world of Forex trading.') %]</p>
+                <p>[% l('ChampionFX offers a variety of account types to cater to the diverse needs of traders everywhere, whether you are an experienced trader or just starting out. Each account has been tailored to provide you with a unique opportunity to trade financial instruments.') %]</p>
                 <p>[% l('Best of all, there’s no minimum deposit requirement and no commission per trade.') %]</p>
             </div>
             <div id="mt5-accounts" class="row center-text box-grid">
-                <div class="col-sm-8 offset-sm-2 col-md-4 offset-md-0">
-                    <div class="box box-bordered">
-                        <div>
-                            <span class="fx fx-cent-account"></span>
-                            <h2>Cent</h2>
-                            <p>[% l('The Cent account offers the highest leverage, as well as low margin call and stop out level. It is ideal for new traders who want to start trading with a smaller capital.') %]</p>
-                        </div>
-                        <div class="box-item-end">
-                            <a class="button" href="[% request.url_for('user/metatrader') %]#real_champion_cent"><span>[% l('Create account') %]</span></a>
-                            <p class="hint-msg">*[% l('You need to have a ChampionFX account before you can create MT5 account') %]</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-8 offset-sm-2 col-md-4 offset-md-0">
+                <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-0">
                     <div class="box box-bordered">
                         <div>
                             <span class="fx fx-standard-account"></span>
                             <h2>Standard</h2>
-                            <p>[% l('The Standard account is suitable for a wide range of traders, both new and experienced. It gives you mid-range leverage and tight spreads that give you a great deal of fleibility for whatever position you wish to take in the market.') %]</p>
+                            <p>[% l('The Standard account is suitable for a wide range of traders, both new and experienced. It gives you mid-range leverage and variable spreads that give you a great deal of flexibility for whatever position you wish to take in the market.') %]</p>
                         </div>
                         <div class="box-item-end">
-                            <a class="button" href="[% request.url_for('user/metatrader') %]#real_champion_standard"><span>[% l('Create account') %]</span></a>
+                            <!-- a class="button" href="[% request.url_for('user/metatrader') %]#real_champion_standard"><span>[% l('Create account') %]</span></a -->
                             <p class="hint-msg">*[% l('You need to have a ChampionFX account before you can create MT5 account') %]</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-8 offset-sm-2 col-md-4 offset-md-0">
+                <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-0">
                     <div class="box box-bordered">
                         <div>
-                            <span class="fx fx-stp-account"></span>
-                            <h2>STP</h2>
-                            <p>[% l('The STP account provides you with the tightest spreads and connects you directly to the market, and provides you with different prices from a variety of liquidity providers such as banks and brokerages. STP stands for \'Straight Through Processing\' &mdash; meaning your orders are sent directly to our liquidity providers.') %]</p>
+                            <span class="fx fx-advanced-account"></span>
+                            <h2>Advanced</h2>
+                            <p>[% l('The Advanced account provides you with tight spreads, higher ticket size and offers more products. Start trading on more forex pairs, CFD indices, futures and cryptocurrencies.') %]</p>
                         </div>
                         <div class="box-item-end">
-                            <a class="button" href="[% request.url_for('user/metatrader') %]#real_champion_stp"><span>[% l('Create account') %]</span></a>
+                            <!--a class="button" href="[% request.url_for('user/metatrader') %]#real_champion_advanced"><span>[% l('Create account') %]</span></a -->
                             <p class="hint-msg">*[% l('You need to have a ChampionFX account before you can create MT5 account') %]</p>
                         </div>
                     </div>
@@ -64,9 +51,8 @@
                         <thead>
                         <tr>
                             <th></th>
-                            <th>[% l('Cent') %]</th>
                             <th>[% l('Standard') %]</th>
-                            <th>[% l('ST') %]P</th>
+                            <th>[% l('Advanced') %]</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -74,55 +60,61 @@
                             <td>[% l('Account currency<sup>1</sup>') %]</td>
                             <td>USD</td>
                             <td>USD</td>
-                            <td>USD</td>
                         </tr>
                         <tr>
                             <td>[% l('Maximum leverage<sup>2</sup>') %]</td>
-                            <td>[% l('Up to 1:1,000') %]</td>
-                            <td>[% l('Up to 1:300') %]</td>
+                            <td>[% l('Up to 1:500') %]</td>
                             <td>[% l('Up to 1:100') %]</td>
                         </tr>
                         <tr>
                             <td>[% l('Order execution<sup>3</sup>') %]</td>
-                            <td>[% l('Instant') %]</td>
                             <td>[% l('Market') %]</td>
                             <td>[% l('Market') %]</td>
                         </tr>
                         <tr>
-                            <td>[% l('Forex spread<sup>4</sup>') %]</td>
-                            <td>[% l('Variable spreads') %]</td>
-                            <td>[% l('Tight spreads') %]</td>
-                            <td>[% l('Our tightest spreads') %]</td>
+                            <td>[% l('Spread<sup>4</sup>') %]</td>
+                            <td>[% l('Variable from 1.2 pips') %]</td>
+                            <td>[% l('Variable from 0.9 pips') %]</td>
                         </tr>
                         <tr>
                             <td>[% l('Commission<sup>5</sup>') %]</td>
                             <td>[% l('No') %]</td>
                             <td>[% l('No') %]</td>
+                        </tr>
+                        <tr>
+                            <td>[% l('Minimum deposit<sup>6</sup>') %]</td>
+                            <td>[% l('No') %]</td>
                             <td>[% l('No') %]</td>
                         </tr>
                         <tr>
-                            <td>[% l('Margin call<sup>6</sup>') %]</td>
-                            <td>50%</td>
-                            <td>100%</td>
-                            <td>100%</td>
+                            <td>[% l('Margin call<sup>7</sup>') %]</td>
+                            <td>150%</td>
+                            <td>150%</td>
                         </tr>
                         <tr>
-                            <td>[% l('Stop out level<sup>7</sup>') %]</td>
-                            <td>20%</td>
-                            <td>50%</td>
-                            <td>50%</td>
+                            <td>[% l('Stop out level<sup>8</sup>') %]</td>
+                            <td>75%</td>
+                            <td>75%</td>
                         </tr>
                         <tr>
-                            <td>[% l('Hedged margin<sup>8</sup>') %]</td>
-                            <td>100%</td>
-                            <td>100%</td>
-                            <td>100%</td>
+                            <td>[% l('Number of assets<sup>9</sup>') %]</td>
+                            <td>60+</td>
+                            <td>80+</td>
                         </tr>
                         <tr>
-                            <td>[% l('Maximum ticket size<sup>9</sup>') %]</td>
-                            <td>[% l('20 lots') %]</td>
+                            <td>[% l('Maximum ticket size<sup>10</sup>') %]</td>
+                            <td>[% l('10 lots') %]</td>
                             <td>[% l('50 lots') %]</td>
-                            <td>[% l('100 lots') %]</td>
+                        </tr>
+                        <tr>
+                            <td>[% l('Minimum ticket size<sup>11</sup>') %]</td>
+                            <td>[% l('0.01 lots') %]</td>
+                            <td>[% l('0.01 lots') %]</td>
+                        </tr>
+                        <tr>
+                            <td>[% l('Step size<sup>12</sup>') %]</td>
+                            <td>[% l('0.01 lots') %]</td>
+                            <td>[% l('0.01 lots') %]</td>
                         </tr>
                         </tbody>
                     </table>
@@ -134,43 +126,48 @@
             <div class="col-sm">
                 <h4>[% l('1. Account currency') %]</h4>
                 <div class="separator primary-color"></div>
-                <p>[% l('Is the currency of the funds accepted in your trading account.') %]</p>
+                <p>[% l('Currency of the funds accepted in your trading account.') %]</p>
                 <h4>[% l('2. Leverage') %]</h4>
                 <div class="separator primary-color"></div>
-                <p>[% l('Is the ability to control a large amount of money using a minimal capital from yourself. Where does the rest of the money come from? Your trusted broker provides the rest.') %]</p>
-                <p>[% l('Let’s say you fork out a capital of USD 50 and we’re offering a leverage of 1:1,000. How much money, or margin, is available to you when you start trading?') %]</p>
-                <div class="box bordered">
-                    <p class="secondary-color">USD 50 x 1,000 = USD 50,000 [% l('(is the margin available)') %]</p>
-                </div>
+                <p>[% l('Leverage gives you the ability to trade a larger position using your existing capital.') %]</p>
                 <h4>[% l('3. Order execution') %]</h4>
                 <div class="separator primary-color"></div>
-                <p>[% l('Typically comes in two varieties: market execution and instant execution. With market execution, you place an order at the broker’s price. You agree on the price in advance. There are no requotes with market execution.') %]</p>
-                <p>[% l('What about instant execution? In this case, your order is place at the price that’s available at that time. Requotes are possible if the price fluctuates a great deal before the order execution is complete.') %]</p>
-
+                <p>[% l('Order execution typically comes in two varieties: market execution and instant execution. With market execution, you will place an order at the broker’s price. You agree on the price in advance. There are no requotes with market execution.') %]</p>
+                <p>[% l('What about instant execution? In this case, your order is placed at the price that’s available at that time. Requotes are possible if the price fluctuates a great deal before the order execution is complete.') %]</p>
                 <h4>[% l('4. Spread') %]</h4>
                 <div class="separator primary-color"></div>
-                <p>[% l('Is the difference between the buy price and sell price. When you enter into a trade, you are buying an asset that you will be selling at a later time or date for a profit or loss. The difference in price is called a spread. A variable spread means that the spread will remain as it is no matter the market condition. A tight spread and our tightest spread means that the spread may increase depending on market conditions, as it is subject to market volatility caused by news events.') %]</p>
-            </div>
-            <div class="col-sm">
+                <p>[% l('The spread is the difference between the buy price and sell price. A fixed spread means that the spread will remain as it is no matter the market condition except in rare cases of extreme market volatility. A variable spread means that the spread is constantly changing, depending on the market condition.') %]</p>
                 <h4>[% l('5. Commission') %]</h4>
                 <div class="separator primary-color"></div>
-                <p>[% l('Refers to the commission fees that we charge for each trade you place with us. ChampionFX currently charges no commission for all accounts.') %]</p>
-                <h4>[% l('6. Margin call') %]</h4>
+                <p>[% l('Most brokers typically charge a commission for each trade that you place. ChampionFX currently charges no commission across all account types.') %]</p>
+                <h4>[% l('6. Minimum deposit') %]</h4>
                 <div class="separator primary-color"></div>
-                <p>[% l('Refers to the state where the remaining funds in your account is unable to cover the leverage or margin requirement. You can deposit additional funds to prevent a margin call escalating to a stop out level.') %]</p>
+                <p>[% l('Most brokers require a minimum deposit. ChampionFX doesn\'t require any minimum deposit.') %]</p>
+            </div>
+            <div class="col-sm">
 
-                <h4>[% l('7. Stop out level') %]</h4>
+                <h4>[% l('7. Margin call') %]</h4>
                 <div class="separator primary-color"></div>
-                <p>[% l('Is the level where your margin ratio has become unsustainable, and we issue a forced closure of pending orders, and any open positions. A stop out level usually results from a high negative balance in your trading account.') %]</p>
+                <p>[% l('When the remaining funds in your account is unable to cover the leverage or margin requirement, your account will be placed under margin call. To prevent a margin call escalating into a stop out level, you can deposit additional funds into your account or close any open positions.') %]</p>
 
-
-                <h4>[% l('8. Hedged margin') %]</h4>
+                <h4>[% l('8. Stop out level') %]</h4>
                 <div class="separator primary-color"></div>
-                <p>[% l('Refers to the funds required to open and maintain a position on the same asset, but in opposite directions.') %]</p>
+                <p>[% l('If your account is placed under margin call for an extended period of time, it will reach the stop out level where it is unable to sustain an open position. This will lead to your pending orders being cancelled and your open positions being forcibly closed (also known as “forced liquidation”).') %]</p>
 
-                <h4>[% l('9. Maximum ticket size') %]</h4>
+                <h4>[% l('9. Number of assets') %]</h4>
                 <div class="separator primary-color"></div>
-                <p>[% l('Refers to the maximum volume of lots allowed per trade.') %]</p>
+                <p>[% l('Refers to the total number of available symbols for your account.') %]</p>
+
+                <h4>[% l('10. Maximum ticket size') %]</h4>
+                <div class="separator primary-color"></div>
+                <p>[% l('Refers to the maximum volume or lots per order.') %]</p>
+
+                <h4>[% l('11. Minimum ticket size') %]</h4>
+                <div class="separator primary-color"></div>
+                <p>[% l('The minimum ticket size refers to the minimum volume or number of lots.') %]</p>
+                <h4>[% l('12. Step size') %]</h4>
+                <div class="separator primary-color"></div>
+                <p>[% l('Step size is the minimum allowable increment applied to all order types. It is the volume from which the increase of the position is based. You can only trade in the minimum ticket size or its multiples.') %]</p>
             </div>
         </div>
     </div>

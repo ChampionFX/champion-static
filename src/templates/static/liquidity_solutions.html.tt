@@ -80,7 +80,7 @@
                 <ul class="bullet">
                     <li>[% l('Access to multi-asset liquidity and back-office functionality via margin accounts') %]</li>
                     <li>[% l('Super-tight spreads with zero commission and no minimum volume requirements') %]</li>
-                    <li>[% l('Access to STP trading conditions') %]</li>
+                    <li>[% l('Access to Advanced trading conditions') %]</li>
                     <li>[% l('We can accomomodate our liquidity solutions to the requirements of offshore MT4/MT5 brokers') %]</li>
                 </ul>
             </div>

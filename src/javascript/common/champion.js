@@ -94,7 +94,7 @@ const Champion = (function() {
             cfd                    : { module: MT5 },
             metals                 : { module: MT5 },
             profile                : { module: ChampionProfile,     is_authenticated: true },
-            real                   : { module: ChampionNewReal,     is_authenticated: true, only_virtual: true },
+            real                   : { module: ChampionNewReal,     is_authenticated: true, only_virtual: true, is_disabled: true }, // eslint-disable-line max-len
             redirect               : { module: Redirect },
             settings               : { module: ChampionSettings,    is_authenticated: true },
             security               : { module: ChampionSecurity,    is_authenticated: true },
@@ -131,12 +131,7 @@ const Champion = (function() {
     };
 
     const errorMessages = {
-        login: module => (
-            module === MetaTrader ?
-            Utility.template(`To register an MT5 account, please <a href="[_1]" class="login">log in</a> to your ChampionFX account<br />
-                Don't have a ChampionFX account? <a href="[_1]" class="toggle-signup-modal">Create one</a> now`, [`${'java'}${'script:;'}`]) :
-            Utility.template('Please <a href="[_1]" class="login">log in</a> to view this page.', [`${'java'}${'script:;'}`])
-        ),
+        login       : () => (Utility.template('Please <a href="[_1]" class="login">log in</a> to view this page.', [`${'java'}${'script:;'}`])),
         only_virtual: 'Sorry, this feature is available to virtual accounts only.',
         only_real   : 'This feature is not relevant to virtual-money accounts.',
     };
@@ -155,6 +150,8 @@ const Champion = (function() {
                             displayMessage(errorMessages.only_virtual);
                         } else if (config.only_real && Client.is_virtual()) {
                             displayMessage(errorMessages.only_real);
+                        } else if (config.is_disabled) {
+                            displayMessage('Sorry, we are disabling this feature at the moment.');
                         } else {
                             active_script.load();
                         }
