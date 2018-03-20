@@ -2032,16 +2032,12 @@ iframe {
   content: url("../images/milestones/recruitment.svg");
 }
 
-.fx-cent-account:before {
-  content: url("../images/metatrader/cent.svg");
-}
-
 .fx-standard-account:before {
-  content: url("../images/metatrader/standard.svg");
+  content: url("../images/metatrader/standard_account.svg");
 }
 
-.fx-stp-account:before {
-  content: url("../images/metatrader/stp.svg");
+.fx-advanced-account:before {
+  content: url("../images/metatrader/advanced_account.svg");
 }
 
 .fx-android:before {
@@ -3052,17 +3048,27 @@ p {
   background: #fff;
   z-index: 1;
 }
+#mt_account_management #account_selector #accounts_list .acc-group {
+  line-height: 30px;
+  padding: 0 5px;
+  color: #004385;
+}
+#mt_account_management #account_selector #accounts_list .acc-group:hover {
+  cursor: auto;
+}
 #mt_account_management #account_selector #accounts_list .acc-name {
   line-height: 30px;
   padding: 0 20px;
-  border-top: 1px solid #f2f2f2;
 }
 #mt_account_management #account_selector #accounts_list .acc-name:hover {
   background: #f2f2f2;
 }
 #mt_account_management #account_selector #accounts_list .acc-name.selected {
-  color: #004385;
   background: #f2f2f2;
+}
+#mt_account_management #account_selector #accounts_list .acc-name .mt-balance {
+  float: right;
+  font-size: 11px;
 }
 #mt_account_management #account_selector #accounts_list .acc-name .mt-icon {
   float: right;
@@ -3110,14 +3116,11 @@ p {
   background: no-repeat center;
   background-size: 50px;
 }
-#mt_account_management #account_details #acc_icon.cent {
-  background-image: url("../images/metatrader/dashboard/acc_cent.svg");
-}
 #mt_account_management #account_details #acc_icon.standard {
   background-image: url("../images/metatrader/dashboard/acc_standard.svg");
 }
-#mt_account_management #account_details #acc_icon.stp {
-  background-image: url("../images/metatrader/dashboard/acc_stp.svg");
+#mt_account_management #account_details #acc_icon.advanced {
+  background-image: url("../images/metatrader/dashboard/acc_advanced.svg");
 }
 #mt_account_management #account_details .acc-info {
   font-size: 13px;
@@ -3139,7 +3142,6 @@ p {
   float: right;
 }
 #mt_account_management .tab-container {
-  padding: 0 10px 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3183,6 +3185,15 @@ p {
   color: #004385;
   padding-bottom: 2px;
   margin-bottom: -2px;
+}
+#mt_account_management .tab-container .acc-actions .new-account {
+  background: #f2f2f2;
+  padding: 0 10px;
+  line-height: 40px;
+  font-weight: normal;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 #mt_account_management .fst-container {
   border: 2px solid #f2f2f2;

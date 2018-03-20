@@ -31,11 +31,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="flex-grow gutters">
+                                    <!--div class="flex-grow gutters">
                                         <a class="button button-secondary act_new_account" href="javascript:;">
                                             <span>New</span>
                                         </a>
-                                    </div>
+                                    </div-->
                                 </div>
                                 <div class="acc-info has-account acc-box invisible">
                                     <div class="padding-10">
@@ -63,10 +63,13 @@
 
                     <div class="tab-container">
                         <div class="acc-actions">
+                            <span class="new-account gr-gutter invisible">
+                                <span></span>
+                            </span>
                             <a href="javascript:;" class="act_cashier has-account center-text invisible">
                                 <span>Manage Fund</span>
                             </a>
-                            <span class="spacer"></span>
+                            <span class="spacer has-account invisible"></span>
                             <a href="javascript:;" class="act_password_change has-account center-text invisible">
                                 <span>Change Password</span>
                             </a>
@@ -124,8 +127,8 @@
                             <img src="/beta/images/metatrader/dashboard/account.svg" />
                         </div>
                         <div class="mt-balance invisible">&nbsp;</div>
-                        <div class="mt-type"></div>
-                        <div class="mt-login invisible"></div>
+                        <span class="mt-type"></span>
+                        <span class="mt-login"></span>
                     </div>
 
                     
@@ -140,27 +143,9 @@
                                 <a href="/beta/en/trading-platform/mt5-types-of-accounts.html">MetaTrader 5 types of accounts</a>
                             </p>
                         </div>
-                        <div class="demo_champion_cent real_champion_cent">
-                            <h4 class="no-margin-top">Cent Account</h4>
-                            <p>Our MetaTrader 5 Cent account is ideal for new traders who want to start trading with a smaller capital.</p>
-                            <ul class="checked small no-padding">
-                                
-                                    <li>Offers the highest leverage – up to 1:1,000</li>
-                                
-                                    <li>Variable spreads</li>
-                                
-                                    <li>Instant execution</li>
-                                
-                                    <li>No commission</li>
-                                
-                            </ul>
-                            <p>
-                                <a href="/beta/en/trading-platform/mt5-types-of-accounts.html">MetaTrader 5 types of accounts</a>
-                            </p>
-                        </div>
                         <div class="demo_champion_standard real_champion_standard">
                             <h4 class="no-margin-top">Standard Account</h4>
-                            <p>Our MetaTrader 5 Standard account comes with mid-range leverage and variable spreads suitable for a wide range of traders.</p>
+                            <p>Our MetaTrader 5 Standard account is suitable for both new and experienced traders.</p>
                             <ul class="checked small no-padding">
                                 
                                     <li>Leverage up to 1:300</li>
@@ -176,9 +161,9 @@
                                 <a href="/beta/en/trading-platform/mt5-types-of-accounts.html">MetaTrader 5 types of accounts</a>
                             </p>
                         </div>
-                        <div class="demo_champion_stp real_champion_stp">
-                            <h4 class="no-margin-top">STP Account</h4>
-                            <p>Our MetaTrader 5 STP account provides you with the tightest spreads and connects you directly to the market.</p>
+                        <div class="demo_champion_advanced real_champion_advanced">
+                            <h4 class="no-margin-top">Advanced Account</h4>
+                            <p>Our MetaTrader 5 Advanced account provides you with tight spreads, higher ticket size and offers more products.</p>
                             <ul class="checked small no-padding">
                                 
                                     <li>Leverage up to 1:100</li>
@@ -246,16 +231,7 @@
                             </div>
                             
                                 
-                                    <div class="col-sm-4 col-xs-12">
-                                        <div id="rbtn_champion_cent" class="mt5-type-box" data-acc-type="champion_cent">
-                                            <img src="/beta/images/metatrader/dashboard/acc_cent.svg" />
-                                        </div>
-                                        <p class="no-margin-top padding-10">Cent</p>
-                                    </div>
-                                
-                            
-                                
-                                    <div class="col-sm-4 col-xs-12">
+                                    <div class="col-sm-6 col-xs-12">
                                         <div id="rbtn_champion_standard" class="mt5-type-box" data-acc-type="champion_standard">
                                             <img src="/beta/images/metatrader/dashboard/acc_standard.svg" />
                                         </div>
@@ -264,11 +240,11 @@
                                 
                             
                                 
-                                    <div class="col-sm-4 col-xs-12">
-                                        <div id="rbtn_champion_stp" class="mt5-type-box" data-acc-type="champion_stp">
-                                            <img src="/beta/images/metatrader/dashboard/acc_stp.svg" />
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div id="rbtn_champion_advanced" class="mt5-type-box" data-acc-type="champion_advanced">
+                                            <img src="/beta/images/metatrader/dashboard/acc_advanced.svg" />
                                         </div>
-                                        <p class="no-margin-top padding-10">STP</p>
+                                        <p class="no-margin-top padding-10">Advanced</p>
                                     </div>
                                 
                             
@@ -317,7 +293,7 @@
             <span class="button">Back</span>
         </a>
     
-    <button id="btn_submit" type="submit" action="new_account">Create Account</button> </div>
+    <button id="btn_submit_new_account" type="submit" action="new_account">Create Account</button> </div>
                             </div>
                         </div>
                     </form>
@@ -345,7 +321,7 @@
                         <div class="submit-row ">
     <p id="msg_form" class="error-msg invisible"></p>
     
-    <button id="btn_submit" type="submit" action="password_change">Change Password</button> </div>
+    <button id="btn_submit_password_change" type="submit" action="password_change">Change Password</button> </div>
                     </form>
 
                     
@@ -406,7 +382,7 @@
                                                 <div class="submit-row center-text ">
     <p id="msg_form" class="error-msg invisible"></p>
     
-    <button id="btn_submit" type="submit" action="deposit">Deposit</button> </div>
+    <button id="btn_submit_depost" type="submit" action="deposit">Deposit</button> </div>
                                             </div>
                                         </form>
                                     </div>
@@ -433,15 +409,15 @@
     
 </div>
                                                 <div class="form-row ">
-    <label for="txt_main_pass">MetaTrader 5 main password</label>
+    <label for="txt_main_pass_wd">MetaTrader 5 main password</label>
     
-                <input type="password" id="txt_main_pass" maxlength="25"  />
+                <input type="password" id="txt_main_pass_wd" maxlength="25"  />
     
 </div>
                                                 <div class="submit-row center-text ">
     <p id="msg_form" class="error-msg invisible"></p>
     
-    <button id="btn_submit" type="submit" action="withdrawal">Withdraw</button> </div>
+    <button id="btn_submit_withdrawal " type="submit" action="withdrawal">Withdraw</button> </div>
                                             </div>
                                         </form>
                                     </div>
@@ -459,6 +435,7 @@
                 </div>
             </div>
         </div>
+        <div id="page_error" class="notice-msg center-text invisible"></div>
     </div>
 </div>
     </div>
