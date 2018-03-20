@@ -20,11 +20,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="flex-grow gutters">
+                                    <!--div class="flex-grow gutters">
                                         <a class="button button-secondary act_new_account" href="javascript:;">
                                             <span>[% l('New') %]</span>
                                         </a>
-                                    </div>
+                                    </div-->
                                 </div>
                                 <div class="acc-info has-account acc-box invisible">
                                     <div class="padding-10">
@@ -52,10 +52,13 @@
 
                     <div class="tab-container">
                         <div class="acc-actions">
+                            <span class="new-account gr-gutter invisible">
+                                <span></span>
+                            </span>
                             <a href="javascript:;" class="act_cashier has-account center-text invisible">
                                 <span>[% l('Manage Fund') %]</span>
                             </a>
-                            <span class="spacer"></span>
+                            <span class="spacer has-account invisible"></span>
                             <a href="javascript:;" class="act_password_change has-account center-text invisible">
                                 <span>[% l('Change Password') %]</span>
                             </a>
@@ -113,8 +116,8 @@
                             <img src="[% request.url_for('images/metatrader/dashboard/account.svg') %]" />
                         </div>
                         <div class="mt-balance invisible">&nbsp;</div>
-                        <div class="mt-type"></div>
-                        <div class="mt-login invisible"></div>
+                        <span class="mt-type"></span>
+                        <span class="mt-login"></span>
                     </div>
 
                     [% BLOCK account_desc %]
@@ -134,24 +137,16 @@
                     <div class="account-desc">
                         [% INCLUDE account_desc title=l('Choose an account')
                             description=l('[_1] offers a variety of account types to cater to the diverse needs of traders everywhere, whether you’re an experienced trader or just starting out.', website_name) %]
-                        [% INCLUDE account_desc account_type='cent' title=l('Cent Account')
-                            description=l('Our MetaTrader 5 Cent account is ideal for new traders who want to start trading with a smaller capital.')
-                            items=[
-                                l('Offers the highest leverage – up to 1:1,000'),
-                                l('Variable spreads'),
-                                l('Instant execution'),
-                                l('No commission'),
-                            ] %]
                         [% INCLUDE account_desc account_type='standard' title=l('Standard Account')
-                            description=l('Our MetaTrader 5 Standard account comes with mid-range leverage and variable spreads suitable for a wide range of traders.')
+                            description=l('Our MetaTrader 5 Standard account is suitable for both new and experienced traders.')
                             items=[
                                 l('Leverage up to 1:300'),
                                 l('Tight spreads'),
                                 l('Market execution'),
                                 l('No commission'),
                             ] %]
-                        [% INCLUDE account_desc account_type='stp' title=l('STP Account')
-                            description=l('Our MetaTrader 5 STP account provides you with the tightest spreads and connects you directly to the market.')
+                        [% INCLUDE account_desc account_type='advanced' title=l('Advanced Account')
+                            description=l('Our MetaTrader 5 Advanced account provides you with tight spreads, higher ticket size and offers more products.')
                             items=[
                                 l('Leverage up to 1:100'),
                                 l('Our tightest spreads'),
@@ -182,7 +177,7 @@
                                         </div>
                                     </div>
                                 [% ELSE %]
-                                    <div class="col-sm-4 col-xs-12">
+                                    <div class="col-sm-6 col-xs-12">
                                         <div id="[% box.id || 'rbtn_' _ box.type %]" class="mt5-type-box" data-acc-type="[% box.type %]">
                                             <img src="[% request.url_for('images/metatrader/dashboard/acc_' _ box.desc.lower _ '.svg') %]" />
                                         </div>
@@ -206,9 +201,8 @@
                                 <div class="step-2 invisible">
                                     <div class="separator padding-10"></div>
                                     [% INCLUDE type_group title=l('Step 2: Choose the type of accounts') types=[
-                                        { type='champion_cent'     desc='Cent' },
                                         { type='champion_standard' desc='Standard' },
-                                        { type='champion_stp'      desc='STP' },
+                                        { type='champion_advanced' desc='Advanced' },
                                     ] %]
                                     <div class="small-text">[% l('Go to [_1]MetaTrader 5 types of accounts[_2] to see the comparison between these accounts.', '<a href="' _ request.url_for('trading-platform/mt5-types-of-accounts') _ '">', '</a>') %]</div>
                                 </div>
@@ -229,7 +223,7 @@
                                 [% INCLUDE components/forms/form_row.html.tt type='password' id='txt_investor_pass' label=l('Investor password (read-only access)') %]
 
                                 [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Create Account') attributes='action="new_account"'
-                                    custom_btn_text=l('Back') custom_btn_id='btn_back' custom_btn_class='button-secondary' %]
+                                    custom_btn_text=l('Back') custom_btn_id='btn_back' custom_btn_class='button-secondary' id='btn_submit_new_account' %]
                             </div>
                         </div>
                     </form>
@@ -240,7 +234,7 @@
                             hint=l('Minimum eight characters. Must contain numbers, and mix of upper and lower case letters.') %]
                         [% INCLUDE components/forms/form_row.html.tt type='password' id='txt_re_new_password' label=l('Verify new password') %]
 
-                        [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Change Password') attributes='action="password_change"' %]
+                        [% INCLUDE components/forms/submit_button.html.tt type='submit' text=l('Change Password') attributes='action="password_change"' id='btn_submit_password_change' %]
                     </form>
 
                     [% BLOCK cashier_desc %]
@@ -296,7 +290,7 @@
 
                                             <div class="form">
                                                 [% INCLUDE components/forms/form_row.html.tt type='text' id='txt_amount_deposit' label=l('Amount') attributes='maxlength="10"' %]
-                                                [% INCLUDE components/forms/submit_button.html.tt is_centered=1 is_full_width=1 text=l('Deposit') type='submit' attributes='action="deposit"' %]
+                                                [% INCLUDE components/forms/submit_button.html.tt is_centered=1 is_full_width=1 text=l('Deposit') type='submit' attributes='action="deposit"' id='btn_submit_depost' %]
                                             </div>
                                         </form>
                                     </div>
@@ -309,8 +303,8 @@
 
                                             <div class="form">
                                                 [% INCLUDE components/forms/form_row.html.tt type='text'     id='txt_amount_withdrawal' label=l('Amount') attributes='maxlength="10"' %]
-                                                [% INCLUDE components/forms/form_row.html.tt type='password' id='txt_main_pass'         label=l('MetaTrader 5 main password') %]
-                                                [% INCLUDE components/forms/submit_button.html.tt is_centered=1 is_full_width=1 text=l('Withdraw') type='submit' attributes='action="withdrawal"' %]
+                                                [% INCLUDE components/forms/form_row.html.tt type='password' id='txt_main_pass_wd'      label=l('MetaTrader 5 main password') %]
+                                                [% INCLUDE components/forms/submit_button.html.tt is_centered=1 is_full_width=1 text=l('Withdraw') type='submit' attributes='action="withdrawal"' id='btn_submit_withdrawal '%]
                                             </div>
                                         </form>
                                     </div>
@@ -328,5 +322,6 @@
                 </div>
             </div>
         </div>
+        <div id="page_error" class="notice-msg center-text invisible"></div>
     </div>
 </div>

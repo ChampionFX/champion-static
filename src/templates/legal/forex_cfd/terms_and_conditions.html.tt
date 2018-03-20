@@ -16,7 +16,7 @@
 
 <h2>B. [% l("Commencement and Cancellation") %]</h2>
 <ol>
-    <li>[% l("This Agreement will commence on the date you receive your Cent, Standard, and / or STP Account number, and, for any new versions thereafter, on the date the new versions are published on our website.") %]</li>
+    <li>[% l("This Agreement will commence on the date you receive your Standard, and / or Advanced Account number, and, for any new versions thereafter, on the date the new versions are published on our website.") %]</li>
 </ol>
 
 <h2>C. [% l("Provision of Services") %]</h2>
@@ -36,8 +36,8 @@
 <ol>
     <li>[% l("Opening an account") %]</li>
     <ol>
-        <li>[% l("You may open one or more of the three types of accounts available on Champion-FX.com: Cent, Standard, and / or STP. The specification of Cent, Standard, and / or STP Account is explained in <a href=\"[_1]#forex-accounts\"><u>Types of Accounts</u></a>.", request.url_for('forex')) %]</li>
-        <li>[% l("To open a Cent, Standard, and / or STP Account, you must have an authenticated Champion FX Real Account. A Cent, Standard, and / or STP Account cannot be opened in the absence of a Champion FX Real Account. Your Champion FX Real Account has to be authenticated within five days from your Real Account opening date to keep your Cent, Standard and / or STP Account active.") %]</li>
+        <li>[% l("You may open one or more of the three types of accounts available on Champion-FX.com: Standard, and / or Advanced. The specification of Standard, and / or Advanced Account is explained in <a href=\"[_1]#forex-accounts\"><u>Types of Accounts</u></a>.", request.url_for('forex')) %]</li>
+        <li>[% l("To open a Standard, and / or Advanced Account, you must have an authenticated Champion FX Real Account. A Standard, and / or Advanced Account cannot be opened in the absence of a Champion FX Real Account. Your Champion FX Real Account has to be authenticated within five days from your Real Account opening date to keep your Standard and / or Advanced Account active.") %]</li>
         <li>[% l("By opening a Champion FX Real Account, you represent, warrant and undertake that:") %]</li>
         <ol>
             <li>[% l("You are acting for your sole benefit, and not for, or on behalf of any other person;") %]</li>
@@ -47,7 +47,7 @@
             <li>[% l("You are not resident in a restricted country such as Bosnia and Herzegovina; Costa Rica; Democratic People's Republic of Korea (DPRK), Ethiopia, any European Union country; Guyana; Hong Kong; Iran; Iraq; Japan; Jersey; Malaysia; Syria; Uganda; the United Kingdom; USA; Vanuatu; Yemen; and any such other restricted country as the Company may decide from time to time at its sole discretion;") %]</li>
             <li>[% l("You have sufficient experience and knowledge in matters of financial trading to be capable of evaluating the merits and risks of acquiring financial contracts via this site and have done so without relying on any information contained in this site.") %]</li>
         </ol>
-        <li>[% l("We reserve the right to refuse your request to open a Cent, Standard, and / or STP Account for any reason, and any Cent, Standard, and / or STP Account may be closed at our discretion at any time.") %]</li>
+        <li>[% l("We reserve the right to refuse your request to open a Standard, and / or Advanced Account for any reason, and any Standard, and / or Advanced Account may be closed at our discretion at any time.") %]</li>
     </ol>
     <li>[% l("Assessment of Appropriateness") %]</li>
     <ol>
@@ -57,31 +57,31 @@
     </ol>
     <li>[% l("Fund Transfers") %]</li>
     <ol>
-        <li>[% l("Funding of Cent, Standard, and / or STP Account") %]</li>
+        <li>[% l("Funding of Standard, and / or Advanced Account") %]</li>
         <ol>
-            <li>[% l("Your Cent, Standard, and / or STP Account shall be funded by transferring funds from your Champion FX Real Account, subject to the availability and sufficiency of funds in your Champion FX Real Account. No fund transfers shall be made to any other account in the name of any third party.") %]</li>
-            <li>[% l("All fund transfers from your Champion FX Real Account to your Cent, Standard, and / or STP Account must be made by you.") %]</li>
-            <li>[% l("You acknowledge and accept that your Cent, Standard, and / or STP Account will be maintained in one currency, which is the same currency as the one maintained in your Champion FX Real Account.") %]</li>
-            <li>[% l("There will be no charges for fund transfers from your Champion FX Real Account to your Cent, Standard, and / or STP Account.") %]</li>
+            <li>[% l("Your Standard, and / or Advanced Account shall be funded by transferring funds from your Champion FX Real Account, subject to the availability and sufficiency of funds in your Champion FX Real Account. No fund transfers shall be made to any other account in the name of any third party.") %]</li>
+            <li>[% l("All fund transfers from your Champion FX Real Account to your Standard, and / or Advanced Account must be made by you.") %]</li>
+            <li>[% l("You acknowledge and accept that your Standard, and / or Advanced Account will be maintained in one currency, which is the same currency as the one maintained in your Champion FX Real Account.") %]</li>
+            <li>[% l("There will be no charges for fund transfers from your Champion FX Real Account to your Standard, and / or Advanced Account.") %]</li>
         </ol>
-        <li>[% l("Withdrawal of funds from Cent, Standard, and / or STP Account") %]</li>
+        <li>[% l("Withdrawal of funds from Standard, and / or Advanced Account") %]</li>
         <ol>
-            <li>[% l("Subject to the availability and sufficiency of funds in your Cent, Standard, and / or STP Account, you may withdraw your funds from your Cent, Standard, and / or STP Account to your Champion FX Real Account.") %]</li>
-            <li>[% l("We may, however, withhold your withdrawal request from your Cent, Standard, and / or STP Account to your Champion FX Real Account, in whole or in part, if:") %]</li>
+            <li>[% l("Subject to the availability and sufficiency of funds in your Standard, and / or Advanced Account, you may withdraw your funds from your Standard, and / or Advanced Account to your Champion FX Real Account.") %]</li>
+            <li>[% l("We may, however, withhold your withdrawal request from your Standard, and / or Advanced Account to your Champion FX Real Account, in whole or in part, if:") %]</li>
             <ol>
-                <li>[% l("You have unrealised losses on your Cent, Standard, and / or STP Account; and/or") %]</li>
+                <li>[% l("You have unrealised losses on your Standard, and / or Advanced Account; and/or") %]</li>
                 <li>[% l("Such withdrawal would result in your Account Equity being less than zero; and/or") %]</li>
                 <li>[% l("We reasonably consider that funds may be required to meet any Margin Requirement; and/or") %]</li>
                 <li>[% l("There is any amount outstanding from you to us; and/or") %]</li>
                 <li>[% l("We are required to do so in accordance with any relevant law or regulation.") %]</li>
             </ol>
-            <li>[% l("Withdrawal of funds from your Cent, Standard, and / or STP Account must be made in the same currency maintained in your Champion FX Real Account.") %]</li>
+            <li>[% l("Withdrawal of funds from your Standard, and / or Advanced Account must be made in the same currency maintained in your Champion FX Real Account.") %]</li>
         </ol>
     </ol>
     <li>[% l("Negative Balance Protection") %]</li>
     <ol>
         <li>
-            [% l("The Company has a Stop Out policy which prevents you from losing more than you have deposited. However, in the event that your Open Positions are not closed when the Margin Level for your Cent, Standard, and / or STP Account reaches the Stop Out Level, the Company, at its sole discretion, may waive your negative balance by crediting your account if your Account Balance goes into a negative balance. The negative balance is determined by aggregating all the client’s negative balances incurred over a 24-hour period across all accounts held by you. You acknowledge that the offer of the Negative Balance Protection by the Company to you is at the Company’s sole discretion and we reserve the right to change the features and eligibility criteria of the Negative Balance Protection at any time. The provisions of the Negative Balance Protection do not apply:") %]
+            [% l("The Company has a Stop Out policy which prevents you from losing more than you have deposited. However, in the event that your Open Positions are not closed when the Margin Level for your Standard, and / or Advanced Account reaches the Stop Out Level, the Company, at its sole discretion, may waive your negative balance by crediting your account if your Account Balance goes into a negative balance. The negative balance is determined by aggregating all the client’s negative balances incurred over a 24-hour period across all accounts held by you. You acknowledge that the offer of the Negative Balance Protection by the Company to you is at the Company’s sole discretion and we reserve the right to change the features and eligibility criteria of the Negative Balance Protection at any time. The provisions of the Negative Balance Protection do not apply:") %]
             <ol>
                 <li>[% l("in the case of a force majeure event;") %]</li>
                 <li>[% l("in abnormal market conditions or exceptional market movements/volatility;") %]</li>
@@ -97,13 +97,13 @@
     </ol>
     <li>[% l("Inactive/Dormant Accounts") %]</li>
     <ol>
-        <li>[% l("We reserve the right to charge a dormant fee of up to USD/EUR/AUD/GBP 25 every six months for every Cent, Standard, and / or STP Account that has had no transaction recorded for a period of 12 consecutive months or more.") %]</li>
+        <li>[% l("We reserve the right to charge a dormant fee of up to USD/EUR/AUD/GBP 25 every six months for every Standard, and / or Advanced Account that has had no transaction recorded for a period of 12 consecutive months or more.") %]</li>
     </ol>
     <li>[% l("Account Security") %]</li>
     <ol>
         <li>[% l("We are committed to making sure that your personal data and transactions are secure:") %]</li>
         <ol>
-            <li>[% l("Your Cent, Standard, and / or STP Account password and login ID are unique and passwords are hashed so that not even Champion-FX.com staff can read them. This is the reason why we cannot retrieve your password and have to issue you with a new one to your email address if you cannot recall it;") %]</li>
+            <li>[% l("Your Standard, and / or Advanced Account password and login ID are unique and passwords are hashed so that not even Champion-FX.com staff can read them. This is the reason why we cannot retrieve your password and have to issue you with a new one to your email address if you cannot recall it;") %]</li>
             <li>[% l("It is your responsibility to keep your password and login ID confidential. You agree that you will not disclose your password and login ID to any other person;") %]</li>
             <li>[% l("All credit card details are submitted directly to the Visa/Mastercard network using the latest SSL encryption technology, in accordance with bank policies;") %]</li>
             <li>[% l("Our information security policies are based on industry best practices in access control and business continuity; and") %]</li>
@@ -112,15 +112,15 @@
     </ol>
     <li>[% l("Closing an account") %]</li>
     <ol>
-        <li>[% l("If you wish to withdraw funds from your Cent, Standard, and / or STP Account and close your Cent, Standard, and / or STP Account, you may notify us by contacting our helpdesk at <a href='mailto:support@champion-fx.com'>support@champion-fx.com</a>. Your Cent, Standard, and / or STP Account may be closed if you do not have any Open Positions and all amounts due to us have been settled.") %]</li>
+        <li>[% l("If you wish to withdraw funds from your Standard, and / or Advanced Account and close your Standard, and / or Advanced Account, you may notify us by contacting our helpdesk at <a href='mailto:support@champion-fx.com'>support@champion-fx.com</a>. Your Standard, and / or Advanced Account may be closed if you do not have any Open Positions and all amounts due to us have been settled.") %]</li>
     </ol>
     <li>[% l("Swap-free Account") %]</li>
     <ol>
-        <li>[% l("Upon your request and consent, we may convert your Cent, Standard, and / or STP Account designated by you to a Swap-free Account. You acknowledge that we reserve the right to request justifications, documents, and/or additional information in relation to your conversion request prior to the conversion. You also acknowledge that all open positions under the Cent, Standard, and / or STP Account designated by you to be converted to a Swap-free Account must be closed prior to you accessing the Swap-free Account. We may, acting reasonably, accept or reject your conversion request at our sole discretion for any reason whatsoever without being obliged to provide any explanation or justifications.") %]</li>
-        <li>[% l("Upon converting the Cent, Standard, and / or STP Account designated by you to a Swap-free Account, you acknowledge and agree that no interest adjustment (or swap rate adjustment) will be made to your Swap-free Account when rolling over your Open Positions. This means that we will not debit interest (interest charge to you) of any form in respect of your Swap-free Account; likewise, by requesting and consenting the conversion to a Swap-free Account, you acknowledge and agree that you are waiving your entitlement to receive interest in respect of your Swap-free Account. This means that we will not credit interest (interest income to you) of any form in respect of your Swap-free Account.") %]</li>
+        <li>[% l("Upon your request and consent, we may convert your Standard, and / or Advanced Account designated by you to a Swap-free Account. You acknowledge that we reserve the right to request justifications, documents, and/or additional information in relation to your conversion request prior to the conversion. You also acknowledge that all open positions under the Standard, and / or Advanced Account designated by you to be converted to a Swap-free Account must be closed prior to you accessing the Swap-free Account. We may, acting reasonably, accept or reject your conversion request at our sole discretion for any reason whatsoever without being obliged to provide any explanation or justifications.") %]</li>
+        <li>[% l("Upon converting the Standard, and / or Advanced Account designated by you to a Swap-free Account, you acknowledge and agree that no interest adjustment (or swap rate adjustment) will be made to your Swap-free Account when rolling over your Open Positions. This means that we will not debit interest (interest charge to you) of any form in respect of your Swap-free Account; likewise, by requesting and consenting the conversion to a Swap-free Account, you acknowledge and agree that you are waiving your entitlement to receive interest in respect of your Swap-free Account. This means that we will not credit interest (interest income to you) of any form in respect of your Swap-free Account.") %]</li>
         <li>[% l("We will take all reasonable steps to provide you with the features and facilities of a Swap-free Account. The interest-free arrangements in place in relation to your Swap-free Account does not warranty or represent (whether express or implied) that your Swap-free Account is Sharia-compliant. You agree and acknowledge that the execution, delivery and performance of your Swap-free Account is in accordance with the terms, characteristics and features as determined by us and may not conform with your corresponding Sharia principles and requirements.") %]</li>
         <li>
-            [% l("The provision of Swap-free Accounts by us to you is made in good faith. By requesting and consenting to convert your Cent, Standard, and / or STP Account designated by you to a Swap-free Account, you represent and warrant to us that you will not take any unfair advantage of its terms or to enter into Transactions that take advantage of the differences between Swap-free Accounts and non-swap-free Accounts (which can be a Cent, Standard, and / or STP Account). In the event that we detect any form of abuse, fraud, manipulation, or any other forms of deceitful activity in regards to your Swap-free Account, we may, at our absolute discretion:") %]
+            [% l("The provision of Swap-free Accounts by us to you is made in good faith. By requesting and consenting to convert your Standard, and / or Advanced Account designated by you to a Swap-free Account, you represent and warrant to us that you will not take any unfair advantage of its terms or to enter into Transactions that take advantage of the differences between Swap-free Accounts and non-swap-free Accounts (which can be a Standard, and / or Advanced Account). In the event that we detect any form of abuse, fraud, manipulation, or any other forms of deceitful activity in regards to your Swap-free Account, we may, at our absolute discretion:") %]
             <ol>
                 <li>[% l("revoke the Swap-free status and convert your Swap-free Account to a non-Swap-free Account;") %]</li>
                 <li>[% l("treat all your Transactions closed under your Swap-free Account as void and nullify all profits generated or losses incurred in relation to your Swap-free Account; and") %]</li>
@@ -181,17 +181,17 @@
         <li>[% l("The Margin Requirement is a percentage of the value of the Open Positions and will continue to fluctuate in accordance with the value of the Open Positions throughout the duration of the relevant contracts (the \"Contract Value\").") %]</li>
         <li>[% l("Margin Requirements can increase/decrease based on the aggregated size of your Open Position determined by the volume (number of lots), contract size (value per point in the original currency of the contract), market price, and margin rate.") %]</li>
         <li>[% l("We may modify Margin Requirements for any Open Positions or new Transactions entered into, at our sole discretion. Formulas for Margin Requirements published on the website are indicative only and may be changed by the Company at its discretion at any time, due to changing market conditions or other factors.") %]</li>
-        <li>[% l("Whilst we endeavour to close out your Open Positions if and when the Margin Level for your Cent, Standard, and / or STP Account reaches or falls below the Stop Out Level, we do not guarantee that your Open Positions will be closed when the Margin Level for your Cent, Standard, and / or STP Account reaches the Stop Out Level.") %]</li>
+        <li>[% l("Whilst we endeavour to close out your Open Positions if and when the Margin Level for your Standard, and / or Advanced Account reaches or falls below the Stop Out Level, we do not guarantee that your Open Positions will be closed when the Margin Level for your Standard, and / or Advanced Account reaches the Stop Out Level.") %]</li>
     </ol>
     <li>[% l("Stop Out Level") %]</li>
     <ol>
-        <li>[% l("If the Margin Level for your Cent, Standard, and / or STP Account reaches or falls below the Stop Out Level, this will be classified as an Event of Default. In such circumstances, Open Positions are automatically closed in the following order: (i) the server analyses clients' Orders that are not under execution at the moment; (ii) the server deletes Orders with the largest Margin; (iii) if your Margin Level is still under the Stop Out Level, the next order is deleted (orders without margin requirements are not deleted); (iv) if your Margin Level is still under the Stop Out Level, the server closes a position with the largest loss; (v) Open Positions are closed until your Margin Level becomes higher than the Stop Out Level.") %]</li>
+        <li>[% l("If the Margin Level for your Standard, and / or Advanced Account reaches or falls below the Stop Out Level, this will be classified as an Event of Default. In such circumstances, Open Positions are automatically closed in the following order: (i) the server analyses clients' Orders that are not under execution at the moment; (ii) the server deletes Orders with the largest Margin; (iii) if your Margin Level is still under the Stop Out Level, the next order is deleted (orders without margin requirements are not deleted); (iv) if your Margin Level is still under the Stop Out Level, the server closes a position with the largest loss; (v) Open Positions are closed until your Margin Level becomes higher than the Stop Out Level.") %]</li>
         <li>[% l("The default Stop Out Level applicable to your Account is published on our website. However, the default Stop Out Level is subject to alteration at our absolute discretion. Any changes to the Stop Out Level will take effect immediately. We will endeavour to notify you of an alteration to the default Stop Out Level by publishing the revised default Stop Out Level on our website. It is your responsibility to check our website regularly and remain informed about the default Stop Out Level.") %]</li>
-        <li>[% l("The Stop Out Level applicable to your Cent, Standard, and / or STP Account may differ from the default Stop Out Level published on our website.") %]</li>
+        <li>[% l("The Stop Out Level applicable to your Standard, and / or Advanced Account may differ from the default Stop Out Level published on our website.") %]</li>
     </ol>
     <li>[% l("Margin Payment") %]</li>
     <ol>
-        <li>[% l("You may make Margin Payments by transferring funds from your Champion FX Real Account to your Cent, Standard, and / or STP Account. In the event that there are insufficient funds in your Champion FX Real Account to fund your Cent, Standard, and / or STP Account, you may make Margin Payments by funding your Champion FX Real Account and transferring the funds from your Champion FX Real Account to your Cent, Standard, and / or STP Account.") %]</li>
+        <li>[% l("You may make Margin Payments by transferring funds from your Champion FX Real Account to your Standard, and / or Advanced Account. In the event that there are insufficient funds in your Champion FX Real Account to fund your Standard, and / or Advanced Account, you may make Margin Payments by funding your Champion FX Real Account and transferring the funds from your Champion FX Real Account to your Standard, and / or Advanced Account.") %]</li>
         <li>[% l("Margin Payments are due immediately and shall be received in full by us.") %]</li>
     </ol>
 </ol>
@@ -215,11 +215,11 @@
     <ol>
         <li>[% l("You acknowledge that we may use, store, or otherwise process personal information provided by you in connection with the provision of margin trading services described in this Agreement. You consent to the processing and transmittal of your personal information for the purposes of performing the contract and administering the relationship between you and us.") %]</li>
         <li>[% l("You consent to us recording any telephone conversation between you and us. All instructions received by telephone will be binding as if received in writing. Recorded telephone conversations between you and us shall be, and remain, our sole property. You will accept recorded telephone conversations between you and us as conclusive evidence of instructions or conversations so recorded and we may deliver copies of transcripts of such recordings to any court, regulatory, or governmental authority without seeking prior consent from you.") %]</li>
-        <li>[% l("We may or may not use your personal information to contact you at any reasonable time as part of our marketing activities. You authorise us to contact you by email or telephone to give you information about selected products and services offered by us. Your consent for us to use your personal information for this purpose applies to the period you have a Cent, Standard, and / or STP Account with us and after you close your Cent, Standard, and / or STP Account. Please advise us in writing if you do not wish your personal information to be used for such purposes.") %]</li>
+        <li>[% l("We may or may not use your personal information to contact you at any reasonable time as part of our marketing activities. You authorise us to contact you by email or telephone to give you information about selected products and services offered by us. Your consent for us to use your personal information for this purpose applies to the period you have a Standard, and / or Advanced Account with us and after you close your Standard, and / or Advanced Account. Please advise us in writing if you do not wish your personal information to be used for such purposes.") %]</li>
     </ol>
     <li>[% l("Confidentiality") %]</li>
     <ol>
-        <li>[% l("The personal information that we collect and hold is treated as confidential. Confidential information will not be used for any purpose other than in connection with the provision of the margin trading services described in this Agreement. Confidential information will only be disclosed as and when required by law. We may also disclose such personal information to: (i) any such third parties as we see fit to assist us in servicing your Champion FX Real Account and your Cent, Standard, and / or STP Account; (ii) regulatory authorities upon their reasonable request; (iii) any such third parties as we see fit to assist us in enforcing our legal or contractual rights against you, including, but not limited, to legal advisors; (iv) third parties as we see fit to investigate or prevent fraud or other illegal activities.") %]</li>
+        <li>[% l("The personal information that we collect and hold is treated as confidential. Confidential information will not be used for any purpose other than in connection with the provision of the margin trading services described in this Agreement. Confidential information will only be disclosed as and when required by law. We may also disclose such personal information to: (i) any such third parties as we see fit to assist us in servicing your Champion FX Real Account and your Standard, and / or Advanced Account; (ii) regulatory authorities upon their reasonable request; (iii) any such third parties as we see fit to assist us in enforcing our legal or contractual rights against you, including, but not limited, to legal advisors; (iv) third parties as we see fit to investigate or prevent fraud or other illegal activities.") %]</li>
     </ol>
     <li>[% l("Complaints and disputes") %]</li>
     <ol>
@@ -244,7 +244,7 @@
     <li>[% l("Opening a Transaction") %]</li>
     <ol>
         <li>[% l("A Transaction is opened by either executing a \"Buy\" or \"Sell\" Order based on a specified number of lots (volume) that constitute the underlying instrument of the relevant market.") %]</li>
-        <li>[% l("Any Transaction opened by you must be within any credit or position limit in effect with respect to the Cent, Standard, and / or STP Account or any Transactions.") %]</li>
+        <li>[% l("Any Transaction opened by you must be within any credit or position limit in effect with respect to the Standard, and / or Advanced Account or any Transactions.") %]</li>
         <li>[% l("Upon opening a Transaction, the sum due and payable by you to us is deducted from your Account Balance.") %]</li>
     </ol>
     <li>[% l("Closing a Transaction") %]</li>
@@ -279,7 +279,7 @@
     <li>[% l("We will act on any instructions given, or appearing to be given by you and received by us in relation to the margin trading services provided through the MT5 Trading Platform, as deemed instructed by you. However, it is not our obligation to act on any instructions deemed given by you, and we are not obligated to give you any reasons for declining to do so. Instructions received by us from you are deemed final and will not be revocable. It is your responsibility to ensure the genuineness and accuracy of the instructions given by you to us.") %]</li>
     <li>[% l("We will use reasonable endeavours within our control to ensure that all electronic data provided on the MT5 Trading Platform and all electronic transactions instructed and accepted from you to us, and executed by us are not subject to network latency.") %]</li>
     <li>[% l("You hereby agree that you will not participate in any illegal, deceptive, misleading or unethical practices including, but not limited to, disparagement of the MT5 Trading Platform or other practices which may be detrimental to the MT5 Trading Platform, Licensor or the public interest.") %]</li>
-    <li>[% l("The Company sources market data from prime brokers who act as liquidity providers, thus executing your Transactions through a pool of aggregated liquidity from top tier banks. The services offered by the Company do not include physical delivery of foreign currency by us or the prime brokers to you. You acknowledge and agree that such data is proprietary to us and any such provider, and you will not retransmit, redistribute, publish, disclose, or display in whole or in part such data to third parties. You represent and warrant that you will only use such data for purposes of facilitating your entry into Transactions with us on your Cent, Standard, and / or STP Account in accordance with this Agreement and not for any other purpose.") %]</li>
+    <li>[% l("The Company sources market data from prime brokers who act as liquidity providers, thus executing your Transactions through a pool of aggregated liquidity from top tier banks. The services offered by the Company do not include physical delivery of foreign currency by us or the prime brokers to you. You acknowledge and agree that such data is proprietary to us and any such provider, and you will not retransmit, redistribute, publish, disclose, or display in whole or in part such data to third parties. You represent and warrant that you will only use such data for purposes of facilitating your entry into Transactions with us on your Standard, and / or Advanced Account in accordance with this Agreement and not for any other purpose.") %]</li>
 </ol>
 
 <h2>L. [% l("Event of Default") %]</h2>
@@ -287,7 +287,7 @@
     <li>[% l("Each of the following event constitutes an \"Event of Default\":") %]</li>
     <ol>
         <li>[% l("Your death, your incapacity, or becoming of unsound mind, your inability to pay your debts as they fall due, becoming bankrupt or insolvent, as defined under any bankruptcy or insolvency law applicable to you, if you are an individual;") %]</li>
-        <li>[% l("The Margin Level of your Cent, Standard, and / or STP Account reaches or falls below the Stop Out Level;") %]</li>
+        <li>[% l("The Margin Level of your Standard, and / or Advanced Account reaches or falls below the Stop Out Level;") %]</li>
         <li>[% l("You act in breach of any warranty or representation made under this Agreement, and/or if any information provided to us in connection with this Agreement is, or becomes, untrue or misleading;") %]</li>
         <li>[% l("Your debts are not settled as, and when, they fall due;") %]</li>
     </ol>
@@ -296,7 +296,7 @@
         <li>[% l("On the occurrence of an Event of Default, we may exercise our rights under this clause, at any time and without prior notice:") %]</li>
         <ol>
             <li>[% l("Closing or part-closing all, or any, of your Open Positions based on the prevailing prices available in the relevant markets;") %]</li>
-            <li>[% l("Suspending your Cent, Standard, and / or STP Account and refusing to execute any Orders to enter into further Transactions with you. Whilst your Cent, Standard, and / or STP Account is suspended, you will be able to place Orders to close your Open Positions, but you will not be able to place Orders which would create Open Positions.") %]</li>
+            <li>[% l("Suspending your Standard, and / or Advanced Account and refusing to execute any Orders to enter into further Transactions with you. Whilst your Standard, and / or Advanced Account is suspended, you will be able to place Orders to close your Open Positions, but you will not be able to place Orders which would create Open Positions.") %]</li>
         </ol>
     </ol>
     <li>[% l("In the event of your failing to make a Margin Payment, we may, at our absolute discretion, allow your Open Positions to remain open and allow you to place new Orders to open a Transaction. You acknowledge that, upon allowing your Open Positions to remain open, you may incur further losses.") %]</li>
@@ -346,7 +346,7 @@
     <li>[% l("You make the following representations and warranties to us at the time you enter into this Agreement, and agree that such representations and warranties are deemed repeated each time you open or close a Transaction:") %]</li>
     <ol>
         <li>[% l("If you are an individual, you are over 18 years old and you have full capacity to enter into this Agreement;") %]</li>
-        <li>[% l("You have fully read, understood, and accepted the: (i) Risk Disclosure Statement; (ii) Order Execution Policy; (iii) terms and condition attached to this Agreement; before requesting to open a Cent, Standard, and / or STP Account with us;") %]</li>
+        <li>[% l("You have fully read, understood, and accepted the: (i) Risk Disclosure Statement; (ii) Order Execution Policy; (iii) terms and condition attached to this Agreement; before requesting to open a Standard, and / or Advanced Account with us;") %]</li>
         <li>[% l("You have all necessary authority, powers, consents, licences, and authorisations and have taken all necessary actions to enable you to enter into, and perform this Agreement and such Transactions lawfully;") %]</li>
         <li>[% l("The execution, delivery, and performance of this Agreement and each Transaction will not violate any law, ordinance, charter, by-law, or rule applicable to you or the jurisdiction in which you are resident.") %]</li>
         <li>[% l("You are willing and financially able to sustain a total loss of funds (which may exceed your initial deposit) resulting from a Transaction;") %]</li>
@@ -381,14 +381,14 @@
 <ol>
     <li>[% l("Account Balance &ndash; Your account balance represents:") %]</li>
     <ol>
-        <li>[% l("net of fund transfers between your Champion FX Real Account and your Cent, Standard, and / or STP Account;") %]</li>
-        <li>[% l("net of realised profits credited to your Cent, Standard, and / or STP Account and realised losses debited from your Cent, Standard, and / or STP Account;") %]</li>
-        <li>[% l("net of any other money credited to your Cent, Standard, and / or STP Account and debited from your Cent, Standard, and / or STP Account. Your account balance includes Margin Requirement. The amount of your account balance in excess of Margin Requirement is available for your withdrawal. The amount set aside for Margin Requirement is not available for your withdrawal.") %]</li>
+        <li>[% l("net of fund transfers between your Champion FX Real Account and your Standard, and / or Advanced Account;") %]</li>
+        <li>[% l("net of realised profits credited to your Standard, and / or Advanced Account and realised losses debited from your Standard, and / or Advanced Account;") %]</li>
+        <li>[% l("net of any other money credited to your Standard, and / or Advanced Account and debited from your Standard, and / or Advanced Account. Your account balance includes Margin Requirement. The amount of your account balance in excess of Margin Requirement is available for your withdrawal. The amount set aside for Margin Requirement is not available for your withdrawal.") %]</li>
     </ol>
 
     <li>[% l("Account Equity &ndash; Your Account Equity refers to the sum of your Account Balance and the net of unrealised profit and loss.") %]</li>
     <li>[% l("Account Free Margin &ndash; Your Account Equity minus your Total Margin.") %]</li>
-    <li>[% l("Cent, Standard, and / or STP Account &ndash; Your real money account opened with Champion-FX.com which you use to trade FX and CFD with Champion-FX.com.") %]</li>
+    <li>[% l("Standard, and / or Advanced Account &ndash; Your real money account opened with Champion-FX.com which you use to trade FX and CFD with Champion-FX.com.") %]</li>
     <li>[% l("Champion FX Real Account &ndash; Your real money account opened with Champion-FX.com which you use to trade binary options with Champion-FX.com.") %]</li>
     <li>[% l("First Available Price &ndash; Earliest price reasonably available and quoted by Champion-FX.com") %]</li>
     <li>[% l("Gapping &ndash; An unfilled space or interval of a financial market with nil or little trading volume.") %]</li>
@@ -400,11 +400,11 @@
     <li>[% l("Open Position &ndash; The position in a market made by reference to an Underlying Instrument created by opening a Transaction as a result of placing an Order to the extent that such position has not been closed in whole or in part under this Agreement.") %]</li>
     <li>[% l("Order &ndash; An execution instruction given by you to us in relation to a Market Order, Stop Order, Limit Order, and etc.") %]</li>
     <li>[% l("Price/Prices &ndash; Bid and Offer Price/Prices.") %]</li>
-    <li>[% l("Cent, Standard, and / or STP Account &ndash; Your real money account opened with Champion-FX.com's MT5 Trading Platform licensed from MetaQuotes Software Corporation.") %]</li>
+    <li>[% l("Standard, and / or Advanced Account &ndash; Your real money account opened with Champion-FX.com's MT5 Trading Platform licensed from MetaQuotes Software Corporation.") %]</li>
     <li>[% l("Roll-over &ndash; In the event that the Company does not receive Orders from you to close an Open Position by the close of a business day, the Company will roll over the said Open Position to the following business day.") %]</li>
     <li>[% l("Roll-over Credit/Debit &ndash; Accounts with Open Positions concerned by the Roll-over shall be credited or debited with an amount referred to as the Roll-over Credit/Debit which is determined by the Company at its sole discretion.") %]</li>
     <li>[% l("Stop Out Level &ndash; The Margin Level at, or below, which your Open Positions may be forcefully with or without your prior consent.") %]</li>
     <li>[% l("Swap-free Account &ndash; Interest-free accounts whereby interest adjustments will not be made on overnight open positions.") %]</li>
-    <li>[% l("Total Margin &ndash; The aggregate of all Margin Requirements in your Cent, Standard, and / or STP Account.") %]</li>
+    <li>[% l("Total Margin &ndash; The aggregate of all Margin Requirements in your Standard, and / or Advanced Account.") %]</li>
     <li>[% l("Transaction &ndash; A contract entered into by you pursuant to this Agreement.") %]</li>
 </ol>

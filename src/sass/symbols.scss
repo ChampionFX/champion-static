@@ -477,16 +477,12 @@
 }
 
 // MT5 accounts
-.fx-cent-account:before {
-    content: url('../images/metatrader/cent.svg');
-}
-
 .fx-standard-account:before {
-    content: url('../images/metatrader/standard.svg');
+    content: url('../images/metatrader/standard_account.svg');
 }
 
-.fx-stp-account:before {
-    content: url('../images/metatrader/stp.svg');
+.fx-advanced-account:before {
+    content: url('../images/metatrader/advanced_account.svg');
 }
 
 // MT5

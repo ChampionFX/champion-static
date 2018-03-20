@@ -1,48 +1,94 @@
 const MetaTraderConfig = require('./metatrader.config');
 const MetaTraderUI     = require('./metatrader.ui');
 const Client           = require('../../../common/client');
-const switchLoginId    = require('../../../common/header').switchLoginId;
 const ChampionSocket   = require('../../../common/socket');
 const State            = require('../../../common/storage').State;
+const toTitleCase      = require('../../../common/utility').toTitleCase;
 const Validation       = require('../../../common/validation');
 
 const MetaTrader = (function() {
     'use strict';
 
-    const types_info   = MetaTraderConfig.types_info;
-    const actions_info = MetaTraderConfig.actions_info;
-    const fields       = MetaTraderConfig.fields;
+    const mt_companies  = MetaTraderConfig.mt_companies;
+    const accounts_info = MetaTraderConfig.accounts_info;
+    const actions_info  = MetaTraderConfig.actions_info;
+    const fields        = MetaTraderConfig.fields;
+
+    const mt_company = {};
 
     const load = () => {
-        State.set('is_mt_pages', 1);
-
-        if (Client.is_virtual() && Client.has_real()) {
-            const real_login_id = Client.get('loginid_array').find(login => !login.disabled && login.real).id;
-            switchLoginId(real_login_id);
-            return;
-        }
-
-        ChampionSocket.wait('mt5_login_list').then((response) => {
-            responseLoginList(response);
-        });
-        MetaTraderUI.init(submit);
-    };
-
-    const responseLoginList = (response) => {
-        (response.mt5_login_list || []).forEach((obj) => {
-            const acc_type = Client.getMT5AccountType(obj.group);
-            if (acc_type) { // ignore old accounts which are not linked to any group
-                types_info[acc_type].account_info = { login: obj.login };
-                getAccountDetails(obj.login, acc_type);
+        ChampionSocket.wait('landing_company', 'get_account_status').then(() => {
+            if (isEligible()) {
+                if (Client.get('is_virtual')) {
+                    getAllAccountsInfo();
+                } else {
+                    ChampionSocket.send({ get_limits: 1 }).then(getAllAccountsInfo);
+                }
             }
         });
+    };
 
-        Client.set('mt5_account', getDefaultAccount());
+    const isEligible = () => {
+        let has_mt_company = false;
+        Object.keys(mt_companies).forEach((company) => {
+            mt_company[company] = State.getResponse(`landing_company.mt_${company}_company.shortcode`);
+            if (mt_company[company]) {
+                has_mt_company = true;
+                addAccount(company);
+            }
+        });
+        return has_mt_company;
+    };
 
-        // Update types with no account
-        Object.keys(types_info)
-            .filter(acc_type => !hasAccount(acc_type))
-            .forEach((acc_type) => { MetaTraderUI.updateAccount(acc_type); });
+    const addAccount = (company) => {
+        ['demo', 'real'].forEach((type) => {
+            Object.keys(mt_companies[company]).forEach((acc_type) => {
+                const company_info     = mt_companies[company][acc_type];
+                const mt5_account_type = company_info.mt5_account_type;
+                const title            = `${toTitleCase(type)} ${company_info.title}`;
+                const is_demo          = type === 'demo';
+
+                accounts_info[`${type}_${mt_company[company]}${mt5_account_type ? `_${mt5_account_type}` : ''}`] = {
+                    title,
+                    is_demo,
+                    mt5_account_type,
+                    account_type: is_demo ? 'demo' : company,
+                    max_leverage: company_info.max_leverage,
+                    short_title : company_info.title,
+                };
+            });
+        });
+    };
+
+    const getAllAccountsInfo = () => {
+        MetaTraderUI.init(submit);
+        ChampionSocket.wait('mt5_login_list').then((response) => {
+            // Ignore old accounts which are not linked to any group or has deprecated group
+            const mt5_login_list = (response.mt5_login_list || []).filter(obj => (
+                obj.group && Client.getMT5AccountType(obj.group) in accounts_info
+            ));
+
+            // Don't allow new MT5 account
+            if (!mt5_login_list.length) {
+                $('#page_error').html('Sorry, we are disabling this feature at the moment.').setVisibility(1);
+                $('#mt_loading').remove();
+                return;
+            }
+
+            // Update account info
+            mt5_login_list.forEach((obj) => {
+                const acc_type = Client.getMT5AccountType(obj.group);
+                accounts_info[acc_type].info = { login: obj.login };
+                getAccountDetails(obj.login, acc_type);
+            });
+
+            Client.set('mt5_account', getDefaultAccount());
+
+            // Update types with no account
+            Object.keys(accounts_info)
+                .filter(acc_type => !hasAccount(acc_type))
+                .forEach((acc_type) => { MetaTraderUI.updateAccount(acc_type); });
+        });
     };
 
     const getDefaultAccount = () => {
@@ -53,14 +99,14 @@ const MetaTrader = (function() {
         } else if (hasAccount(Client.get('mt5_account'))) {
             default_account = Client.get('mt5_account');
         } else {
-            default_account = Object.keys(types_info)
+            default_account = Object.keys(accounts_info)
                 .filter(acc_type => hasAccount(acc_type))
-                .sort(acc_type => (types_info[acc_type].is_demo ? 1 : -1))[0] || ''; // real first
+                .sort(acc_type => (accounts_info[acc_type].is_demo ? 1 : -1))[0] || ''; // real first
         }
         return default_account;
     };
 
-    const hasAccount = acc_type => (types_info[acc_type] || {}).account_info;
+    const hasAccount = acc_type => (accounts_info[acc_type] || {}).account_info;
 
     const getAccountDetails = (login, acc_type) => {
         ChampionSocket.send({
@@ -68,7 +114,7 @@ const MetaTrader = (function() {
             login           : login,
         }).then((response) => {
             if (response.mt5_get_settings) {
-                types_info[acc_type].account_info = response.mt5_get_settings;
+                accounts_info[acc_type].account_info = response.mt5_get_settings;
                 MetaTraderUI.updateAccount(acc_type);
             }
         });
@@ -114,9 +160,9 @@ const MetaTrader = (function() {
                         MetaTraderUI.displayFormMessage(response.error.message, action);
                     } else {
                         const login = actions_info[action].login ?
-                            actions_info[action].login(response) : types_info[acc_type].account_info.login;
-                        if (!types_info[acc_type].account_info) {
-                            types_info[acc_type].account_info = { login: login };
+                            actions_info[action].login(response) : accounts_info[acc_type].account_info.login;
+                        if (!accounts_info[acc_type].account_info) {
+                            accounts_info[acc_type].account_info = { login: login };
                             MetaTraderUI.setAccountType(acc_type, true);
                         }
                         MetaTraderUI.loadAction(null, acc_type);
