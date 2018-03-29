@@ -7,7 +7,7 @@
 
 <div class="container">
     <div class="fx-section">
-        <div class="row center-text">
+        <!-- div class="row center-text">
             <div class="col-sm">
                 <h3>[% l('For desktop') %]</h3>
                 <p>[% l('Download MT5 for your desktop or laptop to access the powerful tools and features enjoyed by millions of traders.') %]</p>
@@ -50,7 +50,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div-->
 
         <div class="row">
             <div class="col-sm">
