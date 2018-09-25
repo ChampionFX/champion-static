@@ -70,13 +70,13 @@
                         <div class="box fill-bg-color">
                             <span class="fx-simple"></span>
                             <h4>[% l('Simple and intuitive') %]</h4>
-                            <p>[% l('Enjoy a trading platform that’s easy to navigate and use.') %]</p>
+                            <p>[% l('Enjoy a trading platform that\'s easy to navigate and use.') %]</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="box fill-bg-color">
                             <span class="fx-world-square"></span>
-                            <h4>[% l('Trade the world’s markets') %]</h4>
+                            <h4>[% l('Trade the world\'s markets') %]</h4>
                             <p>[% l('Diversify your investment portfolio through one platform.') %]</p>
                         </div>
                     </div>

@@ -1,7 +1,7 @@
 <div class="primary-color-dark binary-options-header">
     <div class="fx-panel center-text center-vertical container">
         <h1 class="content-inverse-color">[% l('Binary Options') %]</h1>
-        <p class="content-inverse-color">[% l('ChampionFX knows our traders love options. That’s why we’ve provided them with access to a different kind of trading: binary options.') %]</p>
+        <p class="content-inverse-color">[% l('ChampionFX knows our traders love options. That\'s why we\'ve provided them with access to a different kind of trading: binary options.') %]</p>
     </div>
 </div>
 

@@ -1,0 +1,473 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: champion-static\n"
+"X-Crowdin-Language: ach\n"
+"X-Crowdin-File: en.po\n"
+"Project-Id-Version: champion-static\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Last-Translator: binarycom <jy@binary.com>\n"
+"Language-Team: Acholi\n"
+"Language: ach_UG\n"
+"PO-Revision-Date: 2018-09-25 08:37\n"
+
+msgid "24-hour live support"
+msgstr "crwdns17410:0crwdne17410:0"
+
+msgid "About"
+msgstr "crwdns17411:0crwdne17411:0"
+
+msgid "Access Global Markets"
+msgstr "crwdns17412:0crwdne17412:0"
+
+msgid "Access global Forex, CFD's, indices, stocks, futures, and commodities all through one platform. Champion FX is commited to providing you with the most complete offering in online trading - today and tomorrow. We are always looking to expand our available instruments."
+msgstr "crwdns17413:0crwdne17413:0"
+
+msgid "Access to the Largest Market of Expert Advisors"
+msgstr "crwdns17414:0crwdne17414:0"
+
+msgid "All calls are recorded for training and monitoring purposes"
+msgstr "crwdns17655:0crwdne17655:0"
+
+msgid "Alogorithmic and<br>copy trading"
+msgstr "crwdns17415:0crwdne17415:0"
+
+msgid "At Champion FX, we remain dedicated to creating a dynamic environment that both respects traders and equips them with all necessary tools to take their customer experience to a whole new \"champion\" level."
+msgstr "crwdns17416:0crwdne17416:0"
+
+msgid "Binary Options"
+msgstr "crwdns17418:0crwdne17418:0"
+
+msgid "Binary Options trading"
+msgstr "crwdns17419:0crwdne17419:0"
+
+msgid "Binary options trading is a special type of online trading with a fixed payout, in which you predict the outcome from two possible results. You also know exactly what you stand to win or lose. Best of all, you never have to worry about slippages, margin calls, or stops."
+msgstr "crwdns17420:0crwdne17420:0"
+
+msgid "Binary options trading platforms for champions"
+msgstr "crwdns17564:0crwdne17564:0"
+
+msgid "CFD Trading"
+msgstr "crwdns17422:0crwdne17422:0"
+
+msgid "Champion"
+msgstr "crwdns17423:0crwdne17423:0"
+
+msgid "Champion FX"
+msgstr "crwdns17424:0crwdne17424:0"
+
+msgid "Champion FX Webtrader"
+msgstr "crwdns17427:0crwdne17427:0"
+
+msgid "Champion FX believes in giving its clients power and flexibility in order to make their mark in the world of Forex."
+msgstr "crwdns17428:0crwdne17428:0"
+
+msgid "Champion FX believes in giving our clients the best trading platform available. This is why we chose MetaTrader 5. We focus all our efforts and resources to take full advantage of MetaTrader 5's advanced features to give our clients a powerful trading experience that's built to last."
+msgstr "crwdns17429:0crwdne17429:0"
+
+msgid "Champion FX is commited to becoming an industry leader by placing our client's needs at the centre of every decesion we make. As the markets continually evolve, Champion FX will continuosly update our services to meet trader demands."
+msgstr "crwdns17430:0crwdne17430:0"
+
+msgid "Champion FX knows our traders love options. That's why we've provided them with access to a different kind of trading: binary options."
+msgstr "crwdns17431:0crwdne17431:0"
+
+msgid "Champion FX knows that our traders require quick access to their trading accounts anywhere in the world, and at any time of the day. So, we offer the most efficient and powerful range of trading platforms. Browse our range of platforms and services, and start trading on your chosen device."
+msgstr "crwdns17432:0crwdne17432:0"
+
+msgid "Champion FX offers Forex, commodities, energies, indices, stocks, and CFDs. We provide our clients with access to top-tier liquidity and advanced trade execution with the No Dealing Desk (NDD) model."
+msgstr "crwdns17433:0crwdne17433:0"
+
+msgid "Champion FX: Where the Client is King"
+msgstr "crwdns17434:0crwdne17434:0"
+
+msgid "Champion Group Ltd. is fully regulated by Vanuatu Financial Services Commission (VFSC) bearing license number 14660. Champion Group Ltd. is also registered with the Financial Intelligence unit (FIU) of Vanuatu for compliance with the Anti-Money Laundering rules of the VFSC"
+msgstr "crwdns17435:0crwdne17435:0"
+
+msgid "Champion-FX.com"
+msgstr "crwdns17650:0crwdne17650:0"
+
+msgid "Client satisfaction"
+msgstr "crwdns17437:0crwdne17437:0"
+
+msgid "Commission Free"
+msgstr "crwdns17438:0crwdne17438:0"
+
+msgid "Contact Us"
+msgstr "crwdns17653:0crwdne17653:0"
+
+msgid "Custom technical indicators<br>and trading robots"
+msgstr "crwdns17440:0crwdne17440:0"
+
+msgid "Customer service is not just a department, it is the entire company. Trade with Champion FX - where the client is <i>KING.</i>"
+msgstr "crwdns17441:0crwdne17441:0"
+
+msgid "Customised Trading Conditions"
+msgstr "crwdns17442:0crwdne17442:0"
+
+msgid "Deep liquidity from top tier liquidity pools"
+msgstr "crwdns17443:0crwdne17443:0"
+
+msgid "Depth of Market"
+msgstr "crwdns17444:0crwdne17444:0"
+
+msgid "Diversify Your trading"
+msgstr "crwdns17445:0crwdne17445:0"
+
+msgid "Do you want to try your hand at binary options? Choose from the wide range of trading platforms we offer for desktop and mobile devices."
+msgstr "crwdns17446:0crwdne17446:0"
+
+msgid "Download Now"
+msgstr "crwdns17447:0crwdne17447:0"
+
+msgid "Economic Calendar"
+msgstr "crwdns17448:0crwdne17448:0"
+
+msgid "Email"
+msgstr "crwdns17661:0crwdne17661:0"
+
+msgid "Email System"
+msgstr "crwdns17449:0crwdne17449:0"
+
+msgid "Embeded MQL5 community chat"
+msgstr "crwdns17450:0crwdne17450:0"
+
+msgid "Enter a whole new world of trading by joining today"
+msgstr "crwdns17452:0crwdne17452:0"
+
+msgid "Exchange Trading"
+msgstr "crwdns17453:0crwdne17453:0"
+
+msgid "Expansion and refinement of our business model - always with a trader's need in mind"
+msgstr "crwdns17454:0crwdne17454:0"
+
+msgid "Fast & Hassle-Free Account Opening"
+msgstr "crwdns17456:0crwdne17456:0"
+
+msgid "Faster and more powerful. Groundbreaking flexibility."
+msgstr "crwdns17457:0crwdne17457:0"
+
+msgid "Fill or Kill"
+msgstr "crwdns17458:0crwdne17458:0"
+
+msgid "Fill or Kill Immediate or Cancel"
+msgstr "crwdns17459:0crwdne17459:0"
+
+msgid "Fixed of Floating Spreads"
+msgstr "crwdns17460:0crwdne17460:0"
+
+msgid "Forex"
+msgstr "crwdns17461:0crwdne17461:0"
+
+msgid "Forex Trading Platforms"
+msgstr "crwdns17462:0crwdne17462:0"
+
+msgid "Forex trading platforms for champion traders."
+msgstr "crwdns17565:0crwdne17565:0"
+
+msgid "Fundamental Analysis"
+msgstr "crwdns17464:0crwdne17464:0"
+
+msgid "Futures"
+msgstr "crwdns17465:0crwdne17465:0"
+
+msgid "Gain access to our multi-asset trading platform and you can trade Forex, stocks, futures, and CFDs<br>all trough one platform. We provide you with all the necessary tools for financial trading, including:"
+msgstr "crwdns17466:0crwdne17466:0"
+
+msgid "Gold Spreads Fixed at 10 Cents"
+msgstr "crwdns17467:0crwdne17467:0"
+
+msgid "Graphical Objects"
+msgstr "crwdns17468:0crwdne17468:0"
+
+msgid "Hedging"
+msgstr "crwdns17469:0crwdne17469:0"
+
+msgid "Hedging and scalping"
+msgstr "crwdns17470:0crwdne17470:0"
+
+msgid "High-speed Back-testing Tool to Optimise Trading Strategies"
+msgstr "crwdns17471:0crwdne17471:0"
+
+msgid "Honesty and integrity"
+msgstr "crwdns17472:0crwdne17472:0"
+
+msgid "Indices, Agricultural Commodities, and Energies"
+msgstr "crwdns17473:0crwdne17473:0"
+
+msgid "Inspiring and motivating people to achieve greatness"
+msgstr "crwdns17474:0crwdne17474:0"
+
+msgid "Instant Execution"
+msgstr "crwdns17475:0crwdne17475:0"
+
+msgid "Integrated Development Environment for Expert Advisors"
+msgstr "crwdns17476:0crwdne17476:0"
+
+msgid "Join a licensed broker with a clear vision and un wavering commitment to treating all its clients like champions."
+msgstr "crwdns17477:0crwdne17477:0"
+
+msgid "Key Features"
+msgstr "crwdns17478:0crwdne17478:0"
+
+msgid "Launch Platform"
+msgstr "crwdns17479:0crwdne17479:0"
+
+msgid "Leverage up to 1,000"
+msgstr "crwdns17480:0crwdne17480:0"
+
+msgid "Leverage up to 500:1"
+msgstr "crwdns17481:0crwdne17481:0"
+
+msgid "Library of Free, Ready-to-use Expert Advisors"
+msgstr "crwdns17482:0crwdne17482:0"
+
+msgid "Licensed Broker"
+msgstr "crwdns17483:0crwdne17483:0"
+
+msgid "Licensing"
+msgstr "crwdns17484:0crwdne17484:0"
+
+msgid "Lightning Fast deposits & Withdrawals"
+msgstr "crwdns17485:0crwdne17485:0"
+
+msgid "Log In"
+msgstr "crwdns17652:0crwdne17652:0"
+
+msgid "Low Latency & Fast Execution"
+msgstr "crwdns17486:0crwdne17486:0"
+
+msgid "Low-Cost Trading"
+msgstr "crwdns17487:0crwdne17487:0"
+
+msgid "Market Depth Information"
+msgstr "crwdns17488:0crwdne17488:0"
+
+msgid "Meta Trader 4"
+msgstr "crwdns17489:0crwdne17489:0"
+
+msgid "Meta Trader 5"
+msgstr "crwdns17490:0crwdne17490:0"
+
+msgid "MetaTrader 5 Desktop App"
+msgstr "crwdns17491:0crwdne17491:0"
+
+msgid "MetaTrader 5 Web Platform"
+msgstr "crwdns17492:0crwdne17492:0"
+
+msgid "MetaTrader 5 is the most advanced trading platform available - the ideal platform for the modern trader. It contains everything you need to trade the financial markets."
+msgstr "crwdns17493:0crwdne17493:0"
+
+msgid "Metals"
+msgstr "crwdns17494:0crwdne17494:0"
+
+msgid "Minimum deposit of US$5"
+msgstr "crwdns17495:0crwdne17495:0"
+
+msgid "Mission"
+msgstr "crwdns17496:0crwdne17496:0"
+
+msgid "Monitor the movements of your favourite assets and markets at the same time."
+msgstr "crwdns17497:0crwdne17497:0"
+
+msgid "Multilingual Unicode"
+msgstr "crwdns17498:0crwdne17498:0"
+
+msgid "Netting"
+msgstr "crwdns17499:0crwdne17499:0"
+
+msgid "No"
+msgstr "crwdns17500:0crwdne17500:0"
+
+msgid "No Dealing Desk (NDD) Execution"
+msgstr "crwdns17501:0crwdne17501:0"
+
+msgid "Now you can trade anywhere in the world, anytime. Champion FX puts the global markets at your fingertips."
+msgstr "crwdns17502:0crwdne17502:0"
+
+msgid "One Click Trading"
+msgstr "crwdns17503:0crwdne17503:0"
+
+msgid "Order Fill Policy"
+msgstr "crwdns17506:0crwdne17506:0"
+
+msgid "Our client-centric approach puts our client's needs at the centre of our operations."
+msgstr "crwdns17507:0crwdne17507:0"
+
+msgid "Our flagship Champion account features highly competitive spreads, along with zero commission. From inexperienced to experienced traders, amd small depositors to large, the Champion account serves as a gateway to your financial aspirations."
+msgstr "crwdns17508:0crwdne17508:0"
+
+msgid "Our mission is to make trading accessible to all by offering smart custom trading solutions to local markets around the world."
+msgstr "crwdns17509:0crwdne17509:0"
+
+msgid "Over 70 FX Pairs Available"
+msgstr "crwdns17510:0crwdne17510:0"
+
+msgid "Over 75 Analytical Tools and 21 Timeframes"
+msgstr "crwdns17511:0crwdne17511:0"
+
+msgid "Partial Order Filling Policies"
+msgstr "crwdns17512:0crwdne17512:0"
+
+msgid "Pending Order Types"
+msgstr "crwdns17513:0crwdne17513:0"
+
+msgid "Perfect for Hedging Against Future Price Risk"
+msgstr "crwdns17514:0crwdne17514:0"
+
+msgid "Personalised Customer Service"
+msgstr "crwdns17515:0crwdne17515:0"
+
+msgid "Positive thinking"
+msgstr "crwdns17516:0crwdne17516:0"
+
+msgid "Range of Markets"
+msgstr "crwdns17517:0crwdne17517:0"
+
+msgid "Regulation & Licensing"
+msgstr "crwdns17518:0crwdne17518:0"
+
+msgid "Respect and appreciation"
+msgstr "crwdns17519:0crwdne17519:0"
+
+msgid "Sign Up"
+msgstr "crwdns17520:0crwdne17520:0"
+
+msgid "Step into a whole new world of trading with Champion FX. You can access many markets all through one platform. We have paved the way for you. All you have to do is step in."
+msgstr "crwdns17521:0crwdne17521:0"
+
+msgid "Strategy Tester"
+msgstr "crwdns17522:0crwdne17522:0"
+
+msgid "Successful trading on financial markets begins with a comfortable and multi-functional trading platform. MetaTrader 5 is the best choice for the modern trader."
+msgstr "crwdns17523:0crwdne17523:0"
+
+msgid "Super-fast market execution with no requotes"
+msgstr "crwdns17524:0crwdne17524:0"
+
+msgid "Swap-free option (available upon request)"
+msgstr "crwdns17525:0crwdne17525:0"
+
+msgid "Symbols"
+msgstr "crwdns17526:0crwdne17526:0"
+
+msgid "Technical Indicators"
+msgstr "crwdns17527:0crwdne17527:0"
+
+msgid "Technical and<br>fundamental analysis"
+msgstr "crwdns17528:0crwdne17528:0"
+
+msgid "Telephone"
+msgstr "crwdns17660:0crwdne17660:0"
+
+msgid "Terms and Conditions"
+msgstr "crwdns18684:0crwdne18684:0"
+
+msgid "Test"
+msgstr "crwdns18685:0crwdne18685:0"
+
+msgid "Test expert advisors with minimal investment"
+msgstr "crwdns17529:0crwdne17529:0"
+
+msgid "The Champion FX brand was founded and launched in 2016 with a clear vision to provide traders with the world's best customer experience, superior customised trading conditions, state-of-the-art trading tools and access to many markets."
+msgstr "crwdns17530:0crwdne17530:0"
+
+msgid "The Client is always King"
+msgstr "crwdns17531:0crwdne17531:0"
+
+msgid "Tight Spreads with No Commission"
+msgstr "crwdns17532:0crwdne17532:0"
+
+msgid "Tight spreads"
+msgstr "crwdns17533:0crwdne17533:0"
+
+msgid "Time & Sales (Exchange data)"
+msgstr "crwdns17534:0crwdne17534:0"
+
+msgid "Timeframes"
+msgstr "crwdns17535:0crwdne17535:0"
+
+msgid "Trade Now"
+msgstr "crwdns17536:0crwdne17536:0"
+
+msgid "Trade a Wide Range of Markets"
+msgstr "crwdns17537:0crwdne17537:0"
+
+msgid "Trade a variety of flexible precious metals contracts, including gold (per gram or ounce) with highly competitive pricing."
+msgstr "crwdns17538:0crwdne17538:0"
+
+msgid "Trade contracts for difference (CFD) across equity indices, energies, alternative asset futures, and other instruments for more trading opportunities."
+msgstr "crwdns17539:0crwdne17539:0"
+
+msgid "Trade from any browser and operating system."
+msgstr "crwdns17540:0crwdne17540:0"
+
+msgid "Trade futures contracts on a variety of underlying instruments."
+msgstr "crwdns17541:0crwdne17541:0"
+
+msgid "Trade in the financial markets with a multi-asset trading platform: Meta Trader 5.<br>The choice of the modern trader. One platform, many markets."
+msgstr "crwdns17542:0crwdne17542:0"
+
+msgid "Trade long or Short"
+msgstr "crwdns17543:0crwdne17543:0"
+
+msgid "Trade over 70 FX pairs, combining ultra-low or fixed spreads and Non Dealing Desk (NDD) execution in a high-speed trading environment."
+msgstr "crwdns17544:0crwdne17544:0"
+
+msgid "Trade with Champion FX and take your trading to a whole new level."
+msgstr "crwdns17545:0crwdne17545:0"
+
+msgid "Trade with an intuitive user-friendly platform right on our website."
+msgstr "crwdns17651:0crwdne17651:0"
+
+msgid "Trade with powerful interface known as the global industry standard."
+msgstr "crwdns17547:0crwdne17547:0"
+
+msgid "Trading"
+msgstr "crwdns17548:0crwdne17548:0"
+
+msgid "Trading Signals and Copy Trading"
+msgstr "crwdns17549:0crwdne17549:0"
+
+msgid "Transfer funds between accounts"
+msgstr "crwdns17550:0crwdne17550:0"
+
+msgid "Unbeatable Leverage Up to 1,000"
+msgstr "crwdns17551:0crwdne17551:0"
+
+msgid "Unlimited"
+msgstr "crwdns17552:0crwdne17552:0"
+
+msgid "User-friendly Interface"
+msgstr "crwdns17553:0crwdne17553:0"
+
+msgid "Values"
+msgstr "crwdns17554:0crwdne17554:0"
+
+msgid "We aim to place our client's needs at the centre of our operations and dedicate ourselves to maintain the highest level of client satisfaction."
+msgstr "crwdns17555:0crwdne17555:0"
+
+msgid "We will accomplish this by commiting ourselves to these values:"
+msgstr "crwdns17556:0crwdne17556:0"
+
+msgid "Why Binary Options?"
+msgstr "crwdns17557:0crwdne17557:0"
+
+msgid "Why Choose Champion FX"
+msgstr "crwdns17558:0crwdne17558:0"
+
+msgid "Why MT5"
+msgstr "crwdns17559:0crwdne17559:0"
+
+msgid "Wide Choice of Platforms - Desktop, Web & Mobile"
+msgstr "crwdns17560:0crwdne17560:0"
+
+msgid "Yes"
+msgstr "crwdns17561:0crwdne17561:0"
+
+msgid "Yes (with attachments)"
+msgstr "crwdns17562:0crwdne17562:0"
+
+msgid "Zero commision"
+msgstr "crwdns17563:0crwdne17563:0"
+

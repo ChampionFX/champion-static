@@ -31,7 +31,7 @@
                 <div class="box fill-bg-color">
                     <span class="fx fx-full-transparency"></span>
                     <p class="text-bold">[% l('Full transparency') %]</p>
-                    <p>[% l('Subscribe to ChampionFX liquidity and see the exact liquidity venues we are streaming from via the ‘Bank’ column in your MT5 platform.') %]</p>
+                    <p>[% l('Subscribe to ChampionFX liquidity and see the exact liquidity venues we are streaming from via the \'Bank\' column in your MT5 platform.') %]</p>
                 </div>
             </div>
             <div class="col-xs-12 col-md-6 col-lg-3">

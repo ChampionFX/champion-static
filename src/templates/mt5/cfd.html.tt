@@ -41,10 +41,10 @@
                                 <p>[% l('A Contract for Difference (CFD) is a financial derivative that allows you to potentially profit by speculating on the rise or fall of an underlying asset, without actually owning that asset.') %]</p>
                             </div>
                             <div class="col-sm">
-                                <p>[% l('The movement of a CFD follows the movement of its underlying asset. This also determines your profit or loss – depending on the position that you have taken.') %]</p>
+                                <p>[% l('The movement of a CFD follows the movement of its underlying asset. This also determines your profit or loss - depending on the position that you have taken.') %]</p>
                             </div>
                             <div class="col-sm">
-                                <p>[% l('One important thing to note is the similarity of CFDs and binary options –– they are essentially contracts between you and a broker. You do not actually own the underlying asset. There’s also a wide range of underlying markets available for you to trade, depending on your broker.') %]</p>
+                                <p>[% l('One important thing to note is the similarity of CFDs and binary options -- they are essentially contracts between you and a broker. You do not actually own the underlying asset. There\'s also a wide range of underlying markets available for you to trade, depending on your broker.') %]</p>
                             </div>
                         </div>
                     </div>
@@ -122,7 +122,7 @@
                                         <button class="button">[% l('Buy') %]</button>
                                     </div>
                                     <div class="separator primary-color"></div>
-                                    <p>[% l('In this case, you predict that the price will rise. This is also known as ‘going long’.') %]</p>
+                                    <p>[% l('In this case, you predict that the price will rise. This is also known as \'going long\'.') %]</p>
                                 </div>
                             </div>
                             <div class="col-sm margin-top-bottom">
@@ -134,19 +134,19 @@
                                         <button class="button">[% l('Sell') %]</button>
                                     </div>
                                     <div class="separator primary-color"></div>
-                                    <p>[% l('In this case, you predict that the price will fall. This is also known as ‘going short’.') %]</p>
+                                    <p>[% l('In this case, you predict that the price will fall. This is also known as \'going short\'.') %]</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="row flex-items-xs-center">
                             <div class="box fill-bg-color">
-                                <h4>[% l('Let’s use the US 100 index as an example:') %]</h4>
+                                <h4>[% l('Let\'s use the US 100 index as an example:') %]</h4>
                             </div>
 
                             <div class="col-sm-12">
-                                <p>[% l('If you decide to buy or ‘go long’ on the US 100 index, your profit will continue to increase as long as the price of the US 100 index keeps rising. However, if the price falls, the losses you incur will also increase.') %]</p>
-                                <p>[% l('The opposite is true if you decide to sell or ‘go short’ on the US 100 index. This means that your profit will continue to increase as long as the price of the US 100 index keeps falling. However, if the price rises, the losses you incur will also increase.') %]</p>
+                                <p>[% l('If you decide to buy or \'go long\' on the US 100 index, your profit will continue to increase as long as the price of the US 100 index keeps rising. However, if the price falls, the losses you incur will also increase.') %]</p>
+                                <p>[% l('The opposite is true if you decide to sell or \'go short\' on the US 100 index. This means that your profit will continue to increase as long as the price of the US 100 index keeps falling. However, if the price rises, the losses you incur will also increase.') %]</p>
                             </div>
                         </div>
 
@@ -157,7 +157,7 @@
                                 <div class="box">
                                     <h4>[% l('How to calculate your profits and losses') %]</h4>
                                     <div class="separator primary-color"></div>
-                                    <p>[% l('Let’s say a US 100 contract is worth USD 1 per point in the underlying asset. If you decide to ‘go long’ on the US 100, and the asset price rises by 10 points, that represents a USD 10 profit for you.') %]</p>
+                                    <p>[% l('Let\'s say a US 100 contract is worth USD 1 per point in the underlying asset. If you decide to \'go long\' on the US 100, and the asset price rises by 10 points, that represents a USD 10 profit for you.') %]</p>
                                     <p>[% l('However, if the asset price falls by 10 points, that represents a USD 10 loss for you.') %]</p>
                                     <p>[% l('To learn more, please read our [_1]contract specifications[_2].', '<a href="' _ request.url_for('cfd#indices-cfd-contract-specs') _ '">', '</a>') %]</p>
                                 </div>
@@ -167,7 +167,7 @@
                                     <h4>[% l('How to close a position') %]</h4>
                                     <div class="separator primary-color"></div>
                                     <p>[% l('When you decide to close an open contract, you only need to take the opposite position in order to close the contract.') %]</p>
-                                    <p>[% l('For example, if you buy a US 100 contract and it’s not going as planned, you just need to sell it to cut your losses at the current market price.') %]</p>
+                                    <p>[% l('For example, if you buy a US 100 contract and it\'s not going as planned, you just need to sell it to cut your losses at the current market price.') %]</p>
                                 </div>
                             </div>
                         </div>
@@ -181,7 +181,7 @@
                         <div class="row">
                             <div class="col-sm">
                                 <h2>[% l('ChampionFX indices CFD') %]</h2>
-                                <p>[% l('Want to trade CFDs on our MetaTrader 5 platform? We’ve handpicked leading world indices that you can trade with leverage of up to 1:500.') %]</p>
+                                <p>[% l('Want to trade CFDs on our MetaTrader 5 platform? We\'ve handpicked leading world indices that you can trade with leverage of up to 1:500.') %]</p>
                             </div>
                         </div>
                     </div>
@@ -246,7 +246,7 @@
                         <div class="row">
                             <div class="col-sm">
                                 <h3>[% l('What is margin?') %]</h3>
-                                <p>[% l('Margin allows you to trade on leverage – giving you the same level of market exposure using much less capital.') %]</p>
+                                <p>[% l('Margin allows you to trade on leverage - giving you the same level of market exposure using much less capital.') %]</p>
                                 <p>[% l('With leverage, you can purchase 100 units of the same asset at a fraction of the cost.') %]</p>
                             </div>
                             <div class="col-sm">
@@ -283,7 +283,7 @@
                         [% INCLUDE static/common/separator_line.html.tt %]
                         <div class="row">
                             <div class="col-sm-12 center-text">
-                                <h3>[% l('What’s a margin call and how do we apply it?') %]</h3>
+                                <h3>[% l('What\'s a margin call and how do we apply it?') %]</h3>
                                 <p>[% l('When your account equity is unable to cover the margin requirement, your account will be placed under margin call. This state does not affect your ability to open new positions.') %]</p>
                             </div>
                         </div>
@@ -294,8 +294,8 @@
                     <div class="container fx-section-padding">
                         <div class="row">
                             <div class="col-sm-12 center-text">
-                                <h2>[% l('What’s a stop out level and how do we apply it?') %]</h2>
-                                <div class="lg-padding">[% l('If your account is placed under margin call for an extended period of time, it will reach the stop out level where it’s unable to sustain an open position. This will lead to your pending orders being deleted, and open positions being forcibly closed (also known as forced liquidation).') %]</div>
+                                <h2>[% l('What\'s a stop out level and how do we apply it?') %]</h2>
+                                <div class="lg-padding">[% l('If your account is placed under margin call for an extended period of time, it will reach the stop out level where it\'s unable to sustain an open position. This will lead to your pending orders being deleted, and open positions being forcibly closed (also known as forced liquidation).') %]</div>
                                 <div class="lg-padding">[% l('Once your account hits the forced liquidation level, your orders and positions are forcibly closed according to the following sequence:') %]</div>
                             </div>
                             <div class="col-md-10 col-xs-12 center-align">
@@ -359,7 +359,7 @@
                                 <div class="row">
                                     <div class="center-text center-align margin-top-bottom">
                                         <div class="box fill-bg-color">
-                                            <h4>[% l('(Sell Price – Buy Price)') %]</h4>
+                                            <h4>[% l('(Sell Price - Buy Price)') %]</h4>
                                         </div>
                                     </div>
                                     <div class="col-xs-3 col-md-1 middle-align center-text center-align margin-top-bottom">

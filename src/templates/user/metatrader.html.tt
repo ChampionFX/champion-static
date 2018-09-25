@@ -136,7 +136,7 @@
                     [% END %]
                     <div class="account-desc">
                         [% INCLUDE account_desc title=l('Choose an account')
-                            description=l('[_1] offers a variety of account types to cater to the diverse needs of traders everywhere, whether you’re an experienced trader or just starting out.', website_name) %]
+                            description=l('[_1] offers a variety of account types to cater to the diverse needs of traders everywhere, whether you\'re an experienced trader or just starting out.', website_name) %]
                         [% INCLUDE account_desc account_type='standard' title=l('Standard Account')
                             description=l('Our MetaTrader 5 Standard account is suitable for both new and experienced traders.')
                             items=[

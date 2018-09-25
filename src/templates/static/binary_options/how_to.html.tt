@@ -75,7 +75,7 @@
 
                 [% WRAPPER step_sections n=3 %]
                     <h4>[% l('3. Duration') %]</h4>
-                    <p>[% l('Set the length of your trade, from 10 seconds to 365 days. You don’t even need to wait until expiry. Sell back any long-term trades that you purchased at any time to profit from favourable market conditions.') %]</p>
+                    <p>[% l('Set the length of your trade, from 10 seconds to 365 days. You don\'t even need to wait until expiry. Sell back any long-term trades that you purchased at any time to profit from favourable market conditions.') %]</p>
                 [% END %]
 
                 [% WRAPPER step_sections n=4 %]
