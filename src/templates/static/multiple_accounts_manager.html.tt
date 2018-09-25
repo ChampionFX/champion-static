@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm">
                 <h1 class="main-title">[% l('Multiple Accounts Manager (MAM) for MetaTrader 5 (MT5)') %]</h1>
-                <p>[% l('Assign and manage multiple sub-accounts seamlessly via one interface – the Multiple Accounts Manager (MAM).') %]</p>
+                <p>[% l('Assign and manage multiple sub-accounts seamlessly via one interface - the Multiple Accounts Manager (MAM).') %]</p>
                 <p>[% l('The MAM tool is ideal for money managers who want to easily manage multiple client accounts. It gives you the ability to simultaneously view, track, and trade on behalf of all MT5 client accounts under your control.') %]</p>
             </div>
         </div>
@@ -35,7 +35,7 @@
                 <div class="col-12 col-md-4 fx-box-margin">
                     <div class="box fill-bg-color">
                         <span class="fx fx-essential-information"></span>
-                        <p>[% l('View essential information for open positions associated with each login ID – including order type (buy/sell), open time, open price, SL, TP, swap, and profit') %]</p>
+                        <p>[% l('View essential information for open positions associated with each login ID - including order type (buy/sell), open time, open price, SL, TP, swap, and profit') %]</p>
                     </div>
                 </div>
                 <div class="col-12 col-md-4 fx-box-margin">
@@ -47,7 +47,7 @@
                 <div class="col-12 col-md-4">
                     <div class="box fill-bg-color">
                         <span class="fx fx-view-all"></span>
-                        <p>[% l('View all the information you need to manage your client list – including login ID, group, leverage, balance, equity, and margin') %]</p>
+                        <p>[% l('View all the information you need to manage your client list - including login ID, group, leverage, balance, equity, and margin') %]</p>
                     </div>
                 </div>
             </div>

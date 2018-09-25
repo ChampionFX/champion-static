@@ -11,7 +11,7 @@
             <div class="col-sm-12">
                 <h2>[% l('Types of accounts') %]</h2>
                 <p>[% l('ChampionFX offers a variety of account types to cater to the diverse needs of traders everywhere, whether you are an experienced trader or just starting out. Each account has been tailored to provide you with a unique opportunity to trade financial instruments.') %]</p>
-                <p>[% l('Best of all, there’s no minimum deposit requirement and no commission per trade.') %]</p>
+                <p>[% l('Best of all, there\'s no minimum deposit requirement and no commission per trade.') %]</p>
             </div>
             <div id="mt5-accounts" class="row center-text box-grid">
                 <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-0">
@@ -132,8 +132,8 @@
                 <p>[% l('Leverage gives you the ability to trade a larger position using your existing capital.') %]</p>
                 <h4>[% l('3. Order execution') %]</h4>
                 <div class="separator primary-color"></div>
-                <p>[% l('Order execution typically comes in two varieties: market execution and instant execution. With market execution, you will place an order at the broker’s price. You agree on the price in advance. There are no requotes with market execution.') %]</p>
-                <p>[% l('What about instant execution? In this case, your order is placed at the price that’s available at that time. Requotes are possible if the price fluctuates a great deal before the order execution is complete.') %]</p>
+                <p>[% l('Order execution typically comes in two varieties: market execution and instant execution. With market execution, you will place an order at the broker\'s price. You agree on the price in advance. There are no requotes with market execution.') %]</p>
+                <p>[% l('What about instant execution? In this case, your order is placed at the price that\'s available at that time. Requotes are possible if the price fluctuates a great deal before the order execution is complete.') %]</p>
                 <h4>[% l('4. Spread') %]</h4>
                 <div class="separator primary-color"></div>
                 <p>[% l('The spread is the difference between the buy price and sell price. A fixed spread means that the spread will remain as it is no matter the market condition except in rare cases of extreme market volatility. A variable spread means that the spread is constantly changing, depending on the market condition.') %]</p>

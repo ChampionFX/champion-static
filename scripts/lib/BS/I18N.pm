@@ -45,7 +45,7 @@ EOP
 sub configs_for {
     my $config = {};
 
-    my $locales_dir = path(root_path())->child('src')->child('config');
+    my $locales_dir = path(root_path())->child('src')->child('translations');
     warn("Unable to locate locales directory. Looking in $locales_dir") unless (-d $locales_dir);
 
     my @supported_languages = all_languages();
@@ -54,7 +54,7 @@ sub configs_for {
         if ($language eq 'EN') {
             $po_file_path = path($locales_dir)->child(lc $language . '.po');
         } else {
-            $po_file_path = path($locales_dir)->child("locales")->child(lc $language . '.po');
+            $po_file_path = path($locales_dir)->child("translations")->child(lc $language . '.po');
 
         }
         $config->{$language} = [Gettext => "$po_file_path"];
