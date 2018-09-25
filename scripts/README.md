@@ -57,6 +57,5 @@ After HTML build, you can run `sudo grunt connect` then visits [https://localhos
   * Open github to submit the PR
 
 ## Update sitemap
-
 * List of paths to include in `sitemap.xml` is here: [sitemap.js](sitemap.js)
 * Once the paths are updated in the above file, run `./scripts/sitemap.js` or `grunt shell:sitemap` to generate new `sitemap.xml`
