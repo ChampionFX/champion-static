@@ -92,7 +92,7 @@
                 <p>[% l('We will accomplish this by committing ourselves to these values:') %]</p>
                 <ul class="bullet">
                     <li>[% l('Client satisfaction') %]</li>
-                    <li>[% l('Expansion and refinement of our business model — always with a trader\'s needs in mind') %]</li>
+                    <li>[% l('Expansion and refinement of our business model - always with a trader\'s needs in mind') %]</li>
                     <li>[% l('Honesty and integrity') %]</li>
                     <li>[% l('Respect and appreciation') %]</li>
                     <li>[% l('Positive thinking') %]</li>
