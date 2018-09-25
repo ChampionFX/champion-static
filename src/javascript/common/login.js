@@ -19,7 +19,7 @@ const Login = (function() {
     const login_url = () => {
         const server_url = localStorage.getItem('config.server_url');
         return ((server_url && /qa/.test(server_url)) ?
-            `https://www.${server_url.split('.')[1]}.com/oauth2/authorize?app_id=${getAppId()}&l=${getLanguage()}&brand=champion` :
+            `https://www.${server_url.split('.')[1]}.com/oauth2/authorize?app_id=${getAppId()}&l=${getLanguage()}` :
             `https://oauth.champion-fx.com/oauth2/authorize?app_id=${getAppId()}&l=${getLanguage()}`
         );
     };
