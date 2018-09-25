@@ -88,7 +88,7 @@
 
             <div class="col-sm-12">
                 <h2>[% l('Vision') %]</h2>
-                <p>[% l('At ChampionFX, we remain dedicated to creating a dynamic environment that both respects traders and equips them with all necessary tools to take their customer experience to a whole new “champion” level. ') %]</p>
+                <p>[% l('At ChampionFX, we remain dedicated to creating a dynamic environment that both respects traders and equips them with all necessary tools to take their customer experience to a whole new "champion" level. ') %]</p>
                 <p>[% l('We will accomplish this by committing ourselves to these values:') %]</p>
                 <ul class="bullet">
                     <li>[% l('Client satisfaction') %]</li>
