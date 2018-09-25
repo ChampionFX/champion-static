@@ -6,7 +6,7 @@
 </div>
 
 <div class="container">
-    <div class=fx-section>
+    <div class="fx-section">
         <!--div class="row center-text">
             <div class="col-sm">
                 <h3>[% l('For desktop') %]</h3>
