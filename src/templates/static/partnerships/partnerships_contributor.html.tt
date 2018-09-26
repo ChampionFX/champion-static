@@ -33,7 +33,7 @@
                     <div class="col-md">
                         <h4>[% l('Enhanced reputation') %]</h4>
                         <div class="separator primary-color col-xs-8"></div>
-                        <p>[% l('Join the ranks of the world’s most successful traders.') %]</p>
+                        <p>[% l('Join the ranks of the world\'s most successful traders.') %]</p>
                     </div>
                     <div class="col-md">
                         <h4>[% l('Wider reach') %]</h4>

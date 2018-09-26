@@ -69,7 +69,7 @@
                     </div>
                     <div class="col-xs-5 col-md-7">
                         <h2>[% l('Email us') %]</h2>
-                        <p>[% l('We’re here to help. Contact us using the relevant email address based on the topic of your query.') %]</p>
+                        <p>[% l('We\'re here to help. Contact us using the relevant email address based on the topic of your query.') %]</p>
                     </div>
                 </div>
             </div>

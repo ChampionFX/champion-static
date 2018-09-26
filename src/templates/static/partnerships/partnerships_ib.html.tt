@@ -21,7 +21,7 @@
                 <div class="center-text">
                     <h2 class="lg-padding">[% l('Introducing Broker (IB) programme') %]</h2>
                     <p>[% l('Earn commission on the trading activity of clients that you refer to ChampionFX, thanks to our IB programme.') %]</p>
-                    <p>[% l('Promote our services to prospective clients, expand your client portfolio, and earn the rewards you richly deserve. We’ll even provide you with all the marketing tools you need to attract and convert prospective clients.') %]</p>
+                    <p>[% l('Promote our services to prospective clients, expand your client portfolio, and earn the rewards you richly deserve. We\'ll even provide you with all the marketing tools you need to attract and convert prospective clients.') %]</p>
                     [% INCLUDE static/common/separator_line.html.tt %]
                     <div>
                         <h2 class="lg-padding">[% l('Why join the ChampionFX IB programme?') %]</h2>
@@ -33,7 +33,7 @@
                             title_2=l('Localised support') desc_2=l('Use local payment agent solutions to generate income and increase client loyalty.') %]
 
                         [% INCLUDE rows title_1=l('Multilevel rebate tiers') desc_1=l('Enrol your clients in the IB programme and earn more through a tiered structure.')
-                            title_2=l('High rebates') desc_2=l('Receive up to 50% of the average spread on all your clients’ transactions.') %]
+                            title_2=l('High rebates') desc_2=l('Receive up to 50% of the average spread on all your clients\' transactions.') %]
 
                         [% INCLUDE rows title_1=l('Custom promotions') desc_1=l('Talk to us to create custom marketing promotions to increase your conversions.')
                             title_2=l('Hassle-free client signup') desc_2=l('Convert clients easily with our fast and hassle-free client signup process.') %]

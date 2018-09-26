@@ -61,11 +61,11 @@
 <p>[% l("The Company has the discretion to seek information from Clients to verify compliance with these terms.") %]</p>
 <p>[% l("It is a condition of using the website that:") %]</p>
 <ul class="bullet">
-    <li>[% l("any Client that is employed in the banking and/or finance sector must only conduct trades through the website with the knowledge of his/her employer and in accordance with the employer’s policies; and that") %]</li>
+    <li>[% l("any Client that is employed in the banking and/or finance sector must only conduct trades through the website with the knowledge of his/her employer and in accordance with the employer\'s policies; and that") %]</li>
     <li>[% l("Clients agree to comply with the reasonable requests made by the Company for the purpose of verifying compliance with this term.") %]</li>
 </ul>
-<p>[% l("The Company may withhold payment of funds accumulated in a Client’s Champion FX Real Account while it takes steps to verify compliance with these terms.") %]</p>
-<p>[% l("If the Company (in its sole discretion) is not satisfied that a Client is complying with these terms, or if a Client does not comply with a reasonable request for information made by the Company, the Company may cancel the Client’s Champion FX Real Account and withhold any funds accumulated therein.") %]</p>
+<p>[% l("The Company may withhold payment of funds accumulated in a Client\'s Champion FX Real Account while it takes steps to verify compliance with these terms.") %]</p>
+<p>[% l("If the Company (in its sole discretion) is not satisfied that a Client is complying with these terms, or if a Client does not comply with a reasonable request for information made by the Company, the Company may cancel the Client\'s Champion FX Real Account and withhold any funds accumulated therein.") %]</p>
 <h2>H. [% l("Fraud and Money Laundering") %]</h2>
 <p>
     [% l("No person shall abuse this site for the purpose of money laundering. The Company employs best-practice anti-money laundering procedures. All transactions are checked to prevent money laundering which may have several effects on Clients. The Company reserves the right to refuse to do business with, to discontinue to do business with, and to reverse the transactions of, Clients who do not accept or adhere to these anti-money laundering processes. Acceptable funds should not originate from criminal activity. The Company is bound to report suspicious transactions to relevant authorities.") %]
@@ -90,7 +90,7 @@
         [% l("Only one Champion FX Real Account is allowed per person. No winnings and/or refunds may be collected on accounts opened in false names or on multiple accounts opened by the same person.") %]
     </li>
     <li>
-        [% l("The Company may, from time to time, at its sole discretion, or as required by regulations in place, conduct appropriate \"Know Your Customer\" procedures and require a Client to provide proof of identity (such as notarised copy of passport or other means of identity verification as the Company deems required under the circumstances) and may at its sole discretion suspend an account until satisfactory identification information, evidence of identity and address, source of funds, and/or source of wealth have been provided. “Know Your Customer” documentation will be required when a Client opens a Champion FX Real Account with the Company.") %]
+        [% l("The Company may, from time to time, at its sole discretion, or as required by regulations in place, conduct appropriate \"Know Your Customer\" procedures and require a Client to provide proof of identity (such as notarised copy of passport or other means of identity verification as the Company deems required under the circumstances) and may at its sole discretion suspend an account until satisfactory identification information, evidence of identity and address, source of funds, and/or source of wealth have been provided. "Know Your Customer" documentation will be required when a Client opens a Champion FX Real Account with the Company.") %]
     </li>
     <li>
         [% l("You agree that we may use personal information provided by you in order to conduct appropriate anti-fraud checks. Personal information that you provide may be disclosed to a credit reference or fraud prevention agency, which may keep a record of that information.") %]
@@ -188,7 +188,7 @@
 <ol>
     <li>[% l("Filtering Stray Ticks") %]
         <p>[% l("Depending on the quality of the data feeds received from our feed providers, our servers might apply a tick filtering algorithm. The purpose of this filtering algorithm is to strip the feed of stray ticks. Stray ticks are ticks that manifestly fall outside of the current trading range of the market; such ticks are often due to communication delays with the exchanges or banks that provide quotes, human error, or database problems at any point between the originator of the quote and our servers.") %]</p>
-        <p>[% l("The filtering algorithm may, for example, be similar to the \"Bollinger Bands\" volatility system –– i.e., short-term volatility bands are determined around the present market value, and ticks that are manifestly outside of such bands are removed.") %]</p>
+        <p>[% l("The filtering algorithm may, for example, be similar to the \"Bollinger Bands\" volatility system -- i.e., short-term volatility bands are determined around the present market value, and ticks that are manifestly outside of such bands are removed.") %]</p>
     </li>
     <li>[% l("Smoothing out random noise") %]
         <p>[% l("Depending on the quality of the feeds received from our feed providers, our servers might also apply a very short-term smoothing algorithm to the data feed. This smoothing algorithm removes a little of the \"random noise\" surrounding the data feed, and ensures that clients who buy path- dependent contracts (such as the one-touch or barrier-range contracts) will not have their contracts knocked-in or knocked-out by random short-term market noise that does not reflect the true market price.") %]</p>
@@ -204,7 +204,7 @@
         <p>[% l("Our data feed is designed to be one of the best and most robust available for a trading environment.") %]</p>
     </li>
     <li>[% l("Weekend quotes") %]
-        <p>[% l("Please note that weekend quotes are ignored for the purpose of contract settlement. During weekends, the Forex markets may occasionally generate prices. However, these prices are often artificial (traders sometimes take advantage of the illiquidity of the markets during weekends to push prices up or down). To avoid settling prices based on such artificial prices, it is the Company’s policy not to count weekend prices towards contract settlement values.") %]</p>
+        <p>[% l("Please note that weekend quotes are ignored for the purpose of contract settlement. During weekends, the Forex markets may occasionally generate prices. However, these prices are often artificial (traders sometimes take advantage of the illiquidity of the markets during weekends to push prices up or down). To avoid settling prices based on such artificial prices, it is the Company\'s policy not to count weekend prices towards contract settlement values.") %]</p>
     </li>
 </ol>
 <h2>U. [% l("Privacy & Security") %]</h2>

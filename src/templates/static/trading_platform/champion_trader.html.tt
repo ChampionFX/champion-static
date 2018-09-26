@@ -1,7 +1,7 @@
 <div class="primary-color-dark trading-platform-header">
     <div class="fx-panel center-text center-vertical container">
         <h1 class="content-inverse-color">[% l('Binary Options Trading Platform') %]</h1>
-        <p class="content-inverse-color">[% l('Introducing the world’s most versatile binary options trading platform. Enjoy a rich user experience on a full-screen trading interface that can be customised according to your personal preferences.') %]</p>
+        <p class="content-inverse-color">[% l('Introducing the world\'s most versatile binary options trading platform. Enjoy a rich user experience on a full-screen trading interface that can be customised according to your personal preferences.') %]</p>
     </div>
 </div>
 
