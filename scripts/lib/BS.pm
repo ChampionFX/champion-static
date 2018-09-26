@@ -58,7 +58,7 @@ sub localize {
 }
 
 sub all_languages {
-    return $BRANCH eq 'translations' ? ('ACH') : ('EN'); # ('EN', 'DE', 'ES', 'FR', 'ID', 'IT', 'PL', 'PT', 'RU', 'TH', 'VI', 'JA', 'ZH_CN', 'ZH_TW');
+    return $BRANCH eq 'translations' ? ('ACH') : ('EN', 'ID'); # ('EN', 'DE', 'ES', 'FR', 'ID', 'IT', 'PL', 'PT', 'RU', 'TH', 'VI', 'JA', 'ZH_CN', 'ZH_TW');
 }
 
 sub rtl_languages {
