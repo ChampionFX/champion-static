@@ -470,4 +470,3 @@ msgstr ""
 
 msgid "Zero commision"
 msgstr ""
-
