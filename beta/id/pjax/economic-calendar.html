@@ -1,0 +1,30 @@
+<!--email_off-->
+    <div id="page_info" style="display:none;">
+        <title>Economic Calendar | Champion-FX.com</title>
+    </div>
+    <div class="wrapper" id="champion-content">
+        <div class="primary-color-dark economic-calendar-header">
+    <div class="fx-panel center-text center-vertical container">
+        <h1 class="content-inverse-color">Economic Calendar</h1>
+        <p class="content-inverse-color">Check out the latest economic events and indicators from all over the world. All data are collected and updated in real time.</p>
+    </div>
+</div>
+
+<div class="container">
+    <p>You can monitor macroeconomic indicators straight from the MetaTrader 5 platform using release time labels displayed on <a href="https://www.metatrader5.com/en/terminal/help/fundamental#chart" target="_blank">financial symbol charts</a>.</p>
+    <p>With the Economic Calendar, you can see a breakdown of all the scheduled economic events due to take place on any given day.</p>
+    <p>Click on an individual event to be presented with further information and links to more in-depth data about it. The information provided by the Economic  Calendar will help you make more informed trading decisions.</p>
+</div>
+
+<div class="container lg-padding">
+    <!-- Economic Calendar Widget BEGIN -->
+    <script id="economicCalendarWidget" type="text/javascript" src="https://c.mql5.com/js/widgets/calendar/widget.v1.js"></script>
+    <script type="text/javascript">
+        setTimeout(function() {
+            new economicCalendar({ width: "100%", height: "1200px", mode: 2 });
+        }, 1000);
+    </script>
+    <!-- Economic Calendar Widget END -->
+</div>
+    </div>
+    <!--/email_off-->

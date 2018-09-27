@@ -1,0 +1,509 @@
+<!--email_off-->
+    <div id="page_info" style="display:none;">
+        <title>Profile | Champion-FX.com</title>
+    </div>
+    <div class="wrapper" id="champion-content">
+        <div class="fx-section">
+    <div class="container">
+        <h1 class="main-title" id="heading">Profile</h1>
+
+        <div id="fx-profile" class="has-tabs tabs-vertical ui-tabs-vertical invisible">
+            <div class="row">
+                <div class="col-md-3">
+                    <ul id="profile-tabs">
+                        <li>
+                            <a href="#details">
+                                <h4>Personal details</h4>
+                                <div class="separator primary-color"></div>
+                                <p>View and edit your personal information.</p>
+                            </a>
+                        </li>
+                        <li class="is-real">
+                            <a href="#assessment">
+                                <h4>Financial assessments</h4>
+                                <div class="separator primary-color"></div>
+                                <p>View and edit your financial information.</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-9">
+                    <div id="details"><div>
+    <h2>Personal details</h2>
+<form class="formObject" id="details_form" name="details_form">
+
+    <h3 class="underline-title">Personal information</h3>
+    <div class="form-row is-real">
+    <label for="">Name</label>
+    
+    
+    
+</div>
+    <div class="form-row is-real">
+    <label></label>
+    
+                <span class="text-display ">
+                                <span id="name" ></span>
+            </span>
+    
+</div>
+
+    <div class="form-row is-real">
+    <label for="">Date of birth</label>
+    
+    
+    
+</div>
+    <div class="form-row is-real">
+    <label></label>
+    
+                <span class="text-display ">
+                                <span id="date_of_birth" ></span>
+            </span>
+    
+</div>
+
+    <div class="form-row is-real">
+    <label for="place_of_birth">Place of birth</label>
+    
+                <select id="place_of_birth" >             </select>
+    
+</div>
+    <div class="form-row ">
+    <label for="">Country of residence</label>
+    
+    
+    
+</div>
+    <div class="form-row ">
+    <label></label>
+    
+                <span class="text-display ">
+                                <span id="country" ></span>
+            </span>
+    
+</div>
+
+    <div class="form-row ">
+    <label for="">Email address</label>
+    
+    
+    
+</div>
+    <div class="form-row ">
+    <label></label>
+    
+                <span class="text-display ">
+                                <span id="email" ></span>
+            </span>
+    
+</div>
+
+    <div class="form-row is-real">
+    <label>Account opening reason</label>
+    
+                <span class="text-display ">
+                                <span id="lbl_account_opening_reason" ></span>
+            </span>
+    
+</div>
+    <!-- if account_opening_reason is not set, display dropdown -->
+    <div class="form-row is-real invisible">
+    <label for="account_opening_reason">Account opening reason</label>
+    
+                <select id="account_opening_reason" > 
+        <option value="">Please select</option>
+        <option value="Speculative">Speculative</option>
+        <option value="Income Earning">Income Earning</option>
+        <option value="Hedging">Hedging</option>
+                </select>
+    
+</div>
+
+    <h3 class="is-real underline-title">Tax information</h3>
+    <div class="form-row is-real">
+    <label for="tax_residence">Tax residence</label>
+    
+                <select id="tax_residence" class="invisible" multiple="multiple">             </select>
+    
+</div>
+    <div class="form-row is-real">
+    <label for="tax_identification_number">Tax identification number</label>
+    
+                <input type="text" id="tax_identification_number"  />
+    
+</div>
+
+    <h3 class="is-real underline-title">Contact information</h3>
+    <div class="form-row is-real">
+    <label for="address_line_1">Address</label>
+    
+                <input type="text" id="address_line_1"  />
+    
+</div>
+    <div class="form-row is-real">
+    <label for="address_line_2"></label>
+    
+                <input type="text" id="address_line_2"  />
+    
+</div>
+
+    <div class="form-row is-real">
+    <label for="address_city">City/Town</label>
+    
+                <input type="text" id="address_city"  />
+    
+</div>
+
+    <div class="form-row is-real">
+    <label for="address_state">State/Province</label>
+    
+                <select id="address_state" >             </select>
+    
+</div>
+
+    <div class="form-row is-real">
+    <label for="address_postcode">Postal code</label>
+    
+                <input type="text" id="address_postcode"  />
+    
+</div>
+
+    <div class="form-row is-real">
+    <label for="phone">Telephone no.</label>
+    
+                <input type="text" id="phone"  />
+    
+</div>
+
+    <p id="error-update-details" class="error-msg"></p>
+    <div class="submit-row is-real">
+    <p id="msg_form" class="error-msg invisible"></p>
+    
+    <button id="submit" type="submit" >Update</button> </div>
+
+    <p class="hint-msg is-real">To change your name, date of birth, country of residence, or email, please contact our <a href="/beta/id/contact.html">customer support</a> team.</p>
+
+</form>
+</div></div>
+                    <div id="assessment" class="is-real"><div>
+    <h2>Financial assessments</h2>
+    <form class="formObject invisible" id="assessment_form" name="assessment_form">
+        <p class="invisible" id="high_risk_classification">
+            Due to recent changes in the regulations, we are required to ask our clients to complete the following Financial Assessment. Please note that you will not be able to continue trading until this is completed.
+        </p>
+        <h3 class="underline-title">Financial information</h3>
+
+        <div class="form-row ">
+    <label for="forex_trading_experience">Forex trading experience</label>
+    
+                <select id="forex_trading_experience" > 
+        <option value="">Please select</option>
+<option value="0-1 year">0-1 year</option>
+<option value="1-2 years">1-2 years</option>
+<option value="Over 3 years">Over 3 years</option>
+                </select>
+    
+</div>
+
+        <div class="form-row ">
+    <label for="forex_trading_frequency">Forex trading frequency</label>
+    
+                <select id="forex_trading_frequency" > 
+        <option value="">Please select</option>
+<option value="0-5 transactions in the past 12 months">0-5 transactions in the past 12 months</option>
+<option value="6-10 transactions in the past 12 months">6-10 transactions in the past 12 months</option>
+<option value="40 transactions or more in the past 12 months">40 transactions or more in the past 12 months</option>
+                </select>
+    
+</div>
+
+        <div class="form-row ">
+    <label for="indices_trading_experience">Indices trading experience</label>
+    
+                <select id="indices_trading_experience" > 
+        <option value="">Please select</option>
+<option value="0-1 year">0-1 year</option>
+<option value="1-2 years">1-2 years</option>
+<option value="Over 3 years">Over 3 years</option>
+                </select>
+    
+</div>
+
+        <div class="form-row ">
+    <label for="indices_trading_frequency">Indices trading frequency</label>
+    
+                <select id="indices_trading_frequency" > 
+        <option value="">Please select</option>
+<option value="0-5 transactions in the past 12 months">0-5 transactions in the past 12 months</option>
+<option value="6-10 transactions in the past 12 months">6-10 transactions in the past 12 months</option>
+<option value="40 transactions or more in the past 12 months">40 transactions or more in the past 12 months</option>
+                </select>
+    
+</div>
+
+        <div class="form-row ">
+    <label for="commodities_trading_experience">Commodities trading experience</label>
+    
+                <select id="commodities_trading_experience" > 
+        <option value="">Please select</option>
+<option value="0-1 year">0-1 year</option>
+<option value="1-2 years">1-2 years</option>
+<option value="Over 3 years">Over 3 years</option>
+                </select>
+    
+</div>
+
+        <div class="form-row ">
+    <label for="commodities_trading_frequency">Commodities trading frequency</label>
+    
+                <select id="commodities_trading_frequency" > 
+        <option value="">Please select</option>
+<option value="0-5 transactions in the past 12 months">0-5 transactions in the past 12 months</option>
+<option value="6-10 transactions in the past 12 months">6-10 transactions in the past 12 months</option>
+<option value="40 transactions or more in the past 12 months">40 transactions or more in the past 12 months</option>
+                </select>
+    
+</div>
+
+        <div class="form-row ">
+    <label for="stocks_trading_experience">Stocks trading experience</label>
+    
+                <select id="stocks_trading_experience" > 
+        <option value="">Please select</option>
+<option value="0-1 year">0-1 year</option>
+<option value="1-2 years">1-2 years</option>
+<option value="Over 3 years">Over 3 years</option>
+                </select>
+    
+</div>
+
+        <div class="form-row ">
+    <label for="stocks_trading_frequency">Stocks trading frequency</label>
+    
+                <select id="stocks_trading_frequency" > 
+        <option value="">Please select</option>
+<option value="0-5 transactions in the past 12 months">0-5 transactions in the past 12 months</option>
+<option value="6-10 transactions in the past 12 months">6-10 transactions in the past 12 months</option>
+<option value="40 transactions or more in the past 12 months">40 transactions or more in the past 12 months</option>
+                </select>
+    
+</div>
+
+        <div class="form-row ">
+    <label for="other_derivatives_trading_experience">Binary options or other financial derivatives trading experience</label>
+    
+                <select id="other_derivatives_trading_experience" > 
+        <option value="">Please select</option>
+<option value="0-1 year">0-1 year</option>
+<option value="1-2 years">1-2 years</option>
+<option value="Over 3 years">Over 3 years</option>
+                </select>
+    
+</div>
+
+        <div class="form-row ">
+    <label for="other_derivatives_trading_frequency">Binary options or other financial derivatives trading frequency</label>
+    
+                <select id="other_derivatives_trading_frequency" > 
+        <option value="">Please select</option>
+<option value="0-5 transactions in the past 12 months">0-5 transactions in the past 12 months</option>
+<option value="6-10 transactions in the past 12 months">6-10 transactions in the past 12 months</option>
+<option value="40 transactions or more in the past 12 months">40 transactions or more in the past 12 months</option>
+                </select>
+    
+</div>
+
+        <div class="form-row ">
+    <label for="other_instruments_trading_experience">Other financial instruments trading experience</label>
+    
+                <select id="other_instruments_trading_experience" > 
+        <option value="">Please select</option>
+<option value="0-1 year">0-1 year</option>
+<option value="1-2 years">1-2 years</option>
+<option value="Over 3 years">Over 3 years</option>
+                </select>
+    
+</div>
+
+        <div class="form-row ">
+    <label for="other_instruments_trading_frequency">Other financial instruments trading frequency</label>
+    
+                <select id="other_instruments_trading_frequency" > 
+        <option value="">Please select</option>
+<option value="0-5 transactions in the past 12 months">0-5 transactions in the past 12 months</option>
+<option value="6-10 transactions in the past 12 months">6-10 transactions in the past 12 months</option>
+<option value="40 transactions or more in the past 12 months">40 transactions or more in the past 12 months</option>
+                </select>
+    
+</div>
+
+        <div class="form-row ">
+    <label for="income_source">Income Source</label>
+    
+                <select id="income_source" > 
+            <option value="">Please select</option>
+            <option value="Salaried Employee">Salaried Employee</option>
+            <option value="Self-Employed">Self-Employed</option>
+            <option value="Investments &amp; Dividends">Investments &amp; Dividends</option>
+            <option value="Pension">Pension</option>
+            <option value="Other">Other</option>
+                    </select>
+    
+</div>
+
+        <div class="form-row ">
+    <label for="employment_status">Employment Status</label>
+    
+                <select id="employment_status" > 
+            <option value="">Please select</option>
+            <option value="Employed">Employed</option>
+            <option value="Pensioner">Pensioner</option>
+            <option value="Self-Employed">Self-Employed</option>
+            <option value="Student">Student</option>
+            <option value="Unemployed">Unemployed</option>
+                    </select>
+    
+</div>
+
+        <div class="form-row ">
+    <label for="employment_industry">Industry of Employment</label>
+    
+                <select id="employment_industry" > 
+            <option value="">Please select</option>
+            <option value="Construction">Construction</option>
+            <option value="Education">Education</option>
+            <option value="Finance">Finance</option>
+            <option value="Health">Health</option>
+            <option value="Tourism">Tourism</option>
+            <option value="Other">Other</option>
+                    </select>
+    
+</div>
+
+        <div class="form-row ">
+    <label for="occupation">Occupation</label>
+    
+                <select id="occupation" > 
+            <option value="">Please select</option>
+            <option value="Chief Executives, Senior Officials and Legislators">Chief Executives, Senior Officials and Legislators</option>
+            <option value="Managers">Managers</option>
+            <option value="Professionals">Professionals</option>
+            <option value="Clerks">Clerks</option>
+            <option value="Personal Care, Sales and Service Workers">Personal Care, Sales and Service Workers</option>
+            <option value="Agricultural, Forestry and Fishery Workers">Agricultural, Forestry and Fishery Workers</option>
+            <option value="Craft, Metal, Electrical and Electronics Workers">Craft, Metal, Electrical and Electronics Workers</option>
+            <option value="Plant and Machine Operators and Assemblers">Plant and Machine Operators and Assemblers</option>
+            <option value="Cleaners and Helpers">Cleaners and Helpers</option>
+            <option value="Mining, Construction, Manufacturing and Transport Workers">Mining, Construction, Manufacturing and Transport Workers</option>
+            <option value="Armed Forces">Armed Forces</option>
+            <option value="Government Officers">Government Officers</option>
+            <option value="Others">Others</option>
+                    </select>
+    
+</div>
+
+        <div class="form-row ">
+    <label for="source_of_wealth">Source of Wealth</label>
+    
+                <select id="source_of_wealth" > 
+            <option value="">Please select</option>
+            <option value="Accumulation of Income/Savings">Accumulation of Income/Savings</option>
+            <option value="Cash Business">Cash Business</option>
+            <option value="Company Ownership">Company Ownership</option>
+            <option value="Divorce Settlement">Divorce Settlement</option>
+            <option value="Inheritance">Inheritance</option>
+            <option value="Investment Income">Investment Income</option>
+            <option value="Sale of Property">Sale of Property</option>
+            <option value="Other">Other</option>
+                    </select>
+    
+</div>
+
+        <div class="form-row ">
+    <label for="education_level">Level of Education</label>
+    
+                <select id="education_level" > 
+            <option value="">Please select</option>
+            <option value="Primary">Primary</option>
+            <option value="Secondary">Secondary</option>
+            <option value="Tertiary">Tertiary</option>
+                    </select>
+    
+</div>
+
+        <div class="form-row ">
+    <label for="net_income">Net Annual Income</label>
+    
+                <select id="net_income" > 
+            <option value="">Please select</option>
+            <option value="Less than &#36;25,000">Less than &#36;25,000</option>
+            <option value="&#36;25,000 - &#36;50,000">&#36;25,000 - &#36;50,000</option>
+            <option value="&#36;50,001 - &#36;100,000">&#36;50,001 - &#36;100,000</option>
+            <option value="&#36;100,001 - &#36;500,000">&#36;100,001 - &#36;500,000</option>
+            <option value="Over &#36;500,000">Over &#36;500,000</option>
+                    </select>
+    
+</div>
+
+        <div class="form-row ">
+    <label for="estimated_worth">Estimated Net Worth</label>
+    
+                <select id="estimated_worth" > 
+            <option value="">Please select</option>
+            <option value="Less than &#36;100,000">Less than &#36;100,000</option>
+            <option value="&#36;100,000 - &#36;250,000">&#36;100,000 - &#36;250,000</option>
+            <option value="&#36;250,001 - &#36;500,000">&#36;250,001 - &#36;500,000</option>
+            <option value="&#36;500,001 - &#36;1,000,000">&#36;500,001 - &#36;1,000,000</option>
+            <option value="Over &#36;1,000,000">Over &#36;1,000,000</option>
+                    </select>
+    
+</div>
+
+        <div class="form-row ">
+    <label for="account_turnover">Anticipated Account Turnover</label>
+    
+                <select id="account_turnover" > 
+            <option value="">Please select</option>
+            <option value="Less than $25,000">Less than $25,000</option>
+            <option value="$25,000 - $50,000">$25,000 - $50,000</option>
+            <option value="$50,001 - $100,000">$50,001 - $100,000</option>
+            <option value="$100,001 - $500,000">$100,001 - $500,000</option>
+            <option value="Over $500,000">Over $500,000</option>
+                    </select>
+    
+</div>
+
+        <p class="hint-msg">The financial trading services contained within this site are only suitable for customers who are able to bear the loss of all the money they invest and who understand and have experience of the risk involved in the acquisition of financial contracts. Transactions in financial contracts carry a high degree of risk. If purchased contracts expire worthless, you will suffer a total loss of your investment, which consists of the contract premium.</p>
+
+        <div class="submit-row ">
+    <p id="msg_form" class="error-msg invisible"></p>
+    
+    <button id="submit" type="submit" >Update</button> </div>
+
+        <div id="msg_success" class="invisible">
+            <p>Thank you for completing the Financial Assessment and registering your Financial Account. You can now deposit funds and trade Forex with real money on MT5.</p>
+            <div id="msg_authenticate" class="invisible">
+                <div><strong>Important</strong></div>
+                <p>Please send the following documents to <a href='mailto:support@champion-fx.com' rel='nofollow'>support@champion-fx.com</a> in order to verify your identity and authenticate your account:</p>
+<ul class="checked">
+    <li>Proof of identity - A scanned copy of your passport, driving license (either provisional or full), or identity card that shows your full name and date of birth.</li>
+    <li>Proof of address - A scanned copy of a utility bill or bank statement that's not more than three months old.</li>
+</ul>
+<p class="show_for_mt5 invisible">Kindly send us these documents within 5 days to keep your account active.</p>
+<p>Got questions? <a href="/beta/id/contact.html">Contact us</a> for help.</p>
+            </div>
+            <div class="center-text">
+                <a href="/beta/id/user/metatrader.html"><span>MetaTrader account management</span></a>
+            </div>
+        </div>
+    </form>
+</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+    <!--/email_off-->
