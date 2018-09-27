@@ -1,52 +1,78 @@
+const Cookies          = require('../lib/js-cookie');
 const getPropertyValue = require('./utility').getPropertyValue;
 const isEmptyObject    = require('./utility').isEmptyObject;
-const Cookies          = require('../lib/js-cookie');
 
-const isStorageSupported = function(storage) {
+const getObject = function (key) {
+    return JSON.parse(this.getItem(key) || '{}');
+};
+
+const setObject = function (key, value) {
+    if (value && value instanceof Object) {
+        this.setItem(key, JSON.stringify(value));
+    }
+};
+
+if (typeof Storage !== 'undefined') {
+    Storage.prototype.getObject = getObject;
+    Storage.prototype.setObject = setObject;
+}
+
+const isStorageSupported = (storage) => {
     if (typeof storage === 'undefined') {
         return false;
     }
 
-    const testKey = 'test';
+    const test_key = 'test';
     try {
-        storage.setItem(testKey, '1');
-        storage.removeItem(testKey);
+        storage.setItem(test_key, '1');
+        storage.removeItem(test_key);
         return true;
     } catch (e) {
         return false;
     }
 };
 
-const Store = function(storage) {
-    this.storage = storage;
+const Store = function (storage) {
+    this.storage           = storage;
+    this.storage.getObject = getObject;
+    this.storage.setObject = setObject;
 };
 
 Store.prototype = {
-    get: function(key) {
+    get(key) {
         return this.storage.getItem(key) || undefined;
     },
-    set: function(key, value) {
+    set(key, value) {
         if (typeof value !== 'undefined') {
             this.storage.setItem(key, value);
         }
     },
-    remove: function(key) {
-        this.storage.removeItem(key);
+    getObject(key) {
+        return typeof this.storage.getObject === 'function' // Prevent runtime error in IE
+            ? this.storage.getObject(key)
+            : JSON.parse(this.storage.getItem(key) || '{}');
     },
-    clear: function() {
-        this.storage.clear();
+    setObject(key, value) {
+        if (typeof this.storage.setObject === 'function') { // Prevent runtime error in IE
+            this.storage.setObject(key, value);
+        } else {
+            this.storage.setItem(key, JSON.stringify(value));
+        }
     },
+    remove(key) { this.storage.removeItem(key); },
+    clear()     { this.storage.clear(); },
 };
 
-const InScriptStore = function(object) {
+const InScriptStore = function (object) {
     this.store = typeof object !== 'undefined' ? object : {};
 };
 
 InScriptStore.prototype = {
-    get: function(key) {
+    get(key) {
         return getPropertyValue(this.store, key);
     },
-    set: function(key, value, obj = this.store) {
+    set(k, value, obj = this.store) {
+        let key = k;
         if (!Array.isArray(key)) key = [key];
         if (key.length > 1) {
             if (!(key[0] in obj) || isEmptyObject(obj[key[0]])) obj[key[0]] = {};
@@ -55,10 +81,19 @@ InScriptStore.prototype = {
             obj[key[0]] = value;
         }
     },
-    remove: function(key) { delete this.store[key]; },
-    clear : function()    { this.store = {}; },
-    has   : function(key) { return this.get(key) !== undefined; },
-    keys  : function()    { return Object.keys(this.store); },
+    getObject(key) {
+        return JSON.parse(this.get(key) || '{}');
+    },
+    setObject(key, value) {
+        this.set(key, JSON.stringify(value));
+    },
+    remove(...keys) {
+        keys.forEach((key) => { delete this.store[key]; });
+    },
+    clear()   { this.store = {}; },
+    has(key)  { return this.get(key) !== undefined; },
+    keys()    { return Object.keys(this.store); },
+    call(key) { if (typeof this.get(key) === 'function') this.get(key)(); },
 };
 
 const State     = new InScriptStore();
@@ -79,18 +114,19 @@ State.prototype.getResponse = function (pathname) {
 };
 State.set('response', {});
 
-const CookieStorage = function(cookie_name, cookie_domain) {
+const CookieStorage = function (cookie_name, cookie_domain) {
+    const hostname = window.location.hostname;
+
     this.initialized = false;
     this.cookie_name = cookie_name;
-    const hostname = window.location.hostname;
-    this.domain = cookie_domain || (/\.champion-fx\.com/i.test(hostname) ? `.${hostname.split('.').slice(-2).join('.')}` : hostname);
-    this.path = '/';
-    this.expires = new Date('Thu, 1 Jan 2037 12:00:00 GMT');
-    this.value = {};
+    this.domain      = cookie_domain || (/\.binary\.com/i.test(hostname) ? `.${hostname.split('.').slice(-2).join('.')}` : hostname);
+    this.path        = '/';
+    this.expires     = new Date('Thu, 1 Jan 2037 12:00:00 GMT');
+    this.value       = {};
 };
 
 CookieStorage.prototype = {
-    read: function() {
+    read() {
         const cookie_value = Cookies.get(this.cookie_name);
         try {
             this.value = cookie_value ? JSON.parse(cookie_value) : {};
@@ -99,9 +135,9 @@ CookieStorage.prototype = {
         }
         this.initialized = true;
     },
-    write: function(value, expireDate, isSecure) {
+    write(val, expireDate, isSecure) {
         if (!this.initialized) this.read();
-        this.value = value;
+        this.value = val;
         if (expireDate) this.expires = expireDate;
         Cookies.set(this.cookie_name, this.value, {
             expires: this.expires,
@@ -110,20 +146,20 @@ CookieStorage.prototype = {
             secure : !!isSecure,
         });
     },
-    get: function(key) {
+    get(key) {
         if (!this.initialized) this.read();
         return this.value[key];
     },
-    set: function(key, value) {
+    set(key, val) {
         if (!this.initialized) this.read();
-        this.value[key] = value;
+        this.value[key] = val;
         Cookies.set(this.cookie_name, this.value, {
             expires: new Date(this.expires),
             path   : this.path,
             domain : this.domain,
         });
     },
-    remove: function() {
+    remove() {
         Cookies.remove(this.cookie_name, {
             path  : this.path,
             domain: this.domain,
@@ -131,55 +167,51 @@ CookieStorage.prototype = {
     },
 };
 
+const removeCookies = (...cookie_names) => {
+    const domains = [
+        `.${document.domain.split('.').slice(-2).join('.')}`,
+        `.${document.domain}`,
+    ];
+
+    let parent_path = window.location.pathname.split('/', 2)[1];
+    if (parent_path !== '') {
+        parent_path = `/${parent_path}`;
+    }
+
+    cookie_names.forEach((c) => {
+        Cookies.remove(c, { path: '/', domain: domains[0] });
+        Cookies.remove(c, { path: '/', domain: domains[1] });
+        Cookies.remove(c);
+        if (new RegExp(c).test(document.cookie) && parent_path) {
+            Cookies.remove(c, { path: parent_path, domain: domains[0] });
+            Cookies.remove(c, { path: parent_path, domain: domains[1] });
+            Cookies.remove(c, { path: parent_path });
+        }
+    });
+};
+
 let SessionStore,
     LocalStore;
-if (typeof window !== 'undefined' && isStorageSupported(window.localStorage)) {
+
+if (isStorageSupported(window.localStorage)) {
     LocalStore = new Store(window.localStorage);
 }
-
-if (typeof window !== 'undefined' && isStorageSupported(window.sessionStorage)) {
-    if (!LocalStore) {
-        LocalStore = new Store(window.sessionStorage);
-    }
+if (isStorageSupported(window.sessionStorage)) {
     SessionStore = new Store(window.sessionStorage);
 }
 
-if (!SessionStore || !LocalStore) {
-    if (!LocalStore) {
-        LocalStore = new InScriptStore();
-    }
-    if (!SessionStore) {
-        SessionStore = new InScriptStore();
-    }
+if (!LocalStore) {
+    LocalStore = new InScriptStore();
+}
+if (!SessionStore) {
+    SessionStore = new InScriptStore();
 }
 
-// LocalStorage can be used as a means of communication among
-// different windows. The problem that is solved here is what
-// happens if the user logs out or switches loginid in one
-// window while keeping another window or tab open. This can
-// lead to unintended trades. The solution is to reload the
-// page in all windows after switching loginid or after logout.
-$(document).ready(function () {
-    // Cookies is not always available.
-    // So, fall back to a more basic solution.
-    let match = document.cookie.match(/\bloginid=(\w+)/);
-    match = match ? match[1] : '';
-    $(window).on('storage', function (jq_event) {
-        switch (jq_event.originalEvent.key) {
-            case 'client.loginid':
-                if (jq_event.originalEvent.newValue !== match &&
-                    (jq_event.originalEvent.newValue === '' || !/logged_inws/i.test(window.location.pathname))) {
-                    window.location.reload();
-                }
-                break;
-            // no default
-        }
-    });
-});
-
 module.exports = {
-    CookieStorage: CookieStorage,
-    State        : State,
-    SessionStore : SessionStore,
-    LocalStore   : LocalStore,
+    isStorageSupported,
+    CookieStorage,
+    removeCookies,
+    State,
+    SessionStore,
+    LocalStore,
 };

@@ -29,6 +29,7 @@ const ChampionNewVirtual      = require('./../pages/new_account/virtual');
 const ResetPassword           = require('./../pages/reset_password');
 const ChampionSignup          = require('./../pages/signup');
 const TradingTimes            = require('./../pages/trading_times');
+const Accounts                = require('./../pages/user/accounts');
 const Authenticate            = require('./../pages/user/authenticate');
 const ChangePassword          = require('./../pages/user/change_password');
 const Limits                  = require('./../pages/user/limits');
@@ -81,7 +82,8 @@ const Champion = (function() {
         const page = content.getAttribute('data-page');
         State.set('current_page', page);
         const pages_map = {
-            authenticate           : { module: Authenticate,           is_authenticated: true, only_real: true },
+            accounts               : { module: Accounts,           is_authenticated: true },
+            authenticate           : { module: Authenticate,       is_authenticated: true, only_real: true },
             cashier                : { module: Cashier },
             contact                : { module: ChampionContact },
             endpoint               : { module: ChampionEndpoint },

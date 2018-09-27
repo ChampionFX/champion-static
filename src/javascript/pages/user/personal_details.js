@@ -11,6 +11,8 @@ const PersonalDetails = (() => {
     const hidden_class  = 'invisible';
     const editable_fields = {};
 
+    let is_for_new_account = false;
+
     let residence,
         get_settings_data,
         place_of_birth_value,
@@ -191,6 +193,9 @@ const PersonalDetails = (() => {
                 if (!is_error) {
                     ChampionSocket.send({ get_settings: 1 }, true).then((data) => {
                         getSettingsResponse(data.get_settings);
+                        if (is_for_new_account) {
+                            is_for_new_account = false;
+                        }
                     });
                 }
             });
@@ -205,12 +210,14 @@ const PersonalDetails = (() => {
     };
 
     const unload = () => {
+        is_for_new_account = false;
         $(form_selector).off('submit', submitForm);
     };
 
     return {
-        load  : load,
-        unload: unload,
+        load              : load,
+        unload            : unload,
+        setIsForNewAccount: (bool) => { is_for_new_account = bool; },
     };
 })();
 

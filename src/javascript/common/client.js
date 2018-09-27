@@ -8,6 +8,7 @@ const template             = require('./utility').template;
 const Cookies              = require('../lib/js-cookie');
 
 const Client = (function () {
+    const storage_key = 'client.tokens';
     const client_object = {};
 
     const parseLoginIDList = (string) => {
@@ -65,6 +66,12 @@ const Client = (function () {
         }
         return value;
     };
+
+    const getAllAccountsObject = () => {
+        LocalStore.getObject(storage_key);
+    };
+
+    const getAllLoginids = () => Object.keys(getAllAccountsObject());
 
     const response_authorize = (response) => {
         if (response.error || response.authorize.loginid !== Client.get('loginid')) {
@@ -261,6 +268,7 @@ const Client = (function () {
         redirect_if_login   : redirect_if_login,
         set                 : set,
         get                 : get,
+        getAllLoginids      : getAllLoginids,
         response_authorize  : response_authorize,
         should_accept_tnc   : should_accept_tnc,
         clear_storage_values: clear_storage_values,
