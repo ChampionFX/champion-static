@@ -38,7 +38,6 @@ sub handle_for {
     return $handles{$language};
 }
 
-
 sub _class_for {
     state %classes;
     my $rclass = "BS::I18N::binary-com";
