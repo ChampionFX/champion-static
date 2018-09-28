@@ -63,6 +63,8 @@
 
         "dataLayer": true,
 
+        "texts_json": false,
+
         // function from binary-style
         "tabListener": true
     }

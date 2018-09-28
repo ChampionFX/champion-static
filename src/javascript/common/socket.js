@@ -37,7 +37,6 @@ const ChampionSocket = (function() {
     const getSocketURL = () => {
         const server = getServer();
         const params = [
-            'brand=champion',
             `app_id=${getAppId()}`,
             `l=${getLanguage()}`,
         ];
