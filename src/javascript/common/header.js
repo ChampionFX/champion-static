@@ -149,8 +149,8 @@ const Header = (function () {
         if (!currency) {
             return;
         }
-        const view = formatMoney(balance, currency);
-        $('.account-balance').text(view).css('visibility', 'visible');
+        const currency_symbol = formatMoney(currency);
+        $('.account-balance').html(currency_symbol).css('visibility', 'visible');
     };
 
     return {

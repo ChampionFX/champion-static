@@ -4,12 +4,15 @@ const CookieStorage        = require('./storage').CookieStorage;
 const LocalStore           = require('./storage').LocalStore;
 const State                = require('./storage').State;
 const url                  = require('./url');
+const getPropertyValue     = require('./utility').getPropertyValue;
+const isEmptyObject        = require('./utility').isEmptyObject;
 const template             = require('./utility').template;
 const Cookies              = require('../lib/js-cookie');
 
 const Client = (function () {
     const storage_key = 'client.tokens';
-    const client_object = {};
+    let client_object = {};
+    let current_loginid;
 
     const parseLoginIDList = (string) => {
         if (!string) return [];
@@ -27,7 +30,10 @@ const Client = (function () {
     };
 
     const init = () => {
+        current_loginid = LocalStore.get('client.loginid');
+        client_object = getAllAccountsObject();
         client_object.loginid_array = parseLoginIDList(Cookies.get('loginid_list') || '');
+        backwardCompatibility();
 
         set('email',     Cookies.get('email'));
         set('loginid',   Cookies.get('loginid'));
@@ -67,11 +73,42 @@ const Client = (function () {
         return value;
     };
 
-    const getAllAccountsObject = () => {
-        LocalStore.getObject(storage_key);
-    };
+    const getAllAccountsObject = () => LocalStore.getObject(storage_key);
 
     const getAllLoginids = () => Object.keys(getAllAccountsObject());
+
+    const getAccountType = (loginid = current_loginid) => {
+        let account_type;
+        if (/^VR/.test(loginid))       account_type = 'virtual';
+        else if (/^MF/.test(loginid))  account_type = 'financial';
+        else if (/^MLT/.test(loginid)) account_type = 'gaming';
+        return account_type;
+    };
+
+    const isAccountOfType = (type, loginid = current_loginid, only_enabled = false) => {
+        const this_type   = getAccountType(loginid);
+        const is_ico_only = get('is_ico_only', loginid);
+        return ((
+            (type === 'virtual' && this_type === 'virtual') ||
+            (type === 'real'    && this_type !== 'virtual') ||
+            type === this_type) && !is_ico_only &&              // Account shouldn't be ICO_ONLY.
+            (only_enabled ? !get('is_disabled', loginid) : true));
+    };
+
+    const getAccountOfType = (type, only_enabled) => {
+        const id = getAllLoginids().find(loginid => isAccountOfType(type, loginid, only_enabled));
+        return id ? $.extend({ loginid: id }, get(null, id)) : {};
+    };
+
+    const hasAccountType = (type, only_enabled) => !isEmptyObject(getAccountOfType(type, only_enabled));
+
+    const types_map = {
+        virtual  : 'Virtual',
+        gaming   : 'Gaming',
+        financial: 'Investment',
+    };
+
+    const getAccountTitle = loginid => types_map[getAccountType(loginid)] || 'Real';
 
     const response_authorize = (response) => {
         if (response.error || response.authorize.loginid !== Client.get('loginid')) {
@@ -155,6 +192,49 @@ const Client = (function () {
         const cookie = new CookieStorage(cookieName, domain);
         if (value === undefined) value = '';
         cookie.write(value, cookie_expire, true);
+    };
+
+    /**
+     * Upgrade the structure of client info to the new one
+     * (for clients which already are logged-in with the old version)
+     */
+    const backwardCompatibility = () => {
+        if (!current_loginid) return;
+
+        const accounts_obj    = LocalStore.getObject('client.tokens');
+        const current_account = getPropertyValue(accounts_obj, current_loginid) || {};
+
+        // 1. client.tokens = { loginid1: token1, loginid2, token2 }
+        if (typeof current_account !== 'object') {
+            Object.keys(accounts_obj).forEach((loginid) => {
+                accounts_obj[loginid] = { token: current_account };
+            });
+        }
+
+        // 2. client.tokens = { loginid1: { token: token1, currency: currency1 }, loginid2: { ... } }
+        if (!isEmptyObject(accounts_obj)) {
+            const keys     = ['balance', 'currency', 'email', 'is_virtual', 'residence', 'session_start'];
+            // read current client.* values and set in new object
+            const setValue = (old_key, new_key) => {
+                const value = LocalStore.get(`client.${old_key}`);
+                if (value) {
+                    accounts_obj[current_loginid][new_key || old_key] = value;
+                }
+            };
+            keys.forEach((key) => { setValue(key); });
+            setValue('landing_company_name', 'landing_company_shortcode');
+
+            // remove all client.* and cookies
+            Object.keys(LocalStore.storage).forEach((key) => {
+                if (/^client\./.test(key)) {
+                    LocalStore.remove(key);
+                }
+            });
+            cleanupCookies('email', 'login', 'loginid', 'loginid_list', 'residence');
+
+            // set client.accounts
+            LocalStore.setObject(storage_key, accounts_obj);
+        }
     };
 
     const process_new_account = (client_email, client_loginid, token, virtual_client) => {
@@ -247,10 +327,53 @@ const Client = (function () {
         return true;
     };
 
+    const cleanupCookies = (...cookie_names) => {
+        const domains = [
+            `.${document.domain.split('.').slice(-2).join('.')}`,
+            `.${document.domain}`,
+        ];
+
+        let parent_path = window.location.pathname.split('/', 2)[1];
+        if (parent_path !== '') {
+            parent_path = `/${parent_path}`;
+        }
+
+        cookie_names.forEach((c) => {
+            Cookies.remove(c, { path: '/', domain: domains[0] });
+            Cookies.remove(c, { path: '/', domain: domains[1] });
+            Cookies.remove(c);
+            if (new RegExp(c).test(document.cookie) && parent_path) {
+                Cookies.remove(c, { path: parent_path, domain: domains[0] });
+                Cookies.remove(c, { path: parent_path, domain: domains[1] });
+                Cookies.remove(c, { path: parent_path });
+            }
+        });
+    };
+
+    const currentLandingCompany = () => {
+        const landing_company_response = State.getResponse('landing_company') || {};
+        const lc_prop                  = Object.keys(landing_company_response)
+             .find(key => get('landing_company_shortcode') === landing_company_response[key].shortcode);
+        return landing_company_response[lc_prop] || {};
+    };
+
+    const shouldCompleteTax = () => isAccountOfType('financial') && !/crs_tin_information/.test((State.getResponse('get_account_status') || {}).status);
+
+
     const getMT5AccountType = (group) => {
         if (group === 'demo\\champion_virtual') group = 'demo\\champion_cent'; // TODO: remove this line (used for backward compatibility)
         return group ? group.replace('\\', '_') : '';
     };
+
+    const hasShortCode = (data, code) => ((data || {}).shortcode === code);
+
+    const canUpgradeGamingToFinancial = data => (hasShortCode(data.financial_company, 'maltainvest'));
+
+    const canUpgradeVirtualToFinancial = data => (!data.gaming_company && hasShortCode(data.financial_company, 'maltainvest'));
+
+    const canUpgradeVirtualToJapan = data => (!data.gaming_company && hasShortCode(data.financial_company, 'japan'));
+
+    const canUpgradeVirtualToReal = data => (hasShortCode(data.financial_company, 'costarica'));
 
     const setCurrency = (currency) => {
         const tokens = get('tokens');
@@ -263,25 +386,84 @@ const Client = (function () {
         set('currency', currency);
     };
 
+    const getUpgradeInfo = (landing_company, jp_account_status = State.getResponse('get_settings.jp_account_status.status')) => {
+        let type         = 'real';
+        let can_upgrade  = false;
+        let upgrade_link = 'realws';
+        if (!get('is_ico_only')) {
+            if (get('is_virtual')) {
+                if (canUpgradeVirtualToFinancial(landing_company)) {
+                    type         = 'financial';
+                    upgrade_link = 'maltainvestws';
+                } else if (canUpgradeVirtualToJapan(landing_company)) {
+                    upgrade_link = 'japanws';
+                }
+                can_upgrade = !hasAccountType('real') && (!jp_account_status || !/jp_knowledge_test_(pending|fail)|jp_activation_pending|activated/.test(jp_account_status));
+            } else if (canUpgradeGamingToFinancial(landing_company)) {
+                type         = 'financial';
+                can_upgrade  = !hasAccountType('financial');
+                upgrade_link = 'maltainvestws';
+            }
+        }
+        return {
+            type,
+            can_upgrade,
+            upgrade_link   : `new_account/${upgrade_link}`,
+            is_current_path: new RegExp(upgrade_link, 'i').test(window.location.pathname),
+        };
+    };
+
+    const getLandingCompanyValue = (loginid, landing_company, key, is_ico_only) => {
+        if (is_ico_only) {
+            return 'Binary (C.R.) S.A.';
+        }
+        let landing_company_object;
+        if (loginid.financial || isAccountOfType('financial', loginid)) {
+            landing_company_object = getPropertyValue(landing_company, 'financial_company');
+        } else if (loginid.real || isAccountOfType('real', loginid)) {
+            landing_company_object = getPropertyValue(landing_company, 'gaming_company');
+
+            // handle accounts such as japan that don't have gaming company
+            if (!landing_company_object) {
+                landing_company_object = getPropertyValue(landing_company, 'financial_company');
+            }
+        } else {
+            const financial_company = (getPropertyValue(landing_company, 'financial_company') || {})[key] || [];
+            const gaming_company    = (getPropertyValue(landing_company, 'gaming_company') || {})[key] || [];
+            landing_company_object  = financial_company.concat(gaming_company);
+            return landing_company_object;
+        }
+        return (landing_company_object || {})[key];
+    };
+
     return {
-        init                : init,
-        redirect_if_login   : redirect_if_login,
-        set                 : set,
-        get                 : get,
-        getAllLoginids      : getAllLoginids,
-        response_authorize  : response_authorize,
-        should_accept_tnc   : should_accept_tnc,
-        clear_storage_values: clear_storage_values,
-        get_token           : get_token,
-        add_token           : add_token,
-        set_cookie          : set_cookie,
-        process_new_account : process_new_account,
-        is_logged_in        : is_logged_in,
-        is_virtual          : () => get('is_virtual'),
-        has_real            : () => get('has_real'),
-        do_logout           : do_logout,
-        getMT5AccountType   : getMT5AccountType,
-        setCurrency         : setCurrency,
+        init                   : init,
+        redirect_if_login      : redirect_if_login,
+        set                    : set,
+        get                    : get,
+        canUpgradeVirtualToReal: canUpgradeVirtualToReal,
+        currentLandingCompany  : currentLandingCompany,
+        getLandingCompanyValue : getLandingCompanyValue,
+        getAccountTitle        : getAccountTitle,
+        getAccountType         : getAccountType,
+        getAllAccountsObject   : getAllAccountsObject,
+        getAllLoginids         : getAllLoginids,
+        getUpgradeInfo         : getUpgradeInfo,
+        isAccountOfType        : isAccountOfType,
+        response_authorize     : response_authorize,
+        should_accept_tnc      : should_accept_tnc,
+        shouldCompleteTax      : shouldCompleteTax,
+        clear_storage_values   : clear_storage_values,
+        get_token              : get_token,
+        add_token              : add_token,
+        set_cookie             : set_cookie,
+        process_new_account    : process_new_account,
+        is_logged_in           : is_logged_in,
+        is_virtual             : () => get('is_virtual'),
+        has_real               : () => get('has_real'),
+        do_logout              : do_logout,
+        getMT5AccountType      : getMT5AccountType,
+        setCurrency            : setCurrency,
     };
 })();
 
