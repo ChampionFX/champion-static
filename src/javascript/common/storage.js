@@ -48,9 +48,8 @@ Store.prototype = {
         }
     },
     getObject(key) {
-        return typeof this.storage.getObject === 'function' // Prevent runtime error in IE
-            ? this.storage.getObject(key)
-            : JSON.parse(this.storage.getItem(key) || '{}');
+        // Prevent runtime error in IE
+        return typeof this.storage.getObject === 'function' ? this.storage.getObject(key) : JSON.parse(this.storage.getItem(key) || '{}');
     },
     setObject(key, value) {
         if (typeof this.storage.setObject === 'function') { // Prevent runtime error in IE

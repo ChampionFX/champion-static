@@ -37,7 +37,10 @@ const addComma = (num, decimal_points, is_crypto) => {
     ));
 };
 
-const calcDecimalPlaces = currency => isCryptocurrency(currency) ? 8 : 2;
+const calcDecimalPlaces = (currency) => {
+    const decimal_points = isCryptocurrency(currency) ? 8 : 2;
+    return decimal_points;
+};
 
 const getDecimalPlaces = currency => (
     // need to check currencies_config[currency] exists instead of || in case of 0 value
