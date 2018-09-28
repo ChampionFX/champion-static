@@ -11,16 +11,15 @@ use Mojo::URL;
 use Template;
 use Template::Stash;
 use Format::Util::Numbers;
+use Digest::MD5 qw(md5_hex);
+use File::Slurp;
 
 our @EXPORT_OK = qw/
     root_path is_dev set_is_dev branch set_branch
     localize set_lang all_languages
     get_static_hash set_static_hash
-
     root_url
-
     tt2
-
     css_files js_config menu
     /;
 
@@ -59,11 +58,6 @@ sub localize {
 
 sub all_languages {
     return $BRANCH eq 'translations' ? ('ACH') : ('EN', 'ID'); # ('EN', 'DE', 'ES', 'FR', 'ID', 'IT', 'PL', 'PT', 'RU', 'TH', 'VI', 'JA', 'ZH_CN', 'ZH_TW');
-}
-
-sub rtl_languages {
-#    return ('AR');
-    return ();
 }
 
 ## url_for
@@ -118,24 +112,16 @@ sub css_files {
     # Binary-style
     push @css, "https://style.champion-fx.com/binary.css?$static_hash";
 
-    # if (is_dev()) {
-    #     if (grep { $_ eq uc $LANG } rtl_languages()) {
-    #         push @css, root_url() . "css/style_rtl.css?$static_hash";
-    #     } else {
-    #         push @css, root_url() . "css/style.css?$static_hash";
-    #     }
-    # } else {
-    if (grep { $_ eq uc $LANG } rtl_languages()) {
-        push @css, root_url() . "css/style_rtl.min.css?$static_hash";
-    } else {
-        push @css, root_url() . "css/style.min.css?$static_hash";
-    }
+    push @css, root_url() . "css/style.min.css?$static_hash";
 
     return @css;
 }
 
 sub js_config {
     my @libs;
+
+    push @libs, root_url . "js/texts/$LANG.js?$static_hash";
+
     if (is_dev()) {
         push @libs, root_url . "js/bundle.js?$static_hash";
     } else {
