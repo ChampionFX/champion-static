@@ -64,9 +64,39 @@ const Client = (function () {
         return LocalStore.set(`client.${key}`, value);
     };
 
+    // TO-DO: Refactor and merge with get function
+    const setKey = (key, value, loginid = current_loginid) => {
+        if (key === 'loginid' && value !== current_loginid) {
+            LocalStore.set('client.loginid', value);
+            current_loginid = value;
+        } else {
+            if (!(loginid in client_object)) {
+                client_object[loginid] = {};
+            }
+            client_object[loginid][key] = value;
+            LocalStore.setObject(storage_key, client_object);
+        }
+    };
+
     // use this function to get variables that have values
     const get = (key) => {
         let value = client_object[key] || LocalStore.get(`client.${key}`) || '';
+        if (!Array.isArray(value) && (+value === 1 || +value === 0 || value === 'true' || value === 'false')) {
+            value = JSON.parse(value || false);
+        }
+        return value;
+    };
+
+    // TO-DO: Refactor and merge with get function
+    const getKey = (key, loginid = current_loginid) => {
+        let value;
+        if (key === 'loginid') {
+            value = loginid || LocalStore.get('client.loginid');
+        } else {
+            const current_client = client_object[loginid] || getAllAccountsObject()[loginid] || {};
+
+            value = key ? current_client[key] : current_client;
+        }
         if (!Array.isArray(value) && (+value === 1 || +value === 0 || value === 'true' || value === 'false')) {
             value = JSON.parse(value || false);
         }
@@ -137,7 +167,7 @@ const Client = (function () {
         if (!authorize.is_virtual) ChampionSocket.send({ get_self_exclusion: 1 });
         const country_code = response.authorize.country;
         if (country_code) {
-            Client.set('residence', country_code);
+            set('residence', country_code);
             ChampionSocket.send({ landing_company: country_code });
         }
 
@@ -440,7 +470,9 @@ const Client = (function () {
         init                   : init,
         redirect_if_login      : redirect_if_login,
         set                    : set,
+        setKey                 : setKey,
         get                    : get,
+        getKey                 : getKey,
         canUpgradeVirtualToReal: canUpgradeVirtualToReal,
         currentLandingCompany  : currentLandingCompany,
         getLandingCompanyValue : getLandingCompanyValue,

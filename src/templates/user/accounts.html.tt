@@ -5,7 +5,7 @@
         [% INCLUDE static/common/loading.html.tt %]
     </div>
 
-    <div class="invisible fx-accounts container" id="accounts_wrapper">
+    <div class="invisible container" id="accounts_wrapper">
         <div class="row">
             <div class="col-sm">
                 <h1>[% l("Create New Account") %]</h1>
