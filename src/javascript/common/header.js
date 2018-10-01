@@ -1,11 +1,15 @@
-const Client         = require('./client');
-const formatMoney    = require('./currency').formatMoney;
-const GTM            = require('./gtm');
-const Notify         = require('./notify');
-const ChampionRouter = require('./router');
-const ChampionSocket = require('./socket');
-const State          = require('./storage').State;
-const url_for        = require('./url').url_for;
+const Client              = require('./client');
+const elementTextContent  = require('./common_functions').elementTextContent;
+const formatMoney         = require('./currency').formatMoney;
+const getCurrencies       = require('../pages/user/get_currency').getCurrencies;
+const GTM                 = require('./gtm');
+const localize            = require('./localize').localize;
+const Notify              = require('./notify');
+const ChampionRouter      = require('./router');
+const ChampionSocket      = require('./socket');
+const State               = require('./storage').State;
+const url_for             = require('./url').url_for;
+const applyToAllElements  = require('./utility').applyToAllElements;
 
 const Header = (function () {
     'use strict';
@@ -13,11 +17,14 @@ const Header = (function () {
     const hidden_class = 'invisible';
 
     const init = function() {
-        ChampionSocket.wait('authorize').then(() => { updatePage(); });
+        ChampionSocket.wait('authorize').then(() => {
+            updatePage();
+        });
         $(function () {
             const window_path = window.location.pathname;
             const path = window_path.replace(/\/$/, '');
             const href = decodeURIComponent(path);
+
             $('.navbar__nav__menu li a').each(function() {
                 const target = $(this).attr('href');
                 if (target === href) {
@@ -36,6 +43,13 @@ const Header = (function () {
             $('#top_group').removeClass('logged-in').find('.logged-out').removeClass(hidden_class);
             $('.trading-platform-header').removeClass(hidden_class);
             $('.navbar__brand, .navbar__toggle').removeClass('logged-in'); // show logo
+        }
+
+        if (Client.is_logged_in()) {
+            const landing_company = State.getResponse('landing_company');
+            const upgrade_info      = Client.getUpgradeInfo(landing_company);
+            const can_upgrade  = upgrade_info.can_upgrade;
+            showHideNewAccount(can_upgrade);
         }
     };
 
@@ -115,6 +129,26 @@ const Header = (function () {
         const is_mt_pages = State.get('is_mt_pages');
         $('#header, #footer').find('.mt-hide')[is_mt_pages ? 'addClass' : 'removeClass'](hidden_class);
         $('#header, #footer').find('.mt-show')[is_mt_pages ? 'removeClass' : 'addClass'](hidden_class);
+    };
+
+    const showHideNewAccount = (can_upgrade) => {
+        // only allow opening of multi account to costarica clients with remaining currency
+        const landing_company = State.getResponse('landing_company');
+        if (!Client.get('is_ico_only') &&
+            (can_upgrade || (Client.get('landing_company_shortcode') === 'costarica' && getCurrencies(landing_company).length))) {
+            changeAccountsText(1, 'Create Account');
+        } else {
+            changeAccountsText(0, 'Accounts List');
+        }
+    };
+
+    const changeAccountsText = (add_new_style, text) => {
+        const user_accounts = document.getElementById('user_accounts');
+        if (user_accounts) {
+            user_accounts.classList[add_new_style ? 'add' : 'remove']('create_new_account');
+            const localized_text = localize(text);
+            applyToAllElements('li', (el) => { elementTextContent(el, localized_text); }, '', user_accounts);
+        }
     };
 
     const switchLoginId = (loginid) => {
