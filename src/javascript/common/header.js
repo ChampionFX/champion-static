@@ -1,7 +1,6 @@
 const Client              = require('./client');
 const elementTextContent  = require('./common_functions').elementTextContent;
 const formatMoney         = require('./currency').formatMoney;
-const setCurrencies       = require('./currency').setCurrencies;
 const GTM                 = require('./gtm');
 const localize            = require('./localize').localize;
 const Notify              = require('./notify');
@@ -48,12 +47,10 @@ const Header = (function () {
 
         if (Client.is_logged_in()) {
             const landing_company = State.getResponse('landing_company');
-            const website_status = State.getResponse('website_status');
+
             const upgrade_info      = Client.getUpgradeInfo(landing_company);
             const can_upgrade  = upgrade_info.can_upgrade;
-            if (website_status) {
-                setCurrencies(website_status);
-            }
+
             showHideNewAccount(can_upgrade);
         }
     };

@@ -33,7 +33,6 @@ const Client = (function () {
         current_loginid = LocalStore.get('client.loginid');
         client_object = getAllAccountsObject();
         client_object.loginid_array = parseLoginIDList(Cookies.get('loginid_list') || '');
-        backwardCompatibility();
 
         set('email',     Cookies.get('email'));
         set('loginid',   Cookies.get('loginid'));
@@ -224,49 +223,6 @@ const Client = (function () {
         cookie.write(value, cookie_expire, true);
     };
 
-    /**
-     * Upgrade the structure of client info to the new one
-     * (for clients which already are logged-in with the old version)
-     */
-    const backwardCompatibility = () => {
-        if (!current_loginid) return;
-
-        const accounts_obj    = LocalStore.getObject('client.tokens');
-        const current_account = getPropertyValue(accounts_obj, current_loginid) || {};
-
-        // 1. client.tokens = { loginid1: token1, loginid2, token2 }
-        if (typeof current_account !== 'object') {
-            Object.keys(accounts_obj).forEach((loginid) => {
-                accounts_obj[loginid] = { token: current_account };
-            });
-        }
-
-        // 2. client.tokens = { loginid1: { token: token1, currency: currency1 }, loginid2: { ... } }
-        if (!isEmptyObject(accounts_obj)) {
-            const keys     = ['balance', 'currency', 'email', 'is_virtual', 'residence', 'session_start'];
-            // read current client.* values and set in new object
-            const setValue = (old_key, new_key) => {
-                const value = LocalStore.get(`client.${old_key}`);
-                if (value) {
-                    accounts_obj[current_loginid][new_key || old_key] = value;
-                }
-            };
-            keys.forEach((key) => { setValue(key); });
-            setValue('landing_company_name', 'landing_company_shortcode');
-
-            // remove all client.* and cookies
-            Object.keys(LocalStore.storage).forEach((key) => {
-                if (/^client\./.test(key)) {
-                    LocalStore.remove(key);
-                }
-            });
-            cleanupCookies('email', 'login', 'loginid', 'loginid_list', 'residence');
-
-            // set client.accounts
-            LocalStore.setObject(storage_key, accounts_obj);
-        }
-    };
-
     const process_new_account = (client_email, client_loginid, token, virtual_client) => {
         if (!client_email || !client_loginid || !token) {
             return;
@@ -355,29 +311,6 @@ const Client = (function () {
         set_cookie('affiliate_tracking', cookie_hash);
         set('affiliate_token', cookie_hash.t);
         return true;
-    };
-
-    const cleanupCookies = (...cookie_names) => {
-        const domains = [
-            `.${document.domain.split('.').slice(-2).join('.')}`,
-            `.${document.domain}`,
-        ];
-
-        let parent_path = window.location.pathname.split('/', 2)[1];
-        if (parent_path !== '') {
-            parent_path = `/${parent_path}`;
-        }
-
-        cookie_names.forEach((c) => {
-            Cookies.remove(c, { path: '/', domain: domains[0] });
-            Cookies.remove(c, { path: '/', domain: domains[1] });
-            Cookies.remove(c);
-            if (new RegExp(c).test(document.cookie) && parent_path) {
-                Cookies.remove(c, { path: parent_path, domain: domains[0] });
-                Cookies.remove(c, { path: parent_path, domain: domains[1] });
-                Cookies.remove(c, { path: parent_path });
-            }
-        });
     };
 
     const currentLandingCompany = () => {
