@@ -1,7 +1,7 @@
 const Client              = require('./client');
 const elementTextContent  = require('./common_functions').elementTextContent;
 const formatMoney         = require('./currency').formatMoney;
-const getCurrencies       = require('../pages/user/get_currency').getCurrencies;
+const setCurrencies       = require('./currency').setCurrencies;
 const GTM                 = require('./gtm');
 const localize            = require('./localize').localize;
 const Notify              = require('./notify');
@@ -10,6 +10,7 @@ const ChampionSocket      = require('./socket');
 const State               = require('./storage').State;
 const url_for             = require('./url').url_for;
 const applyToAllElements  = require('./utility').applyToAllElements;
+const getCurrencies       = require('../pages/user/get_currency').getCurrencies;
 
 const Header = (function () {
     'use strict';
@@ -47,8 +48,12 @@ const Header = (function () {
 
         if (Client.is_logged_in()) {
             const landing_company = State.getResponse('landing_company');
+            const website_status = State.getResponse('website_status');
             const upgrade_info      = Client.getUpgradeInfo(landing_company);
             const can_upgrade  = upgrade_info.can_upgrade;
+            if (website_status) {
+                setCurrencies(website_status);
+            }
             showHideNewAccount(can_upgrade);
         }
     };
@@ -135,7 +140,7 @@ const Header = (function () {
         // only allow opening of multi account to costarica clients with remaining currency
         const landing_company = State.getResponse('landing_company');
         if (!Client.get('is_ico_only') &&
-            (can_upgrade || (Client.get('landing_company_shortcode') === 'costarica' && getCurrencies(landing_company).length))) {
+            (can_upgrade || (Client.get('landing_company_name') === 'costarica' && getCurrencies(landing_company).length))) {
             changeAccountsText(1, 'Create Account');
         } else {
             changeAccountsText(0, 'Accounts List');

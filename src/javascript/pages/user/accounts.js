@@ -20,23 +20,24 @@ const Accounts = (() => {
             // ask client to set residence first since cannot wait landing_company otherwise
             window.location.href = urlFor('user/profile');
         }
-        ChampionSocket.wait('landing_company', 'get_settings').then(() => {
+        ChampionSocket.wait('landing_company', 'get_settings', 'website_status').then(() => {
             landing_company = State.getResponse('landing_company');
+            const is_ico_only   = Client.get('is_ico_only');
 
             populateExistingAccounts();
 
             let element_to_show = '#no_new_accounts_wrapper';
             const upgrade_info  = Client.getUpgradeInfo(landing_company);
-            const is_ico_only   = Client.get('is_ico_only');
 
             if (upgrade_info.can_upgrade) {
                 populateNewAccounts(upgrade_info);
                 element_to_show = '#new_accounts_wrapper';
             }
 
+
             const currencies = getCurrencies(landing_company);
             // only allow opening of multi account to costarica clients with remaining currency
-            if (!is_ico_only && Client.get('landing_company_shortcode') === 'costarica' && currencies.length) {
+            if (!is_ico_only && Client.get('landing_company_name') === 'costarica' && currencies.length) {
                 populateMultiAccount(currencies);
             } else {
                 doneLoading(element_to_show);
