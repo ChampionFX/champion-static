@@ -189,12 +189,7 @@ const Accounts = (() => {
         } else {
             const new_account = response.new_account_real;
             localStorage.setItem('is_new_account', 1);
-            Client.processNewAccount({
-                email       : Client.get('email'),
-                loginid     : new_account.client_id,
-                token       : new_account.oauth_token,
-                redirect_url: urlFor('user/set-currency'),
-            });
+            Client.process_new_account(Client.get('email'), new_account.client_id, new_account.oauth_token, urlFor('user/set-currency'));
         }
     };
 
@@ -205,10 +200,9 @@ const Accounts = (() => {
 
     const populateReq = () => {
         const get_settings = State.getResponse('get_settings');
-        const dob          = moment(+get_settings.date_of_birth * 1000).format('YYYY-MM-DD');
+        const dob          = moment.utc(+get_settings.date_of_birth * 1000).format('YYYY-MM-DD');
         const req          = [
             { request_field: 'new_account_real',       value: 1 },
-            { request_field: 'account_type',           value: 'default' },
             { request_field: 'date_of_birth',          value: dob },
             { request_field: 'salutation',             value: get_settings.salutation },
             { request_field: 'first_name',             value: get_settings.first_name },
@@ -220,6 +214,8 @@ const Accounts = (() => {
             { request_field: 'address_postcode',       value: get_settings.address_postcode },
             { request_field: 'phone',                  value: get_settings.phone },
             { request_field: 'account_opening_reason', value: get_settings.account_opening_reason },
+            { request_field: 'citizen',                value: get_settings.citizen },
+            { request_field: 'place_of_birth',         value: get_settings.place_of_birth },
             { request_field: 'residence',              value: Client.get('residence') },
         ];
         if (get_settings.tax_identification_number) {
