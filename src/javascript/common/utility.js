@@ -4,6 +4,61 @@ function showLoadingImage(container, theme = 'dark') {
     container.empty().append(`<div class="barspinner ${theme}"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div>`);
 }
 
+/**
+ * Creates a DOM element and adds any attributes to it.
+ *
+ * @param {String} tag_name: the tag to create, e.g. 'div', 'a', etc
+ * @param {Object} attributes: all the attributes to assign, e.g. { id: '...', class: '...', html: '...', ... }
+ * @return the created DOM element
+ */
+function createElement(tag_name, attributes) {
+    const el = document.createElement(tag_name);
+    Object.keys(attributes).forEach((attr) => {
+        const value = attributes[attr];
+        if (attr === 'text') {
+            el.textContent = value;
+        } else if (attr === 'html') {
+            el.html(value);
+        } else {
+            el.setAttribute(attr, value);
+        }
+    });
+    return el;
+}
+
+/**
+ * Apply function to all elements based on selector passed
+ *
+ * @param {String|Element} selector: selector of the elements to apply the function to, e.g. '.class', '#id', 'tag', etc
+ * can also be a DOM element
+ * @param {Function} funcToRun: function to apply
+ * @param {String} func_selector: method of finding the selector, optional
+ * @param {Element} el_parent: parent of the selector, document by default
+ */
+function applyToAllElements(selector, funcToRun, func_selector, el_parent) {
+    if (!selector || !funcToRun) {
+        return;
+    }
+
+    let function_selector = func_selector;
+    let element_to_select = selector;
+    if (!func_selector && !element_to_select.nodeName) {
+        if (/[\s#]/.test(element_to_select) || element_to_select.lastIndexOf('.') !== 0) {
+            function_selector = 'querySelectorAll';
+        } else if (element_to_select.lastIndexOf('.') === 0) {
+            function_selector = 'getElementsByClassName';
+            element_to_select = element_to_select.substring(1);
+        } else if (/^[a-zA-Z]+$/.test(element_to_select)) {
+            function_selector = 'getElementsByTagName';
+        }
+    }
+    const parent_element = el_parent || document;
+    const el = element_to_select.nodeName || typeof element_to_select === 'object' ? element_to_select : parent_element[function_selector](element_to_select);
+    for (let i = 0; i < el.length; i++) {
+        funcToRun(el[i]);
+    }
+}
+
 function isEmptyObject(obj) {
     let isEmpty = true;
     if (obj && obj instanceof Object) {
@@ -221,9 +276,11 @@ function toTitleCase(str) {
 module.exports = {
     showLoadingImage  : showLoadingImage,
     isEmptyObject     : isEmptyObject,
+    applyToAllElements: applyToAllElements,
     animateAppear     : animateAppear,
     animateDisappear  : animateDisappear,
     addComma          : addComma,
+    createElement     : createElement,
     handleActive      : handleActive,
     dropDownFromObject: dropDownFromObject,
     padLeft           : padLeft,
