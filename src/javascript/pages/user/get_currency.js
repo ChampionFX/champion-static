@@ -5,11 +5,10 @@ const GetCurrency = (() => {
     const getCurrenciesOfOtherAccounts = () => {
         const all_loginids     = Client.getAllLoginids();
         const other_currencies = [];
-        const is_ico_only      = Client.get('is_ico_only');
         all_loginids.forEach((loginid) => {
             // if it's not current client or virtual client, consider the currency
-            if (Client.get('loginid') !== loginid && Client.getAccountType(loginid) !== 'virtual' && (!is_ico_only || Client.get('is_ico_only', loginid))) {
-                const currency = Client.get('currency', loginid);
+            if (Client.get('loginid') !== loginid && Client.getAccountType(loginid) !== 'virtual') {
+                const currency = Client.getKey('currency', loginid);
                 if (currency) {
                     other_currencies.push(currency);
                 }
