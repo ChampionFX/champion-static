@@ -44,7 +44,7 @@
                     </div>
                 </div>
 
-                [% INCLUDE static/common/separator_line.html.tt show_mobile=1 class="padding-20" invisible=1 %]
+                [% INCLUDE static/common/separator_line.html.tt show_mobile=1 class="padding-10" invisible=1 %]
             </div>
         </div>
     </div>

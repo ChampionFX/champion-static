@@ -334,8 +334,6 @@ const Client = (function () {
 
     const canUpgradeVirtualToFinancial = data => (!data.gaming_company && hasShortCode(data.financial_company, 'maltainvest'));
 
-    const canUpgradeVirtualToJapan = data => (!data.gaming_company && hasShortCode(data.financial_company, 'japan'));
-
     const canUpgradeVirtualToReal = data => (hasShortCode(data.financial_company, 'costarica'));
 
     const setCurrency = (currency) => {
@@ -350,28 +348,30 @@ const Client = (function () {
     };
 
     const getUpgradeInfo = (landing_company, jp_account_status = State.getResponse('get_settings.jp_account_status.status')) => {
-        let type         = 'real';
+        // TODO: Change back to let
+        const type         = 'real';
         let can_upgrade  = false;
-        let upgrade_link = 'realws';
+        // TODO: Change back to let
+        const upgrade_link = 'real';
         if (!get('is_ico_only')) {
             if (get('is_virtual')) {
                 if (canUpgradeVirtualToFinancial(landing_company)) {
-                    type         = 'financial';
-                    upgrade_link = 'maltainvestws';
-                } else if (canUpgradeVirtualToJapan(landing_company)) {
-                    upgrade_link = 'japanws';
+                    // type         = 'financial';
+                    // upgrade_link = 'maltainvestws';
+                    // TODO: Add maltainvest upgrade page
                 }
                 can_upgrade = !hasAccountType('real') && (!jp_account_status || !/jp_knowledge_test_(pending|fail)|jp_activation_pending|activated/.test(jp_account_status));
             } else if (canUpgradeGamingToFinancial(landing_company)) {
-                type         = 'financial';
-                can_upgrade  = !hasAccountType('financial');
-                upgrade_link = 'maltainvestws';
+                // type         = 'financial';
+                // can_upgrade  = !hasAccountType('financial');
+                // upgrade_link = 'maltainvestws';
+                // TODO: Same as above
             }
         }
         return {
             type,
             can_upgrade,
-            upgrade_link   : `new_account/${upgrade_link}`,
+            upgrade_link   : `new-account/${upgrade_link}`,
             is_current_path: new RegExp(upgrade_link, 'i').test(window.location.pathname),
         };
     };
