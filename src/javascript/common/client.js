@@ -330,6 +330,8 @@ const Client = (function () {
 
     const hasShortCode = (data, code) => ((data || {}).shortcode === code);
 
+    const canUpgradeGamingToFinancial = data => (hasShortCode(data.financial_company, 'maltainvest'));
+
     const canUpgradeVirtualToFinancial = data => (!data.gaming_company && hasShortCode(data.financial_company, 'maltainvest'));
 
     const canUpgradeVirtualToJapan = data => (!data.gaming_company && hasShortCode(data.financial_company, 'japan'));
@@ -360,6 +362,10 @@ const Client = (function () {
                     upgrade_link = 'japanws';
                 }
                 can_upgrade = !hasAccountType('real') && (!jp_account_status || !/jp_knowledge_test_(pending|fail)|jp_activation_pending|activated/.test(jp_account_status));
+            } else if (canUpgradeGamingToFinancial(landing_company)) {
+                type         = 'financial';
+                can_upgrade  = !hasAccountType('financial');
+                upgrade_link = 'maltainvestws';
             }
         }
         return {

@@ -17,17 +17,17 @@
                             [{ text=l("Account") }, { text=l("Available Markets") }, { text=l("Available Currencies") }, { text=l("Action") }],
                         ]} %]
                     </form>
-                    <div id="note" class="invisible fill-bg-color gr-padding-10 gr-gutter">
-                        <div class="gr-gutter hint">
+                    <div id="note" class="invisible fill-bg-color">
+                        <div class="hint">
                             [% l("Note: You can only have one fiat currency account and one of each cryptocurrency account.") %]
                         </div>
                     </div>
                 </div>
                 <div class='border-light-gray invisible' id="no_new_accounts_wrapper">
-                    <p class="center-text gr-padding-30">[% l("You have created all accounts available to you.") %]</p>
+                    <p class="center-text">[% l("You have created all accounts available to you.") %]</p>
                 </div>
 
-                [% INCLUDE static/common/separator_line.html.tt show_mobile=1 class="gr-padding-20" invisible=1 %]
+                [% INCLUDE static/common/separator_line.html.tt class="padding-20" show_mobile=1 invisible=1 %]
             </div>
         </div>
         <div class="row">
@@ -38,13 +38,13 @@
                 thead=[
                     [{ text=l("Account") }, { text=l("Type") }, { text=l("Available Markets") }, { text=l("Currency") }],
                 ]} %]
-                <div id="note_support" class="invisible fill-bg-color gr-padding-10 gr-gutter">
-                    <div class="gr-gutter hint">
+                <div id="note_support" class="invisible fill-bg-color">
+                    <div class="hint">
                         [% l("Note: For any enquiries regarding disabled or excluded accounts, please contact <a href=\"[_1]\">Customer Support</a>.", request.url_for('contact')) %]
                     </div>
                 </div>
 
-                [% INCLUDE static/common/separator_line.html.tt show_mobile=1 class="gr-padding-30" sub_class="gr-padding-10" invisible=1 %]
+                [% INCLUDE static/common/separator_line.html.tt show_mobile=1 class="padding-30" sub_class="padding-10" invisible=1 %]
             </div>
         </div>
     </div>

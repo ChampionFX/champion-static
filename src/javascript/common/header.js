@@ -8,7 +8,6 @@ const ChampionRouter      = require('./router');
 const ChampionSocket      = require('./socket');
 const State               = require('./storage').State;
 const url_for             = require('./url').url_for;
-const applyToAllElements  = require('./utility').applyToAllElements;
 const getCurrencies       = require('../pages/user/get_currency').getCurrencies;
 
 const Header = (function () {
@@ -17,7 +16,7 @@ const Header = (function () {
     const hidden_class = 'invisible';
 
     const init = function() {
-        ChampionSocket.wait('authorize').then(() => {
+        ChampionSocket.wait('authorize', 'landing_company').then(() => {
             updatePage();
         });
         $(function () {
@@ -149,7 +148,7 @@ const Header = (function () {
         if (user_accounts) {
             user_accounts.classList[add_new_style ? 'add' : 'remove']('create_new_account');
             const localized_text = localize(text);
-            applyToAllElements('li', (el) => { elementTextContent(el, localized_text); }, '', user_accounts);
+            elementTextContent(user_accounts, localized_text);
         }
     };
 
