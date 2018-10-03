@@ -16,8 +16,15 @@ const Header = (function () {
     const hidden_class = 'invisible';
 
     const init = function() {
-        ChampionSocket.wait('authorize', 'landing_company').then(() => {
+        ChampionSocket.wait('authorize').then(() => {
             updatePage();
+
+            ChampionSocket.wait('landing_company').then(() => {
+                const landing_company = State.getResponse('landing_company');
+                if (Client.is_logged_in()) {
+                    updateAccountsLink(landing_company);
+                }
+            });
         });
         $(function () {
             const window_path = window.location.pathname;
@@ -43,15 +50,13 @@ const Header = (function () {
             $('.trading-platform-header').removeClass(hidden_class);
             $('.navbar__brand, .navbar__toggle').removeClass('logged-in'); // show logo
         }
+    };
 
-        if (Client.is_logged_in()) {
-            const landing_company = State.getResponse('landing_company');
+    const updateAccountsLink = (landing_company) => {
+        const upgrade_info      = Client.getUpgradeInfo(landing_company);
+        const can_upgrade  = upgrade_info.can_upgrade;
 
-            const upgrade_info      = Client.getUpgradeInfo(landing_company);
-            const can_upgrade  = upgrade_info.can_upgrade;
-
-            showHideNewAccount(can_upgrade);
-        }
+        showHideNewAccount(can_upgrade);
     };
 
     const desktopMenu = function() {

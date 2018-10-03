@@ -361,7 +361,7 @@ const Client = (function () {
             } else if (canUpgradeGamingToFinancial(landing_company)) {
                 type = 'real'; // type         = 'financial';
                 can_upgrade  = !hasAccountType('financial');
-                upgrade_link = 'maltainvest'; // upgrade_link = 'maltainvestws';
+                upgrade_link = 'real'; // upgrade_link = 'maltainvestws';
             }
         }
         return {
