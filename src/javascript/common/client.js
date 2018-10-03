@@ -348,24 +348,20 @@ const Client = (function () {
     };
 
     const getUpgradeInfo = (landing_company, jp_account_status = State.getResponse('get_settings.jp_account_status.status')) => {
-        // TODO: Change back to let
-        const type         = 'real';
+        let type         = 'real';
         let can_upgrade  = false;
-        // TODO: Change back to let
-        const upgrade_link = 'real';
+        let upgrade_link = 'real';
         if (!get('is_ico_only')) {
             if (get('is_virtual')) {
                 if (canUpgradeVirtualToFinancial(landing_company)) {
-                    // type         = 'financial';
-                    // upgrade_link = 'maltainvestws';
-                    // TODO: Add maltainvest upgrade page
+                    type = 'real'; // type         = 'financial';
+                    upgrade_link = 'real'; // upgrade_link = 'maltainvestws';
                 }
                 can_upgrade = !hasAccountType('real') && (!jp_account_status || !/jp_knowledge_test_(pending|fail)|jp_activation_pending|activated/.test(jp_account_status));
             } else if (canUpgradeGamingToFinancial(landing_company)) {
-                // type         = 'financial';
-                // can_upgrade  = !hasAccountType('financial');
-                // upgrade_link = 'maltainvestws';
-                // TODO: Same as above
+                type = 'real'; // type         = 'financial';
+                can_upgrade  = !hasAccountType('financial');
+                upgrade_link = 'maltainvest'; // upgrade_link = 'maltainvestws';
             }
         }
         return {
