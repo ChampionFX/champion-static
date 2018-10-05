@@ -107,6 +107,7 @@ const ChampionNewRealAccount = (function() {
 
     const displayFields = () => {
         ChampionSocket.send({ residence_list: 1 }).then((response) => {
+            // TODO: Figure out why find doesn't work when more than one elements are tagged below
             $container.find('#lbl_residence_loading').remove();
             $container.find('#ddl_residence_loading').remove();
             $container.find('#ddl_citizen_loading').remove();
