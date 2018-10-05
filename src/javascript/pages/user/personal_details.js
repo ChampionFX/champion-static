@@ -15,6 +15,7 @@ const PersonalDetails = (() => {
 
     let residence,
         get_settings_data,
+        citizenship_value,
         place_of_birth_value,
         tax_residence_values;
 
@@ -68,6 +69,9 @@ const PersonalDetails = (() => {
         if (data.place_of_birth) {
             place_of_birth_value = data.place_of_birth;
         }
+        if (data.citizen) {
+            citizenship_value = data.citizen;
+        }
 
         let $key,
             $lbl_key,
@@ -106,6 +110,7 @@ const PersonalDetails = (() => {
 
     const populateResidence = (response) => {
         const residence_list = response.residence_list,
+            $citizenship     = $(`${form_selector} #citizen`),
             $place_of_birth  = $(`${form_selector} #place_of_birth`),
             $tax_residence   = $(`${form_selector} #tax_residence`);
 
@@ -116,7 +121,10 @@ const PersonalDetails = (() => {
                 const text  = residence_list[res].text;
                 options += `<option value=${value}>${text}</option>`;
             });
-            $place_of_birth.html(options);
+
+            const filterByCountryCode = (list, value) => list.filter(res => res.value === value)[0].text;
+            $citizenship.html(filterByCountryCode(residence_list, place_of_birth_value) || residence);
+            $place_of_birth.html(filterByCountryCode(residence_list, citizenship_value) || residence);
             $('.select2').remove();
             $tax_residence.html(options).promise().done(() => {
                 setTimeout(() => {
@@ -125,7 +133,6 @@ const PersonalDetails = (() => {
                         .removeClass('invisible');
                 }, 500);
             });
-            $place_of_birth.val(place_of_birth_value || residence);
         }
     };
 
@@ -158,7 +165,7 @@ const PersonalDetails = (() => {
             { selector: '#address_state',    validations: $('#address_state').prop('nodeName') === 'SELECT' ? '' : ['letter_symbol'] },
             { selector: '#address_postcode', validations: ['postcode', ['length', { min: 0, max: 20 }]] },
             { selector: '#phone',            validations: ['phone', ['length', { min: 6, max: 35, exclude: /^\+/ }]] },
-
+            { selector: '#citizen', validations: '' },
             { selector: '#place_of_birth', validations: '' },
             { selector: '#tax_residence',  validations: '' },
             { selector: '#tax_identification_number', validations: ['postcode', ['length', { min: 0, max: 20 }]] },

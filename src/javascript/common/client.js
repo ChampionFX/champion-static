@@ -316,7 +316,7 @@ const Client = (function () {
     const currentLandingCompany = () => {
         const landing_company_response = State.getResponse('landing_company') || {};
         const lc_prop                  = Object.keys(landing_company_response)
-             .find(key => get('landing_company_shortcode') === landing_company_response[key].shortcode);
+             .find(key => get('landing_company_name') === landing_company_response[key].shortcode);
         return landing_company_response[lc_prop] || {};
     };
 
@@ -330,11 +330,7 @@ const Client = (function () {
 
     const hasShortCode = (data, code) => ((data || {}).shortcode === code);
 
-    const canUpgradeGamingToFinancial = data => (hasShortCode(data.financial_company, 'maltainvest'));
-
-    const canUpgradeVirtualToFinancial = data => (!data.gaming_company && hasShortCode(data.financial_company, 'maltainvest'));
-
-    const canUpgradeVirtualToReal = data => (hasShortCode(data.financial_company, 'costarica'));
+    const canUpgradeVirtualToReal = data => (!data.game_company && !data.financial_company && hasShortCode(data.financial_company, 'costarica'));
 
     const setCurrency = (currency) => {
         const tokens = get('tokens');
@@ -348,20 +344,14 @@ const Client = (function () {
     };
 
     const getUpgradeInfo = (landing_company, jp_account_status = State.getResponse('get_settings.jp_account_status.status')) => {
-        let type         = 'real';
+        const type         = 'real';
         let can_upgrade  = false;
-        let upgrade_link = 'real';
+        const upgrade_link = 'real';
         if (!get('is_ico_only')) {
             if (get('is_virtual')) {
-                if (canUpgradeVirtualToFinancial(landing_company)) {
-                    type = 'real'; // type         = 'financial';
-                    upgrade_link = 'real'; // upgrade_link = 'maltainvestws';
-                }
-                can_upgrade = !hasAccountType('real') && (!jp_account_status || !/jp_knowledge_test_(pending|fail)|jp_activation_pending|activated/.test(jp_account_status));
-            } else if (canUpgradeGamingToFinancial(landing_company)) {
-                type = 'real'; // type         = 'financial';
-                can_upgrade  = !hasAccountType('financial');
-                upgrade_link = 'real'; // upgrade_link = 'maltainvestws';
+                can_upgrade = !hasAccountType('real')
+                && (!jp_account_status || !/jp_knowledge_test_(pending|fail)|jp_activation_pending|activated/.test(jp_account_status))
+                && (landing_company === 'costarica');
             }
         }
         return {

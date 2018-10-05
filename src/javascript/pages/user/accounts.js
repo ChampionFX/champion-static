@@ -47,8 +47,10 @@ const Accounts = (() => {
 
     const doneLoading = (element_to_show) => {
         $(element_to_show).setVisibility(1);
-        $('#accounts_loading').remove();
+        $('#new_accounts_loading').remove();
+        $('#existing_accounts_loading').remove();
         $('#accounts_wrapper').setVisibility(1);
+        $('#existing_accounts_wrapper').setVisibility(1);
     };
 
     const getCompanyName = (account, account_is_ico_only) => Client.getLandingCompanyValue(account, landing_company, 'name', account_is_ico_only);
