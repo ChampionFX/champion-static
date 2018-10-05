@@ -38,6 +38,7 @@ const MetaTrader              = require('./../pages/user/metatrader/metatrader')
 const ChampionProfile         = require('./../pages/user/profile');
 const ChampionSecurity        = require('./../pages/user/security');
 const SelfExclusion           = require('./../pages/user/self_exclusion');
+const SetCurrency             = require('./../pages/user/set_currency');
 const ChampionSettings        = require('./../pages/user/settings');
 const TNCApproval             = require('./../pages/user/tnc_approval');
 
@@ -111,6 +112,7 @@ const Champion = (function() {
             'payment-methods'      : { module: CashierPaymentMethods },
             'reset-password'       : { module: ResetPassword,       not_authenticated: true },
             'self-exclusion'       : { module: SelfExclusion,       is_authenticated: true, only_real: true },
+            'set-currency'         : { module: SetCurrency,         is_authenticated: true, only_real: true },
             'tnc-approval'         : { module: TNCApproval,         is_authenticated: true, only_real: true },
             'top-up-virtual'       : { module: CashierTopUpVirtual, is_authenticated: true, only_virtual: true },
             'trading-times'        : { module: TradingTimes },

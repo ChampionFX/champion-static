@@ -22,6 +22,30 @@ html {
     }
 }
 
+#set_currency {
+    .currency_list > div {
+        padding: 15px;
+        background-image: url('../images/set_currency/tick-normal.svg');
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        line-height: 30px;
+
+        &:hover {
+            cursor: pointer;
+        }
+        &.selected {
+            background-image: url('../images/set_currency/tick-selected.svg');
+        }
+        .currency-name {
+            line-height: 22px;
+            padding: 4px 0;
+        }
+    }
+    .list-style-inside {
+        list-style-position: inside;
+    }
+}
+
 .page-title {
     border-bottom: 1px solid $borderColor;
     padding-bottom: 10px;
