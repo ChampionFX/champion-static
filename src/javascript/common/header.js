@@ -14,6 +14,7 @@ const Header = (function () {
     'use strict';
 
     const hidden_class = 'invisible';
+    let can_upgrade;
 
     const init = function() {
         ChampionSocket.wait('authorize').then(() => {
@@ -54,7 +55,7 @@ const Header = (function () {
 
     const updateAccountsLink = (landing_company) => {
         const upgrade_info      = Client.getUpgradeInfo(landing_company);
-        const can_upgrade  = upgrade_info.can_upgrade;
+        can_upgrade  = upgrade_info.can_upgrade;
 
         showHideNewAccount(can_upgrade);
     };
@@ -116,7 +117,7 @@ const Header = (function () {
         });
 
         $('.login-id-list').html(loginid_select);
-        if (!Client.has_real()) {
+        if (!Client.has_real() && can_upgrade) {
             $('.account-list .upgrade').removeClass(hidden_class);
         }
         $('.login-id-list a').off('click').on('click', function(e) {
@@ -137,11 +138,11 @@ const Header = (function () {
         $('#header, #footer').find('.mt-show')[is_mt_pages ? 'removeClass' : 'addClass'](hidden_class);
     };
 
-    const showHideNewAccount = (can_upgrade) => {
+    const showHideNewAccount = (upgrade_status) => {
         // only allow opening of multi account to costarica clients with remaining currency
         const landing_company = State.getResponse('landing_company');
         if (!Client.get('is_ico_only') &&
-            (can_upgrade || (Client.get('landing_company_name') === 'costarica' && getCurrencies(landing_company).length))) {
+            (upgrade_status || (Client.get('landing_company_name') === 'costarica' && getCurrencies(landing_company).length))) {
             changeAccountsText(1, 'Create Account');
         } else {
             changeAccountsText(0, 'Accounts List');
