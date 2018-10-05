@@ -343,15 +343,13 @@ const Client = (function () {
         set('currency', currency);
     };
 
-    const getUpgradeInfo = (landing_company, jp_account_status = State.getResponse('get_settings.jp_account_status.status')) => {
+    const getUpgradeInfo = (landing_company) => {
         const type         = 'real';
         let can_upgrade  = false;
         const upgrade_link = 'real';
         if (!get('is_ico_only')) {
             if (get('is_virtual')) {
-                can_upgrade = !hasAccountType('real')
-                && (!jp_account_status || !/jp_knowledge_test_(pending|fail)|jp_activation_pending|activated/.test(jp_account_status))
-                && (landing_company === 'costarica');
+                can_upgrade = !hasAccountType('real') && (landing_company === 'costarica');
             }
         }
         return {
