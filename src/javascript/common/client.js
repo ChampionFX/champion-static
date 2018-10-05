@@ -349,7 +349,7 @@ const Client = (function () {
         const upgrade_link = 'real';
         if (!get('is_ico_only')) {
             if (get('is_virtual')) {
-                can_upgrade = !hasAccountType('real') && (landing_company === 'costarica');
+                can_upgrade = !hasAccountType('real') && (hasShortCode(landing_company.financial_company, 'costarica'));
             }
         }
         return {
