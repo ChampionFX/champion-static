@@ -15,34 +15,67 @@ html {
     }
 }
 
-.account-list {
-    #user_accounts.create_new_account {
-        background: svg-url('<svg width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="ic-create-account"><g id="Group-2"><circle id="Oval-2" stroke="#FFFFFF" cx="10" cy="10" r="9.5"></circle><path d="M10.5,9.5 L10.5,5.5 C10.5,5.22385763 10.2761424,5 10,5 C9.72385763,5 9.5,5.22385763 9.5,5.5 L9.5,5.5 L9.5,9.5 L5.5,9.5 C5.22385763,9.5 5,9.72385763 5,10 C5,10.2761424 5.22385763,10.5 5.5,10.5 L9.5,10.5 L9.5,14.5 C9.5,14.7761424 9.72385763,15 10,15 C10.2761424,15 10.5,14.7761424 10.5,14.5 L10.5,10.5 L14.5,10.5 C14.7761424,10.5 15,10.2761424 15,10 C15,9.72385763 14.7761424,9.5 14.5,9.5 L10.5,9.5 Z" id="Combined-Shape" fill="#FFFFFF"></path></g></g></g></svg>') no-repeat 5px 14px;
-        padding-left: 2.5em;
-    }
-}
-
 #set_currency {
+    #show_new_account {
+        background: url('../images/set_currency/add_account.png');
+        padding-bottom: 30px;
+        padding-top: 30px;
+        background-size: cover;
+        background-position-x: -15px;
+        margin-top: -40px;
+
+        h1, p {
+            color: $white;
+        }
+    }
     .currency_list > div {
-        padding: 15px;
-        background-image: url('../images/set_currency/tick-normal.svg');
-        background-repeat: no-repeat;
-        background-position: center bottom;
-        line-height: 30px;
+        margin: 10px 0;
 
         &:hover {
-            cursor: pointer;
+            .currency-box {
+                border-color: $darkPrimaryBrandColor;
+            }
+            .currency-name {
+                font-weight: bold;
+            }
         }
         &.selected {
-            background-image: url('../images/set_currency/tick-selected.svg');
+            .currency-box {
+                border-color: $darkPrimaryBrandColor;
+            }
+            .currency-name {
+                font-weight: bold;
+            }
         }
         .currency-name {
             line-height: 22px;
             padding: 4px 0;
         }
+        .currency-box {
+            padding: 15px 0;
+            border: 1px solid $fillColor;
+            cursor: pointer;
+        }
     }
     .list-style-inside {
         list-style-position: inside;
+    }
+    .faded {
+        color: $secondaryContentColor;
+        padding: 0 20px;
+    }
+    .section-divider {
+        display: flex;
+
+        .border-bottom-light-gray {
+            border-bottom: 1px solid $fillColor;
+        }
+        & > div:not(.faded) {
+            flex: 1;
+        }
+        .align-self-center {
+            align-self: center;
+        }
     }
 }
 

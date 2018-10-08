@@ -126,6 +126,9 @@ const ChampionNewRealAccount = (function() {
             const $ddl_citizenship = $container.find(fields.ddl_citizen);
             populateCountriesList($ddl_birth_place, response.residence_list);
             populateCountriesList($ddl_citizenship, response.residence_list);
+
+            $ddl_birth_place.val(client_residence);
+            $ddl_citizenship.val(client_residence);
         });
     };
 

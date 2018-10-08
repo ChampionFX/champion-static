@@ -20,6 +20,7 @@ const ChampionSocket = (function() {
         'get_settings',
         'residence_list',
         'website_status',
+        'payout_currencies',
         'get_self_exclusion',
     ];
     const default_calls = {};

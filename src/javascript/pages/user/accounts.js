@@ -189,7 +189,6 @@ const Accounts = (() => {
                 showError(response.error.message);
             }
         } else {
-            console.log('do something');
             const new_account = response.new_account_real;
             localStorage.setItem('is_new_account', 1);
             Client.process_new_account(Client.get('email'), new_account.client_id, new_account.oauth_token, urlFor('user/set-currency'));

@@ -13,6 +13,7 @@ const Client = (function () {
     const storage_key = 'client.tokens';
     let client_object = {};
     let current_loginid;
+    let current_loginlist;
 
     const parseLoginIDList = (string) => {
         if (!string) return [];
@@ -32,7 +33,9 @@ const Client = (function () {
     const init = () => {
         current_loginid = LocalStore.get('client.loginid');
         client_object = getAllAccountsObject();
+        console.log(client_object);
         client_object.loginid_array = parseLoginIDList(Cookies.get('loginid_list') || '');
+        current_loginlist = client_object.loginid_array;
 
         set('email',     Cookies.get('email'));
         set('loginid',   Cookies.get('loginid'));
@@ -163,6 +166,7 @@ const Client = (function () {
         ChampionSocket.send({ get_account_status: 1 });
         ChampionSocket.send({ get_financial_assessment: 1 });
         ChampionSocket.send({ mt5_login_list: 1 });
+        ChampionSocket.send({ payout_currencies: 1 });
         if (!authorize.is_virtual) ChampionSocket.send({ get_self_exclusion: 1 });
         const country_code = response.authorize.country;
         if (country_code) {
@@ -233,10 +237,10 @@ const Client = (function () {
         set_cookie('email',        client_email);
         set_cookie('token',        token);
         set_cookie('loginid',      client_loginid);
-        set_cookie('loginid_list', virtual_client ? `${client_loginid}:V:E` : `${client_loginid}:R:E+${Cookies.get('loginid_list')}`);
+        set_cookie('loginid_list', virtual_client ? `${client_loginid}:V:E` : `${client_loginid}:R:E+${current_loginlist}`);
         // set local storage
         localStorage.setItem('GTM_new_account', '1');
-        set('loginid', client_loginid);
+        setKey('loginid', client_loginid);
         window.location.href = url.default_redirect_url();
     };
 
