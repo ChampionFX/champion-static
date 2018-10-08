@@ -119,7 +119,7 @@ const CookieStorage = function (cookie_name, cookie_domain) {
 
     this.initialized = false;
     this.cookie_name = cookie_name;
-    this.domain      = cookie_domain || (/\.binary\.com/i.test(hostname) ? `.${hostname.split('.').slice(-2).join('.')}` : hostname);
+    this.domain      = cookie_domain || (/\.champion-fx\.com/i.test(hostname) ? `.${hostname.split('.').slice(-2).join('.')}` : hostname);
     this.path        = '/';
     this.expires     = new Date('Thu, 1 Jan 2037 12:00:00 GMT');
     this.value       = {};
