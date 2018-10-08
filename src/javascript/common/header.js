@@ -106,7 +106,6 @@ const Header = (function () {
         const is_mt_pages = State.get('is_mt_pages');
         let loginid_select = is_mt_pages ? selectedTemplate('MetaTrader 5', '', 'fx-mt5-o') : '';
         Client.get('loginid_array').forEach((login) => {
-            console.log(login);
             if (!login.disabled) {
                 const curr_id = login.id;
                 const type    = `(Binary ${login.real ? 'Real' : 'Virtual'} Account)`;
@@ -184,7 +183,6 @@ const Header = (function () {
 
     const updateBalance = (response) => {
         if (response.error) {
-            console.log(response.error.message);
             return;
         }
         const balance = response.balance.balance;

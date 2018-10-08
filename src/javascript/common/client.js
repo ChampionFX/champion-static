@@ -33,7 +33,6 @@ const Client = (function () {
     const init = () => {
         current_loginid = LocalStore.get('client.loginid');
         client_object = getAllAccountsObject();
-        console.log(client_object);
         client_object.loginid_array = parseLoginIDList(Cookies.get('loginid_list') || '');
         current_loginlist = client_object.loginid_array;
 
