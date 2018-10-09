@@ -105,11 +105,13 @@ const Header = (function () {
         );
         const is_mt_pages = State.get('is_mt_pages');
         let loginid_select = is_mt_pages ? selectedTemplate('MetaTrader 5', '', 'fx-mt5-o') : '';
-        Client.get('loginid_array').forEach((login) => {
-            if (!login.disabled) {
-                const curr_id = login.id;
-                const type    = `(Binary ${login.real ? 'Real' : 'Virtual'} Account)`;
-                const icon    = login.real ? 'fx-account-real' : 'fx-account-virtual';
+        Client.getAllLoginids().forEach((login) => {
+            if (!login.disabled && Client.getKey('token', login)) {
+                const curr_id  = login;
+                console.log(login);
+                const currency = Client.getKey('currency', login);
+                const type     = `(${Client.getKey('currency', login)} Account)`;
+                const icon     = login.real ? 'fx-account-real' : 'fx-account-virtual';
                 const is_current = curr_id === Client.get('loginid');
 
                 // default account

@@ -156,6 +156,7 @@ const Client = (function () {
         set('landing_company_fullname', authorize.landing_company_fullname);
         setCurrency(authorize.currency);
         set('balance', authorize.balance);
+        updateAccountList(authorize.account_list);
         client_object.values_set = true;
 
         ChampionSocket.send({ balance: 1, subscribe: 1 });
@@ -173,6 +174,19 @@ const Client = (function () {
 
         $('.btn-logout').click(() => {
             request_logout();
+        });
+    };
+
+    const updateAccountList = (account_list) => {
+        account_list.forEach((account) => {
+            setKey('excluded_until', account.excluded_until || '', account.loginid);
+            Object.keys(account).forEach((param) => {
+                const param_to_set = param === 'country' ? 'residence' : param;
+                const value_to_set = typeof account[param] === 'undefined' ? '' : account[param];
+                if (param_to_set !== 'loginid') {
+                    setKey(param_to_set, value_to_set, account.loginid);
+                }
+            });
         });
     };
 
