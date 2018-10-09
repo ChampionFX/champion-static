@@ -42,6 +42,9 @@ html {
         &.selected {
             .currency-box {
                 border-color: $darkPrimaryBrandColor;
+                background-repeat: no-repeat;
+                background-position: 95% 5%;
+                background-image: url('../images/set_currency/tick-selected.svg');
             }
             .currency-name {
                 font-weight: bold;
