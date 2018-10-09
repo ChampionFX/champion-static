@@ -107,7 +107,6 @@ const Accounts = (() => {
         } else {
             txt_markets = getAvailableMarkets(loginid);
         }
-
         $('#existing_accounts').find('tbody')
             .append($('<tr/>', { id: loginid, class: ((is_disabled || excluded_until) ? 'color-dark-white' : '') })
                 .append($('<td/>', { text: loginid }))

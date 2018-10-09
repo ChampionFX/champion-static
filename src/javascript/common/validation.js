@@ -1,3 +1,4 @@
+const Password              = require('../common/check_password');
 const get_params            = require('../common/url').get_params;
 const compareBigUnsignedInt = require('../common/utility').compareBigUnsignedInt;
 const getOffset             = require('../common/utility').getOffset;
@@ -87,24 +88,31 @@ const Validation = (() => {
         return false;
     };
     const validEmail        = value => /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/.test(value);
-    const validPassword     = value => /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+/.test(value);
-    const validLetterSymbol = value => !/[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/.test(value);
-    const validGeneral      = value => !/[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><|]+/.test(value);
-    const validAddress      = value => !/[`~!$%^&*_=+\[}{\]\\"\?><|]+/.test(value);
+    const validPassword     = (value, options, field) => {
+        if (/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+/.test(value)) {
+            Password.checkPassword(field.selector);
+            return true;
+        }
+        // else
+        return false;
+    };
+
+    const validLetterSymbol = value => !/[`~!@#$%^&*)(_=+[}{\]\\/";:?><,|\d]+/.test(value);
+    const validGeneral      = value => !/[`~!@#$%^&*)(_=+[}{\]\\/";:?><|]+/.test(value);
+    const validAddress      = value => !/[`~!$%^&*_=+[}{\]\\"?><|]+/.test(value);
     const validPostCode     = value => /^[a-zA-Z\d-\s]*$/.test(value);
     const validPhone        = value => /^\+?[0-9\s]*$/.test(value);
     const validRegular      = (value, options) => options.regex.test(value);
     const validEmailToken   = value => value.trim().length === 8;
+    const validTaxID        = value => /^[a-zA-Z0-9]*[\w-]*$/.test(value);
 
     const validCompare  = (value, options) => value === $(options.to).val();
     const validNotEqual = (value, options) => value !== $(options.to).val();
-    const validMin      = (value, options) => (options.min ? value.trim().length >= options.min : true);
-    const validLength   = (value, options) => {
-        if (options.exclude) value = value.replace(new RegExp(options.exclude, 'g'), '');
-        return (
-            (options.min ? value.trim().length >= options.min : true) &&
-            (options.max ? value.trim().length <= options.max : true));
-    };
+    const validMin      = (value, options) => (options.min ? value.length >= options.min : true);
+    const validLength   = (value, options) => (
+        (options.min ? value.length >= options.min : true) &&
+        (options.max ? value.length <= options.max : true)
+    );
 
     const validNumber = (value, options) => {
         if (options.allow_empty && value.length === 0) {
@@ -148,13 +156,13 @@ const Validation = (() => {
         letter_symbol: { func: validLetterSymbol, message: 'Only letters, space, hyphen, period, and apostrophe are allowed.' },
         postcode     : { func: validPostCode,     message: 'Only letters, numbers, space, and hyphen are allowed.' },
         phone        : { func: validPhone,        message: 'Only numbers and spaces are allowed.' },
-        email_token  : { func: validEmailToken,   message: 'Please submit a valid verification token.' },
         compare      : { func: validCompare,      message: 'The two passwords that you entered do not match.' },
         not_equal    : { func: validNotEqual,     message: '[_1] and [_2] cannot be the same.' },
         min          : { func: validMin,          message: 'Minimum of [_1] characters required.' },
         length       : { func: validLength,       message: 'You should enter [_1] characters.' },
         number       : { func: validNumber,       message: '' },
         regular      : { func: validRegular,      message: '' },
+        tax_id       : { func: validTaxID,        message: 'Should start with letter or number, and may contain hyphen and underscore.' },
     };
 
     const pass_length = type => ({ min: (/^mt$/.test(type) ? 8 : 6), max: 25 });
@@ -166,6 +174,7 @@ const Validation = (() => {
         if (!field.$.is(':visible') || !field.validations) return true;
         let all_is_ok = true,
             message;
+        const field_type = field.$.attr('type');
 
         field.validations.some((valid) => {
             let type,
@@ -184,7 +193,13 @@ const Validation = (() => {
                 options = pass_length(options);
             } else {
                 const validator = (type === 'custom' ? options.func : validators_map[type].func);
-                field.is_ok = validator(getFieldValue(field), options, field);
+
+                let value = getFieldValue(field, options);
+                if (field_type !== 'password' && typeof value === 'string') {
+                    value = value.trim();
+                }
+
+                field.is_ok = validator(value, options, field);
             }
 
             if (!field.is_ok) {

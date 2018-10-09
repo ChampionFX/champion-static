@@ -13,7 +13,6 @@ const Client = (function () {
     const storage_key = 'client.tokens';
     let client_object = {};
     let current_loginid;
-    let current_loginlist;
 
     const parseLoginIDList = (string) => {
         if (!string) return [];
@@ -34,7 +33,6 @@ const Client = (function () {
         current_loginid = LocalStore.get('client.loginid');
         client_object = getAllAccountsObject();
         client_object.loginid_array = parseLoginIDList(Cookies.get('loginid_list') || '');
-        current_loginlist = client_object.loginid_array;
 
         set('email',     Cookies.get('email'));
         set('loginid',   Cookies.get('loginid'));
@@ -236,7 +234,7 @@ const Client = (function () {
         set_cookie('email',        client_email);
         set_cookie('token',        token);
         set_cookie('loginid',      client_loginid);
-        set_cookie('loginid_list', virtual_client ? `${client_loginid}:V:E` : `${client_loginid}:R:E+${current_loginlist}`);
+        set_cookie('loginid_list', virtual_client ? `${client_loginid}:V:E` : `${client_loginid}:R:E+${Cookies.get('loginid_list')}`);
         // set local storage
         localStorage.setItem('GTM_new_account', '1');
         setKey('loginid', client_loginid);
