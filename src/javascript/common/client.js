@@ -4,11 +4,16 @@ const CookieStorage        = require('./storage').CookieStorage;
 const LocalStore           = require('./storage').LocalStore;
 const State                = require('./storage').State;
 const url                  = require('./url');
+const getPropertyValue     = require('./utility').getPropertyValue;
+const isEmptyObject        = require('./utility').isEmptyObject;
 const template             = require('./utility').template;
 const Cookies              = require('../lib/js-cookie');
 
 const Client = (function () {
-    const client_object = {};
+    const storage_key = 'client.tokens';
+    let client_object = {};
+    let current_loginid;
+    let current_loginlist;
 
     const parseLoginIDList = (string) => {
         if (!string) return [];
@@ -26,7 +31,10 @@ const Client = (function () {
     };
 
     const init = () => {
+        current_loginid = LocalStore.get('client.loginid');
+        client_object = getAllAccountsObject();
         client_object.loginid_array = parseLoginIDList(Cookies.get('loginid_list') || '');
+        current_loginlist = client_object.loginid_array;
 
         set('email',     Cookies.get('email'));
         set('loginid',   Cookies.get('loginid'));
@@ -57,6 +65,20 @@ const Client = (function () {
         return LocalStore.set(`client.${key}`, value);
     };
 
+    // TO-DO: Refactor and merge with get function
+    const setKey = (key, value, loginid = current_loginid) => {
+        if (key === 'loginid' && value !== current_loginid) {
+            LocalStore.set('client.loginid', value);
+            current_loginid = value;
+        } else {
+            if (!(loginid in client_object)) {
+                client_object[loginid] = {};
+            }
+            client_object[loginid][key] = value;
+            LocalStore.setObject(storage_key, client_object);
+        }
+    };
+
     // use this function to get variables that have values
     const get = (key) => {
         let value = client_object[key] || LocalStore.get(`client.${key}`) || '';
@@ -65,6 +87,59 @@ const Client = (function () {
         }
         return value;
     };
+
+    // TO-DO: Refactor and merge with get function
+    const getKey = (key, loginid = current_loginid) => {
+        let value;
+        if (key === 'loginid') {
+            value = loginid || LocalStore.get('client.loginid');
+        } else {
+            const current_client = client_object[loginid] || getAllAccountsObject()[loginid] || {};
+
+            value = key ? current_client[key] : current_client;
+        }
+        if (!Array.isArray(value) && (+value === 1 || +value === 0 || value === 'true' || value === 'false')) {
+            value = JSON.parse(value || false);
+        }
+        return value;
+    };
+
+    const getAllAccountsObject = () => LocalStore.getObject(storage_key);
+
+    const getAllLoginids = () => Object.keys(getAllAccountsObject());
+
+    const getAccountType = (loginid = current_loginid) => {
+        let account_type;
+        if (/^VR/.test(loginid))       account_type = 'virtual';
+        else if (/^MF/.test(loginid))  account_type = 'financial';
+        else if (/^MLT/.test(loginid)) account_type = 'gaming';
+        return account_type;
+    };
+
+    const isAccountOfType = (type, loginid = current_loginid, only_enabled = false) => {
+        const this_type   = getAccountType(loginid);
+        const is_ico_only = get('is_ico_only', loginid);
+        return ((
+            (type === 'virtual' && this_type === 'virtual') ||
+            (type === 'real'    && this_type !== 'virtual') ||
+            type === this_type) && !is_ico_only &&              // Account shouldn't be ICO_ONLY.
+            (only_enabled ? !get('is_disabled', loginid) : true));
+    };
+
+    const getAccountOfType = (type, only_enabled) => {
+        const id = getAllLoginids().find(loginid => isAccountOfType(type, loginid, only_enabled));
+        return id ? $.extend({ loginid: id }, get(null, id)) : {};
+    };
+
+    const hasAccountType = (type, only_enabled) => !isEmptyObject(getAccountOfType(type, only_enabled));
+
+    const types_map = {
+        virtual  : 'Virtual',
+        gaming   : 'Gaming',
+        financial: 'Investment',
+    };
+
+    const getAccountTitle = loginid => types_map[getAccountType(loginid)] || 'Real';
 
     const response_authorize = (response) => {
         if (response.error || response.authorize.loginid !== Client.get('loginid')) {
@@ -90,10 +165,11 @@ const Client = (function () {
         ChampionSocket.send({ get_account_status: 1 });
         ChampionSocket.send({ get_financial_assessment: 1 });
         ChampionSocket.send({ mt5_login_list: 1 });
+        ChampionSocket.send({ payout_currencies: 1 });
         if (!authorize.is_virtual) ChampionSocket.send({ get_self_exclusion: 1 });
         const country_code = response.authorize.country;
         if (country_code) {
-            Client.set('residence', country_code);
+            set('residence', country_code);
             ChampionSocket.send({ landing_company: country_code });
         }
 
@@ -160,10 +236,10 @@ const Client = (function () {
         set_cookie('email',        client_email);
         set_cookie('token',        token);
         set_cookie('loginid',      client_loginid);
-        set_cookie('loginid_list', virtual_client ? `${client_loginid}:V:E` : `${client_loginid}:R:E+${Cookies.get('loginid_list')}`);
+        set_cookie('loginid_list', virtual_client ? `${client_loginid}:V:E` : `${client_loginid}:R:E+${current_loginlist}`);
         // set local storage
         localStorage.setItem('GTM_new_account', '1');
-        set('loginid', client_loginid);
+        setKey('loginid', client_loginid);
         window.location.href = url.default_redirect_url();
     };
 
@@ -240,10 +316,24 @@ const Client = (function () {
         return true;
     };
 
+    const currentLandingCompany = () => {
+        const landing_company_response = State.getResponse('landing_company') || {};
+        const lc_prop                  = Object.keys(landing_company_response)
+             .find(key => get('landing_company_name') === landing_company_response[key].shortcode);
+        return landing_company_response[lc_prop] || {};
+    };
+
+    const shouldCompleteTax = () => isAccountOfType('financial') && !/crs_tin_information/.test((State.getResponse('get_account_status') || {}).status);
+
+
     const getMT5AccountType = (group) => {
         if (group === 'demo\\champion_virtual') group = 'demo\\champion_cent'; // TODO: remove this line (used for backward compatibility)
         return group ? group.replace('\\', '_') : '';
     };
+
+    const hasShortCode = (data, code) => ((data || {}).shortcode === code);
+
+    const canUpgradeVirtualToReal = data => (!data.game_company && !data.financial_company && hasShortCode(data.financial_company, 'costarica'));
 
     const setCurrency = (currency) => {
         const tokens = get('tokens');
@@ -256,24 +346,76 @@ const Client = (function () {
         set('currency', currency);
     };
 
+    const getUpgradeInfo = (landing_company) => {
+        const type         = 'real';
+        let can_upgrade  = false;
+        const upgrade_link = 'real';
+        if (!get('is_ico_only')) {
+            if (get('is_virtual')) {
+                can_upgrade = !hasAccountType('real') && (hasShortCode(landing_company.financial_company, 'costarica'));
+            }
+        }
+        return {
+            type,
+            can_upgrade,
+            upgrade_link   : `new-account/${upgrade_link}`,
+            is_current_path: new RegExp(upgrade_link, 'i').test(window.location.pathname),
+        };
+    };
+
+    const getLandingCompanyValue = (loginid, landing_company, key, is_ico_only) => {
+        if (is_ico_only) {
+            return 'Binary (C.R.) S.A.';
+        }
+        let landing_company_object;
+        if (loginid.financial || isAccountOfType('financial', loginid)) {
+            landing_company_object = getPropertyValue(landing_company, 'financial_company');
+        } else if (loginid.real || isAccountOfType('real', loginid)) {
+            landing_company_object = getPropertyValue(landing_company, 'gaming_company');
+
+            // handle accounts such as japan that don't have gaming company
+            if (!landing_company_object) {
+                landing_company_object = getPropertyValue(landing_company, 'financial_company');
+            }
+        } else {
+            const financial_company = (getPropertyValue(landing_company, 'financial_company') || {})[key] || [];
+            const gaming_company    = (getPropertyValue(landing_company, 'gaming_company') || {})[key] || [];
+            landing_company_object  = financial_company.concat(gaming_company);
+            return landing_company_object;
+        }
+        return (landing_company_object || {})[key];
+    };
+
     return {
-        init                : init,
-        redirect_if_login   : redirect_if_login,
-        set                 : set,
-        get                 : get,
-        response_authorize  : response_authorize,
-        should_accept_tnc   : should_accept_tnc,
-        clear_storage_values: clear_storage_values,
-        get_token           : get_token,
-        add_token           : add_token,
-        set_cookie          : set_cookie,
-        process_new_account : process_new_account,
-        is_logged_in        : is_logged_in,
-        is_virtual          : () => get('is_virtual'),
-        has_real            : () => get('has_real'),
-        do_logout           : do_logout,
-        getMT5AccountType   : getMT5AccountType,
-        setCurrency         : setCurrency,
+        init                   : init,
+        redirect_if_login      : redirect_if_login,
+        set                    : set,
+        setKey                 : setKey,
+        get                    : get,
+        getKey                 : getKey,
+        canUpgradeVirtualToReal: canUpgradeVirtualToReal,
+        currentLandingCompany  : currentLandingCompany,
+        getLandingCompanyValue : getLandingCompanyValue,
+        getAccountTitle        : getAccountTitle,
+        getAccountType         : getAccountType,
+        getAllAccountsObject   : getAllAccountsObject,
+        getAllLoginids         : getAllLoginids,
+        getUpgradeInfo         : getUpgradeInfo,
+        isAccountOfType        : isAccountOfType,
+        response_authorize     : response_authorize,
+        should_accept_tnc      : should_accept_tnc,
+        shouldCompleteTax      : shouldCompleteTax,
+        clear_storage_values   : clear_storage_values,
+        get_token              : get_token,
+        add_token              : add_token,
+        set_cookie             : set_cookie,
+        process_new_account    : process_new_account,
+        is_logged_in           : is_logged_in,
+        is_virtual             : () => get('is_virtual'),
+        has_real               : () => get('has_real'),
+        do_logout              : do_logout,
+        getMT5AccountType      : getMT5AccountType,
+        setCurrency            : setCurrency,
     };
 })();
 

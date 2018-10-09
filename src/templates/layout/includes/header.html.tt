@@ -44,6 +44,7 @@
                             <div class="login-id-list"></div>
                             <li><a href="[% request.url_for('new-account/real') %]" class="upgrade invisible">[% l("Upgrade to<br />Real Account") %]</a></li>
                             <li class="mt-hide invisible"><a href="[% request.url_for('user/metatrader') %]"><span class="fx fx-mt5-o"></span>[% l("MetaTrader 5") %]</a></li>
+                            <li class="topMenuAccounts"><a class="link" id="user_accounts" href="[% request.url_for('/user/accounts') %]">[% l("Accounts List") %]</a></li>
                             <li class="hidden-lg-down"><a href="javascript:;" class="btn-logout logout">[% l("Sign out") %]</a></li>
                         </ul>
                     </li>

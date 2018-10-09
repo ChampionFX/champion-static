@@ -1,11 +1,14 @@
-const Client         = require('./client');
-const formatMoney    = require('./currency').formatMoney;
-const GTM            = require('./gtm');
-const Notify         = require('./notify');
-const ChampionRouter = require('./router');
-const ChampionSocket = require('./socket');
-const State          = require('./storage').State;
-const url_for        = require('./url').url_for;
+const Client              = require('./client');
+const elementTextContent  = require('./common_functions').elementTextContent;
+const formatMoney         = require('./currency').formatMoney;
+const GTM                 = require('./gtm');
+const localize            = require('./localize').localize;
+const Notify              = require('./notify');
+const ChampionRouter      = require('./router');
+const ChampionSocket      = require('./socket');
+const State               = require('./storage').State;
+const url_for             = require('./url').url_for;
+const getCurrencies       = require('../pages/user/get_currency').getCurrencies;
 
 const Header = (function () {
     'use strict';
@@ -13,11 +16,27 @@ const Header = (function () {
     const hidden_class = 'invisible';
 
     const init = function() {
-        ChampionSocket.wait('authorize').then(() => { updatePage(); });
+        ChampionSocket.wait('authorize').then(() => {
+            updatePage();
+
+            ChampionSocket.wait('landing_company').then(() => {
+                const landing_company = State.getResponse('landing_company');
+                const upgrade_info = Client.getUpgradeInfo(landing_company);
+                if (Client.is_logged_in()) {
+                    updateAccountsLink(landing_company);
+                    if (!Client.has_real()) {
+                        if (upgrade_info && upgrade_info.can_upgrade) {
+                            $('.account-list .upgrade').removeClass(hidden_class);
+                        }
+                    }
+                }
+            });
+        });
         $(function () {
             const window_path = window.location.pathname;
             const path = window_path.replace(/\/$/, '');
             const href = decodeURIComponent(path);
+
             $('.navbar__nav__menu li a').each(function() {
                 const target = $(this).attr('href');
                 if (target === href) {
@@ -37,6 +56,13 @@ const Header = (function () {
             $('.trading-platform-header').removeClass(hidden_class);
             $('.navbar__brand, .navbar__toggle').removeClass('logged-in'); // show logo
         }
+    };
+
+    const updateAccountsLink = (landing_company) => {
+        const upgrade_info      = Client.getUpgradeInfo(landing_company);
+        const can_upgrade  = upgrade_info.can_upgrade;
+
+        showHideNewAccount(can_upgrade);
     };
 
     const desktopMenu = function() {
@@ -96,9 +122,6 @@ const Header = (function () {
         });
 
         $('.login-id-list').html(loginid_select);
-        if (!Client.has_real()) {
-            $('.account-list .upgrade').removeClass(hidden_class);
-        }
         $('.login-id-list a').off('click').on('click', function(e) {
             e.preventDefault();
             $(this).attr('disabled', 'disabled');
@@ -115,6 +138,26 @@ const Header = (function () {
         const is_mt_pages = State.get('is_mt_pages');
         $('#header, #footer').find('.mt-hide')[is_mt_pages ? 'addClass' : 'removeClass'](hidden_class);
         $('#header, #footer').find('.mt-show')[is_mt_pages ? 'removeClass' : 'addClass'](hidden_class);
+    };
+
+    const showHideNewAccount = (can_upgrade) => {
+        // only allow opening of multi account to costarica clients with remaining currency
+        const landing_company = State.getResponse('landing_company');
+        if (!Client.get('is_ico_only') &&
+            (can_upgrade || (Client.get('landing_company_name') === 'costarica' && getCurrencies(landing_company).length))) {
+            changeAccountsText(1, 'Create Account');
+        } else {
+            changeAccountsText(0, 'Accounts List');
+        }
+    };
+
+    const changeAccountsText = (add_new_style, text) => {
+        const user_accounts = document.getElementById('user_accounts');
+        if (user_accounts) {
+            user_accounts.classList[add_new_style ? 'add' : 'remove']('create_new_account');
+            const localized_text = localize(text);
+            elementTextContent(user_accounts, localized_text);
+        }
     };
 
     const switchLoginId = (loginid) => {
@@ -140,7 +183,6 @@ const Header = (function () {
 
     const updateBalance = (response) => {
         if (response.error) {
-            console.log(response.error.message);
             return;
         }
         const balance = response.balance.balance;
@@ -149,8 +191,8 @@ const Header = (function () {
         if (!currency) {
             return;
         }
-        const view = formatMoney(balance, currency);
-        $('.account-balance').text(view).css('visibility', 'visible');
+        const currency_symbol = formatMoney(currency);
+        $('.account-balance').html(currency_symbol).css('visibility', 'visible');
     };
 
     return {

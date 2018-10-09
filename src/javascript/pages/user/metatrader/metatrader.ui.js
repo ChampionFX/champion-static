@@ -118,8 +118,7 @@ const MetaTraderUI = (function() {
                 $list.find('#acc_group_real').setVisibility(1);
             }
             if (acc_type === Client.get('mt5_account')) {
-                const mt_balance = formatMoney(MetaTraderConfig.mt5Currency,
-                    +accounts_info[acc_type].info.balance);
+                const mt_balance = formatMoney(mt5_currency, +accounts_info[acc_type].info.balance);
                 $acc_item.find('.mt-balance').html(mt_balance);
                 $action.find('.mt5-balance').html(mt_balance);
             }
@@ -148,8 +147,8 @@ const MetaTraderUI = (function() {
             $detail.find('.acc-info [data]').map(function () {
                 const key  = $(this).attr('data');
                 const info = accounts_info[acc_type].account_info[key];
-                $(this).text(
-                    key === 'balance' ? (isNaN(info) ? '' : formatMoney(+info, mt5_currency)) :
+                $(this).html(
+                    key === 'balance' ? (isNaN(info) ? '' : formatMoney(mt5_currency, +info)) :
                     key === 'leverage' ? `1:${info}` : info);
             });
             $detail.find('.has-account').setVisibility(1);
@@ -223,11 +222,11 @@ const MetaTraderUI = (function() {
 
         if (!actions_info[action]) { // Manage Fund
             cloneForm();
-            $form.find('.binary-balance').html(formatMoney(Client.get('balance'), Client.get('currency')));
+            $form.find('.binary-balance').html(`${formatMoney(Client.get('currency'), Client.get('balance'))}`);
             $form.find('.binary-account').text(`ChampionFX (${Client.get('loginid')})`);
             $form.find('.cashier-guide div:first-child').html(`ChampionFX<br>${Client.get('loginid')}`);
 
-            $form.find('.mt-balance').html(formatMoney(+accounts_info[acc_type].account_info.balance, mt5_currency));
+            $form.find('.mt5-balance').html(`${formatMoney(mt5_currency, accounts_info[acc_type].info.balance)}`);
             $form.find('.mt-account').text(`${accounts_info[acc_type].title} (${accounts_info[acc_type].account_info.login})`);
             $form.find('.cashier-guide div:last-child').html(`MetaTrader 5<br>${accounts_info[acc_type].account_info.login}`);
 

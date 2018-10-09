@@ -15,6 +15,70 @@ html {
     }
 }
 
+#set_currency {
+    #show_new_account {
+        background: url('../images/set_currency/add_account.png');
+        padding-bottom: 30px;
+        padding-top: 30px;
+        background-size: cover;
+        background-position-x: -15px;
+        margin-top: -40px;
+
+        h1, p {
+            color: $white;
+        }
+    }
+    .currency_list > div {
+        margin: 10px 0;
+
+        &:hover {
+            .currency-box {
+                border-color: $darkPrimaryBrandColor;
+            }
+            .currency-name {
+                font-weight: bold;
+            }
+        }
+        &.selected {
+            .currency-box {
+                border-color: $darkPrimaryBrandColor;
+            }
+            .currency-name {
+                font-weight: bold;
+            }
+        }
+        .currency-name {
+            line-height: 22px;
+            padding: 4px 0;
+        }
+        .currency-box {
+            padding: 15px 0;
+            border: 1px solid $fillColor;
+            cursor: pointer;
+        }
+    }
+    .list-style-inside {
+        list-style-position: inside;
+    }
+    .faded {
+        color: $secondaryContentColor;
+        padding: 0 20px;
+    }
+    .section-divider {
+        display: flex;
+
+        .border-bottom-light-gray {
+            border-bottom: 1px solid $fillColor;
+        }
+        & > div:not(.faded) {
+            flex: 1;
+        }
+        .align-self-center {
+            align-self: center;
+        }
+    }
+}
+
 .page-title {
     border-bottom: 1px solid $borderColor;
     padding-bottom: 10px;
@@ -1502,4 +1566,19 @@ iframe {
 
 .google-signup:before {
     content: url('../images/signup/google_logo.svg');
+}
+
+.padding-10 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.padding-20 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.padding-30 {
+    padding-top: 30px;
+    padding-bottom: 30px;
 }

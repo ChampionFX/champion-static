@@ -24,6 +24,10 @@ const ChampionNewRealAccount = (function() {
         txt_fname          : '#txt_fname',
         txt_lname          : '#txt_lname',
         txt_birth_date     : '#txt_birth_date',
+        lbl_citizen        : '#lbl_citizen',
+        ddl_citizen        : '#ddl_citizen',
+        lbl_birth_place    : '#lbl_birth_place',
+        ddl_birth_place    : '#ddl_birth_place',
         lbl_residence      : '#lbl_residence',
         ddl_residence      : '#ddl_residence',
         txt_address1       : '#txt_address1',
@@ -51,7 +55,7 @@ const ChampionNewRealAccount = (function() {
         client_residence = Client.get('residence');
 
         toggleForm();
-        displayResidence();
+        displayFields();
         attachDatePicker();
 
         btn_submit = $container.find(fields.btn_submit);
@@ -79,6 +83,8 @@ const ChampionNewRealAccount = (function() {
             { selector: fields.txt_fname,           validations: ['req', 'letter_symbol', ['min', { min: 2 }]] },
             { selector: fields.txt_lname,           validations: ['req', 'letter_symbol', ['min', { min: 2 }]] },
             { selector: fields.txt_birth_date,      validations: ['req'] },
+            { selector: fields.ddl_citizen,         validations: ['req'] },
+            { selector: fields.ddl_birth_place,     validations: ['req'] },
             { selector: fields.txt_address1,        validations: ['req', 'address', ['length', { min: 1, max: 70 }]] },
             { selector: fields.txt_address2,        validations: ['address', ['length', { min: 0, max: 70 }]] },
             { selector: fields.txt_city,            validations: ['req', 'letter_symbol', ['length', { min: 1, max: 35 }]] },
@@ -99,21 +105,36 @@ const ChampionNewRealAccount = (function() {
         Validation.init(form_selector, validations);
     };
 
-    const displayResidence = () => {
+    const displayFields = () => {
         ChampionSocket.send({ residence_list: 1 }).then((response) => {
-            $container.find('#ddl_residence_loading, #lbl_residence_loading').remove();
+            // TODO: Figure out why find doesn't work when more than one elements are tagged below
+            $container.find('#lbl_residence_loading').remove();
+            $container.find('#ddl_residence_loading').remove();
+            $container.find('#ddl_citizen_loading').remove();
+            $container.find('#ddl_birth_place_loading').remove();
             if (hasResidence()) {
                 $container.find(fields.lbl_residence).text(setPhoneIdd(client_residence).text)
                     .parent().removeClass(hidden_class);
                 populateState();
             } else {
                 const $ddl_residence = $container.find(fields.ddl_residence);
-                Utility.dropDownFromObject($ddl_residence, response.residence_list);
+                populateCountriesList($ddl_residence, response.residence_list);
                 $ddl_residence[0].addEventListener('change', residenceOnChange); // jQuery .on('change') doesn't work
                 residenceOnChange();
-                $ddl_residence.removeClass(hidden_class);
             }
+            const $ddl_birth_place = $container.find(fields.ddl_birth_place);
+            const $ddl_citizenship = $container.find(fields.ddl_citizen);
+            populateCountriesList($ddl_birth_place, response.residence_list);
+            populateCountriesList($ddl_citizenship, response.residence_list);
+
+            $ddl_birth_place.val(client_residence);
+            $ddl_citizenship.val(client_residence);
         });
+    };
+
+    const populateCountriesList = (el, list) => {
+        Utility.dropDownFromObject(el, list);
+        el.removeClass(hidden_class);
     };
 
     const residenceOnChange = () => {
@@ -176,7 +197,9 @@ const ChampionNewRealAccount = (function() {
                 first_name            : $(fields.txt_fname).val(),
                 last_name             : $(fields.txt_lname).val(),
                 date_of_birth         : $(fields.txt_birth_date).val(),
+                place_of_birth        : $(fields.ddl_birth_place).val(),
                 residence             : client_residence,
+                citizen               : $(fields.ddl_citizen).val(),
                 address_line_1        : $(fields.txt_address1).val(),
                 address_line_2        : $(fields.txt_address2).val(),
                 address_city          : $(fields.txt_city).val(),

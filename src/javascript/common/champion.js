@@ -29,6 +29,7 @@ const ChampionNewVirtual      = require('./../pages/new_account/virtual');
 const ResetPassword           = require('./../pages/reset_password');
 const ChampionSignup          = require('./../pages/signup');
 const TradingTimes            = require('./../pages/trading_times');
+const Accounts                = require('./../pages/user/accounts');
 const Authenticate            = require('./../pages/user/authenticate');
 const ChangePassword          = require('./../pages/user/change_password');
 const Limits                  = require('./../pages/user/limits');
@@ -37,6 +38,7 @@ const MetaTrader              = require('./../pages/user/metatrader/metatrader')
 const ChampionProfile         = require('./../pages/user/profile');
 const ChampionSecurity        = require('./../pages/user/security');
 const SelfExclusion           = require('./../pages/user/self_exclusion');
+const SetCurrency             = require('./../pages/user/set_currency');
 const ChampionSettings        = require('./../pages/user/settings');
 const TNCApproval             = require('./../pages/user/tnc_approval');
 
@@ -81,7 +83,8 @@ const Champion = (function() {
         const page = content.getAttribute('data-page');
         State.set('current_page', page);
         const pages_map = {
-            authenticate           : { module: Authenticate,           is_authenticated: true, only_real: true },
+            accounts               : { module: Accounts,           is_authenticated: true },
+            authenticate           : { module: Authenticate,       is_authenticated: true, only_real: true },
             cashier                : { module: Cashier },
             contact                : { module: ChampionContact },
             endpoint               : { module: ChampionEndpoint },
@@ -109,6 +112,7 @@ const Champion = (function() {
             'payment-methods'      : { module: CashierPaymentMethods },
             'reset-password'       : { module: ResetPassword,       not_authenticated: true },
             'self-exclusion'       : { module: SelfExclusion,       is_authenticated: true, only_real: true },
+            'set-currency'         : { module: SetCurrency,         is_authenticated: true, only_real: true },
             'tnc-approval'         : { module: TNCApproval,         is_authenticated: true, only_real: true },
             'top-up-virtual'       : { module: CashierTopUpVirtual, is_authenticated: true, only_virtual: true },
             'trading-times'        : { module: TradingTimes },

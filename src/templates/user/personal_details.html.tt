@@ -8,8 +8,10 @@
 
     [% INCLUDE components/forms/form_row.html.tt row_class='is-real' label=l("Date of birth") %]
     [% INCLUDE components/forms/form_row.html.tt id='date_of_birth' row_class='is-real' type='label' %]
-
-    [% INCLUDE components/forms/form_row.html.tt row_class='is-real' id='place_of_birth' row_class='is-real' label=l("Place of birth") type='select' %]
+    [% INCLUDE components/forms/form_row.html.tt label=l("Citizenship") row_class='is-real' %]
+    [% INCLUDE components/forms/form_row.html.tt id='citizen' type='label' row_class='is-real' %]
+    [% INCLUDE components/forms/form_row.html.tt label=l("Place of birth") row_class='is-real' %]
+    [% INCLUDE components/forms/form_row.html.tt id='place_of_birth' type='label' row_class='is-real' %]
     [% INCLUDE components/forms/form_row.html.tt label=l("Country of residence") %]
     [% INCLUDE components/forms/form_row.html.tt id='country' type='label' %]
 

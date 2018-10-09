@@ -41,3 +41,25 @@
         padding-left: 50px;
     }
 }
+
+#accounts_wrapper {
+    table {
+        border: 3px solid $fillColor;
+
+        thead {
+            background: none;
+            border-bottom: 3px solid $fillColor;
+
+            th, tr {
+                background: none;
+                color: $darkPrimaryBrandColor;
+                font-weight: 600;
+            }
+        }
+    }
+    .hint {
+        margin-top: 0;
+        padding: 0.5rem;
+        color: $black;
+    }
+}

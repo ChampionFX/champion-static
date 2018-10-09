@@ -1,6 +1,7 @@
-const Cookies     = require('../lib/js-cookie');
-const getLanguage = require('./language').getLanguage;
-const State       = require('./storage').State;
+const Cookies       = require('../lib/js-cookie');
+const getLanguage   = require('./language').getLanguage;
+const setCurrencies = require('./currency').setCurrencies;
+const State         = require('./storage').State;
 
 const ChampionSocket = (function() {
     'use strict';
@@ -19,6 +20,7 @@ const ChampionSocket = (function() {
         'get_settings',
         'residence_list',
         'website_status',
+        'payout_currencies',
         'get_self_exclusion',
     ];
     const default_calls = {};
@@ -166,6 +168,10 @@ const ChampionSocket = (function() {
         const this_req_id = response.req_id;
         const reg = this_req_id ? registered_callbacks[this_req_id] : null;
 
+        const website_status = response.website_status;
+        if (website_status) {
+            setCurrencies(website_status);
+        }
         // keep alive
         clearTimeout(keep_alive_timeout);
         keep_alive_timeout = setTimeout(() => {

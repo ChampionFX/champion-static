@@ -61,6 +61,7 @@ sub all_pages {
         ['trading-platform/mt5-types-of-accounts',  'static/trading_platform/mt5_types_of_accounts',   'full_width', 'MetaTrader5 Types of Accounts'],
         ['trading-platform/mt5-platforms',          'static/trading_platform/mt5_platforms',           'full_width', 'MetaTrader5'],
 
+        ['user/accounts',              'user/accounts',                'full_width', 'Accounts', 'ja'],
         ['user/authenticate',          'user/authenticate',            'full_width', 'Authenticate', 'ja'],
         ['user/change-password',       'user/change_password',         'full-width', 'Change Password'],
         ['user/choose-platform',       'user/choose_platform',         'full_width', 'Choose your platform'],
@@ -70,6 +71,7 @@ sub all_pages {
         ['user/profile',               'user/profile',                 'full_width', 'Profile'],
         ['user/security',              'user/security',                'full_width', 'Security'],
         ['user/settings',              'user/settings',                'full_width', 'Settings'],
+        ['user/set-currency',          'user/set_currency',            'full_width', 'Set Currency'],
         ['user/self-exclusion',        'user/self_exclusion',          'full_width', 'Self Exclusion'],
         ['user/tnc-approval',          'user/tnc_approval',            'full_width', 'Terms and Conditions Approval'],
         ['economic-calendar',          'mt5/economic_calendar',        'full_width', 'Economic Calendar'],
