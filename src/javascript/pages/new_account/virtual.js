@@ -1,8 +1,7 @@
-const ChampionSocket       = require('../../common/socket');
-const Client               = require('../../common/client');
-const default_redirect_url = require('../../common/url').default_redirect_url;
-const Utility              = require('../../common/utility');
-const FormManager          = require('../../common/form_manager');
+const ChampionSocket = require('../../common/socket');
+const Client         = require('../../common/client');
+const Utility        = require('../../common/utility');
+const FormManager    = require('../../common/form_manager');
 
 const ChampionNewVirtualAccount = (function() {
     'use strict';
