@@ -65,7 +65,7 @@ const SetCurrency = (() => {
                         if (response_c.error) {
                             $error.text(response_c.error.message).setVisibility(1);
                         } else {
-                            Client.setKey('currency', response_c.echo_req.set_account_currency);
+                            Client.set('currency', response_c.echo_req.set_account_currency);
                             ChampionSocket.send({ balance: 1 });
                             ChampionSocket.send({ payout_currencies: 1 }, { forced: true });
 
@@ -77,7 +77,7 @@ const SetCurrency = (() => {
                                         redirect_url = Url.url_for('user/authenticate');
                                     }
                                 }
-                                if (!redirect_url && !/^(iom)$/i.test(Client.getKey('landing_company_shortcode'))) {
+                                if (!redirect_url && !/^(iom)$/i.test(Client.get('landing_company_shortcode'))) {
                                     redirect_url = Url.url_for('cashier');
                                 }
                             }

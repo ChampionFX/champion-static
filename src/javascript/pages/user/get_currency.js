@@ -8,7 +8,7 @@ const GetCurrency = (() => {
         all_loginids.forEach((loginid) => {
             // if it's not current client or virtual client, consider the currency
             if (Client.get('loginid') !== loginid && Client.getAccountType(loginid) !== 'virtual') {
-                const currency = Client.getKey('currency', loginid);
+                const currency = Client.get('currency', loginid);
                 if (currency) {
                     other_currencies.push(currency);
                 }

@@ -4,6 +4,7 @@ const Client               = require('../../common/client');
 const State                = require('../../common/storage').State;
 const Utility              = require('../../common/utility');
 const default_redirect_url = require('../../common/url').default_redirect_url;
+const urlFor               = require('../../common/url').url_for;
 const Validation           = require('../../common/validation');
 const DatePicker           = require('../../components/date_picker').DatePicker;
 
@@ -219,8 +220,12 @@ const ChampionNewRealAccount = (function() {
                     btn_submit.removeAttr('disabled');
                 } else {
                     const acc_info = response.new_account_real;
-                    Client.process_new_account(Client.get('email'), acc_info.client_id, acc_info.oauth_token);
-                    window.location.href = default_redirect_url();
+                    Client.process_new_account({
+                        email       : Client.get('email'),
+                        loginid     : acc_info.client_id,
+                        token       : acc_info.oauth_token,
+                        redirect_url: urlFor('user/set-currency'),
+                    });
                 }
             });
         } else {

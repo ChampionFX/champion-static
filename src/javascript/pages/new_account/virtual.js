@@ -54,8 +54,12 @@ const ChampionNewVirtualAccount = (function() {
             $('#msg_form').removeClass(hidden_class).text(response.error.message);
         } else {
             const acc_info = response.new_account_virtual;
-            Client.process_new_account(acc_info.email, acc_info.client_id, acc_info.oauth_token, true);
-            window.location.href = default_redirect_url();
+            Client.process_new_account({
+                email     : acc_info.email,
+                loginid   : acc_info.client_id,
+                token     : acc_info.oauth_token,
+                is_virtual: true,
+            });
         }
     };
 

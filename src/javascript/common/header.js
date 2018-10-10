@@ -106,9 +106,9 @@ const Header = (function () {
         const is_mt_pages = State.get('is_mt_pages');
         let loginid_select = is_mt_pages ? selectedTemplate('MetaTrader 5', '', 'fx-mt5-o') : '';
         Client.getAllLoginids().forEach((loginid) => {
-            if (!Client.getKey('is_disabled', loginid) && Client.getKey('token', loginid)) { // TO-DO: replace getKey with get once these getKey is merged with get
+            if (!Client.get('is_disabled', loginid) && Client.get('token', loginid)) {
                 const curr_id  = loginid;
-                const currency = Client.getKey('currency', loginid);
+                const currency = Client.get('currency', loginid);
                 const type     = currency ? `(${currency} Account)` : '';
                 const icon     = Client.isAccountOfType('real', loginid) ? 'fx-account-real' : 'fx-account-virtual';
                 const is_current = curr_id === Client.get('loginid');
@@ -165,7 +165,7 @@ const Header = (function () {
         if (!loginid || loginid.length === 0 || loginid === Client.get('loginid')) {
             return;
         }
-        const token = Client.get_token(loginid);
+        const token = Client.get('token', loginid);
         if (!token || token.length === 0) {
             ChampionSocket.send({ logout: 1 });
             return;
@@ -173,10 +173,8 @@ const Header = (function () {
 
         // cleaning the previous values
         Client.clear_storage_values();
-        // set cookies: loginid, token
         Client.set('loginid', loginid);
-        Client.set_cookie('loginid', loginid);
-        Client.set_cookie('token',   token);
+        Client.set('token',   token);
         GTM.setLoginFlag();
         $('.login-id-list a').removeAttr('disabled');
         window.location.reload();

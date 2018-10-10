@@ -14,39 +14,17 @@ const Client = (function () {
     let client_object = {};
     let current_loginid;
 
-    const parseLoginIDList = (string) => {
-        if (!string) return [];
-        return string.split('+').sort().map((str) => {
-            const items = str.split(':');
-            const id = items[0];
-            const real = items[1] === 'R';
-            if (real) client_object.has_real = real;
-            return {
-                id      : id,
-                real    : real,
-                disabled: items[2] === 'D',
-            };
-        });
-    };
-
     const init = () => {
         current_loginid = LocalStore.get('client.loginid');
         client_object = getAllAccountsObject();
-        client_object.loginid_array = parseLoginIDList(Cookies.get('loginid_list') || '');
-
-        set('email',     Cookies.get('email'));
-        set('loginid',   Cookies.get('loginid'));
-        set('residence', Cookies.get('residence'));
-
         endpoint_notification();
         recordAffiliateExposure();
     };
 
     const is_logged_in = () => (
-        Cookies.get('token') &&
-        Cookies.get('loginid') &&
-        get('tokens') &&
-        client_object.loginid_array.length > 0
+        !isEmptyObject(getAllAccountsObject()) &&
+        get('loginid') &&
+        get('token')
     );
 
     const redirect_if_login = () => {
@@ -57,14 +35,7 @@ const Client = (function () {
         return client_is_logged_in;
     };
 
-    const set = (key, value) => {
-        if (value === undefined) value = '';
-        client_object[key] = value;
-        return LocalStore.set(`client.${key}`, value);
-    };
-
-    // TO-DO: Refactor and merge with get function
-    const setKey = (key, value, loginid = current_loginid) => {
+    const set = (key, value, loginid = current_loginid) => {
         if (key === 'loginid' && value !== current_loginid) {
             LocalStore.set('client.loginid', value);
             current_loginid = value;
@@ -77,17 +48,7 @@ const Client = (function () {
         }
     };
 
-    // use this function to get variables that have values
-    const get = (key) => {
-        let value = client_object[key] || LocalStore.get(`client.${key}`) || '';
-        if (!Array.isArray(value) && (+value === 1 || +value === 0 || value === 'true' || value === 'false')) {
-            value = JSON.parse(value || false);
-        }
-        return value;
-    };
-
-    // TO-DO: Refactor and merge with get function
-    const getKey = (key, loginid = current_loginid) => {
+    const get = (key, loginid = current_loginid) => {
         let value;
         if (key === 'loginid') {
             value = loginid || LocalStore.get('client.loginid');
@@ -147,18 +108,13 @@ const Client = (function () {
         }
 
         const authorize = response.authorize;
-        if (!Cookies.get('email')) {
-            set_cookie('email', authorize.email);
-            set('email', authorize.email);
-        }
-        set('session_start', parseInt(moment().valueOf() / 1000));
+        set('balance',    authorize.balance);
+        set('currency',   authorize.currency);
+        set('email',      authorize.email);
         set('is_virtual', authorize.is_virtual);
-        set('landing_company_name', authorize.landing_company_name);
-        set('landing_company_fullname', authorize.landing_company_fullname);
-        setCurrency(authorize.currency);
-        set('balance', authorize.balance);
+        set('landing_company_shortcode', authorize.landing_company_name);
+        set('session_start', parseInt(moment().valueOf() / 1000));
         updateAccountList(authorize.account_list);
-        client_object.values_set = true;
 
         ChampionSocket.send({ balance: 1, subscribe: 1 });
         ChampionSocket.send({ get_settings: 1 });
@@ -180,12 +136,12 @@ const Client = (function () {
 
     const updateAccountList = (account_list) => {
         account_list.forEach((account) => {
-            setKey('excluded_until', account.excluded_until || '', account.loginid);
+            set('excluded_until', account.excluded_until || '', account.loginid);
             Object.keys(account).forEach((param) => {
                 const param_to_set = param === 'country' ? 'residence' : param;
                 const value_to_set = typeof account[param] === 'undefined' ? '' : account[param];
                 if (param_to_set !== 'loginid') {
-                    setKey(param_to_set, value_to_set, account.loginid);
+                    set(param_to_set, value_to_set, account.loginid);
                 }
             });
         });
@@ -239,22 +195,17 @@ const Client = (function () {
         cookie.write(value, cookie_expire, true);
     };
 
-    const process_new_account = (client_email, client_loginid, token, virtual_client) => {
-        if (!client_email || !client_loginid || !token) {
+    const process_new_account = ({ email, loginid, token, is_virtual, redirect_url }) => {
+        if (!email || !loginid || !token) {
             return;
         }
-        // save token
-        add_token(client_loginid, token);
-        // set cookies
-        set_cookie('email',        client_email);
-        set_cookie('token',        token);
-        set_cookie('loginid',      client_loginid);
-        set_cookie('loginid_list', virtual_client ? `${client_loginid}:V:E` : `${client_loginid}:R:E+${Cookies.get('loginid_list')}`);
-        // set local storage
+        add_token(loginid, token); // save token
+        set('email',      email);
+        set('loginid',    loginid);
+        set('token',      token);
+        set('is_virtual', +is_virtual);
         localStorage.setItem('GTM_new_account', '1');
-        setKey('loginid', client_loginid);
-        localStorage.setItem('is_new_account', 1);
-        window.location.href = url.default_redirect_url();
+        window.location.href = redirect_url || url.default_redirect_url();
     };
 
     const request_logout = () => {
@@ -326,7 +277,7 @@ const Client = (function () {
         }
 
         set_cookie('affiliate_tracking', cookie_hash);
-        set('affiliate_token', cookie_hash.t);
+        set_cookie('affiliate_token',    cookie_hash.t);
         return true;
     };
 
@@ -349,20 +300,9 @@ const Client = (function () {
 
     const canUpgradeVirtualToReal = data => (!data.game_company && !data.financial_company && hasShortCode(data.financial_company, 'costarica'));
 
-    const setCurrency = (currency) => {
-        const tokens = get('tokens');
-        const tokens_obj = tokens && tokens.length > 0 ? JSON.parse(tokens) : {};
-        const loginid = tokens_obj[get('loginid')];
-        if (!loginid.currency) {
-            loginid.currency = currency;
-            set('tokens', JSON.stringify(tokens_obj));
-        }
-        set('currency', currency);
-    };
-
     const getUpgradeInfo = () => {
         const upgradeable_landing_companies = State.getResponse('authorize.upgradeable_landing_companies');
-        const current_landing_company       = State.getResponse('authorize.landing_company_name');
+        const current_landing_company       = get('landing_company_shortcode');
         const type         = 'real';
         const upgrade_link = 'real';
 
@@ -409,9 +349,7 @@ const Client = (function () {
         init                   : init,
         redirect_if_login      : redirect_if_login,
         set                    : set,
-        setKey                 : setKey,
         get                    : get,
-        getKey                 : getKey,
         canUpgradeVirtualToReal: canUpgradeVirtualToReal,
         currentLandingCompany  : currentLandingCompany,
         getLandingCompanyValue : getLandingCompanyValue,
@@ -435,7 +373,6 @@ const Client = (function () {
         has_real               : () => get('has_real'),
         do_logout              : do_logout,
         getMT5AccountType      : getMT5AccountType,
-        setCurrency            : setCurrency,
     };
 })();
 

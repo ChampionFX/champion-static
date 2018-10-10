@@ -1,4 +1,3 @@
-const Cookies       = require('../lib/js-cookie');
 const getLanguage   = require('./language').getLanguage;
 const setCurrencies = require('./currency').setCurrencies;
 const State         = require('./storage').State;
@@ -143,10 +142,9 @@ const ChampionSocket = (function() {
 
     const onOpen = () => {
         if (isReady()) {
-            const token = Cookies.get('token');
-            if (token) {
+            if (client_is_logged_in) { // client_is_logged_in = token
                 State.set(['response', 'authorize'], undefined);
-                send({ authorize: token }, true);
+                send({ authorize: client_is_logged_in }, true);
             }
             send({ website_status: 1 });
 

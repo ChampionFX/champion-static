@@ -75,13 +75,13 @@ const Accounts = (() => {
     const populateExistingAccounts = () => {
         const all_login_ids = Client.getAllLoginids();
         all_login_ids
-            .filter(loginid => !Client.getKey('is_disabled', loginid) && !Client.getKey('excluded_until', loginid))
+            .filter(loginid => !Client.get('is_disabled', loginid) && !Client.get('excluded_until', loginid))
             .sort((a, b) => a > b)
             .forEach((loginid) => {
                 appendExistingAccounts(loginid);
             });
         all_login_ids
-            .filter(loginid => Client.getKey('is_disabled', loginid) || Client.getKey('excluded_until', loginid))
+            .filter(loginid => Client.get('is_disabled', loginid) || Client.get('excluded_until', loginid))
             .sort((a, b) => a > b)
             .forEach((loginid) => {
                 appendExistingAccounts(loginid);
@@ -89,16 +89,16 @@ const Accounts = (() => {
     };
 
     const appendExistingAccounts = (loginid) => {
-        const account_currency  = Client.getKey('currency', loginid);
+        const account_currency  = Client.get('currency', loginid);
         const account_type_prop = { text: localize(Client.getAccountTitle(loginid)) };
 
         if (!Client.isAccountOfType('virtual', loginid)) {
-            const company_name = getCompanyName(loginid, Client.getKey('is_ico_only', loginid));
+            const company_name = getCompanyName(loginid, Client.get('is_ico_only', loginid));
             account_type_prop['data-balloon'] = `${localize('Counterparty')}: ${company_name.replace(/Binary/g, '')}`;
         }
 
-        const is_disabled    = Client.getKey('is_disabled', loginid);
-        const excluded_until = Client.getKey('excluded_until', loginid);
+        const is_disabled    = Client.get('is_disabled', loginid);
+        const excluded_until = Client.get('excluded_until', loginid);
         let txt_markets = '';
         if (is_disabled) {
             txt_markets = localize('This account is disabled');
@@ -121,7 +121,7 @@ const Accounts = (() => {
     };
 
     const getAvailableMarkets = (loginid) => {
-        if (Client.getKey('is_ico_only', loginid)) {
+        if (Client.get('is_ico_only', loginid)) {
             return [localize('None')];
         }
         let legal_allowed_markets = Client.getLandingCompanyValue(loginid, landing_company, 'legal_allowed_markets') || '';
@@ -190,7 +190,12 @@ const Accounts = (() => {
         } else {
             const new_account = response.new_account_real;
             localStorage.setItem('is_new_account', 1);
-            Client.process_new_account(Client.get('email'), new_account.client_id, new_account.oauth_token, urlFor('user/set-currency'));
+            Client.process_new_account({
+                email       : Client.get('email'),
+                loginid     : new_account.client_id,
+                token       : new_account.oauth_token,
+                redirect_url: urlFor('user/set-currency'),
+            });
         }
     };
 

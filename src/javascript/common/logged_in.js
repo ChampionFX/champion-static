@@ -4,7 +4,6 @@ const getLanguage          = require('./language').getLanguage;
 const default_redirect_url = require('./url').default_redirect_url;
 const url_for              = require('./url').url_for;
 const get_params           = require('./url').get_params;
-const isEmptyObject        = require('./utility').isEmptyObject;
 const Cookies              = require('../lib/js-cookie');
 
 const LoggedIn = (function() {
@@ -12,8 +11,8 @@ const LoggedIn = (function() {
 
     const load = () => {
         const tokens  = storeTokens();
-        let loginid = Cookies.get('loginid'),
-            redirect_url;
+        let loginid = Cookies.get('loginid');
+        let redirect_url;
 
         if (!loginid) { // redirected to another domain (e.g. github.io) so those cookie are not accessible here
             const loginids = Object.keys(tokens);
@@ -26,7 +25,8 @@ const LoggedIn = (function() {
             Client.set_cookie('loginid',      loginid);
             Client.set_cookie('loginid_list', loginid_list);
         }
-        Client.set_cookie('token', tokens[loginid] ? tokens[loginid].token : '');
+        Client.set('loginid', loginid);
+        Client.set('token', tokens[loginid] ? tokens[loginid].token : '');
         Client.set('notification_shown', 0);
 
         // set flags
@@ -67,12 +67,11 @@ const LoggedIn = (function() {
             const token    = params[`token${i}`];
             const currency = params[`cur${i}`] || '';
             if (loginid && token) {
+                Client.set('token', token, loginid);
+                Cookies.set('token', token);
                 tokens[loginid] = { token: token, currency: currency };
             }
             i++;
-        }
-        if (!isEmptyObject(tokens)) {
-            Client.set('tokens', JSON.stringify(tokens));
         }
         return tokens;
     };
