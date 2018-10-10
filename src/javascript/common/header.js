@@ -106,7 +106,7 @@ const Header = (function () {
         const is_mt_pages = State.get('is_mt_pages');
         let loginid_select = is_mt_pages ? selectedTemplate('MetaTrader 5', '', 'fx-mt5-o') : '';
         Client.getAllLoginids().forEach((loginid) => {
-            if (!loginid.disabled && Client.getKey('token', loginid)) { // TO-DO: replace getKey with get once these getKey is merged with get
+            if (!Client.getKey('is_disabled', loginid) && Client.getKey('token', loginid)) { // TO-DO: replace getKey with get once these getKey is merged with get
                 const curr_id  = loginid;
                 const currency = Client.getKey('currency', loginid);
                 const type     = currency ? `(${currency} Account)` : '';
