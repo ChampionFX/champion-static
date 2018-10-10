@@ -177,8 +177,9 @@ const Validation = (() => {
         const field_type = field.$.attr('type');
 
         field.validations.some((valid) => {
-            let type,
-                options = {};
+            if (!valid) return false; // check next validation
+            let type;
+            let options = {};
 
             if (typeof valid === 'string') {
                 type = valid;
