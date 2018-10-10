@@ -104,7 +104,8 @@ const Client = (function () {
 
     const getAllAccountsObject = () => LocalStore.getObject(storage_key);
 
-    const getAllLoginids = () => Object.keys(getAllAccountsObject());
+    // TODO: Find a better solution instead of filtering objects for accounts by regex
+    const getAllLoginids = () => Object.keys(getAllAccountsObject()).filter(key => /^CR|^VR/.test(key));
 
     const getAccountType = (loginid = current_loginid) => {
         let account_type;
