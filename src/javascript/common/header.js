@@ -21,7 +21,7 @@ const Header = (function () {
 
             ChampionSocket.wait('landing_company').then(() => {
                 const landing_company = State.getResponse('landing_company');
-                const upgrade_info = Client.getUpgradeInfo(landing_company);
+                const upgrade_info = Client.getUpgradeInfo();
                 if (Client.is_logged_in()) {
                     updateAccountsLink(landing_company);
                     if (!Client.has_real()) {

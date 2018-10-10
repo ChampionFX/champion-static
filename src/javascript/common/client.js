@@ -358,15 +358,19 @@ const Client = (function () {
         set('currency', currency);
     };
 
-    const getUpgradeInfo = (landing_company) => {
+    const getUpgradeInfo = () => {
+        const upgradeable_landing_companies = State.getResponse('authorize.upgradeable_landing_companies');
+        const current_landing_company       = State.getResponse('authorize.landing_company_name');
         const type         = 'real';
-        let can_upgrade  = false;
         const upgrade_link = 'real';
+
+        let can_upgrade  = false;
         if (!get('is_ico_only')) {
             if (get('is_virtual')) {
-                can_upgrade = !hasAccountType('real') && (hasShortCode(landing_company.financial_company, 'costarica'));
+                can_upgrade = current_landing_company !== 'costarica' && upgradeable_landing_companies[0].indexOf('costarica') !== -1;
             }
         }
+
         return {
             type,
             can_upgrade,
