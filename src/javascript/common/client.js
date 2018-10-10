@@ -367,7 +367,8 @@ const Client = (function () {
         let can_upgrade  = false;
         if (!get('is_ico_only')) {
             if (get('is_virtual')) {
-                can_upgrade = current_landing_company !== 'costarica' && upgradeable_landing_companies[0].indexOf('costarica') !== -1;
+                const upgradeable = upgradeable_landing_companies;
+                can_upgrade = current_landing_company !== 'costarica' && upgradeable.length && upgradeable[0].indexOf('costarica') !== -1;
             }
         }
 
@@ -417,6 +418,7 @@ const Client = (function () {
         getAllAccountsObject   : getAllAccountsObject,
         getAllLoginids         : getAllLoginids,
         getUpgradeInfo         : getUpgradeInfo,
+        hasAccountType         : hasAccountType,
         isAccountOfType        : isAccountOfType,
         response_authorize     : response_authorize,
         should_accept_tnc      : should_accept_tnc,
