@@ -83,6 +83,8 @@ const SetCurrency = (() => {
                             }
                             if (redirect_url) {
                                 window.location.href = redirect_url; // load without pjax
+                            } else {
+                                window.location.reload();
                             }
                         }
                     });

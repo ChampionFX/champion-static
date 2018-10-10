@@ -252,6 +252,7 @@ const Client = (function () {
         // set local storage
         localStorage.setItem('GTM_new_account', '1');
         setKey('loginid', client_loginid);
+        localStorage.setItem('is_new_account', 1);
         window.location.href = url.default_redirect_url();
     };
 
