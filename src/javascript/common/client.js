@@ -367,8 +367,8 @@ const Client = (function () {
         let can_upgrade  = false;
         if (!get('is_ico_only')) {
             if (get('is_virtual')) {
-                const upgradeable = upgradeable_landing_companies;
-                can_upgrade = current_landing_company !== 'costarica' && upgradeable.length && upgradeable[0].indexOf('costarica') !== -1;
+                const upgradeable = Object.values(upgradeable_landing_companies);
+                can_upgrade = current_landing_company !== 'costarica' && upgradeable.length && upgradeable.indexOf('costarica') !== -1;
             }
         }
 
