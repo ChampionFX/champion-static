@@ -30,9 +30,7 @@ const Limits = (() => {
                      <tr><td>Maximum account cash balance</td>
                          <td>${formatNumbers(data.account_balance)}</td></tr>
                      <tr><td>Maximum aggregate payouts on open positions</td>
-                         <td>${formatNumbers(data.payout)}</td></tr>
-                     <tr><td>Maximum aggregate payouts on open positions per symbol and contract type</td>
-                         <td>${formatNumbers(data.payout_per_symbol_and_contract_type)}</td></tr>`;
+                         <td>${formatNumbers(data.payout)}</td></tr>`;
         $trading_limits.append(`<table>${trading_limits_header}${trading_limits_contents}</table><br>`);
 
         const market_specific = data.market_specific;
@@ -62,7 +60,7 @@ const Limits = (() => {
 
             withdrawal_msg = `<p>Your withdrawal limit is &dollar;${days_limit}.</p>
                               <p>You have already withdrawn &dollar;${withdrawn}.</p>
-                              <p>Therefore your current immediate maximum withdrawal 
+                              <p>Therefore your current immediate maximum withdrawal
                                  (subject to your account having sufficient funds) is &dollar;${remainder}.</p>`;
         }
         $withdrawal_limits.append(withdrawal_msg);
