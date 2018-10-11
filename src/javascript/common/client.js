@@ -65,8 +65,7 @@ const Client = (function () {
 
     const getAllAccountsObject = () => LocalStore.getObject(storage_key);
 
-    // TODO: Find a better solution instead of filtering objects for accounts by regex
-    const getAllLoginids = () => Object.keys(getAllAccountsObject()).filter(key => /^CR|^VR/.test(key));
+    const getAllLoginids = () => Object.keys(getAllAccountsObject());
 
     const getAccountType = (loginid = current_loginid) => {
         let account_type;
@@ -164,29 +163,6 @@ const Client = (function () {
         sessionStorage.setItem('currencies', '');
     };
 
-    const get_token = (client_loginid) => {
-        let token;
-        const tokens = get('tokens');
-        if (client_loginid && tokens) {
-            const tokensObj = JSON.parse(tokens);
-            if (client_loginid in tokensObj && tokensObj[client_loginid]) {
-                token = tokensObj[client_loginid].token;
-            }
-        }
-        return token;
-    };
-
-    const add_token = (client_loginid, token) => {
-        if (!client_loginid || !token || get_token(client_loginid)) {
-            return false;
-        }
-        const tokens = get('tokens');
-        const tokensObj = tokens && tokens.length > 0 ? JSON.parse(tokens) : {};
-        tokensObj[client_loginid] = { token: token, currency: '' };
-        set('tokens', JSON.stringify(tokensObj));
-        return true;
-    };
-
     const set_cookie = (cookieName, value, domain) => {
         const cookie_expire = new Date();
         cookie_expire.setDate(cookie_expire.getDate() + 60);
@@ -199,7 +175,6 @@ const Client = (function () {
         if (!email || !loginid || !token) {
             return;
         }
-        add_token(loginid, token); // save token
         set('email',      email);
         set('loginid',    loginid);
         set('token',      token);
@@ -364,8 +339,6 @@ const Client = (function () {
         should_accept_tnc      : should_accept_tnc,
         shouldCompleteTax      : shouldCompleteTax,
         clear_storage_values   : clear_storage_values,
-        get_token              : get_token,
-        add_token              : add_token,
         set_cookie             : set_cookie,
         process_new_account    : process_new_account,
         is_logged_in           : is_logged_in,
