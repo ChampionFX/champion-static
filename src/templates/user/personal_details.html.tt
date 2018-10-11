@@ -1,52 +1,57 @@
 <div>
     <h2>[% l('Personal details') %]</h2>
-<form class="formObject" id="details_form" name="details_form">
+    <form class="formObject" id="details_form" name="details_form">
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <h3 class="underline-title">[% l('Personal information') %]</h3>
+                [% INCLUDE components/forms/form_row.html.tt row_class='is-real' label=l("Name") %]
+                [% INCLUDE components/forms/form_row.html.tt id='name' row_class='is-real' type='label' %]
 
-    <h3 class="underline-title">[% l('Personal information') %]</h3>
-    [% INCLUDE components/forms/form_row.html.tt row_class='is-real' label=l("Name") %]
-    [% INCLUDE components/forms/form_row.html.tt id='name' row_class='is-real' type='label' %]
+                [% INCLUDE components/forms/form_row.html.tt row_class='is-real' label=l("Date of birth") %]
+                [% INCLUDE components/forms/form_row.html.tt id='date_of_birth' row_class='is-real' type='label' %]
+                [% INCLUDE components/forms/form_row.html.tt label=l("Citizenship") loading=1 loading_id='citizen_loading' row_class='is-real'  %]
+                [% INCLUDE components/forms/form_row.html.tt id='citizen' type='label' row_class='is-real' %]
+                [% INCLUDE components/forms/form_row.html.tt label=l("Place of birth")  loading=1 loading_id='pob_loading' row_class='is-real' %]
+                [% INCLUDE components/forms/form_row.html.tt id='place_of_birth' type='label' row_class='is-real'  %]
+                [% INCLUDE components/forms/form_row.html.tt label=l("Country of residence") %]
+                [% INCLUDE components/forms/form_row.html.tt id='country' type='label' %]
 
-    [% INCLUDE components/forms/form_row.html.tt row_class='is-real' label=l("Date of birth") %]
-    [% INCLUDE components/forms/form_row.html.tt id='date_of_birth' row_class='is-real' type='label' %]
-    [% INCLUDE components/forms/form_row.html.tt label=l("Citizenship") row_class='is-real' %]
-    [% INCLUDE components/forms/form_row.html.tt id='citizen' type='label' row_class='is-real' %]
-    [% INCLUDE components/forms/form_row.html.tt label=l("Place of birth") row_class='is-real' %]
-    [% INCLUDE components/forms/form_row.html.tt id='place_of_birth' type='label' row_class='is-real' %]
-    [% INCLUDE components/forms/form_row.html.tt label=l("Country of residence") %]
-    [% INCLUDE components/forms/form_row.html.tt id='country' type='label' %]
+                [% INCLUDE components/forms/form_row.html.tt label=l("Email address") %]
+                [% INCLUDE components/forms/form_row.html.tt id='email' type='label' %]
 
-    [% INCLUDE components/forms/form_row.html.tt label=l("Email address") %]
-    [% INCLUDE components/forms/form_row.html.tt id='email' type='label' %]
+                [% INCLUDE components/forms/form_row.html.tt id='lbl_account_opening_reason' row_class='is-real' type='label' label=l("Account opening reason") %]
+                <!-- if account_opening_reason is not set, display dropdown -->
+                [% WRAPPER components/forms/form_row.html.tt row_class='is-real invisible' type='select' id='account_opening_reason' label=l("Account opening reason") %]
+                    <option value="">[% l('Please select') %]</option>
+                    <option value="Speculative">[% l('Speculative') %]</option>
+                    <option value="Income Earning">[% l("Income Earning") %]</option>
+                    <option value="Hedging">[% l('Hedging') %]</option>
+                [% END %]
 
-    [% INCLUDE components/forms/form_row.html.tt id='lbl_account_opening_reason' row_class='is-real' type='label' label=l("Account opening reason") %]
-    <!-- if account_opening_reason is not set, display dropdown -->
-    [% WRAPPER components/forms/form_row.html.tt row_class='is-real invisible' type='select' id='account_opening_reason' label=l("Account opening reason") %]
-        <option value="">[% l('Please select') %]</option>
-        <option value="Speculative">[% l('Speculative') %]</option>
-        <option value="Income Earning">[% l("Income Earning") %]</option>
-        <option value="Hedging">[% l('Hedging') %]</option>
-    [% END %]
+                <h3 class="is-real underline-title">[% l('Tax information') %]</h3>
+                [% INCLUDE components/forms/form_row.html.tt id='tax_residence' row_class='is-real' label=l("Tax residence") type='select' attributes='class="invisible" multiple="multiple"' %]
+                [% INCLUDE components/forms/form_row.html.tt id='tax_identification_number' row_class='is-real' label=l("Tax identification number") type='text' %]
 
-    <h3 class="is-real underline-title">[% l('Tax information') %]</h3>
-    [% INCLUDE components/forms/form_row.html.tt id='tax_residence' row_class='is-real' label=l("Tax residence") type='select' attributes='class="invisible" multiple="multiple"' %]
-    [% INCLUDE components/forms/form_row.html.tt id='tax_identification_number' row_class='is-real' label=l("Tax identification number") type='text' %]
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <h3 class="is-real underline-title">[% l('Contact information') %]</h3>
+                [% INCLUDE components/forms/form_row.html.tt id='address_line_1' row_class='is-real' label=l("Address") type='text' %]
+                [% INCLUDE components/forms/form_row.html.tt id='address_line_2' row_class='is-real' type='text' %]
 
-    <h3 class="is-real underline-title">[% l('Contact information') %]</h3>
-    [% INCLUDE components/forms/form_row.html.tt id='address_line_1' row_class='is-real' label=l("Address") type='text' %]
-    [% INCLUDE components/forms/form_row.html.tt id='address_line_2' row_class='is-real' type='text' %]
+                [% INCLUDE components/forms/form_row.html.tt id='address_city' row_class='is-real' label=l("City/Town") type='text' %]
 
-    [% INCLUDE components/forms/form_row.html.tt id='address_city' row_class='is-real' label=l("City/Town") type='text' %]
+                [% INCLUDE components/forms/form_row.html.tt id='address_state' row_class='is-real' label=l("State/Province") type='select' %]
 
-    [% INCLUDE components/forms/form_row.html.tt id='address_state' row_class='is-real' label=l("State/Province") type='select' %]
+                [% INCLUDE components/forms/form_row.html.tt id='address_postcode' row_class='is-real' label=l("Postal code") type='text' %]
 
-    [% INCLUDE components/forms/form_row.html.tt id='address_postcode' row_class='is-real' label=l("Postal code") type='text' %]
+                [% INCLUDE components/forms/form_row.html.tt id='phone' row_class='is-real' label=l("Telephone no.") type='text' %]
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 center-align">
+                <p id="error-update-details" class="error-msg"></p>
+                [% INCLUDE components/forms/submit_button.html.tt type='submit' row_class='is-real' text=l('Update') id='submit' %]
 
-    [% INCLUDE components/forms/form_row.html.tt id='phone' row_class='is-real' label=l("Telephone no.") type='text' %]
-
-    <p id="error-update-details" class="error-msg"></p>
-    [% INCLUDE components/forms/submit_button.html.tt type='submit' row_class='is-real' text=l('Update') id='submit' %]
-
-    <p class="hint-msg is-real">[% l('To change your name, date of birth, country of residence, or email, please contact our <a href="[_1]">customer support</a> team.', request.url_for('contact')) %]</p>
-
-</form>
+                <p class="hint-msg is-real">[% l('To change your name, date of birth, country of residence, or email, please contact our <a href="[_1]">customer support</a> team.', request.url_for('contact')) %]</p>
+            </div>
+        </div>
+    </form>
 </div>

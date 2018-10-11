@@ -25,6 +25,8 @@ const PersonalDetails = (() => {
             submitForm();
         });
 
+        $('.barspinner').removeClass(hidden_class);
+
         ChampionSocket.send({ get_settings: 1 }).then((response) => {
             get_settings_data = response.get_settings;
             residence = response.get_settings.country_code;
