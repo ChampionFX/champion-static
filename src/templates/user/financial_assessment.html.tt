@@ -1,23 +1,3 @@
-[% BLOCK experience %]
-<option value="">[% l("Please select") %]</option>
-<option value="0-1 year">[% l("0-1 year") %]</option>
-<option value="1-2 years">[% l("1-2 years") %]</option>
-<option value="Over 3 years">[% l("Over 3 years") %]</option>
-[% END %]
-
-[% BLOCK frequency %]
-<option value="">[% l("Please select") %]</option>
-<option value="0-5 transactions in the past 12 months">[% l("0-5 transactions in the past 12 months") %]</option>
-<option value="6-10 transactions in the past 12 months">[% l("6-10 transactions in the past 12 months") %]</option>
-<option value="40 transactions or more in the past 12 months">[% l("40 transactions or more in the past 12 months") %]</option>
-[% END %]
-
-[% BLOCK select_row %]
-    [% WRAPPER components/forms/form_row.html.tt id=id label=label type='select' %]
-        [% PROCESS $con %]
-    [% END %]
-[% END %]
-
 <div>
     <h2>[% l('Financial assessments') %]</h2>
     <form class="formObject invisible" id="assessment_form" name="assessment_form">
@@ -25,30 +5,6 @@
             [% l("Due to recent changes in the regulations, we are required to ask our clients to complete the following Financial Assessment. Please note that you will not be able to continue trading until this is completed.") %]
         </p>
         <h3 class="underline-title">[% l("Financial information") %]</h3>
-
-        [% INCLUDE select_row con='experience' id='forex_trading_experience' label=l("Forex trading experience") %]
-
-        [% INCLUDE select_row con='frequency' id='forex_trading_frequency' label=l("Forex trading frequency") %]
-
-        [% INCLUDE select_row con='experience' id='indices_trading_experience' label=l("Indices trading experience") %]
-
-        [% INCLUDE select_row con='frequency' id='indices_trading_frequency' label=l("Indices trading frequency") %]
-
-        [% INCLUDE select_row con='experience' id='commodities_trading_experience' label=l("Commodities trading experience") %]
-
-        [% INCLUDE select_row con='frequency' id='commodities_trading_frequency' label=l("Commodities trading frequency") %]
-
-        [% INCLUDE select_row con='experience' id='stocks_trading_experience' label=l("Stocks trading experience") %]
-
-        [% INCLUDE select_row con='frequency' id='stocks_trading_frequency' label=l("Stocks trading frequency") %]
-
-        [% INCLUDE select_row con='experience' id='other_derivatives_trading_experience' label=l("Binary options or other financial derivatives trading experience") %]
-
-        [% INCLUDE select_row con='frequency' id='other_derivatives_trading_frequency' label=l("Binary options or other financial derivatives trading frequency") %]
-
-        [% INCLUDE select_row con='experience' id='other_instruments_trading_experience' label=l("Other financial instruments trading experience") %]
-
-        [% INCLUDE select_row con='frequency' id='other_instruments_trading_frequency' label=l("Other financial instruments trading frequency") %]
 
         [% WRAPPER components/forms/form_row.html.tt id='income_source' label=l("Income Source") type='select' %]
             <option value="">[% l("Please select") %]</option>
