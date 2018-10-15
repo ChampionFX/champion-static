@@ -3,20 +3,40 @@
     background-image: url('../images/payment_methods/bankwire.svg');
 }
 
+.bank-transfer {
+    background-image: url('../images/payment_methods/bank_transfer.svg');
+}
+
 .bitcoin {
     background-image: url('../images/payment_methods/bitcoin.svg');
+}
+
+.bitcoin-cash {
+    background-image: url('../images/payment_methods/bitcoin_cash.svg');
 }
 
 .ethereum {
     background-image: url('../images/payment_methods/ethereum.svg');
 }
 
+.internet-bank-transfer {
+    background-image: url('../images/payment_methods/internet_bank_transfer.svg');
+}
+
 .paysafe {
     background-image: url('../images/payment_methods/paysafe.svg');
 }
 
-.ecopayz {
-    background-image: url('../images/payment_methods/ecopayz.svg');
+.paysec {
+    background-image: url('../images/payment_methods/paysec.svg');
+}
+
+.fasapay {
+    background-image: url('../images/payment_methods/fasapay.svg');
+}
+
+.litecoin {
+    background-image: url('../images/payment_methods/litecoin.svg');
 }
 
 .mastercard {
@@ -25,6 +45,14 @@
 
 .neteller {
     background-image: url('../images/payment_methods/neteller.svg');
+}
+
+.perfect-money {
+    background-image: url('../images/payment_methods/perfect_money.svg');
+}
+
+.qiwi {
+    background-image: url('../images/payment_methods/qiwi.svg');
 }
 
 .skrill {
@@ -37,6 +65,14 @@
 
 .visa {
     background-image: url('../images/payment_methods/visa.svg');
+}
+
+.webmoney {
+    background-image: url('../images/payment_methods/webmoney.svg');
+}
+
+.yandex {
+    background-image: url('../images/payment_methods/yandex.svg');
 }
 
 .payment-methods-header {

@@ -14,40 +14,110 @@
                          { text=l('Cashier > Deposit') has_link='true' },
                          { text=l('Select Mastercard from the list of available payment methods') } ]
         },{
-            id=l('neteller') currencies=['USD', 'GBP', 'EUR', 'AUD']
-            deposit   ={ min_max='5 - 10,000' process_time=l('Instant') }
-            withdrawal={ min_max='5 - 10,000' process_time=l('[_1] working day', 1) }
-            steps     =[ { text=l('Log into your ChampionFX account') },
-                         { text=l('Cashier > Deposit') has_link='true' },
-                         { text=l('Select Neteller from the list of available payment methods') } ]
-        },{
             id=l('skrill') currencies=['USD', 'GBP', 'EUR', 'AUD']
-            deposit   ={ min_max='5 - 10,000' process_time=l('Instant') }
+            deposit   ={ min_max='5 - 10,000'    process_time=l('Instant') }
             withdrawal={ min_max='5 - 10,000' process_time=l('[_1] working day', 1) }
             steps     =[ { text=l('Log into your ChampionFX account') },
                          { text=l('Cashier > Deposit') has_link='true' },
                          { text=l('Select Skrill from the list of available payment methods') } ]
         },{
+            id=l('neteller') currencies=['USD', 'GBP', 'EUR', 'AUD']
+            deposit   ={ min_max='5 - 10,000'    process_time=l('Instant') }
+            withdrawal={ min_max='5 - 10,000' process_time=l('[_1] working day', 1) }
+            steps     =[ { text=l('Log into your ChampionFX account') },
+                         { text=l('Cashier > Deposit') has_link='true' },
+                         { text=l('Select Neteller from the list of available payment methods') } ]
+        },{
             id=l('paysafe') currencies=['USD', 'GBP', 'EUR', 'AUD']
-            deposit   ={ min_max=l('5 - 750' ) process_time=l('Instant') }
-            withdrawal={ min_max=l('5 - 750' ) process_time=l('[_1] working day', 1) }
+            deposit   ={ min_max='5 - 1000'    process_time=l('Instant') }
+            withdrawal={ min_max='5 - 750' process_time=l('[_1] working day', 1) }
             steps     =[ { text=l('Log into your ChampionFX account') },
                          { text=l('Cashier > Deposit') has_link='true' },
                          { text=l('Select PaySafeCard from the list of available payment methods') } ]
         },{
-            id=l('ecopayz') currencies=['USD', 'GBP', 'EUR', 'AUD']
-            deposit   ={ min_max='5 - 10,000' process_time=l('Instant') }
+            id=l('bank-transfer') currencies=['USD', 'GBP', 'EUR', 'AUD']
+            deposit   ={ min_max='500 - 100,000'    process_time=l('[_1] working day', 1) }
+            withdrawal={ min_max='500 - 100,000' process_time=l('[_1]-[_2] working days', 3, 5) }
+            steps     =[ { text=l('Log into your ChampionFX account') },
+                         { text=l('Cashier > Deposit') has_link='true' },
+                         { text=l('Select Bank Transfer from the list of available payment methods') } ]
+        },{
+            id=l('internet-bank-transfer') currencies=['USD', 'GBP', 'EUR']
+            deposit   ={ min_max='25 - 100,000'    process_time=l('[_1] working day', 1) }
+            withdrawal={ min_max='25 - 10,000' process_time=l('[_1] working day', 1) }
+            steps     =[ { text=l('Log into your ChampionFX account') },
+                         { text=l('Cashier > Deposit') has_link='true' },
+                         { text=l('Select Internet Bank Transfer from the list of available payment methods') } ]
+        },{
+            id=l('paysec') currencies=['USD']
+            deposit   ={ min_max='25 - 10,000'    process_time=l('Instant') }
+            withdrawal={ min_max='25 - 10,000' process_time=l('[_1] working day', 1) }
+            steps     =[ { text=l('Log into your ChampionFX account') },
+                         { text=l('Cashier > Deposit') has_link='true' },
+                         { text=l('Select Paysec from the list of available payment methods') } ]
+        },{
+            id=l('fasapay') currencies=['USD']
+            deposit   ={ min_max='5 - 10,000'    process_time=l('Instant') }
             withdrawal={ min_max='5 - 10,000' process_time=l('[_1] working day', 1) }
             steps     =[ { text=l('Log into your ChampionFX account') },
                          { text=l('Cashier > Deposit') has_link='true' },
-                         { text=l('Select EcoPayz from the list of available payment methods') } ]
+                         { text=l('Select Fasapay from the list of available payment methods') } ]
         },{
-            id=l('bankwire') currencies=['USD', 'GBP', 'EUR', 'AUD']
-            deposit   ={ min_max='100 - 100,000'    process_time=l('[_1] working day', 1) }
-            withdrawal={ min_max='100 - 1,000,000' process_time=l('[_1]-[_2] working days', 3, 5) }
+            id=l('perfect-money') currencies=['USD', 'EUR']
+            deposit   ={ min_max='5 - 10,000'    process_time=l('Instant') }
+            withdrawal={ min_max='5 - 10,000' process_time=l('[_1] working day', 1) }
             steps     =[ { text=l('Log into your ChampionFX account') },
                          { text=l('Cashier > Deposit') has_link='true' },
-                         { text=l('Select Bankwire from the list of available payment methods') } ]
+                         { text=l('Select Perfect Money from the list of available payment methods') } ]
+        },{
+            id=l('webmoney') currencies=['USD', 'EUR']
+            deposit   ={ min_max='5 - 10,000'    process_time=l('Instant') }
+            withdrawal={ min_max='5 - 10,000' process_time=l('[_1] working day', 1) }
+            steps     =[ { text=l('Log into your ChampionFX account') },
+                         { text=l('Cashier > Deposit') has_link='true' },
+                         { text=l('Select WebMoney from the list of available payment methods') } ]
+        },{
+            id=l('qiwi') currencies=['USD', 'EUR']
+            deposit   ={ min_max='5 - 200(USD) and 5 - 150 (EUR)' process_time=l('Instant') }
+            withdrawal={ min_max='5 - 200(USD) and 5 - 150 (EUR)' process_time=l('[_1] working day', 1) }
+            steps     =[ { text=l('Log into your ChampionFX account') },
+                         { text=l('Cashier > Deposit') has_link='true' },
+                         { text=l('Select Qiwi from the list of available payment methods') } ]
+        },{
+            id=l('yandex') currencies=['USD']
+            deposit   ={ min_max='25 - 10,000'    process_time=l('Instant') }
+            withdrawal={ min_max='N/A' process_time=l('Not applicable') }
+            steps     =[ { text=l('Log into your ChampionFX account') },
+                         { text=l('Cashier > Deposit') has_link='true' },
+                         { text=l('Select Yandex.Money from the list of available payment methods') } ]
+        },{
+            id=l('bitcoin') currencies=['BTC']
+            deposit   ={ min_max='0.002'    process_time=l('[_1] blockchain confirmations', 3) }
+            withdrawal={ min_max='0.0003' process_time=l('[_1] working day', 1) }
+            steps     =[ { text=l('Log into your ChampionFX account') },
+                         { text=l('Cashier > Deposit') has_link='true' },
+                         { text=l('Select Bitcoin from the list of available payment methods') } ]
+        },{
+            id=l('bitcoin-cash') currencies=['BCH']
+            deposit   ={ min_max='0.01'    process_time=l('[_1] blockchain confirmations', 3) }
+            withdrawal={ min_max='0.003' process_time=l('[_1] working day', 1) }
+            steps     =[ { text=l('Log into your ChampionFX account') },
+                         { text=l('Cashier > Deposit') has_link='true' },
+                         { text=l('Select Bitcoin Cash from the list of available payment methods') } ]
+        },{
+            id=l('ethereum') currencies=['ETH']
+            deposit   ={ min_max='0.01'    process_time=l('[_1] blockchain confirmations', 3) }
+            withdrawal={ min_max='0.01' process_time=l('[_1] working day', 1) }
+            steps     =[ { text=l('Log into your ChampionFX account') },
+                         { text=l('Cashier > Deposit') has_link='true' },
+                         { text=l('Select Ethereum from the list of available payment methods') } ]
+        },{
+            id=l('litecoin') currencies=['LTC']
+            deposit   ={ min_max='0.1'    process_time=l('[_1] blockchain confirmations', 3) }
+            withdrawal={ min_max='0.002' process_time=l('[_1] working day', 1) }
+            steps     =[ { text=l('Log into your ChampionFX account') },
+                         { text=l('Cashier > Deposit') has_link='true' },
+                         { text=l('Select Litecoin from the list of available payment methods') } ]
         }
     ]
 %]
