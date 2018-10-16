@@ -23,8 +23,6 @@
         <li>[% l("Send your funds to the payment agent. The deposited funds, less the agent's commission, will show up in your account.") %]</li>
     </ol>
 
-    <p><label for="target_country">[% l('Show payment agents for:') %]</label> <select id="target_country" class="invisible"></select></p>
-
     <div class="loading">[% PROCESS static/common/loading.html.tt %]</div>
 
     <div id="pa_list">
