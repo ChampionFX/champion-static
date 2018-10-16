@@ -49,6 +49,7 @@ sub all_pages {
         ['cashier/cashier-password',   'cashier/cashier_password',     'full_width', 'Cashier Password'],
         ['cashier/forward',            'cashier/deposit_withdraw',     'full_width', 'Cashier'],
         ['cashier/payment-methods',    'cashier/payment_methods',      'full_width', 'Payment Methods'],
+        ['cashier/payment-agent-list', 'cashier/payment_agent_list',   'full_width', 'Payment Agent Deposit'],
         ['cashier/top-up-virtual',     'cashier/top_up_virtual',       'full_width', 'Give Me More Money!'],
 
         ['new-account/real',           'new_account/real',             'full_width', 'Create new real account'],

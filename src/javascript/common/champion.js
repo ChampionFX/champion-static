@@ -14,6 +14,7 @@ const Notify                  = require('./notify');
 const Cashier                 = require('./../pages/cashier/cashier');
 const CashierPassword         = require('./../pages/cashier/cashier_password');
 const CashierDepositWithdraw  = require('./../pages/cashier/deposit_withdraw');
+const CashierPaymentAgents    = require('./../pages/cashier/payment_agent_list');
 const CashierPaymentMethods   = require('./../pages/cashier/payment_methods');
 const CashierTopUpVirtual     = require('./../pages/cashier/top_up_virtual');
 const ClientType              = require('./../pages/client_type');
@@ -110,6 +111,7 @@ const Champion = (function() {
             'binary-options'       : { module: BinaryOptions },
             'mt5-web-platform'     : { module: MT5WebPlatform },
             'payment-methods'      : { module: CashierPaymentMethods },
+            'payment-agent-list'   : { module: CashierPaymentAgents  },
             'reset-password'       : { module: ResetPassword,       not_authenticated: true },
             'self-exclusion'       : { module: SelfExclusion,       is_authenticated: true, only_real: true },
             'set-currency'         : { module: SetCurrency,         is_authenticated: true, only_real: true },
