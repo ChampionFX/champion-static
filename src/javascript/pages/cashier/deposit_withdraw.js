@@ -1,6 +1,7 @@
 const ChampionSocket = require('../../common/socket');
 const url_for        = require('../../common/url').url_for;
 const Client         = require('../../common/client');
+const Currency       = require('../../common/currency');
 const get_params     = require('../../common/url').get_params;
 const Validation     = require('../../common/validation');
 
@@ -8,9 +9,13 @@ const CashierDepositWithdraw = (function() {
     'use strict';
 
     const hidden_class  = 'invisible';
+    const default_iframe_height = 700;
 
     let $error_msg,
-        cashier_type;
+        cashier_type,
+        $iframe;
+
+    const container = '#cashier_deposit';
 
     const fields = {
         cashier_title: '#cashier_title',
@@ -41,6 +46,12 @@ const CashierDepositWithdraw = (function() {
                 checkToken();
             }
         });
+    };
+
+    const setFrameHeight = (e) => {
+        if (!/www\.champion-fx\.com/i.test(e.origin)) {
+            $iframe.height(+e.data || default_iframe_height);
+        }
     };
 
     const checkToken = () => {
@@ -102,16 +113,35 @@ const CashierDepositWithdraw = (function() {
                 }
             } else {
                 $error_msg.addClass(hidden_class);
-                $(`#${cashier_type}_iframe_container`).removeClass(hidden_class)
-                    .find('iframe')
-                    .attr('src', response.cashier)
-                    .end();
+
+                $iframe = $(container).find('#cashier_iframe');
+
+                if (Currency.isCryptocurrency(Client.get('currency'))) {
+                    $iframe.height(default_iframe_height);
+                } else {
+                    // Automatically adjust iframe height based on contents
+                    window.addEventListener('message', setFrameHeight, false);
+                }
+
+                $iframe.attr('src', response.cashier).parent().setVisibility(1);
+
+                setTimeout(() => { // wait for iframe contents to load before removing loading bar
+                    $(`#${cashier_type}_iframe_container`).removeClass(hidden_class)
+                        .find('iframe')
+                        .attr('src', response.cashier)
+                        .end();
+                }, 1000);
             }
         });
     };
 
+    const unload = () => {
+        window.removeEventListener('message', setFrameHeight);
+    };
+
     return {
-        load: load,
+        load  : load,
+        unload: unload,
     };
 })();
 
