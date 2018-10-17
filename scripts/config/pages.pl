@@ -52,6 +52,9 @@ sub all_pages {
         ['cashier/payment-agent-list', 'cashier/payment_agent_list',   'full_width', 'Payment Agent Deposit'],
         ['cashier/top-up-virtual',     'cashier/top_up_virtual',       'full_width', 'Give Me More Money!'],
 
+        ['paymentagent/transfer',      'cashier/paymentagent_transfer', 'full_width', 'Payment Agent Transfer'],
+        ['paymentagent/withdraw',      'cashier/paymentagent_withdraw', 'full_width', 'Payment Agent Withdrawal'],
+
         ['new-account/real',           'new_account/real',             'full_width', 'Create new real account'],
         ['new-account/virtual',        'new_account/virtual',          'full_width', 'Create new virtual account'],
 

@@ -8,7 +8,7 @@ const ChampionRouter          = require('./router');
 const SessionDurationLimit    = require('./session_duration_limit');
 const ChampionSocket          = require('./socket');
 const State                   = require('./storage').State;
-const default_redirect_url    = require('./url').default_redirect_url;
+const Url                     = require('./url');
 const Utility                 = require('./utility');
 const Notify                  = require('./notify');
 const Cashier                 = require('./../pages/cashier/cashier');
@@ -42,6 +42,8 @@ const SelfExclusion           = require('./../pages/user/self_exclusion');
 const SetCurrency             = require('./../pages/user/set_currency');
 const ChampionSettings        = require('./../pages/user/settings');
 const TNCApproval             = require('./../pages/user/tnc_approval');
+const PaymentAgentTransfer    = require('./../pages/cashier/payment_agent_transfer');
+const PaymentAgentWithdraw    = require('./../pages/cashier/payment_agent_withdraw');
 
 const Champion = (function() {
     'use strict';
@@ -53,6 +55,7 @@ const Champion = (function() {
         container = $('#champion-container');
         container.on('champion:before', beforeContentChange);
         container.on('champion:after', afterContentChange);
+        Url.init();
         Client.init();
 
         ChampionSocket.init({
@@ -67,7 +70,7 @@ const Champion = (function() {
         if (!Client.is_logged_in()) {
             $('.btn-login').on('click', () => { Login.redirect_to_login(); });
         } else {
-            $('a.logo-parent').attr('href', default_redirect_url());
+            $('a.logo-parent').attr('href', Url.default_redirect_url());
         }
     };
 
@@ -90,33 +93,35 @@ const Champion = (function() {
             contact                : { module: ChampionContact },
             endpoint               : { module: ChampionEndpoint },
             forward                : { module: CashierDepositWithdraw, is_authenticated: true, only_real: true },
-            home                   : { module: Home,                not_authenticated: true },
-            limits                 : { module: Limits,              is_authenticated: true, only_real: true },
+            home                   : { module: Home,                 not_authenticated: true },
+            limits                 : { module: Limits,               is_authenticated: true, only_real: true },
             logged_inws            : { module: LoggedIn },
-            metatrader             : { module: MetaTrader,          is_authenticated: true },
+            metatrader             : { module: MetaTrader,           is_authenticated: true },
             forex                  : { module: MT5 },
             cfd                    : { module: MT5 },
             metals                 : { module: MT5 },
-            profile                : { module: ChampionProfile,     is_authenticated: true },
-            real                   : { module: ChampionNewReal,     is_authenticated: true, only_virtual: true }, // eslint-disable-line max-len
+            profile                : { module: ChampionProfile,      is_authenticated: true },
+            real                   : { module: ChampionNewReal,      is_authenticated: true, only_virtual: true }, // eslint-disable-line max-len
             redirect               : { module: Redirect },
-            settings               : { module: ChampionSettings,    is_authenticated: true },
-            security               : { module: ChampionSecurity,    is_authenticated: true },
-            virtual                : { module: ChampionNewVirtual,  not_authenticated: true },
-            'cashier-password'     : { module: CashierPassword,     is_authenticated: true, only_real: true },
-            'change-password'      : { module: ChangePassword,      is_authenticated: true },
+            settings               : { module: ChampionSettings,     is_authenticated: true },
+            security               : { module: ChampionSecurity,     is_authenticated: true },
+            transfer               : { module: PaymentAgentTransfer, is_authenticated: true, only_real: true },
+            virtual                : { module: ChampionNewVirtual,   not_authenticated: true },
+            withdraw               : { module: PaymentAgentWithdraw, is_authenticated: true, only_real: true },
+            'cashier-password'     : { module: CashierPassword,      is_authenticated: true, only_real: true },
+            'change-password'      : { module: ChangePassword,       is_authenticated: true },
             'choose-platform'      : { is_authenticated: true },
-            'login-history'        : { module: LoginHistory,        is_authenticated: true },
-            'lost-password'        : { module: LostPassword,        not_authenticated: true },
+            'login-history'        : { module: LoginHistory,         is_authenticated: true },
+            'lost-password'        : { module: LostPassword,         not_authenticated: true },
             'binary-options'       : { module: BinaryOptions },
             'mt5-web-platform'     : { module: MT5WebPlatform },
             'payment-methods'      : { module: CashierPaymentMethods },
             'payment-agent-list'   : { module: CashierPaymentAgents  },
-            'reset-password'       : { module: ResetPassword,       not_authenticated: true },
-            'self-exclusion'       : { module: SelfExclusion,       is_authenticated: true, only_real: true },
-            'set-currency'         : { module: SetCurrency,         is_authenticated: true, only_real: true },
-            'tnc-approval'         : { module: TNCApproval,         is_authenticated: true, only_real: true },
-            'top-up-virtual'       : { module: CashierTopUpVirtual, is_authenticated: true, only_virtual: true },
+            'reset-password'       : { module: ResetPassword,        not_authenticated: true },
+            'self-exclusion'       : { module: SelfExclusion,        is_authenticated: true, only_real: true },
+            'set-currency'         : { module: SetCurrency,          is_authenticated: true, only_real: true },
+            'tnc-approval'         : { module: TNCApproval,          is_authenticated: true, only_real: true },
+            'top-up-virtual'       : { module: CashierTopUpVirtual,  is_authenticated: true, only_virtual: true },
             'trading-times'        : { module: TradingTimes },
             'types-of-accounts'    : { module: ClientType },
             'trading-platform'     : { module: ClientType },
@@ -164,7 +169,7 @@ const Champion = (function() {
                     });
             }
         } else if (config.not_authenticated && Client.is_logged_in()) {
-            ChampionRouter.forward(default_redirect_url(), true);
+            ChampionRouter.forward(Url.default_redirect_url(), true);
         } else {
             active_script.load();
         }

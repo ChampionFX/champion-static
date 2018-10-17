@@ -1,4 +1,17 @@
-const getLanguage = require('./language').getLanguage;
+const getLanguage   = require('./language').getLanguage;
+const createElement = require('./utility').createElement;
+
+let location_url;
+
+function init(url) {
+    location_url = url ? getLocation(url) : window.location;
+}
+
+function getLocation (url) { createElement('a', { href: decodeURIComponent(url) }); }
+
+function reset() {
+    location_url = window ? window.location : location_url;
+}
 
 function url_for(path, params, language) {
     if (!path) {
@@ -55,9 +68,35 @@ function get_params() {
     return urlParams;
 }
 
+const params = (href) => {
+    const arr_params = [];
+    const parsed     = ((href ? new URL(href) : location_url).search || '').substr(1).split('&');
+    let p_l          = parsed.length;
+    while (p_l--) {
+        const param = parsed[p_l].split('=');
+        arr_params.push(param);
+    }
+    return arr_params;
+};
+
+const paramsHash = (href) => {
+    const param_hash = {};
+    const arr_params = params(href);
+    let param        = arr_params.length;
+    while (param--) {
+        if (arr_params[param][0]) {
+            param_hash[arr_params[param][0]] = arr_params[param][1] || '';
+        }
+    }
+    return param_hash;
+};
+
 module.exports = {
+    init                : init,
+    reset               : reset,
     url_for             : url_for,
     url_for_static      : url_for_static,
     default_redirect_url: default_redirect_url,
     get_params          : get_params,
+    param               : name => paramsHash()[name],
 };

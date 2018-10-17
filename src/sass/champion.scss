@@ -805,6 +805,12 @@ fieldset {
     width: auto;
 }
 
+.center-text-m {
+    @media (max-width: 767px) {
+        text-align: center;
+    }
+}
+
 .submit-row {
     margin-top: 40px;
 }

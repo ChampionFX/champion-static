@@ -42,7 +42,7 @@
                 </div>
             </div>
 
-            <div id="fx-real" class="row">
+            <div id="fx-real" class="row padding-30">
                 <div class="col-md-12">
                     <h3>[% l('Payment Agent') %]</h3>
                 </div>
@@ -56,7 +56,7 @@
                         <a class="button button_large invisible" href="[% request.url_for('/cashier/payment-agent-list') %]" id="deposit-btn">
                             <span>[% l('Deposit') %]</span>
                         </a>
-                        <a class="button button_large invisible" href="[% request.url_for('/cashier/payment-agent-list') %]" id="withdraw-btn">
+                        <a class="button button_large invisible" href="[% request.url_for('/paymentagent/withdraw') %]" id="withdraw-btn">
                             <span>[% l('Withdraw') %]</span>
                         </a>
                     </div>
