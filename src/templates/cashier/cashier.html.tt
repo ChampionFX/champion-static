@@ -1,46 +1,68 @@
 <div class="fx-section">
-<div class="container">
-    [% INCLUDE components/page_title.html.tt title=l('Cashier') %]
-    <div class="fx-cashier">
-        <div id="fx-virtual" class="row invisible">
-            <div class="col-md-12">
-                <h3>[% l('Get more virtual money') %]</h3>
-            </div>
-            <div class="col-md-2">
-                <div class="fx-md fx-virtual-money"></div>
-            </div>
-            <div class="col-md-10">
-                <div class="row">
-                    <p>[% l('You can request more virtual money if your virtual balance falls below USD 1,000') %]</p>
+    <div class="container">
+        [% INCLUDE components/page_title.html.tt title=l('Cashier') %]
+        <div class="fx-cashier">
+            <div id="fx-virtual" class="row invisible">
+                <div class="col-md-12">
+                    <h3>[% l('Get more virtual money') %]</h3>
                 </div>
-                <div class="row">
-                    <a class="button button_large" href="[% request.url_for('/cashier/top-up-virtual') %]" id="VRT_topup_link">
-                        <span>[% l('Get USD 10,000.00') %]</span>
-                    </a>
-               </div>
+                <div class="col-md-2">
+                    <div class="fx-md fx-virtual-money"></div>
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <p>[% l('You can request more virtual money if your virtual balance falls below USD 1,000') %]</p>
+                    </div>
+                    <div class="row">
+                        <a class="button button_large" href="[% request.url_for('/cashier/top-up-virtual') %]" id="VRT_topup_link">
+                            <span>[% l('Get USD 10,000.00') %]</span>
+                        </a>
+                   </div>
+                </div>
             </div>
-        </div>
 
-        <div id="fx-real" class="row">
-            <div class="col-md-12">
-                <h3>[% l('Bank-wire, credit card, e-cash wallet') %]</h3>
-            </div>
-            <div class="col-md-2">
-                <div class="fx-md fx-ecw"></div>
-            </div>
-            <div class="col-md-10">
-                <p>[% l('Manage the funds in your ChampionFX real account. You can deposit and withdraw funds via bank wire, credit card, or e-cash.') %]</p>
-                <p>[% l('Not sure if your preferred payment methods is supported? Refer to our list of available <a href="[_1]">payment methods</a> to find out.', request.url_for('cashier/payment-methods')) %]</p>
-                <div>
-                    <a class="button button_large invisible" href="[% request.url_for('/cashier/forward#deposit') %]" id="deposit-btn">
-                        <span>[% l('Deposit') %]</span>
-                    </a>
-                    <a class="button button_large invisible" href="[% request.url_for('/cashier/forward#withdraw') %]" id="withdraw-btn">
-                        <span>[% l('Withdraw') %]</span>
-                    </a>
+            <div id="fx-real" class="row">
+                <div class="col-md-12">
+                    <h3>[% l('Bank-wire, credit card, e-cash wallet') %]</h3>
+                </div>
+                <div class="col-md-2">
+                    <div class="fx-md fx-ecw"></div>
+                </div>
+                <div class="col-md-10">
+                    <p>[% l('Manage the funds in your ChampionFX real account. You can deposit and withdraw funds via bank wire, credit card, or e-cash.') %]</p>
+                    <p>[% l('Not sure if your preferred payment methods is supported? Refer to our list of available <a href="[_1]">payment methods</a> to find out.', request.url_for('cashier/payment-methods')) %]</p>
+                    <div>
+                        <a class="button button_large invisible" href="[% request.url_for('/cashier/forward#deposit') %]" id="deposit-btn">
+                            <span>[% l('Deposit') %]</span>
+                        </a>
+                        <a class="button button_large invisible" href="[% request.url_for('/cashier/forward#withdraw') %]" id="withdraw-btn">
+                            <span>[% l('Withdraw') %]</span>
+                        </a>
+                    </div>
                 </div>
             </div>
+
+            <div id="fx-real" class="row">
+                <div class="col-md-12">
+                    <h3>[% l('Payment Agent') %]</h3>
+                </div>
+                <div class="col-md-2">
+                    <div class="fx-md fx-ecw"></div>
+                </div>
+                <div class="col-md-10">
+                    <span>[% l('For e-cash methods or local currencies not supported by [_1].', website_name) %]</span>
+                    <p class="faded">[% l('Note: Withdrawal via payment agent is available only if you deposit exclusively via payment agent') %]</p>
+                    <div>
+                        <a class="button button_large invisible" href="[% request.url_for('/cashier/payment-agent-list') %]" id="deposit-btn">
+                            <span>[% l('Deposit') %]</span>
+                        </a>
+                        <a class="button button_large invisible" href="[% request.url_for('/cashier/payment-agent-list') %]" id="withdraw-btn">
+                            <span>[% l('Withdraw') %]</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-</div>
 </div>
