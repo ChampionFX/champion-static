@@ -107,18 +107,19 @@ const Header = (function () {
         let loginid_select = is_mt_pages ? selectedTemplate('MetaTrader 5', '', 'fx-mt5-o') : '';
         Client.getAllLoginids().forEach((loginid) => {
             if (!Client.get('is_disabled', loginid) && Client.get('token', loginid)) {
-                const curr_id  = loginid;
-                const currency = Client.get('currency', loginid);
-                const type     = currency ? `(${currency} Account)` : '';
-                const icon     = Client.isAccountOfType('real', loginid) ? 'fx-account-real' : 'fx-account-virtual';
-                const is_current = curr_id === Client.get('loginid');
+                const account_title = Client.getAccountTitle(loginid);
+                const is_real       = /real/i.test(account_title);
+                const currency      = Client.get('currency', loginid);
+                const type          = localize('([_1] Account)', [is_real && currency ? currency : account_title]);
+                const icon          = Client.isAccountOfType('real', loginid) ? 'fx-account-real' : 'fx-account-virtual';
+                const is_current    = loginid === Client.get('loginid');
 
                 // default account
                 if (is_current && !is_mt_pages) {
                     $('.account-type').html(type);
-                    $('.account-id').html(curr_id);
+                    $('.account-id').html(loginid);
                 }
-                loginid_select += switchTemplate(curr_id, curr_id, icon, type, is_current ? (is_mt_pages ? 'mt-show' : 'invisible') : '');
+                loginid_select += switchTemplate(loginid, loginid, icon, type, is_current ? (is_mt_pages ? 'mt-show' : 'invisible') : '');
             }
         });
 
