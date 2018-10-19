@@ -190,7 +190,7 @@ const Header = (function () {
         if (!currency) {
             return;
         }
-        const currency_symbol = formatMoney(currency);
+        const currency_symbol = formatMoney(currency, balance);
         $('.account-balance').html(currency_symbol).css('visibility', 'visible');
     };
 
